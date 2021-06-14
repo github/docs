@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### Requirements for running {% data variables.product.prodname_insights %}
 
 {% data variables.product.prodname_insights %} requires a supported version of {% data variables.product.prodname_ghe_server %}.

@@ -14,7 +14,7 @@ Once your organization has been verified, you can publish paid plans for your ap
 
 To offer paid plans for your app, the app must be owned by an organization and you must have owner permissions in the organization. If your app is currently owned by a user account, you'll need to transfer the ownership of the app to an organization. For more information, see "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)."
 
-### Requesting publisher verification
+## Requesting publisher verification
 
 
 {% data reusables.profile.access_org %}
@@ -32,6 +32,6 @@ To offer paid plans for your app, the app must be owned by an organization and y
 
 2. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
 
-### Further reading
+## Further reading
 
 For information about the process of publishing apps, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)."

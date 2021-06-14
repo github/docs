@@ -15,6 +15,6 @@ After you've performed a sudo-protected action, you'll only be asked to re-authe
 
 ![Sudo Mode Dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
-### Further reading
+## Further reading
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)

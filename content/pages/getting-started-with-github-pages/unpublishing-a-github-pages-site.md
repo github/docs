@@ -18,7 +18,7 @@ topics:
   - Pages
 ---
 
-### Unpublishing a project site
+## Unpublishing a project site
 
 {% data reusables.repositories.navigate-to-repo %}
 2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
@@ -29,7 +29,7 @@ topics:
   ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
-### Unpublishing a user or organization site
+## Unpublishing a user or organization site
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."

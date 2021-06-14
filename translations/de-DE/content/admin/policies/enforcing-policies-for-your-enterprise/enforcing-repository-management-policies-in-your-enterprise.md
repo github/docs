@@ -35,6 +35,7 @@ topics:
   - Policies
   - Security
 ---
+
 ### Configuring the default visibility of new repositories in your enterprise
 
 Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. Weitere Informationen zu Repository-Sichtbarkeiten findest Du unter „[Informationen zur Sichtbarkeit eines Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)“.

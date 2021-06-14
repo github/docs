@@ -19,9 +19,9 @@ topics:
   - Desktop
   - Security
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-For a full list of features for each
-{% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
+Eine vollständige Liste der Funktionen für jedes {% data variables.product.product_name %}-Produkt findest Du auf „[{% data variables.product.prodname_dotcom %}-Produkte](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Persönliche Benutzerkonten

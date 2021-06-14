@@ -28,8 +28,12 @@ You can choose monthly or yearly billing, and you can upgrade or downgrade your 
 
 You can purchase other features and products with your existing {% data variables.product.product_name %} payment information. For more information, see "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 
+{% data reusables.user_settings.context_switcher %}
+
 {% tip %}
 
 **Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 {% endtip %}
+
+

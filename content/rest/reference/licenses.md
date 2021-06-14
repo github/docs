@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The Licenses API returns metadata about popular open source licenses and information about a particular project's license file.

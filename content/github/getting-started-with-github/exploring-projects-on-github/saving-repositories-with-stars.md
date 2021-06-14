@@ -17,7 +17,7 @@ topics:
 ---
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 
-### About stars
+## About stars
 
 Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {% data variables.explore.your_stars_page %}.
 
@@ -27,7 +27,7 @@ You can star repositories and topics to discover similar projects on {% data var
 
 Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
-### Starring a repository
+## Starring a repository
 
 Starring a repository is a simple two-step process.
 
@@ -37,7 +37,7 @@ Starring a repository is a simple two-step process.
 1. Optionally, to unstar a previously starred repository, click **Unstar**.
 ![Untarring a repository](/assets/images/help/stars/unstarring-a-repository.png)
 
-### Searching stars
+## Searching stars
 
 You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred.
 
@@ -47,7 +47,7 @@ You can use the search bar on your {% data variables.explore.your_stars_page %} 
 
 The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
 
-### Sorting and filtering stars
+## Sorting and filtering stars
 
 You can use sorting or filtering to customize how you see starred repositories and topics on your stars page.
 
@@ -59,6 +59,6 @@ You can use sorting or filtering to customize how you see starred repositories a
 1. To filter your list of stars based on repository or topic, click on the desired option.
 ![Filter stars by topic](/assets/images/help/stars/stars_filter_topic.png)
 
-### Further reading
+## Further reading
 
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"

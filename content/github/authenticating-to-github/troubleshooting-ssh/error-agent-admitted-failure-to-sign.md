@@ -24,7 +24,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
 
-### Resolution
+## Resolution
 
 You should be able to fix this error by loading your keys into your SSH agent with `ssh-add`:
 

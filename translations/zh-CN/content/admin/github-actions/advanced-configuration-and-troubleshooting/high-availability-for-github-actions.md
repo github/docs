@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
 ---
+
 ### {% data variables.product.prodname_actions %} 数据的复制或冗余
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

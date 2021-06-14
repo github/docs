@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Licensing
 ---
+
 O termo "atividade" inclui, entre outros:
 - Fazer login no {% data variables.product.product_name %};
 - Fazer comentários em problemas ou pull requests;

@@ -38,7 +38,7 @@ You can also use the "Filter cards" search bar at the top of each project board 
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[About project boards](/articles/about-project-boards)"
 - "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"

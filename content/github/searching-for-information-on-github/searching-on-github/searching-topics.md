@@ -11,7 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
-### Search {% data variables.product.product_name %} for topics
+## Search {% data variables.product.product_name %} for topics
 
 You can search for topics on {% data variables.product.product_name %}, explore related topics, and see how many repositories are associated with a certain topic.
 
@@ -23,7 +23,7 @@ You can search for topics on {% data variables.product.product_name %}, explore 
   ![Jekyll repository search results page with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
   ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 
-### Narrowing your search with search qualifiers
+## Narrowing your search with search qualifiers
 
 If you want to explore repositories about a certain topic, find projects to contribute to, or learn which topics are most popular on {% data variables.product.product_name %}, you can search topics with the search qualifiers `is:featured`, `is:curated`, `repositories:n` and `created:YYYY-MM-DD`.
 
@@ -46,9 +46,9 @@ You can filter topics based when they were created using the date parameter and 
 | `repositories:n` | [**repositories:&gt;5000**](https://github.com/search?q=repositories%3A%3E5000) matches topics that have more than 5000 repositories.
 | <code>created:<em>YYYY-MM-DD</em></code> | [**Serverless created:&gt;2019-01-01**](https://github.com/search?q=Serverless+created%3A%3E2019-01-01&type=Topics) matches topics with the word "serverless" that were created after 2018.
 
-### Search repositories by topic
+## Search repositories by topic
 
 You can use the `topic:` qualifier to find every repository connected to a particular topic. For more information, see "[Searching for repositories](/articles/searching-for-repositories/#search-by-topic)."
 
-### Further reading
+## Further reading
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"

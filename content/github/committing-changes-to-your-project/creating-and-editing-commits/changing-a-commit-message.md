@@ -10,13 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Rewriting the most recent commit message
+## Rewriting the most recent commit message
 
 You can change the most recent commit message using the `git commit --amend` command.
 
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
-### Commit has not been pushed online
+## Commit has not been pushed online
 
 If the commit only exists in your local repository and has not been pushed to {% data variables.product.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
@@ -36,7 +36,7 @@ You can change the default text editor for Git by changing the `core.editor` set
 
 {% endtip %}
 
-### Amending older or multiple commit messages
+## Amending older or multiple commit messages
 
 If you have already pushed the commit to {% data variables.product.product_location %}, you will have to force push a commit with an amended message.
 
@@ -117,6 +117,6 @@ If you have included sensitive information in a commit message, force pushing a 
 
 {% endwarning %}
 
-### Further reading
+## Further reading
 
 * "[Signing commits](/articles/signing-commits)"

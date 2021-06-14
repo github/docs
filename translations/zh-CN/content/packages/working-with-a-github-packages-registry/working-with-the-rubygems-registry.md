@@ -1,5 +1,5 @@
 ---
-title: Working with the RubyGems registry
+title: 使用 RubyGems 注册表
 intro: '您可以配置 RubyGems 以将包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作带 Bundler 的 Ruby 项目中的依赖项。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -116,7 +116,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 
 ### 安装包
 
-您可以使用来自 {% data variables.product.prodname_registry %} 的 gem，就像使用来自 *rubygems.org* 的 gem 一样。 You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the *~/.gemrc* file or by using Bundler and editing your *Gemfile*.
+您可以使用来自 {% data variables.product.prodname_registry %} 的 gem，就像使用来自 *rubygems.org* 的 gem 一样。 您需要通过将您的 {% data variables.product.prodname_dotcom %} 用户或组织添加为 *~/.gemrc* 文件中的源，或者使用 Bundler 并编辑 *Gemfile*，向 {% data variables.product.prodname_registry %} 验证。
 
 {% data reusables.package_registry.authenticate-step %}
 1. 对于 Bundler，请将您的 {% data variables.product.prodname_dotcom %} 用户或组织添加为 *Gemfile* 中的源，以便从这个新源获取 gem。 例如，您可以将新的 `source` 块添加到仅对您指定的包使用 {% data variables.product.prodname_registry %} 的 *Gemfile*，将 *GEM NAME* 替换为要从 {% data variables.product.prodname_registry %} 安装的包，将 *OWNER* 替换为拥有要安装的 gem 所在仓库的用户或组织。{% if enterpriseServerVersions contains currentVersion %}将 `REGISTRY-URL` 替换为实例 Rubygems 注册表的 URL。 如果您的实例启用了子域隔离，请使用 `rubygems.HOSTNAME`。 如果您的实例禁用了子域隔离，请使用 `HOSTNAME/_registry/rubygems`。 在任一情况下，将 *HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名。{% elsif currentVersion == "github-ae@latest" %}将 `REGISTRY-URL` 替换为实例的 Rubygems 注册表 URL `rubygems.HOSTNAME`。 将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名。{% endif %}

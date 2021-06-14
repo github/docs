@@ -12,7 +12,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request
 ---
-### About auto-merge
+## About auto-merge
 
 If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and status checks have passed. Auto-merge prevents you from waiting around for requirements to be met, so you can move on to other tasks.
 
@@ -22,7 +22,7 @@ After you enable auto-merge for a pull request, if someone who does not have wri
 
 You can provide feedback about auto-merge by [contacting us](https://support.github.com/contact/feedback?category=prs-and-code-review&subject=Pull%20request%20auto-merge%20feedback).
 
-### Enabling auto-merge
+## Enabling auto-merge
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
@@ -40,7 +40,7 @@ People with write permissions to a repository can enable auto-merge for a pull r
 1. Click **Confirm auto-merge**.
   ![Button to confirm auto-merge](/assets/images/help/pull_requests/confirm-auto-merge-button.png)
 
-### Disabling auto-merge
+## Disabling auto-merge
 
 People with write permissions to a repository and pull request authors can disable auto-merge for a pull request.
 

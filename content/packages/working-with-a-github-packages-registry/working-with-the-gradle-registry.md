@@ -19,13 +19,13 @@ versions:
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Authenticating to {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
 
-#### Authenticating with a personal access token
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -45,7 +45,7 @@ Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} userna
 
 {% endnote %}
 
-##### Example using Gradle Groovy for a single package in a repository
+#### Example using Gradle Groovy for a single package in a repository
 
 ```shell
 plugins {
@@ -70,7 +70,7 @@ publishing {
 }
 ```
 
-##### Example using Gradle Groovy for multiple packages in the same repository
+#### Example using Gradle Groovy for multiple packages in the same repository
 
 ```shell
 plugins {
@@ -98,7 +98,7 @@ subprojects {
 }
 ```
 
-##### Example using Kotlin DSL for a single package in the same repository
+#### Example using Kotlin DSL for a single package in the same repository
 
 ```shell
 plugins {
@@ -123,7 +123,7 @@ publishing {
 }
 ```
 
-##### Example using Kotlin DSL for multiple packages in the same repository
+#### Example using Kotlin DSL for multiple packages in the same repository
 
 ```shell
 plugins {
@@ -151,7 +151,7 @@ subprojects {
 }
 ```
 
-### Publishing a package
+## Publishing a package
 
 {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
 
@@ -164,7 +164,7 @@ subprojects {
    $ gradle publish
   ```
 
-### Installing a package
+## Installing a package
 
 You can install a package by adding the package as a dependency to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
 
@@ -205,7 +205,7 @@ You can install a package by adding the package as a dependency to your project.
   $ gradle install
   ```
 
-### Further reading
+## Further reading
 
 - "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

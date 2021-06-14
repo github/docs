@@ -12,13 +12,13 @@ redirect_from:
 ---
 <!-- If you make changes to this article, also update any feature-level articles to reflect the same changes in language support. -->
 
-### About supported languages
+## About supported languages
 
 Most {% data variables.product.prodname_dotcom %} features work regardless of which languages your code is written in. You can search for code or enable syntax highlighting based on any language known to {% data variables.product.prodname_dotcom %}. For more information, see "[Searching code](/github/searching-for-information-on-github/searching-code#search-by-language)" or "[Creating and highlighting code blocks](/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting)."
 
 Some {% data variables.product.prodname_dotcom %} products have features that are currently only supported for a subset of programming languages.
 
-### Core languages supported by {% data variables.product.prodname_dotcom %} features
+## Core languages supported by {% data variables.product.prodname_dotcom %} features
 
 Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
 

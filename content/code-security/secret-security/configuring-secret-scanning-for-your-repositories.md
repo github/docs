@@ -28,11 +28,11 @@ topics:
 {% endnote %}
 {% endif %}
 
-### Enabling {% data variables.product.prodname_secret_scanning %} for {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories
+## Enabling {% data variables.product.prodname_secret_scanning %} for {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 You can enable {% data variables.product.prodname_secret_scanning %} for any repository that is owned by an organization. 
-{% endif %} Once enabled, {% data variables.product.prodname_secret_scanning %} will scan for any secrets your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository.
+{% endif %} Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -57,7 +57,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} for any rep
    ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-### Excluding alerts from {% data variables.product.prodname_secret_scanning %} in {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories
+## Excluding alerts from {% data variables.product.prodname_secret_scanning %} in {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories
 
 You can use a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}. For example, you can exclude directories that contain tests or randomly generated content.
 
@@ -82,6 +82,7 @@ You can use a *secret_scanning.yml* file to exclude directories from {% data var
 
 You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
 
-### Further reading
+## Further reading
 
 - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}

@@ -22,5 +22,5 @@ topics:
   ![Archive repository warnings](/assets/images/help/repository/archive-repository-warnings.png)
 6. Click **I understand the consequences, archive this repository**.
 
-### Further reading
+## Further reading
 - "[About archiving repositories](/articles/about-archiving-repositories)"

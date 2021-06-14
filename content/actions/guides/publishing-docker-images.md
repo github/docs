@@ -19,7 +19,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to create a workflow that performs a Docker build, and then publishes Docker images to Docker Hub or {% data variables.product.prodname_registry %}. With a single workflow, you can publish images to a single registry or to multiple registries.
 
@@ -29,7 +29,7 @@ This guide shows you how to create a workflow that performs a Docker build, and 
 
 {% endnote %}
 
-### Prerequisites
+## Prerequisites
 
 We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
@@ -39,7 +39,7 @@ You might also find it helpful to have a basic understanding of the following:
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
 - "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"
 
-### About image configuration
+## About image configuration
 
 This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
 
@@ -47,7 +47,7 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Publishing images to Docker Hub
+## Publishing images to Docker Hub
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
@@ -91,7 +91,7 @@ jobs:
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
-### Publishing images to {% data variables.product.prodname_registry %}
+## Publishing images to {% data variables.product.prodname_registry %}
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
@@ -138,7 +138,7 @@ jobs:
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
-### Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
+## Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
 
 In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
 

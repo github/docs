@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ![Gespeicherte Antworten](/assets/images/help/settings/saved-replies.png)
 
 Mit gespeicherten Antworten kannst Du eine wiederverwendbare Reaktion auf Issues und Pull Requests erstellen. Spare Zeit, indem Du eine gespeicherte Antwort für die Reaktionen erstellst, die Du am häufigsten verwendest.

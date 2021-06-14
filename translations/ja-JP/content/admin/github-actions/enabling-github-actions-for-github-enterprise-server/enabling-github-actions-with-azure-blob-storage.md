@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 ---
+
 ### 必要な環境
 
 {% data variables.product.prodname_actions %} を有効化する前に、次のステップを完了していることを確認してください。

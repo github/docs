@@ -13,6 +13,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 OAuth AppをGitHub上でセットアップする際には、要求されたスコープが認可フォーム上でユーザに表示されます。
 
 {% note %}
@@ -22,8 +23,7 @@ OAuth AppをGitHub上でセットアップする際には、要求されたス�
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_oauth_app %}が
-CLIツールなどであり、ブラウザにアクセスできないなら、アプリケーションの認可のためにユーザに対してスコープを指定する必要はありません。 詳しい情報については「[OAuth Appの認可](/developers/apps/authorizing-oauth-apps#device-flow)」を参照してください。
+If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. 詳しい情報については「[OAuth Appの認可](/developers/apps/authorizing-oauth-apps#device-flow)」を参照してください。
 {% endif %}
 
 どのOAuthスコープを所有しているか、そしてAPIアクションが何を受け付けるかを知るには、ヘッダを確認してください。
@@ -76,7 +76,7 @@ X-Accepted-OAuth-Scopes: user
 | **`admin:gpg_key`**      | GPGキーを完全に管理できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | &emsp;`write:gpg_key`    | GPGキーの作成、リスト、詳細の表示ができます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | &emsp;`read:gpg_key`     | GPGキーのリストと詳細の表示ができます。{% if currentVersion == "free-pro-team@latest" %}
-| **`ワークフロー`**             | {% data variables.product.prodname_actions %}のワークフローファイルの追加と更新機能を許可します。 同じリポジトリ内の他のブランチに同じファイル（パスと内容が同じ）が存在する場合、ワークフローファイルはこのスコープがなくてもコミットできます。 ワークフローファイルは異なるスコープのセットを持ちうる`GITHUB_TOKEN`を公開できます。詳細については https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token を参照してください。{% endif %}
+| **`ワークフロー`**             | {% data variables.product.prodname_actions %}のワークフローファイルの追加と更新機能を許可します。 同じリポジトリ内の他のブランチに同じファイル（パスと内容が同じ）が存在する場合、ワークフローファイルはこのスコープがなくてもコミットできます。 Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% endif %}
 
 {% note %}
 

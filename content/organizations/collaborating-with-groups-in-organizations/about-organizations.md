@@ -16,7 +16,7 @@ topics:
 {% data reusables.organizations.organizations_include %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Organizations and enterprise accounts
+## Organizations and enterprise accounts
 
 Enterprise accounts allow owners to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations.
 
@@ -26,7 +26,7 @@ For organizations that belong to an enterprise account, billing is managed at th
 
 {% data reusables.organizations.org-ownership-recommendation %} For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
 
-### Terms of service and data protection for organizations
+## Terms of service and data protection for organizations
 
 An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the Corporate Terms of Service for their organization. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
 

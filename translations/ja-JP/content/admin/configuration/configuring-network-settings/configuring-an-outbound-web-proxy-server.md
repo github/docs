@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 {% data variables.product.product_location %} に対してプロキシサーバーが有効である場合、送信先ホストが HTTP プロキシ除外として追加されていない限り、{% data variables.product.prodname_ghe_server %} によって送信されたアウトバウンドメッセージがプロキシサーバーを経由してまず最初に送信されます。 アウトバウンドのメッセージの種類には、webhook、Bundleのアップロード、レガシーのアバターのフェッチが含まれます。 プロキシサーバのURLは、たとえば`http://127.0.0.1:8123`といったように、プロトコル、ドメインもしくはIPアドレスにポート番号を加えたものです。
 
 {% note %}
