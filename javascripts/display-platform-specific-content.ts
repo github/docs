@@ -11,24 +11,36 @@ export default function displayPlatformSpecificContent() {
   if (!platform) platform = 'linux'
   if (platform === 'ios') platform = 'mac'
 
-  const platformsInContent = findPlatformSpecificContent(platform)
+  const platformsInContent = getDetectedPlatforms()
+  // when the `defaultPlatform` frontmatter isn't set and the article
+  // does not define all platforms in the content, documentation is hidden
+  // for users with the undefined platform. This sets a default
+  // platform for those users to prevent unintentionally hiding content
+  if (!platformsInContent.includes(platform)) {
+    // uses the order of the supportedPlatforms array to
+    // determine the default platform
+    platform = supportedPlatforms
+      .filter(elem => platformsInContent.includes(elem))[0]
+  }
+
+  showPlatformSpecificContent(platform)
 
   hideSwitcherLinks(platformsInContent)
 
-  showContentForPlatform(platform)
+  setActiveSwitcherLinks(platform)
 
   // configure links for switching platform content
   switcherLinks().forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault()
       const target = event.target as HTMLElement
-      showContentForPlatform(target.dataset.platform || '')
-      findPlatformSpecificContent(target.dataset.platform || '')
+      setActiveSwitcherLinks(target.dataset.platform || '')
+      showPlatformSpecificContent(target.dataset.platform || '')
     })
   })
 }
 
-function showContentForPlatform(platform: string) {
+function setActiveSwitcherLinks(platform: string) {
   // (de)activate switcher link appearances
   switcherLinks().forEach((link) => {
     link.dataset.platform === platform
@@ -37,7 +49,7 @@ function showContentForPlatform(platform: string) {
   })
 }
 
-function findPlatformSpecificContent(platform: string) {
+function showPlatformSpecificContent(platform: string) {
   // find all platform-specific *block* elements and hide or show as appropriate
   // example: {{ #mac }} block content {{/mac}}
   const markdowns = Array.from(
@@ -46,7 +58,6 @@ function findPlatformSpecificContent(platform: string) {
   markdowns
     .filter((el) => supportedPlatforms.some((platform) => el.classList.contains(platform)))
     .forEach((el) => {
-      detectPlatforms(el)
       el.style.display = el.classList.contains(platform) ? '' : 'none'
     })
 
@@ -56,11 +67,8 @@ function findPlatformSpecificContent(platform: string) {
     document.querySelectorAll('.platform-mac, .platform-windows, .platform-linux')
   ) as Array<HTMLElement>
   platforms.forEach((el) => {
-    detectPlatforms(el)
     el.style.display = el.classList.contains('platform-' + platform) ? '' : 'none'
   })
-
-  return Array.from(detectedPlatforms) as Array<string>
 }
 
 // hide links for any platform-specific sections that are not present
@@ -72,6 +80,22 @@ function hideSwitcherLinks(platformsInContent: Array<string>) {
     if (platformsInContent.includes(link.dataset.platform || '')) return
     link.style.display = 'none'
   })
+}
+
+// gets the list of detected platforms in the current article
+function getDetectedPlatforms (): Array<string> {
+  // find all platform-specific *block* elements and hide or show as appropriate
+  // example: {{ #mac }} block content {{/mac}}
+  const allEls = Array.from(document.querySelectorAll('.extended-markdown')) as Array<HTMLElement>
+  allEls.filter(el => supportedPlatforms.some(platform => el.classList.contains(platform)))
+    .forEach(el => detectPlatforms(el))
+
+  // find all platform-specific *inline* elements and hide or show as appropriate
+  // example: <span class="platform-mac">inline content</span>
+  const platformEls = Array.from(document.querySelectorAll('.platform-mac, .platform-windows, .platform-linux')) as Array<HTMLElement>
+  platformEls.forEach(el => detectPlatforms(el))
+
+  return Array.from(detectedPlatforms) as Array<string>
 }
 
 function detectPlatforms(el: HTMLElement) {
