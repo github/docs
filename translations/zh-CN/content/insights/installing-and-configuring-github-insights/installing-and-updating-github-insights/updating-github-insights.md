@@ -8,6 +8,7 @@ permissions: 'People with read permissions to the `github/insights-releases` rep
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于 {% data variables.product.prodname_insights %} 更新
 
 在更新 {% data variables.product.prodname_insights %} 之前，您可以在任意页面的右下角查看当前使用的版本。

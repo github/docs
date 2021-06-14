@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre repositórios locais
 Repositórios em {% data variables.product.prodname_dotcom %} são repositórios remotos. É possível clonar ou bifurcar um repositório com {% data variables.product.prodname_desktop %} para criar um repositório local no seu computador.
 
@@ -42,6 +43,14 @@ Você pode alterar como uma bifurcação se comporta com o repositório ascenden
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
+
+### Criando um alias para um repositório local
+Você pode criar um alias para um repositório local para ajudar a diferenciar entre repositórios do mesmo nome em {% data variables.product.prodname_desktop %}. Criar um alias não afeta o nome do repositório no {% data variables.product.prodname_dotcom %}. Na lista de repositórios, os aliases aparecem em itálico.
+
+1. No canto superior esquerdo de {% data variables.product.prodname_desktop %}, à direita do nome atual do repositório, clique em {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
+2. Clique com o botão direito no repositório para o qual deseja criar um alias e, em seguida, clique em **Criar alias**.
+3. Digite um alias para o repositório.
+4. Clique em **Criar alias**.
 
 ### Leia mais
 - [Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)

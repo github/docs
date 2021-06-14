@@ -30,12 +30,14 @@ export function Link(props: Props) {
   if (enableNextLinks) {
     return (
       <NextLink href={href || ''} locale={locale}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <a rel={isExternal ? 'noopener' : ''} {...restProps} />
       </NextLink>
     )
   }
 
   return (
+    /* eslint-disable-next-line jsx-a11y/anchor-has-content */
     <a
       href={locale ? `/${locale}${href}` : href}
       rel={isExternal ? 'noopener' : ''}

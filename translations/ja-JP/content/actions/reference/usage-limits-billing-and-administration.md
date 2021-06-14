@@ -19,7 +19,7 @@ topics:
 ### {% data variables.product.prodname_actions %}の支払いについて
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)」を参照してください。
+{% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 {% else %}
 GitHub アクションの使用は、
 セルフホストランナーを使用する {% data variables.product.prodname_ghe_server %} では無料です。
@@ -49,6 +49,8 @@ GitHub アクションの使用は、
   | Team       | 60      | 5            |
   | Enterprise | 180     | 50           |
 - **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 使用制限は、セルフホストランナーに適用されます。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 {% endif %}

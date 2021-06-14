@@ -11,6 +11,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Nach der Ausführung einer durch sudo geschützten Aktion wirst Du erst nach mehreren Stunden der Inaktivität wieder zur Authentifizierung aufgefordert. Der Timer wird nach jeder durch sudo geschützten Aktion zurückgesetzt.
 
 ![Dialogfeld für den sudo-Modus](/assets/images/help/settings/sudo_mode_popup.png)

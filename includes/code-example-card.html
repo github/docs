@@ -14,7 +14,7 @@
     </div>
     <footer class="border-top p-4 color-text-secondary d-flex flex-items-center">
       {% octicon "repo" class="flex-shrink-0" %}
-      <span class="ml-2 text-mono text-small color-text-link">{{ example.href }}</span>
+      <span class="ml-2 text-mono text-small color-text-link">{{ example.href | truncate: 43 }}</span>
     </footer>
   </a>
 </div>

@@ -1,4 +1,4 @@
-1. Under **Self-hosted runners**, locate the runner in the list. If your runner is in a group, click {% octicon "chevron-down" aria-label="The downwards chevron" %} to expand the list.
+1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, locate the runner in the list. If your runner is in a group, click {% octicon "chevron-down" aria-label="The downwards chevron" %} to expand the list.
 1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to the runner you want to remove, then click **Remove**.
 
     ![Entfernen einer selbst-gehosteten Läufereinstellung](/assets/images/help/settings/actions-runner-remove.png)

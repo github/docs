@@ -1,8 +1,5 @@
 import { GetServerSideProps } from 'next'
 import { Liquid } from 'liquidjs'
-
-const liquid = new Liquid()
-
 import {
   MainContextT,
   MainContext,
@@ -17,6 +14,7 @@ import {
   GHESReleaseNotesContextT,
 } from 'components/release-notes/types'
 
+const liquid = new Liquid()
 type Props = {
   mainContext: MainContextT
   ghaeContext: GHAEReleaseNotesContextT

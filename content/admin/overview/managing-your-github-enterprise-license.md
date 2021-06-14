@@ -53,7 +53,7 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 14. Click **Upload**.
   ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
 
-{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
+{% if currentVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ### Viewing license usage
 

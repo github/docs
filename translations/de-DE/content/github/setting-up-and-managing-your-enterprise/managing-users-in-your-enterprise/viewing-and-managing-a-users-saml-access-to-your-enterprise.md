@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Über SAML Zugriff auf Dein Enterprise-Konto
 
 Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes Enterprise-Mitglied seine externe Identität auf Deinem Identitätsanbieter (IdP) mit seinem bestehenden {% data variables.product.product_name %}-Konto verknüpfen. {% data reusables.saml.about-saml-access-enterprise-account %}

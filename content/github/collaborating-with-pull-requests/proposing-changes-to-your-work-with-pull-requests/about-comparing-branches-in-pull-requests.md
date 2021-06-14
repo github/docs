@@ -19,7 +19,7 @@ topics:
 {% endnote %}
 
 You can view proposed changes in a pull request in the Files changed tab.
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 ![Pull Request Files changed tab](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 

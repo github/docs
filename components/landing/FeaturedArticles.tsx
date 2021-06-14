@@ -8,12 +8,8 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { TruncateLines } from 'components/TruncateLines'
 
 export const FeaturedArticles = () => {
-  const {
-    featuredArticles = [],
-    changelog,
-    whatsNewChangelog,
-    changelogUrl,
-  } = useProductLandingContext()
+  const { featuredArticles = [], whatsNewChangelog, changelogUrl } = useProductLandingContext()
+  const hasWhatsNewChangelog = whatsNewChangelog && whatsNewChangelog.length > 0
   const { t } = useTranslation('toc')
 
   return (
@@ -22,7 +18,7 @@ export const FeaturedArticles = () => {
         return (
           <div
             key={section.label + i}
-            className={cx('col-12 mb-4 mb-lg-0', changelog ? 'col-lg-4' : 'col-lg-6')}
+            className={cx('col-12 mb-4 mb-lg-0', hasWhatsNewChangelog ? 'col-lg-4' : 'col-lg-6')}
           >
             <ArticleList
               title={section.label}
@@ -33,8 +29,8 @@ export const FeaturedArticles = () => {
         )
       })}
 
-      {changelog && (
-        <div className={cx('col-12 mb-4 mb-lg-0', changelog ? 'col-lg-4' : 'col-lg-6')}>
+      {hasWhatsNewChangelog && (
+        <div className={cx('col-12 mb-4 mb-lg-0 col-lg-4')}>
           <ArticleList
             title={t('whats_new')}
             viewAllHref={changelogUrl}
@@ -73,7 +69,7 @@ export const ArticleList = ({ title, viewAllHref, articles, maxLines = 2 }: Arti
       )}
 
       <ul className="list-style-none">
-        {articles.map((link, i) => {
+        {articles.map((link) => {
           return (
             <li key={link.href} className="border-top">
               <Link

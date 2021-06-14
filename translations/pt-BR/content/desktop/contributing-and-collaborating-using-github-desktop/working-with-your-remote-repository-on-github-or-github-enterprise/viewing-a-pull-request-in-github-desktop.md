@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre pull requests no {% data variables.product.prodname_desktop %}
 Você pode visualizar os pull requests que você ou seus colaboradores propuseram em {% data variables.product.prodname_desktop %}. Os pull requests permitem que você proponha alterações nos projetos, forneça feedback e revisões e mescle alterações em projetos. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 

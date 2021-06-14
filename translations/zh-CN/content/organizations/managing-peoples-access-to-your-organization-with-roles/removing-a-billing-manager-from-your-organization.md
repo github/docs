@@ -18,7 +18,5 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-1. In the "Billing managers" list under "Billing management", next to the name of the person you want to remove, click **Remove**. ![删除帐单管理员](/assets/images/help/billing/settings_billing_managers_remove_manager.png)
+{% data reusables.organizations.billing-settings %}
+1. 在“Billing management（帐单管理）”下“Billing managers（帐单管理员）”列表中您要删除的人员姓名旁边，单击 **Remove（删除）**。 ![删除帐单管理员](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

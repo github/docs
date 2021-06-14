@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 使用追溯视图时，您可以查看整个文件的逐行修订历史记录，也可以通过单击 {% octicon "versions" aria-label="The prior blame icon" %} 查看文件中某一行的修订历史记录。 每次单击 {% octicon "versions" aria-label="The prior blame icon" %} 后，您将看到该行以前的修订信息，包括提交更改的人员和时间。
 
 ![Git 追溯视图](/assets/images/help/repository/git_blame.png)

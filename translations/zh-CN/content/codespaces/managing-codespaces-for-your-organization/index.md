@@ -1,6 +1,6 @@
 ---
-title: Managing Codespaces for your organization
-intro: 'You can manange and review how users in your organization can use  {% data variables.product.prodname_github_codespaces %}.'
+title: 管理组织的代码空间
+intro: '您可以管理和审查您组织中的用户如何使用  {% data variables.product.prodname_github_codespaces %}。'
 versions:
   free-pro-team: '*'
 topics:
@@ -11,4 +11,5 @@ children:
   - /managing-user-permissions-for-your-organization
   - /reviewing-your-organizations-audit-logs-for-codespaces
 ---
+
 {% data reusables.codespaces.release-stage %}

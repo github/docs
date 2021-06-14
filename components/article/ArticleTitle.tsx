@@ -1,4 +1,4 @@
-import { Tooltip, Link } from '@primer/components'
+import { Tooltip } from '@primer/components'
 import { PrinterIcon } from './PrinterIcon'
 
 type Props = {
@@ -10,10 +10,8 @@ export const ArticleTitle = ({ children }: Props) => {
       <h1 className="my-4 border-bottom-0">{children}</h1>
       <div className="d-none d-lg-block ml-2">
         <Tooltip aria-label="Print this article" noDelay direction="n">
-          <Link
-            as="button"
-            underline={false}
-            muted
+          <button
+            className="btn-link Link--muted"
             onClick={() => {
               try {
                 document.execCommand('print', false)
@@ -23,7 +21,7 @@ export const ArticleTitle = ({ children }: Props) => {
             }}
           >
             <PrinterIcon />
-          </Link>
+          </button>
         </Tooltip>
       </div>
     </div>

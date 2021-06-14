@@ -8,6 +8,7 @@ permissions: 'Organization owners in {% data variables.product.prodname_enterpri
 versions:
   enterprise-server: '*'
 ---
+
 ### Pré-requisitos
 
 - Você deve ter um arquivo de licença do {% data variables.product.prodname_enterprise %} que inclui {% data variables.product.prodname_insights %}. Após comprar {% data variables.product.prodname_insights %}, você pode fazer o download do arquivo de licença atualizado no portal [{% data variables.product.prodname_enterprise %}](https://enterprise.github.com/download).
@@ -28,8 +29,7 @@ versions:
 Para conectar {% data variables.product.prodname_insights %} a {% data variables.product.prodname_enterprise %}, você deve criar um {% data variables.product.prodname_github_app %} em uma organização no {% data variables.product.prodname_enterprise %}. Uma versão com slug do nome do seu aplicativo será exibida no {% data variables.product.prodname_enterprise %} quando sua integração executar uma ação.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. Acesse a organização à qual você deseja conectar-se
-{% data variables.product.prodname_insights %}.
+2. Navegue até a organização que você gostaria de conectar ao {% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. Clique em **Novo {% data variables.product.prodname_github_app %}**. ![Botão novo aplicativo do GitHub](/assets/images/github-apps/github_apps_new.png)

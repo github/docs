@@ -24,6 +24,7 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
 ### Informationen zu {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% data variables.product.prodname_enterprise_backup_utilities %} ist ein Backup-System, das Sie auf einem separaten Host installieren, der in regelmäßigen Intervallen über eine sichere SSH-Netzwerkverbindung Backup-Snapshots von {% data variables.product.product_location %} erstellt. Mit einem Snapshot können Sie eine vorhandene {% data variables.product.prodname_ghe_server %}-Instanz in einem vorherigen Zustand auf dem Backup-Host wiederherstellen.

@@ -13,6 +13,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 当发生推送时，每个脚本都在隔离的环境中运行，并且可以对推送的内容执行检查。 如果 exit status 为 0，脚本将导致接受推送，如果 exit status 不为零，则会拒绝接受推送。
 
 ### 使用场景

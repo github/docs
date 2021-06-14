@@ -11,6 +11,11 @@ import {
   ProductLandingContextT,
   ProductLandingContext,
 } from 'components/context/ProductLandingContext'
+import {
+  getProductSubLandingContextFromRequest,
+  ProductSubLandingContextT,
+  ProductSubLandingContext,
+} from 'components/context/ProductSubLandingContext'
 
 import {
   getArticleContextFromRequest,
@@ -20,6 +25,7 @@ import {
 import { ArticlePage } from 'components/article/ArticlePage'
 
 import { ProductLanding } from 'components/landing/ProductLanding'
+import { ProductSubLanding } from 'components/sublanding/ProductSubLanding'
 import { TocLanding } from 'components/landing/TocLanding'
 import {
   getTocLandingContextFromRequest,
@@ -30,12 +36,14 @@ import {
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
+  productSubLandingContext: ProductSubLandingContextT
   tocLandingContext: TocLandingContextT
   articleContext: ArticleContextT
 }
 const GlobalPage = ({
   mainContext,
   productLandingContext,
+  productSubLandingContext,
   tocLandingContext,
   articleContext,
 }: Props) => {
@@ -49,7 +57,11 @@ const GlobalPage = ({
       </ProductLandingContext.Provider>
     )
   } else if (currentLayoutName === 'product-sublanding') {
-    content = <p>todo: product sub-landing</p>
+    content = (
+      <ProductSubLandingContext.Provider value={productSubLandingContext}>
+        <ProductSubLanding />
+      </ProductSubLandingContext.Provider>
+    )
   } else if (relativePath?.endsWith('index.md')) {
     content = (
       <TocLandingContext.Provider value={tocLandingContext}>
@@ -76,6 +88,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
+      productSubLandingContext: getProductSubLandingContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),
       articleContext: getArticleContextFromRequest(req),
     },

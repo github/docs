@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Den Namen, der mit Deinen Git-Commits verbunden ist, kannst Du mit dem Befehl `git config` ändern. Der neue Name wird bei allen zukünftigen Commits angezeigt, die Sie über die Befehlszeile per Push an {% data variables.product.product_name %} übertragen. Als Git-Benutzernamen kannst Du einen beliebigen Text verwenden, um Deinen echten Namen privat zu halten.
 
 Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt sich nur auf zukünftige Commits aus. Der für frühere Commits verwendete Name wird hierdurch nicht geändert.

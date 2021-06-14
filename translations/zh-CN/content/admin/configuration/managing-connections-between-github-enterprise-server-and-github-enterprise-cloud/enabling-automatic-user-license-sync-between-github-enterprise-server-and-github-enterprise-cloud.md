@@ -14,6 +14,7 @@ topics:
   - GitHub Connect
   - Licensing
 ---
+
 ### 关于许可同步
 
 在启用许可同步后，您将能够查看 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上整个企业帐户的许可使用情况。 {% data variables.product.prodname_github_connect %} 每周在 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_ghe_cloud %} 之间同步许可。 更多信息请参阅“[管理您的 {% data variables.product.prodname_enterprise %} 许可](/enterprise/{{currentVersion}}/admin/installation/managing-your-github-enterprise-license)。”

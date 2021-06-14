@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. Gib unter „Add a saved reply“ (Eine gespeicherte Antwort hinzufügen) einen Titel für Deine gespeicherte Antwort ein. ![Titel der gespeicherten Antwort](/assets/images/help/settings/saved-replies-title.png)

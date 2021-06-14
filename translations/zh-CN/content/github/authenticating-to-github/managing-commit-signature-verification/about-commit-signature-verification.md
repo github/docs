@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### 关于提交签名验证
 
 您可以在本地签署提交和标签，让其他人对您所做更改的源充满信心。 如果提交或标签具有可加密验证的 GPG 或 S/MIME 签名，GitHub 会对提交或标签标记 {% if currentVersion == "free-pro-team@latest" %}“已验证”或“部分验证”{% else %}“已验证”{% endif %}
@@ -38,8 +39,7 @@ topics:
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
 {% else %}
-如果提交或标签有无法验证的签名，
-{% data variables.product.product_name %} 将对提交或标签标记“未验证”。
+如果提交或标记具有无法验证的签名，则 {% data variables.product.product_name %} 会将提交或标记标示为“未验证”。
 {% endif %}
 
 仓库管理员可对分析实施必要的提交签名，以阻止未签名和验证的所有提交。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-signed-commits)”。
@@ -47,7 +47,7 @@ topics:
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.product_name %} 将自动使用 GPG 通过 {% data variables.product.product_name %} web 界面对您创建的提交进行签名，当您压缩且合并您不是其作者的拉取请求时除外。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。
+{% data variables.product.product_name %} 将自动使用 GPG 通过 {% data variables.product.product_name %} web 界面对您创建的提交进行签名，当您压缩且合并您不是其作者的拉取请求时除外。 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 钥匙的完整指纹是 `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。
 {% endif %}
 
 ### GPG 提交签名验证
@@ -85,9 +85,8 @@ topics:
 ### 自动程序的签名验证
 
 需要提交签名的组织和 {% data variables.product.prodname_github_app %} 可使用自动程序对提交签名。 如果提交或标记具有密码可验证的自动程序签名，则 {% data variables.product.product_name %} 会将提交或标记标示为已验证。
-自动程序签名验证仅在以下情况下才工作：请求被验证为
 
-{% data variables.product.prodname_github_app %} 或自动程序，并且不含自定义作者信息、自定义提交者信息以及自定义签名信息（如提交 API）。
+自动程序的签名验证仅在请求被验证为 {% data variables.product.prodname_github_app %} 或自动程序并且不含自定义作者信息、自定义提交者信息、自定义签名信息（如提交 API）时才有效。
 {% endif %}
 
 ### 延伸阅读

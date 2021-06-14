@@ -65,6 +65,7 @@ Hay algunos límites para el uso de las {% data variables.product.prodname_actio
 - **Tiempo de cola de espera para el job** - Cada job para ejecutores auto-hospedados puede ponerse en cola de espera por un máximo de 24 horas. Si un ejecutor auto-hospedado no comienza a ejecutar el job dentro de este límite de tiempo, dicho job se terminará y no se podrá completar.
 {% data reusables.github-actions.usage-api-requests %}
 - **Matiz de jobs** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
 ### Continuidad de los flujos de trabajo para los ejecutores auto-hospedados
 
@@ -76,8 +77,8 @@ Los siguientes sistemas operativos son compatibles con la aplicación del ejecut
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 o superior
+- CentOS 7 o superior
 - Oracle Linux 7
 - Fedora 29 o posterior
 - Debian 9 o posterior
