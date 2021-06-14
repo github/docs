@@ -19,6 +19,8 @@ topics:
 
 {% data reusables.large_files.owner_quota_only %}
 
+{% data reusables.user_settings.context_switcher %}
+
 ### Purchasing additional storage and bandwidth
 
 Additional storage and bandwidth is offered in a single data pack. One data pack costs {% data variables.large_files.pack_monthly_price %}, and provides a monthly quota of {% data variables.large_files.pack_monthly_bandwidth %} for bandwidth and {% data variables.large_files.pack_monthly_storage %} for storage. You can purchase as many data packs as you need. For example, if you need 150 GB of storage, you'd buy three data packs.
