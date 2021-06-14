@@ -18,6 +18,8 @@ topics:
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
+{% data reusables.user_settings.context_switcher %}
+
 ### Further reading
 
 - "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
