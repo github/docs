@@ -1,15 +1,15 @@
 ---
-title: GitHub's products
-intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
-redirect_from:
+Title: GitHub's products
+Intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
+Redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
   - /github/getting-started-with-github/githubs-products
-versions:
+Versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-topics:
+Topics:
   - Accounts
   - CLI
   - Mobile
