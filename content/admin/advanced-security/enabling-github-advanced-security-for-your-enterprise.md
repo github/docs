@@ -14,7 +14,7 @@ topics:
   - Security
 ---
 
-### About enabling {% data variables.product.prodname_GH_advanced_security %}
+## About enabling {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
@@ -24,7 +24,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% if currentVersion == "enterprise-server@3.0" %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 {% endif %}
 
-### Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
+## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
 1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% if currentVersion ver_gt "enterprise-server@3.0" %} For information about licensing, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."{% endif %}
 2. Upload the new license to {% data variables.product.product_location %}. For more information, see "[Managing your GitHub Enterprise license](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server)."{% if currentVersion ver_gt "enterprise-server@2.22" %}
@@ -33,7 +33,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
 
-### Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
 {% if currentVersion ver_gt "enterprise-server@3.0" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -52,7 +52,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 {% data reusables.enterprise_management_console.advanced-security-license %}
 {% endif %}
 
-### Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
+## Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
@@ -67,7 +67,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 
 When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance)."
 
-### Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} via the administrative shell (SSH)
+## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} via the administrative shell (SSH)
 
 You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
 

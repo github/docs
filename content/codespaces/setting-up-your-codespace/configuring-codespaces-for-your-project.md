@@ -16,13 +16,13 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About dev containers
+## About dev containers
 
 A development container, or dev container, is the environment that {% data variables.product.prodname_codespaces %} uses to provide the tools and runtimes that your project needs for development. When working with a dev container in {% data variables.product.prodname_codespaces %} you can either [use the default configuration](#using-the-default-configuration), [use a pre-defined configuration](#using-a-pre-defined-container-configuration), or [create your own configuration](#creating-a-custom-codespace-configuration). The option you choose is dependent on the tools, runtimes, dependencies, and workflows that a user might need to be successful with your project.
 
 {% data variables.product.prodname_codespaces %} allows for customization on a per-project and per-branch basis with a `devcontainer.json` file. This configuration file determines the environment of every new codespace anyone creates for your repository by defining a development container that can include frameworks, tools, extensions, and port forwarding. A Dockerfile can also be used alongside the `devcontainer.json` file in the `.devcontainer` folder to define everything required to create a container image.
 
-#### devcontainer.json
+### devcontainer.json
 
 {% data reusables.codespaces.devcontainer-location %}
 
@@ -30,7 +30,7 @@ You can use your `devcontainer.json` to set default settings for the entire code
 
 For information about the settings and properties that you can set in a `devcontainer.json`, see [devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json) in the {% data variables.product.prodname_vscode %} documentation.
 
-#### Dockerfile
+### Dockerfile
 
 A Dockerfile also lives in the `.devcontainer` folder. 
 
@@ -62,7 +62,7 @@ Reference your Dockerfile in your `devcontainer.json` file by using the `dockerf
 
 For more information on using a Dockerfile in a dev container, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile) in the {% data variables.product.prodname_vscode %} documentation. 
 
-### Using the default configuration
+## Using the default configuration
 
 If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the url that the command outputs.
 
@@ -71,7 +71,7 @@ Alternatively, for more information about everything that is included in the bas
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_codespaces %} provides.
 
 
-### Using a predefined container configuration
+## Using a predefined container configuration
 
 Predefined container definitions include a common configuration for a particular project type, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode %} settings, and {% data variables.product.prodname_vscode %} extensions that should be installed.
 
@@ -87,7 +87,7 @@ Using a predefined configuration is a great idea if you need some additional ext
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/rebuild-prompt.png)
 
 
-### Creating a custom codespace configuration
+## Creating a custom codespace configuration
 
 If none of the predefined configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
 
@@ -103,11 +103,11 @@ You can define default editor settings for {% data variables.product.prodname_vs
 After updating the `devcontainer.json` file, you can rebuild the container for your codespace to apply the changes. For more information, see "[Applying changes to your configuration](#applying-changes-to-your-configuration)."
 
 <!--
-### Supported codespace configuration keys
+## Supported codespace configuration keys
 
 You can use configuration keys supported by {% data variables.product.prodname_codespaces %} in `devcontainer.json`.
 
-#### General settings
+### General settings
 
 - `name`
 - `settings`
@@ -115,7 +115,7 @@ You can use configuration keys supported by {% data variables.product.prodname_c
 - `forwardPorts`
 - `postCreateCommand`
 
-#### Docker, Dockerfile, or image settings
+### Docker, Dockerfile, or image settings
 
 - `image`
 - `dockerFile`
@@ -132,7 +132,7 @@ You can use configuration keys supported by {% data variables.product.prodname_c
 For more information about the available settings for `devcontainer.json`, see [devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json) in the {% data variables.product.prodname_vscode %} documentation.
 -->
 
-### Applying changes to your configuration
+## Applying changes to your configuration
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 

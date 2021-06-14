@@ -9,7 +9,7 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-### About collaboration with maintainers using discussions
+## About collaboration with maintainers using discussions
 
 {% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
@@ -23,15 +23,15 @@ Repository administrators and project maintainers can delete a discussion. For m
 
 For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
 
-### Prerequisites
+## Prerequisites
 
 To collaborate with maintainers using discussions, a repository administrator or project maintainer must enable discussions for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
-### Starting a discussion
+## Starting a discussion
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Filtering the list of discussions
+## Filtering the list of discussions
 
 You can search for discussions and filter the list of discussions in a repository. For more information, see "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
 
@@ -42,11 +42,11 @@ You can search for discussions and filter the list of discussions in a repositor
 1. In the list of discussions, click the discussion you want to view.
   ![Discussion search results](/assets/images/help/discussions/search-result.png)
 
-### Converting an issue to a discussion
+## Converting an issue to a discussion
 
 {% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions in your repository](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion#converting-an-issue-to-a-discussion)."
 
-### Further reading
+## Further reading
 
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

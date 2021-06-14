@@ -15,11 +15,11 @@ topics:
 ---
 {% data reusables.pull_requests.default_merge_option %}
 
-### Squash and merge your pull request commits
+## Squash and merge your pull request commits
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-#### Merge message for a squash merge
+### Merge message for a squash merge
 
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a commit message which you can change if you want to. The message default depends on whether the pull request contains multiple commits or just one.
 
@@ -28,7 +28,7 @@ Number of commits | Summary | Description |
 One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
 More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 
-#### Squashing and merging a long-running branch
+### Squashing and merging a long-running branch
 
 If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
 
@@ -36,7 +36,7 @@ When you create a pull request, {% data variables.product.prodname_dotcom %} ide
 
 Because this commit is only on the base branch and not the head branch, the common ancestor of the two branches remains unchanged. If you continue to work on the head branch, then create a new pull request between the two branches, the pull request will include all of the commits since the common ancestor, including commits that you squashed and merged in the previous pull request. If there are no conflicts, you can safely merge these commits. However, this workflow makes merge conflicts more likely. If you continue to squash and merge pull requests for a long-running head branch, you will have to resolve the same conflicts repeatedly.
 
-### Rebase and merge your pull request commits
+## Rebase and merge your pull request commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
@@ -52,7 +52,7 @@ If you still want to rebase the commits but can't rebase and merge automatically
 
 Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.product.product_location %}.
 
-### Further reading
+## Further reading
 
 - "[About pull requests](/articles/about-pull-requests/)"
 - "[Addressing merge conflicts](/articles/addressing-merge-conflicts)"

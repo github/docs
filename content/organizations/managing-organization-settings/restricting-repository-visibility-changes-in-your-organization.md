@@ -29,6 +29,6 @@ You can restrict the ability to change repository visibility to organization own
 ![Checkbox to allow members to change repository visibility](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"

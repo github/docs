@@ -26,7 +26,7 @@ topics:
     - To set up two-factor authentication using a TOTP mobile app, click **Set up using an app**.
     - To set up two-factor authentication using text message (SMS), click **Set up using SMS**.
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
 - "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"

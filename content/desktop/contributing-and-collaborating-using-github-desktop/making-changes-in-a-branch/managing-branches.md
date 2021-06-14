@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
-### About managing branches
+## About managing branches
 You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
 
 You always create a branch from an existing branch. Typically, you might create a branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
@@ -20,7 +20,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% data reusables.desktop.protected-branches %}
 
-### Creating a branch
+## Creating a branch
 
 {% tip %}
 
@@ -58,7 +58,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% endwindows %}
 
-### Publishing a branch
+## Publishing a branch
 
 If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
 
@@ -67,7 +67,7 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
 2. Click **Publish branch**.
   ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
 
-### Switching between branches
+## Switching between branches
 You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
@@ -81,7 +81,7 @@ You can view and make commits to any of your repository's branches. If you have 
 3. If you have saved, uncommitted changes, choose **Leave my changes** or **Bring my changes**, then click **Switch Branch**.
   ![Switch branch with changes options](/assets/images/help/desktop/stash-changes-options.png)
 
-### Deleting a branch
+## Deleting a branch
 
 You can't delete a branch if it's currently associated with an open pull request. You cannot undo deleting a branch.
 
@@ -103,7 +103,7 @@ You can't delete a branch if it's currently associated with an open pull request
 
 {% endwindows %}
 
-### Further reading
+## Further reading
 
 - "[Cloning a repository from {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
 - "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary

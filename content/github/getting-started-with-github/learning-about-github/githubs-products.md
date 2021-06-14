@@ -16,11 +16,11 @@ topics:
   - Desktop
   - Security
 ---
-### About {% data variables.product.prodname_dotcom %}'s products
+## About {% data variables.product.prodname_dotcom %}'s products
 
 {% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
-### {% data variables.product.prodname_free_user %} for user accounts
+## {% data variables.product.prodname_free_user %} for user accounts
 
 With {% data variables.product.prodname_free_team %} for user accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
 
@@ -31,7 +31,7 @@ With {% data variables.product.prodname_free_user %}, your user account includes
 - 2,000 {% data variables.product.prodname_actions %} minutes
 - 500MB {% data variables.product.prodname_registry %} storage
 
-### {% data variables.product.prodname_pro %}
+## {% data variables.product.prodname_pro %}
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for user accounts, {% data variables.product.prodname_pro %} includes:
 - {% data variables.contact.github_support %} via email
@@ -47,7 +47,7 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Code owners
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 
-### {% data variables.product.prodname_free_team %} for organizations
+## {% data variables.product.prodname_free_team %} for organizations
 
 With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
@@ -58,7 +58,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 - 2,000 {% data variables.product.prodname_actions %} minutes
 - 500MB {% data variables.product.prodname_registry %} storage
 
-### {% data variables.product.prodname_team %}
+## {% data variables.product.prodname_team %}
 
 In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
 - {% data variables.contact.github_support %} via email
@@ -78,7 +78,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 
 {% data reusables.github-actions.actions-billing %}
 
-### {% data variables.product.prodname_enterprise %}
+## {% data variables.product.prodname_enterprise %}
 
 {% data variables.product.prodname_enterprise %} includes two deployment options: cloud-hosted and self-hosted.
 

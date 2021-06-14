@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### About subtree merges
+## About subtree merges
 
 Typically, a subtree merge is used to contain a repository within a repository. The "subrepository" is stored in a folder of the main repository.
 
@@ -23,7 +23,7 @@ The best way to explain subtree merges is to show by example. We will:
 - The `test` project will use that subproject as if it were part of the same repository.
 - Fetch updates from `Spoon-Knife` into our `test` project.
 
-### Setting up the empty repository for a subtree merge
+## Setting up the empty repository for a subtree merge
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a new directory and navigate to it.
@@ -46,7 +46,7 @@ The best way to explain subtree merges is to show by example. We will:
   >  create mode 100644 .gitignore
   ```
 
-### Adding a new repository as a subtree
+## Adding a new repository as a subtree
 
 1. Add a new remote URL pointing to the separate project that we're interested in.
   ```shell
@@ -92,7 +92,7 @@ Although we've only added one subproject, any number of subprojects can be incor
 
 {% endtip %}
 
-### Synchronizing with updates and changes
+## Synchronizing with updates and changes
 
 When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
 
@@ -106,7 +106,7 @@ For the example above, this would be:
 $ git pull -s subtree spoon-knife main
 ```
 
-### Further reading
+## Further reading
 
 - [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - "[How to use the subtree merge strategy](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

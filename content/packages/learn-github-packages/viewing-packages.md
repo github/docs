@@ -18,7 +18,7 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About package views
+## About package views
 
 Your ability to view a package depends on several factors. By default, you can view all packages you have published. 
 
@@ -26,7 +26,7 @@ Your ability to view a package depends on several factors. By default, you can v
 
 {% data reusables.package_registry.package-page-info %}
 
-### Viewing a repository's packages
+## Viewing a repository's packages
 
 You can find and view a package located in a particular repository.
 
@@ -34,7 +34,7 @@ You can find and view a package located in a particular repository.
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Viewing an organization's packages
+## Viewing an organization's packages
 
 You can find and view a package located in the repositories of an organization you belong to.
 
@@ -43,7 +43,7 @@ You can find and view a package located in the repositories of an organization y
 3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Viewing your packages
+## Viewing your packages
 
 You can find and view any package you've published across all organizations and repositories. 
 
@@ -52,6 +52,6 @@ You can find and view any package you've published across all organizations and 
   ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Further reading
+## Further reading
 
 - "[Searching for packages](/github/searching-for-information-on-github/searching-for-packages)"

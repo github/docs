@@ -26,7 +26,7 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 5. Click **Authorize**.
 ![Token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
 
-### Further reading
+## Further reading
 
 - "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
 - "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"

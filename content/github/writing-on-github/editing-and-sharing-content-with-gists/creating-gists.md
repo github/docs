@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### About gists
+## About gists
 
 Every gist is a Git repository, which means that it can be forked and cloned. {% if currentVersion != "github-ae@latest" %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
 
@@ -53,7 +53,7 @@ Gist supports mapping GeoJSON files. These maps are displayed in embedded gists,
 
 {% endif %}
 
-### Creating a gist
+## Creating a gist
 
 Follow the steps below to create a gist.
 

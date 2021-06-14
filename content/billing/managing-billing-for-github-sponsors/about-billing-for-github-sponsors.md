@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.user_settings.context_switcher %}
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"

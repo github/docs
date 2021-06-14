@@ -16,14 +16,14 @@ In repositories you own, the user will be able to collaborate normally.
 
 You can unblock a user in your account settings or from the user's profile page.
 
-### Unblocking a user in your account settings
+## Unblocking a user in your account settings
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.blocked_users %}
 3. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
 ![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
 
-### Unblocking a user from their profile page
+## Unblocking a user from their profile page
 
 {% data reusables.profile.user_profile_page_navigation %}
 2. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click  **Unblock or report user**.
@@ -37,7 +37,7 @@ You can unblock a user in your account settings or from the user's profile page.
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
 - "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"

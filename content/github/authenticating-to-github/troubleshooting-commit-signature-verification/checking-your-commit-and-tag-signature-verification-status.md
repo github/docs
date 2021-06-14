@@ -13,7 +13,7 @@ topics:
   - Identity
   - Access management
 ---
-### Checking your commit signature verification status
+## Checking your commit signature verification status
 
 1. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
@@ -22,7 +22,7 @@ topics:
 4. To view more detailed information about the commit signature, click **Verified**{% if currentVersion == "free-pro-team@latest" %}, **Partially verified**,{% endif %} or **Unverified**.
 ![Verified signed commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
 
-### Checking your tag signature verification status
+## Checking your tag signature verification status
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -33,7 +33,7 @@ topics:
 4. To view more detailed information about the tag signature, click **Verified**{% if currentVersion == "free-pro-team@latest" %}, **Partially verified**,{% endif %} or **Unverified**. 
 ![Verified signed tag](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
-### Further reading
+## Further reading
 
 - "[About commit signature verification](/articles/about-commit-signature-verification)"
 - "[Signing commits](/articles/signing-commits)"
