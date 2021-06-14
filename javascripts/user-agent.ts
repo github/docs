@@ -7,7 +7,7 @@ const OS_REGEXPS = [
   /(windows) ([^);]+)/i,
   /(android) ([^);]+)/i,
   /(cros) ([^);]+)/i,
-  /(linux) ([^);]+)/i
+  /(linux) ([^);]+)/i,
 ]
 
 // The order matters with these
@@ -16,17 +16,15 @@ const BROWSER_REGEXPS = [
   /(edge)\/([^\s)]+)/i,
   /(chrome)\/([^\s)]+)/i,
   /(safari)\/([^\s)]+)/i,
-  /ms(ie)\/([^\s)]+)/i
+  /ms(ie)\/([^\s)]+)/i,
 ]
 
-export default function parseUserAgent (ua = navigator.userAgent) {
+export default function parseUserAgent(ua = navigator.userAgent) {
   ua = ua.toLowerCase()
-  let [, os = 'other', os_version = '0'] = ua.match(
-    OS_REGEXPS.find(re => re.test(ua))
-  )
+  const osRe = OS_REGEXPS.find((re) => re.test(ua))
+  let [, os = 'other', os_version = '0'] = (osRe && ua.match(osRe)) || []
   if (os === 'iphone os' || os === 'ipad os') os = 'ios'
-  const [, browser = 'other', browser_version = '0'] = ua.match(
-    BROWSER_REGEXPS.find(re => re.test(ua))
-  )
+  const browserRe = BROWSER_REGEXPS.find((re) => re.test(ua))
+  const [, browser = 'other', browser_version = '0'] = (browserRe && ua.match(browserRe)) || []
   return { os, os_version, browser, browser_version }
 }

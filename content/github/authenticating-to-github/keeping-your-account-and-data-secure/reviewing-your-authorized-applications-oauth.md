@@ -17,7 +17,7 @@ topics:
 {% data reusables.user_settings.access_authorized_oauth_apps %}
 {% data reusables.user_settings.review-oauth-apps %}
 
-### Further reading
+## Further reading
 {% if currentVersion == "free-pro-team@latest" %}
 - "[About integrations](/articles/about-integrations)"{% endif %}
 - "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)"

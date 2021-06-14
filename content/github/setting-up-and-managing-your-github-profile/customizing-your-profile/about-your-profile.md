@@ -34,7 +34,7 @@ People who visit your profile can also see the following information.
 
 You can also set a status on your profile to provide information about your availability. For more information, see "[Setting a status](/articles/personalizing-your-profile/#setting-a-status)."
 
-### Further reading
+## Further reading
 
 - "[How do I set up my profile picture?](/articles/how-do-i-set-up-my-profile-picture)"
 - "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"

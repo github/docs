@@ -11,7 +11,7 @@ topics:
   - API
 ---
 
-### About interfaces
+## About interfaces
 
 [Interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) serve as parent objects from which other objects can inherit.
 

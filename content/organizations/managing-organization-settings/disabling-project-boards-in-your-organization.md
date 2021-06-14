@@ -29,7 +29,7 @@ When you disable project boards, you will no longer see project board informatio
 
 {% data reusables.organizations.disable_project_board_results %}
 
-### Further reading
+## Further reading
 
 - "[About project boards](/articles/about-project-boards)"
 - "[Closing a project board](/articles/closing-a-project-board)"

@@ -20,6 +20,6 @@ If you are a taxpayer in the United States and earn more than $600 USD in a tax 
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
-### Further reading
+## Further reading
 
 - [Viewing your sponsors and sponsorships](/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships)

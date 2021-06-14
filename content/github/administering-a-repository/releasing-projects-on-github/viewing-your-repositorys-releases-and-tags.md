@@ -21,19 +21,19 @@ topics:
 {% endtip %}
 {% endif %}
 
-### Viewing releases
+## Viewing releases
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 2. At the top of the Releases page, click **Releases**.
 
-### Viewing tags
+## Viewing tags
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 2. At the top of the Releases page, click **Tags**.
 ![Tags page](/assets/images/help/releases/tags-list.png)
 
-### Further reading
+## Further reading
 
 - "[Signing tags](/articles/signing-tags)"

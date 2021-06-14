@@ -21,7 +21,7 @@ topics:
 
 {% endwarning %}
 
-### Giving a team access to a project board
+## Giving a team access to a project board
 
 You can give an entire team the same permission level to a project board.
 
@@ -43,7 +43,7 @@ You can give an entire team the same permission level to a project board.
 10. Next to the team name, use the drop-down menu to select the desired permission level: **Read**, **Write**, or **Admin**.
  ![Team permissions drop-down menu with read, write, and admin options](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
-### Configuring a team's access to a project board
+## Configuring a team's access to a project board
 
 If a team's access to a project board is inherited from a parent team, you must change the parent team's access to the project board to update access to the child teams.
 

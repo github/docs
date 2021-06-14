@@ -13,7 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
-### About billing for enterprise accounts
+## About billing for enterprise accounts
 
 Enterprise accounts are currently available to {% data variables.product.prodname_enterprise %} customers paying by invoice. Billing for all of the organizations and {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account are aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services (including paid licenses in organizations, {% data variables.large_files.product_name_long %} data packs,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} {% data variables.product.prodname_GH_advanced_security %} usage,{% endif %} and subscriptions for {% data variables.product.prodname_marketplace %} apps).
 
@@ -21,7 +21,7 @@ Enterprise accounts are currently available to {% data variables.product.prodnam
 
 For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
-### Viewing the subscription and usage for your enterprise account
+## Viewing the subscription and usage for your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -37,7 +37,7 @@ For more information about managing billing managers, see "[Inviting people to m
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+## Further reading
 
 - "[About billing for GitHub Actions](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions)"
 - "[About billing for Git Large File Storage](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"

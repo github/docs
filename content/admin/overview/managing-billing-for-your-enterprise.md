@@ -38,13 +38,13 @@ You can see your current usage in your [Azure account portal](https://portal.azu
 
 {% else %}
 
-### About billing for enterprise accounts
+## About billing for enterprise accounts
 
 Enterprise accounts are currently available to {% data variables.product.prodname_enterprise %} customers paying by invoice. Billing for all of the organizations and {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services (including paid licenses in organizations, {% data variables.large_files.product_name_long %} data packs, and subscriptions for {% data variables.product.prodname_marketplace %} apps).
 
 Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts. For more information about enterprise accounts, {% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
-### Viewing your current invoice
+## Viewing your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -52,7 +52,7 @@ Enterprise owners and billing managers can access and manage all billing setting
 4. Under "Quick Actions", click **View invoice**.
   ![View invoice link](/assets/images/help/business-accounts/view-invoice-link.png)
 
-### Paying your current invoice
+## Paying your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -62,7 +62,7 @@ Enterprise owners and billing managers can access and manage all billing setting
 5. Under "Pay invoice", type your credit card information in the secure form, then click **Pay Invoice**.
   ![Confirm and pay invoice](/assets/images/help/business-accounts/pay-invoice.png)
 
-### Downloading your current invoice
+## Downloading your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -70,7 +70,7 @@ Enterprise owners and billing managers can access and manage all billing setting
 4. Under "Quick Actions", click **Download current invoice**.
   ![Download current invoice link](/assets/images/help/business-accounts/download-current-invoice.png)
 
-### Viewing your payment history
+## Viewing your payment history
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

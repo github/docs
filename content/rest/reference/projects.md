@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}

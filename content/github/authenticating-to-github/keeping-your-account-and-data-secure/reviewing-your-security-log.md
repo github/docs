@@ -1,7 +1,7 @@
 ---
 title: Reviewing your security log
 intro: You can review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
   - /github/authenticating-to-github/reviewing-your-security-log
@@ -13,7 +13,7 @@ topics:
   - Identity
   - Access management
 ---
-### Accessing your security log
+## Accessing your security log
 
 The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
 
@@ -30,13 +30,13 @@ The security log lists all actions performed within the last 90 days{% if curren
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Searching your security log
+## Searching your security log
 
 {% data reusables.audit_log.audit-log-search %}
 
-#### Search based on the action performed
+### Search based on the action performed
 {% else %}
-### Understanding events in your security log
+## Understanding events in your security log
 {% endif %}
 
 The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
@@ -61,20 +61,20 @@ The events listed in your security log are triggered by your actions. Actions ar
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Exporting your security log
+## Exporting your security log
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 {% endif %}
 
-### Security log actions
+## Security log actions
 
 An overview of some of the most common actions that are recorded as events in the security log.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `account_recovery_token` category actions
+### `account_recovery_token` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -82,14 +82,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `recover` | Triggered when you successfully [redeem an account recovery token](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).
 | `recover_error` | Triggered when a token is used but {% data variables.product.prodname_dotcom %} is not able to validate it.
 
-#### `billing` category actions
+### `billing` category actions
 
 | Action | Description
 |------------------|-------------------
 | `change_billing_type` | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {% data variables.product.prodname_dotcom %}.
 | `change_email` | Triggered when you [change your email address](/articles/changing-your-primary-email-address).
 
-#### `codespaces` category actions
+### `codespaces` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -99,13 +99,13 @@ An overview of some of the most common actions that are recorded as events in th
 | `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 | `trusted_repositories_access_update` | Triggered when you change your user account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 
-#### `marketplace_agreement_signature` category actions
+### `marketplace_agreement_signature` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
 
-#### `marketplace_listing` category actions
+### `marketplace_listing` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -117,7 +117,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `oauth_access` category actions
+### `oauth_access` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -126,7 +126,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `payment_method` category actions
+### `payment_method` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -136,13 +136,13 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `profile_picture` category actions
+### `profile_picture` category actions
 
 | Action | Description
 |------------------|-------------------
 | `update` | Triggered when you [set or update your profile picture](/articles/setting-your-profile-picture/).
 
-#### `project` category actions
+### `project` category actions
 
 | Action | Description
 |--------------------|---------------------
@@ -155,14 +155,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `unlink` | Triggered when a repository is unlinked from a project board.
 | `update_user_permission` | Triggered when an outside collaborator is added to or removed from a project board or has their permission level changed.
 
-#### `public_key` category actions
+### `public_key` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you [add a new public SSH key to your {% data variables.product.product_name %} account](/articles/adding-a-new-ssh-key-to-your-github-account).
 | `delete` | Triggered when you [remove a public SSH key to your {% data variables.product.product_name %} account](/articles/reviewing-your-ssh-keys).
 
-#### `repo` category actions
+### `repo` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -186,7 +186,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `unarchived` | Triggered when a repository owner unarchives a repository.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `sponsors` category actions
+### `sponsors` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -210,7 +210,7 @@ An overview of some of the most common actions that are recorded as events in th
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `successor_invitation` category actions
+### `successor_invitation` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -223,7 +223,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-#### `team` category actions
+### `team` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -237,7 +237,7 @@ An overview of some of the most common actions that are recorded as events in th
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-#### `two_factor_authentication` category actions
+### `two_factor_authentication` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -245,7 +245,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `disabled` | Triggered when two-factor authentication is disabled.
 {% endif %}
 
-#### `user` category actions
+### `user` category actions
 
 | Action | Description
 |--------------------|---------------------
@@ -265,7 +265,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %}
 | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
-#### `user_status` category actions
+### `user_status` category actions
 
 | Action | Description
 |--------------------|---------------------

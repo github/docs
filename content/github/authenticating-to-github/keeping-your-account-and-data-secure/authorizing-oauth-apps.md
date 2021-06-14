@@ -24,7 +24,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% endif %}
 
-### {% data variables.product.prodname_oauth_app %} access
+## {% data variables.product.prodname_oauth_app %} access
 
 {% data variables.product.prodname_oauth_app %}s can have *read* or *write* access to your {% data variables.product.product_name %} data.
 
@@ -37,7 +37,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% endtip %}
 
-#### About OAuth scopes
+### About OAuth scopes
 
 *Scopes* are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
 
@@ -51,7 +51,7 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 
 {% data reusables.apps.oauth-token-limit %}
 
-#### Types of requested data
+### Types of requested data
 
 {% data variables.product.prodname_oauth_app %}s can request several types of data.
 
@@ -67,13 +67,13 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
 | Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |
 
-### Requesting updated permissions
+## Requesting updated permissions
 
 When {% data variables.product.prodname_oauth_app %}s request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### {% data variables.product.prodname_oauth_app %}s and organizations
+## {% data variables.product.prodname_oauth_app %}s and organizations
 
 When you authorize an {% data variables.product.prodname_oauth_app %} for your personal user account, you'll also see how the authorization will affect each organization you're a member of.
 
@@ -83,7 +83,7 @@ When you authorize an {% data variables.product.prodname_oauth_app %} for your p
 
 If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
 - "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
