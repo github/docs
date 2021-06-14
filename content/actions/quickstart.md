@@ -35,7 +35,6 @@ The following example shows you how {% data variables.product.prodname_actions %
       Explore-GitHub-Actions:
         runs-on: ubuntu-latest
         steps:
-          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
           - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
           - name: Check out repository code
@@ -85,7 +84,4 @@ The example workflow you just added runs each time code is pushed to the branch,
 - Your repository can contain multiple workflows that trigger different jobs based on different events. 
 - You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. 
 
-{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
-
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
-- "[Guides](/actions/guides)" for specific uses cases and examples.
+l
