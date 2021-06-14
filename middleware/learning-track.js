@@ -12,6 +12,9 @@ module.exports = async function learningTrack (req, res, next) {
   const trackName = req.query.learn
   if (!trackName) return noTrack()
 
+  const tracksPerProduct = req.context.site.data['learning-tracks'][req.context.currentProduct]
+  if (!tracksPerProduct) return noTrack()
+
   const track = req.context.site.data['learning-tracks'][req.context.currentProduct][trackName]
   if (!track) return noTrack()
 

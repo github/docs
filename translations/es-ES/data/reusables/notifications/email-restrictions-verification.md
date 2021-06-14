@@ -1,0 +1,1 @@
+Después de que habilitas las restricciones por correo electrónico, los miembros pueden recibir notificacions por correo electrónico en direcciones de correo electrónico verificadas con dominios que hayas verificado o aprobado. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".

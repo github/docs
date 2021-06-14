@@ -28,7 +28,7 @@ You can find the SAML and SCIM implementation details for your IdP in their docu
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"

@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### Key differences between the {% data variables.product.prodname_container_registry %} and the Docker registry
+## Key differences between the {% data variables.product.prodname_container_registry %} and the Docker registry
 
 {% data reusables.package_registry.container-registry-beta %}
 
@@ -29,13 +29,13 @@ Visibility          | {% data reusables.package_registry.public-or-private-packa
 Anonymous access    | N/A | You can access public container images anonymously.
 Foreign layer support | Doesn't support foreign layers, such as Windows images. | Supports foreign layers, such as Windows images.
 
-### Billing changes
+## Billing changes
 
 During the {% data variables.product.prodname_container_registry %} beta, both the new {% data variables.product.prodname_container_registry %} and the existing {% data variables.product.prodname_registry %} Docker registry are free of charge. For more information about the {% data variables.product.prodname_registry %} Docker registry, see "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
-After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. For more information, see "[About  billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. For more information, see "[About  billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
-### Domain changes
+## Domain changes
 
 The domain for the {% data variables.product.prodname_container_registry %} is `ghcr.io`.
 
@@ -44,7 +44,7 @@ The domain for the {% data variables.product.prodname_container_registry %} is `
 | {% data variables.product.prodname_registry %} Docker registry |  `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME`
 | {% data variables.product.prodname_container_registry %} | `ghcr.io/OWNER/IMAGE_NAME`
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+## Authenticating to the {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.feature-preview-for-container-registry %}
 
@@ -54,7 +54,7 @@ You will need to authenticate to the {% data variables.product.prodname_containe
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-### Migrating a Docker image using the Docker CLI
+## Migrating a Docker image using the Docker CLI
 
 To move Docker images that you host on {% data variables.product.prodname_registry %} Docker registry, you must republish the images to {% data variables.product.prodname_container_registry %}. We recommend republishing your existing Docker images using the command line on your local machine.
 
@@ -85,7 +85,7 @@ To move Docker images that you host on {% data variables.product.prodname_regist
   $ docker push ghcr.io/OWNER/IMAGE_NAME:VERSION
   ```
 
-### Updating your {% data variables.product.prodname_actions %} workflow
+## Updating your {% data variables.product.prodname_actions %} workflow
 
 {% data reusables.package_registry.feature-preview-for-container-registry %}
 
@@ -95,11 +95,11 @@ If you have a {% data variables.product.prodname_actions %} workflow that uses a
 
 2. In your {% data variables.product.prodname_actions %} workflow file, update the package url from `https://docker.pkg.github.com` to `ghcr.io`.
 
-3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. The {% data variables.product.prodname_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+3. Use the `GITHUB_TOKEN` for your authentication personal access token (PAT). For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)."
 
-4. In your {% data variables.product.prodname_actions %} workflow file, update the authentication PAT by replacing your Docker registry PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) with a new variable for your {% data variables.product.prodname_container_registry %} PAT, such as {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
+4. In your {% data variables.product.prodname_actions %} workflow file, use the authentication token {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} as your {% data variables.product.prodname_container_registry %} PAT.
 
-#### Example of updated workflow
+### Example of updated workflow
 
 If part of your workflow accessed a Docker image hosted by the Docker registry like this:
 
@@ -112,12 +112,12 @@ docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
 ```
 {% endraw %}
 
-Then you'll need to update your workflow with the new {% data variables.product.prodname_container_registry %} URL and PAT like this:  
+Then you'll need to update your workflow with the new {% data variables.product.prodname_container_registry %} URL like this:  
 
 {% raw %}
 ```yaml
 # new login with new container registry url and PAT
-echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 # new container registry urls added
 docker pull ghcr.io/github/octoshift:latest
 docker build . --tag ghcr.io/github/octoshift:$GITHUB_SHA --cache-from ghcr.io/github/octoshift:latest

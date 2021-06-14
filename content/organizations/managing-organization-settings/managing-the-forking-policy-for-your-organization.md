@@ -1,6 +1,6 @@
 ---
 title: Managing the forking policy for your organization
-intro: 'You can can allow or prevent the forking of any private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} and internal{% endif %} repositories owned by your organization.'
+intro: 'You can allow or prevent the forking of any private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} and internal{% endif %} repositories owned by your organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -28,7 +28,7 @@ If you allow forking of private{% if currentVersion == "free-pro-team@latest" or
   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[About forks](/articles/about-forks)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

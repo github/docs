@@ -19,7 +19,7 @@ You reference the workflow by the name of your workflow file.
 ```
 https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 ```
-### Using the workflow file name
+## Using the workflow file name
 
 This Markdown example adds a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `github` organization and the `REPOSITORY` name is `docs`.
 
@@ -27,7 +27,7 @@ This Markdown example adds a status badge for a workflow with the file path `.gi
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
 
-### Using the `branch` parameter
+## Using the `branch` parameter
 
 This Markdown example adds a status badge for a branch with the name `feature-1`.
 
@@ -35,7 +35,7 @@ This Markdown example adds a status badge for a branch with the name `feature-1`
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-### Using the `event` parameter
+## Using the `event` parameter
 
 This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
 

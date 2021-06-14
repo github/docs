@@ -20,6 +20,6 @@ Los minutos de ejecución facturables para un job solo se muestran en aquellos j
 
    {% note %}
 
-   **Nota:** El tiempo facturable que se muestra no incluye ningún multiplicador de minutos o de redondeo. Para ver tu uso total de {% data variables.product.prodname_actions %}, incluyendo los multiplicadores de minutos y de redondeo, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage)".
+   **Nota:** El tiempo facturable que se muestra no incluye ningún multiplicador de minutos o de redondeo. Para ver tu uso total de {% data variables.product.prodname_actions %}, incluyendo los multiplicadores de minutos y de redondeo, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)".
 
    {% endnote %}

@@ -28,9 +28,9 @@ Os proprietários da organização também podem bloquear os usuários por um de
 
 ### Restringir interações na organização
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. Na barra lateral de configurações da organização, clique em **Configurações de moderação**. !["Configurações de moderação" na barra lateral das configurações da organização](/assets/images/help/organizations/org-settings-moderation-settings.png)
 1. Em "Configurações de moderação", clique em **Limites de interação**. !["Limites de interação" na barra lateral de configurações da organização](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}

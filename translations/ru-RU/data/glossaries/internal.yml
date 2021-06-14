@@ -61,11 +61,15 @@
   term: Azure
   description: Платформа Microsoft облачных вычислений.
 - 
+  term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+- 
   term: чистый репозиторий
   description: >-
     Чистый репозиторий обычно представляет собой каталог с соответствующим названием и с расширением .git, который не имеет локально выгруженных копий файлов, изменения которых контролируются. То есть все управляющие и контрольные файлы Git, которые обычно должны находиться в скрытом подкаталоге .git, вместо этого расположены в каталоге repository.git, а все остальные файлы отсутствуют и не выгружаются. Обычно издатели публичных репозиториев обеспечивают свободный доступ к чистым репозиториям.
 - 
-  term: Инструмент очистки репозитория BFG
+  term: Средство очистки репозитория BFG
   description: BFG. Инструмент стороннего разработчика, предназначенный для удаления данных из журнала репозитория Git.
 - 
   term: объект типа «большой двоичный объект»
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    Продукт Microsoft для управления исходным кодом и другими службами команды.
+    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
 - 
   term: Textile
   description: >-

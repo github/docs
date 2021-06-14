@@ -14,7 +14,7 @@ topics:
   - Community
 ---
 
-### Hiding a comment
+## Hiding a comment
 
 Anyone with write access to a repository can hide comments on issues, pull requests, and commits. 
 
@@ -32,7 +32,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
   ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-### Unhiding a comment
+## Unhiding a comment
 
 Anyone with write access to a repository can unhide comments on issues, pull requests, and commits.
 
@@ -42,7 +42,7 @@ Anyone with write access to a repository can unhide comments on issues, pull req
 3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
    ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
 
-### Editing a comment
+## Editing a comment
 
 Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
 
@@ -65,7 +65,7 @@ Comment authors and anyone with write access to a repository can also delete sen
   ![Comment window with added note that content was redacted](/assets/images/help/issues/note-content-redacted-comment.png)
 5. Click **Update comment**.
 
-### Deleting a comment
+## Deleting a comment
 
 Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
 

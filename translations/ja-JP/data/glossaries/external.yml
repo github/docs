@@ -78,7 +78,7 @@
   term: カード
   description: Issue またはプルリクエストに関連付けられたプロジェクトボード内にある、移動可能な正方形。
 - 
-  term: チェック
+  term: check
   description: >-
     チェックは、{% data variables.product.product_name %}上のステータスチェックの一種です。「[ステータスチェック](#status-checks)」を参照してください。
 - 
@@ -88,7 +88,7 @@
 - 
   term: チェリーピック（する）
   description: >-
-    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
+    変更のサブセットを一連の変更（通常はコミット）から選択して、新しい一連の変更を別の codebase 上に記録すること。Git では、これは「git cherry-pick」コマンドで実行するもので、別のブランチ上に存在するコミットによって引き起された変更を抽出し、現在のブランチの先端に基づき新規コミットとして記録します。詳しい情報については、Gitのドキュメンテーションの[git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)を参照してください。
 - 
   term: 子チーム
   description: >-
@@ -181,7 +181,7 @@
 - 
   term: デフォルトブランチ
   description: >-
-    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常`main`と呼ばれ、多くの場合デフォルトブランチです。
+    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
 - 
   term: 依存グラフ
   description: >-
@@ -213,7 +213,7 @@
   term: メール通知
   description: ユーザのメールアドレスに送信される通知。
 - 
-  term: Enterprise アカウント
+  term: enterprise account
   description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -250,7 +250,7 @@
   description: >-
     ユーザアカウントの支払いプランで、無料のもの。ユーザがコラボレーションできるパブリックリポジトリは無制限、コラボレータも無制限です。
 - 
-  term: Gist
+  term: gist
   description: >-
     Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% if currentVersion == "github-ae@latest" %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% if currentVersion == "github-ae@latest" %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
 - 
@@ -377,7 +377,7 @@
   description: >-
     ユーザがアクセスできない個人アカウント。ユーザが有料アカウントを無料のものにダウングレードした場合、または有料プランの支払いが期限を過ぎた場合、アカウントはロックされます。
 - 
-  term: Management Console
+  term: management Console
   description: >-
     GitHub Enterprise インターフェース内で、管理機能を含むセクション。
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    デフォルトの開発ブランチ。Git リポジトリを作成するたびに、「main」という名前のブランチが作成され、アクティブブランチとなります。ほとんどの場合、これにはローカル開発が含まれますが、単に慣習によるものであり、必須ではありません。
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
 - 
   term: master
   description: >-
-    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。
+    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
   term: メンバーグラフ
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
@@ -754,9 +754,6 @@
   term: webhook
   description: >-
     webhook は、GitHub.com の特定のイベントにサブスクライブする GitHub App のビルドやセットアップができるようにするものです。webhook により、特定のアクションがリポジトリあるいはOrganizationで発生したら必ず外部のウェブサーバへ通知を配信するための方法が得られます。サービスフックともいいます。
-- 
-  term: Works with GitHub
-  description: GitHub で行うインテグレーションの一覧。
 - 
   term: 書き込みアクセス
   description: >-

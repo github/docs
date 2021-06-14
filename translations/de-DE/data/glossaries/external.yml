@@ -1,7 +1,7 @@
 ---
 - 
   term: '@erwähnen'
-  description: um eine Person auf GitHub mittels „@“ vor ihrem Benutzernamen zu benachrichtigen. Benutzer in einer Organisation auf GitHub können auch Bestandteil eines Teams sein, das erwähnt werden kann.
+  description: Um eine Person auf GitHub mittels „@“ vor ihrem Benutzernamen zu benachrichtigen. Benutzer in einer Organisation auf GitHub können auch Bestandteil eines Teams sein, das erwähnt werden kann.
 - 
   term: Zugriffstoken
   description: >-
@@ -78,7 +78,7 @@
   term: Ticket
   description: Ein bewegliches Quadrat innerhalb eines Projektboards, das einem Issue oder einem Pull Request zugeordnet ist.
 - 
-  term: Check
+  term: check
   description: >-
     Ein Check ist eine Art Statusprüfung auf {% data variables.product.product_name %}. Siehe „[Status checks](#status-Checks)."
 - 
@@ -106,7 +106,7 @@
   description: >-
     Die Fähigkeit, GitHub Enterprise-Dienste knotenübergreifend auszuführen und einen Lastenausgleich zwischen ihnen herzustellen.
 - 
-  term: Code-Verlaufsdiagramm
+  term: code-Verlaufsdiagramm
   description: >-
     Ein Repository-Diagramm, das die Inhaltsergänzungen und -löschungen für jede Woche im Verlauf eines Repositorys darstellt.
 - 
@@ -162,7 +162,7 @@
   description: >-
     Ein Mitarbeiter besitzt keinen Mitarbeiterzugriff auf ein Repository, hat sich jedoch an einem Projekt beteiligt und besaß einen in das Repository gemergten Pull Request, den er geöffnet hatte.
 - 
-  term: Mitarbeiterdiagramm
+  term: mitarbeiterdiagramm
   description: Ein Repository-Diagramm, in dem die Top-100-Mitarbeiter an einem Repository angezeigt werden.
 - 
   term: Gutschein
@@ -181,13 +181,13 @@
 - 
   term: Standardbranch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
-  term: Abhängigkeitsdiagramm
+  term: abhängigkeitsdiagramm
   description: >-
     Ein Repository-Diagramm, in dem die Pakete, Projekte und Repositorys gezeigt werden, die von einem öffentlichen Repository abhängen.
 - 
-  term: Abhängigkeitsdiagramm
+  term: dependency graph
   description: >-
     Ein Repository-Diagramm, in dem die Pakete und Projekte angezeigt werden, von denen das Repository abhängig ist.
 - 
@@ -213,7 +213,7 @@
   term: E-Mail-Benachrichtigungen
   description: An die E-Mail-Adresse eines Benutzers gesendete Benachrichtigungen.
 - 
-  term: Enterprise-Konto
+  term: Unternehmenskonto
   description: Enterprise-Konten erlauben Dir die zentrale Verwaltung von Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %} Organisationen. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -250,7 +250,7 @@
   description: >-
     Ein kostenloser Benutzerkonto-Abrechnungsplan. Benutzer können in unbegrenzten öffentlichen Repositorys mit unbegrenzt vielen Mitarbeitern interagieren.
 - 
-  term: Gist
+  term: gist
   description: >-
     A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
@@ -377,7 +377,7 @@
   description: >-
     Ein persönliches Konto, auf das der Benutzer nicht zugreifen kann. Konten sind gesperrt, wenn Benutzer ihr bezahltes Konto auf ein kostenloses downgraden oder wenn ihr bezahlter Plan überfällig ist.
 - 
-  term: Managementkonsole
+  term: management console
   description: >-
     Ein Abschnitt auf der GitHub Enterprise-Oberfläche mit enthaltenen Verwaltungsfeatures.
 - 
@@ -385,18 +385,18 @@
   description: >-
     Markdown ist ein unglaublich einfaches semantisches Dateiformat und ähnelt .doc, .rtf und .txt. Mithilfe von Markdown können Benutzer ohne Know-how in Bezug auf Web-Publishing Fließtext (einschließlich Links, Listen, Aufzählungszeichen usw.) schreiben und ihn wie eine Website anzeigen. GitHub unterstützt Markdown und verwendet eine bestimmte Form von Markdown, das sog. GitHub Flavored Markdown. Siehe [GitHub Flavored Markdown – Spezifikation](https://github.github.com/gfm/) oder [Erste Schritte mit dem Schreiben und Formatieren auf GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
 - 
-  term: Markup
+  term: markup
   description: Ein System, um ein Dokument mit Anmerkungen zu versehen und zu formatieren.
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: Master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
-  term: Mitgliederdiagramm
+  term: mitgliederdiagramm
   description: Ein Repository-Diagramm, in dem alle Forks eines Repositorys gezeigt werden.
 - 
   term: erwähnen
@@ -422,11 +422,11 @@
   description: >-
     Ein untergeordnetes Team eines übergeordneten Teams. Sie können über mehrere untergeordnete Teams verfügen.
 - 
-  term: Netzwerkdiagramm
+  term: netzwerkdiagramm
   description: >-
     Ein Repository-Diagramm, in dem der Branch-Verlauf des gesamten Repository-Netzwerks angezeigt wird, einschließlich der Branches des Root-Repositorys und der Branches der Forks, die netzwerkspezifische Commits enthalten.
 - 
-  term: News-Feed
+  term: news feed
   description: >-
     Eine aktive Ansicht der Repositorys oder Personen, die von Ihnen beobachtet werden können. Der News-Feed einer Organisation zeigt die Aktivität zu den Repositorys, die der Organisation gehören.
 - 
@@ -543,10 +543,10 @@
   description: >-
     Kommentare von Mitarbeitern zu Pull Requests, welche die Änderungen genehmigen oder weitere Änderungen anfordern, bevor der Pull Request gemergt wird.
 - 
-  term: Pulse-Diagramm
+  term: pulse-Diagramm
   description: Ein Repository-Diagramm, in dem Sie eine Übersicht zur Aktivität eines Repositorys erhalten.
 - 
-  term: Punch-Diagramm
+  term: punch-Diagramm
   description: >-
     Ein Repository-Diagramm, das die Häufigkeit der Aktualisierungen an einem Repository basierend auf dem Wochentag und der Uhrzeit anzeigt.
 - 
@@ -680,7 +680,7 @@
   description: >-
     Eine visuelle Darstellung innerhalb eines Pull Requests dahingehend, dass Ihre Commits die für das Repository festgelegten Bedingungen erfüllen, an dem Sie mitwirken.
 - 
-  term: Statuschecks
+  term: statuschecks
   description: >-
     Statusprüfungen sind externe Prozesse, z. B. kontinuierliche Integrations-Builds, die für jeden Commit ausgeführt werden, den Du in einem Repository erstellst. Weitere Informationen findest Du unter „[Über Statusprüfungen](/articles/about-status-checks)."
 - 
@@ -714,7 +714,7 @@
   description: >-
     Eine Möglichkeit, Repositorys in einem bestimmten Themenbereich zu erkunden, nach Projekten zu suchen, zu denen beigetragen werden soll, und neue Lösungen zu einem spezifischen Problem auf GitHub zu finden.
 - 
-  term: Traffic-Diagramm
+  term: traffic-Diagramm
   description: >-
     Ein Repository-Diagramm, das den Traffic eines Repositorys anzeigt, darunter die vollständigen Klone (nicht Abrufe), Besucher der letzten 14 Tage, verweisende Websites und beliebte Inhalte.
 - 
@@ -754,9 +754,6 @@
   term: Webhooks
   description: >-
     Mithilfe von Webhooks können Sie GitHub Apps erstellen oder einrichten, die bestimmte Ereignisse auf GitHub.com abonnieren. Webhooks bieten eine Möglichkeit zum Senden von Benachrichtigungen an einen externen Webserver, sobald bestimmte Aktionen in einem Repository oder in einer Organisation auftreten. Werden auch als Dienst-Hook bezeichnet.
-- 
-  term: Works with GitHub
-  description: Eine Auflistung der Integrationen, die in GitHub funktionieren.
 - 
   term: Schreibzugriff
   description: >-

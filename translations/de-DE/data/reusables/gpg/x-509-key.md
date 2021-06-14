@@ -30,7 +30,7 @@ Du kannst [smimesign](https://github.com/github/smimesign) verwenden, um Commits
   $ git config --local gpg.program smimesign
   ```
   Wenn Du einen X.509-Schlüssel verwendest, der mit Deiner Beitragender-Identität übereinstimmt, kannst Du Commits und Tags signieren.
-4. Wenn Du keinen X.509-Schlüssel verwendest, der mit Deiner Beitragender-Identität übereinstimmt, solltest Du durch Ausführen des Befehls `smimesign --list-keys` die X.509-Schlüssel auflisten, für die Du über ein Zertifikat und über einen privaten Schlüssel verfügst.
+4. If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
   ```shell
   $ smimesign --list-keys
   ```

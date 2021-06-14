@@ -22,6 +22,12 @@ Com wikis, é possível gravar conteúdo assim como em qualquer outro lugar no {
 
 Você pode editar wikis diretamente no {% data variables.product.product_name %} ou editar arquivos wiki localmente. Por padrão, somente as pessoas com acesso de gravação ao repositório podem fazer alterações no wikis, embora você possa permitir que todos em {% data variables.product.product_location %} contribuam para um wiki em {% if currentVersion == "github-ae@latest" %}um repositório interno{% else %}público{% endif %}. Para obter mais informações, consulte "[Alterar permissões de acesso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
 
+{% note %}
+
+**Observação:** Os mecanismos de pesquisa não indexam o conteúdo de wikis. Para que seu conteúdo seja indexado por mecanismos de busca, você pode usar [{% data variables.product.prodname_pages %}](/pages) em um repositório público.
+
+{% endnote %}
+
 ### Leia mais
 
 - "[Adicionar ou editar páginas wiki](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"

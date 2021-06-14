@@ -29,6 +29,8 @@ topics:
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 基本要求
 
 您可能会发现它有助于基本了解 {% data variables.product.prodname_actions %} 环境变量和 Docker 容器文件系统：
@@ -195,14 +197,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

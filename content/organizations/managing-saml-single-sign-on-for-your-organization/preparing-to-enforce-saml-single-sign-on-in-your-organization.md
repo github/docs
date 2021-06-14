@@ -22,6 +22,6 @@ Before enforcing SAML SSO in your organization, you should:
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

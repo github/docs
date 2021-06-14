@@ -18,8 +18,5 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-5. 在 Billing managers（帐单管理员）列表中您要删除的人员姓名旁边，单击 {% octicon "x" aria-label="X symbol" %}。 ![删除帐单管理员](/assets/images/help/billing/settings_billing_managers_remove_manager.png)
+{% data reusables.organizations.billing-settings %}
+1. 在“Billing management（帐单管理）”下“Billing managers（帐单管理员）”列表中您要删除的人员姓名旁边，单击 **Remove（删除）**。 ![删除帐单管理员](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

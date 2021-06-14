@@ -8,6 +8,10 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Security
+  - Storage
 ---
 
 ### Arquitectura de almancenamiento

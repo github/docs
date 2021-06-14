@@ -21,6 +21,8 @@ topics:
 
 このプロジェクトを完了すれば、独自の複合実行ステップ アクションをビルドし、ワークフローでテストする方法を理解できるでしょう。
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 必要な環境
 
 始める前に、{% data variables.product.product_name %} リポジトリを作成します。
@@ -121,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }}
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

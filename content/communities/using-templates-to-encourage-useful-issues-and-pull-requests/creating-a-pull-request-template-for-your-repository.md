@@ -22,7 +22,7 @@ You can create default pull request templates for your organization{% if current
 
 {% endif %}
 
-### Adding a pull request template
+## Adding a pull request template
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -43,7 +43,7 @@ You can create default pull request templates for your organization{% if current
 {% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 
 - "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
 - "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"

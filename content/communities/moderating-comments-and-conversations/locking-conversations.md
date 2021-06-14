@@ -32,7 +32,7 @@ To search for locked conversations in a repository that is not archived, you can
 5. When you're ready to unlock the conversation, click **Unlock conversation**.
 ![Unlock conversation link](/assets/images/help/repository/unlock-conversation.png)
 
-### Further reading
+## Further reading
 
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"

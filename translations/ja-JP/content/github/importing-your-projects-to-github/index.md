@@ -1,5 +1,6 @@
 ---
 title: GitHub にプロジェクトをインポートする
+intro: 'You can import your source code to {% data variables.product.product_name %} using a variety of different methods.'
 shortTitle: プロジェクトのインポート
 redirect_from:
   - /categories/67/articles/
@@ -9,19 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+children:
+  - /importing-source-code-to-github
+  - /working-with-subversion-on-github
 ---
 
-
-### 目次
-
-{% topic_link_in_list /importing-source-code-to-github %}
-    {% link_in_list /about-github-importer %}
-    {% link_in_list /importing-a-repository-with-github-importer %}
-    {% link_in_list /updating-commit-author-attribution-with-github-importer %}
-    {% link_in_list /importing-a-git-repository-using-the-command-line %}
-    {% link_in_list /adding-an-existing-project-to-github-using-the-command-line %}
-    {% link_in_list /source-code-migration-tools %}
-{% topic_link_in_list /working-with-subversion-on-github %}
-    {% link_in_list /what-are-the-differences-between-subversion-and-git %}
-    {% link_in_list /support-for-subversion-clients %}
-    {% link_in_list /subversion-properties-supported-by-github %}

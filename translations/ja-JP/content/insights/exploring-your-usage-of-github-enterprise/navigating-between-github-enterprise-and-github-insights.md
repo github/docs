@@ -1,7 +1,6 @@
 ---
 title: GitHub EnterpriseとGitHub Insights間のアクセス
 intro: ''
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can navigate between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'

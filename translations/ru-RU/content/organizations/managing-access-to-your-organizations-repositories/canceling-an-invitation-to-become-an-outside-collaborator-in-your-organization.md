@@ -7,16 +7,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 You can view a list of all people with pending invitations to become an outside collaborator on any repository owned by your organization.
 
 For each pending collaborator, you can cancel all invitations to join organization repositories at the same time.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Click **X pending collaborators**. !["Pending collaborators" button](/assets/images/help/organizations/pending-collaborator-list.png)

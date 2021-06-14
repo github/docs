@@ -12,11 +12,11 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Configuring a workflow to run manually
+## Configuring a workflow to run manually
 
 To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event. For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
-### Running a workflow on {% data variables.product.prodname_dotcom %} 
+## Running a workflow on {% data variables.product.prodname_dotcom %} 
 
 To trigger the `workflow_dispatch` event on {% data variables.product.prodname_dotcom %}, your workflow must be in the default branch. Follow these steps to manually trigger a workflow run.
 
@@ -31,7 +31,7 @@ To trigger the `workflow_dispatch` event on {% data variables.product.prodname_d
 1. Select the branch where the workflow will run and type the input parameters used by the workflow. Click **Run workflow**.
 ![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
 
-### Running a workflow using {% data variables.product.prodname_cli %}
+## Running a workflow using {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 
@@ -65,7 +65,7 @@ To view the progress of the workflow run, use the `run watch` subcommand and sel
 gh run watch
 ```
 
-### Running a workflow using the REST API
+## Running a workflow using the REST API
 
 When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used. 
 

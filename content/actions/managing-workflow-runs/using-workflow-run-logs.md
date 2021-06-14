@@ -20,7 +20,7 @@ If the run is complete, you can see whether the result was a success, failure, c
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
-### Viewing logs to diagnose failures
+## Viewing logs to diagnose failures
 
 If your workflow run fails, you can see which step caused the failure and review the failed step's build logs to troubleshoot. You can see the time it took for each step to run. You can also copy a permalink to a specific line in the log file to share with your team. {% data reusables.repositories.permissions-statement-read %}
 
@@ -36,7 +36,7 @@ For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Se
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 {% data reusables.repositories.view-specific-line-superlinter %}
 
-### Searching logs
+## Searching logs
 
 You can search the build logs for a particular step. When you search logs, only expanded steps are included in the results. {% data reusables.repositories.permissions-statement-read %}
 
@@ -59,7 +59,7 @@ You can search the build logs for a particular step. When you search logs, only 
   ![Search box to search logs](/assets/images/help/repository/search-log-box.png)
 {% endif %}
 
-### Downloading logs
+## Downloading logs
 
 You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)." {% data reusables.repositories.permissions-statement-read %}
 
@@ -80,7 +80,7 @@ You can download the log files from your workflow run. You can also download a w
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down.png)
 {% endif %}
 
-### Deleting logs
+## Deleting logs
 
 You can delete the log files from your workflow run. {% data reusables.repositories.permissions-statement-write %}
 
@@ -110,7 +110,7 @@ After deleting logs, the **Delete all logs** button is removed to indicate that 
 After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
 {% endif %}
 
-### Viewing logs with {% data variables.product.prodname_cli %}
+## Viewing logs with {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 

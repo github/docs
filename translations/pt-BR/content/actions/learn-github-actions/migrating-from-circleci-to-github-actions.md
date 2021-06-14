@@ -445,7 +445,9 @@ jobs:
           path: vendor/bundle
           key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
       - name: Install postgres headers
-        run: sudo apt-get install libpq-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
       - name: Install dependencies
         run: bundle install --path vendor/bundle
       - name: Setup environment configuration

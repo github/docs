@@ -28,7 +28,7 @@ You can edit wikis directly on {% data variables.product.product_name %}, or you
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
 - "[Creating a footer or sidebar for your wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"

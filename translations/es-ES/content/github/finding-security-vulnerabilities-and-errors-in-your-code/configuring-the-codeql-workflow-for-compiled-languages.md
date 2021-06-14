@@ -10,6 +10,8 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -31,11 +33,7 @@ Si tu flujo de trabajo utiliza una matriz de `language`, el `autobuild` intentar
 
 {% note %}
 
-{% if currentVersion == "github-ae@latest" %}**Nota**: Para obtener instrucciones sobre cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
-{% else %}
-**Nota**: Si usas ejecutores auto-hospedados para
-{% data variables.product.prodname_actions %}, puede que necesites instalar el software adicional para utilizar el proceso `autobuild`. Adicionalmente, si tu repositorio requiere de una versión específica de una herramienta de compilación, tal vez necesites instalarla manualmente. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
-{% endif %}
+**Nota**: Si utilizas los ejecutores auto-hospedados para {% data variables.product.prodname_actions %}, tal vez necesites instalar software adicional para utilizar el proceso de `autobuild`. Adicionalmente, si tu repositorio requiere de una versión específica de una herramienta de compilación, tal vez necesites instalarla manualmente. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 
 {% endnote %}
 

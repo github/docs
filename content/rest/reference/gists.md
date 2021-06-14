@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Authentication

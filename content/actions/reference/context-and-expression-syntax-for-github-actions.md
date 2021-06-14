@@ -12,13 +12,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About contexts and expressions
+## About contexts and expressions
 
 You can use expressions to programmatically set variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators.
 
@@ -31,6 +32,8 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 {% endraw %}
 
 {% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+
+{% data reusables.github-actions.context-injection-warning %}
 
 #### Example expression in an `if` conditional
 
@@ -45,11 +48,11 @@ steps:
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
-### Contexts
+## Contexts
 
 Contexts are a way to access information about workflow runs, runner environments, jobs, and steps. Contexts use the expression syntax.
 
@@ -77,15 +80,16 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
-#### Determining when to use contexts
+### Determining when to use contexts
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 
-#### `github` context
+### `github` context
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -109,7 +113,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
 | `github.workspace` | `string` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
 
-#### `env` context
+### `env` context
 
 The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
 
@@ -122,7 +126,7 @@ If you want to use the value of an environment variable inside a runner, use the
 | `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
 | `env.<env_name>` | `string` | The value of a specific environment variable. |
 
-#### `job` context
+### `job` context
 
 The `job` context contains information about the currently running job.
 
@@ -138,7 +142,7 @@ The `job` context contains information about the currently running job.
 | `job.services.<service id>.ports` | `object` | The exposed ports of the service container. |
 | `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
 
-#### `steps` context
+### `steps` context
 
 The `steps` context contains information about the steps in the current job that have already run.
 
@@ -150,7 +154,7 @@ The `steps` context contains information about the steps in the current job that
 | `steps.<step id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
 | `steps.<step id>.outputs.<output name>` | `string` | The value of a specific output. |
 
-#### `runner` context
+### `runner` context
 
 The `runner` context contains information about the runner that is executing the current job.
 
@@ -161,7 +165,7 @@ The `runner` context contains information about the runner that is executing the
 | `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
 {% else %}The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}|
 
-#### `needs` context
+### `needs` context
 
 The `needs` context contains outputs from all jobs that are defined as a dependency of the current job. For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
@@ -214,7 +218,7 @@ jobs:
 ```
 {% endraw %}
 
-### Literals
+## Literals
 
 As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types. Boolean literals are not case sensitive, so you can use `true` or `True`.
 
@@ -241,7 +245,7 @@ env:
 ```
 {% endraw %}
 
-### Operators
+## Operators
 
 | Operator    | Description |
 | ---         | ---         |
@@ -273,7 +277,7 @@ env:
 * {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 * Objects and arrays are only considered equal when they are the same instance.
 
-### Functions
+## Functions
 
 {% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
 
@@ -285,53 +289,53 @@ env:
 | Array   | Arrays are not converted to a string |
 | Object  | Objects are not converted to a string |
 
-#### contains
+### contains
 
 `contains( search, item )`
 
 Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
 
-##### Example using an array
+#### Example using an array
 
 `contains(github.event.issue.labels.*.name, 'bug')`
 
-##### Example using a string
+#### Example using a string
 
 `contains('Hello world', 'llo')` returns `true`
 
-#### startsWith
+### startsWith
 
 `startsWith( searchString, searchValue )`
 
 Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-##### Example
+#### Example
 
 `startsWith('Hello world', 'He')` returns `true`
 
-#### endsWith
+### endsWith
 
 `endsWith( searchString, searchValue )`
 
 Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-##### Example
+#### Example
 
 `endsWith('Hello world', 'ld')` returns `true`
 
-#### format
+### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
 Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
-##### Example
+#### Example
 
 Returns 'Hello Mona the Octocat'
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-##### Example escaping braces
+#### Example escaping braces
 
 Returns '{Hello Mona the Octocat!}'
 
@@ -341,33 +345,33 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
 
-#### join
+### join
 
 `join( array, optionalSeparator )`
 
 The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
 
-##### Example
+#### Example
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
-#### toJSON
+### toJSON
 
 `toJSON(value)`
 
 Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
 
-##### Example
+#### Example
 
 `toJSON(job)` might return `{ "status": "Success" }`
 
-#### fromJSON
+### fromJSON
 
 `fromJSON(value)`
 
 Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
 
-##### Example returning a JSON object
+#### Example returning a JSON object
 
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
@@ -393,7 +397,7 @@ jobs:
 ```
 {% endraw %}
 
-##### Example returning a JSON data type
+#### Example returning a JSON data type
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
@@ -414,7 +418,7 @@ jobs:
 ```
 {% endraw %}
 
-#### hashFiles
+### hashFiles
 
 `hashFiles(path)`
 
@@ -422,27 +426,27 @@ Returns a single hash for the set of files that matches the `path` pattern. You 
 
 You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
 
-##### Example with a single pattern
+#### Example with a single pattern
 
 Matches any `package-lock.json` file in the repository.
 
 `hashFiles('**/package-lock.json')`
 
-##### Example with multiple patterns
+#### Example with multiple patterns
 
 Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-### Job status check functions
+## Job status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. If your `if` expression does not contain any of the status functions it will automatically result with `success()`. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
-#### success
+### success
 
 Returns `true` when none of the previous steps have failed or been canceled.
 
-##### Example
+#### Example
 
 ```yaml
 steps:
@@ -451,31 +455,31 @@ steps:
     if: {% raw %}${{ success() }}{% endraw %}
 ```
 
-#### always
+### always
 
 Always returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
 
-##### Example
+#### Example
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-#### cancelled
+### cancelled
 
 Returns `true` if the workflow was canceled.
 
-##### Example
+#### Example
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
 ```
 
-#### failure
+### failure
 
 Returns `true` when any previous step of a job fails.
 
-##### Example
+#### Example
 
 ```yaml
 steps:
@@ -484,7 +488,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-### Object filters
+## Object filters
 
 You can use the `*` syntax to apply a filter and select matching items in a collection.
 

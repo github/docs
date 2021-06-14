@@ -16,13 +16,13 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About package installation
+## About package installation
 
 You can search {% data variables.product.product_name %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/github/searching-for-information-on-github/searching-for-packages)."
 
 After you find a package, you can read the package's description and installation and usage instructions on the package page.
 
-### Installing a package
+## Installing a package
 
 You can install a package from {% data variables.product.prodname_registry %} using any {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 

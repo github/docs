@@ -12,7 +12,7 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Re-run a workflow using the {% data variables.product.prodname_dotcom %} UI
+## Re-run a workflow using the {% data variables.product.prodname_dotcom %} UI
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -22,7 +22,7 @@ versions:
 {% data reusables.repositories.view-run %}
 1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png){% else %}![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png){% endif %}
 
-### Re-run a workflow using {% data variables.product.prodname_cli %}
+## Re-run a workflow using {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 

@@ -53,7 +53,7 @@ Cuando uses los eventos `push` y `pull_request` debes configurar un flujo de tra
 
 Las palabras clave `branches`, `branches-ignore`, `tags` y `tags-ignore` aceptan patrones globales que usan los caracteres comodines `*` y `**` para encontrar más de un nombre de rama o etiqueta. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](#filter-pattern-cheat-sheet)".
 
-#### Ejemplo que incluye ramas y etiquetas
+#### Example: Including branches and tags
 
 Los patrones definidos en `branches` y `tags` se evalúan con el nombre de ref de Git. Por ejemplo, al definir el patrón `mona/octocat` en `branches`, se encontrará la ref de Git `refs/heads/mona/octocat`. El patrón `releases/**` encontrará la ref de Git `refs/heads/releases/10`.
 
@@ -74,7 +74,7 @@ on:
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
-#### Ejemplo de ignorar ramas y etiquetas
+#### Example: Ignoring branches and tags
 
 Cada vez que un patrón coincida con el patrón `branches-ignore` o `tags-ignore`, no se ejecutará el flujo de trabajo. Los patrones definidos en `branches-ignore` y `tags-ignore` se evalúan con el nombre de ref de Git. Por ejemplo, al definir el patrón `mona/octocat` en `branches`, se encontrará la ref de Git `refs/heads/mona/octocat`. El patrón `releases/**-alpha` en `branches` encontrará la ref de Git `refs/releases/beta/3-alpha`.
 
@@ -98,7 +98,7 @@ Puedes usar dos tipos de filtros para evitar que un flujo de trabajo se ejecute 
 - `branches` o `branches-ignore`: no puedes usar ambos filtros `branches` y `branches-ignore` para el mismo evento de un flujo de trabajo. Usa el filtro `branches` cuando debas filtrar ramas de coincidencias positivas y para excluir ramas. Usa el filtro `branches-ignore` cuando solo debas excluir nombres de ramas.
 - `tags` o `tags-ignore`: no puedes usar ambos filtros `tags` y `tags-ignore` para el mismo evento de un flujo de trabajo. Usa el filtro `tags` cuando debas filtrar etiquetas de coincidencias positivas y para excluir etiquetas. Usa el filtro `tags-ignore` cuando solo debas excluir nombres de etiquetas.
 
-#### Ejemplo de uso de patrones positivos y negativos
+#### Example: Using positive and negative patterns
 
 Puedes excluir `etiquetas` y `ramas` usando el caracter `!`. El orden en que defines los patrones importa.
   - Un patrón negativo de coincidencia (con prefijo `!`) luego de una coincidencia positiva excluirá la ref de Git.
@@ -110,8 +110,8 @@ El siguiente flujo de trabajo se ejecutará en las subidas a `releases/10` o `re
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -120,18 +120,18 @@ Cuando uses los eventos `push` y `pull_request`, puedes configurar que se ejecut
 
 Las palabras clave `paths-ignore` y `paths` aceptan los patrones globales que usan los caracteres comodines `*` y `**` para encontrar más de un nombre de ruta. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](#filter-pattern-cheat-sheet)".
 
-#### Ejemplo de ignorar rutas
+#### Example: Ignoring paths
 
-When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
+Cuando todos los nombres de ruta coincidan con los patrones en `paths-ignore`, el flujo de trabajo no se ejecutará. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
 
 ```yaml
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
-#### Ejemplo de incluir rutas
+#### Example: Including paths
 
 Si al menos una ruta coincide con un patrón del filtro de `rutas`, se ejecuta el flujo de trabajo. Para desencadenar una compilación cada vez que subes un archivo JavaScript, puedes usar un patrón comodín.
 
@@ -139,7 +139,7 @@ Si al menos una ruta coincide con un patrón del filtro de `rutas`, se ejecuta e
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### Excluir rutas
@@ -148,7 +148,7 @@ Puedes excluir rutas usando dos tipos de filtros. No puedes usar ambos filtros p
 - `paths-ignore`: usa el filtro `paths-ignore` cuando solo debas excluir nombres de ruta.
 - `paths`: usa el filtro `paths` cuando debas filtrar rutas de coincidencias positivas y excluir rutas.
 
-#### Ejemplo de uso de patrones positivos y negativos
+#### Example: Using positive and negative patterns
 
 Puedes excluir `rutas` usando el caracter `!`. El orden en que defines los patrones importa:
   - Una coincidencia de patrón negativo (con prefijo `!`) luego de una coincidencia positiva excluirá la ruta.
@@ -160,8 +160,8 @@ Este ejemplo se ejecuta cada vez que el evento de `subida` incluye un archivo en
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Comparaciones de diferencias de Git
@@ -186,6 +186,32 @@ Para obtener más información, consulta "[Acerca de comparar ramas en las solic
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 Para obtener más información acerca de la sintaxis cron, consulta "[Eventos que activan flujos de trabajo](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `permisos`
+
+Puedes modificar los permisos predeterminados que se otorgaron al `GITHUB_TOKEN` si agregas o eliminas el acceso según se requiera para que solo permitas el acceso mínimo requerido. Para obtener más información, consulta la sección "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
+
+Puedes utilizar los `permissions` ya sea como una clave de nivel superior, para aplicar todos los jobs en el flujo de trabajo, o dentro de jobs específicos. Cuando agregas la clave `permissions` dentro de un job específico, todas las acciones y comandos de ejecución dentro de este que utilicen el `GITHUB_TOKEN` obtendrán los derechos de acceso que especificas.  Para obtener más información, consulta los [`jobs<job_id>permissions`](#jobsjob_idpermissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Ejemplo
+
+Este ejemplo muestra los permisos que se están configurando para el `GITHUB_TOKEN` que aplicará a todos los jobs en el flujo de trabajo. Se otorga acceso de lectura a todos los permisos.
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -221,6 +247,18 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el mismo grupo de concurrencia se ejecute al mismo tiempo. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión solo puede utilizar el contexto `github`. Para obtener más información acerca de las expresiones, consulta la sección "[Contexto y sintaxis de expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+
+También puedes especificar la `concurrency` a nivel del job. Para obtener más información, consulta la [`jobs<job_id>concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `Trabajos`
 
 Una ejecución de flujo de trabajo está compuesta por uno o más trabajos. De forma predeterminada, los trabajos se ejecutan en paralelo. Para ejecutar trabajos de manera secuencial, puedes definir dependencias en otros trabajos utilizando la palabra clave `jobs.<job_id>.needs`.
@@ -253,7 +291,7 @@ El nombre del trabajo que se muestra en {% data variables.product.prodname_dotco
 
 Identifica los trabajos que se deben completar con éxito antes de que se ejecute este trabajo. Puede ser una cadena o matriz de cadenas. Si un job falla, se saltarán todos los jobs que lo necesiten a menos de que éstos utilicen una expresión condicional que ocasione que el job continúe.
 
-#### Ejemplo que requiere que los jobs dependientes sean exitosos
+#### Example: Requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -272,7 +310,7 @@ En este ejemplo, los trabajos se ejecutan de manera secuencial:
 2. `job2`
 3. `job3`
 
-#### Ejemplo que no requiere que los jobs dependientes sean exitosos
+#### Example: Not requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -339,6 +377,34 @@ runs-on: [self-hosted, linux]
 
 Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" y "[Usar ejecutores autoalojados en un flujo de trabajo](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)".
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+Puedes modificar los permisos predeterminados que se otorgaron al `GITHUB_TOKEN` si agregas o eliminas el acceso según se requiera para que solo permitas el acceso mínimo requerido. Para obtener más información, consulta la sección "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
+
+Si especificas el permiso dentro de una definición de job, puedes configurar un conjunto diferente de permisos para el `GITHUB_TOKEN` de cada job, en caso de que se requiera. Como alternativa, puedes especificar los permisos para todos los jobs en el flujo de trabajo. Para obtener más información sobre los permisos que se definen a nivel del flujo de trabajo, consulta los [`permissions`](#permissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Ejemplo
+
+Este ejemplo muestra los permisos que se están configurando para el `GITHUB_TOKEN`, los cuales solo aplicarán al job que se llama `stale`. Se otorga permiso de escritura a los alcances `issues` y `pull-requests`. El resto de los alcances no tendrán acceso.
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v3
+```
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
@@ -347,10 +413,11 @@ El ambiente que referencia el job. Todas las reglas de protección del ambiente 
 Puedes proporcionar el ambiente como solo el `name` de éste, o como un objeto de ambiente con el `name` y `url`. La URL mapea hacia `environment_url` en la API de despliegues. Para obtener más información sobre la API de despliegues, consulta la sección "[Despliegues](/rest/reference/repos#deployments)".
 
 ##### Ejemplo utilizando solo el nombre de un ambiente
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### Ejemplo utilizando un nombre y URL del ambiente
 
@@ -367,11 +434,30 @@ La URL puede ser una expresión y puede utilizar cualquier contexto con excepci�
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**Nota:** Cuando se especifica la concurrencia a nivel del job, no se garantiza el orden para los jobs o ejecuciones que se ponen en fila a 5 minutos uno del otro.
+
+{% endnote %}
+
+La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el mismo grupo de concurrencia se ejecute al mismo tiempo. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión puede utilizar cualquier contexto, con excepción del contexto `secrets`. Para obtener más información acerca de las expresiones, consulta la sección "[Contexto y sintaxis de expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+
+También puedes especificar la `concurrency` a nivel del flujo de trabajo. Para obtener más información, consulta la [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 Un `map` de salidas para un job. Las salidas de un job se encuentran disponibles para todos los jobs descendentes que dependan de este job. Para obtener más información sobre la definición de dependencias, consulta [`jobs.<job_id>.needs`](#jobsjob_idneeds).
@@ -392,15 +478,15 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -470,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
@@ -491,7 +577,7 @@ Puedes usar el condiciona `if` para impedir que se ejecute un paso si no se cump
 
 {% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-#### Ejemplos usando contextos
+#### Example: Using contexts
 
  Este paso solo se ejecuta cuando el tipo de evento es una `pull_request` y la acción del evento está `sin asignar`.
 
@@ -502,7 +588,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### Ejemplo usando funciones de verificación de estado
+#### Example: Using status check functions
 
 El `paso mi copia de seguridad` solo se ejecuta cuando se produce un error en el paso anterior de un trabajo. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
 
@@ -532,7 +618,7 @@ Algunas acciones requieren entradas que se deben establecer usando la palabra cl
 
 Las acciones son archivos JavaScript o contenedores Docker. Si la acción que estás usando es un contenedor Docker, debes ejecutar el trabajo en un entorno Linux. Para obtener más detalles, consulta [`runs-on`](#jobsjob_idruns-on).
 
-#### Ejemplo usando acciones versionadas
+#### Example: Using versioned actions
 
 ```yaml
 steps:    
@@ -546,7 +632,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-#### Ejemplo usando una acción pública
+#### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
@@ -564,7 +650,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### Ejemplo usando una acción pública en un subdirectorio
+#### Example: Using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -578,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Ejemplo usando la acción en el mismo repositorio que el flujo de trabajo
+#### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -594,7 +680,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Ejemplo usando una acción Docker Hub
+#### Example: Using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -609,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Ejemplo de uso del {% data variables.product.prodname_github_container_registry %}
+##### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-Una imagen de Docker en el {% data variables.product.prodname_github_container_registry %}.
+Una imagen de Docker en el {% data variables.product.prodname_container_registry %} del {% data variables.product.prodname_registry %}.
 
 ```yaml
 jobs:
@@ -623,7 +709,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-##### Ejemplo usando una acción de registro público de Docker
+##### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -637,9 +723,11 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Ejemplo de cómo utilizar una acción dentro de un repositorio privado diferente al flujo de trabajo
+#### Example: Using an action inside a different private repository than the workflow
 
-Tu flujo de trabajo debe registrar el repositorio privado y referenciar la acción de forma local.
+Tu flujo de trabajo debe registrar el repositorio privado y referenciar la acción de forma local. Genera un token de acceso personal y agrega el token como un secreto cifrado. Para obtener más información, consulta las secciones "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" y "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+
+Reemplaza a `PERSONAL_ACCESS_TOKEN` en el ejemplo con el nombre de tu secreto.
 
 {% raw %}
 ```yaml
@@ -651,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
@@ -692,7 +780,7 @@ Usando la palabra clave `working-directory`, puedes especificar el directorio de
 
 #### Uso de un shell específico
 
-Puedes anular los parámetros predeterminados del shell en el sistema operativo del ejecutor utilizando la palabra clave `shell`. Puedes usar palabras clave incorporadas de `shell` keywords, o puedes definir un conjunto personalizado de opciones de shell.
+Puedes anular los parámetros predeterminados del shell en el sistema operativo del ejecutor utilizando la palabra clave `shell`. Puedes usar palabras clave incorporadas de `shell`, o puedes definir un conjunto personalizado de opciones de shell.
 
 | Plataforma compatible | parámetro `shell` | Descripción                                                                                                                                                                                                                                                                                                    | Comando ejecutado interamente                   |
 | --------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -704,7 +792,7 @@ Puedes anular los parámetros predeterminados del shell en el sistema operativo 
 | Windows               | `pwsh`            | Este es el shell predeterminado que se usa en Windows. Powershell Core. {% data variables.product.prodname_dotcom %} agrega la extensión `.ps1` al nombre de tu script. Si tu ejecutor auto-hospedado de Windows no tiene instalado _PowerShell Core_, entonces se utilizará _PowerShell Desktop_ en su lugar. | `pwsh -command ". '{0}'"`.                      |
 | Windows               | `powershell`      | El PowerShell Desktop. {% data variables.product.prodname_dotcom %} agrega la extensión `.ps1` al nombre de tu script.                                                                                                                                                                                         | `powershell -command ". '{0}'"`.                |
 
-#### Ejemplo de ejecución de un script mediante bash
+#### Example: Running a script using bash
 
 ```yaml
 steps:
@@ -713,7 +801,7 @@ steps:
     shell: bash
 ```
 
-#### Ejemplo de ejecución de un script mediante `cmd` de Windows
+#### Example: Running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -722,7 +810,7 @@ steps:
     shell: cmd
 ```
 
-#### Ejemplo de ejecución de un script mediante PowerShell Core
+#### Example: Running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -740,7 +828,7 @@ steps:
     shell: powershell
 ```
 
-#### Ejemplo de ejecución de un script de python
+#### Example: Running a python script
 
 ```yaml
 steps:
@@ -775,7 +863,7 @@ Para obtener más información sobre el software que se incluye en los ejecutore
 
 #### Códigos de salida y preferencia de acción de error
 
-Para palabras clave shell incorporadas, brindamos los siguientes valores predeterminados accionados por los ejecutores alojados {% data variables.product.prodname_dotcom %}. Deberías usar estos lineamientos al ejecutar scripts shell.
+Para palabras clave shell incorporadas, brindamos los siguientes valores predeterminados accionados por los ejecutadores alojados por {% data variables.product.prodname_dotcom %}. Deberías usar estos lineamientos al ejecutar scripts de shell.
 
 - `bash`/`sh`:
   - Comportamiento a prueba de fallos utilizando `set -eo pipefail`: Valor predeterminado para `bash` y `shell` incorporado. También es el valor predeterminado cuando no proporcionas una opción en plataformas que no son de Windows.
@@ -793,11 +881,11 @@ Para palabras clave shell incorporadas, brindamos los siguientes valores predete
 
 ### `jobs.<job_id>.steps[*].with`
 
-Un `mapa` de los parámetros de entrada definidos por la acción. Cada parámetro de entrada es un par clave/valor. Los parámetros de entrada se establecen como variables del entorno. La variable tiene el prefijo `INPUT_` y se convierte en mayúsculas.
+Un `mapa` de los parámetros de entrada definidos por la acción. Cada parámetro de entrada es un par clave/valor. Los parámetros de entrada se establecen como variables de entorno. La variable tiene el prefijo `INPUT_` y se convierte en mayúsculas.
 
 #### Ejemplo
 
-Define los tres parámetros de entrada (`first_name`, `middle_name`, and `last_name`) definidos por la acción `hello_world`. Es posible acceder a estas variables de entrada con la acción `hello-world` como `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME` y las variables de entorno `INPUT_LAST_NAME`.
+Define los tres parámetros de entrada (`first_name`, `middle_name` y `last_name`) definidos por la acción `hello_world`. Es posible acceder a estas variables de entrada con la acción `hello-world` como `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME` y las variables de entorno `INPUT_LAST_NAME`.
 
 ```yaml
 jobs:
@@ -836,7 +924,7 @@ Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si u
 
 ### `jobs.<job_id>.steps[*].with.entrypoint`
 
-Anula el Docker `ENTRYPOINT` en el `Dockerfile` o lo establece si es que no tiene uno especificado. A diferencia de la instrucción Docker `ENTRYPOINT` que tiene un shell y formulario de ejecución, la palabra clave `entrypoint` acepta solo una cadena que define el ejecutable que se ejecutará.
+Anula el `PUNTO DE ENTRADA` de Docker en el `Dockerfile` o lo establece si es que no tiene uno especificado. A diferencia de la instrucción Docker `ENTRYPOINT` que tiene un shell y formulario de ejecución, la palabra clave `entrypoint` acepta solo una cadena que define el ejecutable que se ejecutará.
 
 #### Ejemplo
 
@@ -873,7 +961,7 @@ steps:
 
 ### `jobs.<job_id>.steps[*].continue-on-error`
 
-Impide que un trabajo falle cuando falla un paso. Se lo debe establecer en `true` para permitir que un trabajo pase cuando falla este paso.
+Impide que un trabajo falle cuando falla un paso. Se lo debe establecer en `verdadero` para permitir que un trabajo pase cuando falla este paso.
 
 ### `jobs.<job_id>.steps[*].timeout-minutes`
 
@@ -897,9 +985,9 @@ Cada opción que definas en la `matriz` tiene una clave y un valor. Las claves q
 
 El orden en que defines una `matriz` importa. La primera opción que definas será el primer trabajo que se ejecuta en tu flujo de trabajo.
 
-#### Ejemplo de ejecución con más de una versión de Node.js
+#### Example: Running multiple versions of Node.js
 
-Puedes especificar una matriz proporcionando una variedad de opciones de configuración. Por ejemplo, si el ejecutor admite las versiones 6, 8 y 10 de Node.js, puedes especificar una matriz de esas versiones en la `matriz`.
+Puedes especificar una matriz proporcionando una variedad de opciones de configuración. Por ejemplo, si el ejecutor admite las versiones 10, 12 y 14 de Node.js, puedes especificar una matriz de esas versiones en la `matriz`.
 
 Este ejemplo crea una matriz de tres trabajos estableciendo la clave `node` para una matriz de tres versiones de Node.js. Para usar la matriz, el ejemplo establece la propiedad de contexto `matrix.node` como el valor del parámetro `node-version` de la entrada de la acción `setup-node`. Como resultado, se ejecutarán tres trabajos, cada uno usando una versión diferente de Node.js.
 
@@ -907,19 +995,19 @@ Este ejemplo crea una matriz de tres trabajos estableciendo la clave `node` para
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
-  # Configura la versión del nodo usada en los ejecutores alojados de GitHub
-  - uses: actions/setup-node@v1
+  # Configures the node version used on GitHub-hosted runners
+  - uses: actions/setup-node@v2
     with:
-      # La versión de Node.js a configurar
+      # The Node.js version to configure
       node-version: ${{ matrix.node }}
 ```
 {% endraw %}
 
 La acción `setup-node` es la forma recomendada de configurar una versión de Node.js cuando se usan ejecutores alojados {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la acción [`setup-node`](https://github.com/actions/setup-node).
 
-#### Ejemplo de ejecución con más de un sistema operativo
+#### Example: Running with multiple operating systems
 
 Puedes crear una matriz para ejecutar flujos de trabajo en más de un sistema operativo del ejecutor. También puedes especificar más de una configuración de matriz. Este ejemplo crea una matriz de 6 trabajos:
 
@@ -933,10 +1021,10 @@ Puedes crear una matriz para ejecutar flujos de trabajo en más de un sistema op
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    os: [ubuntu-18.04, ubuntu-20.04]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
@@ -946,9 +1034,9 @@ steps:
 {% else %}Para encontrar las opciones de la configuración compatible para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
 {% endif %}
 
-#### Ejemplo que incluye valores adicionales en combinaciones
+#### Example: Including additional values into combinations
 
-Puedes agregar más opciones de configuración a un trabajo de una matriz de construcción ya existente. Por ejemplo, si quieres usar una versión específica de `npm` cuando se ejecuta el trabajo que usa `windows-latest` y la versión 4 de `node`, puedes usar `incluir` para especificar esa opción adicional.
+Puedes agregar más opciones de configuración a un trabajo de una matriz de construcción ya existente. Por ejemplo, si quieres usar una versión específica de `npm` cuando se ejecuta el trabajo que usa `windows-latest` y la versión 8 de `node`, puedes usar `incluir` para especificar esa opción adicional.
 
 {% raw %}
 ```yaml
@@ -956,37 +1044,37 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 2
+      # includes a new variable of npm with a value of 6
       # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
-#### Ejemplo que incluye combinaciones nuevas
+#### Example: Including new combinations
 
-Puedes utilizar `include` para agregar jobs nuevos a una matriz de compilaciones. Cualquier configuración de "include" sin coincidencia exacta e agregará a la matriz. Por ejemplo, si quieres utilizar `node` versión 12 para compilar en varios sistemas operativos, pero quieres un job experimental extra que utilice node versión 13 en Ubintu, puedes utilizar `include` para especificar este job adicional.
+Puedes utilizar `include` para agregar jobs nuevos a una matriz de compilaciones. Cualquier configuración de "include" sin coincidencia exacta e agregará a la matriz. Por ejemplo, si quieres utilizar `node` versión 14 para compilar en varios sistemas operativos, pero quieres un job experimental extra que utilice node versión 15 en Ubintu, puedes utilizar `include` para especificar este job adicional.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
 {% endraw %}
 
-#### Ejemplos que excluyen configuraciones de una matriz
+#### Example: Excluding configurations from a matrix
 
-Puedes eliminar una configuración específica definida en la matriz de construcción mediante la opción `exclude`. Si usas `exclude`, se elimina un puesto definido por la matriz de construcción. El número de puestos es el producto cruzado de la cantidad de sistemas operativos (`os`) incluidos en las matrices que brindas, menos todas las sustracciones (`exclude`).
+Puedes eliminar una configuración específica definida en la matriz de construcción mediante la opción `excluir`. Si usas `excluir`, se elimina un trabajo definido por la matriz de construcción. El número de puestos es el producto cruzado de la cantidad de sistemas operativos (`os`) incluidos en las matrices que brindas, menos todas las sustracciones (`excluir`).
 
 {% raw %}
 ```yaml
@@ -994,11 +1082,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # excluye el nodo 4 en macOS
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -1016,11 +1104,11 @@ Puedes agregar variables de ambiente personalizadas para cada combinación de pr
 
 ### `jobs.<job_id>.strategy.fail-fast`
 
-Cuando se establece en `verdadero`, {% data variables.product.prodname_dotcom %} cancela todos los trabajos en curso si falla cualquier trabajo de `matriz`. Predeterminado: `true`
+Cuando se establece en `verdadero`, {% data variables.product.prodname_dotcom %} cancela todos los trabajos en curso si falla cualquier trabajo de `matriz`. Predeterminado: `verdadero`
 
 ### `jobs.<job_id>.strategy.max-parallel`
 
-La cantidad máxima de trabajos que se pueden ejecutar de manera simultánea cuando se utiliza una estrategia de trabajo `matrix`. Por defecto, {% data variables.product.prodname_dotcom %} maximizará el número de trabajos ejecutados en paralelo dependiendo de los ejecutores disponibles en las máquinas virtuales alojadas en {% data variables.product.prodname_dotcom %}.
+La cantidad máxima de trabajos que se pueden ejecutar de manera simultánea cuando se utiliza una estrategia de trabajo `matrix`. De manera predeterminada, {% data variables.product.prodname_dotcom %} maximizará el número de trabajos ejecutados en paralelo dependiendo de los ejecutadores disponibles en las máquinas virtuales alojadas en {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 strategy:
@@ -1031,9 +1119,9 @@ strategy:
 
 Previene que una ejecución de flujo de trabajo falle cuando un job falle. Configúralo como `true` para permitir que la ejecución del flujo de trabajo pase cuando este job falle.
 
-#### Ejemplo que previene que un job específico de una matiz fallida haga que falle una ejecución de flujo de trabajo
+#### Example: Preventing a specific failing matrix job from failing a workflow run
 
-Puedes permitir que ciertos jobs en una matriz de jobs fallen sin que la ejecución de flujo de trabajo falle. Por ejemplo, si querías permitir que fallara únicamente un job experimental con el `node` configurado en `13` sin que fallara la ejecución del flujo de trabajo.
+Puedes permitir que ciertos jobs en una matriz de jobs fallen sin que la ejecución de flujo de trabajo falle. Por ejemplo, si querías permitir que fallara únicamente un job experimental con el `node` configurado en `15` sin que fallara la ejecución del flujo de trabajo.
 
 {% raw %}
 ```yaml
@@ -1042,11 +1130,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -1056,7 +1144,7 @@ strategy:
 
 Un contenedor para ejecutar todos los pasos de un trabajo que aún no especifica un contenedor. Si tienes pasos que usan tanto acciones de script como de contenedor, las acciones de contenedor se ejecutarán como contenedores hermanos en la misma red con los mismos montajes de volumen.
 
-Si no configuras un `container`, todos los pasos se ejecutan directamente en el host especificado por `runs-on` a menos que un paso se refiera a una acción configurada para ejecutarse en un contenedor.
+Si no configuras un `contenedor`, todos los pasos se ejecutan directamente en el host especificado por `runs-on` a menos que un paso se refiera a una acción configurada para ejecutarse en un contenedor.
 
 #### Ejemplo
 
@@ -1064,7 +1152,7 @@ Si no configuras un `container`, todos los pasos se ejecutan directamente en el 
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1079,7 +1167,7 @@ Cuando solo especificas una imagen de contenedor, puedes omitir la palabra clave
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`
@@ -1134,7 +1222,7 @@ volumes:
 
 ### `jobs.<job_id>.container.options`
 
-Opciones adicionales de recursos del contenedor Docker. Para obtener una lista de opciones, consulta las opciones "[`docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)".
+Opciones adicionales de recursos del contenedor Docker. Para obtener una lista de opciones, consulta "[`opciones de creación de docker`](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
 ### `jobs.<job_id>.services`
 
@@ -1148,7 +1236,7 @@ Si configuras el trabajo para que se ejecute directamente en la máquina del eje
 
 Para obtener más información acerca de las diferencias entre los contenedores de servicios de red, consulta "[Acerca de los contenedores de servicio](/actions/automating-your-workflow-with-github-actions/about-service-containers)".
 
-#### Ejemplo de uso de host local
+#### Example: Using localhost
 
 Este ejemplo crea dos servicios: nginx y Redis. Cuando especificas el puerto del host de Docker pero no el puerto del contenedor, el puerto del contenedor se asigna aleatoriamente a un puerto gratuito. {% data variables.product.prodname_dotcom %} establece el puerto del contenedor asignado en el contexto {% raw %}`$ {{job.services.<service_name>.ports}}`{% endraw %}. En este ejemplo, puedes acceder a los puertos del contenedor de servicio utilizando los contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} y {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
 
@@ -1181,7 +1269,7 @@ La imagen de Docker para usar como el contenedor de servicios para ejecutar la a
 {% raw %}
 ```yaml
 services:
-  myservice1: 
+  myservice1:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
@@ -1224,7 +1312,7 @@ volumes:
 
 ### `jobs.<job_id>.services.<service_id>.options`
 
-Opciones adicionales de recursos del contenedor Docker. Para obtener una lista de opciones, consulta las opciones "[`docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)".
+Opciones adicionales de recursos del contenedor Docker. Para obtener una lista de opciones, consulta "[`opciones de creación de docker`](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
 ### Hoja de referencia de patrones de filtro
 
@@ -1277,7 +1365,7 @@ Los patrones de ruta deben coincidir con toda la ruta y comenzar desde la raíz 
 | `docs/*`                                                                | Todos los archivos dentro de la raíz del directorio `docs` en la raíz del repositorio.                                                                                                                             | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
 | `docs/**`                                                               | Todos los archivos en el directorio `docs` en la raíz del repositorio.                                                                                                                                             | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | Un archivo con un sufijo `.md` en cualquier parte del directorio `docs`.                                                                                                                                           | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | Cualquier archivo en un directorio `docs` en cualquier parte del repositorio.                                                                                                                                      | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | Cualquier archivo en un directorio `docs` en cualquier parte del repositorio.                                                                                                                                      | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
 | `'**/README.md'`                                                        | Un archivo README.md en cualquier parte del repositorio.                                                                                                                                                           | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | Cualquier archivo en una carpeta con un sufijo `src` en cualquier parte del repositorio.                                                                                                                           | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | Un archivo con el sufijo `-post.md` en cualquier parte del repositorio.                                                                                                                                            | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

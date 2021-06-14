@@ -47,6 +47,8 @@ For each branch protection rule, you can choose to enable or disable the followi
 - [Allow force pushes](#allow-force-pushes)
 - [Allow deletions](#allow-deletions)
 
+For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+
 #### Require pull request reviews before merging
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
@@ -100,7 +102,15 @@ When you enable required commit signing on a branch, contributors {% if currentV
 
 {% note %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+**참고:**
+
+* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
+* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+
+{% else %}
 **Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+{% endif %}
 
 {% endnote %}
 

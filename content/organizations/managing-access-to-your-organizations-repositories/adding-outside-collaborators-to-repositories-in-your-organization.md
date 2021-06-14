@@ -41,7 +41,7 @@ If your organization [requires members and outside collaborators to use two-fact
 ![The repository permissions picker](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
 - "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

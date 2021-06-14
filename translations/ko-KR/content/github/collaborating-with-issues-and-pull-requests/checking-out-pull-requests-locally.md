@@ -18,6 +18,14 @@ topics:
 
   {% endnote %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also check out a pull request locally using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### Modifying an active pull request locally
 
 {% data reusables.repositories.sidebar-pr %}

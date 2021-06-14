@@ -22,17 +22,15 @@ Puedes permitir que los miembros accedan a los repositorios d ela organización 
 
 {% data reusables.organizations.add-extension-to-cert %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
 ### Eliminar una autoridad de certificado de SSH
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.delete-ssh-ca %}

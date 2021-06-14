@@ -31,9 +31,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+children:
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
 
-<!-- {% link_with_intro /quickstart %}  -->
-<!-- {% link_with_intro /guides %} -->
-<!-- {% link_with_intro /learn-github-packages %} -->
-<!-- {% link_with_intro /manage-packages %} -->
+<!--This section is needed to determine the order of the left sidebar for now-->

@@ -15,7 +15,7 @@ topics:
 
 Let's walk through core API concepts as we tackle some everyday use cases. 
 
-### Overview
+## Overview
 
 Most applications will use an existing [wrapper library][wrappers] in the language
 of your choice, but it's important to familiarize yourself with the underlying API
@@ -25,7 +25,7 @@ There's no easier way to kick the tires than through [cURL][curl].{% if currentV
 an alternative client, note that you are required to send a valid
 [User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
 
-#### Hello World
+### Hello World
 
 Let's start by testing our setup. Open up a command prompt and enter the
 following command:
@@ -96,13 +96,13 @@ pair of headers indicate [how many requests a client can make][rate-limiting] in
 a rolling time period (typically an hour) and how many of those requests the
 client has already spent.
 
-### Authentication
+## Authentication
 
 Unauthenticated clients can make 60 requests per hour. To get more requests per hour, we'll need to
 _authenticate_. In fact, doing anything interesting with the {% data variables.product.product_name %} API requires
 [authentication][authentication].
 
-#### Using personal access tokens
+### Using personal access tokens
 
 The easiest and best way to authenticate with the {% data variables.product.product_name %} API is by using Basic Authentication [via OAuth tokens](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). OAuth tokens include [personal access tokens][personal token].
 
@@ -134,7 +134,7 @@ You can easily [create a **personal access token**][personal token] using your [
 ![Personal Token selection](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-#### Get your own user profile
+### Get your own user profile
 
 When properly authenticated, you can take advantage of the permissions
 associated with your {% data variables.product.product_name %} account. For example, try getting
@@ -158,7 +158,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 This time, in addition to the same set of public information we
 retrieved for [@defunkt][defunkt github] earlier, you should also see the non-public information for your user profile. For example, you'll see a `plan` object in the response which gives details about the {% data variables.product.product_name %} plan for the account.
 
-#### Using OAuth tokens for apps
+### Using OAuth tokens for apps
 
 Apps that need to read or write private information using the API on behalf of another user should use [OAuth][oauth].
 
@@ -183,7 +183,7 @@ been changed to protect the innocent.
 Now that we've got the hang of making authenticated calls, let's move along to
 the [Repositories API][repos-api].
 
-### Repositories
+## Repositories
 
 Almost any meaningful use of the {% data variables.product.product_name %} API will involve some level of Repository
 information. We can [`GET` repository details][get repo] in the same way we fetched user
@@ -232,7 +232,7 @@ ones on which she collaborates. Note the quoted URL above. Depending on your
 shell setup, cURL sometimes requires a quoted URL or else it ignores the
 query string.
 
-#### Create a repository
+### Create a repository
 
 Fetching information for existing repositories is a common use case, but the
 {% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo],
@@ -274,7 +274,7 @@ expect a `403` instead. Since we don't want to leak information about private
 repositories, the {% data variables.product.product_name %} API returns a `404` in this case, as if to say "we can
 neither confirm nor deny the existence of this repository."
 
-### Issues
+## Issues
 
 The UI for Issues on {% data variables.product.product_name %} aims to provide 'just enough' workflow while
 staying out of your way. With the {% data variables.product.product_name %} [Issues API][issues-api], you can pull
@@ -303,7 +303,7 @@ We can also get [all the issues under a single repository][repo issues api]:
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
-#### Pagination
+### Pagination
 
 A project the size of Rails has thousands of issues. We'll need to [paginate][pagination],
 making multiple API calls to get the data. Let's repeat that last call, this
@@ -324,7 +324,7 @@ external resources, in this case additional pages of data. Since our call found
 more than thirty issues (the default page size), the API tells us where we can
 find the next page and the last page of results.
 
-#### Creating an issue
+### Creating an issue
 
 Now that we've seen how to paginate lists of issues, let's [create an issue][create issue] from
 the API.
@@ -387,7 +387,7 @@ $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 The response gives us a couple of pointers to the newly created issue, both in
 the `Location` response header and the `url` field of the JSON response.
 
-### Conditional requests
+## Conditional requests
 
 A big part of being a good API citizen is respecting rate limits by caching information that hasn't changed. The API supports [conditional
 requests][conditional-requests] and helps you do the right thing. Consider the

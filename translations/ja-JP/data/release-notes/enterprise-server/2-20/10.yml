@@ -1,0 +1,21 @@
+---
+date: '2020-06-23'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/20746, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
+  bugs:
+    - '転送のメカニズムとしてUDPが使用されている場合に、過度に大きなログイベントによってログのフォワーディングが不安定になることがありました。{% comment %} https://github.com/github/enterprise2/pull/20457, https://github.com/github/enterprise2/pull/20445 {% endcomment %}'
+    - "SSO経由のユーザの自動サスペンション解除が、すでにユーザアカウントに関連づけられているキーがSSHキーの属性にある場合に完了しませんでした。{% comment %} https://github.com/github/github/pull/143474, https://github.com/github/github/pull/142927 {% endcomment %}"
+    - 'インターナルリポジトリへのプルアクセス権を持つビジネスメンバーについて、REST APIからのリポジトリ権限のハッシュがアクセス権を持たないと示していました。'
+    - 'Markdownで書かれたGitHub Appの説明のプレビューが、適切にレンダリングされていませんでした。{% comment %} https://github.com/github/github/pull/145038, https://github.com/github/github/pull/133360 {% endcomment %}'
+    - '監査ログにブランチ保護の変更イベントが含まれていませんでした。{% comment %} https://github.com/github/github/pull/145995, https://github.com/github/github/pull/145014 {% endcomment %}'
+    - "空のTeamのメンバーにコードレビューを割り当てようとすると、'500 Internal Server Error'が返されます。{% comment %} https://github.com/github/github/pull/146328, https://github.com/github/github/pull/139330 {% endcomment %}"
+    - 'ロードバランシングアルゴリズムを使ってコードレビューを割り当てると、同じTeamのメンバーに繰り返し割り当てられることがありました。{% comment %} https://github.com/github/github/pull/146329, https://github.com/github/github/pull/136504 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '複数のRedisノードでのクラスタ設定にデプロイされた際に、依存関係グラフが依存関係を検出しません。（2020-06-30更新）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

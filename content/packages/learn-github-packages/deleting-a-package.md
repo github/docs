@@ -14,7 +14,7 @@ versions:
 
 You can only delete a specified version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package on {% data variables.product.product_name %} or with the GraphQL API. To remove an entire {% if currentVersion != "github-ae@latest" %}private {% endif %}package from appearing on {% data variables.product.product_name %}, you must delete every version of the package first.
 
-### Deleting a version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package on {% data variables.product.product_name %}
+## Deleting a version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package on {% data variables.product.product_name %}
 
 To delete a {% if currentVersion != "github-ae@latest" %}private {% endif %}package version, you must have admin permissions in the repository.
 
@@ -29,7 +29,7 @@ To delete a {% if currentVersion != "github-ae@latest" %}private {% endif %}pack
 6. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
   ![Confirm package deletion button](/assets/images/help/package-registry/confirm-package-deletion.png)
 
-### Deleting a version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package with GraphQL
+## Deleting a version of a {% if currentVersion != "github-ae@latest" %}private {% endif %}package with GraphQL
 
 Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
 

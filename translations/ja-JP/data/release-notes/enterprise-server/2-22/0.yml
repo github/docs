@@ -1,0 +1,143 @@
+---
+intro: GitHubはGitHub Enterprise Server 2.22.0を紹介できることを嬉しく思います。
+date: '2020-09-23'
+sections:
+  features:
+    - 
+      heading: GitHub Actionsベータ
+      notes:
+        - |
+          [GitHub Actions](https://github.com/features/actions)は、CI/CDとワークフローの自動化のための強力で柔軟なソリューションです。Enterprise Server上のGitHub Actionsには、このサービスの管理を支援するツールが含まれており、ロールアウトの制御を支援するための管理コンソール内の主要なメトリクス、監査ログ、アクセス制御が含まれます。
+
+          ユーザはGitHub Actionsのために自身の [ストレージ](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage)とランナーを提供しなければなりません。AWS S3、Azure Blob Storage、MinIOがサポートされています。GitHub Actionsを有効化する前に、[使用するプラットフォームのための最小の要件の更新](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューしてください。さらに学ぶには、GitHubの営業チームに連絡するか、[ベータにサインアップ](https://resources.github.com/beta-signup/)してください。{% comment %} https://github.com/github/releases/issues/775 {% endcomment %}
+    - 
+      heading: GitHub Packagesベータ
+      notes:
+        - |
+          [GitHub Packages](https://github.com/features/packages)は、パッケージのホスティングサービスであり、GitHub API、Actions、webhookとネイティブに統合されています。コード、継続的インテグレーション、デプロイメントのソリューションを含む[エンドツーエンドのDevOpsワークフロー](https://docs.github.com/en/enterprise/2.22/admin/packages/configuring-packages-support-for-your-enterprise)を作成してください。
+
+          サポートされているストレージのバックエンドにはAWS S3とMinIOがあり、Azure blobのサポートも将来のリリースにあります。現在のDockerサポートは、次のリリースの新しいGitHub Container Registryで置き換えられることにご注意ください。GitHub Packagesを有効にする前に、[使用するプラットフォームの最小要件の更新](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューしてください。さらに学ぶには、GitHubの営業チームに連絡するか、[ベータにサインアップ](https://resources.github.com/beta-signup/)してください。{% comment %} https://github.com/github/releases/issues/773 {% endcomment %}
+    - 
+      heading: Advanced Security Code Scanningベータ
+      notes:
+        - |
+          [GitHub Advanced Security code scanning](https://github.com/features/security)は、開発者ファーストで、GitHubネイティブの静的アプリケーションセキュリティテスティング（SAST）です。脆弱性がプロダクションに到達してしまう前に容易に発見する、このすべてのパワーは世界で最も強力なコード解析エンジン、CodeQLによるものです。
+
+          GitHub Advanced Security　を使用する管理者は、GitHub Advanced Security code scanningベータに[サインアップ](https://resources.github.com/beta-signup/)し、[有効化](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-code-scanning-for-your-appliance)できます。GitHub Advanced Security code scanningを有効にする前に、[使用するプラットフォームの最小要件の更新](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)をレビューしてください。{% comment %} https://github.com/github/releases/issues/768 {% endcomment %}
+    - 
+      heading: Pull Request Retargeting
+      notes:
+        - |
+          [Pull Requestのheadブランチ](https://docs.github.com/en/enterprise/2.22/user/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)がマージされ、削除された場合、このブランチをターゲットとする同じリポジトリ内のすべての他のオープンなPull Requestは、マージされたPull Requestのベースブランチにターゲットし直されるようになりました。以前は、それらのPull Requestはクローズされていました。{% comment %} https://github.com/github/releases/issues/801 {% endcomment %}
+    - 
+      heading: アプリケーションのインストールのサスペンドとサスペンド解除
+      notes:
+        - |
+          管理者とユーザは、設定やAPIを通じてのコマンドで、必要な期間にわたって[任意のGitHub Appのアクセスをサスペンド](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#suspend-an-app-installation)したり、[アプリケーションのサスペンドを解除](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#unsuspend-an-app-installation)したりできます。サスペンドされたアプリケーションは、GitHub APIあるいはwebhookイベントにアクセスできません。これは、すべてのユーザの認可を解除してしまうアプリケーションのアンインストールの代わりに利用できます。{% comment %} https://github.com/github/github/pull/138316 https://github.com/github/github/pull/150869 {% endcomment %}''
+    - 
+      heading: 改善された大規模でのパフォーマンス
+      notes:
+        - |
+          リポジトリのネットワークメンテナンスのスケジューリングアプローチを見直し、大きな単一リポジトリが障害の状態になるのを避けられるようにしました。{% comment %} https://github.com/github/github/pull/146789, https://github.com/github/github/pull/147931, https://github.com/github/github/pull/146724, https://github.com/github/git-protocols/issues/94 {% endcomment %}''
+
+          パッシブレプリカが[GitHub Enterprise Serverクラスタデプロイメントをサポートし、設定可能に]なりました(https://docs.github.com/en/enterprise/2.22/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)。これらの変更によって、高速なフェイルオーバー、RTOとRPOの削減が可能になりました。{% comment %} https://github.com/github/releases/issues/905 {% endcomment %}
+    - 
+      heading: すべてのユーザの表示
+      notes:
+        - |
+          例外的に大きなTeamの場合、管理者は[ユーザリストのデフォルトの最大数の1,500を調整](https://docs.github.com/en/enterprise/2.22/admin/configuration/command-line-utilities#ghe-config)できます。{% comment %} https://github.com/github/github/pull/146508 {% endcomment %}''
+  changes:
+    - 
+      heading: 管理に関する変更
+      notes:
+        - 共有ワーカーは、タブ間で接続を共有することによって、ライブアップデートにより弾力性を持たせることができるようになりました。{% comment %} https://github.com/github/releases/issues/914 {% endcomment %}
+        - '`50x`エラーページの"Contact Support"リンクは、サポートのメールもしくは管理コンソールで設定されたリンクにリンクされるようになりました。{% comment %} https://github.com/github/github/pull/142123 {% endcomment %}'
+        - '[Enterpriseアカウント設定を通じて、グローバルなアナウンスと有効期限を管理]できるようになりました。(https://docs.github.com/en/enterprise/2.22/admin/installation/command-line-utilities#ghe-announce){% comment %} https://github.com/github/releases/issues/945, https://github.com/github/github/pull/148475, https://github.com/github/github/pull/148494 {% endcomment %}'
+        - 必要な場合、[管理コンソールで設定されたデフォルトのAPIのレート制限から、特定のユーザを除外](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-rate-limits)できるようになりました。{% comment %} https://github.com/github/github/pull/148673 {% endcomment %}
+        - リポジトリ管理者は、リポジトリ設定の単一のダイアログから[自分のリポジトリを利用可能な任意の可視性のオプションに設定](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility)できるようになりました。以前は、パブリックとプライベート間、そしてプライベートとインターナル間の変更には、個別のセクション、ボタン、ダイアログボックスを使わなければなりませんでした。{% comment %} https://github.com/github/releases/issues/882 {% endcomment %}
+        - ユーザのドロップダウンメニュー上の新しいEnterprise設定のリンクによって、Enterpriseアカウント設定へのアクセスが容易になりました。{% comment %} https://github.com/github/releases/issues/946, https://github.com/github/github/pull/150595, https://github.com/github/github/pull/150520, https://github.com/github/github/pull/151121, https://github.com/github/hydro-schemas/pull/1244 {% endcomment %}
+        - /stafftoolsページにあった旧来の"Admin Center"リンクは削除されました。/stafftoolsページからEnterpriseアカウントにアクセスする最善の方法は、"Enterprise"リンクになりました。{% comment %} https://github.com/github/github/pull/147633 {% endcomment %}
+        - Enterpriseアカウント設定のOptionsサブメニューアイテムは、SettingsセクションからPoliciesセクションへ移されました。{% comment %} https://github.com/github/releases/issues/944, https://github.com/github/github/pull/148477 {% endcomment %}
+        - '[個人アクセストークンもしくはSSHキーを使ったリソースへのアクセスは、ユーザのアクティビティとしてカウントされるようになりました](https://docs.github.com/en/enterprise/2.22/admin/user-management/managing-dormant-users)。これで、管理者はユーザの休止レポートから特定のユーザをフィルタリングしなくてもよくなり、個人アクセストークン（PAT）あるいはSSHキーでAPIを通じて読み取りのみでGitHubにアクセスしているだけのユーザをうっかりサスペンドしてしまうことなく、安全に"Suspend all"ボタンを使えるようになります。{% comment %} https://github.com/github/github/pull/140433, https://github.com/github/help-docs/pull/14853, https://github.com/github/customer-feedback/issues/174, https://github.com/github/supportability/issues/14 {% endcomment %}'
+    - 
+      heading: セキュリティの変更
+      notes:
+        - 2要素のリカバリコードは、2要素でのサインインのプロセス中には使えなくなりました。受け付けられる値はワンタイムパスワードのみです。{% comment %} https://github.com/github/github/pull/145016, https://github.com/github/github/pull/140208 {% endcomment %}
+        - ユーザがシングルサインオンを通じてGitHub Enterprise Serverにサインインする際に、[デフォルトのリポジトリの可視性の選択はプライベートになります](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility)。{% comment %} https://github.com/github/releases/issues/872 {% endcomment %}
+        - GitHub Appのオーナーは、[ユーザからサーバーへのアクセストークンが8時間で期限切れになる](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/)よう選択して、定期的なトークンのローテーションを強制しやすくし、侵害されたトークンの影響を軽減できるようになりました。{% comment %} https://github.com/github/releases/issues/966 {% endcomment %}
+    - 
+      heading: 開発者の変更
+      notes:
+        - '[GitHubのUIは設計しなおされ](https://github.blog/changelog/2020-06-23-design-updates-to-repositories-and-github-ui/),、リポジトリのホームページも、レスポンシブなレイアウトや改善されたモバイルのWeb体験を含め、再設計されました。{% comment %} https://github.com/github/releases/issues/886 {% endcomment %}'
+        - リポジトリの"Clone with SSH"ドロップダウンメニューで、キーをセットアップしていないことがユーザに通知されるようになりました。{% comment %} https://github.com/github/github/pull/149098 {% endcomment %}
+        - 'Pull Requestタイムライン及びコミットタブ内で、コミットが時系列で並べられるようになりました。この新しい順序は["Pull Request上のコミットのリスト"](https://docs.github.com/en/enterprise/2.22/user/rest/reference/pulls#list-commits-on-a-pull-request) REST API及びGraphQLの["PullRequestオブジェクト"](https://docs.github.com/en/enterprise/2.22/user/graphql/reference/objects#pullrequest)のタイムラインコネクションにも反映されます。{% comment %} https://github.com/github/releases/issues/867 {% endcomment %}'
+        - ユーザは、コメントのテキスト領域で[絵文字のオートコンプリートの結果のためのスキントーンのデフォルトを設定](https://github.blog/changelog/2020-07-17-customizable-skin-tones-in-emoji-autocomplete/)できるようになりました。{% comment %} https://github.com/github/releases/issues/916 {% endcomment %}
+        - '[Tree-sitter](https://github.com/tree-sitter/tree-sitter)は、構文ハイライトを改善し、言語のパースに使われるデフォルトのライブラリになりました。{% comment %} https://github.com/github/releases/issues/918, https://github.com/github/windrose/issues/44 {% endcomment %}'
+    - 
+      heading: ユーザとOrganizationは、GitHubのプロフィールにTwitterのユーザ名を追加できるようになりました。
+      notes:
+        - '[開発者とOrganizationは、プロフィールに自分のTwitterユーザ名を追加できるようになりました](https://github.blog/changelog/2020-07-22-users-and-organizations-can-now-add-twitter-usernames-to-their-github-profiles/)。{% comment %}  https://github.com/github/github/pull/145127 {% endcomment %}'
+    - 
+      heading: API の変更
+      notes:
+        - |
+          #### プレビューからの卒業
+
+          以下のプレビューは、APIの公式部分になりました。
+          * `performed_via_github_app`属性を返すGitHub Apps APIとエンドポイントは、 [`machine-man`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/)プレビューヘッダを必要としなくなりました。{% comment %} https://github.com/github/releases/issues/965 {% endcomment %}
+          * Issueにロックの理由を追加して表示するために、[`sailor-v`](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/) プレビューヘッダを使う必要がなくなりました。{% comment %} https://github.com/github/github/pull/143676 {% endcomment %}
+        - |
+          #### GraphQLのスキーマ変更
+
+          * [GraphQLのスキーマ変更](https://docs.github.com/enterprise/2.22/user/graphql/overview/changelog)には、後方互換な変更、スキーマのプレビュー、今後の破壊的変更が含まれます。
+    - 
+      heading: VMwareのネットワークドライバの変更
+      notes:
+        - |
+          VMwareの顧客のためのGitHub Enterprise Serverのデフォルトネットワークアダプタの種類は、リリース2.22.0よりE1000からVMXNET3に変更されました。以前のリリースから2.22.0移行へアップグレードする際に、アップグレード前のチェックの間にE1000ネットワークアダプタが検出されると、以下のメッセージがコマンドラインに表示されます。
+
+          ```
+          WARNING: Your virtual appliance is currently using an emulated Intel E1000 network adapter.
+          For optimal performance, please update the virtual machine configuration on your VMware host to use the VMXNET3 driver.
+          Proceed with installation? [y/N]
+          ```
+
+          管理者は、GitHub Enterprise Serverのアップグレードの前後のいずれかで、ネットワークアダプタの種類をVMXNET3に更新することを選択できます。この変更を行うためには、仮想アプライアンスをシャットダウンする必要があります。お客様はVMXNET3への[仮想マシンのネットワークアダプタ設定の変更](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3719A0BE-4B4A-44FF-8A21-290950918FBD.html)の推奨手順に従ってください。仮想アプライアンスのOSバージョンが`Other Linux (64-bit)`に設定されている場合、`VMXNET3`は選択肢にならないことに注意してください。その場合は、OSバージョンをまず`Other Linux (64-bit)`から`Other 2.6.x Linux (64-bit)`へ、もしくは可能であれば`Debian GNU/Linux 9`に変更する必要があります。これらの変更は、プロダクションのGitHub Enterprise Serverで行う前に、[ステージングのインスタンス](https://docs.github.com/en/enterprise-server@2.22/admin/installation/setting-up-a-staging-instance)でテストすることをおすすめします。{% comment %} https://github.com/github/ghes-infrastructure/issues/781 {% endcomment %}
+  bugs:
+    - 保留中のメール招待があると、保留中のコラボレータを表示するためのstafftoolsページが`500 Internal Server Error`を表示しました。{% comment %} https://github.com/github/github/pull/150836 {% endcomment %}
+    - stafftools中のリポジトリヘルスチェックが、高負荷のリポジトリで不正確な結果を返すことがありました。{% comment %} https://github.com/github/github/pull/151160 {% endcomment %}
+    - メールの招待を受諾しようとするログインユーザに`404 Not Found`エラーが返されることがありました。{% comment %} https://github.com/github/github/pull/150848 {% endcomment %}
+    - 名前が"repositories."で始まるリポジトリにユーザがアクセスしようとすると、リポジトリの概要ページの代わりにオーナーの"Repositories"タブにリダイレクトされました。{% comment %} https://github.com/github/github/pull/149704 {% endcomment %}
+    - ダッシュボードタイムラインのラベルが十分なコントラストを持っていませんでした。{% comment %} https://github.com/github/github/pull/146749 {% endcomment %}
+  deprecations:
+    - 
+      heading: GitHub Enterprise Server 2.19の非推奨の予定
+      notes:
+        - '** GitHub Enterprise Server 2.19は2020年11月12日に非推奨となります** これは、この日以降は重大なセキュリティの問題に対してであってもパッチリリースが行われなくなるということです。より優れたパフォーマンス、改善されたセキュリティ、新しい機能のために、[GitHub Enterprise Serverの最新バージョンへのアップグレード](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/)をできるだけ早く行ってください。'
+    - 
+      heading: 旧来のGitHub App webhookイベントの非推奨化
+      notes:
+        - 'GitHub Enterprise Server 2.21.0から、2つの旧来のGitHub Appsに関連するwebhookイベントが非推奨となり、GitHub Enterprise Server 2.25.0で削除されます。非推奨となったイベントの`integration_installation`と`integration_installation_repositories`には、サポートされることになる同等のイベントがあります。詳細な情報は[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)にあります。{% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}'
+    - 
+      heading: 旧来のGitHub Appsのエンドポイントの非推奨化
+      notes:
+        - 'GitHub Enterprise Server 2.21.0から、インストールアクセストークンを作成するための旧来のGitHub Appsのエンドポイントが非推奨になり、GitHub Enterprise Server 2.25.0で削除されます。詳細な情報は[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)にあります。{% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}'
+    - 
+      heading: OAuth Application APIの非推奨化
+      notes:
+        - GitHubは、パスパラメータとして`access_token`を含むOAuthのアプリケーションエンドポイントをサポートしなくなりました。`access_token`をリクエストのボディに移すことにより、OAuth Appsのためのトークンをセキュアに管理できるようにする、新しいエンドポイントが導入されます。非推奨にはなりましたが、これらのエンドポイントはこのバージョンではまだ利用可能です。これらのエンドポイントは、GitHub Enterprise Server 3.4で削除しようとしています。詳細については[非推奨化のアナウンスのblogポスト](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)を参照してください。
+  backups:
+    - GitHub Enterprise Serverでは、[バックアップとディザスタリカバリー](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/)のために、最低でも[GitHub Enterprise Backup Utilities](https://github.com/github/backup-utils) 2.22.0が必要です。
+  known_issues:
+    - 新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
+    - カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
+    - ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
+    - GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
+    - 管理コンソールのName ID Fortmatドロップダウンが、インスタンスを"persistent"に設定した後に"unspecified"にリセットされます。{% comment %} https://github.com/github/enterprise2/issues/13446{% endcomment %}
+    - ユーザもしくはOrganizationのGitHub Pagesサイトのためのリポジトリの設定ページが"500 Internal Server Error"で失敗します。{% comment %} https://github.com/github/github/issues/156183 {% endcomment %}
+    - 読み取りが他のノードに転送されるため、High Availabilityのレプリカのインスタンスで、Gitのクローン及びフェッチのパフォーマンスが低下することがあります。{% comment %} https://github.com/github/spokesd/issues/746 {% endcomment %}
+    - '[マニフェストからのGitHub Appの作成](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest)が失敗します。この問題を回避するために、ユーザは[GitHub Appの作成](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app)の手動の指示に従うことができます。{% comment %} https://github.com/github/enterprise2/issues/22849 {% endcomment %}'
+    - SAML認証を使っていて、GitHubのユーザ名が管理コンソールの`username`フィールドにマップされた属性の値と一致しない場合に、GitHubのユーザ名が意図せずに変更されてしまうことがあります。{% comment %} https://github.com/github/external-identities/issues/335 {% endcomment %}
+    - 新たにセットアップされた2.22.0のインスタンス、もしくは2.22.0へのアップグレード後、Organizationのダッシュボード上のアクティビティフィードが更新されなくなります。（2020-10-27更新）{% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
+    - 監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。（2020-11-02更新）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}

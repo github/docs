@@ -15,7 +15,7 @@ type: 'tutorial'
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Configuring a proxy server using environment variables
+## Configuring a proxy server using environment variables
 
 If you need a self-hosted runner to communicate via a proxy server, the self-hosted runner application uses proxy configurations set in the following environment variables:
 
@@ -35,7 +35,7 @@ The proxy environment variables are read when the self-hosted runner application
 
 On Windows machines, the proxy environment variable names are not case-sensitive. On Linux and macOS machines, we recommend that you use all lowercase environment variables. If you have an environment variable in both lowercase and uppercase on Linux or macOS, for example `https_proxy` and `HTTPS_PROXY`, the self-hosted runner application uses the lowercase environment variable.
 
-### Using a .env file to set the proxy configuration
+## Using a .env file to set the proxy configuration
 
 If setting environment variables is not practical, you can set the proxy configuration variables in a file named _.env_ in the self-hosted runner application directory. For example, this might be necessary if you want to configure the runner application as a service under a system account. When the runner application starts, it reads the variables set in _.env_ for the proxy configuration.
 
@@ -46,7 +46,7 @@ https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-### Setting proxy configuration for Docker containers
+## Setting proxy configuration for Docker containers
 
 If you use Docker container actions or service containers in your workflows, you might also need to configure Docker to use your proxy server in addition to setting the above environment variables.
 

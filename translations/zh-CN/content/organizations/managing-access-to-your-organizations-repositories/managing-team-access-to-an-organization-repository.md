@@ -26,8 +26,8 @@ topics:
 
 ### 授予团队对仓库的访问权限
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. 在仓库列表上方，单击 **Add repository（添加仓库）**。 ![添加仓库按钮](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ topics:
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. 选择要从团队删除的仓库。 ![某些仓库的勾选框已选中的团队仓库列表](/assets/images/help/teams/select-team-repositories-bulk.png)

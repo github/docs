@@ -32,7 +32,7 @@ type: tutorial
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### Organizationからのランナーの削除
@@ -51,7 +51,7 @@ Organizationからセルフホストランナーを削除するには、Organiza
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### Enterprise からランナーを削除する
@@ -66,15 +66,15 @@ Organizationからセルフホストランナーを削除するには、Organiza
 
 {% if currentVersion == "free-pro-team@latest" %}
 セルフホストランナーを Enterprise アカウントから削除するには、Enterprise のオーナーである必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"% or currentVersion == "github-ae@latest" }
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 セルフホストランナーを
 {% data variables.product.product_location %} の Enterprise レベルで削除するには、サイト管理者である必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
 {% endif %}
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

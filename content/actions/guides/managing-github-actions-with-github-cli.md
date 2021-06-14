@@ -15,7 +15,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Setting up {% data variables.product.prodname_cli %}
+## Setting up {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.download-update-cli %} {% data reusables.cli.actions-cli-version %} {% data reusables.cli.cli-manual %}
 
@@ -23,7 +23,7 @@ topics:
 
 {% data reusables.cli.cli-repo %}
 
-### Managing {% data variables.product.prodname_actions %} with {% data variables.product.prodname_cli %}
+## Managing {% data variables.product.prodname_actions %} with {% data variables.product.prodname_cli %}
 
 To view all available commands related to {% data variables.product.prodname_actions %}, run `gh actions`.
 

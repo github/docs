@@ -1,1 +1,1 @@
-For more information on commit email addresses,{% if currentVersion == "free-pro-team@latest" %} including your {% data variables.product.product_name %}-provided `noreply` email address,{% endif %} see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.product_name %} が提供する`noreply`メールアドレスを含む{% endif %}コミットメールアドレスに関する詳しい情報については「[コミットメールアドレスの設定](/articles/setting-your-commit-email-address)」を参照してください。

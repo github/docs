@@ -16,6 +16,6 @@ topics:
 3. In the left sidebar, click **Community**.
 ![Community in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
-### Further reading
+## Further reading
 
 - "[About community profiles for public repositories](/articles/about-community-profiles-for-public-repositories)"

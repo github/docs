@@ -1,1 +1,1 @@
-1. Em "IP Address" (Endereço IP), digite um endereço IP ou um intervalo de endereços, na notação CIDR. ![Campo-chave para adicionar endereço IP](/assets/images/help/security/ip-address-field.png)
+1. At the bottom of the "IP allow list" section, enter an IP address, or a range of addresses in CIDR notation. ![Campo-chave para adicionar endereço IP](/assets/images/help/security/ip-address-field.png)

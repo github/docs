@@ -30,7 +30,7 @@ Você pode usar [smimesign](https://github.com/github/smimesign) para assinar co
   $ git config --local gpg.program smimesign
   ```
   Se você estiver usando uma chave X.509 que corresponde à sua identidade do committer, poderá começar a assinar commits e tags.
-4. Se você não estiver usando uma chave X.509 que corresponde à sua identidade de commiter, liste X.509 chaves para as quais você tem um certificado e uma chave privada usando o comando `smimesign --list-keys`.
+4. If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
   ```shell
   $ smimesign --list-keys
   ```

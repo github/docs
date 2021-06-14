@@ -1,72 +1,72 @@
 ---
 - 
-  title: Example services
-  description: Example workflows using service containers
+  title: サービスの例
+  description: サービスコンテナを使うワークフローの例
   languages: JavaScript
   href: actions/example-services
   tags:
-    - service containers
+    - サービスコンテナ
 - 
-  title: Declaratively setup GitHub Labels
-  description: GitHub Action to declaratively setup labels across repos
+  title: GitHubラベルを宣言的にセットアップ
+  description: リポジトリ間にわたってラベルを宣言的にセットアップするGitHub Actions
   languages: JavaScript
   href: lannonbr/issue-label-manager-action
   tags:
     - issues
     - labels
 - 
-  title: Declaratively sync GitHub labels
-  description: GitHub Action to sync GitHub labels in the declarative way
+  title: 宣言的にGitHubラベルを同期
+  description: 宣言的な方法でGitHubラベルを同期するGitHub Action
   languages: 'Go, Dockerfile'
   href: micnncim/action-label-syncer
   tags:
     - issues
     - labels
 - 
-  title: Add releases to GitHub
-  description: Publish GitHub releases in an action
+  title: GitHubへのリリースの追加
+  description: アクションでGitHubリリースを公開
   languages: 'Dockerfile, Shell'
   href: elgohr/Github-Release-Action
   tags:
     - releases
-    - publishing
+    - 公開
 - 
-  title: Publish a docker image to Dockerhub
-  description: A GitHub Action used to build and publish Docker images
+  title: Dockerhubにdockerイメージを公開
+  description: Dockerイメージのビルドと公開に使われるGitHub Action
   languages: 'Dockerfile, Shell'
   href: elgohr/Publish-Docker-Github-Action
   tags:
     - docker
-    - publishing
+    - 公開
     - ビルド
 - 
-  title: Create an issue using content from a file
-  description: A GitHub action to create an issue using content from a file
+  title: ファイルからの内容を使ってIssueを作成
+  description: ファイルからの内容を利用してIssueを作成するGitHub Action
   languages: 'JavaScript, Python'
   href: peter-evans/create-issue-from-file
   tags:
     - issues
 - 
-  title: Publish GitHub Releases with Assets
-  description: GitHub Action for creating GitHub Releases
+  title: アセット付きでGitHubリリースを公開
+  description: GitHubリリースを作成するGitHub Action
   languages: 'TypeScript, Shell, JavaScript'
   href: softprops/action-gh-release
   tags:
     - releases
-    - publishing
+    - 公開
 - 
-  title: GitHub Project Automation+
-  description: Automate GitHub Project cards with any webhook event
+  title: GitHubプロジェクトオートメーション+
+  description: 任意のwebhookイベントでGitHubプロジェクトカードを自動化
   languages: JavaScript
   href: alex-page/github-project-automation-plus
   tags:
     - projects
-    - automation
+    - 自動化
     - issues
     - pull requests
 - 
-  title: Run GitHub Actions Locally with a web interface
-  description: Runs GitHub Actions workflows locally (local)
+  title: WebインターフェースでGitHub Actionsをローカル実行
+  description: GitHub Actionsワークフローをローカルで実行（local）
   languages: 'JavaScript, HTML, Dockerfile, CSS'
   href: phishy/wflow
   tags:
@@ -74,8 +74,8 @@
     - devops
     - docker
 - 
-  title: Run your GitHub Actions locally
-  description: Run GitHub Actions Locally in Terminal
+  title: GitHub Actionsをローカルで実行
+  description: ターミナル内でGitHub Actionsをローカルで実行
   languages: 'Go, Shell'
   href: nektos/act
   tags:
@@ -83,47 +83,47 @@
     - devops
     - docker
 - 
-  title: Build and Publish Android debug APK
-  description: Build and release debug APK from your Android project
+  title: AndroidのデバッグAPKをビルド及び公開
+  description: デバッグAPKをAndroidプロジェクトからビルド及びリリース
   languages: 'Shell, Dockerfile'
   href: ShaunLWM/action-release-debugapk
   tags:
     - android
     - ビルド
 - 
-  title: Generate sequential build numbers for GitHub Actions
-  description: GitHub action for generating sequential build numbers.
+  title: GitHub Actions用の連続したビルド番号の生成
+  description: 連続したビルド番号を生成するためのGitHub Action
   languages: JavaScript
   href: einaregilsson/build-number
   tags:
     - ビルド
-    - automation
+    - 自動化
 - 
-  title: GitHub actions to push back to repository
-  description: Push Git changes to GitHub repository without authentication difficulties
+  title: リポジトリにプッシュバックするGitHub Action
+  description: 認証の問題なくGitHubリポジトリにGitの変更をプッシュ
   languages: 'JavaScript, Shell'
   href: ad-m/github-push-action
   tags:
-    - publishing
+    - 公開
 - 
-  title: Generate release notes based on your events
-  description: Action to auto generate a release note based on your events
+  title: イベントに基づいてリリースノートを生成
+  description: イベントに基づいてリリースノートを自動生成するアクション
   languages: 'Shell, Dockerfile'
   href: Decathlon/release-notes-generator-action
   tags:
     - releases
-    - publishing
+    - 公開
 - 
-  title: Create a GitHub wiki page based on the provided markdown file
-  description: Create a GitHub wiki page based on the provided markdown file
+  title: 提供されたMarkdownファイルに基づいてGitHub wikiページを生成
+  description: 提供されたMarkdownファイルに基づいてGitHub wikiページを生成
   languages: 'Shell, Dockerfile'
   href: Decathlon/wiki-page-creator-action
   tags:
     - wiki
-    - publishing
+    - 公開
 - 
-  title: Label your Pull Requests auto-magically (using committed files)
-  description: GitHub action to label your pull requests auto-magically (using committed files)
+  title: Pull Requestを自動的に魔法のようにラベル付け（コミットされたファイルを使用）
+  description: Pull Requestを自動的に魔法のようにラベル付けするGitHub Action（コミットされたファイルを使用）
   languages: 'TypeScript, Dockerfile, JavaScript'
   href: Decathlon/pull-request-labeler-action
   tags:
@@ -131,32 +131,32 @@
     - issues
     - labels
 - 
-  title: Add Label to your Pull Requests based on the author team name
-  description: GitHub action to label your pull requests based on the author name
+  title: 作者のTeam名に基づいてPull Requestにラベルを追加
+  description: 作者名に基づいてPull Requestをラベル付けするGitHub Action
   languages: 'TypeScript, JavaScript'
   href: JulienKode/team-labeler-action
   tags:
     - プルリクエスト
     - labels
 - 
-  title: Get a list of file changes with a PR/Push
-  description: This action gives you will get outputs of the files that have changed in your repository
+  title: PR/プッシュによるファイル変更のリスト取得
+  description: このアクションで、リポジトリ中で変更されたファイルの出力が得られます。
   languages: 'TypeScript, Shell, JavaScript'
   href: trilom/file-changes-action
   tags:
     - ワークフロー
     - リポジトリ
 - 
-  title: Private actions in any workflow
-  description: Allows private GitHub Actions to be easily reused
+  title: 任意のワークフロー中のプライベートアクション
+  description: プライベートのGitHub Actionsを容易に再利用できるようにします
   languages: 'TypeScript, JavaScript, Shell'
   href: InVisionApp/private-action-loader
   tags:
     - ワークフロー
     - tools
 - 
-  title: Label your issues using the issue's contents
-  description: A GitHub Action to automatically tag issues with labels and assignees
+  title: Issueの内容を使ってIssueにラベル付けします
+  description: ラベルとアサインされた人で自動的にIssueにタグ付けするGitHub Action
   languages: 'JavaScript, TypeScript'
   href: damccorm/tag-ur-it
   tags:
@@ -165,16 +165,16 @@
     - labels
     - issues
 - 
-  title: Rollback a GitHub Release
-  description: A GitHub Action to rollback or delete a release
+  title: GitHubリリースのロールバック
+  description: リリースをロールバックあるいは削除するGitHub Action
   languages: 'JavaScript'
   href: author/action-rollback
   tags:
     - ワークフロー
     - releases
 - 
-  title: Lock closed issues and Pull Requests
-  description: GitHub Action that locks closed issues and pull requests after a period of inactivity
+  title: クローズされたIssue及びPull Requestのロック
+  description: 一定期間アクティビティのなかったあとにクローズされたIssueやPull RequestをロックするGitHub Action
   languages: 'JavaScript'
   href: dessant/lock-threads
   tags:
@@ -182,8 +182,8 @@
     - pull requests
     - ワークフロー
 - 
-  title: Get Commit Difference Count Between Two Branches
-  description: This GitHub Action compares two branches and gives you the commit count between them
+  title: 2つのブランチ間のコミットの差異数の取得
+  description: このGitHub Actionは2つのブランチを比較し、それらの間のコミットカウントを返します。
   languages: 'JavaScript, Shell'
   href: jessicalostinspace/commit-difference-action
   tags:
@@ -191,8 +191,8 @@
     - diff
     - ワークフロー
 - 
-  title: Generate Release Notes Based on Git References
-  description: GitHub Action to generate changelogs, and release notes
+  title: Git参照に基づくリリースノートを生成
+  description: changelogとリリースノートを生成するGitHub Action
   languages: 'JavaScript, Shell'
   href: metcalfc/changelog-generator
   tags:
@@ -201,8 +201,8 @@
     - ワークフロー
     - 変更履歴
 - 
-  title: Enforce Policies on GitHub Repositories and Commits
-  description: Policy enforcement for your pipelines
+  title: GitHubリポジトリとコミットにポリシーを適用する
+  description: パイプラインに対するポリシーの適用
   languages: 'Go, Makefile, Dockerfile, Shell'
   href: talos-systems/conform
   tags:
@@ -210,17 +210,17 @@
     - build-automation
     - ワークフロー
 - 
-  title: Auto Label Issue Based
-  description: Automatically label an issue based on the issue description
+  title: Issueに基づく自動ラベル
+  description: Issueの説明に基づいてIssueに自動的にラベル付け
   languages: 'TypeScript, JavaScript, Dockerfile'
   href: Renato66/auto-label
   tags:
     - labels
     - ワークフロー
-    - automation
+    - 自動化
 - 
-  title: Update Configured GitHub Actions to the Latest Versions
-  description: CLI tool to check whehter all your actions are up-to-date or not
+  title: 設定されたGitHub Actionsを最新バージョンにアップデート
+  description: すべてのアクションが最新かどうかをチェックするCLIツール
   languages: 'C#, Inno Setup, PowerSHell, Shell'
   href: fabasoad/ghacu
   tags:
@@ -228,8 +228,8 @@
     - cli
     - ワークフロー
 - 
-  title: Create Issue Branch
-  description: GitHub Action that automates the creation of issue branches
+  title: Issueブランチの作成
+  description: Issueブランチの作成を自動化するGitHub Action
   languages: 'JavaScript, Shell'
   href: robvanderleek/create-issue-branch
   tags:
@@ -237,25 +237,25 @@
     - issues
     - labels
 - 
-  title: Remove old artifacts
-  description: Customize artifact cleanup
+  title: 古い成果物を削除
+  description: 成果物のクリーンアップをカスタマイズ
   languages: 'JavaScript, Shell'
   href: c-hive/gha-remove-artifacts
   tags:
     - 成果物
     - ワークフロー
 - 
-  title: Sync Defined Files/Binaries to Wiki or External Repositories
-  description: GitHub Action to automatically sync changes to external repositories, like the wiki, for example
+  title: 定義されたファイル/バイナリをWikiあるいは外部リポジトリと同期
+  description: 変更を、たとえばwikiのような外部リポジトリに自動的に同期するGitHub Action
   languages: 'Shell, Dockerfile'
   href: kai-tub/external-repo-sync-action
   tags:
     - wiki
-    - sync
+    - 同期
     - ワークフロー
 - 
-  title: Create/Update/Delete a GitHub Wiki page based on any file
-  description: Updates your GitHub wiki by using rsync, allowing for exclusion of files and directories and actual deletion of files
+  title: 任意のファイルに基づいてGitHub Wikiページを作成/更新/削除
+  description: ファイルとディレクトリの除外、そして実際のファイルの削除をできるようにしながら、rsyncを使ってGitHub wikiを更新
   languages: 'Shell, Dockerfile'
   href: Andrew-Chen-Wang/github-wiki-action
   tags:
@@ -264,7 +264,7 @@
     - ワークフロー
 - 
   title: Prow GitHub Actions
-  description: Automation of policy enforcement, chat-ops, and automatic PR merging
+  description: ポリシー適用の自動化、chat-ops、自動PRマージ
   languages: 'TypeScript, JavaScript'
   href: jpmcb/prow-github-actions
   tags:
@@ -272,8 +272,8 @@
     - prow
     - ワークフロー
 - 
-  title: Check GitHub Status in your Workflow
-  description: Check GitHub Status in your workflow
+  title: ワークフロー中でのGitHubステータスのチェック
+  description: ワークフロー中でのGitHubステータスのチェック
   languages: 'TypeScript, JavaScript'
   href: crazy-max/ghaction-github-status
   tags:
@@ -281,26 +281,26 @@
     - モニタリング
     - ワークフロー
 - 
-  title: Manage labels on GitHub as code
-  description: GitHub Action to manage labels (create/rename/update/delete)
+  title: GitHub上でラベルをコードとして管理
+  description: ラベルを管理（作成/名前の変更/更新/削除）をするGitHub Action
   languages: 'TypeScript, JavaScript'
   href: crazy-max/ghaction-github-labeler
   tags:
     - labels
     - ワークフロー
-    - automation
+    - 自動化
 - 
-  title: Distribute funding in free and open source projects
-  description: Continuous Distribution of funding to project contributors and dependencies
+  title: フリーでオープンソースのプロジェクトに資金を分配
+  description: プロジェクトのコントリビューター及び依存関係への資金の継続的配分
   languages: 'Python, Dockerfile, Shell, Ruby'
   href: protontypes/libreselery
   tags:
     - sponsors
-    - funding
+    - 資金
     - payment
 - 
-  title: Herald rules for GitHub
-  description: Add reviewers, subscribers, labels and assignees to your PR
+  title: GitHubの先駆者ルール
+  description: PRへのレビュー担当者、サブスクライバー、ラベル、アサインされた人の追加
   languages: 'TypeScript, JavaScript'
   href: gagoar/use-herald-action
   tags:
@@ -309,27 +309,27 @@
     - assignees
     - プルリクエスト
 - 
-  title: Codeowner validator
-  description: Ensures the correctness of your GitHub CODEOWNERS file, supports public and private GitHub repositories and also GitHub Enterprise installations
+  title: コードオーナーバリデータ
+  description: パブリック及びプライベートのGitHubリポジトリと、GitHub Enterpriseの環境もサポートする、GitHub CODEOWNERSファイルの正確性の保証
   languages: 'Go, Shell, Makefile, Dockerfile'
   href: mszostok/codeowners-validator
   tags:
-    - codeowners
-    - validate
+    - コードオーナー
+    - 検証
     - ワークフロー
 - 
   title: Copybara Action
-  description: Move and transform code between repositories (ideal to maintain several repos from one monorepo)
+  description: リポジトリ間でコードを移動して変換（1つの単一リポジトリから複数のリポジトリを管理するのに理想的）
   languages: 'TypeScript, JavaScript, Shell'
   href: olivr/copybara-action
   tags:
-    - monorepo
+    - 単一リポジトリ
     - copybara
     - ワークフロー
 - 
-  title: Deploy static files to GitHub Pages
-  description: GitHub Action to publish website to GitHub Pages automatically
+  title: 静的ファイルをGitHub Pagesにデプロイ
+  description: WebサイトをGitHub Pagesに自動的に公開するGitHub Action
   languages: 'TypeScript, JavaScript'
   href: peaceiris/actions-gh-pages
   tags:
-    - publishing
+    - 公開

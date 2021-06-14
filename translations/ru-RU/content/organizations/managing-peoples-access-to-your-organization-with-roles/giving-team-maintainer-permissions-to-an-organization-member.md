@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team_maintainers_can %}
@@ -20,8 +20,8 @@ topics:
 
 Before promoting an organization member to team maintainer, the person must already be a member of the team.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. Select the person or people you'd like to promote to team maintainer. ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)

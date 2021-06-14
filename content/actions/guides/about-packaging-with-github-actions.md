@@ -20,6 +20,6 @@ topics:
 
 {% data reusables.package_registry.about-packaging-and-actions %}
 
-### Further reading
+## Further reading
 
 - "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"

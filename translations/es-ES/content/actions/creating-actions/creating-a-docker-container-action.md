@@ -29,6 +29,8 @@ Una vez que completes este proyecto, deberías comprender cómo crear tu propia 
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Prerrequisitos
 
 Puede ser útil tener un entendimiento básico de variables de entorno de las {% data variables.product.prodname_actions %} y del sistema de archivos de contenedor Docker:
@@ -195,14 +197,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

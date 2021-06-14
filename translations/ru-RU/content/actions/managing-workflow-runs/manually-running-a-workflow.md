@@ -1,6 +1,6 @@
 ---
 title: Manually running a workflow
-intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the REST API or from the Actions tab on {% data variables.product.prodname_dotcom %}.'
+intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the Actions tab on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, or the REST API.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -27,6 +27,40 @@ To trigger the `workflow_dispatch` event on {% data variables.product.prodname_d
 1. In the left sidebar, click the workflow you want to run. ![actions select workflow](/assets/images/actions-select-workflow.png)
 1. Above the list of workflow runs, select **Run workflow**. ![actions workflow dispatch](/assets/images/actions-workflow-dispatch.png)
 1. Select the branch where the workflow will run and type the input parameters used by the workflow. Click **Run workflow**. ![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
+
+### Running a workflow using {% data variables.product.prodname_cli %}
+
+{% data reusables.actions.actions-cli %}
+
+To run a workflow, use the `workflow run` subcommand. Replace the `workflow` parameter with either the name, ID, or file name of the workflow you want to run. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
+
+```shell
+gh workflow run <em>workflow</em>
+```
+
+If your workflow accepts inputs, {% data variables.product.prodname_cli %} will prompt you to enter them. Alternatively, you can use `-f` or `-F` to add an input in `key=value` format. Use `-F` to read from a file.
+
+```shell
+gh workflow run greet.yml -f name=mona -f greeting=hello -F data=@myfile.txt
+```
+
+You can also pass inputs as JSON by using standard input.
+
+```shell
+echo '{"name":"mona", "greeting":"hello"}' | gh workflow run greet.yml --json
+```
+
+To run a workflow on a branch other than the repository's default branch, use the `--ref` flag.
+
+```shell
+gh workflow run <em>workflow</em> --ref <em>branch-name</em>
+```
+
+To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
+
+```shell
+gh run watch
+```
 
 ### Running a workflow using the REST API
 

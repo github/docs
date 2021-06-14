@@ -29,7 +29,7 @@ versions:
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. 在 **Artifacts（构件）**下，单击
-您要删除的构件旁边的 {% octicon "trashcan" aria-label="The trashcan icon" %}。
+您要删除的构件旁边的 {% octicon "trash" aria-label="The trash icon" %}。
     {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
  ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}

@@ -1,5 +1,5 @@
 ---
-title: GitHub Data Protection Agreement (Non-Enterprise Customers)
+title: GitHubデータ保護契約 (Enterprise以外のお客様)
 redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to non-enterprise customers. They also apply to enterprise customers who licensed GitHub offerings prior to January 4, 2021. Enterprise customers who purchase GitHub offerings after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_この規約は、Enterprise以外のお客様に適用されます。 また、2021年1月4日より前にGitHub製品のライセンスを取得したEnterpriseのお客様にも適用されます。 Enterprise customers who purchase GitHub offerings after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 ## はじめに
 
@@ -179,170 +179,170 @@ c.  gitHubがセクション7.7の義務に従っているという合理的な�
 
 本標準契約条項の使用に規制当局の承認が必要な国においては、お客様が規制当局から必要な証人を得ていない限り、欧州委員会2010/87/EU (2010年2月) に基づき、当該国からのデータ輸出を合法とするにあたり、本標準契約条項に依拠することはできません。
 
-適切な水準のデータ保護を保証しない第三国に拠点を置く処理者に個人データを移転することについて定めた一般データ保護規則 (EU 2016/679) 第46条第2項において、お客様 (データ移転元) と、GitHub (データ移転先、本書下部に署名) との各「当事者」、総称して「両当事者」は、添付1に定めるデータ移転元からデータ移転先への個人データの移転のため、個人のプライバシー、基本的権利、および自由の保護に関する適切な保護措置に関する引証として、以下の契約条項 (「条項」または「標準契約条項」) に合意したものとします。
+適切な水準のデータ保護を保証しない第三国に拠点を置く処理者に個人データを移転することについて定めた一般データ保護規則 (EU 2016/679) 第46条第2項において、お客様 (データ輸出者) と、GitHub (データ輸入者、本書下部に署名) との各「当事者」、総称して「両当事者」は、添付文書1に定めるデータ輸出者からデータ輸入者への個人データの移転のため、個人のプライバシー、基本的権利、および自由の保護に関する適切な保護措置に関する引証として、以下の契約条項 (「条項」または「標準契約条項」) に合意したものとします。
 
 #### 第1条: 定義
-(a) 「個人データ」、「データの特別カテゴリ」、「処理」、「管理者」、「処理者」、「データ主体」、および「監督当局」という用語は、個人データの処理に関する保護およびかかるデータの自由な移動に関する一般データ保護規則 (EU 2016/679) と同じ意味を持つものとします。
+(a) 「個人データ」、「特別なカテゴリのデータ」、「処理」、「管理者」、「処理者」、「データ主体」、および「監督当局」という用語は、個人データの処理に関する保護およびかかるデータの自由な移動に関する一般データ保護規則 (EU 2016/679) と同じ意味を持つものとします。
 
-(b) 「データ移転元」とは、個人情報を移転する管理者を意味します。
+(b) 「データ輸出者」とは、個人情報を移転する管理者を意味します。
 
-(c) 「データ移転先」とは、移転後に、データ移転元の指示および本条項の規定に従って処理するためにデータ移転元から個人データを受信することに合意し、かつ一般データ保護規則 (EU 2016/679) 第45条第2項の意味する範囲において適切な保護を保証しない第三国の機構の支配下にない処理者のことを意味します。
+(c) 「データ輸入者」とは、移転後に、データ輸出者の指示および本条項の規定に従って処理するためにデータ輸出者から個人データを受信することに合意し、かつ一般データ保護規則 (EU 2016/679) 第45条第2項の意味する範囲において適切な保護を保証しない第三国の機構の支配下にない処理者のことを意味します。
 
-(d) 「サブプロセッサー」とは、データ移転元の指示、本条項の規定、および書面による請負契約の規定に従い、移転後にデータ移転元の代理として処理活動を実施することのみを目的として、データ移転先から、または データ移転先の別のサブプロセッサーから個人データを受信することに合意している、データ移転先またはデータ移転先の別のサブプロセッサーから業務を請け負う任意の処理者のことを意味します。
+(d) 「サブプロセッサー」とは、データ輸出者の指示、本条項の規定、および書面による請負契約の規定に従い、移転後にデータ輸出者の代理として処理活動を実施することのみを目的として、データ輸入者から、または データ輸入者の別のサブプロセッサーから個人データを受信することに合意している、データ輸入者またはデータ輸入者の別のサブプロセッサーから業務を請け負う任意の処理者のことを意味します。
 
-(e)「適用されるデータ保護法」とは、個人の基本的人権と自由、特に、データ移転元が存在する加盟国内におけるデータコントローラーに適用される、個人情報処理に関するプライバシーの権利を保護する法律のことを意味します。
+(e)「適用されるデータ保護法」とは、個人の基本的人権と自由、特に、データ輸出者が存在する加盟国内におけるデータコントローラーに適用される、個人情報処理に関するプライバシーの権利を保護する法律のことを意味します。
 
-(f) 特に処理がネットワークを介したデータの送信を伴う偶発的または違法な破壊、偶発的な紛失、改変、不正な開示またはアクセス、およびその他あらゆる違法な処理の形態に対して個人データを保護する対策のことを意味します。
+(f) 「技術的および組織的セキュリティ対策」とは、特に処理がネットワークを介したデータの送信を伴う偶発的または違法な破壊、偶発的な紛失、改変、不正な開示またはアクセス、およびその他あらゆる違法な処理の形態に対して個人データを保護する対策のことを意味します。
 
-#### Clause 2: Details of the transfer
-The details of the transfer and in particular the special categories of personal data where applicable are specified in Appendix 1 below which forms an integral part of the Clauses.
+#### 第2条: 転送の詳細
+転送の詳細、特に適用される特別なカテゴリの個人データについては、本条項と不可分である、下記の添付文書1に明記されています。
 
-#### Clause 3: Third-party beneficiary clause
-1. The data subject can enforce against the data exporter this Clause, Clause 4(b) to (i), Clause 5(a) to (e), and (g) to (j), Clause 6(1) and (2), Clause 7, Clause 8(2), and Clauses 9 to 12 as third-party beneficiary.
+#### 第3条: 第三者受益者条項
+1. データ主体は、データ輸出者に対して、本条項、第4条4 (b) から (i)、第5条 (a) から (e) および (g) から (j)、第6条 (1) および (2)、第7条、第8条 (2)、ならびに第9条から第12条を、第三者受益者として執行することができます。
 
-2. The data subject can enforce against the data importer this Clause, Clause 5(a) to (e) and (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases where the data exporter has factually disappeared or has ceased to exist in law unless any successor entity has assumed the entire legal obligations of the data exporter by contract or by operation of law, as a result of which it takes on the rights and obligations of the data exporter, in which case the data subject can enforce them against such entity.
+2. データ主体は、データ輸出者が事実上存在しなくなった場合、または法律上存在しなくなった場合、 データ輸入者に対して本条項、第5条 (a) から (e) および (g)、第6条、第7条、第条8 (2)、ならびに第9条から第12条を執行することができます。ただし、後継法人が契約または法律の定めによりデータ輸出者の法的義務をすべて引き受けた場合を除きます。この場合、後継法人がデータ輸出者の権利および義務を引き受けることとなり、データ主体はかかる法人に対して上記条項を執行できます。
 
-3. The data subject can enforce against the subprocessor this Clause, Clause 5(a) to (e) and (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases where both the data exporter and the data importer have factually disappeared or ceased to exist in law or have become insolvent, unless any successor entity has assumed the entire legal obligations of the data exporter by contract or by operation of law as a result of which it takes on the rights and obligations of the data exporter, in which case the data subject can enforce them against such entity. Such third-party liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+3. データ主体は、サブプロセッサーとデータ輸入者の双方が事実上存在しなくなった場合、法律上存在しなくなった場合、または、債務超過に陥った場合、サブプロセッサーに対して本条項、第5条 (a) から (e) および (g)、第6条、第7条、第条8 (2)、ならびに第9条から第12条を執行することができます。ただし、後継法人が契約または法律の定めによりデータ輸出者の法的義務をすべて引き受けた場合を除きます。この場合、後継法人がデータ輸出者の権利および義務を引き受けることとなり、データ主体はかかる法人に対して上記条項を執行できます。 サブプロセッサーの第三者に対するかかる責任は、かかる条項に基づく自らの処理操作に限定されるものとします。
 
-4. The parties do not object to a data subject being represented by an association or other body if the data subject so expressly wishes and if permitted by national law.
+4. 両当事者は、データ主体が特に希望しており、かつ国家の法令により許可されている場合、組合またははその他組織体がデータ主体を代表することに反対しないものとします。
 
-#### Clause 4: Obligations of the data exporter
-The data exporter agrees and warrants:
+#### 第4条: データ輸出者の義務
+データ輸出者は、以下のことに同意し、保証します。
 
-(a) that the processing, including the transfer itself, of the personal data has been and will continue to be carried out in accordance with the relevant provisions of the applicable data protection law (and, where applicable, has been notified to the relevant authorities of the Member State where the data exporter is established) and does not violate the relevant provisions of that State;
+(a) 個人データの処理 (その転送を含む) は、これまでも今後も引き続き、適用されるデータ保護法の関連条項に従って実行され、(および該当する該当する場合は、データ輸出者が登記された加盟国の関連当局に通知を行っており)、当該国の関連条項に違反していないこと。
 
-(b) that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;
+(b) データ輸入者に対し、移転された個人データの処理を、適用データ保護 法令および本契約条項に従い、当該データ輸出者のためにのみ行うよう指 示していること、また、個人データ処理サービスの継続期間を通じて、 かかる指示を行うこと。
 
-(c) that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 below;
+(c) データ輸入者が、下記の添付文書2に明記された技術的および組織的セキュリティ対策に関して十分な保証を提供すること。
 
-(d) that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
+(d) 適用されるデータ保護法令要件の評価に従い、セキュリティ対策が、特にネットワークを通じた送信による処理が行われる場合の偶発的または違法な破壊、偶発的な喪失、変更、不正開示またアクセス、およびその他のあらゆる違法な処理形態から個人データを保護するのに適切なものであり、また、これらの対策が、最新の技術と対策実施費用を考慮した上で、処理およびデータの性質により生じるリスクを回避できるよう適切なレベルのセキュリティを確保するものであること。
 
-(e) that it will ensure compliance with the security measures;
+(e) セキュリティ対策を遵守するよう万全を期すこと。
 
-(f) that, if the transfer involves special categories of data, the data subject has been informed or will be informed before, or as soon as possible after, the transfer that its data could be transmitted to a third country not providing adequate protection within the meaning of the General Data Protection Regulation (EU 2016/679);
+(f) かかる移転に特別カテゴリのデータが含まれる場合、データ主体に対しかかるデータ主体のデータが一般データ保護規則 (EU 2016/679) の意図する範囲で十分な保護が提供されていない第三国に移転される可能性がある旨を通知済みであること、もしくは事前に通知すること、または事後的に可能な限りすみやかに通知すること。
 
-(g) to forward any notification received from the data importer or any subprocessor pursuant to Clause 5(b) and Clause 8(3) to the data protection supervisory authority if the data exporter decides to continue the transfer or to lift the suspension;
+(g) データ輸出者が、移転の継続または移転の一時停止を解除する旨を決定した場合、第5条 (b) および第8条 (3) に基づきデータ輸入者またはサブプロセッサーから受領した通知を、データ保護監督当局に転送すること。
 
-(h) to make available to the data subjects upon request a copy of the Clauses, with the exception of Appendix 2, and a summary description of the security measures, as well as a copy of any contract for subprocessing services which has to be made in accordance with the Clauses, unless the Clauses or the contract contain commercial information, in which case it may remove such commercial information;
+h) 要請に応じて、データ主体に対し、添付文書2を除く本契約条項のコピー1 部およびセキュリティ対策の概要、ならびに副処理サービスに関する契約書 (この契約は、本契約条項に従い作成されなければならない) のコピー1 部を提供すること。ただし、本契約条項または副処理サービス契約に商業上の情報が含まれる場合、データ輸出者は、かかる商業上の情報を除外することができる。
 
-(i) that, in the event of subprocessing, the processing activity is carried out in accordance with Clause 11 by a subprocessor providing at least the same level of protection for the personal data and the rights of data subject as the data importer under the Clauses; and
+(i) 副処理が行われる場合、当該処理業務が、データ主体の個人データおよび権利に対し、少なくとも本契約条項におけるデータ輸入者と同水準の保護を提供する副処理者により、第11条に従って実施されること。
 
-(j) that it will ensure compliance with Clause 4(a) to (i).
+(j) 第4条 (a) から (i) を遵守するよう万全を期すこと。
 
-#### Clause 5: Obligations of the data importer
-The data importer agrees and warrants:
+#### 第5条: データ輸入者の義務
+データ輸入者は、以下のことに同意し、保証します。
 
-(a) to process the personal data only on behalf of the data exporter and in compliance with its instructions and the Clauses; if it cannot provide such compliance for whatever reasons, it agrees to inform promptly the data exporter of its inability to comply, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
+(a) 個人データの処理を、データ輸出者のためにのみ、データ輸出者の指示 および本契約条項に従って行うこと。何らかの理由により上記を遵守することができない場合、データ輸入者は、すみやかにデータ輸出者に通知することに同意する。この場合、データ輸出者は、データ移転を一時停止する権利および本契約を解除する権利を有する。
 
-(b) that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
+(b) データ輸入者に適用される法令により、データ輸出者からの指示の遂行および本契約に基づく自身の義務の履行が妨げられると信じる理由は存在しないこと。また、本契約条項に規定された保証および義務に実質的に悪影響を及ぼすおそれのある上記法令への変更が行われた場合、データ輸入者は、当該変更を認識した後すみやかに、データ輸出者に対して当該変更を通知すること。この場合、当該データ輸出者は、データ移転を一時停止する権利および本契約を解除する権利を有する。
 
-(c) that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;
+(c) 移転された個人データの処理を行う前に、添付文書2に明記された技術的および組織的セキュリティ対策を講じていること。
 
-(d) that it will promptly notify the data exporter about:
+(d) 以下について、データ輸出者にすみやかに通知すること。
 
-(i) any legally binding request for disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,
+(i) 法執行機関から、個人データの法的拘束力を有する開示要請を受けた場合。ただし、通知を行うことが禁止されている場合 (例えば、刑法に基づく法執行機関の捜査の秘密性を維持するための禁止) を除く。
 
-(ii) any accidental or unauthorised access, and
+(ii) 偶発的または不正アクセス。
 
-(iii) any request received directly from the data subjects without responding to that request, unless it has been otherwise authorised to do so;
+(iii) データ主体から直接受けた要請。要請を受ける前には対応を行わない。ただし、対応することが認められている場合を除く。
 
-(e) to deal promptly and properly with all inquiries from the data exporter relating to its processing of the personal data subject to the transfer and to abide by the advice of the supervisory authority with regard to the processing of the data transferred;
+(e) 移転の対象である個人データの処理に関して、データ輸出者からの全ての問い合わせに対して迅速かつ適切に対応するすること。また、移転されたデータの処理に関する監督当局からの助言に従うこと。
 
-(f) at the request of the data exporter to submit its data processing facilities for audit of the processing activities covered by the Clauses which shall be carried out by the data exporter or an inspection body composed of independent members and in possession of the required professional qualifications bound by a duty of confidentiality, selected by the data exporter, where applicable, in agreement with the supervisory authority;
+(f) データ輸出者の要請に応じて、本契約条項の対象となる処理活動のためのデータ処理施設について監査を受けること。この監査はデータ輸出者、またはデータ輸出者が選定し、該当する場合は監督当局の合意を得た、独立したメンバーにより構成される、必要な専門的資格を有し機密保護義務を課された検査機関により実施されるものとする。
 
-(g) to make available to the data subject upon request a copy of the Clauses, or any existing contract for subprocessing, unless the Clauses or contract contain commercial information, in which case it may remove such commercial information, with the exception of Appendix 2 which shall be replaced by a summary description of the security measures in those cases where the data subject is unable to obtain a copy from the data exporter;
+(g) 要請に応じ、データ主体に対し、本契約条項またはデータの副処理に関する既存の契約書のコピー1 部を提供すること (ただし、本契約条項または上記副処理契約に商業上の情報が含まれる場合は、当該商業上の情報を除外することができる)。ただし、添付文書2については、データ主体がそのコピーをデータ輸出者から入手できない場合、セキュリティ対策の概要で代替するものとする。
 
-(h) that, in the event of subprocessing, it has previously informed the data exporter and obtained its prior written consent;
+(h) データの副処理が行われる場合、事前にデータ輸出者に通知し、事前の書面による同意を取得していること。
 
-(i) that the processing services by the subprocessor will be carried out in accordance with Clause 11; and
+(i) 副処理者による処理サービスが、本契約条項の第11条に従い実施されること。
 
-(j) to send promptly a copy of any subprocessor agreement it concludes under the Clauses to the data exporter.
+(j) 本契約条項に基づき締結されたデータの副処理契約書のコピー1部を、すみやかにデータ輸出者に送付すること。
 
-#### Clause 6: Liability
-1. The parties agree that any data subject who has suffered damage as a result of any breach of the obligations referred to in Clause 3 or in Clause 11 by any party or subprocessor is entitled to receive compensation from the data exporter for the damage suffered.
+#### 第6条: 責任
+1. 両当事者は、当事者のいずれかまたは副処理者が本契約条項の第3条または第11条に違反したことにより損害を被ったデータ主体が、当該損害について、データ輸出者から賠償を受ける権利を有することに同意します。
 
-2. If a data subject is not able to bring a claim for compensation in accordance with paragraph 1 against the data exporter, arising out of a breach by the data importer or his subprocessor of any of their obligations referred to in Clause 3 or in Clause 11, because the data exporter has factually disappeared or ceased to exist in law or has become insolvent, the data importer agrees that the data subject may issue a claim against the data importer as if it were the data exporter, unless any successor entity has assumed the entire legal obligations of the data exporter by contract of by operation of law, in which case the data subject can enforce its rights against such entity. The data importer may not rely on a breach by a subprocessor of its obligations in order to avoid its own liabilities.
+2. データ輸出者が事実上消滅し、もしくは法律上存在しなくなったこと、または支払不能に陥ったことにより、データ主体が、データ輸入者または副処理者が第3条または第11条に基づく義務に違反したことによる、第1項に基づく賠償請求をデータ輸出者に対して行うことができない場合、データ輸入者は、データ主体が、あたかもデータ輸入者がデータ輸出者であるかのように、データ輸入者に対して請求を行うことができることに同意します。ただし、データ輸出者の承継人が、契約または法律により、データ輸出者の法的義務を全て引き受けた場合を除きます。この場合、当該データ主体は、当該承継人に対して権利を行使することができます。 データ輸入者は、副処理者により違反が行われたという事実に依拠して自身の法的責任を回避することはできなません。
 
-3. If a data subject is not able to bring a claim against the data exporter or the data importer referred to in paragraphs 1 and 2, arising out of a breach by the subprocessor of any of their obligations referred to in Clause 3 or in Clause 11 because both the data exporter and the data importer have factually disappeared or ceased to exist in law or have become insolvent, the subprocessor agrees that the data subject may issue a claim against the data subprocessor with regard to its own processing operations under the Clauses as if it were the data exporter or the data importer, unless any successor entity has assumed the entire legal obligations of the data exporter or data importer by contract or by operation of law, in which case the data subject can enforce its rights against such entity. The liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+3. データ輸出者およびデータ輸入者の双方が事実上消滅し、もしくは法律上存在しなくなった場合、またはこれらの双方が支払不能に陥ったために、データ主体が、副処理者が第3条または第11条に規定された義務に違反したことによるする請求について、第1項および第2項に規定されたデータ輸出者またはデータ輸入者に対する請求を行うことができない場合、副処理者は、データ主体が、本契約条項に基づく副処理者の副処理に関して、あたかも副処理者がデータ輸出者またはデータ輸入者であるかのように、副処理者に対して請求を行うことができることに同意します。ただし、データ輸出者またはデータ輸入者の承継人が、契約または法律により、データ輸出者またはデータ輸入者の法的義務を全て引き受けた場合を除きます。この場合、データ主体は、当該承継人に対して自身の権利を行使することができます。 副処理者の法的責任は、本契約条項に基づく自身の処理業務に限定されるものとします。
 
-#### Clause 7: Mediation and jurisdiction
-1. The data importer agrees that if the data subject invokes against it third-party beneficiary rights and/or claims compensation for damages under the Clauses, the data importer will accept the decision of the data subject:
+#### 第7条: 調停と管轄
+1. データ輸入者は、データ主体が本契約条項に基づきデータ輸入者に対して第三受益者としての権利を行使し、または損害賠償請求を行った場合、データ主体による以下の決定に従うことに同意します。
 
-(a) to refer the dispute to mediation, by an independent person or, where applicable, by the supervisory authority;
+(a) 当該紛争を、独立した第三者、また監督当局 (該当する場合) による調停に付託すること。
 
-(b) to refer the dispute to the courts in the Member State in which the data exporter is established.
+(b) 当該紛争を、データ輸出者が設立されている加盟国の裁判所に付託すること。
 
-2. The parties agree that the choice made by the data subject will not prejudice its substantive or procedural rights to seek remedies in accordance with other provisions of national or international law.
+2. 両当事者は、データ主体が上記選択を行っても、データ主体が国内法または国際法の他の条項に従い救済を求める実体的権利または手続的権利に影響を与えないことに同意します。
 
-#### Clause 8: Cooperation with supervisory authorities
-1. The data exporter agrees to deposit a copy of this contract with the supervisory authority if it so requests or if such deposit is required under the applicable data protection law.
+#### 第8条: 監督当局との協力
+1. データ輸出者は、監督当局が要請した場合、または適用されるデータ保護法令に基づき必要とされる場合、本契約書のコピーを監督当局に預けることに同意します。
 
-2. The parties agree that the supervisory authority has the right to conduct an audit of the data importer, and of any subprocessor, which has the same scope and is subject to the same conditions as would apply to an audit of the data exporter under the applicable data protection law.
+2. 両当事者は、監督当局がデータ輸入者および副処理者の監査を行う権利を有することに同意します。この監査の範囲は、適用されるデータ保護法令に基づくデータ輸出者に対する監査と同じものであり、また同じ条件が適用されます。
 
-3. The data importer shall promptly inform the data exporter about the existence of legislation applicable to it or any subprocessor preventing the conduct of an audit of the data importer, or any subprocessor, pursuant to paragraph 2. In such a case the data exporter shall be entitled to take the measures foreseen in Clause 5(b).
+3. データ輸入者は、第2項に基づくデータ輸入者または副処理者の監査の実施を妨げる、データ輸入者または副処理者に適用される法律が存在する場合、データ輸出者にすみやかに通知するものとします。 このような場合、データ輸出者は、第5条 (b) に記載された措置をとる権利を有するものとします。
 
-#### 第9条: 準拠法。
-The Clauses shall be governed by the law of the Member State in which the data exporter is established.
+#### 第9条: 準拠法
+本契約条項は、データ輸出者が設立されている加盟国の法律に準拠するものとします。
 
-#### Clause 10: Variation of the contract
-The parties undertake not to vary or modify the Clauses. This does not preclude the parties from adding clauses on business related issues where required as long as they do not contradict the Clause.
+#### 第10条: 契約の変更
+両当事者は、本契約の変更または修正を行わないことを約束します。 これは、両当事者が、本契約と矛盾しない限度で、必要に応じて商取引上の条項を追加することを妨げるものではありません。
 
-#### Clause 11: Subprocessing
-1. The data importer shall not subcontract any of its processing operations performed on behalf of the data exporter under the Clauses without the prior written consent of the data exporter. Where the data importer subcontracts its obligations under the Clauses, with the consent of the data exporter, it shall do so only by way of a written agreement with the subprocessor which imposes the same obligations on the subprocessor as are imposed on the data importer under the Clauses. Where the subprocessor fails to fulfil its data protection obligations under such written agreement the data importer shall remain fully liable to the data exporter for the performance of the subprocessor's obligations under such agreement.
+#### 第11条: 副処理
+1. データ輸入者は、データ輸出者の書面による事前の同意なしに、データ輸出者に代わって実施するいかなる処理操作も再委託してはなりません。 データ輸入者が、データ輸出者の同意を得て本契約条項に基づく自身の義務を委託する場合、データ輸入者は、本契約に基づきデータ輸入者に課されるものと同一の義務を副処理者に課す契約を書面で締結することによってのみ、かかる副処理の委託を行うものとします。 副処理者が、かかる書面による契約に基づくデータ保護義務の履行を怠った場合、データ輸入者は、当該契約に基づく副処理者の義務の履行について、データ輸出者に対し完全に責任を負うものとします。
 
-2. The prior written contract between the data importer and the subprocessor shall also provide for a third-party beneficiary clause as laid down in Clause 3 for cases where the data subject is not able to bring the claim for compensation referred to in paragraph 1 of Clause 6 against the data exporter or the data importer because they have factually disappeared or have ceased to exist in law or have become insolvent and no successor entity has assumed the entire legal obligations of the data exporter or data importer by contract or by operation of law. Such third-party liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+2. データ輸出者またはデータ輸入者が事実上消滅し、もしくは法律上存在しなくなった場合、またはこれらの双方が支払不能に陥った場合で、かつ契約または法律によりデータ輸出者またはデータ輸入者の法的義務を全て引き受ける承継人が存在しないため、データ主体が第6条1項に規定された損害賠償の請求をデータ輸出者またはデータ輸入者に対して行うことができない場合に備え、データ輸入者と副処理者との間の事前の書面による契約には、第3条に定められている第三者受益者条項を規定するものとします。 サブプロセッサーの第三者に対するかかる責任は、かかる条項に基づく自らの処理操作に限定されるものとします。
 
-3. The provisions relating to data protection aspects for subprocessing of the contract referred to in paragraph 1 shall be governed by the law of the Member State in which the data exporter is established.
+3. 第1項で言及されている、契約に基づく副処理におけるデータ保護の観点に関する規定は、データ輸出者が設立された加盟国の法律に準拠するものとします。
 
-4. The data exporter shall keep a list of subprocessing agreements concluded under the Clauses and notified by the data importer pursuant to Clause 5 (j), which shall be updated at least once a year. The list shall be available to the data exporter's data protection supervisory authority.
+4. データ輸出者は、本契約に基づき締結され、第5条 (j) に基づきデータ輸入者から通知された副処理契約のリストを保管し、このリストを少なくとも1年に1回更新するものとします。 このリストは、データ輸出者のデータ保護監督当局も入手できるものとします。
 
-#### Clause 12: Obligation after the termination of personal data processing services
-1. The parties agree that on the termination of the provision of data processing services, the data importer and the subprocessor shall, at the choice of the data exporter, return all the personal data transferred and the copies thereof to the data exporter or shall destroy all the personal data and certify to the data exporter that it has done so, unless legislation imposed upon the data importer prevents it from returning or destroying all or part of the personal data transferred. In that case, the data importer warrants that it will guarantee the confidentiality of the personal data transferred and will not actively process the personal data transferred anymore.
+#### 第12条: 個人データ処理サービス終了後の義務
+1. 両当事者は、データ処理サービスの提供が終了した際、データ輸入者および副処理者が、データ輸出者の選択に従い、移転された全ての個人データおよびそのコピーをデータ輸出者に返却するか、または全ての個人データを破棄し、データ輸出者に対して破棄を行った旨を証明することに同意します。ただし、データ輸入者に適用される法律により、データ輸入者が移転されたデータの全部または一部を返還または破棄することが禁じられている場合を除きます。 この場合、データ輸入者は、移転された当該個人データの秘密を保証することおよび当該個人データの処理を積極的に行わないことを保証します。
 
-2. The data importer and the subprocessor warrant that upon request of the data exporter and/or of the supervisory authority, it will submit its data processing facilities for an audit of the measures referred to in paragraph 1.
+2. データ輸入者および副処理者は、データ輸出者または監督当局の要請に応じ、第1項に規定された措置の監査のため、データ処理設備を提供することに同意します。
 
-### Appendix 1 to the Standard Contractual Clauses
-Data exporter: Customer is the data exporter.
+### 標準契約条項添付文書1
+データ輸出者: お客様はデータ輸出者です。
 
-**Data importer:** The data importer is GitHub, Inc., a global producer of software and services.
+**データ輸入者:** データ輸入者は、ソフトウェアとサービスの世界的なプロデューサーであるGitHub, Inc.です。
 
-**Data subjects:** Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal information to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Service, Customer may elect to include personal data from any of the following types of data subjects in the Customer Personal Data:
+**データ主体:** データ主体には、データ輸出者の営業代理人およびエンドユーザ (従業員、請負業者、コラボレーター、およびデータ輸出者のお客様を含む) が含まれます。 また、データ主体には、データ輸入者が提供するサービスのユーザに個人情報を伝達または転送しようと試みる個人も含まれる場合があります。 GitHub は、お客様によるサービスの利用方法に応じて、お客様の個人データに、以下の中から任意のタイプのデータ主体を個人データとして含めることができることを認識しています。
 
--   Employees, contractors and temporary workers (current, former, prospective) of data exporter;
--   Dependents of the above;
--   Data exporter's collaborators/contact persons (natural persons) or employees, contractors or temporary workers of legal entity collaborators/contact persons (current, prospective, former);
--   Users (e.g., customers, clients, patients, visitors, etc.) and other data subjects that are users of data exporter's services;
--   Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter;
--   Stakeholders or individuals who passively interact with data exporter (e.g., because they are the subject of an investigation, research or mentioned in documents or correspondence from or to the data exporter); or
--   Professionals with professional privilege (e.g., doctors, lawyers, notaries, religious workers, etc.).
+-   データ輸出者の従業員、請負業者、派遣労働者 (現在、過去、見込みを含む)。
+-   上記の被扶養者。
+-   データ輸出者のコラボレータ/担当者 (自然人) または従業員、請負業者または法人コラボレータ/担当者の派遣労働者 (現在、見込み、過去を含む)。
+-   ユーザ (顧客、クライアント、患者、訪問者など) およびデータ輸出者によるサービスのユーザであるその他のデータ主体。
+-   データ輸出者の従業員と積極的に協力、連絡、その他のやり取りを行う、またはデータ輸出者が提供するアプリケーションやウェブサイトなどのコミュニケーションツールを使用するパートナー、利害関係者または個人。
+-   (調査、研究の対象、または文書もしくはデータ輸出者との通信で言及されているという理由などで) データ輸出者と受動的にやり取りを行う利害関係者または個人。
+-   職業的特権を持つ専門家 (医師、弁護士、公証人、宗教活動家など)
 
-**Categories of data:** The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Service.  GitHub acknowledges that, depending on Customer’s use of the Service, Customer may elect to include personal data from any of the following categories in the Customer Personal Data:
--   Authentication data (for example, username, email, password);
--   Contact information (for example, email);
--   Unique identification numbers and signatures (IP addresses, unique identifier in tracking cookies or similar technology).
--   Other unique identifying information. Data subjects may include more data such as real names, avatar images, and other personal information;
+**データのカテゴリ:** 電子メール、文書、および本サービスの文脈における電子的形式のその他データに含まれる、転送される個人データ。  GitHub は、お客様によるサービスの利用方法に応じて、お客様の個人データに、以下の中から任意のカテゴリを個人データとして含めることができることを認識しています。
+-   認証データ (ユーザ名、電子メール、パスワードなど)。
+-   連絡先情報 (電子メールなど)。
+-   一意の識別番号および署名 (IPアドレス、トラッキングクッキーまたは類似の技術における一意の識別子)。
+-   その他一意の識別情報。 データ主体には、実名、アバター画像、その他個人情報などが含まれる場合があります。
 
-**Special categories of data (if appropriate):** The data importer does not intentionally collect or process any special categories of data in carrying out its services to the data exporter.
+**特別カテゴリのデータ (該当する場合):** データ輸入者は、データ輸出者に対してサービスを提供するにあたり、いかなる特別カテゴリのデータも意図的に収集または処理しません。
 
-However, because the data importer provides storage services and does not control the categories of data it stores, the data exporter may choose to transfer special categories of data. Consequently, the data exporter is solely responsible for ensuring that it complies with all obligations imposed by applicable laws and regulations relating to the collection and processing of any special categories of data, including obtaining the explicit consent of the data subject prior to processing sensitive personal data.
+しかしながら、データ輸入者はストレージサービスを提供し、そこに保存するデータのカテゴリを管理していないため、データ輸出者は特別カテゴリのデータを転送することも選択できます。 したがってデータ輸出者は、センシティブな個人を処理する前にデータ主体の明示的同意を得ることを含め、特別カテゴリのデータの収集および処理に関して適用される法令により課されるあらゆる義務に確実に従う義務を単独で負います。
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement), and the “Data Processing” section of the DPA. Subcontractors: In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain Customer Personal Data only to deliver the services the data importer has retained them to provide, and they are prohibited from using Customer Personal Data for any other purpose.
+**操作の処理:** 転送される個人データは、次の基本的な処理活動に従います。GitHubは、[https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement)で閲覧できる、GitHubのプライバシーについての声明に記載された限定的な目的において、およびDPAの「データ処理」セクションに従って個人データを利用します。 下請け業者: DPAに従い、データ輸入者は顧客サポートの提供などの限定的なサービスをデータ輸入者に代わって提供するため、他の企業に業務を委託することができます。 かかる下請け業者は、データ輸入者が下請け業者に要請したサービスを提供する目的においてのみ、お客様の個人データを取得することができ、その他の目的でお客様の個人データを利用することはできないものとします。
 
-### Appendix 2 to the Standard Contractual Clauses
-Description of the technical and organizational security measures implemented by the data importer in accordance with Clauses 4(d) and 5(c):
+### 標準契約条項添付文書2
+第4条 (d) および第5条 (c) に従ってデータ輸入者が実施する、技術的および組織的セキュリティ対策を以下に説明します。
 
-**1. Personnel.** Data importer’s personnel will not process Customer Personal Data without authorization. Personnel are obligated to maintain the confidentiality of any Customer Personal Data and this obligation continues even after their engagement ends.
+**1. スタッフ。**データ輸入者のスタッフは、お客様の個人データを承認なしに処理いたしません。 スタッフはあらゆるお客様の個人データについて機密を保持する義務を負い、この義務は雇用期間の終了後も継続します。
 
-**2. Data Privacy Contact.** The data privacy officer of the data importer can be reached at the following address: GitHub, Inc. Attn: Privacy 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
+**2. データプライバシーに関する連絡先。**データ輸入者のデータプライバシー担当者の連絡先住所は次の通りです。 GitHub, Inc. Attn: Privacy 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
 
-**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data against accidental loss, destruction, alteration, unauthorized disclosure or access or unlawful destruction.
+**3. 技術的および組織的対策。**データ輸入者は、お客様の個人データを保護することを目的として、偶発的喪失、破壊、改変、および不正な開示やアクセス、および以下の違法な破壊に対して適切な技術的および組織的対策、内部統制、情報セキュリティに関する手順を実施してきており、またこれを維持し続けます。
 
-Signature of GitHub, Inc. appears below.
+GitHub, Inc.の署名は以下にあります。
 
-Signing the Standard Contractual Clauses, Appendix 1 and Appendix 2 on behalf of the data importer
+データ輸入者を代表し、標準契約条項、添付文書1、および添付文書2に署名する
 
 ![2020年7月20日、午後2:20:29のスクリーンショット](/assets/images/help/site-policy/docusign-signature.png)
 
-Lynn Hashimoto, Head of Product & Regulatory Legal
+製品および法規制部長　リン・ハシモト
 
 GitHub, Inc.

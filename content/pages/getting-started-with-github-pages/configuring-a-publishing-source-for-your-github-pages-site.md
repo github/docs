@@ -17,7 +17,7 @@ topics:
 
 For more information about publishing sources, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)."
 
-### Choosing a publishing source
+## Choosing a publishing source
 
 Before you configure a publishing source, make sure the branch{% if currentVersion ver_lt "enterprise-server@3.0" %} or folder{% endif %} you want to use as your publishing source already exists in your repository.{% if currentVersion ver_lt "enterprise-server@3.0" %} For example, before you can publish your project site from the `/docs` folder on the `master` branch of your repository, you or a collaborator must create a `/docs` folder on the default `master` branch of your repository.{% endif %}
 
@@ -35,7 +35,7 @@ Before you configure a publishing source, make sure the branch{% if currentVersi
    ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}
 
-### Troubleshooting publishing problems with your {% data variables.product.prodname_pages %} site
+## Troubleshooting publishing problems with your {% data variables.product.prodname_pages %} site
 
 {% data reusables.pages.admin-must-push %}
 

@@ -6,7 +6,9 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Clustering
   - Enterprise
 ---
 

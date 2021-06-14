@@ -22,6 +22,12 @@ Mit Wikis können Sie Inhalte wie überall sonst auf {% data variables.product.p
 
 Sie können Wikis direkt auf {% data variables.product.product_name %} bearbeiten, oder Sie können Wiki-Dateien lokal bearbeiten. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.product.product_location %} to contribute to a wiki in {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} repository. Weitere Informationen findest Du unter „[Zugriffsberechtigungen für Wikis ändern](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)“.
 
+{% note %}
+
+**Note:** Search engines will not index the contents of wikis. To have your content indexed by search engines, you can use [{% data variables.product.prodname_pages %}](/pages) in a public repository.
+
+{% endnote %}
+
 ### Weiterführende Informationen
 
 - „[Wiki-Seiten hinzufügen oder bearbeiten](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)“

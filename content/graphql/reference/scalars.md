@@ -11,7 +11,7 @@ topics:
   - API
 ---
 
-### About scalars
+## About scalars
 
 [Scalars](https://graphql.github.io/graphql-spec/June2018/#sec-Scalars) are primitive values: `Int`, `Float`, `String`, `Boolean`, or `ID`.
 

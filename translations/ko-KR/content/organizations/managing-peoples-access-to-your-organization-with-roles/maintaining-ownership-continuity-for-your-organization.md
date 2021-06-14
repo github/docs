@@ -23,10 +23,16 @@ topics:
 
 Organization owners have full administrative access to the organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
+
+{% endnote %}
+
 ### Appointing an organization owner
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Select the person or people you'd like to promote to owner. ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Above the list of members, use the drop-down menu and click **Change role**. ![Drop-down menu with option to remove members](/assets/images/help/teams/user-bulk-management-options.png)

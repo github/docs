@@ -18,6 +18,6 @@ topics:
 3. Under Features, unselect **Restrict edits to collaborators only**.
    ![Wiki restrict editing](/assets/images/help/wiki/wiki_restrict_editing.png)
 
-### Further reading
+## Further reading
 
 - "[Disabling wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"

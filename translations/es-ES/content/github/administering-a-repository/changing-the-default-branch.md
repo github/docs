@@ -25,7 +25,7 @@ Puedes elegir la rama predeterminada para un repositorio. Èsta es la rama base 
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
 También puedes renombrar la rama predeterminada. Para obtener más información, consulta la sección "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)".
 

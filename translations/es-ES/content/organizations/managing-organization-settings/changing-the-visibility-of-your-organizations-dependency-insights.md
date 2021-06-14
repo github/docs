@@ -16,9 +16,8 @@ Los propietarios de la organización pueden establecer limitaciones para ver la 
 
 Los propietarios de la empresa pueden establecer limitaciones para ver la información de las dependencias de la organización en todas las organizaciones de tu cuenta de empresa. Para obtener más información, consulta "[Hacer cumplir una política sobre las percepciones de la dependencia en tu cuenta de empresa](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. En "Member organization permissions" (Permisos para miembros de la organización), selecciona o quita la marca de selección de **Allow members to view dependency insights** (Permitir que los miembros vean información de dependencias). ![Casilla de verificación para permitir que los miembros vean información](/assets/images/help/organizations/allow-members-to-view-insights.png)
 6. Haz clic en **Save ** (guardar).

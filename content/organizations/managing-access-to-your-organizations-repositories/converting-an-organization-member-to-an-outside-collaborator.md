@@ -30,8 +30,8 @@ We recommend reviewing the organization member's access to repositories to ensur
 
 When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% if currentVersion == "free-pro-team@latest" %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Select the person or people you'd like to convert to outside collaborators.
   ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
@@ -40,7 +40,7 @@ When you convert an organization member to an outside collaborator, their privil
 6. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
   ![Information on outside collaborators permissions and Convert to outside collaborators button](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
 
-### Further reading
+## Further reading
 
 - "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
 - "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

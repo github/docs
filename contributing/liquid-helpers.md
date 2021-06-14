@@ -208,6 +208,8 @@ In this example:
 
 If the Markdown source's `versions` front matter includes GitHub AE and you want the content to display for GitHub AE, do not include any Liquid logic at all. Deployment of the site will automatically generate the HTML content for GitHub AE.
 
+You may notice version strings like <code>issue-<em>####</em></code> for content versioned for GitHub AE. The content with this versioning will not render on GitHub Docs, and these strings are internal references. These strings are only intended to be edited by GitHub staff.
+
 #### Including content that *only applies to GitHub AE*
 
 If your content only applies to GitHub AE, use this logic:

@@ -1,0 +1,1 @@
+Una vez que hayas creado un secreto, estará disponible cuando creas un codespace nuevo o cuando reinicias el codespace. Para utilizar un secreto que acabas de crear en un codespace actual, necesitarás suspenderlo y reanudarlo.

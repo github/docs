@@ -474,4 +474,25 @@ describe('POST /events', () => {
       checkEvent(printExample, 200)
     )
   })
+
+  describe('preference', () => {
+    const preferenceExample = {
+      ...baseExample,
+      type: 'preference',
+      preference_name: 'application',
+      preference_value: 'cli'
+    }
+
+    it('should record an application event', () =>
+      checkEvent(preferenceExample, 200)
+    )
+
+    it('preference_name is string', () => {
+      checkEvent({ ...preferenceExample, preference_name: null }, 400)
+    })
+
+    it('preference_value is string', () => {
+      checkEvent({ ...preferenceExample, preference_value: null }, 400)
+    })
+  })
 })

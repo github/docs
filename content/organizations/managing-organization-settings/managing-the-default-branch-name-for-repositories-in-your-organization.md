@@ -13,7 +13,7 @@ topics:
   - Teams
 ---
 
-### About management of the default branch name
+## About management of the default branch name
 
 When a member of your organization creates a new repository in your organization, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories that members of your organization create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
@@ -21,7 +21,7 @@ When a member of your organization creates a new repository in your organization
 
 If an enterprise owner has enforced a policy for the default branch name for your enterprise, you cannot set a default branch name for your organization. Instead, you can change the default branch for individual repositories. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
-### Setting the default branch name
+## Setting the default branch name
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -33,6 +33,6 @@ If an enterprise owner has enforced a policy for the default branch name for you
 5. Click **Update**.
     ![Update button](/assets/images/help/organizations/repo-default-name-update.png)
 
-### Further reading
+## Further reading
 
 - "[Managing the default branch name for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)"

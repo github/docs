@@ -1,1 +1,1 @@
-1. Optionally, if you're sponsoring as an organization, to pay a prorated amount instead of making the full monthly payment, under "Total due now", click **Pay prorated $X.XX instead**. ![链接到支付按比例计算的金额](/assets/images/help/sponsors/pay-prorated-amount-link.png)
+1. （可选）如果您是组织赞助者，要支付按时间比例分摊的金额而不是支付整月金额，请在“Total due now（现在应付款总额）”下，单击 **Pay prorated $X.XX instead（按比例支付 $X.XX）**。 ![链接到支付按比例计算的金额](/assets/images/help/sponsors/pay-prorated-amount-link.png)

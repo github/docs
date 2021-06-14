@@ -3,6 +3,10 @@ title: About GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 ### About {% data variables.product.prodname_ghe_managed %}
@@ -21,7 +25,7 @@ All of your data is stored within the geographic region of your choosing. You ca
 
 ### Encryption on your terms
 
-All customer data is encrypted at rest, and you can provide your own encryption key to encrypt your data under your encryption policies. You control your key and access to all of your data. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
+All customer data is encrypted at rest. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
 
 ### Isolated accounts
 
@@ -34,3 +38,7 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 ### Commercial and government environments
 
 {% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
+
+### 더 읽을거리
+
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

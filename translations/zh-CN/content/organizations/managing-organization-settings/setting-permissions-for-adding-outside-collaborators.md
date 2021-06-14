@@ -19,9 +19,8 @@ topics:
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. 在“Repository invitations（仓库邀请）”下，选择 **Allow members to invite outside collaborators to repositories for this organization（允许成员邀请外部协作者访问本组织的仓库）**。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% else %}
 ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox.png){% endif %}

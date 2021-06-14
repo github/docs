@@ -1,7 +1,6 @@
 ---
 title: About GitHub Insights
 intro: '{% data variables.product.prodname_insights %} provides metrics and analytical reports to help engineering teams understand and improve their software delivery process.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/about-github-insights
 versions:

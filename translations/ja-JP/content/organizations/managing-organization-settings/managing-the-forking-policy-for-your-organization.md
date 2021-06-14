@@ -1,6 +1,6 @@
 ---
 title: Organization のフォークポリシーを管理する
-intro: 'Organization が所有するプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} および内部{% endif %} リポジトリのフォークを許可または禁止できます。'
+intro: 'Organizationが所有する任意のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}及びインターナル{% endif %}リオジトリのフォークを許可あるいは禁止できます。'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -21,9 +21,8 @@ Organization レベルでプライベート{% if currentVersion == "free-pro-tea
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. [Repository forking] で、[**Allow forking of private repositories**] または [**Allow forking of private and internal repositories**] を選択します。 ![Organization でフォークを許可または禁止するチェックボックス](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. [**Save**] をクリックします。

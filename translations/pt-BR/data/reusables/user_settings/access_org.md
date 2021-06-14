@@ -1,0 +1,2 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}2. Click the name of your organization.
+  ![Organization name in list of organizations](/assets/images/help/organizations/org-settings-link.png){% endif %}

@@ -11,8 +11,8 @@ topics:
   - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. On the People tab, click **Pending invitation**.
  ![Pending invitation link](/assets/images/help/organizations/pending-invitation-link.png)
@@ -25,7 +25,7 @@ topics:
     - To edit the user's invitation, select a different role or team, then click **Update invitation**.
     - To cancel the user's invitation to join your organization, click **Cancel invitation**.
 
-### Further reading
+## Further reading
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"

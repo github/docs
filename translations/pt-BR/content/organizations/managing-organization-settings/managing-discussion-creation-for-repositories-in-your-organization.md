@@ -17,9 +17,8 @@ topics:
 
 Por padrão, integrantes da organização com acesso de leitura podem criar discussões se um administrador ou proprietário da organização habilitar discussões para um repositório pertencente à organização.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Em "Discussões do repositório, selecione ou desmarque **Permitir que os usuários com acesso de leitura criem discussões**. ![Caixa de seleção para permitir que pessoas com acesso de leitura criem discussões](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
 6. Clique em **Salvar**. ![Botão "Salvar" para configurações de discussões](/assets/images/help/discussions/click-save.png)

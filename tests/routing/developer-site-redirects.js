@@ -9,7 +9,7 @@ const developerRedirectFixtures = require('../fixtures/developer-redirects')
 const MAX_CONCURRENT_REQUESTS = 50
 
 describe('developer redirects', () => {
-  jest.setTimeout(60 * 1000)
+  jest.setTimeout(3 * 60 * 1000)
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in

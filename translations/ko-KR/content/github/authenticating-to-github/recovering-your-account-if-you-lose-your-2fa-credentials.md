@@ -60,7 +60,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 5. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent. ![One-time password field](/assets/images/help/2fa/one-time-password-field.png)
 6. Click **Verify email address**.
 7. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify this device**.
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
     - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**. ![Alternative verification buttons](/assets/images/help/2fa/alt-verifications.png)
 8. A member of {% data variables.contact.github_support %} will review your request and email you within 3-5 business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.

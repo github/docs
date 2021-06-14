@@ -1,0 +1,1 @@
+要下载或升级 {% data variables.product.prodname_cli %}，请遵循 [{% data variables.product.prodname_cli %} 自述文件](https://github.com/cli/cli#installation)中的说明。

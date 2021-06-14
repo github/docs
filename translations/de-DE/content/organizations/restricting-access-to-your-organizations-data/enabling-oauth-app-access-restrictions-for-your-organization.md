@@ -23,9 +23,8 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Klicke unter „Third-party application access policy“ (Zugriffsrichtlinie für Drittanbieter-Anwendungen) auf **Setup application access restrictions** (Zugriffsbeschränkungen für Anwendungen einrichten). ![Schaltfläche „Set up restrictions" (Einrichten von Beschränkungen)](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
 6. Wenn Du die Informationen zu Drittanbieter-Zugriffsbeschränkungen gelesen hast, klicke auf **Restrict third-party application access** (Zugriff von Drittanbieter-Anwendungen beschränken). ![Schaltfläche „Restriction confirmation" (Beschränkungen bestätigen)](/assets/images/help/settings/settings-third-party-restrict-confirm.png)

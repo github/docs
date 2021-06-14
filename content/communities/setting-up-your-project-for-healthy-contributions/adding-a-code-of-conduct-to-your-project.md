@@ -21,7 +21,7 @@ You can add a code of conduct to your project by using a template or manually cr
 
 You can create a default code of conduct for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-### Adding a code of conduct using a template
+## Adding a code of conduct using a template
 
 {% data variables.product.product_name %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
 
@@ -40,7 +40,7 @@ You can create a default code of conduct for your organization or user account. 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Adding a code of conduct manually
+## Adding a code of conduct manually
 
 If the code of conduct you want to use isn't available in the provided templates, you can manually add a code of conduct.
 

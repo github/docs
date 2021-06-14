@@ -1,0 +1,18 @@
+---
+date: '2021-04-14'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - 'A warning message `jq: error (at <stdin>:0): Cannot index number with string "settings"` could occur during replica promotion.'
+    - Visiting the `/settings/emails` page would store state that could cause improper redirects when logging out and logging back in.
+    - Dependency graph alerts weren't shown for some components whose advisories have upper case package names in `vulnerable_version_ranges`.
+    - O usuário visualizou a mensagem 500 error ao executar operações no git em uma instância configurada com autenticação do LDAP.
+    - When ghe-migrator encountered import errors, it would sometimes abort the entire process, and the logs did not include enough context.
+  known_issues:
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando.

@@ -1,0 +1,33 @@
+name: Crowdin Cleanup
+
+# **What it does**: Homogenizes localized non-translatable frontmatter after every push by the octoglot bot to the translations branch.
+# **Why we have it**: So Crowdin doesn't break frontmatter in production.
+# **Who does it impact**: Docs engineering and international expansion.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - translations
+
+jobs:
+  homogenize_frontmatter:
+    name: Homogenize frontmatter
+    # Only run this after octoglot commits or when a Hubber is running this using the workflow dispatch button.
+    if: github.repository == 'github/docs-internal' && (github.event.pusher.name == 'octoglot' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Homogenize frontmatter
+        run: script/i18n/homogenize-frontmatter.js
+
+      - name: Check in homogenized files
+        uses: EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519
+        with:
+          # The arguments for the `git add` command
+          add: 'translations'
+
+          # The message for the commit
+          message: 'Run script/i18n/homogenize-frontmatter.js'

@@ -13,7 +13,7 @@ topics:
   - Teams
 ---
 
-### About base permissions for an organization
+## About base permissions for an organization
 
 You can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. Base permissions do not apply to outside collaborators.
 
@@ -21,7 +21,7 @@ You can set base permissions that apply to all members of an organization when a
 
 If someone with admin permissions to an organization's repository grants a member a higher level of permission for the repository, the higher level of permission overrides the base permission.
 
-### Setting base permissions
+## Setting base permissions
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -31,7 +31,7 @@ If someone with admin permissions to an organization's repository grants a membe
 6. Review the changes. To confirm, click **Change default permission to PERMISSION**.
   ![Reviewing and confirming change of base permissions](/assets/images/help/organizations/base-permissions-confirm.png)
 
-### Further reading
+## Further reading
 
 - "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)"
 - "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"

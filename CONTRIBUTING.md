@@ -38,7 +38,7 @@ Fork with [GitHub Codespaces](https://github.com/features/codespaces):
 
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
-  - Are you making changes to the application code? You'll need **Node.js v14** to run the site locally. See [contributing/development.md](contributing/development.md).
+  - Are you making changes to the application code? You'll need **Node.js v16** to run the site locally. See [contributing/development.md](contributing/development.md).
   - Are you contributing to markdown? We use [GitHub Markdown](contributing/content-markup-reference.md).
 
 ### Open a pull request

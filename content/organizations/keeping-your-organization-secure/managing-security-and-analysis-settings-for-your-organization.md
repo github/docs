@@ -14,14 +14,14 @@ topics:
   - Teams
 ---
 
-### About management of security and analysis settings
+## About management of security and analysis settings
 
 {% data variables.product.prodname_dotcom %} can help secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% if currentVersion == "free-pro-team@latest" %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-### Displaying the security and analysis settings
+## Displaying the security and analysis settings
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -35,7 +35,7 @@ The page that's displayed allows you to enable or disable all security and analy
 
 {% if currentVersion == "github-ae@latest" %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
 
-### Enabling or disabling a feature for all existing repositories
+## Enabling or disabling a feature for all existing repositories
 
 You can enable or disable features for all repositories. {% if currentVersion == "free-pro-team@latest" %}The impact of your changes on repositories in your organization is determined by their visibility:
 
@@ -86,11 +86,11 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 
    {% data reusables.security.displayed-information %}
 
-### Enabling or disabling a feature automatically when new repositories are added
+## Enabling or disabling a feature automatically when new repositories are added
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 2. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories{% if currentVersion == "free-pro-team@latest" %}, or all new private repositories,{% endif %} in your organization.
-   {% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.1" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
    ![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
    {% if currentVersion == "enterprise-server@3.1" %}
@@ -105,7 +105,7 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
+## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
 
 {% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
 
@@ -128,14 +128,14 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
-### Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
 
 You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)." However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GH_advanced_security %} enabled, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section.
   ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png)
-  The table lists the number of unique committers for each repository. This is the number of seats you could free up on your license by removing access to {% data variables.product.prodname_GH_advanced_security %}. {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."{% else %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."{% endif %}
+  The table lists the number of unique committers for each repository. This is the number of seats you could free up on your license by removing access to {% data variables.product.prodname_GH_advanced_security %}. {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."{% else %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."{% endif %}
 1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up seats used by any committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
 1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
 
@@ -147,9 +147,9 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 {% endif %}
 
-### Further reading
+## Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}{% if currentVersion != "github-ae@latest" %}
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"

@@ -19,13 +19,13 @@ versions:
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Authenticating to {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### Authenticating with a personal access token
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -125,7 +125,7 @@ If your instance has subdomain isolation disabled:
 ```
 {% endif %}
 
-### Publishing a package
+## Publishing a package
 
 {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
 
@@ -163,7 +163,7 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Installing a package
+## Installing a package
 
 To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
 
@@ -186,7 +186,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
   $ mvn install
   ```
 
-### Further reading
+## Further reading
 
 - "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

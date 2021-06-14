@@ -18,5 +18,5 @@ If you opt out of the {% data variables.product.prodname_archive %} for a reposi
 3. Under "Features", select or unselect **Preserve this repository**.
     ![Checkbox for allowing {% data variables.product.prodname_dotcom %} to include your code in the {% data variables.product.prodname_archive %}](/assets/images/help/repository/github-archive-program-checkbox.png)
 
-### Further reading
+## Further reading
 - [{% data variables.product.prodname_archive %} FAQ](https://archiveprogram.github.com/faq/)

@@ -19,7 +19,7 @@ versions:
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Prerequisites
+## Prerequisites
 
 - You must have rubygems 2.4.1 or higher. To find your rubygems version:
 
@@ -38,13 +38,13 @@ versions:
   $ gem install keycutter
   ```
 
-### Authenticating to {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### Authenticating with a personal access token
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -88,7 +88,7 @@ To authenticate with Bundler, configure Bundler to use your personal access toke
 $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```
 
-### Publishing a package
+## Publishing a package
 
 {% data reusables.package_registry.default-name %} For example, when you publish `octo-gem` to the `octo-org` organization, {% data variables.product.prodname_registry %} publishes the gem to the `octo-org/octo-gem` repository. For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
 
@@ -107,7 +107,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
   <em>OCTO-GEM-0.0.1</em>.gem
   ```
 
-### Publishing multiple packages to the same repository
+## Publishing multiple packages to the same repository
 
 To publish multiple gems to the same repository, you can include the URL to the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Replace *HOSTNAME* with the host name of {% data variables.product.product_location %}.{% endif %}
 
@@ -115,7 +115,7 @@ To publish multiple gems to the same repository, you can include the URL to the 
 gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
-### Installing a package
+## Installing a package
 
 You can use gems from {% data variables.product.prodname_registry %} much like you use gems from *rubygems.org*. You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the *~/.gemrc* file or by using Bundler and editing your *Gemfile*.
 
@@ -147,6 +147,6 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   $ gem install octo-gem --version "0.1.1"
   ```
 
-### Further reading
+## Further reading
 
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

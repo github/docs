@@ -36,7 +36,7 @@ These are some of the common artifacts that you can upload:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)."
+Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
 
 {% else %}
 
@@ -252,6 +252,6 @@ The workflow run will archive any artifacts that it generated. For more informat
 
 ### Дополнительная литература
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

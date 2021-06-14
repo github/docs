@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.

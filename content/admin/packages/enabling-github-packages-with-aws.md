@@ -16,7 +16,7 @@ topics:
 
 {% endwarning %}
 
-### Prerequisites
+## Prerequisites
 
 Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
 
@@ -29,7 +29,7 @@ Ensure your AWS access key ID and secret have the following permissions:
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-### Enabling {% data variables.product.prodname_registry %} with AWS external storage
+## Enabling {% data variables.product.prodname_registry %} with AWS external storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -62,6 +62,6 @@ Ensure your AWS access key ID and secret have the following permissions:
 {% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Next steps
+## Next steps
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

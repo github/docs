@@ -9,6 +9,8 @@ topics:
   - Repositories
 ---
 
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+
 ### About navigating code on {% data variables.product.prodname_dotcom %}
 
 Code navigation uses the open source library [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). The following languages are supported:

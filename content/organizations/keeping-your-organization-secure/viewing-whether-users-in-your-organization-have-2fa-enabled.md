@@ -18,8 +18,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, click **2FA**, and select **Enabled** or **Disabled**.
  ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
@@ -28,6 +28,6 @@ topics:
 6. To view which outside collaborators have enabled or disabled two-factor authentication, on the right, click **2FA**, and select **Enabled** or **Disabled**.
 ![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
 
-### Further reading
+## Further reading
 
 - "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)"

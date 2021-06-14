@@ -18,7 +18,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to use PowerShell for CI. It describes how to use Pester, install dependencies, test your module, and publish to the PowerShell Gallery.
 
@@ -28,7 +28,7 @@ This guide shows you how to use PowerShell for CI. It describes how to use Peste
 {% else %}For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-### Prerequisites
+## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
@@ -38,7 +38,7 @@ We recommend that you have a basic understanding of PowerShell and Pester. For m
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-### Adding a workflow for Pester
+## Adding a workflow for Pester
 
 To automate your testing with PowerShell and Pester, you can add a workflow that runs every time a change is pushed to your repository. In the following example, `Test-Path` is used to check that a file called `resultsfile.log` is present.
 
@@ -85,7 +85,7 @@ jobs:
   }
   ```
 
-### PowerShell module locations
+## PowerShell module locations
 
 The table below describes the locations for various PowerShell modules in each {% data variables.product.prodname_dotcom %}-hosted runner.
 
@@ -95,7 +95,7 @@ The table below describes the locations for various PowerShell modules in each {
 |**PowerShell add-on modules**|`/usr/local/share/powershell/Modules/*`|`/usr/local/share/powershell/Modules/*`|`C:\Modules\*`|
 |**User-installed modules**|`/home/runner/.local/share/powershell/Modules/*`|`/Users/runner/.local/share/powershell/Modules/*`|`C:\Users\runneradmin\Documents\PowerShell\Modules\*`|
 
-### Installing dependencies
+## Installing dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code.
 
@@ -131,7 +131,7 @@ jobs:
 
 {% endnote %}
 
-#### Caching dependencies
+### Caching dependencies
 
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
@@ -156,11 +156,11 @@ steps:
 ```
 {% endraw %}
 
-### Testing your code
+## Testing your code
 
 You can use the same commands that you use locally to build and test your code.
 
-#### Using PSScriptAnalyzer to lint code
+### Using PSScriptAnalyzer to lint code
 
 The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` files in the repository. For more information, see [PSScriptAnalyzer on GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
 
@@ -190,7 +190,7 @@ The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` 
 ```
 {% endraw %}
 
-### Packaging workflow data as artifacts
+## Packaging workflow data as artifacts
 
 You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
@@ -222,7 +222,7 @@ jobs:
 
 The `always()` function configures the job to continue processing even if there are test failures. For more information, see "[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)."
 
-### Publishing to PowerShell Gallery
+## Publishing to PowerShell Gallery
 
 You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use secrets to store any tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 

@@ -19,7 +19,7 @@ topics:
   - Pages
 ---
 
-### About {% data variables.product.prodname_pages %}
+## About {% data variables.product.prodname_pages %}
 
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on {% data variables.product.product_name %}, optionally runs the files through a build process, and publishes a website. You can see examples of {% data variables.product.prodname_pages %} sites in the [{% data variables.product.prodname_pages %} examples collection](https://github.com/collections/github-pages-examples).
 
@@ -37,7 +37,7 @@ To get started, see "[Creating a {% data variables.product.prodname_pages %} sit
 Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 {% endif %}
 
-### Types of {% data variables.product.prodname_pages %} sites
+## Types of {% data variables.product.prodname_pages %} sites
 
 There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.product_name %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific {% data variables.product.product_name %} account.
 
@@ -68,7 +68,7 @@ Project site owned by organization account | `http(s)://pages.<hostname>/<orgnam
 For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
 {% endif %}
 
-### Publishing sources for {% data variables.product.prodname_pages %} sites
+## Publishing sources for {% data variables.product.prodname_pages %} sites
 
 The publishing source for your {% data variables.product.prodname_pages %} site is the branch and folder where the source files for your site are stored.
 
@@ -96,7 +96,7 @@ You cannot publish your project site from any other branch, even if the default 
 
 {% endif %}
 
-### Static site generators
+## Static site generators
 
 {% data variables.product.prodname_pages %} publishes any static files that you push to your repository. You can create your own static files or use a static site generator to build your site for you. You can also customize your own build process locally or on another server. We recommend Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
 
@@ -104,14 +104,14 @@ You cannot publish your project site from any other branch, even if the default 
 
 {% data variables.product.prodname_pages %} does not support server-side languages such as PHP, Ruby, or Python.
 
-### Guidelines for using {% data variables.product.prodname_pages %}
+## Guidelines for using {% data variables.product.prodname_pages %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 - {% data variables.product.prodname_pages %} sites created after June 15, 2016 and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[Securing your {% data variables.product.prodname_pages %} with HTTPS](/articles/securing-your-github-pages-site-with-https)."
 - {% data reusables.pages.no_sensitive_data_pages %}
 - Your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/articles/github-terms-of-service/), including the prohibition on reselling.
 
-#### Usage limits
+### Usage limits
 {% endif %}
 {% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
@@ -123,20 +123,20 @@ You cannot publish your project site from any other branch, even if the default 
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 
-#### Prohibited uses
+### Prohibited uses
 
 {% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS).
 
 In addition, {% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. For a list of prohibited uses, see "[{% data variables.product.prodname_dotcom %}'s Additional Product Terms for {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)."
 {% endif %}
 
-### MIME types on {% data variables.product.prodname_pages %}
+## MIME types on {% data variables.product.prodname_pages %}
 
 A MIME type is a header that a server sends to a browser, providing information about the nature and format of the files the browser requested. {% data variables.product.prodname_pages %} supports more than 750 MIME types across thousands of file extensions. The list of supported MIME types is generated from the [mime-db project](https://github.com/jshttp/mime-db).
 
 While you can't specify custom MIME types on a per-file or per-repository basis, you can add or modify MIME types for use on {% data variables.product.prodname_pages %}. For more information, see [the mime-db contributing guidelines](https://github.com/jshttp/mime-db#adding-custom-media-types).
 
-### Further reading
+## Further reading
 
 - [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) on {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

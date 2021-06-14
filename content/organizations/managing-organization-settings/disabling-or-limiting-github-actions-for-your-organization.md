@@ -15,7 +15,7 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### About {% data variables.product.prodname_actions %} permissions for your organization
+## About {% data variables.product.prodname_actions %} permissions for your organization
 
 {% data reusables.github-actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
 
@@ -25,7 +25,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
-### Managing {% data variables.product.prodname_actions %} permissions for your organization
+## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -38,7 +38,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-### Managing {% data variables.product.prodname_actions %} permissions for your organization
+## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
 You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
 
@@ -57,7 +57,7 @@ You can disable all workflows for an organization or set a policy that configure
   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
 1. Click **Save**.
 
-### Allowing specific actions to run
+## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
@@ -71,11 +71,11 @@ You can disable all workflows for an organization or set a policy that configure
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Enabling workflows for private repository forks
+## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configuring the private fork policy for an organization
+### Configuring the private fork policy for an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -84,7 +84,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-### Setting the permissions of the `GITHUB_TOKEN` for your organization
+## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
@@ -92,7 +92,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configuring the default `GITHUB_TOKEN` permissions
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

@@ -1,1 +1,1 @@
-You can transfer ownership of an OAuth App to another user or organization.
+OAuth Appの所有権は、他のユーザもしくはOrganizationに移譲できます。

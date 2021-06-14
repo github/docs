@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Team maintainers and organization owners can configure code review assignments.
@@ -30,8 +30,8 @@ The round robin algorithm chooses reviewers based on who's received the least re
 The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
 
 ### Configuring code review assignment
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. In the left sidebar, click **Code review assignment** ![Code review assignment button](/assets/images/help/teams/review-assignment-button.png)
@@ -43,8 +43,8 @@ The load balance algorithm chooses reviewers based on each member's total number
 11. Click **Save changes**.
 
 ### Disabling code review assignment
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Select **Enable auto assignment** to remove the checkmark. ![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)

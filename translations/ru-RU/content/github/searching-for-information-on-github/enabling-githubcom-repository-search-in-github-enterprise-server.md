@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 If you use {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} and your {% data variables.product.prodname_ghe_server %} site administrator has enabled {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories, then you can search for designated private repositories in the connected organization.

@@ -9,7 +9,7 @@ topics:
   - Community
 ---
 
-### About community management and moderation
+## About community management and moderation
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
@@ -17,7 +17,7 @@ topics:
 
 After you establish standards of behavior for your community, you can encourage a pleasant and productive environment by responding to disruptive behavior in a fast, fair way. Effective moderation builds trust within your community and helps contributors feel safe and welcome.
 
-### Tools for moderating your community
+## Tools for moderating your community
 
 {% data variables.product.prodname_dotcom %}'s tools streamline management and moderation tasks in your community without requiring extensive moderation experience.
 
@@ -27,7 +27,7 @@ As a repository maintainer, you can author guidelines for contributing to your p
 
 Contributors can always report disruptive content to {% data variables.contact.github_support %}. If you opt into reported content for a public repository in your organization, contributors can also report comments containing disruptive behavior directly to repository maintainers. For more information, see "[Managing reported content in your organization's repository](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)."
 
-### Further reading
+## Further reading
 
 - "[Your Code of Conduct](https://opensource.guide/code-of-conduct/)" from the Open Source Guides
 - "[Building Welcoming Communities](https://opensource.guide/building-community/)" from the Open Source Guides

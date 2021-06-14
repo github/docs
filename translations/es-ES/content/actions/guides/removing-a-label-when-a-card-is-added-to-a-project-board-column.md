@@ -30,7 +30,6 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
 3. {% data reusables.actions.make-workflow-file %}
 4. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
 
-    {% raw %}
     ```yaml{:copy}
     name: Remove labels
     on:
@@ -40,14 +39,18 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - name: remove labels
             uses: andymckay/labeler@master
             with:
               remove-labels: "needs review"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 5. Personaliza los parámetros en tu archivo de flujo de trabajo:
    - En `github.event.project_card.column_id == '12345678'`, reemplaza a `12345678` con la ID de la columna en donde quieras desetiquetar las propuestas y solicitudes de cambio que se movieron a ella.
 

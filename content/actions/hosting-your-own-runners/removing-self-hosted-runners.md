@@ -16,7 +16,7 @@ type: 'tutorial'
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Removing a runner from a repository
+## Removing a runner from a repository
 
 {% note %}
 
@@ -32,10 +32,10 @@ To remove a self-hosted runner from a user repository you must be the repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
-### Removing a runner from an organization
+## Removing a runner from an organization
 
 {% note %}
 
@@ -51,10 +51,10 @@ To remove a self-hosted runner from an organization, you must be an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
-### Removing a runner from an enterprise
+## Removing a runner from an enterprise
 
 {% note %}
 
@@ -72,8 +72,8 @@ To remove a self-hosted runner at the enterprise level of {% data variables.prod
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

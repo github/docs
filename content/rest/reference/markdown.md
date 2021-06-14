@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% include rest_operations_at_current_path %}

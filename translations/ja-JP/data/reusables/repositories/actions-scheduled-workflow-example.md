@@ -5,7 +5,7 @@
 ```yaml
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '*/30 5,17 * * *'
+    # *はYAMLにおける特殊文字なので、この文字列はクオートしなければならない
+    - cron:  '30 5,17 * * *'
 
 ```

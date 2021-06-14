@@ -135,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        echo "- in ${{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -175,18 +175,18 @@ Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento `chec
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga del evento Webhook                           | Tipos de actividad                                                                           | `GITHUB_SHA`                                  | `GITHUB_REF`     |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------- | ---------------- |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Última confirmación en la rama predeterminada | Rama por defecto |
+| Carga del evento Webhook                           | Tipos de actividad                                            | `GITHUB_SHA`                                  | `GITHUB_REF`     |
+| -------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------- | ---------------- |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | Última confirmación en la rama predeterminada | Rama por defecto |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando una comprobación de ejecución ha sido `resolicitada` o `requested_action`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando una ejecución de verificación esté como `rerequested` o `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -480,7 +480,7 @@ Por ejemplo, puedes ejecutar un flujo de trabajo cuando un proyecto ha sido `abi
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -676,6 +676,12 @@ on:
   release:
     types: [published]
 ```
+
+{% note %}
+
+**Nota:** El tipo `prereleased` no se activará para los pre-lanzamientos publicados desde los borradores de lanzamientos, pero el tipo `published` sí lo hará. Si quieres que se ejecute un flujo de trabajo cuando se publiquen los lanzamientos estables *y* los pre-lanzamientos, mejor suscríbete a `published` en vez de a `released` y `prereleased`.
+
+{% endnote %}
 
 #### `status`
 

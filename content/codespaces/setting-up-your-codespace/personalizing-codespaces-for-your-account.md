@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About personalizing {% data variables.product.prodname_codespaces %}
+## About personalizing {% data variables.product.prodname_codespaces %}
  
 When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_codespaces %} allows for two main ways of personalizing your codespaces. 
 
@@ -27,7 +27,7 @@ When using any development environment, customizing the settings and tools to yo
 
 Project maintainers can also define a default configuration that applies to every codespace for a repository, created by anyone. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)." 
 
-### Settings Sync
+## Settings Sync
 
 Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
 
@@ -37,7 +37,7 @@ Settings Sync is on by default. To configure any settings, in the bottom-left co
 
 For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode %} documentation.
 
-### Dotfiles
+## Dotfiles
 
 Dotfiles are files and folders on Unix-like systems starting with `.` that control the configuration of applications and shells on your system. You can store and manage your dotfiles in a repository on {% data variables.product.prodname_dotcom %}. For advice and tutorials about what to include in your `dotfiles` repository, see [GitHub does dotfiles](https://dotfiles.github.io/).
 
@@ -51,8 +51,10 @@ When you create a new codespace, {% data variables.product.prodname_dotcom %} cl
 * _install_
 * _bootstrap.sh_
 * _bootstrap_
+* _script/bootstrap_
 * _setup.sh_
 * _setup_
+* _script/setup_
 
 If none of these files are found, then any files or folders in `dotfiles` starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
 
@@ -66,6 +68,6 @@ Any changes to your `dotfiles` repository will apply only to each new codespace,
 
 You can also configure settings for your user account to add encrypted secrets, enable GPG verification, and allow your codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
 
-### Further reading
+## Further reading
 
 * "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)"

@@ -1,0 +1,19 @@
+date: '2020-05-19'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/20108, https://github.com/github/enterprise2/pull/20086 {% endcomment %}'
+  bugs:
+    - 'Depois que o arquivo de licença foi atualizado, os serviços não foram recarregados adequadamente, o que gerou perda de funcionalidades. {% comment %} https://github.com/github/enterprise2/pull/20072, https://github.com/github/enterprise2/pull/19989 {% endcomment %}'
+    - 'As solicitações da API interna que atualizam as informações do Gráfico de Dependência poderiam falhar se o texto da resposta fosse muito grande. {% comment %} https://github.com/github/enterprise2/pull/20231, https://github.com/github/enterprise2/pull/20208 {% endcomment %}'
+    - 'O argumento de `afiliações` para algumas conexões do repositório do GraphQL não foi respeitado. {% comment %} https://github.com/github/github/pull/142036, https://github.com/github/github/pull/140658 {% endcomment %}'
+    - 'A suspensão automática de um usuário através do SSO não foi concluída, caso o atributo de e-mail do SAML tenha um revestimento diferente do do e-mail do usuário do GitHub. {% comment %} https://github.com/github/github/pull/143321, https://github.com/github/github/pull/142915 {% endcomment %}'
+    - 'Restaurar a associação de um usuário a uma organização não instrumentou o ator em cargas de webhook e log de auditoria. {% comment %} https://github.com/github/github/pull/143231, https://github.com/github/github/pull/140849 {% endcomment %}'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Ao fazer push em um gist, pode-se adicionar uma exceção durante o hook de post-receive. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando. (atualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'O gráfico de dependências não é a detecção de dependências quando implantadas em uma configuração de cluster com vários nós de Redis. (atualizado 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

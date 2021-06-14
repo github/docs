@@ -1,4 +1,4 @@
-{% data variables.product.company_short %}は{% data variables.product.prodname_advanced_security %}に対してコミッター単位で課金します。 {% if currentVersion == "free-pro-team@latest" %}詳しい情報については「[{% data variables.product.prodname_GH_advanced_security %}のライセンスの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security)」を参照してください。{% endif %}
+{% data variables.product.company_short %}は{% data variables.product.prodname_advanced_security %}に対してコミッター単位で課金します。 {% if currentVersion == "free-pro-team@latest" %}詳しい情報については「[{% data variables.product.prodname_GH_advanced_security %}のライセンスの管理](/billing/managing-licensing-for-github-advanced-security)」を参照してください。{% elsif currentVersion ver_gt "enterprise-server@3.0" %}詳しい情報については「[Enterpriseの{% data variables.product.prodname_GH_advanced_security %}の管理](/admin/advanced-security)」を参照してください。{% endif %}
 
 リポジトリ管理者がOrganizationのリポジトリで{% data variables.product.prodname_advanced_security %}の機能を有効化できるようにするかをコントロールするポリシーを適用できます。 Enterpriseアカウントが所有するすべてのOrganizationに対して、あるいは選択した個々のOrganizationに対してポリシーを設定できます。
 

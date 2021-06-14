@@ -1,8 +1,8 @@
-| キー                           | 種類       | 説明                                                                               |
-| ---------------------------- | -------- | -------------------------------------------------------------------------------- |
-| `action`                     | `string` | 実行されたアクション. Can be one of `created`, `closed`, `opened`, `edited`, or `deleted`. |
-| `マイルストーン`                    | `オブジェクト` | The milestone itself.                                                            |
-| `変更`                         | `オブジェクト` | The changes to the milestone if the action was `edited`.                         |
-| `changes[description][from]` | `string` | The previous version of the description if the action was `edited`.              |
-| `changes[due_on][from]`      | `string` | The previous version of the due date if the action was `edited`.                 |
-| `changes[title][from]`       | `string` | The previous version of the title if the action was `edited`.                    |
+| キー                           | 種類       | 説明                                                               |
+| ---------------------------- | -------- | ---------------------------------------------------------------- |
+| `action`                     | `string` | 実行されたアクション. `created`、`closed`、`opened`、`edited`、`deleted`のいずれか。 |
+| `milestone`                  | `オブジェクト` | マイルストーン自体。                                                       |
+| `changes`                    | `オブジェクト` | アクションが`edited`の場合、マイルストーンへの変更。                                   |
+| `changes[description][from]` | `string` | アクションが `edited` の場合、以前のバージョンの説明。                                 |
+| `changes[due_on][from]`      | `string` | アクションが`edited`だった場合の、以前のバージョンの期限。                                |
+| `changes[title][from]`       | `string` | アクションが`edited`だった場合の、以前のバージョンのタイトル。                              |

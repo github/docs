@@ -20,7 +20,7 @@ You can create default issue and pull request templates for your organization or
 
 {% endif %}
 
-### Issue templates
+## Issue templates
 
 When you create issue templates for your repository using the issue template builder, they'll be available for contributors to use when they open new issues in the repository.
 
@@ -38,7 +38,7 @@ It is possible to manually create a single issue template in Markdown using the 
 
 {% data reusables.repositories.security-guidelines %}
 
-### Pull request templates
+## Pull request templates
 
 When you add a pull request template to your repository, project contributors will automatically see the template's contents in the pull request body.
 

@@ -36,8 +36,9 @@ Organization または Enterprise 管理者の場合は、Organization または
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. [Self-hosted runners] で、[**Add runner**] をクリックします。
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. GitHub Insightsの
+{% if currentVersion == "free-pro-team@latest" %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -47,8 +48,9 @@ Organization または Enterprise 管理者の場合は、Organization または
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. [Self-hosted runners] で [**Add new**] をクリックし、[**New runner**] をクリックします。
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. GitHub Insightsの
+{% if currentVersion == "free-pro-team@latest" %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -68,7 +70,7 @@ Organization または Enterprise 管理者の場合は、Organization または
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Self-hosted runners**] タブをクリックします。
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. [**Add new**] をクリックし、[**New runner**] をクリックします。 新しいランナーがデフォルトグループに割り当てられます。 ランナーを登録した後、ランナーのグループを変更できます。 詳しい情報については、「[セルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)」を参照してください。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}

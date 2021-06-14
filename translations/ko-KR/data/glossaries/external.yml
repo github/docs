@@ -181,13 +181,13 @@
 - 
   term: 기본 분기
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
   term: 의존도 그래프
   description: >-
     공용 리포지토리에 종속된 패키지, 프로젝트 및 리포지토리를 표시하는 리포지토리 그래프입니다.
 - 
-  term: 의존성 그래프
+  term: dependency graph
   description: >-
     리포지토리가 종속된 패키지 및 프로젝트를 표시하는 리포지토리 그래프입니다.
 - 
@@ -250,7 +250,7 @@
   description: >-
     무료 사용자 계정 요금제입니다. 사용자는 무제한 공동 작업자와 무제한 공용 리포지토리에서 공동 작업할 수 있습니다.
 - 
-  term: Gist
+  term: gist
   description: >-
     A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
@@ -377,7 +377,7 @@
   description: >-
     사용자가 액세스할 수 없는 개인 계정입니다. 사용자가 유료 계정을 무료 계정으로 다운그레이드하거나 유료 요금제가 기한이 지난 경우 계정이 잠깁니다.
 - 
-  term: 관리 콘솔
+  term: management console
   description: >-
     관리 기능이 포함된 GitHub Enterprise 인터페이스 내의 섹션입니다.
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
   term: 구성원 그래프
   description: 리포지토리의 모든 포크를 표시하는 리포지토리 그래프입니다.
@@ -426,7 +426,7 @@
   description: >-
     루트 리포지토리의 분기 및 네트워크에 고유한 커밋이 포함된 포크 분기를 포함하여 전체 리포지토리 네트워크의 분기 기록을 보여주는 리포지토리 그래프입니다.
 - 
-  term: 뉴스 피드
+  term: news feed
   description: >-
     리포지토리 또는 시청하는 사람의 활동 보기입니다. 조직의 뉴스 피드는 조직이 소유한 리포지토리에 대한 활동을 보여줍니다.
 - 
@@ -754,9 +754,6 @@
   term: webhooks
   description: >-
     Webhook를 사용하면 GitHub.com에서 특정 이벤트를 구독하는 GitHub 앱을 빌드하거나 설정할 수 있습니다. Webhook는 리포지토리 또는 조직에서 특정 작업이 발생할 때마다 알림을 외부 웹 서버에 전달할 수 있는 방법을 제공합니다. 서비스 후크라고도 합니다.
-- 
-  term: GitHub와 함께 작동
-  description: GitHub와 함께 작업하는 통합 목록입니다.
 - 
   term: 쓰기 권한
   description: >-

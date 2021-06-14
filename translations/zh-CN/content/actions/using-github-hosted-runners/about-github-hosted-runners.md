@@ -75,10 +75,9 @@ MacOS 虚拟机的硬件规格：
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
-* [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
 {% data variables.product.prodname_dotcom %} 托管的运行器除了上述参考中列出的包之外，还包括操作系统的默认内置工具。 例如，Ubuntu 和 macOS 运行器除了其他默认工具之外，还包括 `grep`、`find` 和 `which`。
@@ -90,6 +89,10 @@ MacOS 虚拟机的硬件规格：
 - 它可确保工作流程中使用的工具版本无论软件更新如何，都将保持不变
 
 如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。 此仓库还包含有关运行器上所有主要软件更新的公告。
+
+#### 安装其他软件
+
+您可以在 {% data variables.product.prodname_dotcom %} 托管的运行器上安装其他软件。 更多信息请参阅“[自定义 GitHub 托管的运行器](/actions/using-github-hosted-runners/customizing-github-hosted-runners)”。
 
 ### IP 地址
 
@@ -130,6 +133,6 @@ API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每�
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 延伸阅读
-- "[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
 
 {% endif %}

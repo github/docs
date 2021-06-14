@@ -1,0 +1,43 @@
+---
+- 
+  title: Node.js 示例项目
+  description: 使用自定义开发容器尝试 Node.js 项目
+  languages: Javascript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - 开发容器
+- 
+  title: Python 示例项目
+  description: 使用自定义开发容器尝试 Python 项目
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - 开发容器
+- 
+  title: Java 示例项目
+  description: 使用自定义开发容器尝试 Java 项目
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - 开发容器
+- 
+  title: Go 示例项目
+  description: 使用自定义开发容器尝试 Go 项目
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - 开发容器
+- 
+  title: Rust 示例项目
+  description: 使用自定义开发容器尝试 Rust 项目
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - 开发容器
+- 
+  title: PHP 示例项目
+  description: 使用自定义开发容器尝试 PHP 项目
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - 开发容器

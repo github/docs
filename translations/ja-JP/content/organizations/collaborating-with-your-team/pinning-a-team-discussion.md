@@ -13,8 +13,8 @@ topics:
   - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 5. ピン止めする Team ディスカッションの横にある {% octicon "pin" aria-label="The pin icon" %} をクリックします。 アイコンをクリックしてディスカッションのピン止めを解除することもできます。 ![ディスカッションをピン止めする](/assets/images/help/projects/pin-discussion-button.png)

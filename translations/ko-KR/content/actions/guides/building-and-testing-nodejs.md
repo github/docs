@@ -37,7 +37,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 {% data variables.product.prodname_dotcom %} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the template to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
 {% raw %}
 ```yaml{:copy}
@@ -45,9 +45,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -59,14 +59,14 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
 
@@ -119,14 +119,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
 If you don't specify a Node.js version,

@@ -1,1 +1,1 @@
-`workflow` | `object` | The workflow that generated the workflow run.
+`workflow` | `object` | ワークフローの実行を生成したワークフロー。

@@ -32,5 +32,5 @@ Wenn Du sensible Informationen aus dem Änderungsverlauf eines Kommentars lösch
 
 ### Weiterführende Informationen
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“{% endif %}
 - „[Kommentar bearbeiten](/articles/editing-a-comment)“

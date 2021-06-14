@@ -12,7 +12,7 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About security logs for {% data variables.product.prodname_codespaces %}
+## About security logs for {% data variables.product.prodname_codespaces %}
 
 When you perform an action related to {% data variables.product.prodname_codespaces %} in repositories owned by your user account, you can review the actions in the security log. For information about accessing the log, see "[Reviewing your security log](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)."
 

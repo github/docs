@@ -16,7 +16,7 @@ topics:
 {% data reusables.codespaces.release-stage %}
 
 
-### About encrypted secrets for {% data variables.product.prodname_codespaces %}
+## About encrypted secrets for {% data variables.product.prodname_codespaces %}
 
 You can add encrypted secrets to your user account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
 
@@ -29,19 +29,19 @@ You can choose which repositories should have access to each secret. Then, you c
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Naming secrets
+### Naming secrets
 
 {% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
 
   {% data reusables.codespaces.secret-precedence %}
 
-#### Limits for secrets
+### Limits for secrets
 
 You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
 
 Secrets are limited to 64 KB in size.
 
-### Adding a secret
+## Adding a secret
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
@@ -53,7 +53,7 @@ Secrets are limited to 64 KB in size.
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Click **Add secret**.
 
-### Editing a secret
+## Editing a secret
 
 You can update the value of an existing secret, and you can change which repositories can access a secret.
 
@@ -69,7 +69,7 @@ You can update the value of an existing secret, and you can change which reposit
   ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
 1. Click **Save changes**.
 
-### Deleting a secret
+## Deleting a secret
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}

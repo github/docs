@@ -14,7 +14,7 @@ versions:
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### Canceling a workflow run
+## Canceling a workflow run
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -28,7 +28,7 @@ versions:
  ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
 {% endif %}
 
-### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
 
 When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
 

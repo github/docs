@@ -13,7 +13,7 @@ topics:
 
 {% data reusables.discussions.beta %}
 
-### Allowing or disallowing users with read access to create discussions
+## Allowing or disallowing users with read access to create discussions
 
 By default, organization members with read access can create discussions if a repository administrator or organization owner enables discussions for a repository owned by the organization.
 
@@ -25,7 +25,7 @@ By default, organization members with read access can create discussions if a re
 6. Click **Save**.
   !["Save" button for discussions settings](/assets/images/help/discussions/click-save.png)
 
-### Further reading
+## Further reading
 
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

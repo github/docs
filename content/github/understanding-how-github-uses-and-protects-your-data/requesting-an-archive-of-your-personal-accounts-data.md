@@ -23,7 +23,7 @@ If your operating system cannot natively unpack the `tar.gz` file, you can use a
 
 The generated `tar.gz` file reflects the data stored at the time you started the data export.
 
-### Downloading an archive of your personal account's data
+## Downloading an archive of your personal account's data
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
@@ -34,7 +34,7 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 5. Click the download link in your email and re-enter your password if prompted.
 6. You'll be redirected to a `tar.gz` file that you can download.
 
-### Deleting access to an archive of your personal account's data
+## Deleting access to an archive of your personal account's data
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

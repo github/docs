@@ -20,6 +20,6 @@ To retain access for bots and service accounts, organization administrators can 
 
 {% endwarning %}
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
