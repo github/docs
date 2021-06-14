@@ -17,7 +17,7 @@ export default function () {
 
   // If there are no images on the page, return!
   // Don't include images in tables, which are already small and shouldn't be hidden.
-  const images = [...document.querySelectorAll('img')].filter(img => !img.closest('table'))
+  const images = Array.from(document.querySelectorAll('img')).filter((img) => !img.closest('table'))
   if (!images.length) return
 
   // The button is hidden by default so it doesn't appear on browsers with JS disabled.
@@ -25,7 +25,7 @@ export default function () {
   toggleImagesBtn.removeAttribute('hidden')
 
   // Look for a cookie with image visibility preference; otherwise, use the default.
-  const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
+  const hideImagesPreferred = Cookies.get('hideImagesPreferred') === 'true' || hideImagesByDefault
 
   // Hide the images if that is the preference.
   if (hideImagesPreferred) {
@@ -37,15 +37,15 @@ export default function () {
   const onIcon = document.getElementById('js-on-icon')
 
   // Get the aria-labels from the span elements for the tooltips.
-  const tooltipImagesOff = offIcon.getAttribute('aria-label')
-  const tooltipImagesOn = onIcon.getAttribute('aria-label')
+  const tooltipImagesOff = offIcon?.getAttribute('aria-label') || ''
+  const tooltipImagesOn = onIcon?.getAttribute('aria-label') || ''
 
   // Set the starting state depending on user preferences.
   if (hideImagesPreferred) {
-    offIcon.removeAttribute('hidden')
+    offIcon?.removeAttribute('hidden')
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
   } else {
-    onIcon.removeAttribute('hidden')
+    onIcon?.removeAttribute('hidden')
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
   }
 
@@ -53,27 +53,32 @@ export default function () {
   // If images are not hidden by default, showOnNextClick should be true.
   let showOnNextClick = !hideImagesPreferred
 
-  toggleImagesBtn.addEventListener('click', (e) => {
+  toggleImagesBtn.addEventListener('click', () => {
     if (showOnNextClick) {
       // Button should say "Images are off" on first click (depending on prefs)
-      offIcon.removeAttribute('hidden')
-      onIcon.setAttribute('hidden', true)
+      offIcon?.removeAttribute('hidden')
+      onIcon?.setAttribute('hidden', 'hidden')
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
       toggleImages(images, 'hide')
     } else {
       // Button should say "Images are on" on another click
-      offIcon.setAttribute('hidden', true)
-      onIcon.removeAttribute('hidden')
+      offIcon?.setAttribute('hidden', 'hidden')
+      onIcon?.removeAttribute('hidden')
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
       toggleImages(images, 'show')
     }
 
     // Remove focus from the button after click so the tooltip does not stay displayed.
     // Use settimeout to work around Firefox-specific issue.
-    setTimeout(() => { toggleImagesBtn.blur() }, 100)
+    setTimeout(() => {
+      toggleImagesBtn.blur()
+    }, 100)
 
     // Save this preference as a cookie.
-    Cookies.set('hideImagesPreferred', showOnNextClick, { sameSite: 'strict', secure: true })
+    Cookies.set('hideImagesPreferred', showOnNextClick.toString(), {
+      sameSite: 'strict',
+      secure: true,
+    })
 
     // Toggle the action on every click.
     showOnNextClick = !showOnNextClick
@@ -83,28 +88,28 @@ export default function () {
   })
 }
 
-function toggleImages (images, action) {
+function toggleImages(images: Array<HTMLImageElement>, action: string) {
   for (const img of images) {
     toggleImage(img, action)
   }
 }
 
-function toggleImage (img, action) {
-  const parentEl = img.parentNode
+function toggleImage(img: HTMLImageElement, action: string) {
+  const parentEl = img.parentNode as HTMLElement
 
   // Style the parent element and image depending on the state.
   if (action === 'show') {
-    img.src = img.getAttribute('originalSrc')
+    img.src = img.getAttribute('originalSrc') || ''
     img.style.border = '2px solid var(--color-auto-gray-2)'
     parentEl.style.display = 'block'
-    parentEl.style['margin-top'] = '20px'
+    parentEl.style.marginTop = '20px'
     parentEl.style.padding = '10px 0'
   } else {
     if (!img.getAttribute('originalSrc')) img.setAttribute('originalSrc', img.src)
     img.src = placeholderImagePath
     img.style.border = 'none'
     parentEl.style.display = 'inline'
-    parentEl.style['margin-top'] = '0'
+    parentEl.style.marginTop = '0'
     parentEl.style.padding = '1px 6px'
   }
 }

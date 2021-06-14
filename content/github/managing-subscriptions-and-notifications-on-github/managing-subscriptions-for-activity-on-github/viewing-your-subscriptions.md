@@ -26,7 +26,7 @@ You receive notifications for your subscriptions of ongoing activity on {% data 
 
 We recommend auditing and unsubscribing from your subscriptions as a part of a healthy notifications workflow. For more information about your options for unsubscribing, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
-### Diagnosing why you receive too many notifications
+## Diagnosing why you receive too many notifications
 
 When your inbox has too many notifications to manage, consider whether you have oversubscribed or how you can change your notification settings to reduce the subscriptions you have and the types of notifications you're receiving. For example, you may consider disabling the settings to automatically watch all repositories and all team discussions whenever you've joined a team or repository.
 
@@ -45,7 +45,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" on {% data variables.product.prodname_blog %} and "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
-### Reviewing all of your subscriptions
+## Reviewing all of your subscriptions
 
 {% data reusables.notifications.access_notifications %}
 1. In the left sidebar, under the list of repositories that you have notifications from, use the "Manage notifications" drop-down to click **Subscriptions**.
@@ -64,7 +64,7 @@ Many people forget about repositories that they've chosen to watch in the past. 
 
 {% endtip %}
 
-### Reviewing repositories that you're watching
+## Reviewing repositories that you're watching
 
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down menu and click **Watched repositories**.
   ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)

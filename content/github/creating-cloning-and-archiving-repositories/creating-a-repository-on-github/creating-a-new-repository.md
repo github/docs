@@ -50,7 +50,7 @@ topics:
 9. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Managing access to your organization's repositories](/articles/managing-access-to-your-organization-s-repositories)"
 - [Open Source Guides](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}

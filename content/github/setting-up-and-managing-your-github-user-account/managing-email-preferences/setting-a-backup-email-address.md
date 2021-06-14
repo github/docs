@@ -18,7 +18,7 @@ topics:
 ![Backup email address](/assets/images/help/settings/backup-email-address.png)
 4. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[Managing email preferences](/articles/managing-email-preferences/)"
 - "[Updating your GitHub access credentials](/articles/updating-your-github-access-credentials/)"

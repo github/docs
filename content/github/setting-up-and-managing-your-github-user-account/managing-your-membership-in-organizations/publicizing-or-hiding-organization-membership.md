@@ -14,7 +14,7 @@ topics:
 ---
 ![Profile organizations box](/assets/images/help/profile/profile_orgs_box.png)
 
-### Changing the visibility of your organization membership
+## Changing the visibility of your organization membership
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

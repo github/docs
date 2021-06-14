@@ -1,22 +1,22 @@
 import murmur from 'imurmurhash'
-import { getUserEventsId, sendEvent } from './events'
+import { getUserEventsId, sendEvent, EventType } from './events'
 // import h from './hyperscript'
 
 const TREATMENT = 'TREATMENT'
 const CONTROL = 'CONTROL'
 
-export function bucket (test) {
+export function bucket(test: string) {
   const id = getUserEventsId()
   const hash = murmur(test).hash(id).result()
   return hash % 2 ? TREATMENT : CONTROL
 }
 
-export function sendSuccess (test) {
+export function sendSuccess(test: string) {
   return sendEvent({
-    type: 'experiment',
+    type: EventType.experiment,
     experiment_name: test,
     experiment_variation: bucket(test).toLowerCase(),
-    experiment_success: true
+    experiment_success: true,
   })
 }
 

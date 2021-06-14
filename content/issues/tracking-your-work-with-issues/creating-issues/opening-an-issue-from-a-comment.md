@@ -30,6 +30,6 @@ When you open an issue from a comment, the issue contains a snippet showing wher
   ![Button to create new issue](/assets/images/help/pull_requests/create-issue.png)
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
-### Further reading
+## Further reading
 
 - "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)"

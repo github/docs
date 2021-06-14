@@ -13,7 +13,7 @@ topics:
 ---
 If you publicize your private contributions, people without access to the private repositories you work in won't be able to see the details of your private contributions. Instead, they'll see the number of private contributions you made on any given day. Your public contributions will include detailed information. For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)".
 
-### Changing the visibility of your private contributions
+## Changing the visibility of your private contributions
 
 By default, visitors only see public contributions on your profile.
 
@@ -24,7 +24,7 @@ By default, visitors only see public contributions on your profile.
     - To hide your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and unselect **Private contributions.** Visitors will only see your public contributions.
    ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-off.png)
 
-### Further reading
+## Further reading
 
 - "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

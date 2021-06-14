@@ -8,7 +8,7 @@ topics:
   - GitHub Apps
 ---
 
-### About IP address allow lists for {% data variables.product.prodname_github_apps %}
+## About IP address allow lists for {% data variables.product.prodname_github_apps %}
 
 Enterprise and organization owners can restrict access to assets by configuring an IP address allow list. This list specifies the IP addresses that are allowed to connect. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)" and {% if currentVersion == "github-ae@latest" %}"[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)." {% endif %}
 
@@ -19,7 +19,7 @@ When an organization has an allow list, third-party applications that connect vi
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
-### Adding an IP address allow list to a {% data variables.product.prodname_github_app %}
+## Adding an IP address allow list to a {% data variables.product.prodname_github_app %}
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}

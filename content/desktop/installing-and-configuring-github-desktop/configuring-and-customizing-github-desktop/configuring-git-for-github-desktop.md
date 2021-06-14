@@ -56,7 +56,7 @@ versions:
 
 {% endwindows %}
 
-### Further reading
+## Further reading
 
 - "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account/)"
 - "[Setting your commit email address](/articles/setting-your-commit-email-address/)"

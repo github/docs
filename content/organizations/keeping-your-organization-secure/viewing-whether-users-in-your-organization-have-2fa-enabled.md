@@ -28,6 +28,6 @@ topics:
 6. To view which outside collaborators have enabled or disabled two-factor authentication, on the right, click **2FA**, and select **Enabled** or **Disabled**.
 ![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
 
-### Further reading
+## Further reading
 
 - "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)"

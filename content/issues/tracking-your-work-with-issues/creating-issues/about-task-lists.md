@@ -20,16 +20,16 @@ You can view task list summary information in issue and pull request lists, when
 
 ![Task list summary](/assets/images/help/issues/task-list-summary.png)
 
-### Creating task lists
+## Creating task lists
 
 {% data reusables.repositories.task-list-markdown %}
 
-### Reordering tasks
+## Reordering tasks
 
 You can reorder task lists within a single comment by clicking to the left of a task's checkbox, dragging it to a new location, and dropping it. If you have multiple lists within a comment, you can reorder tasks across the single comment. You can't add or reorder tasks across different comments.
 
 ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
 
-### Further reading
+## Further reading
 
 * "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

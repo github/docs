@@ -22,11 +22,11 @@ topics:
 
 {% endif %}
 
-### 1. Back up your organization content
+## 1. Back up your organization content
 
 Once you delete an organization, GitHub **cannot restore your content**. Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
-### 2. Delete the organization
+## 2. Delete the organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

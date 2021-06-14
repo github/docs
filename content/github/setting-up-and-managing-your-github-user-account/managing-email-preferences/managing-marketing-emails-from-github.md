@@ -10,7 +10,7 @@ topics:
   - Accounts
   - Notifications
 ---
-### Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
+## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
 
 {% tip %}
 
@@ -25,7 +25,7 @@ topics:
 4. Click **Save email preferences**.
   ![Save email preferences button](/assets/images/help/notifications/save_email_preferences.png)
 
-### Further reading
+## Further reading
 
 - "[Types of emails GitHub sends](/articles/types-of-emails-github-sends)"
 - "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"

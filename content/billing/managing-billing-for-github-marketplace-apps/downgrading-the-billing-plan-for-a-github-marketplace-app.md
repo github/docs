@@ -21,7 +21,7 @@ When you downgrade an app, your subscription remains active until the end of you
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-### Downgrading an app for your personal account
+## Downgrading an app for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -30,7 +30,7 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Downgrading an app for your organization
+## Downgrading an app for your organization
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -42,6 +42,6 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Further reading
+## Further reading
 
 - "[Canceling a {% data variables.product.prodname_marketplace %} app](/articles/canceling-a-github-marketplace-app/)"

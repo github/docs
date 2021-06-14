@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About codespace creation
+## About codespace creation
 
 You can create a codespace on either {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.codespaces-are-personal %}
 
@@ -42,7 +42,7 @@ When you create a codespace, a number of steps happen to enable full access to y
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
-### Creating a codespace
+## Creating a codespace
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.

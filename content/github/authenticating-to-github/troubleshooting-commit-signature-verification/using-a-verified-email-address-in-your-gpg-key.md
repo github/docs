@@ -19,6 +19,6 @@ Commits and tags may contain several email addresses. For commits, there is the 
 
 If you need to change your committer or tagger email address, see "[Setting your commit email address](/articles/setting-your-commit-email-address/)."
 
-### Further reading
+## Further reading
 
 - "[About commit signature verification](/articles/about-commit-signature-verification)"

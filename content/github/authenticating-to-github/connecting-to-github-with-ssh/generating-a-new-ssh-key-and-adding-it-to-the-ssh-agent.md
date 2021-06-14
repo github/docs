@@ -13,7 +13,7 @@ versions:
 topics:
   - SSH
 ---
-### About SSH key generation
+## About SSH key generation
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
 
@@ -24,7 +24,7 @@ If you want to use a hardware security key to authenticate to {% data variables.
 {% endif %}
 If you don't want to reenter your passphrase every time you use your SSH key, you can add your key to the SSH agent, which manages your SSH keys and remembers your passphrase.
 
-### Generating a new SSH key
+## Generating a new SSH key
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
@@ -75,7 +75,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   > Enter same passphrase again: <em>[Type passphrase again]</em>
   ```
 
-### Adding your SSH key to the ssh-agent
+## Adding your SSH key to the ssh-agent
 
 Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">When adding your SSH key to the agent, use the default macOS `ssh-add` command, and not an application installed by [macports](https://www.macports.org/), [homebrew](http://brew.sh/), or some other external source.</span>
 
@@ -178,7 +178,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 {% endlinux %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1"  %}
-### Generating a new SSH key for a hardware security key
+## Generating a new SSH key for a hardware security key
 
 If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
 
@@ -232,7 +232,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About SSH](/articles/about-ssh)"
 - "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)"

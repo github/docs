@@ -18,7 +18,7 @@ topics:
 
 {% endif %}
 
-### Accessing the code frequency graph
+## Accessing the code frequency graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

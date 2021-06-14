@@ -18,7 +18,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 {% endtip %}
 
-### Viewing large files in pull requests
+## Viewing large files in pull requests
 
 {% data variables.product.product_name %} does not render {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
 
@@ -30,7 +30,7 @@ To view changes made to large files, check out the pull request locally to revie
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Pushing large files to forks
+## Pushing large files to forks
 
 Pushing large files to forks of a repository count against the parent repository's bandwidth and storage quotas, rather than the quotas of the fork owner.
 
@@ -38,6 +38,6 @@ You can push {% data variables.large_files.product_name_short %} objects to publ
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Duplicating a repository with Git Large File Storage objects](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

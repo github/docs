@@ -17,7 +17,7 @@ topics:
   - Teams
 ---
 
-### About maintaining ownership continuity for your organization
+## About maintaining ownership continuity for your organization
 
 {% data reusables.organizations.org-ownership-recommendation %}
 
@@ -29,7 +29,7 @@ Organization owners have full administrative access to the organization. {% data
 
 {% endnote %}
 
-### Appointing an organization owner
+## Appointing an organization owner
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

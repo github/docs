@@ -17,7 +17,7 @@ Webhooks can be installed on{% if enterpriseServerVersions contains currentVersi
 
 You can create up to {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}250{% else %}20{% endif %} webhooks for each event on each installation target {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}({% data variables.product.prodname_ghe_server %} instance, specific organization, or specific repository).{% else %}(specific organization or specific repository).{% endif %}
 
-### Events
+## Events
 
 {% data reusables.webhooks.webhooks_intro %}
 
@@ -25,7 +25,7 @@ Each event corresponds to a certain set of actions that can happen to your organ
 
 For a complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
-### Ping event
+## Ping event
 
 {% data reusables.webhooks.ping_short_desc %}
 

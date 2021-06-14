@@ -38,7 +38,7 @@ In your organization's repositories, blocked users also cannot:
 - Comment on issues, pull requests, or commits
 - Add or edit wiki pages
 
-### Blocking a user in a comment
+## Blocking a user in a comment
 
 1. Navigate to the comment whose author you would like to block.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block user**.
@@ -52,7 +52,7 @@ In your organization's repositories, blocked users also cannot:
 6. To block the user, click **Block user from organization** or **Block user from organization and send message**.
 ![Block user button](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-### Blocking a user in the organization settings
+## Blocking a user in the organization settings
 
 1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
 
@@ -66,7 +66,7 @@ In your organization's repositories, blocked users also cannot:
 8. Click **Block user**.
 ![Block button](/assets/images/help/organizations/org-block-user-button.png)
 
-### Further reading
+## Further reading
 
 - "[Viewing users who are blocked from your organization](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
 - "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
