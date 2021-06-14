@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 リポジトリのアーカイブをダウンロードするには、ユーザあるいは Organization のマイグレーション用の API が利用できます。 詳しい情報については、「[移行](/rest/reference/migrations)」を参照してください。
@@ -38,7 +39,6 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### サードパーティのバックアップツール
-リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできる
 
-{% data variables.product.product_name %} 上のパブリックリポジトリをすべてアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。 自動バックアップツールに関する詳しい情報については、[{% data variables.product.prodname_marketplace %} のバックアップユーティリティのカテゴリ](https://github.com/marketplace?category=backup-utilities)を参照してください。
+リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできるようにする {% data variables.product.product_name %} 上の_すべての_パブリックリポジトリをアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。 自動バックアップツールに関する詳しい情報については、[{% data variables.product.prodname_marketplace %} のバックアップユーティリティのカテゴリ](https://github.com/marketplace?category=backup-utilities)を参照してください。
 {% endif %}

@@ -11,7 +11,7 @@ import sidebar from './sidebar'
 import wrapCodeTerms from './wrap-code-terms'
 import print from './print'
 import localization from './localization'
-import helpfulness from './helpfulness'
+import survey from './survey'
 import experiment from './experiment'
 import copyCode from './copy-code'
 import initializeEvents from './events'
@@ -22,8 +22,10 @@ import releaseNotes from './release-notes'
 import showMore from './show-more'
 import airgapLinks from './airgap-links'
 import toggleImages from './toggle-images'
+import setNextEnv from './set-next-env'
 
 document.addEventListener('DOMContentLoaded', async () => {
+  setNextEnv()
   displayPlatformSpecificContent()
   displayToolSpecificContent()
   explorer()
@@ -44,6 +46,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   releaseNotes()
   initializeEvents()
   experiment()
-  helpfulness()
+  survey()
   toggleImages()
 })

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} 使用您在本地 Git 配置中设置的电子邮件地址连接提交与您在 {% data variables.product.product_name %} 上的帐户。
 
 {% data reusables.desktop.update-email-address %}

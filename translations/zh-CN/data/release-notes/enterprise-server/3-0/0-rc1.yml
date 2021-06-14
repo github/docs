@@ -1,0 +1,26 @@
+---
+date: '2021-01-12'
+release_candidate: true
+deprecated: true
+intro: 发布候选版本应该在非生产环境中测试。有关发布候选版计划的更多信息，请参阅[GitHub 博客](https://github)(https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) 或“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。
+sections:
+  bugs:
+    - 几个日志文件的格式已经改变，包括为不同的日志类型添加 PID。这不影响 GitHub Enterprise Support 如何使用支持包解决故障问题。
+    - 对 web 挂钩配置 API 的 PATCH 请求不再清除 web 挂钩机密。
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 发布候选版 1 不支持集群模式。
+    - 自定义防火墙规则在升级期间不会保持。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.blog/2016-02-18-upload-files-to-your-repositories/) 被错误地直接添加到仓库。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 在尝试设置 Actions 未成功后，如果禁用 Actions，您将无法创建第一个用户和使用设备
+    - '“必要消息已查看”审核日志事件未保存'
+    - '第一次设置时必须在副本上运行 `ghe-config-apply`，然后才可运行 `ghe-repl-setup` 以开始复制。'
+    - 备份工具可能会触发向管理员发送不必要的电子邮件
+    - 在组织成员视图页面中显示不正确的 Packages 设置
+    - 删除作为企业所有者的自己后，您将重定向到 404 页面。操作成功。
+    - '`ghe-config-apply` 偶尔失败，并出现“错误：等待正常作业应用失败”，直到 Nomad 作业队列被清除。这目前需要以管理员身份删除 `/etc/nomad-jobs/queue`。'
+    - 在配置多个副本节点时，副本的状态可能会错误同步。
+    - 尝试将 3.0 备份还原到新实例的客户不应预先配置实例，因为它可能导致用户登录状态不佳。我们建议恢复到全新的未配置实例。
+    - GitHub Enterprise Server 3.0 发布候选版在 Azure 市场上尚不可用。要在暂存环境中测试候选版，请启动 2.21 或 2.22 实例，然后在下载页面上使用 Azure 升级软件包升级。
+    - 图像和升级包下载大小已增加。互联网连接慢的客户可能会发现下载这些软件包需要更长的时间。

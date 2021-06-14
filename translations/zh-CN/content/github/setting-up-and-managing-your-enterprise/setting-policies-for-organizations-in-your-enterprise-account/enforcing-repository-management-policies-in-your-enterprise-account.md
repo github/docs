@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。
 
 ### 实施有关默认仓库权限的策略

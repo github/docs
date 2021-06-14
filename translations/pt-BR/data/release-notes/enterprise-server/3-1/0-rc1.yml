@@ -1,0 +1,21 @@
+---
+date: '2021-05-06'
+release_candidate: true
+deprecated: true
+intro: If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+sections:
+  security_fixes:
+    - '**MEDIUM** Under certain circumstances, users who were removed from a team or organization could retain write access to branches they had existing pull requests opened for.'
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - 'A scheduled cleanup job can cause performance to degrade on an instance with a very large `check_annotations` table.'
+  changes:
+    - Check annotations older than 4 months will be archived.
+    - 'The `firstPatchedVersion` field is now available on `SecurityVulnerability` objects in the GraphQL API.'
+  known_issues:
+    - The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.

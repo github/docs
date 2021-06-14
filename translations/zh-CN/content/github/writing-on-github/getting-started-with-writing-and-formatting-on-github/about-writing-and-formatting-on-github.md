@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 [Markdown](http://daringfireball.net/projects/markdown/) 是一种易于阅读和编写的语法，用于格式化纯文本。
 
 我们添加了一些自定义功能来创建 {% data variables.product.prodname_dotcom %} Flavored Markdown，用于格式化网站中的散文和代码。

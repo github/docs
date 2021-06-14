@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
@@ -27,7 +28,7 @@ You can use {% data variables.product.prodname_github_connect %} to allow {% dat
 
 Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using the `actions/checkout@v1` action, and you need to use `actions/checkout@v2` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
 
-1. By default, site administrators are not owners of the bundled actions organization. To get the required access to delete the `checkout` repository, use the `ghe-org-admin-promote` command to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)." 例:
+1. By default, site administrators are not owners of the bundled actions organization. To get the required access to delete the `checkout` repository, use the `ghe-org-admin-promote` command to promote a user to be an owner of the bundled `actions` organization. 詳しい情報については、「[管理シェル (SSH) へのアクセス](/admin/configuration/accessing-the-administrative-shell-ssh)」および「[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)」を参照してください。 例:
 
    ```shell
    $ ghe-org-admin-promote -u octocat -o actions

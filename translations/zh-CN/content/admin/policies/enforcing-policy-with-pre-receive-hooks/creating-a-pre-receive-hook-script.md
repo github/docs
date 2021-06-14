@@ -14,6 +14,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 您可以在 [`github/platform-samples` 仓库](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)中查看 {% data variables.product.prodname_ghe_server %} 的预接收挂钩示例。
 
 ### 编写预接收挂钩脚本

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 将 {% data variables.product.prodname_dotcom %} 用于学校项目是一种与别人协作的实用方式，可创建展示真实世界的作品集。
 
 {% data reusables.education.about-github-education-link %}

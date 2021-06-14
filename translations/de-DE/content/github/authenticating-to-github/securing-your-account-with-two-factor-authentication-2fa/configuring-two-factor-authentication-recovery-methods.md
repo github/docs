@@ -13,8 +13,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 Neben der sicheren Speicherung Deiner Wiederherstellungscodes für die Zwei-Faktor-Authentifizierung (2FA) empfehlen wir außerdem dringend, mindestens eine zusätzliche Wiederherstellungsmethode zu konfigurieren.
 
 ### Wiederherstellungscode für die Zwei-Faktor-Authentifizierung herunterladen
@@ -93,9 +94,7 @@ Wenn Du ein Kontowiederherstellungstoken erzeugst oder abrufst, wird ein Ereigni
 
 Du kannst ein Kontowiederherstellungstoken erzeugen und bei einem Partner-Wiederherstellungsanbieter speichern.
 
-1. Sign in to your Facebook account, then return to
-
-{% data variables.product.product_name %}.
+1. Melde Dich bei Deinem Facebook-Konto an, und kehre dann zu {% data variables.product.product_name %} zurück.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 4. Um ein neues Token zu erzeugen, klicke unter „Recovery tokens“ (Wiederherstellungstoken) auf **Store new token** (Neues Token speichern). ![Schaltfläche zum Speichern eines neuen Wiederherstellungstokens](/assets/images/help/settings/store-new-recovery-token.png)

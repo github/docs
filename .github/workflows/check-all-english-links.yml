@@ -41,6 +41,7 @@ jobs:
           token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_links.md
+          repository: github/docs-content
           labels: broken link report
       - if: ${{ failure() }}
         name: Add comment to issue

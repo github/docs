@@ -13,8 +13,18 @@ const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
 
 const defaultNextJSRoutes = FEATURE_NEXTJS
   ? [
-      '/en/sponsors',
-      '/en/discussions'
+      '/en/billing',
+      '/en/code-security',
+      '/en/communities',
+      '/en/discussions',
+      '/en/developers',
+      '/en/desktop',
+      '/en/graphql',
+      '/en/issues',
+      '/en/organizations',
+      '/en/pages',
+      '/en/rest',
+      '/en/sponsors'
     ]
   : []
 const pageCacheDatabaseNumber = 1
@@ -171,7 +181,7 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // Create string for <title> tag
-  context.page.fullTitle = context.page.title
+  context.page.fullTitle = context.page.titlePlainText
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(req.path)) {
@@ -194,6 +204,8 @@ module.exports = async function renderPage (req, res, next) {
 
   // Hand rendering over to NextJS when appropriate
   if (renderWithNextjs) {
+    req.context.renderedPage = context.renderedPage
+    req.context.miniTocItems = context.miniTocItems
     return nextHandleRequest(req, res)
   }
 

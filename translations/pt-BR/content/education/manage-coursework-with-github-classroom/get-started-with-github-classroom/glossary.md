@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
 ---
+
 ### atividade
 
 Uma atividade é um curso em {% data variables.product.prodname_classroom %}. Um professor pode atribuir uma atividade a um aluno ou a um grupo de alunos. Os professores podem importar o código inicial para a atividade, atribuir alunos e criar um prazo para cada atividade. Para obter mais informações, consulte as definições para "[atividade individual](#individual-assignment)" e "[atividade em grupo](#group-assignment)".

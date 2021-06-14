@@ -19,9 +19,9 @@ topics:
   - Desktop
   - Security
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-各
-{% data variables.product.product_name %} 製品の機能の完全なリストについては、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
+各 {% data variables.product.product_name %} 製品の機能の完全なリストについては、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
 {% endif %}
 
 ### 個人ユーザアカウント

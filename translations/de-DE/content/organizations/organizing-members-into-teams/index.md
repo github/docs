@@ -23,10 +23,10 @@ children:
   - /about-teams
   - /creating-a-team
   - /setting-your-teams-profile-picture
-  - /setting-your-teams-profile-picture
+  - /adding-organization-members-to-a-team
   - /managing-code-review-assignment-for-your-team
   - /renaming-a-team
-  - /renaming-a-team
+  - /changing-team-visibility
   - /synchronizing-a-team-with-an-identity-provider-group
   - /moving-a-team-in-your-organizations-hierarchy
   - /requesting-to-add-a-child-team

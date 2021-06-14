@@ -16,7 +16,6 @@ children:
   - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
-  - /github-ae-release-notes
 ---
+
 詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。
-### 目次

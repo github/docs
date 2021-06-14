@@ -5,10 +5,9 @@ versions:
   free-pro-team: '*'
 topics:
   - Codespaces
+children:
+  - /configuring-codespaces-for-your-project
+  - /personalizing-codespaces-for-your-account
 ---
 
 {% data reusables.codespaces.release-stage %}
-
-{% link_with_intro /configuring-codespaces-for-your-project %}
-
-{% link_with_intro /personalizing-codespaces-for-your-account %}

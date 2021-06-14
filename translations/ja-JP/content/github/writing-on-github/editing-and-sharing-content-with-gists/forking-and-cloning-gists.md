@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Gist をフォークする
 
 各 Gist はどのフォークにアクティビティがあるのかを示すため、他のユーザによる興味深い変更を簡単に確認できます。
