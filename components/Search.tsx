@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import debounce from 'lodash/debounce'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { sendEvent } from '../javascripts/events'
+import { sendEvent, EventType } from '../javascripts/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 
@@ -126,7 +126,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
     // Analytics tracking
     if (xquery) {
       sendEvent({
-        type: 'search',
+        type: EventType.search,
         search_query: xquery,
         // search_context
       })
