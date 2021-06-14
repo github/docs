@@ -52,7 +52,7 @@ export const LearningTrack = ({ track }: Props) => {
                 )}
               </div>
               <h5 className="flex-auto pr-2">{guide.title}</h5>
-              <div className="color-text-tertiary h6 text-uppercase">
+              <div className="color-text-tertiary h6 text-uppercase flex-shrink-0">
                 {t('guide_types')[guide.page.type]}
               </div>
             </a>

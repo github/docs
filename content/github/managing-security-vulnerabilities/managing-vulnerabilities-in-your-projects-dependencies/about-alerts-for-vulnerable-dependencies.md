@@ -33,7 +33,7 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 
 {% endnote %}
 
-{% if currentVersion ver_gt "enterprise-server@2.21" % %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 ### {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
 {% else %}
 ### Security alerts for vulnerable dependencies
