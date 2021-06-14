@@ -23,7 +23,7 @@ topics:
 8. Modify the team discussion title and comment as needed, and click **Update comment**.
   ![Update comment button](/assets/images/help/projects/update-comment-button.png)
 
-### Further reading
+## Further reading
 
   - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"

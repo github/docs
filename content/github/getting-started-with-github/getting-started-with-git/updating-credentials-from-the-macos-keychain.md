@@ -13,7 +13,7 @@ versions:
 ---
 {% data reusables.user_settings.password-authentication-deprecation %}
 
-### Updating your credentials via Keychain Access
+## Updating your credentials via Keychain Access
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app.
    ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
@@ -21,7 +21,7 @@ versions:
 3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
 4. Edit or delete the entry accordingly.
 
-### Deleting your credentials via the command line
+## Deleting your credentials via the command line
 
 Through the command line, you can use the credential helper directly to erase the keychain entry.
 
@@ -34,6 +34,6 @@ protocol=https
 
 If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
-### Further reading
+## Further reading
 
 - "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"

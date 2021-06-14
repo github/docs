@@ -1,7 +1,7 @@
 ---
 title: Repository permission levels for an organization
 intro: 'You can customize access to each repository in your organization with granular permission levels, giving people access to the features and tasks they need.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/repository-permission-levels-for-an-organization-early-access-program/
   - /articles/repository-permission-levels-for-an-organization
@@ -17,7 +17,7 @@ topics:
 
 People with admin permissions can manage individual and team access to an organization-owned repository.
 
-### Permission levels for repositories owned by an organization
+## Permission levels for repositories owned by an organization
 
 You can give organization members, outside collaborators, and teams of people different levels of access to repositories owned by an organization. Each permission level progressively increases access to a repository's content and settings. Choose the level that best fits each person or team's role in your project without giving people more access to the project than they need.
 
@@ -46,7 +46,7 @@ In addition to managing organization-level settings, organization owners have ad
 
 {% endwarning %}
 
-### Repository access for each permission level
+## Repository access for each permission level
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
@@ -83,8 +83,8 @@ In addition to managing organization-level settings, organization owners have ad
 | [Lock conversations](/communities/moderating-comments-and-conversations/locking-conversations) | | | **X** | **X** | **X** |
 | Transfer issues (see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)" for details) |  | | **X** | **X** | **X** |
 | [Act as a designated code owner for a repository](/articles/about-code-owners) | | | **X** | **X** | **X** |
-| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-| [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% endif %}
+| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
+| [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
 | Submit reviews that affect a pull request's mergeability | | | **X** | **X** | **X** |
 | [Apply suggested changes](/articles/incorporating-feedback-in-your-pull-request) to pull requests | | | **X** | **X** | **X** |
 | Create [status checks](/articles/about-status-checks) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
@@ -136,7 +136,7 @@ In addition to managing organization-level settings, organization owners have ad
 | Create [codespaces](/codespaces/about-codespaces) | | | **X** | **X** | **X** |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-#### Permission requirements for security features
+### Permission requirements for security features
 
 In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
@@ -162,7 +162,7 @@ In this section, you can find the repository permission levels required for secu
 {% endif %}
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Managing access to your organization's repositories](/articles/managing-access-to-your-organization-s-repositories)"
 - "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"

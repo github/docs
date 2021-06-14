@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Sobre tópicos
 
 Com tópicos, você pode explorar repositórios em uma área de assunto específica, encontrar projetos com os quais contribuir e descobrir novas soluções para um problema específico. Os tópicos aparecem na página principal de um repositório. Você pode clicar em um nome de tópico para {% if currentVersion == "free-pro-team@latest" %}ver tópicos relacionados e uma lista de outros repositórios classificados com esse tópico{% else %}buscar outros repositórios com esse tópico{% endif %}.

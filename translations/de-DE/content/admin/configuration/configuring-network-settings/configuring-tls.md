@@ -17,6 +17,7 @@ topics:
   - Networking
   - Security
 ---
+
 ### Informationen zu Transport Layer Security
 
 TLS, das SSL ersetzt hat, wird beim erstmaligen Start von {% data variables.product.prodname_ghe_server %} mit einem selbstsignierten Zertifikat aktiviert und konfiguriert. Da Webbrowser und Git-Clients selbstsignierten Zertifikaten nicht vertrauen, melden diese Clients Zertifikatswarnungen, bis Sie TLS deaktivieren oder ein von einer vertrauenswürdigen Zertifizierungsstelle wie Let's Encrypt signiertes Zertifikat hochladen.

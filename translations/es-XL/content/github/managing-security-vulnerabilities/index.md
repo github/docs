@@ -7,7 +7,6 @@ versions:
 topics:
   - Security
 children:
-  - /managing-security-vulnerabilities-in-your-project
   - /managing-vulnerabilities-in-your-projects-dependencies
 ---
 ### Índice

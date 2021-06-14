@@ -3,11 +3,9 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { useTheme, ThemeProvider } from '@primer/components'
-import { getThemeProps } from 'components/lib/getThemeProps'
+import { defaultThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
 import '../stylesheets/index.scss'
-
-import { defaultThemeProps } from 'components/lib/getThemeProps'
 
 type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {

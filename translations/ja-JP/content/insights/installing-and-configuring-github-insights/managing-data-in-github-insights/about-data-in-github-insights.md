@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /insights/installing-and-configuring-github-insights/about-data-in-github-insights
 ---
+
 {% data variables.product.prodname_insights %}は、チームの作業に関するデータを主要なメトリクスとレポートに表示します。 これらのメトリクスのどれを表示させるかは、選択できます。 詳しい情報については「[利用できるメトリクスとレポートの管理](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)」を参照してください。
 
 {% data variables.product.prodname_enterprise %}内のどのOrganizationがメトリクスに含まれるかを、管理できます。 詳しい情報については「[Organizationの管理](/insights/installing-and-configuring-github-insights/managing-organizations)」を参照してください。

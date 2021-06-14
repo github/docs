@@ -32,7 +32,7 @@ When creating a file on {% data variables.product.product_name %}, consider the 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 
 - "[Adding a file to a repository](/articles/adding-a-file-to-a-repository)"
 - "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)"

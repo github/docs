@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ブランチ、タグ、コミット、日付にわたってリポジトリの状態を比較できます。 リポジトリの異なるバージョンを比較するには、リポジトリのパスに `/compare` を追加します。
 
 比較がいかに強力か、[https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master) にある [Linguist リポジトリのフォーク](https://github.com/octocat/linguist)の比較ページを見ればわかります。

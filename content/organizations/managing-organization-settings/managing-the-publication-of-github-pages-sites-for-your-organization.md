@@ -30,6 +30,6 @@ If you disallow publication of {% data variables.product.prodname_pages %} sites
   ![Unselected checkbox for "Allow members to publish sites" option](/assets/images/help/organizations/org-settings-pages-disable-publication-checkbox.png){% endif %}
 1. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)"

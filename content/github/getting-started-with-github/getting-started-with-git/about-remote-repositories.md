@@ -15,7 +15,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### About remote repositories
+## About remote repositories
 
 A remote URL is Git's fancy way of saying "the place where your code is stored." That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.
 
@@ -26,7 +26,7 @@ You can only push to two types of URL addresses:
 
 Git associates a remote URL with a name, and your default remote is usually called `origin`.
 
-### Creating remote repositories
+## Creating remote repositories
 
 You can use the `git remote add` command to match a remote URL with a name.
 For example, you'd type the following in the command line:
@@ -39,7 +39,7 @@ This associates the name `origin` with the `REMOTE_URL`.
 
 You can use the command `git remote set-url` to [change a remote's URL](/github/getting-started-with-github/managing-remote-repositories).
 
-### Choosing a URL for your remote repository
+## Choosing a URL for your remote repository
 
 There are several ways to clone repositories available on {% data variables.product.product_location %}.
 
@@ -47,7 +47,7 @@ When you view a repository while signed in to your account, the URLs you can use
 
 For information on setting or changing your remote URL, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-### Cloning with HTTPS URLs
+## Cloning with HTTPS URLs
 
 The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
@@ -65,7 +65,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
  {% if currentVersion == "free-pro-team@latest" %}If you'd rather use SSH but cannot connect over port 22, you might be able to use SSH over the HTTPS port. For more information, see "[Using SSH over the HTTPS port](/github/authenticating-to-github/using-ssh-over-the-https-port)."{% endif %}
 
-### Cloning with SSH URLs
+## Cloning with SSH URLs
 
 SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your {% data variables.product.product_name %} account. For more information, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)."
 
@@ -81,14 +81,14 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
-### Cloning with {% data variables.product.prodname_cli %}
+## Cloning with {% data variables.product.prodname_cli %}
 
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.
 
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-### Cloning with Subversion
+## Cloning with Subversion
 
 You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[What are the differences between Subversion and Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
 

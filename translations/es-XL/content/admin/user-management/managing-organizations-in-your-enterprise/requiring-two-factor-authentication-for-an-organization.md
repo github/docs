@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies

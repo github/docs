@@ -32,6 +32,6 @@ topics:
 ![Find file search field](/assets/images/help/search/find-file-search-field.png)
 4. In the list of results, click the file you wanted to find.
 
-### Further reading
+## Further reading
 
 - "[About searching on GitHub](/articles/about-searching-on-github)"

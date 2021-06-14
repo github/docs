@@ -2,11 +2,16 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { MarkGithubIcon, GitPullRequestIcon, PeopleIcon, CommentDiscussionIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
+import {
+  MarkGithubIcon,
+  GitPullRequestIcon,
+  PeopleIcon,
+  CommentDiscussionIcon,
+} from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
-export default function Custom404 (props : any) {
+export default function Custom404() {
   const router = useRouter()
   const { currentVersion, isEnterprise } = useVersion()
 
@@ -27,11 +32,13 @@ export default function Custom404 (props : any) {
           role="banner"
         >
           <Link href={`/${router.locale}`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="color-text-primary" aria-hidden="true" tabIndex={-1}>
               <MarkGithubIcon size={32} />
             </a>
           </Link>
           <Link href={`/${router.locale}`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto">
               GitHub Docs
             </a>
@@ -47,9 +54,7 @@ export default function Custom404 (props : any) {
         <div className="container-xl p-responsive py-6">
           <article className="markdown-body col-md-10 col-lg-7 mx-auto">
             <h1>Ooops</h1>
-            <div className="lead-mktg mb-5">
-              It looks like this page doesn't exist.
-            </div>
+            <div className="lead-mktg mb-5">It looks like this page doesn't exist.</div>
             <div className="col-lg-12 mt-6">
               <h3 className="mb-3">Need help?</h3>
             </div>
@@ -58,29 +63,36 @@ export default function Custom404 (props : any) {
         <section className="mt-lg-9 py-7 px-3 px-md-6 no-print color-bg-tertiary">
           <div className="container-xl gutter-lg-spacious clearfix">
             <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
-            <div className="f5 contribution">
-              <h2 className="f4">Help us make these docs great!</h2>
-              <p className="color-text-secondary f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
-              <a className="btn btn-outline" href={contribution_href}>
-                <GitPullRequestIcon size="small" className="octicon mr-1" />
+              <div className="f5 contribution">
+                <h2 className="f4">Help us make these docs great!</h2>
+                <p className="color-text-secondary f6">
+                  All GitHub docs are open source. See something that's wrong or unclear? Submit a
+                  pull request.
+                </p>
+                <a className="btn btn-outline" href={contribution_href}>
+                  <GitPullRequestIcon size="small" className="octicon mr-1" />
                   Make a contribution
-              </a>
-              <p className="color-text-secondary f6 mt-2">
-                Or,{' '}
-                <a
-                  href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  learn how to contribute.
                 </a>
-              </p>
-            </div>
+                <p className="color-text-secondary f6 mt-2">
+                  Or,{' '}
+                  <a
+                    href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    learn how to contribute.
+                  </a>
+                </p>
+              </div>
             </div>
             <div className="col-12 col-lg-12 col-xl-4 float-left">
               <div>
                 <h3 className="mb-2 f4">Still need help?</h3>
-                <a id="ask-community" href="https://github.community" className="btn btn-outline mr-4 mt-2">
+                <a
+                  id="ask-community"
+                  href="https://github.community"
+                  className="btn btn-outline mr-4 mt-2"
+                >
                   <PeopleIcon size="small" className="octicon mr-1" />
                   Ask the GitHub community
                 </a>
@@ -94,7 +106,7 @@ export default function Custom404 (props : any) {
                   className="btn btn-outline mt-2"
                 >
                   <CommentDiscussionIcon size="small" className="octicon mr-1" />
-                    Contact support
+                  Contact support
                 </a>
               </div>
             </div>

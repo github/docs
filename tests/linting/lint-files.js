@@ -14,6 +14,7 @@ const ghesReleaseNotesSchema = require('../helpers/schemas/ghes-release-notes-sc
 const ghaeReleaseNotesSchema = require('../helpers/schemas/ghae-release-notes-schema')
 const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema')
 const renderContent = require('../../lib/render-content')
+const getApplicableVersions = require('../../lib/get-applicable-versions')
 const { execSync } = require('child_process')
 const allVersions = Object.keys(require('../../lib/all-versions'))
 const enterpriseServerVersions = allVersions.filter(v => v.startsWith('enterprise-server@'))
@@ -255,13 +256,13 @@ if (!process.env.TEST_TRANSLATION) {
   learningTracksToLint = learningTracksTuples
 }
 
-function formatLinkError (message, links) {
+function formatLinkError(message, links) {
   return `${message}\n  - ${links.join('\n  - ')}`
 }
 
 // Returns `content` if its a string, or `content.description` if it can.
 // Used for getting the nested `description` key in glossary files.
-function getContent (content) {
+function getContent(content) {
   if (typeof content === 'string') return content
   if (typeof content.description === 'string') return content.description
   return null
@@ -420,7 +421,7 @@ describe('lint markdown content', () => {
           const initialMatches = (content.match(versionLinkRegEx) || [])
 
           // Filter out some very specific false positive matches
-          const matches = initialMatches.filter(match => {
+          const matches = initialMatches.filter(() => {
             if (
               markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
               markdownRelPath.endsWith('all-releases.md')
@@ -438,7 +439,7 @@ describe('lint markdown content', () => {
           const initialMatches = (content.match(domainLinkRegex) || [])
 
           // Filter out some very specific false positive matches
-          const matches = initialMatches.filter(match => {
+          const matches = initialMatches.filter(() => {
             if (markdownRelPath === 'content/admin/all-releases.md') {
               return false
             }
@@ -788,11 +789,20 @@ describe('lint learning tracks', () => {
         expect(errors.length, errorMessage).toBe(0)
       })
 
-      it('has one and only one featured track per version', async () => {
+      it('has one and only one featured track per supported version', async () => {
         const featuredTracks = {}
         const context = { enterpriseServerVersions }
 
-        await Promise.all(allVersions.map(async (version) => {
+        // Use the YAML filename to determine which product this refers to, and then peek
+        // inside the product TOC frontmatter to see which versions the product is available in.
+        const product = path.posix.basename(yamlRelPath, '.yml')
+        const productTocPath = path.posix.join('content', product, 'index.md')
+        const productContents = await readFileAsync(productTocPath, 'utf8')
+        const { data } = frontmatter(productContents)
+        const productVersions = getApplicableVersions(data.versions, productTocPath)
+
+        // For each of the product's versions, render the learning track data and look for a featured track.
+        await Promise.all(productVersions.map(async (version) => {
           const featuredTracksPerVersion = (await Promise.all(Object.values(dictionary).map(async (entry) => {
             if (!entry.featured_track) return
             context.currentVersion = version

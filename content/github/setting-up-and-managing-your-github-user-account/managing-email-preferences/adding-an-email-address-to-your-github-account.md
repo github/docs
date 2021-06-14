@@ -26,6 +26,6 @@ topics:
 {% data reusables.user_settings.add_and_verify_email %}
 {% data reusables.user_settings.select_primary_email %}
 
-### Further reading
+## Further reading
 
 - "[Managing email preferences](/articles/managing-email-preferences/)"

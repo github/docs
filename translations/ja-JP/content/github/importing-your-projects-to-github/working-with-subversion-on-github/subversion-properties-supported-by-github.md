@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### Executable ファイル (svn:executable)
 
 Git リポジトリに追加する前に、ファイルモードを直接更新することで、`svn:executable` プロパティを変換します。

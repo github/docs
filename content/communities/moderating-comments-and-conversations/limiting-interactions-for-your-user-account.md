@@ -10,7 +10,7 @@ topics:
   - Community
 ---
 
-### About temporary interaction limits
+## About temporary interaction limits
 
 Limiting interactions for your user account enables temporary interaction limits for all public repositories owned by your user account. {% data reusables.community.interaction-limits-restrictions %}
 
@@ -22,7 +22,7 @@ When you enable user-wide activity limitations, you can't enable or disable inte
 
 You can also block users. For more information, see "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)." 
 
-### Limiting interactions for your user account
+## Limiting interactions for your user account
 
 {% data reusables.user_settings.access_settings %}
 1. In your user settings sidebar, under "Moderation settings", click **Interaction limits**.

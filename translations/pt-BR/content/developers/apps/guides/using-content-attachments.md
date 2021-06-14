@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ### Sobre os anexos de conteúdo
@@ -48,7 +49,9 @@ O fluxo de anexo de conteúdo mostra a relação entre a URL no problema ou pull
     "node_id": "MDE2OkNvbnRlbnRSZWZlcmVuY2UxNjA5",
     "reference": "errors.ai"
   },
-  "repository": {...},
+  "repository": {
+    "full_name": "Codertocat/Hello-World",
+  },
   "sender": {...},
   "installation": {
     "id": 371641,
@@ -57,7 +60,7 @@ O fluxo de anexo de conteúdo mostra a relação entre a URL no problema ou pull
 }
 ```
 
-**Etapa 4.** O aplicativo usa o `content_reference` `id` </code> para [Criar um anexo de conteúdo](/rest/reference/apps#create-a-content-attachment) usando a API REST. Você também precisará do `id` da `instalação` para efetuar a autenticação como uma [instalação do aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Etapa 4.** O aplicativo usa os campos `content_reference` `id` e `repositório` `full_name` para [Criar um anexo de conteúdo](/rest/reference/apps#create-a-content-attachment) usando a API REST. Você também precisará do `id` da `instalação` para efetuar a autenticação como uma [instalação do aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -66,7 +69,7 @@ O parâmetro do `texto` pode conter markdown:
 
     ```shell
     curl -X POST \
-      https://api.github.com/content_references/1512/attachments \
+      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
       -H 'Accept: application/vnd.github.corsair-preview+json' \
       -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
       -d '{
@@ -158,7 +161,7 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
         await context.github.request({
           method: 'POST',
           headers: { accept: 'application/vnd.github.corsair-preview+json' },
-          url: `/content_references/${context.payload.content_reference.id}/attachments`,
+          url: `/repos/${context.payload.repository.full_name}/content_references/${context.payload.content_reference.id}/attachments`,
           // Parameters
           title: '[A-1234] Error found in core/models.py file',
           body: 'You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\nself.save()'

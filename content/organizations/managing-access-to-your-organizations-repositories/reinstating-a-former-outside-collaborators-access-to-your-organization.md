@@ -73,6 +73,6 @@ When you reinstate a former outside collaborator, you can restore:
 8. The invited person will receive an email inviting them to the organization. They will need to accept the invitation before becoming an outside collaborator in the organization. {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-### Further Reading
+## Further Reading
 
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

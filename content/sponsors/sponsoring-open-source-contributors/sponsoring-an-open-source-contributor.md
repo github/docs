@@ -17,7 +17,7 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorships
+## About sponsorships
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -47,7 +47,7 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 {% endnote %}
 
-### Sponsoring an account
+## Sponsoring an account
 
 Before you can sponsor an account, you must have a verified email address. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."
 

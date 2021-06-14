@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### {% data variables.product.prodname_desktop %} のタグについて
 
 {% data variables.product.prodname_desktop %} を使用すると、アノテーションされたタグを作成できます。 タグはコミットに関連付けられているため、タグを使用して、リリースのバージョン番号など、リポジトリの履歴内の個々のポイントをマークできます。 リリースタグに関する詳しい情報については、「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。

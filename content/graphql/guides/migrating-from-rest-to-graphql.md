@@ -12,7 +12,7 @@ topics:
   - API
 ---
 
-### Differences in API logic
+## Differences in API logic
 
 Migrating from REST to GraphQL represents a significant shift in API logic. The differences between REST as a style and GraphQL as a specification make it difficult&mdash;and often undesirable&mdash;to replace REST API calls with GraphQL API queries on a one-to-one basis. We've included specific examples of migration below.
 

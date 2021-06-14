@@ -23,7 +23,7 @@ versions:
 ![Client ID and Client Secret](/assets/images/help/oauth/client-id-and-secret.png)
 {% data reusables.user_settings.jira_help_docs %}
 
-### Further reading
+## Further reading
 
 - ["Integrating Jira with your personal projects"](/articles/integrating-jira-with-your-personal-projects)
 - <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Connect Jira Cloud to GitHub</a> (Atlassian documentation)

@@ -17,13 +17,13 @@ topics:
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-### Introduction
+## Introduction
 
 This tutorial demonstrates how to use the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment) to comment on an issue when a specific label is applied. For example, when the `help-wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
 
 In the tutorial, you will first make a workflow file that uses the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment). Then, you will customize the workflow to suit your needs.
 
-### Creating the workflow
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
@@ -55,7 +55,7 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
    - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 5. {% data reusables.actions.commit-workflow %}
 
-### Testing the workflow
+## Testing the workflow
 
 Every time an issue in your repository is labeled, this workflow will run. If the label that was added is one of the labels that you specified in your workflow file, the `peter-evans/create-or-update-comment` action will add the comment that you specified to the issue.
 
@@ -66,6 +66,6 @@ Test your workflow by applying your specified label to an issue.
 3. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 4. When the workflow completes, the issue that you labeled should have a comment added.
 
-### Next steps
+## Next steps
 
 - To learn more about additional things you can do with the `peter-evans/create-or-update-comment` action, like adding reactions, visit the [`peter-evans/create-or-update-comment` action documentation](https://github.com/marketplace/actions/create-or-update-comment).

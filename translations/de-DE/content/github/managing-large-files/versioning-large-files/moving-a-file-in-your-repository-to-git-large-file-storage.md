@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Nach der Installation von {% data variables.large_files.product_name_short %} und dem Konfigurieren von {% data variables.large_files.product_name_short %}-Tracking (Nachverfolgung), kannst Du Dateien von Git's regulärer Nachverfolgung nach {% data variables.large_files.product_name_short %} verschieben. Weitere Informationen findest Du unter "[Installation von {% data variables.large_files.product_name_long %}](/github/managing-large-files/installing-git-large-file-storage)" und "[Konfiguration von {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
 
 {% data reusables.large_files.resolving-upload-failures %}

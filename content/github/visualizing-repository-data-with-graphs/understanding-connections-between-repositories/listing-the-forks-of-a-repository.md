@@ -23,7 +23,7 @@ Forks are listed alphabetically by the username of the person who forked the rep
 
 {% endif %}
 
-### Accessing the Members graph
+## Accessing the Members graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

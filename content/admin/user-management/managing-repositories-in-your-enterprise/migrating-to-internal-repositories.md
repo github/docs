@@ -15,7 +15,7 @@ topics:
   - Repositories
   - Security
 ---
-### About internal repositories
+## About internal repositories
 
 Internal repositories are available in {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)."
 
@@ -35,7 +35,7 @@ The repository creation policy for the instance will change to disable public re
 
 If you don't have private mode enabled, the migration script will have no effect.
 
-### Running the migration
+## Running the migration
 
 1. Connect to the administrative shell. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)."
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
@@ -56,6 +56,6 @@ If you don't have private mode enabled, the migration script will have no effect
 
 Log output will appear in the terminal and `/tmp/convert_public_ghes_repos_to_internal.log`.
 
-### Further reading
+## Further reading
 
 - "[Enabling private mode](/enterprise/admin/installation/enabling-private-mode)"

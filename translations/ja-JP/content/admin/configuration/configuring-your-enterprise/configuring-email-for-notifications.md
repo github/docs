@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Notifications
 ---
+
 {% if currentVersion == "github-ae@latest" %}
 Enterprise オーナーは、通知用のメールを設定できます。
 {% endif %}
@@ -166,9 +167,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 #### サポートへの連絡
 {% if enterpriseServerVersions contains currentVersion %}
-問題を解決できない場合は、こちらにお問い合わせください。
-{% data variables.contact.contact_ent_support %}. 問題のトラブルシューティングを支援するため、メールには`http(s)://[hostname]/setup/diagnostics`からの出力ファイルを添付してください。
+依然として問題が解決できない場合は、{% data variables.contact.contact_ent_support %} に連絡してください。 問題のトラブルシューティングを支援するため、メールには`http(s)://[hostname]/setup/diagnostics`からの出力ファイルを添付してください。
 {% elsif currentVersion == "github-ae@latest" %}
-以下については、
-{% data variables.contact.github_support %} は、SMTP サーバーから送信される通知メールを設定できます。 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
+You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 {% endif %}

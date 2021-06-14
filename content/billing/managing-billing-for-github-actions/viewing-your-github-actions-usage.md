@@ -16,7 +16,7 @@ topics:
 ---
 You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
 
-### Viewing {% data variables.product.prodname_actions %} usage for your user account
+## Viewing {% data variables.product.prodname_actions %} usage for your user account
 
 Anyone can view {% data variables.product.prodname_actions %} usage for their own user account.
 
@@ -26,18 +26,16 @@ Anyone can view {% data variables.product.prodname_actions %} usage for their ow
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Viewing {% data variables.product.prodname_actions %} usage for your organization
+## Viewing {% data variables.product.prodname_actions %} usage for your organization
 
 Organization owners and billing managers can view {% data variables.product.prodname_actions %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_actions %} usage in the organization billing page.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
+## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_actions %} usage for an enterprise account.
 

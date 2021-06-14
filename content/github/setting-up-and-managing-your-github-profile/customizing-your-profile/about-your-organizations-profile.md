@@ -21,6 +21,6 @@ You can optionally choose to add a description, location, website, and email add
 ![Sample organization profile page](/assets/images/help/profile/org_profile.png)
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"

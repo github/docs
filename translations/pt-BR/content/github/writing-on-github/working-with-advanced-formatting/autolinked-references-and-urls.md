@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### URLs
 
 O {% data variables.product.product_name %} cria links automaticamente de URLs padrão.
@@ -32,7 +33,7 @@ Nas conversas do {% data variables.product.product_name %}, as referências a pr
 | Tipo de referência                                                      | Referência bruta                               | Link curto                                                             |
 | ----------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | URL do problema ou da pull request                                      | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
-| `#` e número do problema ou da pull request                             | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
+| `#` e o problema ou o número de pull request                            | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
 | `GH-` e número do problema ou da pull request                           | GH-26                                          | [GH-26](https://github.com/jlord/sheetsee.js/issues/26)                |
 | `Username/Repository#` e número do problema ou da pull request          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization_name/Repository#` e número do problema ou da pull request | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |

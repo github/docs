@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 GitHub Importer sucht nach GitHub-Benutzern, deren E-Mail-Adressen mit denen der Autoren der Commits im importierten Repository übereinstimmen. Dann kannst Du einen Commit mit seinem Autoren verbinden, entweder mittels seiner E-Mail-Adresse oder seinem GitHub-Benutzernamen.
 
 ### Commit-Autoren aktualisieren

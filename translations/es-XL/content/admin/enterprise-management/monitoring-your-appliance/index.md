@@ -15,8 +15,6 @@ children:
   - /recommended-alert-thresholds
   - /setting-up-external-monitoring
   - /configuring-collectd
-  - /log-forwarding
   - /monitoring-using-snmp
-  - /monitoring-using-analytics
 ---
 

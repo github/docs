@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 Antes de enviar um tíquete, você deve:
 
 - Obter informações que possam ajudar o {% data variables.contact.github_support %} a acompanhar, priorizar, reproduzir ou investigar o problema.

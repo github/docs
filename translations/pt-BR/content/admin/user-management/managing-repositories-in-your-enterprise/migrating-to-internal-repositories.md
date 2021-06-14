@@ -15,6 +15,7 @@ topics:
   - Repositories
   - Security
 ---
+
 ### Sobre repositórios internos
 
 Os repositórios internos estão disponíveis em {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)".

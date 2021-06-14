@@ -14,14 +14,14 @@ topics:
   - Teams
 ---
 
-### About management of security and analysis settings
+## About management of security and analysis settings
 
 {% data variables.product.prodname_dotcom %} can help secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% if currentVersion == "free-pro-team@latest" %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-### Displaying the security and analysis settings
+## Displaying the security and analysis settings
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -35,7 +35,7 @@ The page that's displayed allows you to enable or disable all security and analy
 
 {% if currentVersion == "github-ae@latest" %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
 
-### Enabling or disabling a feature for all existing repositories
+## Enabling or disabling a feature for all existing repositories
 
 You can enable or disable features for all repositories. {% if currentVersion == "free-pro-team@latest" %}The impact of your changes on repositories in your organization is determined by their visibility:
 
@@ -86,7 +86,7 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 
    {% data reusables.security.displayed-information %}
 
-### Enabling or disabling a feature automatically when new repositories are added
+## Enabling or disabling a feature automatically when new repositories are added
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 2. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories{% if currentVersion == "free-pro-team@latest" %}, or all new private repositories,{% endif %} in your organization.
@@ -105,7 +105,7 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
+## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
 
 {% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
 
@@ -128,7 +128,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
-### Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
 
 You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)." However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
 
@@ -147,7 +147,7 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}

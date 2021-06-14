@@ -14,6 +14,7 @@ permissions: 'People with write permissions can delete files{% if currentVersion
 topics:
   - Repositories
 ---
+
 ### Sobre a exclusão de arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} e diretório{% endif %}
 
 É possível excluir um arquivo individual no repositório{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou um diretório inteiro, incluindo todos os arquivos no diretório{% endif %}.
@@ -25,8 +26,7 @@ Se o arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver
 ### Excluir um arquivo
 
 1. Navegue até o arquivo no repositório que deseja excluir.
-2. Na parte superior do arquivo, clique
-{% octicon "trash" aria-label="The trash icon" %}.
+2. Na parte superior do arquivo, clique em {% octicon "trash" aria-label="The trash icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

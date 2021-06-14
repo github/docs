@@ -17,6 +17,7 @@ topics:
   - Enterprise
   - Pages
 ---
+
 ### {% data variables.product.prodname_pages %} の公開サイトを有効にする
 
 {% if enterpriseServerVersions contains currentVersion %} Enterprise でプライベートモードが有効になっている場合、{% else %}公開{% endif %}は、公開サイトを有効にしない限り、Enterprise がホストする {% data variables.product.prodname_pages %} サイトにアクセスできません。
@@ -44,8 +45,7 @@ topics:
 ### Enterprise 向けの {% data variables.product.prodname_pages %} を無効にする
 
 {% if enterpriseServerVersions contains currentVersion %}
-Enterprise で Subdomain Isolation が無効になっている場合は、
-{% data variables.product.prodname_pages %} も無効にして、潜在的なセキュリティの脆弱性から身を守る必要があります。 詳しい情報については、「[Subdomain Isolation の有効化](/admin/configuration/enabling-subdomain-isolation)」を参照してください。
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. 詳しい情報については、「[Subdomain Isolation の有効化](/admin/configuration/enabling-subdomain-isolation)」を参照してください。
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
