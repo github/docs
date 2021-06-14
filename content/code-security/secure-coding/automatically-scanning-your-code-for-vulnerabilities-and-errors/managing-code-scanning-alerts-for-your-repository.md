@@ -24,7 +24,7 @@ topics:
 
 {% data reusables.code-scanning.beta %}
 
-### About alerts from {% data variables.product.prodname_code_scanning %}
+## About alerts from {% data variables.product.prodname_code_scanning %}
 
 You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
@@ -32,7 +32,7 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### About alerts details
+## About alerts details
 
 Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the severity and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
@@ -42,7 +42,7 @@ If you set up {% data variables.product.prodname_code_scanning %} using {% data 
 
 When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
-### Viewing the alerts for a repository
+## Viewing the alerts for a repository
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
@@ -52,7 +52,7 @@ You need write permission to view a summary of all the alerts for a repository o
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-1. Optionally, use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search box or{% endif %} the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+1. Optionally, use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %} the free text search box or{% endif %} the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
   ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore.
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
@@ -65,8 +65,8 @@ You need write permission to view a summary of all the alerts for a repository o
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %}
-### Searching {% data variables.product.prodname_code_scanning %} alerts
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+## Searching {% data variables.product.prodname_code_scanning %} alerts
 
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
 - The name of the alert
@@ -100,13 +100,13 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 {% endif %}
 
-### Fixing an alert
+## Fixing an alert
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
 If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
-You can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
+You can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
@@ -116,7 +116,7 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" d
 ![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
 
-### Dismissing or deleting alerts
+## Dismissing or deleting alerts
 
 There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.
 
@@ -146,7 +146,7 @@ To dismiss or delete alerts:
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Optionally, you can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
+   Optionally, you can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
@@ -169,11 +169,11 @@ To dismiss or delete alerts:
 
    {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-#### Dismissing multiple alerts at once
+### Dismissing multiple alerts at once
 
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
 
-### Further reading
+## Further reading
 
 - "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)"
 - "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"

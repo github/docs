@@ -34,7 +34,7 @@ Ao criar um codespace, várias etapas acontecem para permitir o acesso total ao 
 - Assim que o codespace for disponibilizado, dependendo dos comandos no devcontainer, o codespace continuará com algumas configurações.
   - O codespace compartilha as portas adicionadas no arquivo</code>devcontainer.json.`.</li>
 <li>O codespace executa qualquer coisa especificada em <code>postCreateCommand`.
-  - {% data variables.product.prodname_codespaces %} clona o repositório do dotfiles no ambiente de código e procura um arquivo de instalação. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
+  - {% data variables.product.prodname_codespaces %} clona o repositório do dotfiles no ambiente de código e procura um arquivo de instalação. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
   - Por fim, o código do repositório faz um clone completo para que você tenha acesso total ao mesmo.
 
 

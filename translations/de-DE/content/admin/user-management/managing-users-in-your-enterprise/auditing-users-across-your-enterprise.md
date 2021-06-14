@@ -17,6 +17,7 @@ topics:
   - Security
   - User account
 ---
+
 ### Zugriff auf das Auditprotokoll
 
 The audit log dashboard gives you a visual display of audit data across your enterprise.

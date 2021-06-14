@@ -26,7 +26,7 @@ topics:
     * If there are no GPG key pairs or you don't want to use any that are available for signing commits and tags, then [generate a new GPG key](/articles/generating-a-new-gpg-key).
     * If there's an existing GPG key pair and you want to use it to sign commits and tags, then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
 
-### Further reading
+## Further reading
 
 * "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
 * "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"

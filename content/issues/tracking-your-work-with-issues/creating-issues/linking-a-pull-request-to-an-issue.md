@@ -21,7 +21,7 @@ topics:
 
 {% endnote %}
 
-### About linked issues and pull requests
+## About linked issues and pull requests
 
 You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manually or {% endif %}using a supported keyword in the pull request description. 
 
@@ -30,7 +30,7 @@ When you link a pull request to the issue the pull request addresses, collaborat
 When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-### Manually linking a pull request to an issue
+## Manually linking a pull request to an issue
 
 Anyone with write permissions to a repository can manually link a pull request to an issue.
 
@@ -45,7 +45,7 @@ You can manually link up to ten issues to each pull request. The issue and pull 
   ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
 {% endif %}
 
-### Linking a pull request to an issue using a keyword
+## Linking a pull request to an issue using a keyword
 
 You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch). 
 
@@ -71,6 +71,6 @@ Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123,
 
 You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
-### Further reading
+## Further reading
 
 - "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"

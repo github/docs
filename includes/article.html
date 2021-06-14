@@ -22,7 +22,7 @@
 
       {% if page.contributor %}
         <div class="contributor-callout border rounded-1 mb-4 p-3 color-border-info color-bg-info f5">
-          <p><span class="mr-2">{% octicon "info" %}</span>{% data ui.contributor_callout %} <a href="{{ page.contributor.URL }}">{{ page.contributor.name }}</a>.</p>
+          <p><span class="mr-2">{% octicon "info" %}</span>{% data ui.pages.contributor_callout %} <a href="{{ page.contributor.URL }}">{{ page.contributor.name }}</a>.</p>
         </div>
       {% endif %}
 
@@ -69,12 +69,12 @@
       {% endif %}
       {{ renderedPage }}
 
-      {% if tocItems and tocItems.length %}
-        {% if page.documentType == "category" or page.relativePath == "github/index.md" %}
-          {% include generic-toc-list %}
-        {% else %}
-          {% include generic-toc-items %}
-        {% endif %}
+      {% if genericTocFlat %}
+      {% include generic-toc-flat %}
+      {% endif %}
+
+      {% if genericTocNested %}
+      {% include generic-toc-nested %}
       {% endif %}
     </div>
     </div>

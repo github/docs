@@ -14,7 +14,7 @@ topics:
 ---
 When a third-party application wants to identify you by your {% data variables.product.product_name %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
 
-### Contacting the application developer
+## Contacting the application developer
 
 Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. You can use the developer information at the top of the page to contact the application admin if you have questions or concerns about their application.
 
@@ -24,14 +24,14 @@ If the developer has chosen to supply it, the right-hand side of the page provid
 
 ![OAuth application information and website](/assets/images/help/platform/oauth_app_info.png)
 
-### Types of application access and data
+## Types of application access and data
 
 Applications can have *read* or *write* access to your {% data variables.product.product_name %} data.
 
 - **Read access** only allows an application to *look at* your data.
 - **Write access** allows an application to *change* your data.
 
-#### About OAuth scopes
+### About OAuth scopes
 
 *Scopes* are named groups of permissions that an application can request to access both public and non-public data.
 
@@ -43,7 +43,7 @@ When you want to use a third-party application that integrates with {% data vari
 
 {% endtip %}
 
-#### Types of requested data
+### Types of requested data
 
 There are several types of data that applications can request.
 
@@ -67,7 +67,7 @@ There are several types of data that applications can request.
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Applications can request access for either {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} or private repositories on a user-wide level. |
 | Repository delete | Applications can request to delete repositories that you administer, but they won't have access to your code. |
 
-### Requesting updated permissions
+## Requesting updated permissions
 
 Applications can request new access privileges. When asking for updated permissions, the application will notify you of the differences.
 

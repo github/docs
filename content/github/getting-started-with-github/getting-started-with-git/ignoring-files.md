@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Configuring ignored files for a single repository
+## Configuring ignored files for a single repository
 
 You can create a *.gitignore* file in your repository's root directory to tell Git which files and directories to ignore when you make a commit.
 To share the ignore rules with other users who clone the repository, commit the *.gitignore* file in to your repository.
@@ -34,7 +34,7 @@ If you want to ignore a file that is already checked in, you must untrack the fi
 $ git rm --cached <em>FILENAME</em>
 ```
 
-### Configuring ignored files for all repositories on your computer
+## Configuring ignored files for all repositories on your computer
 
 You can also create a global *.gitignore* file to define a list of rules for ignoring files in every Git repository on your computer. For example, you might create the file at *~/.gitignore_global* and add some rules to it.
 
@@ -44,7 +44,7 @@ You can also create a global *.gitignore* file to define a list of rules for ign
   $ git config --global core.excludesfile ~/.gitignore_global
   ```
 
-### Excluding local files without creating a *.gitignore* file
+## Excluding local files without creating a *.gitignore* file
 
 If you don't want to create a *.gitignore* file to share with others, you can create rules that are not committed with the repository. You can use this technique for locally-generated files that you don't expect other users to generate, such as files created by your editor.
 
@@ -54,7 +54,7 @@ Use your favorite text editor to open the file called *.git/info/exclude* within
 2. Navigate to the location of your Git repository.
 3. Using your favorite text editor, open the file *.git/info/exclude*.
 
-### Further Reading
+## Further Reading
 
 * [Ignoring files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) in the Pro Git book
 * [.gitignore](https://git-scm.com/docs/gitignore) in the man pages for Git

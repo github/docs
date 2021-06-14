@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - GitHub Connect
 ---
+
 作为站点管理员，您可以允许最终用户将进行过匿名处理的工作贡献计数从 {% data variables.product.prodname_ghe_server %} 发送到其 {% data variables.product.prodname_dotcom_the_website %} 贡献图。
 
 启用 {% data variables.product.prodname_github_connect %} 并在两个环境中启用 {% data variables.product.prodname_unified_contributions %} 后，实例上的最终用户可以连接到其 {% data variables.product.prodname_dotcom_the_website %} 帐户并将贡献计数从 {% data variables.product.prodname_ghe_server %} 发送至 {% data variables.product.prodname_dotcom_the_website %}。 {% data reusables.github-connect.sync-frequency %} 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送至 {% data variables.product.prodname_dotcom_the_website %} 个人资料](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile/)”。

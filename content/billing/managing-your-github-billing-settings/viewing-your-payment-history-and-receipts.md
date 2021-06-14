@@ -18,19 +18,17 @@ topics:
   - Receipts
   - User account
 ---
-### Viewing receipts for your personal account
+## Viewing receipts for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}
 
-### Viewing receipts for your organization
+## Viewing receipts for your organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}

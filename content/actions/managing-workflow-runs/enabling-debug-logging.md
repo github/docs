@@ -23,7 +23,7 @@ These extra logs are enabled by setting secrets in the repository containing the
 
 For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-### Enabling runner diagnostic logging
+## Enabling runner diagnostic logging
 
 Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:
 
@@ -34,7 +34,7 @@ Runner diagnostic logging provides additional log files that contain information
 
 1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see "[Downloading logs](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)."
 
-### Enabling step debug logging
+## Enabling step debug logging
 
 Step debug logging increases the verbosity of a job's logs during and after a job's execution.
 

@@ -23,7 +23,7 @@ topics:
 For a full list of features for each {% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
-### Personal user accounts
+## Personal user accounts
 
 Every person who uses {% data variables.product.product_location %} has their own user account, which includes:
 
@@ -62,7 +62,7 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 {% endif %}
 
-### Organization accounts
+## Organization accounts
 
 Organizations are shared accounts where groups of people can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
 
@@ -70,13 +70,13 @@ Organizations are shared accounts where groups of people can collaborate across 
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Enterprise accounts
+## Enterprise accounts
 
 With enterprise accounts, you can centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 {% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)"{% endif %}

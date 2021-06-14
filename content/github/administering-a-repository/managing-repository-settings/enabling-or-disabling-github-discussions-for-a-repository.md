@@ -12,12 +12,12 @@ redirect_from:
 ---
 {% data reusables.discussions.beta %}
 
-### Enabling or disabling discussions for your repository
+## Enabling or disabling discussions for your repository
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. To disable discussions, under "Features", unselect **Discussions**.
 
-### Further reading
+## Further reading
 
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

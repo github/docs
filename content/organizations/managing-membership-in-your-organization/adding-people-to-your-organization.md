@@ -25,5 +25,5 @@ If your organization [requires members to use two-factor authentication](/articl
 {% data reusables.organizations.add-user-to-teams %}
 {% data reusables.organizations.send-invitation %}
 
-### Further reading
+## Further reading
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

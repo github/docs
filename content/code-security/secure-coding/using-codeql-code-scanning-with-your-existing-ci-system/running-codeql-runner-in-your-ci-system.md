@@ -30,7 +30,7 @@ topics:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About the {% data variables.product.prodname_codeql_runner %}
+## About the {% data variables.product.prodname_codeql_runner %}
 
 The {% data variables.product.prodname_codeql_runner %} is a tool you can use to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)."
 
@@ -56,7 +56,7 @@ For more information, see "[{% data variables.product.prodname_codeql_cli %}](ht
 {% endif %}
 {% endnote %}
 
-### Downloading the {% data variables.product.prodname_codeql_runner %}
+## Downloading the {% data variables.product.prodname_codeql_runner %}
 
 You can download the {% data variables.product.prodname_codeql_runner %} from https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. On some operating systems, you may need to change permissions for the downloaded file before you can run it.
 
@@ -75,7 +75,7 @@ sudo xattr -d com.apple.quarantine codeql-runner-macos
 
 On Windows, the `codeql-runner-win.exe` file usually requires no change to permissions.
 
-### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
+## Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
 
 Once you download the {% data variables.product.prodname_codeql_runner %} and verify that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. For example, you might configure each server to copy the runner from a central, internal location. Alternatively, you could use the REST API to get the runner directly from {% data variables.product.prodname_dotcom %}, for example: 
 
@@ -94,7 +94,7 @@ The options for providing access to the {% data variables.product.prodname_codeq
 1. Allow the CI servers access to https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action so that the {% data variables.product.prodname_codeql_runner %} can download the bundle automatically.
 1. Manually download/extract the bundle, store it with other central resources, and use the <nobr>`--codeql-path`</nobr> flag to specify the location of the bundle in calls to initialize the {% data variables.product.prodname_codeql_runner %}.
 
-### Calling the {% data variables.product.prodname_codeql_runner %}
+## Calling the {% data variables.product.prodname_codeql_runner %}
 
 You should call the {% data variables.product.prodname_codeql_runner %} from the checkout location of the repository you want to analyze. The two main commands are:
 
@@ -109,7 +109,7 @@ To view the command-line reference for the runner, use the `-h` flag. For exampl
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-#### Basic example
+### Basic example
 
 This example runs {% data variables.product.prodname_codeql %} analysis on a Linux CI server for the `octo-org/example-repo` repository hosted on `{% data variables.command_line.git_url_example %}`. The process is very simple because the repository contains only languages that can be analyzed by {% data variables.product.prodname_codeql %} directly, without being built (that is, Go, JavaScript, Python, and TypeScript).
 
@@ -136,7 +136,7 @@ In this example, the server has access to download the {% data variables.product
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 
-#### Compiled language example
+### Compiled language example
 
 This example is similar to the previous example, however this time the repository has code in C/C++, C#, or Java. To create a {% data variables.product.prodname_codeql %} database for these languages, the CLI needs to monitor the build. At the end of the initialization process, the runner reports the command you need to set up the environment before building the code. You need to run this command, before calling the normal CI build process, and then running the `analyze` command.
 
@@ -176,7 +176,7 @@ This example is similar to the previous example, however this time the repositor
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[Configuring {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system)"
 - "[Troubleshooting {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system)"

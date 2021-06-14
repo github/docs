@@ -35,6 +35,6 @@ If your organization [requires members to use two-factor authentication](/articl
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"

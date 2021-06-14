@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Sobre o {% data variables.product.prodname_vss_ghe %}
 
 {% data variables.product.prodname_vss_ghe %} é uma oferta combinada da Microsoft que permite que um assinante use {% data variables.product.prodname_enterprise %} e {% data variables.product.prodname_vs %}. {% data variables.product.prodname_vss_ghe %} está disponível na Microsoft nos termos do Contrato da Microsoft. Para obter mais informações, consulte [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/) no site {% data variables.product.prodname_vs %}

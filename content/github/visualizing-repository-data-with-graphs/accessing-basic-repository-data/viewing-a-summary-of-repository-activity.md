@@ -14,12 +14,12 @@ topics:
 ---
 Commit co-authors are included in the commit activity summary if their commits were merged into the repository's default branch and they're in the top 15 users who have contributed the most commits.
 
-### Accessing pulse
+## Accessing pulse
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 
-### Filtering by time
+## Filtering by time
 
 By default, Pulse shows the last seven days of repository activity. To choose a different time period, click the **Period** dropdown in the upper-right corner of the Pulse overview.
 

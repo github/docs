@@ -22,7 +22,7 @@ After installing {% data variables.large_files.product_name_short %} and configu
 1.  Remove the file from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
 2. Configure tracking for your file and push it to {% data variables.large_files.product_name_short %}. For more information on this procedure, see "[Configuring {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)."
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
 - "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"

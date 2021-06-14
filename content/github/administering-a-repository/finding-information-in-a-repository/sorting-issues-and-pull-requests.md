@@ -29,7 +29,7 @@ You can sort any filtered view by:
 
 To clear your sort selection, click **Sort** > **Newest**.
 
-### Further reading
+## Further reading
 
 * "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 * "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"

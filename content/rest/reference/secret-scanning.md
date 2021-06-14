@@ -3,6 +3,7 @@ title: Secret scanning
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.secret-scanning.api-beta %}

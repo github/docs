@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
 ---
+
 ### 保存单个通知
 
 要保存单一通知供以后查看，在通知右侧单击 {% octicon "bookmark" aria-label="The bookmark icon" %}。 一次只能保存一个通知。

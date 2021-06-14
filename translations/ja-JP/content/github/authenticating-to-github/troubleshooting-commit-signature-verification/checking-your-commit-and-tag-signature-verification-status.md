@@ -13,11 +13,10 @@ topics:
   - Identity
   - Access management
 ---
+
 ### コミットの署名検証のステータスの確認
 
-1. On
-
-{% data variables.product.product_name %} 上で、プルリクエストに移動します。
+1. {% data variables.product.product_name %}上で、プルリクエストに移動します。
 {% data reusables.repositories.review-pr-commits %}
 3. コミットの省略されたコミットハッシュの横に、コミット署名が検証済みか{% if currentVersion == "free-pro-team@latest" %}、部分的に検証済みか、{% endif %}未検証かを示すボックスがあります。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 4. コミットシグニチャの詳細情報を表示するには、[**検証済み**]{% if currentVersion == "free-pro-team@latest" %}、[**部分的に検証済み**]、{% endif %}または [**未検証**] をクリックします。 ![検証された署名済みコミット](/assets/images/help/commits/gpg-signed-commit_verified_details.png)

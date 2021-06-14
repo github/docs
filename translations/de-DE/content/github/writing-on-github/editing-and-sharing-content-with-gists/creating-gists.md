@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Informationen zu Gists
 
 Jeder Gist ist ein Git-Repository, d. h., er kann geforkt und geklont werden. {% if currentVersion != "github-ae@latest" %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.

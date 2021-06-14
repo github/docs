@@ -18,7 +18,7 @@ type: 'tutorial'
 
 For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
-### Using self-hosted runners in a workflow
+## Using self-hosted runners in a workflow
 
 Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
 
@@ -26,7 +26,7 @@ Labels allow you to send workflow jobs to specific types of self-hosted runners,
 
 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-### Using default labels to route jobs
+## Using default labels to route jobs
 
 A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
 
@@ -46,7 +46,7 @@ runs-on: [self-hosted, linux, ARM64]
 
 The default labels are fixed and cannot be changed or removed. Consider using custom labels if you need more control over job routing.
 
-### Using custom labels to route jobs
+## Using custom labels to route jobs
 
 You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled. 
 
@@ -65,7 +65,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 These labels operate cumulatively, so a self-hosted runner’s labels must match all four to be eligible to process the job.
 
-### Routing precedence for self-hosted runners
+## Routing precedence for self-hosted runners
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 

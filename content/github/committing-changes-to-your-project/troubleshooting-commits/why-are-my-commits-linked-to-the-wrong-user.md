@@ -16,7 +16,7 @@ versions:
 
 {% endtip %}
 
-### Commits are linked to another user
+## Commits are linked to another user
 
 If your commits are linked to another user, that means the email address in your local Git configuration settings is connected to that user's account on {% data variables.product.product_name %}. In this case, you can change the email in your local Git configuration settings{% if currentVersion == "github-ae@latest" %} to the address associated with your account on {% data variables.product.product_name %} to link your future commits. Old commits will not be linked. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %} and add the new email address to your {% data variables.product.product_name %} account to link future commits to your account.
 
@@ -25,7 +25,7 @@ If your commits are linked to another user, that means the email address in your
 
 Commits you make from this point forward will be linked to your account.
 
-### Commits are not linked to any user
+## Commits are not linked to any user
 
 If your commits are not linked to any user, the commit author's name will not be rendered as a link to a user profile.
 
@@ -50,6 +50,6 @@ If your local Git configuration contained a generic email address, or an email a
 
 {% endwarning %}
 
-### Further reading
+## Further reading
 
 * "[Searching commits](/articles/searching-commits)"

@@ -21,7 +21,7 @@ to handle incoming payloads.
 
 {% endnote %}
 
-### Writing the server
+## Writing the server
 
 We want our server to listen to `POST` requests, at `/payload`,
 because that's where we told GitHub our webhook URL was. Because we're using ngrok to expose

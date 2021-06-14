@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
 ---
+
 ### Über geplante Erinnerungen für Benutzer
 
 Geplante Erinnerungen werden verwendet, um sicherzustellen, dass Benutzer sich auf die wichtigsten Review-Anforderungen konzentrieren, die ihre Aufmerksamkeit erfordern. Geplante Erinnerungen für Pull Requests senden Dir in Slack eine Nachricht mit offenen Pull Requests, die Deinen Review zu einem bestimmten Zeitpunkt benötigen. Du kannst beispielsweise planmäßige Erinnerungen so einrichten, dass sie Dir jeden Morgen um 10 Uhr eine Nachricht in Slack zusenden über Pull Requests, die von Dir oder einem Deiner Teams überprüft werden müssen.

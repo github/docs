@@ -9,6 +9,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Permanente Identifizierung für Dein Repository mit Zenodo ausgeben
 
 Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; deutsch digitale Objektkennungen) bezeichnet, lassen sich Deine Repositorys in akademischer Literatur leichter referenzieren. Sie können das Datenarchivierungstool [Zenodo](https://zenodo.org/about) zur Archivierung eines {% data variables.product.product_name %}-Repositorys und zur Ausgabe einer DOI für das Archiv verwenden.

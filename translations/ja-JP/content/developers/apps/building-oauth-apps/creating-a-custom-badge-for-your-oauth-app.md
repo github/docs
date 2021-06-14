@@ -11,6 +11,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 デフォルトでは、新しい OAuth App に対して、[アイデンティコン](https://github.com/blog/1586-identicons)が自動的に生成されます。 アイデンティコンバッジとは、次のようなものです。
 
 ![アイデンティコン](/assets/images/identicon.png)
@@ -33,9 +34,7 @@ Marketplace に掲載が承認されている GitHub App のカスタムバッ�
 {% data reusables.user-settings.modify_oauth_app %}
 1. [Application logo] にローカルフォルダの画像をドラッグアンドドロップするか、[**Upload new logo**] をクリックして、お手元のコンピューターから画像を選択します。 ![ロゴをアップロード](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. 画像をクロッピングします。 完了したら、[**Set new application logo**] をクリックします。 ![ロゴをトリミングして設定](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. [Badge background color] に、バッジの背景色を[16 進数カラーコード](http://www.color-hex.com/)で入力します。
-{% if currentVersion == "free-pro-team@latest" %}**注釈:** [Badge background color] 入力フィールドは、アプリケーションロゴをアップロードした後に表示されます。{% endif %}
-![バッジの背景色](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
+7. [Badge background color] に、バッジの背景色を[16 進数カラーコード](http://www.color-hex.com/)で入力します。 {% if currentVersion == "free-pro-team@latest" %}**注釈:** [Badge background color] 入力フィールドは、アプリケーションロゴをアップロードした後に表示されます。{% endif %} ![バッジの背景色](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
 {% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}

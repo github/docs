@@ -14,6 +14,7 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
 Wenn Sie einen Hostnamen konfigurieren, anstatt eine hartcodierte IP-Adresse zu verwenden, können Sie die physische Hardware ändern, auf der {% data variables.product.product_location %} ausgeführt wird, ohne dass sich dies auf die Benutzer oder auf die Clientsoftware auswirkt.
 
 Die Einstellung des Hostnamens in der {% data variables.enterprise.management_console %} sollte auf einen geeigneten vollqualifizierten Domainnamen (FQDN) gesetzt werden, der im Internet oder in Deinem internen Netzwerk auflösbar ist. So könnte Ihre Hostnameneinstellung beispielsweise `github.companyname.com` lauten. Darüber hinaus wird empfohlen, die Subdomain-Isolation für den gewünschten Hostnamen zu aktivieren, um verschiedene Cross-Site-Scripting-Stilschwachstellen abzuschwächen. Weitere Informationen zu den Hostnameneinstellungen finden Sie in [Abschnitt 2.1 im HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).

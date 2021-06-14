@@ -7,9 +7,14 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Actions
 ---
+
 ### {% data variables.product.prodname_dependabot_version_updates %} のアクションについて
 
 多くの場合、アクションはバグ修正と新機能で更新され、自動プロセスの信頼性、速度、安全性が向上しています。 {% data variables.product.prodname_actions %} に対して {% data variables.product.prodname_dependabot_version_updates %} を有効にすると、{% data variables.product.prodname_dependabot %} は、リポジトリの *workflow.yml* ファイル内のアクションへのリファレンスが最新の状態に保たれるようにします。 {% data variables.product.prodname_dependabot %} は、ファイル内のアクションごとに、アクションのリファレンス（通常、アクションに関連付けられているバージョン番号またはコミット ID）を最新バージョンと照合します。 より新しいバージョンのアクションが使用可能な場合、{% data variables.product.prodname_dependabot %} は、ワークフローファイル内のリファレンスを最新バージョンに更新するプルリクエストを送信します。 {% data variables.product.prodname_dependabot_version_updates %} の詳細については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。 {% data variables.product.prodname_actions %} のワークフロー設定に関する詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。

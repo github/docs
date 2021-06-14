@@ -25,7 +25,7 @@ type VersionItem = {
   versionTitle: string
 }
 
-export type CurrentProductTree = {
+export type ProductTreeNode = {
   page: {
     hidden?: boolean
     documentType: 'article' | 'mapTopic'
@@ -35,7 +35,7 @@ export type CurrentProductTree = {
   renderedShortTitle?: string
   renderedFullTitle: string
   href: string
-  childPages: Array<CurrentProductTree>
+  childPages: Array<ProductTreeNode>
 }
 
 type DataT = {
@@ -59,6 +59,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -67,26 +68,29 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { css: string; js: string } }
-  expose: string
+  builtAssets: { main: { js: string } }
   activeProducts: Array<ProductT>
-  currentProduct: ProductT
+  currentProduct?: ProductT
   currentLayoutName: string
+  isHomepageVersion: boolean
   data: DataT
   airGap?: boolean
   error: string
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
+  currentPathWithoutLanguage: string
   currentLanguage: string
+  userLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree
+  currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
+    title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
@@ -101,16 +105,19 @@ export type MainContextT = {
   }
 
   enterpriseServerVersions: Array<string>
+
+  searchVersions: Record<string, string>
+  nonEnterpriseDefaultVersion: string
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: req.context.builtAssets,
-    expose: req.context.expose,
+    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    currentProduct: req.context.productMap[req.context.currentProduct],
+    currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
+    isHomepageVersion: req.context.currentVersion === 'homepage',
     error: req.context.error || '',
     data: {
       ui: req.context.site.data.ui,
@@ -124,10 +131,12 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
@@ -147,9 +156,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
+      'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
+    userLanguage: req.context.userLanguage || '',
     languages: Object.fromEntries(
       Object.entries(req.context.languages).map(([key, entry]: any) => {
         return [
@@ -159,18 +170,23 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
             nativeName: entry.nativeName || '',
             code: entry.code,
             hreflang: entry.hreflang,
+            wip: entry.wip || false,
           },
         ]
       })
     ),
     allVersions: req.context.allVersions,
-    currentProductTree: getCurrentProductTree(req.context.currentProductTree),
+    currentProductTree: req.context.currentProductTree
+      ? getCurrentProductTree(req.context.currentProductTree)
+      : null,
     featureFlags: {},
+    searchVersions: req.context.searchVersions,
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
   }
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): CurrentProductTree => {
+const getCurrentProductTree = (input: any): ProductTreeNode => {
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',
