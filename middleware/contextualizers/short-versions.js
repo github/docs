@@ -15,5 +15,9 @@ module.exports = async function shortVersions (req, res, next) {
   // Add the short name to context.
   req.context[currentVersionObj.shortName] = true
 
+  // Add convenience props.
+  req.context.currentRelease = currentVersion.split('@')[1]
+  req.context.currentVersionShortName = currentVersionObj.shortName
+
   return next()
 }

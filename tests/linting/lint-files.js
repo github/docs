@@ -21,6 +21,7 @@ const { supported } = require('../../lib/enterprise-server-releases')
 const getIfversionConditionals = require('../helpers/get-ifversion-conditionals')
 const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 const versionShortNames = Object.values(allVersions).map(v => v.shortName)
+const allowedVersionOperators = require('../../lib/liquid-tags/ifversion-supported-operators')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -33,7 +34,6 @@ const learningTracks = path.join(rootDir, 'data/learning-tracks')
 
 const languageCodes = Object.keys(languages)
 
-const allowedVersionOperators = ['>','<','=','!=']
 const versionShortNameExceptions = ['ghae-next', 'ghae-issue-']
 
 // WARNING: Complicated RegExp below!
