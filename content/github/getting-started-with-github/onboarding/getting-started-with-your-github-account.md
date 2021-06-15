@@ -1,33 +1,33 @@
 ---
 title: Getting started with your GitHub account
-intro: 'You can configure the different settings in your {% data variables.product.product_name %} account to best suit your needs.'
+intro: 'You can configure the different settings in your {% data variables.product.prodname_dotcom %} account to best suit your needs.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 ---
-## Part 1: Configuring your {% data variables.product.product_name %} account
+## Part 1: Configuring your {% data variables.product.prodname_dotcom %} account
 
 As the first steps in starting with {% data variables.product.product_name %}, you'll need to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile. 
 
-There are several types of accounts on {% data variables.product.product_name %}. Every person who uses {% data variables.product.product_location %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
+There are several types of accounts on {% data variables.product.prodname_dotcom %}. Every person who uses {% data variables.product.product_location %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
 
 ### Creating an account
-To sign up for a {% data variables.product.product_name %} account, navigate to https://github.com/ and follow the prompts. 
+To sign up for a {% data variables.product.prodname_dotcom %} account, navigate to https://github.com/ and follow the prompts. 
 
-To keep your {% data variables.product.product_name %} account secure you should generate a strong and unique password with more than 16 characters using a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+To keep your {% data variables.product.prodname_dotcom %} account secure you should generate a strong and unique password with more than 16 characters using a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% if currentVersion == 'free-pro-team@latest' or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
-**Note**: Changing your {% data variables.product.product_name %} username in the future can have unintended consequences, like some contributions no longer being attributed to you. For more information, see “[Changing your GitHub username](/github/setting-up-and-managing-your-github-user-account/changing-your-github-username#changing-your-username)."
+**Note**: Changing your {% data variables.product.prodname_dotcom %} username in the future can have unintended consequences, like some contributions no longer being attributed to you. For more information, see “[Changing your {% data variables.product.prodname_dotcom %} username](/github/setting-up-and-managing-your-github-user-account/changing-your-github-username#changing-your-username)."
 
 {% endnote %}
 {% endif %}
-### Choosing your {% data variables.product.product_name %} product
+### Choosing your {% data variables.product.prodname_dotcom %} product
 {% data variables.product.prodname_dotcom %} offers both free and paid products, each with a different set of features. {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_pro %} offer features for individual users. {% data variables.product.prodname_team %} offers collaboration and management tools for teams. {% data variables.product.prodname_enterprise %} offers security, compliance, and deployment controls for organizations.
 
-For more information, see "[GitHub's products](/github/getting-started-with-github/learning-about-github/githubs-products)."
+For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/learning-about-github/githubs-products)."
 
 {% if currentVersion == 'free-pro-team@latest' %}
 ### Verifying your email address
@@ -54,27 +54,25 @@ Your {% data variables.product.product_name %} profile tells people the story of
 Your profile also shows a graph of your public repository contributions over the past year. Additionally, you can choose to show anonymized activity from private repositories. For more information, see “[Viewing contributions on your profile](/github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile)."
 
 ## Part 2: Using {% data variables.product.product_name %}'s tools and processes
-To best use {% data variables.product.product_name %}, you'll need to set up Git. Git is responsible for everything GitHub-related that happens locally on your computer. To effectively collaborate on {% data variables.product.prodname_dotcom_the_website %}, you'll write in issues and pull requests using {% data variables.product.product_name %} Flavored Markdown. 
+To best use {% data variables.product.product_name %}, you'll need to set up Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer. To effectively collaborate on {% data variables.product.prodname_dotcom_the_website %}, you'll write in issues and pull requests using {% data variables.product.prodname_dotcom %} Flavored Markdown. 
 
 ### Learning Git
-{% data variables.product.product_name %}'s collaborative approach to development depends on publishing commits from your local repository for other people to view, fetch, and update using Git. For more information about Git, see the “[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see “[GitHub flow](/github/getting-started-with-github/quickstart/github-flow)." 
+{% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository for other people to view, fetch, and update using Git. For more information about Git, see the “[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see “[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/quickstart/github-flow)." 
 ### Setting up Git
-
 If you plan to use Git locally on your computer, whether through the command line, {% data variables.product.prodname_desktop %}, an IDE or file editor, or the {% data variables.product.prodname_dotcom %} API, you will need to install and set up Git. For more information, see “[Set up Git](/github/getting-started-with-github/set-up-git)."
 
  Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a {% data variables.product.product_name %} repository from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[About remote repositories](/github/getting-started-with-github/getting-started-with-git/about-remote-repositories)."
 
-You can use a credential helper so Git will remember your GitHub credentials every time it talks to GitHub. For more information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git)."
+You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git)."
 
 ### Choosing how to interact with {% data variables.product.product_name %}
+Everyone has their own unique workflow for interacting with {% data variables.product.prodname_dotcom %}; the interfaces and methods you use depend on your preference and what works best for your needs. 
 
-Everyone has their own unique workflow for interacting with GitHub; the interfaces and methods you use depend on your preference and what works best for your needs. 
-
-For more information about how to authenticate to GitHub with each of these methods, see "[About authentication to GitHub](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github)".
+For more information about how to authenticate to {% data variables.product.product_name %} with each of these methods, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github)".
 #### In browser on {% data variables.product.prodname_dotcom_the_website %}
 If you don't need to work with files locally, {% data variables.product.product_name %} lets you complete most Git-related actions directly in the browser, from creating and forking repositories to editing files and opening pull requests. This method is useful if you want a visual interface and need to do quick, simple changes or workflows that don't require working locally.
 #### {% data variables.product.prodname_desktop %}
-{% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. It allows you to complete most Git commands from your desktop, with visual confirmation of changes you and others have made. This method is best if you need or want to work with files locally, but prefer using a visual interface to use Git and interact with {% data variables.product.product_name %}. For more information on getting started with {% data variables.product.prodname_desktop %}, see “[Getting started with GitHub Desktop](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)".
+{% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. It allows you to complete most Git commands from your desktop, with visual confirmation of changes you and others have made. This method is best if you need or want to work with files locally, but prefer using a visual interface to use Git and interact with {% data variables.product.product_name %}. For more information on getting started with {% data variables.product.prodname_desktop %}, see “[Getting started with {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)".
 #### IDE or File Editor
 You can set a default text editor, like [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/) to open and edit your files with Git. This is convenient if you are working with more complex files and projects and want everything in one place, since text editors or IDEs often allow you to directly access the command line and complete Git commands in the editor. You can also use extensions and view or change the project structure. For more information, see "[Associating text editors with Git](/github/getting-started-with-github/getting-started-with-git/associating-text-editors-with-git)".
 
@@ -86,17 +84,17 @@ For the most granular control and customization of how you use Git and interact 
 #### {% data variables.product.prodname_dotcom %} API
 {% data variables.product.prodname_dotcom %} has a REST API and GraphQL API that you can use to interact with {% data variables.product.product_name %}. The {% data variables.product.prodname_dotcom %} API would be most helpful if you wanted to automate common tasks, back up your data, or create integrations that extend {% data variables.product.prodname_dotcom %}. For more information, see "[Getting started with the API](/github/extending-github/getting-started-with-the-api)".
 ### Writing on {% data variables.product.product_name %}
-To make your communication clear and organized in issues and pull requests, you can use {% data variables.product.product_name %} Flavored Markdown, which combines an easy-to-read, easy-to-write syntax with some custom functionality. For more information, see "[About writing and formatting on {% data variables.product.product_name %}](/github/writing-on-github/about-writing-and-formatting-on-github)."
+To make your communication clear and organized in issues and pull requests, you can use {% data variables.product.prodname_dotcom %} Flavored Markdown, which combines an easy-to-read, easy-to-write syntax with some custom functionality. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)."
 
-You can learn {% data variables.product.product_name %} Flavored Markdown with the "[Communicating using Markdown](https://lab.github.com/githubtraining/communicating-using-markdown)" course on {% data variables.product.prodname_learning %}.
+You can learn {% data variables.product.prodname_dotcom %} Flavored Markdown with the "[Communicating using Markdown](https://lab.github.com/githubtraining/communicating-using-markdown)" course on {% data variables.product.prodname_learning %}.
 
 ### Searching on {% data variables.product.product_name %}
-Our integrated search allows you to find what you are looking for among the many repositories, users and lines of code on {% data variables.product.product_name %}. You can search globally across all of {% data variables.product.product_name %} or limit your search to a particular repository or organization. For more information about the types of searches you can do on {% data variables.product.product_name %}, see "[About searching on {% data variables.product.product_name %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)".
+Our integrated search allows you to find what you are looking for among the many repositories, users and lines of code on {% data variables.product.product_name %}. You can search globally across all of {% data variables.product.product_name %} or limit your search to a particular repository or organization. For more information about the types of searches you can do on {% data variables.product.product_name %}, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)".
 
-Our search syntax allows you to construct queries using qualifiers to specify what you want to search for. For more information on the search syntax to use in search, see "[Searching on {% data variables.product.product_name %}](/github/searching-for-information-on-github/searching-on-github)".
+Our search syntax allows you to construct queries using qualifiers to specify what you want to search for. For more information on the search syntax to use in search, see "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/searching-on-github)".
 
 ### Managing files on {% data variables.product.product_name %}
-With {% data variables.product.product_name %}, you can create, edit, move and delete files in your repository or any repository you have write access to. You can also track the history of changes in a file line by line. For more information, see "[Managing files on {% data variables.product.product_name %}](/github/managing-files-in-a-repository/managing-files-on-github)".
+With {% data variables.product.product_name %}, you can create, edit, move and delete files in your repository or any repository you have write access to. You can also track the history of changes in a file line by line. For more information, see "[Managing files on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/managing-files-on-github)".
 
 If you want to edit a file in another user's repository, we'll automatically fork the repository and open a pull request for you. For more information, see "[Editing files in another user's repository](/github/managing-files-in-a-repository/managing-files-on-github/editing-files-in-another-users-repository)".
 
@@ -111,7 +109,7 @@ A repository is like a folder for your project. You can have any number of publi
 When you create a new repository, you should initialize the repository with a README file to let people know about your project. For more information, see “[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
 
 #### Cloning a repository
-You can clone an existing repository from {% data variables.product.product_name %} to your local computer, making it easier to add or remove files, fix merge conflicts, or make complex commits. Cloning a repository pulls down a full copy of all the repository data that GitHub has at that point in time, including all versions of every file and folder for the project. 
+You can clone an existing repository from {% data variables.product.product_name %} to your local computer, making it easier to add or remove files, fix merge conflicts, or make complex commits. Cloning a repository pulls down a full copy of all the repository data that {% data variables.product.prodname_dotcom %} has at that point in time, including all versions of every file and folder for the project. 
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository)".
 
@@ -120,7 +118,7 @@ A fork is a copy of a repository that you manage. Most commonly, forks are used 
 
 Any changes you make in your fork will not effect the upstream repository, unless you submit a pull request to the project owner. You can still fetch updates from the original repository. For more information, see "[Working with forks](/github/collaborating-with-pull-requests/working-with-forks)".
 ### Importing your projects
-If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.product_name %} Importer, the command line, or external migration tools. For more information, see “[Importing source code to GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github)."
+If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.prodname_dotcom %} Importer, the command line, or external migration tools. For more information, see “[Importing source code to {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github)."
 
 ### Managing collaborators and permissions
 You can collaborate on your project with others using your repository's issues, pull requests, and project boards. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see “[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
@@ -167,7 +165,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 ### Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
 {% endif %}
-### Using the {% data variables.product.product_name %} APIs
+### Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
 ### Building {% data variables.product.prodname_actions %}
@@ -177,7 +175,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 {% data reusables.getting-started.packages %}
 
 ## Part 5: Building securely on {% data variables.product.product_name %}
-{% data variables.product.product_name %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of {% data variables.product.product_name %} security features, see "[{% data variables.product.product_name %} security features](/code-security/getting-started/github-security-features)".
+{% data variables.product.product_name %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of {% data variables.product.product_name %} security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)".
 ### Securing your repository
 As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed. 
 
