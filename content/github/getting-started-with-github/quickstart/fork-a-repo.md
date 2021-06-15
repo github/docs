@@ -147,7 +147,16 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 ## Celebrate
 
-You have now forked a repository, practiced cloning your fork, and configured an upstream repository. What do you want to do next?
+You have now forked a repository, practiced cloning your fork, and configured an upstream repository. For more information about cloning the fork and syncing the changes in a forked repository from your computer see "[Set up Git](/articles/set-up-git)".
+
+You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}.
+
+For more information see, "[Create a repository](/articles/create-a-repo)".
+
+Each repository has its own identity on {% data variables.product.prodname_dotcom %} that is associated with some people, or an organization. You can interact with people, repository on {% data variables.product.prodname_dotcom %}. for more information see, "[Be social](/articles/be-social)".
+
+You can also {% data reusables.support.connect-in-the-forum-bootcamp %} and ask your queries. 
+
 
 - "[Set up Git](/articles/set-up-git)"
 - "[Create a repository](/articles/create-a-repo)"
