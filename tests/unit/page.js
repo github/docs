@@ -497,8 +497,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(nonEnterpriseDefaultPlan in page.versions).toBe(true)
-      expect(page.versions['enterprise-server']).toBe('>=2.21')
+      expect('fpt' in page.versions).toBe(true)
+      expect(page.versions.ghes).toBe('>=2.21')
     })
 
     test('pages that use short names in versions frontmatter', async () => {
@@ -532,7 +532,7 @@ describe('Page class', () => {
       })
 
       expect(nonEnterpriseDefaultPlan in page.versions).toBe(false)
-      expect(page.versions['enterprise-server']).toBe('*')
+      expect(page.versions.ghes).toBe('*')
     })
   })
 
