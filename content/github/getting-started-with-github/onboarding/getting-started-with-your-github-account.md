@@ -1,6 +1,6 @@
 ---
 title: Getting started with your GitHub account
-intro: 'You can configure the different settings in your {% data variables.product.prodname_dotcom %} account to best suit your needs.'
+intro: 'With an account on {% data variables.product.prodname_dotcom %}, you can import or create repositories, collaborate with others, and connect with the {% data variables.product.prodname_dotcom %} community.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
