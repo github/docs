@@ -79,7 +79,7 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
     Object.entries(req.context.featuredLinks || {}).map(([key, entries]) => {
       return [
         key,
-        (entries as Array<any>).map((entry) => ({
+        (entries as Array<any> || []).map((entry: any) => ({
           href: entry.href,
           title: entry.title,
           intro: entry.intro,
