@@ -39,7 +39,7 @@ export type ProductLandingContextT = {
     overview?: string
   } | null
   product_video?: string
-  guideCards: Array<FeaturedLink>
+  featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
@@ -74,10 +74,26 @@ export const useProductLandingContext = (): ProductLandingContextT => {
   return context
 }
 
+export const getFeaturedLinksFromReq = (req: any): Record<string, Array<FeaturedLink>> => {
+  return Object.fromEntries(
+    Object.entries(req.context.featuredLinks || {}).map(([key, entries]) => {
+      return [
+        key,
+        (entries as Array<any>).map((entry) => ({
+          href: entry.href,
+          title: entry.title,
+          intro: entry.intro,
+          authors: entry.page.authors || [],
+        })),
+      ]
+    })
+  )
+}
+
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
-  const hasGuidesPage = page.children.includes('/guides')
+  const hasGuidesPage = (page.children || []).includes('/guides')
   return {
     ...pick(page, [
       'title',
@@ -113,16 +129,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
         }
       : null,
 
-    guideCards: (req.context.featuredLinks ? req.context.featuredLinks.guideCards || [] : []).map(
-      (link: any) => {
-        return {
-          href: link.href,
-          title: link.title,
-          intro: link.intro,
-          authors: link.page.authors || [],
-        }
-      }
-    ),
+    featuredLinks: getFeaturedLinksFromReq(req),
 
     tocItems: req.context.tocItems || [],
 

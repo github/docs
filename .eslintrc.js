@@ -42,6 +42,7 @@ module.exports = {
         'no-undef': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
+        'jsx-a11y/no-onchange': 'off',
       }
     },
   ]

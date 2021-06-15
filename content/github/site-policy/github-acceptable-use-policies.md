@@ -56,7 +56,7 @@ While using the Service, under no circumstances will you:
 
 Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
 
-### 4. Spam and Inauthentic Activity on GitHub
+## 4. Spam and Inauthentic Activity on GitHub
 Automated excessive bulk activity and coordinated inauthentic activity, such as spamming, are prohibited on GitHub. Prohibited activities include:
 * bulk distribution of promotions and advertising prohibited by GitHub terms and policies
 * inauthentic interactions, such as fake accounts and automated inauthentic activity
@@ -65,10 +65,10 @@ Automated excessive bulk activity and coordinated inauthentic activity, such as 
 * using GitHub as a platform for propagating abuse on other platforms
 * phishing or attempted phishing
 
-### 5. Services Usage Limits
+## 5. Services Usage Limits
 You will not reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without our express written permission.
 
-### 6. Information Usage Restrictions
+## 6. Information Usage Restrictions
 You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
 -  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
@@ -80,15 +80,15 @@ You may not use information from the Service (whether scraped, collected through
 
 Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
-### 7. Privacy
+## 7. Privacy
 Misuse of User Personal Information is prohibited.
 
 Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement), particularly in regards to the collection of User Personal Information. If you collect any User Personal Information from the Service, you agree that you will only use that User Personal Information for the purpose for which that User has authorized it. You agree that you will reasonably secure any User Personal Information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.
 
-### 8. Excessive Bandwidth Use
+## 8. Excessive Bandwidth Use
 The Service's bandwidth limitations vary based on the features you use. If we determine your bandwidth usage to be significantly excessive in relation to other users of similar features, we reserve the right to suspend your Account, throttle your file hosting, or otherwise limit your activity until you can reduce your bandwidth consumption. We also reserve the right—after providing advance notice—to delete repositories that we determine to be placing undue strain on our infrastructure. For guidance on acceptable use of object storage in repositories, refer to "[What is my disk quota?](/github/managing-large-files/what-is-my-disk-quota)". For more details on specific features' bandwidth limitations, see the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms).
 
-### 9. Advertising on GitHub
+## 9. Advertising on GitHub
 **Short version:** *We do not generally prohibit use of GitHub for advertising. However, we expect our users to follow certain limitations, so GitHub does not become a spam haven. No one wants that.*
 
 While we understand that you may want to promote your Content by posting supporters' names or logos in your Account, the primary focus of the Content posted in or through your Account to the Service should not be advertising or promotional marketing. This includes Content posted in or through Pages, Packages, repositories, and all other parts of the Service. You may include static images, links, and promotional text in the README documents or project description sections associated with your Account, but they must be related to the project you are hosting on GitHub. You may not advertise in other Users' Accounts, such as by posting monetized or excessive bulk content in issues.
