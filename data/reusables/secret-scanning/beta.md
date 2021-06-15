@@ -1,4 +1,4 @@
-{% if  currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 **Note:** {% data variables.product.prodname_secret_scanning_caps %} for organization-owned repositories is currently in beta and subject to change.
