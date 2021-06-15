@@ -8,6 +8,7 @@ permissions: 'People with read permissions to the `github/insights-releases` rep
 versions:
   enterprise-server: '*'
 ---
+
 ### {% data variables.product.prodname_insights %}のアップデートについて
 
 {% data variables.product.prodname_insights %}をアップデートする前に、任意のページの右下で現在使っているバージョンをチェックできます。

@@ -13,7 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
-### About educator and researcher discounts
+## About educator and researcher discounts
 
 {% data reusables.education.about-github-education-link %}
 
@@ -21,7 +21,7 @@ versions:
 
 For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
 
-### Applying for an educator or researcher discount
+## Applying for an educator or researcher discount
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -31,16 +31,16 @@ For more information about user accounts on {% data variables.product.product_na
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Upgrading your organization
+## Upgrading your organization
 
 After your request for an educator or researcher discount has been approved, you can upgrade the organizations you use with your learning community to {% data variables.product.prodname_team %}, which allows unlimited users and private repositories with full features, for free. You can upgrade an existing organization or create a new organization to upgrade.
 
-#### Upgrading an existing organization
+### Upgrading an existing organization
 
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-#### Upgrading a new organization
+### Upgrading a new organization
 
 {% data reusables.education.upgrade-page %}
 1. Click {% octicon "plus" aria-label="The plus symbol" %} **Create an organization**.
@@ -52,7 +52,7 @@ After your request for an educator or researcher discount has been approved, you
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-### Further reading
+## Further reading
 
 - "[Why wasn't my application for an educator or researcher discount approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

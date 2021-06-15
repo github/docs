@@ -10,8 +10,14 @@ shortTitle: Viewing and updating vulnerable dependencies
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
 Your repository's {% data variables.product.prodname_dependabot %} alerts tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% if currentVersion == "free-pro-team@latest" %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can sort the list of alerts using the drop-down menu, and you can click into specific alerts for more details. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 
@@ -20,12 +26,12 @@ You can enable automatic security updates for any repository that uses {% data v
 
 {% data reusables.repositories.dependency-review %}
 
-### About updates for vulnerable dependencies in your repository
+## About updates for vulnerable dependencies in your repository
 
 {% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known vulnerabilities. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
 {% endif %}
 
-### Viewing and updating vulnerable dependencies
+## Viewing and updating vulnerable dependencies
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -61,7 +67,7 @@ You can enable automatic security updates for any repository that uses {% data v
   ![Dismiss security banner](/assets/images/enterprise/3.0/dependabot-alert-dismiss.png)
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)"{% endif %}

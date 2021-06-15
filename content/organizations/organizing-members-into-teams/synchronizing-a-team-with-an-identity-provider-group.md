@@ -15,7 +15,7 @@ topics:
 
 {% data reusables.gated-features.okta-team-sync %}
 
-### About team synchronization
+## About team synchronization
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -41,7 +41,7 @@ To manage repository access for any {% data variables.product.prodname_dotcom %}
 {% if currentVersion == "free-pro-team@latest" %}You can also manage team synchronization with the API. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Requirements for members of synchronized teams
+## Requirements for members of synchronized teams
 
 After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:
 - The person is a member of the organization on {% data variables.product.product_name %}.
@@ -58,7 +58,7 @@ If your organization is owned by an enterprise account, enabling team synchroniz
 
 {% endif %}
 
-### Prerequisites
+## Prerequisites
 
 {% if currentVersion == "free-pro-team@latest" %}
 Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
@@ -73,7 +73,7 @@ Before you can connect a {% data variables.product.product_name %} team with an 
 Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. For more information, see [Configure automatic user provisioning to GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) in the Microsoft Docs.
 {% endif %}
 
-### Connecting an IdP group to a team
+## Connecting an IdP group to a team
 
 When you connect an IdP group to a {% data variables.product.product_name %} team, all users in the group are automatically added to the team. {% if currentVersion == "github-ae@latest" %}Any users who were not already members of the parent organization members are also added to the organization.{% endif %}
 
@@ -88,7 +88,7 @@ When you connect an IdP group to a {% data variables.product.product_name %} tea
     ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
 7. Click **Save changes**.
 
-### Disconnecting an IdP group from a team
+## Disconnecting an IdP group from a team
 
 If you disconnect an IdP group from a {% data variables.product.prodname_dotcom %} team, team members that were assigned to the {% data variables.product.prodname_dotcom %} team through the IdP group will be removed from the team. {% if currentVersion == "github-ae@latest" %} Any users who were members of the parent organization only because of that team connection are also removed from the organization.{% endif %}
 

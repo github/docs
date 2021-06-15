@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Viewing enterprise owners{% if currentVersion == "free-pro-team@latest" %} and billing managers{% endif %}
 
 You can view enterprise owners {% if currentVersion == "free-pro-team@latest" %} and billing managers, {% endif %}as well as a list of pending invitations to become owners{% if currentVersion == "free-pro-team@latest" %} and billing managers. You can filter the list of enterprise administrators by role{% endif %}. Du kannst eine bestimmte Person nach ihrem Benutzernamen oder vollständigen Namen suchen.

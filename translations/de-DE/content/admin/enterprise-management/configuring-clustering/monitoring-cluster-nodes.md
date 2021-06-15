@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### Clusterstatus manuell überprüfen
 
 {% data variables.product.prodname_ghe_server %} besitzt ein integriertes Befehlszeilendienstprogramm zum Überwachen des Clusterzustands. Wenn in der Verwaltungsshell der Befehl `ghe-cluster-status` ausgeführt wird, werden einige Zustandsprüfungen auf jedem Knoten ausgeführt, darunter die Verifizierung der Konnektivität und des Dienststatus. Die Ausgabe enthält alle Testergebnisse, darunter der Text `ok` oder `error`. Führen Sie beispielsweise Folgendes aus, um nur fehlgeschlagene Tests anzuzeigen:

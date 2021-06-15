@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 For more information about upgrading and downgrading as it relates to billing, see "[Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)."
 
 ### Schritt 1. Pricing plan change event

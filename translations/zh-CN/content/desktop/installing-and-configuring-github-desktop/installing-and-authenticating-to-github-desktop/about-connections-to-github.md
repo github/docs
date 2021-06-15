@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 当您对远程仓库执行拉取、推送、克隆和复刻操作时，{% data variables.product.prodname_desktop %} 将连接到 {% data variables.product.prodname_dotcom %}。 要从 {% data variables.product.prodname_desktop %} 连接到 {% data variables.product.prodname_dotcom %}，您必须验证您的帐户。 更多信息请参阅“[向 {% data variables.product.prodname_dotcom %} 验证](/desktop/getting-started-with-github-desktop/authenticating-to-github)”。
 
 在向 {% data variables.product.prodname_dotcom %} 验证后，您可以通过 {% data variables.product.prodname_desktop %} 连接远程仓库。 {% data variables.product.prodname_desktop %} 缓存您的凭据（用户名和密码或个人访问令牌），并使用凭据验证到远程存储库的每个连接。

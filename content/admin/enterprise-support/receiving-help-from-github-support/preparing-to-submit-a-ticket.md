@@ -21,7 +21,7 @@ Before submitting a ticket, you should:
 - Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
 - Determine the best person to contact {% data variables.contact.github_support %}.
 
-### Choosing a contact person
+## Choosing a contact person
 
 Especially for tickets with {% data variables.product.support_ticket_priority_urgent %} priority, the person contacting {% data variables.contact.github_support %} should:
 

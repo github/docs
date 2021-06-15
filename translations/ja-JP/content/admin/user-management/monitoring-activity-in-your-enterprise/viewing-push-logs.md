@@ -16,6 +16,7 @@ topics:
   - Git
   - Logging
 ---
+
 プッシュログの項目には次の情報が含まれています。
 
 - プッシュを開始した人
@@ -30,9 +31,7 @@ topics:
 
 1. サイト管理者として {% data variables.product.prodname_ghe_server %} にサインインします。
 1. リポジトリにアクセスします。
-1. リポジトリのページの右上隅にある {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。
-{% octicon "rocket" aria-label="The rocket ship" %}.
-    ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}. ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 左のサイドバーで、**Push Log（プッシュログ）** をクリックしてください。 ![プッシュログのタブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 

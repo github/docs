@@ -14,6 +14,7 @@ topics:
   - GitHub Connect
   - Licensing
 ---
+
 ### Informationen zur Lizenzsynchronisierung
 
 After you enable license synchronization, you'll be able to view license usage for your entire enterprise account, across {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. {% data variables.product.prodname_github_connect %} syncs license between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly. Weitere Informationen findest Du unter "[Deine {% data variables.product.prodname_enterprise %}-Lizenz verwalten](/enterprise/{{currentVersion}}/admin/installation/managing-your-github-enterprise-license)."

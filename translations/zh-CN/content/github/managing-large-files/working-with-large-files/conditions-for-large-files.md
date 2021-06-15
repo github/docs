@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.large_files.use_lfs_tip %}
 
 ### 文件大于 {% data variables.large_files.warning_size %} 时的警告
@@ -17,4 +18,4 @@ versions:
 
 ### 阻止大文件的推送
 
-{% if enterpriseServersions contained currentVersion or currentVersion == "github-ae@latest" %}默认情况下，{% endif %}{% data variables.product.product_name %} 会阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% if enterpriseServersions contained currentVersion or currentVersion == "github-ae@latest" %}但站点管理员可为 {% data variables.product.product_location %} 配置不同的限制。 更多信息请参阅“[设置 Git 推送限制](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)”。{% endif %}
+{% if enterpriseServersions contained currentversion or currentversion == "github-ae@latest" %}默认情况下，{% endif %}{% data variables.product.product_name %} 会阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% if enterpriseServersions contained currentversion or currentversion == "github-ae@latest" %}但站点管理员可为 {% data variables.product.product_location %} 配置不同的限制。 更多信息请参阅“[设置 Git 推送限制](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)”。{% endif %}

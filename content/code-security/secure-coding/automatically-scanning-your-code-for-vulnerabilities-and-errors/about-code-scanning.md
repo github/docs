@@ -10,15 +10,18 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About {% data variables.product.prodname_code_scanning %}
+## About {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
@@ -31,7 +34,7 @@ To monitor results from {% data variables.product.prodname_code_scanning %} acro
 
 To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-### About {% data variables.product.prodname_codeql %}
+## About {% data variables.product.prodname_codeql %}
 
 You can use {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, a semantic code analysis engine. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers. 
 
@@ -45,19 +48,19 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### About billing for {% data variables.product.prodname_code_scanning %}
+## About billing for {% data variables.product.prodname_code_scanning %}
 
 {% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
 {% endif %}
 
-### About third-party {% data variables.product.prodname_code_scanning %} tools
+## About third-party {% data variables.product.prodname_code_scanning %} tools
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
 
-### Further reading
+## Further reading
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)

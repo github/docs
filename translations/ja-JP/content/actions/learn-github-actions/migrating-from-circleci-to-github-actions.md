@@ -430,7 +430,7 @@ jobs:
           POSTGRES_PASSWORD: ""
         ports:
           - 5432:5432
-        # Add a health check
+        # ヘルスチェックを追加する
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:

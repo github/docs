@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### 使用热补丁升级
 {% data reusables.enterprise_installation.hotpatching-explanation %} 热补丁安装脚本可在集群中的每个节点上安装热补丁，并按正确顺序重新启动服务以避免停机。
 

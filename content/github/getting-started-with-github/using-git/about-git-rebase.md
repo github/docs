@@ -24,7 +24,7 @@ Typically, you would use `git rebase` to:
 
 {% endwarning %}
 
-### Rebasing commits against a branch
+## Rebasing commits against a branch
 
 To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
 
@@ -32,7 +32,7 @@ To rebase all the commits between another branch and the current branch state, y
 $ git rebase --interactive <em>other_branch_name</em>
 ```
 
-### Rebasing commits against a point in time
+## Rebasing commits against a point in time
 
 To rebase the last few commits in your current branch, you can enter the following command in your shell:
 
@@ -40,7 +40,7 @@ To rebase the last few commits in your current branch, you can enter the followi
 $ git rebase --interactive HEAD~7
 ```
 
-### Commands available while rebasing
+## Commands available while rebasing
 
 There are six commands available while rebasing:
 
@@ -64,7 +64,7 @@ There are six commands available while rebasing:
 <dd>This lets you run arbitrary shell commands against a commit.</dd>
 </dl>
 
-### An example of using `git rebase`
+## An example of using `git rebase`
 
 No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
@@ -100,7 +100,7 @@ Breaking this information, from top to bottom, we see that:
 - After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
 - Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
 
-### Further reading
+## Further reading
 
 - "[Using Git rebase](/articles/using-git-rebase)"
 - [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)

@@ -28,7 +28,7 @@ Later, you can use the site admin dashboard and enterprise settings to further c
 All enterprises are configured with subdomain isolation and support for TLS 1.2 and higher for encrypted traffic only.
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Managing users, organizations, and repositories](/admin/user-management)"
 - "[Setting policies for your enterprise](/admin/policies)"

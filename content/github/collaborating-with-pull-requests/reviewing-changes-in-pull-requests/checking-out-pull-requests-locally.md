@@ -27,7 +27,7 @@ topics:
 {% endtip %}
 {% endif %}
 
-### Modifying an active pull request locally
+## Modifying an active pull request locally
 
 {% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request you'd like to modify.{% if currentVersion == "free-pro-team@latest" %}
@@ -38,7 +38,7 @@ topics:
 4. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, click **open this in {% data variables.product.prodname_desktop %}**.
   ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
-### Modifying an inactive pull request locally
+## Modifying an inactive pull request locally
 
 If a pull request's author is unresponsive to requests or has deleted their fork, the pull request can still be merged. However, if you want to make changes to a pull request and the author is not responding, you'll need to perform some additional steps to update the pull request.
 
@@ -74,7 +74,7 @@ Anyone can work with a previously opened pull request to continue working on it,
   ```
 9. [Create a new pull request](/articles/creating-a-pull-request) with your new branch.
 
-### Error: Failed to push some refs
+## Error: Failed to push some refs
 
 The remote `refs/pull/` namespace is *read-only*. If you try to push any commits there, you'll see this error:
 ```shell

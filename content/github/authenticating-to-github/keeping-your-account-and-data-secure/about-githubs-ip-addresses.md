@@ -23,6 +23,6 @@ We make changes to our IP addresses from time to time, and will keep this API up
 
 For applications to function, you must allow TCP ports 22, 80, 443, and 9418 via our IP ranges for `github.com`.
 
-### Further reading
+## Further reading
 
 - "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"

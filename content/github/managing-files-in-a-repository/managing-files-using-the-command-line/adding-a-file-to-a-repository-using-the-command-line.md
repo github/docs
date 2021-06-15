@@ -37,7 +37,7 @@ topics:
   ```
 {% data reusables.git.git-push %}
 
-### Further reading
+## Further reading
 
 - "[Creating new files](/articles/creating-new-files)"
 - "[Adding an existing project to GitHub using the command line](/articles/adding-an-existing-project-to-github-using-the-command-line)"

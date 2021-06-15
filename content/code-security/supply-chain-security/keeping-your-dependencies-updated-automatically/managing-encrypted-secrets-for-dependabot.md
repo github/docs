@@ -6,8 +6,15 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
+topics:
+  - Dependabot
+  - Version updates
+  - Secret store
+  - Repositories
+  - Dependencies
 ---
-### About encrypted secrets for {% data variables.product.prodname_dependabot %}
+## About encrypted secrets for {% data variables.product.prodname_dependabot %}
 
 {% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.
 When you add a secret at the organization level, you can specify which repositories can access the secret. You can use secrets to allow {% data variables.product.prodname_dependabot %} to update dependencies located in private package registries. When you add a secret it's encrypted before it reaches {% data variables.product.prodname_dotcom %} and it remains encrypted until it's used by {% data variables.product.prodname_dependabot %} to access a private package registry.
@@ -22,14 +29,14 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
 
-#### Naming your secrets
+### Naming your secrets
 
 The name of a {% data variables.product.prodname_dependabot %} secret:
 * Can only contain alphanumeric characters (`[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed. If you enter lowercase letters these are changed to uppercase.
 * Must not start with the `GITHUB_` prefix.
 * Must not start with a number.
 
-### Adding a repository secret for {% data variables.product.prodname_dependabot %}
+## Adding a repository secret for {% data variables.product.prodname_dependabot %}
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
@@ -46,7 +53,7 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
    ![Update or remove a repository secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-### Adding an organization secret for {% data variables.product.prodname_dependabot %}
+## Adding an organization secret for {% data variables.product.prodname_dependabot %}
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 

@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Você pode pesquisar problemas e pull requests globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
 {% tip %}

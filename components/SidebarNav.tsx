@@ -1,17 +1,16 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import { LinkExternalIcon, MarkGithubIcon } from '@primer/octicons-react'
+
+import { Link } from 'components/Link'
 import { useTranslation } from './hooks/useTranslation'
 import { useMainContext } from './context/MainContext'
 import { SidebarProduct } from './product/SidebarProduct'
 import { AllProductsLink } from './product/AllProductsLink'
 import { useVersion } from './hooks/useVersion'
 
-type Props = {}
-export const SidebarNav = (props: Props) => {
+export const SidebarNav = () => {
   const router = useRouter()
-  const { currentVersion } = useVersion()
-  const { error, relativePath } = useMainContext()
+  const { error, relativePath, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
@@ -22,21 +21,25 @@ export const SidebarNav = (props: Props) => {
         id="github-logo"
         role="banner"
       >
-        <Link href={`/${router.locale}`}>
-          <a className="color-text-primary" aria-hidden="true" tabIndex={-1}>
-            <MarkGithubIcon size={32} />
-          </a>
+        <Link
+          href={`/${router.locale}`}
+          className="color-text-primary"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <MarkGithubIcon size={32} />
         </Link>
-        <Link href={`/${router.locale}`}>
-          <a className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto">
-            {t('github_docs')}
-          </a>
+        <Link
+          href={`/${router.locale}`}
+          className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto"
+        >
+          {t('github_docs')}
         </Link>
       </div>
       <nav>
         {error === '404' || relativePath === 'index.md' ? (
           <ul className="sidebar-products mt-4">
-            {currentVersion !== 'homepage' && <AllProductsLink />}
+            {!isHomepageVersion && <AllProductsLink />}
             <SidebarHomepage />
           </ul>
         ) : (
@@ -62,12 +65,12 @@ export const SidebarNav = (props: Props) => {
 const SidebarHomepage = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { activeProducts } = useMainContext()
+  const { activeProducts, isHomepageVersion } = useMainContext()
 
   return (
     <>
       {activeProducts.map((product) => {
-        if (!product.versions?.includes(currentVersion) && currentVersion !== 'homepage') {
+        if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
           return null
         }
 

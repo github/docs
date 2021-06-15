@@ -20,7 +20,7 @@ The recommended approach of enabling access to actions from {% data variables.pr
 
 However, if you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise.
 
-### About the `actions-sync` tool
+## About the `actions-sync` tool
 
 The `actions-sync` tool must be run on a machine that can access the {% data variables.product.prodname_dotcom_the_website %} API and your {% data variables.product.product_name %} instance's API. The machine doesn't need to be connected to both at the same time.
 
@@ -28,7 +28,7 @@ If your machine has access to both systems at the same time, you can do the sync
 
 The `actions-sync` tool can only download actions from {% data variables.product.prodname_dotcom_the_website %} that are stored in public repositories.
 
-### Prerequisites
+## Prerequisites
 
 * Before using the `actions-sync` tool, you must ensure that all destination organizations already exist in your enterprise. The following example demonstrates how to sync actions to an organization named `synced-actions`. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 * You must create a personal access token (PAT) on your enterprise that can create and write to repositories in the destination organizations. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
@@ -46,7 +46,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
   ghe-org-admin-promote -u <em>USERNAME</em> -o actions
   ```
 
-### Example: Using the `actions-sync` tool
+## Example: Using the `actions-sync` tool
 
 This example demonstrates using the `actions-sync` tool to sync an individual action from {% data variables.product.prodname_dotcom_the_website %} to an enterprise instance.
 

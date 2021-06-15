@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### Informationen zur Firewall der {% data variables.product.product_location %}
 
 {% data variables.product.prodname_ghe_server %} verwendet die Uncomplicated Firewall (UFW) von Ubuntu auf der virtuellen Appliance. Weitere Informationen finden Sie unter „[UFW](https://help.ubuntu.com/community/UFW)“ in der Ubuntu-Dokumentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.

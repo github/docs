@@ -8,14 +8,21 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Repositories
+  - Pull requests
+  - Integration
+  - CI
+  - SARIF
 redirect_from:
   - /code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system
 ---
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
+## About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)."
 
@@ -26,7 +33,7 @@ You add the {% data variables.product.prodname_codeql_cli %} or the {% data vari
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
-### Comparing {% data variables.product.prodname_codeql_cli %} and {% data variables.product.prodname_codeql_runner %}
+## Comparing {% data variables.product.prodname_codeql_cli %} and {% data variables.product.prodname_codeql_runner %}
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 

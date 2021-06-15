@@ -16,11 +16,11 @@ topics:
   - Networking
   - Security
 ---
-### About subdomain isolation
+## About subdomain isolation
 
 Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
 
-When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
+When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
 {% if currentVersion == "enterprise-server@2.22" %}
 To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
@@ -48,7 +48,7 @@ To use Docker with {% data variables.product.prodname_registry %}, you must also
 | `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
 | `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}
 
-### Prerequisites
+## Prerequisites
 
 {% data reusables.enterprise_installation.disable-github-pages-warning %}
 
@@ -62,7 +62,7 @@ Before you enable subdomain isolation, you must configure your network settings 
 - Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
 - Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)."
 
-### Enabling subdomain isolation
+## Enabling subdomain isolation
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

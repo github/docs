@@ -18,13 +18,13 @@ Use the [content model](/contributing/content-model.md#conceptual) for full inst
 title: About [subject]
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
-productVersions:
+versions:
 ---
 
 <!-- Follow the guidelines in https://github.com/github/docs/blob/main/contributing/content-model.md#conceptual to write this article.-- >
 <!-- Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://github.com/github/docs/blob/main/contributing/content-model.md#intro. -->
 <!-- For product callout info, see https://github.com/github/docs/tree/main/content#product.-->
-<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#productversions.-->
+<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#versions.-->
 <!-- Remove these comments from your article file when you're done writing. -->
 
 ### A section here
@@ -53,13 +53,13 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 title: Nouns describing your subject
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
-productVersions:
+versions:
 ---
 
 <!-- Follow the guidelines in https://github.com/github/docs/blob/main/contributing/content-model.md#referential to write this article.-- >
 <!-- Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://github.com/github/docs/blob/main/contributing/content-model.md#intro. -->
 <!-- For product callout info, see https://github.com/github/docs/tree/main/content#product.-->
-<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#productversions.-->
+<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#versions.-->
 <!-- Remove these comments from your article file when you're done writing -->
 
 ### A section here
@@ -88,13 +88,13 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 title: Start with a gerund
 intro: 'Article intro. See tips for a great intro below.'
 product: '{{ optional product callout }}'
-productVersions:
+versions:
 ---
 
 <!-- Follow the guidelines in https://github.com/github/docs/blob/main/contributing/content-model.md#procedural to write this article.-- >
 <!-- Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://github.com/github/docs/blob/main/contributing/content-model.md#intro. -->
 <!-- For product callout info, see https://github.com/github/docs/tree/main/content#product.-->
-<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#productversions.-->
+<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#versions.-->
 <!-- Remove these comments from your article file when you're done writing -->
 
 ### Procedural section header here
@@ -122,11 +122,11 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 ---
 title: Quickstart title
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
-productVersions:
+versions:
 ---
 
 <!-- Follow the guidelines in https://github.com/github/docs/blob/main/contributing/content-model.md#quickstart to write this article.-->
-<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#productversions.-->
+<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#versions.-->
 <!-- The entire quickstart should be about 600 words long or take about five minutes to read.-->
 <!-- Remove these comments from your article file when you're done writing -->
 
@@ -172,13 +172,13 @@ Use the [content model](https://github.com/github/docs/blob/main/contributing/co
 title: Tutorial title
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ optional product callout }}'
-productVersions:
+versions:
 ---
 
 <!-- Follow the instructions in https://github.com/github/docs/blob/main/contributing/content-model.md#quickstart to write this article.-->
 <!-- Great intros clarify who the tutorial is intended for, state what the user will accomplish, and state the technologies that will be used.-->
 <!-- For product callout info, see https://github.com/github/docs/tree/main/content#product.-->
-<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#productversions.-->
+<!-- For product version instructions, see https://github.com/github/docs/tree/main/content#versions.-->
 <!-- Remove these comments from your article file when you're done writing -->
 
 ### Introduction
@@ -235,7 +235,7 @@ Use the [tutorial content model](hhttps://github.com/github/docs/blob/main/contr
 title: Guide title
 intro: 'Article intro. See tips for a great intro below'
 product: '{{ site.data.reusables.gated-features.actions }}'
-productVersions:
+versions:
 ---
 
 <!-- 

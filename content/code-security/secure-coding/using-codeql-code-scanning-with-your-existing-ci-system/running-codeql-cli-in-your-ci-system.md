@@ -3,19 +3,27 @@ title: Running CodeQL CLI in your CI system
 shortTitle: Running CodeQL CLI
 intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
-  github-ae: next
+  github-ae: 'next'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Repositories
+  - Pull requests
+  - Integration
+  - CI
+  - SARIF
 redirect_from:
   - /code-security/secure-coding/running-codeql-cli-in-your-ci-system
 ---
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About the {% data variables.product.prodname_codeql_cli %}
+## About the {% data variables.product.prodname_codeql_cli %}
 
 You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)."
 
@@ -31,7 +39,7 @@ The {% data variables.product.prodname_codeql_cli %} is free to use on public re
 {% endif %}
 {% endnote %}
 
-### Downloading the {% data variables.product.prodname_codeql_cli %}
+## Downloading the {% data variables.product.prodname_codeql_cli %}
 
 You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-action/releases. The bundle contains:
 
@@ -41,7 +49,7 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 
 You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
 
-### Setting up the {% data variables.product.prodname_codeql_cli %} in your CI system
+## Setting up the {% data variables.product.prodname_codeql_cli %} in your CI system
 
 You need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run CodeQL {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. Updates to the {% data variables.product.prodname_codeql_cli %} are released every 2-3 weeks. For example:
 
@@ -55,7 +63,7 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 - By executing `/extraction-root/codeql/codeql`, where `<extraction-root>` is the folder where you extracted the {% data variables.product.prodname_codeql_cli %} bundle.
 - By adding `/extraction-root/codeql` to your `PATH`, so that you can run the executable as just `codeql`.
 
-### Testing the {% data variables.product.prodname_codeql_cli %} set up
+## Testing the {% data variables.product.prodname_codeql_cli %} set up
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly set up to create and analyze databases.
 
@@ -78,11 +86,11 @@ xml (/extraction-root/codeql/xml)
 
 If the {% data variables.product.prodname_codeql_cli %} is unable to resolve the expected languages, check that you downloaded the {% data variables.product.prodname_codeql %} bundle and not a standalone copy of the {% data variables.product.prodname_codeql_cli %}.
 
-### Generating a token for authentication with {% data variables.product.product_name %}
+## Generating a token for authentication with {% data variables.product.product_name %}
 
 Each CI server needs a {% data variables.product.prodname_github_app %} or personal access token for the {% data variables.product.prodname_codeql_cli %} to use to upload results to {% data variables.product.product_name %}. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially allow the {% data variables.product.prodname_codeql_cli %} to use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-### Using the {% data variables.product.prodname_codeql_cli %} to generate data and upload it to {% data variables.product.product_name %}
+## Using the {% data variables.product.prodname_codeql_cli %} to generate data and upload it to {% data variables.product.product_name %}
 
 You call the {% data variables.product.prodname_codeql_cli %} to analyze the codebase in three steps:
 
@@ -94,7 +102,7 @@ Each command has a few mandatory options with additional options that you can us
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
-#### Creating a {% data variables.product.prodname_codeql %} database to analyze
+### Creating a {% data variables.product.prodname_codeql %} database to analyze
 
 1. Check out the code that you want to analyze:
     - For a branch checkout the head of the branch that you want to analyze.
@@ -119,7 +127,7 @@ Each command has a few mandatory options with additional options that you can us
 
 For more information, see [Creating {% data variables.product.prodname_codeql %} databases](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-##### Basic example
+#### Basic example
 
 ```
 $ codeql database create /codeql-dbs/example-repo --language=javascript \
@@ -137,7 +145,7 @@ $ codeql database create /codeql-dbs/example-repo --language=javascript \
 
 For more information and examples, see [Creating {% data variables.product.prodname_codeql %} databases ](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-#### Analyzing a {% data variables.product.prodname_codeql %} database
+### Analyzing a {% data variables.product.prodname_codeql %} database
 
 1. Create a {% data variables.product.prodname_codeql %} database (see above).
 2. Run `codeql database analyze` on the database and specify which queries to use.
@@ -157,7 +165,7 @@ For more information and examples, see [Creating {% data variables.product.prodn
 
 For more information, see [Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-##### Basic example
+#### Basic example
 
 ```
 $ codeql database analyze /codeql-dbs/example-repo  \
@@ -172,7 +180,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
 > Interpreting results.
 ```
 
-#### Uploading results to {% data variables.product.product_name %}
+### Uploading results to {% data variables.product.product_name %}
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -200,7 +208,7 @@ When you have decided on the most secure and reliable method for your CI server,
 
 For more information, see [github upload-results](https://codeql.github.com/docs/codeql-cli/manual/github-upload-results/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-##### Basic example
+#### Basic example
 
 ```
 $ echo $UPLOAD_TOKEN | codeql  github upload-results --repository=my-org/example-repo \
@@ -211,7 +219,7 @@ $ echo $UPLOAD_TOKEN | codeql  github upload-results --repository=my-org/example
 
 There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. Alerts are shown directly in the pull request or on the **Security** tab for branches, depending on the code that was checked out. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
-### Further reading
+## Further reading
 
 - [Creating CodeQL databases](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)
 - [Analyzing databases with the CodeQL CL](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/)
