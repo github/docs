@@ -9,7 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 ---
-### Prerequisites
+## Prerequisites
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -19,7 +19,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
   
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Enabling {% data variables.product.prodname_actions %} with Amazon S3 storage
+## Enabling {% data variables.product.prodname_actions %} with Amazon S3 storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

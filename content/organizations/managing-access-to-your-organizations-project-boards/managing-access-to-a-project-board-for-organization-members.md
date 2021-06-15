@@ -15,7 +15,7 @@ topics:
 
 By default, organization members have write access to their organization's project boards unless organization owners or project board admins set different permissions for specific project boards.
 
-### Setting a baseline permission level for all organization members
+## Setting a baseline permission level for all organization members
 
 {% tip %}
 
@@ -33,7 +33,7 @@ By default, organization members have write access to their organization's proje
 ![Baseline project board permission options for all organization members](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[Managing an individual’s access to an organization project board](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[Managing team access to an organization project board](/articles/managing-team-access-to-an-organization-project-board)"

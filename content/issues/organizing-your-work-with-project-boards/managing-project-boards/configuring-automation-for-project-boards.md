@@ -35,5 +35,5 @@ topics:
 ![List of options for automating the column](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Click **Update automation**.
 
-### Further reading
+## Further reading
 - "[About automation for project boards](/articles/about-automation-for-project-boards)"

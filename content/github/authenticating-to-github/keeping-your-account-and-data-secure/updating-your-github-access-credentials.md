@@ -15,7 +15,7 @@ topics:
   - Access management
 ---
 {% if currentVersion != "github-ae@latest" %}
-### Requesting a new password
+## Requesting a new password
 
 1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Enter the email address associated with your personal {% data variables.product.product_name %} account, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
@@ -33,7 +33,7 @@ To avoid losing your password in the future, we suggest using a secure password 
 
 {% endtip %}
 
-### Changing an existing password
+## Changing an existing password
 
 {% data reusables.repositories.blocked-passwords %}
 
@@ -49,20 +49,20 @@ For greater security, enable two-factor authentication in addition to changing y
 
 {% endtip %}
 {% endif %}
-### Updating your access tokens
+## Updating your access tokens
 
 See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-### Updating your SSH keys
+## Updating your SSH keys
 
 See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
 
-### Resetting API tokens
+## Resetting API tokens
 
 If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
 
 {% if currentVersion != "github-ae@latest" %}
-### Preventing unauthorized access
+## Preventing unauthorized access
 
 For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
 {% endif %}

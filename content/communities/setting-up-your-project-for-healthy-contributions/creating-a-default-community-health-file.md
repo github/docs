@@ -12,7 +12,7 @@ topics:
   - Community
 ---
 
-### About default community health files
+## About default community health files
 
 You can add default community health files to the root of a public repository called `.github` that is owned by an organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}.
 
@@ -25,7 +25,7 @@ For example, anyone who creates an issue or pull request in a repository that do
 
 Default files are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
 
-### Supported file types
+## Supported file types
 
 You can create defaults in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} for the following community health files:
 
@@ -40,7 +40,7 @@ Issue and pull request templates{% if currentVersion == "free-pro-team@latest" o
 
 You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
 
-### Creating a repository for default files
+## Creating a repository for default files
 
 {% data reusables.repositories.create_new %}
 2. Use the **Owner** drop-down menu, and select the organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} you want to create default files for.

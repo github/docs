@@ -22,7 +22,7 @@ topics:
 
 ### 简介
 
-本指南演示了使用 Docker Hub `postgres` 映像配置服务容器的工作流程示例。 The workflow runs a script that connects to the PostgreSQL service, creates a table, and then populates it with data. To test that the workflow creates and populates the PostgreSQL table, the script prints the data from the table to the console.
+本指南演示了使用 Docker Hub `postgres` 映像配置服务容器的工作流程示例。 工作流程运行一个脚本，以连接到 PostgreSQL 服务，创建一个表，然后用数据填充该表。 为了测试工作流程是否创建并填充 PostgreSQL 表，脚本会将表中的数据打印到控制台。
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -286,9 +286,9 @@ steps:
 
 ### 测试 PostgreSQL 服务容器
 
-You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. 您的脚本可以使用任何您喜欢的语言，但此示例使用 Node.js 和 `Pg` npm 模块。 更多信息请参阅 [npm pg 模块](https://www.npmjs.com/package/pg)。
+您可以使用以下脚本测试工作流程，该脚本将连接到 PostgreSQL 服务，并添加包含某些占位符数据的新表。 然后，脚本将存储在 PostgreSQL 表中的值打印到终端。 您的脚本可以使用任何您喜欢的语言，但此示例使用 Node.js 和 `Pg` npm 模块。 更多信息请参阅 [npm pg 模块](https://www.npmjs.com/package/pg)。
 
-您可以修改 *client.js* 以包含工作流程需要的任何 PostgreSQL 操作。 In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
+您可以修改 *client.js* 以包含工作流程需要的任何 PostgreSQL 操作。 在本例中，脚本连接到 PostgreSQL 服务，向 `postgres` 数据库添加一个表，插入一些占位符数据，然后检索数据。
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -324,11 +324,11 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-The script creates a new connection to the PostgreSQL service, and uses the `POSTGRES_HOST` and `POSTGRES_PORT` environment variables to specify the PostgreSQL service IP address and port. 如果未定义 `host` 和 `port`，则默认主机为 `localhost`，默认端口为 5432。
+脚本创建与 PostgreSQL 服务的新连接，并使用 `POSTGRES_HOST` 和 `POSTGRES_PORT` 环境变量来指定 PostgreSQL 服务 IP 地址和端口。 如果未定义 `host` 和 `port`，则默认主机为 `localhost`，默认端口为 5432。
 
-脚本创建一个表并将用占位符数据添加。 To test that the `postgres` database contains the data, the script prints the contents of the table to the console log.
+脚本创建一个表并将用占位符数据添加。 要测试 `postgres` 数据库是否包含数据，脚本会将表的内容打印到控制台日志。
 
-When you run this workflow, you should see the following output in the "Connect to PostgreSQL" step, which confirms that you successfully created the PostgreSQL table and added data:
+运行此工作流程时，应会在“连接到 PostgreSQL”步骤中看到以下输出，确认您成功创建了 PostgreSQL 表并添加了数据：
 
 ```
 null [ { id: 1,

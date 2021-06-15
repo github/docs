@@ -6,7 +6,7 @@ export const Contribution = () => {
   const { relativePath } = useMainContext()
   const { t } = useTranslation('contribution_cta')
 
-  const contribution_href = relativePath
+  const contributionHref = relativePath
     ? `https://github.com/github/docs/edit/main/content/${relativePath}`
     : 'https://github.com/github/docs'
 
@@ -14,7 +14,7 @@ export const Contribution = () => {
     <div className="f5 contribution">
       <h2 className="f4">{t`title`}</h2>
       <p className="color-text-secondary f6">{t`body`}</p>
-      <a className="btn btn-outline" href={contribution_href}>
+      <a className="btn btn-outline" href={contributionHref}>
         <GitPullRequestIcon size="small" className="octicon mr-1" />
         {t`button`}
       </a>

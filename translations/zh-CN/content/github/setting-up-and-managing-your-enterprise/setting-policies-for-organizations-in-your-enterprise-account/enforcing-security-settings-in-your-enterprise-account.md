@@ -15,6 +15,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 要求企业帐户中的组织进行双重身份验证
 
 企业所有者可以要求企业帐户拥有的所有组织中的组织成员、帐单管理员和外部协作者使用双重身份验证来保护其个人帐户。
@@ -47,7 +48,7 @@ topics:
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 您还可以为单个组织配置允许的 IP 地址。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
@@ -59,6 +60,10 @@ topics:
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+
+#### 允许 {% data variables.product.prodname_github_apps %} 访问
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 #### 启用允许的 IP 地址
 

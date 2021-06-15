@@ -48,10 +48,16 @@ export type ProductLandingContextT = {
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     articles: Array<FeaturedLink>
   }>
-  changelog: { label: string; prefix: string }
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
+  hasGuidesPage: boolean
+  releases: Array<{
+    version: string
+    firstPreviousRelease: string
+    secondPreviousRelease: string
+    patches: Array<{ date: string; version: string }>
+  }>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -71,6 +77,7 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
+  const hasGuidesPage = (page.children || []).includes('/guides')
   return {
     ...pick(page, [
       'title',
@@ -79,8 +86,8 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'beta_product',
       'intro',
       'product_video',
-      'changelog',
     ]),
+    hasGuidesPage,
     product: {
       href: productTree.href,
       title: productTree.renderedShortTitle || productTree.renderedFullTitle,
@@ -89,6 +96,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
+    releases: req.context.releases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
@@ -126,8 +134,8 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
         return {
           label: req.context.site.data.ui.toc[key],
           viewAllHref:
-            key === 'guides' && !req.context.currentCategory
-              ? `${req.context.currentPath}/${key}`
+            key === 'guides' && !req.context.currentCategory && hasGuidesPage 
+              ? `${req.context.currentPath}/guides`
               : '',
           articles: links.map((link: any) => {
             return {

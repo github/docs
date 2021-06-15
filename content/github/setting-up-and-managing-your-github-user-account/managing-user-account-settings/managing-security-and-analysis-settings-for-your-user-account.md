@@ -8,7 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account
 ---
-### About management of security and analysis settings
+## About management of security and analysis settings
 
 {% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
 
@@ -20,7 +20,7 @@ You can still manage the security and analysis features for individual repositor
 
 For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
 
-### Enabling or disabling features for existing repositories
+## Enabling or disabling features for existing repositories
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security-analysis %}
@@ -33,14 +33,14 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 {% data reusables.security.displayed-information %}
 
-### Enabling or disabling features for new repositories
+## Enabling or disabling features for new repositories
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security-analysis %}
 3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories in your organization.
   ![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png)
 
-### Further reading
+## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"

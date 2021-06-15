@@ -14,6 +14,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 Os requisitos para a anunciar um aplicativo em {% data variables.product.prodname_marketplace %} variam de acordo com o fato de você desejar oferecer um aplicativo grátis ou pago.

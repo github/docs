@@ -14,7 +14,7 @@ versions:
 topics:
   - Enterprise
 ---
-### About roles in an enterprise
+## About roles in an enterprise
 
 Everyone in an enterprise is a member of the enterprise. You can also assign administrative roles to members of your enterprise. Each administrator role maps to business functions and provides permissions to do specific tasks within the enterprise.
 
@@ -22,7 +22,7 @@ Everyone in an enterprise is a member of the enterprise. You can also assign adm
 
 For more information about adding people to your enterprise, see "{% if currentVersion == "free-pro-team@latest" %}[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise){% else %}[Authentication](/admin/authentication){% endif %}".
 
-### Enterprise owner
+## Enterprise owner
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
 - Managing administrators
@@ -35,7 +35,7 @@ Enterprise owners cannot access organization settings or content unless they are
 
 An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
 
-### Enterprise members
+## Enterprise members
 
 Members of organizations owned by your enterprise are also automatically members of the enterprise. Members can collaborate in organizations and may be organization owners, but members cannot access or configure enterprise settings{% if currentVersion == "free-pro-team@latest" %}, including billing settings{% endif %}.
 
@@ -47,7 +47,7 @@ People with outside collaborator access to repositories owned by your organizati
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Billing manager
+## Billing manager
 
 Billing managers only have access to your enterprise's billing settings. Billing managers for your enterprise can:
 - View and manage user licenses, {% data variables.large_files.product_name_short %} packs and other billing settings
@@ -56,7 +56,11 @@ Billing managers only have access to your enterprise's billing settings. Billing
 
 Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Billing managers must have a personal account on {% data variables.product.prodname_dotcom %}.
 
-### Further reading
+## About support entitlements
+
+{% data reusables.enterprise-accounts.support-entitlements %}
+
+## Further reading
 
 - "[About enterprise accounts](/articles/about-enterprise-accounts)"
 

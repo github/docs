@@ -18,7 +18,7 @@ Organization owners can manage an organization's SSH certificate authorities (CA
 
 You can allow members to access your organization's repositories using SSH certificates you provide by adding an SSH CA to your organization. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
 
-### Adding an SSH certificate authority
+## Adding an SSH certificate authority
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -28,7 +28,7 @@ You can allow members to access your organization's repositories using SSH certi
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-### Deleting an SSH certificate authority
+## Deleting an SSH certificate authority
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

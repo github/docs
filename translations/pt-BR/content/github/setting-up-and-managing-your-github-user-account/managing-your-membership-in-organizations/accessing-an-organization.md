@@ -14,11 +14,12 @@ versions:
 topics:
   - Accounts
 ---
+
 {% tip %}
 
 **Dica:** somente proprietários da organização podem ver e alterar as configurações da conta de uma organização.
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}

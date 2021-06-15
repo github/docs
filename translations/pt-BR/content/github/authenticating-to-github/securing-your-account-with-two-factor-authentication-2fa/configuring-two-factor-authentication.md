@@ -11,8 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 Você pode configurar a autenticação de dois fatores usando um aplicativo móvel{% if currentVersion == "free-pro-team@latest" %} ou por meio de mensagem de texto{% endif %}. Também é possível adicionar uma chave de segurança.
 
 É altamente recomendável o uso de uma senha de uso único (TOTP) para configurar a 2FA.{% if currentVersion == "free-pro-team@latest" %} Os aplicativos TOTP são mais confiáveis que SMS, especialmente para localidades fora dos Estados Unidos.{% endif %} Os aplicativos TOTP são compatíveis com o backup seguro dos seus códigos de autenticação na nuvem e podem ser restaurados se você perder o acesso ao seu dispositivo.
@@ -31,6 +32,8 @@ Um aplicativo de senhas avulsas por tempo limitado (TOTP, Time-based One-Time Pa
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
+- [Autenticador da Microsoft](https://www.microsoft.com/en-us/account/authenticator/)
+- [Keeper](https://docs.keeper.io/enterprise-guide/storing-two-factor-codes)
 
 {% tip %}
 
@@ -47,9 +50,7 @@ Um aplicativo de senhas avulsas por tempo limitado (TOTP, Time-based One-Time Pa
 8. Na página de autenticação de dois fatores, siga um destes procedimentos:
     - Faça a leitura do código QR com o app do dispositivo móvel. Após a leitura, o app exibirá um código de seis dígitos que pode ser inserido no {% data variables.product.product_name %}.
     - Se não for possível ler o código QR, clique em **enter this text code** (digite este código de texto) para ver um código que pode ser copiado e inserido manualmente no {% data variables.product.product_name %}. ![Clique para inserir este código](/assets/images/help/2fa/totp-click-enter-code.png)
-9. O aplicativo móvel TOTP salva a sua
-conta de {% data variables.product.product_name %} e gera um novo código de autenticação em poucos segundos. Na página de 2FA do {% data variables.product.product_name %}, digite o código e clique em **Enable** (Habilitar).
-    ![Campo para habilitar TOTP](/assets/images/help/2fa/totp-enter-code.png)
+9. O aplicativo móvel TOTP salva sua conta do {% data variables.product.product_name %} e gera um código de autenticação a cada segundo. Na página de 2FA do {% data variables.product.product_name %}, digite o código e clique em **Enable** (Habilitar). ![Campo para habilitar TOTP](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% if currentVersion == "free-pro-team@latest" %}

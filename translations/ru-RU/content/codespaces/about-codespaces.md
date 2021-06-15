@@ -58,7 +58,7 @@ Developers and organization administrators can also configure settings to add en
 
 ### Joining the beta
 
-A limited number of people will be invited to join the beta. To join the waitlist, see [Sign up for Codespaces beta](https://github.com/features/codespaces/signup).
+A limited number of people will be invited to join the beta. To join the waitlist, see [Sign up for the Codespaces beta](https://github.com/features/codespaces/signup).
 
 ### Contacting us about {% data variables.product.prodname_codespaces %}
 

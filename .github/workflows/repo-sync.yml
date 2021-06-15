@@ -156,11 +156,32 @@ jobs:
             console.log(`Pull request base sha: ${pull.data.base.sha}`)
 
             if (mainHeadSha.data.object.sha !== pull.data.base.sha || pull.data.mergeable_state === 'behind') {
-              const updateBranch = await github.pulls.updateBranch({
-                ...context.repo,
-                pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
-              })
-              console.log(updateBranch.data.message)
+              try {
+                const updateBranch = await github.pulls.updateBranch({
+                  ...context.repo,
+                  pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+                })
+                console.log(updateBranch.data.message)
+              } catch (error) {
+                // When the head branch is modified an error with status 422 is thrown
+                // We should retry one more time to update the branch
+                if (error.status === 422) {
+                  try {
+                    const updateBranch = await github.pulls.updateBranch({
+                      ...context.repo,
+                      pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+                    })
+                    console.log(updateBranch.data.message)
+                  } catch (error) {
+                    // Only retry once. We'll rely on the update branch workflow to update 
+                    // this PR in the case of a second failure.
+                    console.log(`Retried updating the branch, but an error occurred: ${error}`)
+                  }
+                } else {
+                  // A failed branch update shouldn't fail this worklow. 
+                  console.log(`An error occurred when updating the branch: ${error}`)
+                }
+              }
             } else {
               console.log(`Branch is already up-to-date`)
             }

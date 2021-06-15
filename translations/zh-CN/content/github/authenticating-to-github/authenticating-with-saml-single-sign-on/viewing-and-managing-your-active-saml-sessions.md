@@ -9,6 +9,7 @@ versions:
 topics:
   - SSO
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 3. 在“Sessions（会话）”下，您可以看到活动的 SAML 会话。 ![活动 SAML 会话列表](/assets/images/help/settings/saml-active-sessions.png)

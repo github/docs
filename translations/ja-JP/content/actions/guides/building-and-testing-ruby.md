@@ -31,7 +31,7 @@ Ruby、YAML、ワークフローの設定オプションと、ワークフロー
 
 {% data variables.product.prodname_dotcom %}は、ほとんどのRubyプロジェクトで使えるRubyのワークフローテンプレートを提供しています。 詳しい情報については[Rubyワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)を参照してください。
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。 The workflow shown below assumes that the default branch for your repository is `main`.
+手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
 
 {% raw %}
 ```yaml
@@ -269,9 +269,9 @@ CIテストにパスしたなら、Rubyパッケージを任意のパッケー�
 name: Ruby Gem
 
 on:
-  # Manually publish
+  # 手動で公開
   workflow_dispatch:
-  # Alternatively, publish whenever changes are merged to the `main` branch.
+  # または、変更が `main` ブランチにマージされるたびに公開する。
   push:
     branches: [ main ]
   pull_request:

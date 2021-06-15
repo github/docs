@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Preparar a organização de origem em {% data variables.product.prodname_dotcom %}
 
 1. Verifique se você tem [permissões de proprietário](/articles/permission-levels-for-an-organization/) nos repositórios de origem da organização.

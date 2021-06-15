@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 ### Sobre a procura de pacotes
@@ -19,8 +20,7 @@ redirect_from:
 É possível procurar pacotes globalmente em todos os {% data variables.product.product_name %} ou pesquisar pacotes dentro de uma determinada organização. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
 
 {% if enterpriseServerVersions contains currentVersion %}
-Você só pode pesquisar pacotes em
-{% data variables.product.product_name %}, não em {% data variables.product.prodname_dotcom_the_website %}, mesmo se {% data variables.product.prodname_github_connect %} estiver habilitado.
+Você só pode procurar por pacotes em {% data variables.product.product_name %}, não {% data variables.product.prodname_dotcom_the_website %}, mesmo se {% data variables.product.prodname_github_connect %} estiver habilitado.
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

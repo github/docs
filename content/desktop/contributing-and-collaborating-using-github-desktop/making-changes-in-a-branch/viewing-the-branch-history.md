@@ -20,6 +20,6 @@ Each commit shows:
 3. If there are multiple files in the commit, click on an individual file to see the changes made to that file in that commit.
 ![A file in the commit](/assets/images/help/desktop/branch-history-file.png)
 
-### Further reading
+## Further reading
 
 - "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)"

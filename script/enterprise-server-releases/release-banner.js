@@ -50,7 +50,7 @@ if (options.action === 'remove') {
 }
 
 // Update the file
-fs.writeFileSync(releaseCandidateYaml, yaml.safeDump(releaseCandidateData))
+fs.writeFileSync(releaseCandidateYaml, yaml.dump(releaseCandidateData))
 
 // Display next steps
 console.log(`\nDone! Commit the update to ${releaseCandidateFile}. This ${options.action}s the banner for ${options.version}.

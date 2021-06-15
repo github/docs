@@ -19,7 +19,7 @@ topics:
 ---
 Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](http://logstash.net/) and [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
-### Enabling log forwarding
+## Enabling log forwarding
 
 {% if enterpriseServerVersions contains currentVersion %}
 1. On the {% data variables.enterprise.management_console %} settings page, in the left sidebar, click **Monitoring**.
@@ -48,7 +48,7 @@ Any log collection system that supports syslog-style log streams is supported (e
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-### Troubleshooting
+## Troubleshooting
 
 If you run into issues with log forwarding, contact {% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
 {% endif %}

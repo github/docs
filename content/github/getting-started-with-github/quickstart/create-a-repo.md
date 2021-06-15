@@ -15,7 +15,7 @@ topics:
   - Notifications
   - Accounts
 ---
-### Create a repository
+## Create a repository
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -56,7 +56,7 @@ Congratulations! You've successfully created your first repository, and initiali
 {% endtip %}
 {% endif %}
 
-### Commit your first change
+## Commit your first change
 
 A *[commit](/articles/github-glossary#commit)* is like a snapshot of all the files in your project at a particular point in time.
 
@@ -76,7 +76,7 @@ Let's commit a change to the *README* file.
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Celebrate
+## Celebrate
 
 Congratulations! You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}. What do you want to do next?
 

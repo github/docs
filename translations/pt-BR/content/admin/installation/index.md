@@ -19,9 +19,9 @@ topics:
 children:
   - /setting-up-a-github-enterprise-server-instance
 ---
+
 Para obter mais informações ou comprar o {% data variables.product.prodname_enterprise %}, consulte [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
 Em caso de dúvidas sobre o processo de instalação, consulte "[Trabalhar com o suporte do {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/enterprise-support/)".
-### Índice

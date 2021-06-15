@@ -16,6 +16,7 @@ topics:
   - Notifications
   - Accounts
 ---
+
 個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
 
 ### 人をフォローする

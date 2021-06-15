@@ -18,19 +18,19 @@ topics:
   - Organizations
   - User account
 ---
-### Finding your personal account's next billing date
+## Finding your personal account's next billing date
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Finding your organization's next billing date
+## Finding your organization's next billing date
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Further reading
+## Further reading
 
 - "[About billing for {% data variables.product.product_name %} accounts](/articles/about-billing-for-github-accounts)"

@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。 您还可以批准有效的现有 SSH 密钥。
 
 {% mac %}
@@ -30,7 +31,7 @@ topics:
 
 4. 打开终端。
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
@@ -108,7 +109,7 @@ topics:
 
 4. 打开终端。
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell

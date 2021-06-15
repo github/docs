@@ -48,7 +48,7 @@ assignees: octocat
 
 {% endif %}
 
-### Adding an issue template
+## Adding an issue template
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -70,7 +70,7 @@ assignees: octocat
 {% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 
 - "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
 - "[Configuring issue templates for your repository](/articles/configuring-issue-templates-for-your-repository)"

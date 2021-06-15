@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: Domain approval is currently in beta and subject to change.
+**ノート**: ドメインの承認は現在ベータであり、変更されることがあります。
 
 {% endnote %}
 

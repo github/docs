@@ -19,6 +19,7 @@ topics:
   - Migration
   - Upgrades
 ---
+
 {% data variables.product.prodname_enterprise %}11.10.348以降からの移行がサポートされています。 {% data variables.product.prodname_enterprise %}11.10.348以前からの移行はサポートされていません。 いくつかのアップグレードを経て、まず11.10.348にアップグレードしなければなりません。 詳しい情報については11.10.348のアップグレード手順"[最新リリースへのアップグレード](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)"を参照してください。
 
 最新バージョンの {% data variables.product.prodname_enterprise %} にアップグレードするには、まず {% data variables.product.prodname_ghe_server %} 2.1 に移行する必要があります。その後、通常のアップグレードプロセスに従うことができます。 詳細は「[{% data variables.product.prodname_enterprise %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」参照してください。

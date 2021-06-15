@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Identity
 ---
+
 Wenn Sie die Authentifizierungsmethode ändern, werden die Benutzerkonten auf {% data variables.product.product_location %} beibehalten, und Benutzer melden sich weiterhin beim selben Konto an, sofern ihr Benutzername nicht geändert wird.
 
 Wenn bei der neuen Authentifizierungsmethode Benutzernamen geändert werden, werden neue Konten erstellt. Als Administrator können Sie Benutzer über die Einstellungen des Websiteadministrators oder mithilfe der [API für die Benutzerverwaltung](/rest/reference/enterprise-admin#update-the-username-for-a-user) umbenennen.

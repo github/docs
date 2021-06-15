@@ -18,7 +18,7 @@ topics:
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
 
-### Squashing your merge commits
+## Squashing your merge commits
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
@@ -29,7 +29,7 @@ Before enabling squashing commits, consider these disadvantages:
 
 For more information, see "[Configuring commit squashing for pull requests](/articles/configuring-commit-squashing-for-pull-requests)."
 
-### Rebasing and merging your commits
+## Rebasing and merging your commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
