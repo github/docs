@@ -164,8 +164,8 @@ Use the [referential content template](https://github.com/github/docs/blob/main/
 - For subjects with multiple elements to explain, use a table
   - Example: [Repository permission levels for an organization](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)
 - For longer referential content, such as YAML syntax for workflows, use headers consistently:
-  - H3 headers for each distinct section
-  - H4 headers for subsections, such as examples
+  - H2 headers for each distinct section
+  - H3 headers for subsections, such as examples
   - Example: [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 
 #### Titles for referential content
