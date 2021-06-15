@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### 支払いを理解する
 
 顧客は、アプリケーションの購入時に月次あるいは年次の支払いサイクルを選択できます。 顧客が行う支払いサイクルとプランの選択に対するすべての変更は、`marketplace_purchase`イベントを発生させます。 `marketplace_purchase` webhookのペイロードを参照すれば、顧客がどの支払いサイクルを選択したのか、そして次の支払日がいつ始まるのか（`effective_date`）を知ることができます。 webhookのペイロードに関する情報については、「[{% data variables.product.prodname_marketplace %} APIのwebhookイベント](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)」を参照してください。

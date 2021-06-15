@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 在复制仓库和和推送到仓库的新副本或_镜像_之前，必须在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository)。 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。
 
 ### 镜像仓库

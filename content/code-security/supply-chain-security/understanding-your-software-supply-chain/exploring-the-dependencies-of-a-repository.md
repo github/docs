@@ -20,7 +20,7 @@ topics:
 ---
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 
-### Viewing the dependency graph
+## Viewing the dependency graph
 
 {% data reusables.repositories.enable-security-alerts %}
 
@@ -32,7 +32,7 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 4. Optionally, under "Dependency graph", click **Dependents**.
 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-#### Dependencies view
+### Dependencies view
 
 {% if currentVersion == "free-pro-team@latest" %}
 Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies on public repositories hosted on {% data variables.product.product_name %}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
@@ -57,13 +57,13 @@ Any direct and indirect dependencies that are specified in the repository's mani
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Dependents view
+### Dependents view
 
 For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.
 
 ![Dependents graph](/assets/images/help/graphs/dependents_graph.png)
 
-### Enabling and disabling the dependency graph for a private repository
+## Enabling and disabling the dependency graph for a private repository
 
 Repository administrators can enable or disable the dependency graph for private repositories.
 
@@ -77,7 +77,7 @@ You can also enable or disable the dependency graph for all repositories owned b
 
 You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Security & analysis tab.
 
-### Changing the "Used by" package
+## Changing the "Used by" package
 
 If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)." 
 
@@ -97,7 +97,7 @@ The "Used by" section represents a single package from the repository. If you ha
 
 {% endif %}
 
-### Troubleshooting the dependency graph
+## Troubleshooting the dependency graph
 
 If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
 
@@ -106,7 +106,7 @@ If the file is correctly formatted, then check its size. The dependency graph ig
 
 If a manifest or lock file is not processed, its dependencies are omitted from the dependency graph and they can't be checked for vulnerable dependencies.
 
-### Further reading
+## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% if currentVersion == "free-pro-team@latest" %}

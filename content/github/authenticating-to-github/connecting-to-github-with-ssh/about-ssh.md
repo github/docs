@@ -25,7 +25,7 @@ If you haven't used your SSH key for a year, then {% data variables.product.prod
 
 If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your {% data variables.product.product_name %} account. For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
 
-### Further reading
+## Further reading
 
 - "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
 - "[Testing your SSH connection](/articles/testing-your-ssh-connection)"

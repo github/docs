@@ -13,6 +13,7 @@ topics:
   - Security
   - User account
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 ### Habilitar a autenticação de dois fatores
 

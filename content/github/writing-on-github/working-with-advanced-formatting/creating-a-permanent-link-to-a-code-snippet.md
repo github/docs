@@ -33,7 +33,7 @@ This type of permanent link will render as a code snippet only in the repository
 6. Paste your permalink into a comment, and click **Comment**.
   ![Pasted permalink in a comment in the same repository](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### Further reading
+## Further reading
 
 - "[Creating an issue](/articles/creating-an-issue/)"
 - "[Opening an issue from code](/articles/opening-an-issue-from-code/)"

@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### Externen `collectd`-Server einrichten
 
 Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie dies erledigen, bevor Sie die `collectd`-Weiterleitung auf {% data variables.product.product_location %} aktivieren. Your `collectd` server must be running `collectd` version 5.x or higher.

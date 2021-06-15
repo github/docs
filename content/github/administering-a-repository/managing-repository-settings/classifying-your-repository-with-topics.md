@@ -12,7 +12,7 @@ versions:
 topics:
   - Repositories
 ---
-### About topics
+## About topics
 
 With topics, you can explore repositories in a particular subject area, find projects to contribute to, and discover new solutions to a specific problem. Topics appear on the main page of a repository. You can click a topic name to {% if currentVersion == "free-pro-team@latest" %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
 
@@ -28,7 +28,7 @@ Repository admins can add any topics they'd like to a repository. Helpful topics
 
 You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/articles/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/articles/searching-topics)."
 
-### Adding topics to your repository
+## Adding topics to your repository
 
 {% data reusables.repositories.navigate-to-repo %}{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. Under your repository description, click **Add topics**.

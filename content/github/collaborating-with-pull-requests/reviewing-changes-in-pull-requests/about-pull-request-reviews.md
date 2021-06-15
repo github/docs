@@ -12,7 +12,7 @@ versions:
 topics:
   - Pull requests
 ---
-### About pull request reviews
+## About pull request reviews
 
 After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
@@ -41,11 +41,11 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Re-requesting a review
+## Re-requesting a review
 
 {% data reusables.pull_requests.re-request-review %}
 
-### Required reviews
+## Required reviews
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
@@ -55,7 +55,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"

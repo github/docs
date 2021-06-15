@@ -17,7 +17,7 @@ topics:
   - Enterprise
   - Pages
 ---
-### Enabling public sites for {% data variables.product.prodname_pages %}
+## Enabling public sites for {% data variables.product.prodname_pages %}
 
 {% if enterpriseServerVersions contains currentVersion %}If private mode is enabled on your enterprise, the {% else %}The {% endif %}public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
 
@@ -43,7 +43,7 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### Disabling {% data variables.product.prodname_pages %} for your enterprise
+## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
 {% if enterpriseServerVersions contains currentVersion %}
 If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
@@ -66,7 +66,7 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-### Further reading
+## Further reading
 
 - "[Enabling private mode](/admin/configuration/enabling-private-mode)"
 {% endif %}

@@ -30,7 +30,7 @@ topics:
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Creating a pull request](/articles/creating-a-pull-request)"
 - "[About pull requests](/articles/about-pull-requests)"

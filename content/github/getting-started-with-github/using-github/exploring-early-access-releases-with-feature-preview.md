@@ -9,7 +9,7 @@ versions:
 topics:
   - Early access
 ---
-### {% data variables.product.prodname_dotcom %}'s release cycle
+## {% data variables.product.prodname_dotcom %}'s release cycle
 
 {% data variables.product.product_name %}'s products and features can go through multiple release phases.
 
@@ -19,7 +19,7 @@ topics:
 | Beta | The product or feature is ready for broader distribution. Beta releases can be public or private, are documented, but do not have any SLAs or technical support obligations. |
 | General availability (GA) | The product or feature is fully tested and open publicly to all users. GA releases are ready for production use, and associated SLA and technical support obligations apply. |
 
-### Exploring beta releases with feature preview
+## Exploring beta releases with feature preview
 
 You can see a list of features that are available in beta and a brief description for each feature. Each feature includes a link to give feedback.
 

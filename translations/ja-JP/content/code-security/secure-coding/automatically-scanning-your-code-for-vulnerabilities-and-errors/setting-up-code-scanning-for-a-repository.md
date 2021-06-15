@@ -14,9 +14,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Actions
+  - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -30,7 +35,7 @@ topics:
 
 ### アクションを使用して {% data variables.product.prodname_code_scanning %} をセットアップする
 
-{% if currentVersion == "free-pro-team@latest" %}アクションを使用して {% data variables.product.prodname_code_scanning %} を実行すると、分数を消費します。 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}アクションを使用して {% data variables.product.prodname_code_scanning %} を実行すると、分数を消費します。 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

@@ -30,8 +30,8 @@ Organization のメンバーが外部コラボレーターに変換された後�
 
 Organization のメンバーを外部コラボレーターに変換する際、Organization メンバーとしての権限は 3 か月保存されるので、この期間内に、そのユーザを Organization に{% if currentVersion == "free-pro-team@latest" %}再参加するよう招待{% else %}再追加{% endif %}すれば、メンバーとしての権限を回復できます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 外部コラボレーターに変換したい人を選択します。 ![2 人のメンバーを選択した状態のメンバーリスト](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. メンバーのリストの上のドロップダウンメニューで、[**Convert to outside collaborator**] をクリックします。 ![メンバーを外部コラボレーターに変換するオプションのあるドロップダウンメニュー](/assets/images/help/teams/user-bulk-management-options.png)

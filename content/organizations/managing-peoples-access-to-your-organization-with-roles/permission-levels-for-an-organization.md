@@ -14,7 +14,7 @@ topics:
   - Teams
 ---
 
-### Permission levels for an organization
+## Permission levels for an organization
 
 Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles:
 
@@ -93,8 +93,8 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Remove members from the organization | **X** | | |
 | Reinstate former members to the organization | **X** | | |
 | Add and remove people from **all teams** | **X** |  |  
-| Promote organization members to *team maintainer* | **X** |  |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |{% endif %}
+| Promote organization members to *team maintainer* | **X** |  |
+| Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |
 | Add collaborators to **all repositories** | **X** |  |
 | Access the organization audit log | **X** |  |
 | Edit the organization's profile page (see "[About your organization's profile](/articles/about-your-organization-s-profile)" for details) | **X** |  |  |
@@ -118,13 +118,13 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | |
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
-| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |{% endif %}
+| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
 {% if currentVersion == "github-ae@latest" %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
 
 {% endif %}
 
-### {% data variables.product.prodname_github_app %} managers
+## {% data variables.product.prodname_github_app %} managers
 
 By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %}s owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_app %}s owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
@@ -133,11 +133,11 @@ When you designate a user as a {% data variables.product.prodname_github_app %} 
 - "[Adding GitHub App managers in your organization](/articles/adding-github-app-managers-in-your-organization)"
 - "[Removing GitHub App managers from your organization](/articles/removing-github-app-managers-from-your-organization)"
 
-### Outside collaborators
+## Outside collaborators
 
 To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
 
-### Further reading
+## Further reading
 
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
 - "[About teams](/articles/about-teams)"

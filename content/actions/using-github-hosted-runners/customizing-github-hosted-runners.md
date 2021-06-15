@@ -18,7 +18,7 @@ To see which packages are already installed by default, see "[Preinstalled softw
 
 This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
 
-### Installing software on Ubuntu runners
+## Installing software on Ubuntu runners
 
 The following example demonstrates how to install an `apt` package as part of a job.
 
@@ -46,7 +46,7 @@ jobs:
 
 {% endnote %}
 
-### Installing software on macOS runners
+## Installing software on macOS runners
 
 The following example demonstrates how to install Brew packages and casks as part of a job.
 
@@ -72,7 +72,7 @@ jobs:
 ```
 {% endraw %}
 
-### Installing software on Windows runners
+## Installing software on Windows runners
 
 The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
 

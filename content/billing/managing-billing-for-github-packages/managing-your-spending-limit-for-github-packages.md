@@ -15,7 +15,7 @@ topics:
   - Spending limits
   - User account
 ---
-### About spending limits for {% data variables.product.prodname_registry %}
+## About spending limits for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -29,7 +29,7 @@ As soon as you set a spending limit other than $0, you will be responsible for a
 
 Because you have not enabled overages, your next attempt to publish a version of the package will fail. You will not receive a bill for the 0.1GB overage that month. However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
 
-### Managing the spending limit for {% data variables.product.prodname_registry %} for your user account
+## Managing the spending limit for {% data variables.product.prodname_registry %} for your user account
 
 Anyone can manage the spending limit for {% data variables.product.prodname_registry %} for their own user account.
 
@@ -39,18 +39,16 @@ Anyone can manage the spending limit for {% data variables.product.prodname_regi
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Managing the spending limit for {% data variables.product.prodname_registry %} for your organization
+## Managing the spending limit for {% data variables.product.prodname_registry %} for your organization
 
 Organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_registry %} for an organization.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Managing the spending limit for {% data variables.product.prodname_registry %} for your enterprise account
+## Managing the spending limit for {% data variables.product.prodname_registry %} for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_registry %} for an enterprise account.
 

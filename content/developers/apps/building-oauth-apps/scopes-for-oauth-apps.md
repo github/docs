@@ -37,7 +37,7 @@ X-Accepted-OAuth-Scopes: user
 * `X-OAuth-Scopes` lists the scopes your token has authorized.
 * `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
 
-### Available scopes
+## Available scopes
 
 Name | Description
 -----|-----------|{% if currentVersion != "github-ae@latest" %}
@@ -75,7 +75,7 @@ Name | Description
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
 &emsp;`read:gpg_key`| List and view details for GPG keys.{% if currentVersion == "free-pro-team@latest" %}
-**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes, see https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token for details.{% endif %}
+**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% endif %}
 
 {% note %}
 
@@ -88,7 +88,7 @@ can specify multiple scopes by separating them with a space using `%20`:
 
 {% endnote %}
 
-### Requested scopes and granted scopes
+## Requested scopes and granted scopes
 
 The `scope` attribute lists scopes attached to the token that were granted by
 the user. Normally, these scopes will be identical to what you requested.
@@ -109,7 +109,7 @@ additional permission, but don’t forget that users can always say no.
 Check out the [Basics of Authentication guide](/guides/basics-of-authentication/), which
 provides tips on handling modifiable token scopes.
 
-### Normalized scopes
+## Normalized scopes
 
 When requesting multiple scopes, the token is saved with a normalized list
 of scopes, discarding those that are implicitly included by another requested

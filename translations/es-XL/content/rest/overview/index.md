@@ -15,6 +15,7 @@ children:
   - /troubleshooting
   - /api-previews
   - /libraries
+  - /openapi-description
   - /endpoints-available-for-github-apps
 ---
 ### Índice

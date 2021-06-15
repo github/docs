@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### デフォルトのNTPサーバの変更
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

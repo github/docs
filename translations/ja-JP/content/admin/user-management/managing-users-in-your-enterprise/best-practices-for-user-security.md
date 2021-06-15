@@ -13,6 +13,7 @@ topics:
   - Security
   - User account
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 ### 2要素認証の有効化
 

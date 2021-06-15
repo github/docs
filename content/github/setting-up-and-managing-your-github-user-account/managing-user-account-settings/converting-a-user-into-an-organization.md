@@ -24,7 +24,7 @@ topics:
 
 {% endwarning %}
 
-### Keep your personal user account and create a new organization manually
+## Keep your personal user account and create a new organization manually
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal user account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your user account into an organization.
 
@@ -32,7 +32,7 @@ If you want your organization to have the same name that you are currently using
 2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal user account.
 3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.
 
-### Convert your personal account into an organization automatically
+## Convert your personal account into an organization automatically
 
 You can also convert your personal user account directly into an organization. Converting your account:
  - Preserves the repositories as they are without the need to transfer them to another account manually
@@ -59,7 +59,7 @@ You can also convert your personal user account directly into an organization. C
 
 {% endtip %}
 
-### Further reading
+## Further reading
 - "[Setting up teams](/articles/setting-up-teams)"
 {% if currentVersion == "free-pro-team@latest" %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - "[Accessing an organization](/articles/accessing-an-organization)"

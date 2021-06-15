@@ -1,6 +1,6 @@
 ---
 title: Personalizar Codespaces para tu cuenta
-intro: 'You can personalize {% data variables.product.prodname_codespaces %} by using a `dotfiles` repository on {% data variables.product.product_name %} or by using Settings Sync.'
+intro: 'Puedes personalizar {% data variables.product.prodname_codespaces %} utilizando un repositorio de `dotfiles` en {% data variables.product.product_name %} o utilizando la sincronización de ajustes.'
 permissions: 'Anyone can personalize {% data variables.product.prodname_codespaces %} for their user account.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
@@ -16,26 +16,26 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About personalizing {% data variables.product.prodname_codespaces %}
+### Acerca de personalizar los {% data variables.product.prodname_codespaces %}
 
-When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_codespaces %} allows for two main ways of personalizing your codespaces.
+Cuando utilizas cualquier ambiente de desarrollo, personalizar las configuraciones y herramientas de acuerdo con tus preferencias y flujos de trabajo es un paso importante. {% data variables.product.prodname_codespaces %} permite dos formas principales de personalizar tus codespaces.
 
-- [Settings Sync](#settings-sync) - You can use and share {% data variables.product.prodname_vscode %} settings between {% data variables.product.prodname_codespaces %} and other instances of {% data variables.product.prodname_vscode %}.
-- [Dotfiles](#dotfiles) – You can use a public `dotfiles` repository to specify scripts, shell preferences, and other configurations.
+- [Sincronización de ajustes](#settings-sync) - Puedes utilizar y compartir los ajustes de {% data variables.product.prodname_vscode %} entre {% data variables.product.prodname_codespaces %} y otras instancias de {% data variables.product.prodname_vscode %}.
+- [Dotfiles](#dotfiles) – Puedes utilizar un repositorio público de `dotfiles` para especificar scripts, preferencias de shell y otras configuraciones.
 
-{% data variables.product.prodname_codespaces %} personalization applies to any codespace you create.
+La personalización de {% data variables.product.prodname_codespaces %} aplica a cualquier codespace que crees.
 
 Los mantenendores de proyecto también pueden definir una configuración predeterminada que aplique a cada codespace para un repositorio que cree alguien más. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)".
 
-### Settings Sync
+### Sincronización de ajustes
 
-Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
+La configuración de ajustes te permite compartir configuraciones tales como configuraciones, atajos de teclado, fragmentos de código, extensiones y estados de IU entre máquinas e instancias de {% data variables.product.prodname_vscode %}.
 
-Settings Sync is on by default. To configure any settings, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is on**. From the dialog, you can choose to configure, show settings and data, or turn off Settings Sync.
+La sincronización de ajustes está activada predeterminadamente. Para configurar cualquier ajuste, en la esquina inferior izquierda de la barra de actividad, selecciona el {% octicon "gear" aria-label="The gear icon" %} y haz clic en **La sincronización de ajustes está activa**. Desde el diálogo, puedes elegir configurar, mostrar los ajustes y datos o apagar la sincronización de ajustes.
 
-![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
+![La opción de sincronización de ajustes en el menú de administración](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
-For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode %} documentation.
+Para obtener más información, consulta la [Guía de sincronización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync) en la documentación de {% data variables.product.prodname_vscode %}.
 
 ### Dotfiles
 
@@ -51,8 +51,10 @@ Cuando creas un codespace nuevo, {% data variables.product.prodname_dotcom %} cl
 * _install_
 * _bootstrap.sh_
 * _bootstrap_
+* _script/bootstrap_
 * _setup.sh_
 * _setup_
+* _script/setup_
 
 Si no encuentra alguno de estos archivos, entonces cualquier archivo o carpeta en `dotfiles` que comience con `.` se enlazará simbólicamente al directorio `~` o `$HOME` del codespace.
 

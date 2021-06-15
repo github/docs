@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### 简介
 
 本指南将演练配置 GitHub 应用程序并在服务器上运行它所需的步骤。 GitHub 应用程序需要一些设置步骤来管理 web 挂钩事件并将 GitHub 上的应用程序注册连接到您的代码。 本指南中的应用程序可用作扩展和构建新 GitHub 应用程序的基础。

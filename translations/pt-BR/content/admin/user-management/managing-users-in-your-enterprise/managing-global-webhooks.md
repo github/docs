@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Webhooks
 ---
+
 ### Sobre webhooks globais
 
 Você pode usar webhooks globais para monitorar, responder ou aplicar regras automaticamente para o gerenciamento de usuários e organizações do seu negócio. Por exemplo, você pode configurar os webhooks para serem executados sempre que:

@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Sobre as versões de avaliação do {% data variables.product.prodname_ghe_cloud %}
 
 Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %} por 14 dias em uma nova conta de organização. Não há necessidade de fornecer um método de pagamento durante a avaliação, a menos que você adicione à sua organização aplicativos do {% data variables.product.prodname_marketplace %} que exijam um método de pagamento. Para obter mais informações, consulte "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Sobre a cobrança do {% data variables.product.prodname_marketplace %}</a>".

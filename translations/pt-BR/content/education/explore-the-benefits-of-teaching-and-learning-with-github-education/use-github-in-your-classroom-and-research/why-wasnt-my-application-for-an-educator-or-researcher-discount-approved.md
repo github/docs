@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **Dica:** {% data reusables.education.about-github-education-link %}

@@ -13,7 +13,7 @@ topics:
 ---
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
-### About SAML and SCIM with Okta
+## About SAML and SCIM with Okta
 
 You can control access to your enterprise account in {% data variables.product.product_name %} and other web applications from one central interface by configuring the enterprise account to use SAML SSO and SCIM with Okta, an Identity Provider (IdP).
 
@@ -28,11 +28,11 @@ After you enable SCIM, the following provisioning features are available for any
 | Push Profile Updates | Updates made to the user's profile in Okta will be pushed to the user’s enterprise account metadata |
 | Reactivate Users | Reactivating the user in Okta will re-enable the user's access to the enterprise account and will optionally send email invitations for the user to rejoin any of the organizations owned by the enterprise account that the user was previously a member of |
 
-### Prerequisites
+## Prerequisites
 
 {% data reusables.saml.use-classic-ui %}
 
-### Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
+## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
 
 {% data reusables.saml.okta-admin-button %}
 {% data reusables.saml.okta-dashboard-click-applications %}
@@ -46,7 +46,7 @@ After you enable SCIM, the following provisioning features are available for any
   ![GitHub Enterprises field](/assets/images/help/saml/okta-github-enterprises.png)
 1. Click **Done**.
 
-### Enabling and testing SAML SSO
+## Enabling and testing SAML SSO
 
 {% data reusables.saml.okta-admin-button %}
 {% data reusables.saml.okta-dashboard-click-applications %}
@@ -60,13 +60,13 @@ After you enable SCIM, the following provisioning features are available for any
 {% data reusables.saml.okta-view-setup-instructions %}
 1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
-### Creating groups in Okta
+## Creating groups in Okta
 
 1. In Okta, create a group to match each organization owned by your enterprise account. The name of each group must match the account name of the organization (not the organization's display name). For example, if the URL of the organization is `https://github.com/octo-org`, name the group `octo-org`.
 1. Assign the application you created for your enterprise account to each group. {% data variables.product.prodname_dotcom %} will receive all `groups` data for each user.
 1. Add users to groups based on the organizations you'd like users to belong to.
 
-### Configuring user provisioning with SCIM in Okta
+## Configuring user provisioning with SCIM in Okta
 
 {% data reusables.scim.enterprise-account-scim %}
 
@@ -98,7 +98,7 @@ To configure user provisioning with SCIM in Okta, you must authorize an OAuth ap
   ![Assignments tab](/assets/images/help/business-accounts/okta-assignments-tab.png)
 1. If you see **Provision users**, users who were a member of an Okta group before you added a push group for that group have not been provisioned. To send SCIM data to {% data variables.product.product_name %} for these users, click **Provision users**.
 
-### Enabling SAML user provisioning
+## Enabling SAML user provisioning
 
 After you enable SCIM provisioning and deprovisioning, you can optionally enable SAML user provisioning and deprovisioning.
 

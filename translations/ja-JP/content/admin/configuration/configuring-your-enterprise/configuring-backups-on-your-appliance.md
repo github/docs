@@ -24,6 +24,7 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
 ### {% data variables.product.prodname_enterprise_backup_utilities %}について
 
 {% data variables.product.prodname_enterprise_backup_utilities %}は、個別のホストにインストールするバックアップシステムで、{% data variables.product.product_location %}のバックアップスナップショットをセキュアなSSHネットワーク接続経由で定期的に取得します。 スナップショットを使用して、既存の {% data variables.product.prodname_ghe_server %} インスタンスをバックアップホストから以前の状態に復元できます。

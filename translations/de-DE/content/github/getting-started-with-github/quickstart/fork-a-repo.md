@@ -16,9 +16,10 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### Informationen zu Forks
 
-Üblicherweise werden Forks genutzt, um Änderungen für ein Projekt eines anderes Benutzers vorzuschlagen oder ein Projekt eines anderen Benutzers als Ausgangspunkt für eigene Ideen zu verwenden.
+Üblicherweise werden Forks genutzt, um Änderungen für ein Projekt eines anderes Benutzers vorzuschlagen oder ein Projekt eines anderen Benutzers als Ausgangspunkt für eigene Ideen zu verwenden. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
 #### Änderungen für ein Projekt eines anderen Benutzers vorschlagen
 
@@ -75,9 +76,7 @@ Wenn Sie es noch nicht getan haben, müssen Sie zunächst [Git einrichten](/arti
 
 Momentan besitzen Sie einen Fork des Repositorys „Spoon-Knife“, aber Sie haben nicht die Dateien dieses Repositorys auf Ihrem Computer. Deswegen erstellen wir nun einen Klon Deines Forks lokal auf Deinem Computer.
 
-1. On
-
-{% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
+1. Navigiere auf {% data variables.product.product_name %} zu **Deinem Fork** des Repositorys „Spoon-Knife“.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -95,16 +94,13 @@ Momentan besitzen Sie einen Fork des Repositorys „Spoon-Knife“, aber Sie hab
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
-
 Jetzt hast Du eine lokale Kopie Deiner Fork des Spoon-Knife-Repositorys.
 
 #### Schritt 3: Git für das Synchronisieren Deines Forks mit dem Original-Repository „Spoon-Knife“ konfigurieren
 
 Wenn Du ein Projekt forkst, um Änderungen für das Original-Repository vorzuschlagen, kannst Du Git so konfigurieren, dass Änderungen am vorgelagerten (originalen) Repository in den lokalen Klon Deiner Fork abgerufen werden.
 
-1. On
-
-{% data variables.product.product_name %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+1. Navigiere auf {% data variables.product.product_name %} zum Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Wechsle das Verzeichnis zum Speicherort des Forks, den Du bei [Schritt 2: einen lokalen Klon Deines Forks erstellen](#step-2-create-a-local-clone-of-your-fork) geklont hast.
@@ -143,7 +139,6 @@ Du kannst nun jede Änderung am Fork vornehmen, einschließlich:
 - **Pull Requests öffnen:** Wenn Du einen Beitrag zum Original-Repository leisten möchtest, kannst Du einen [Pull Request](/articles/about-pull-requests) an den Original-Autor senden und ihn dazu auffordern, Deinen Fork in sein Repository abzurufen.
 
 ### Ein anderes Repository zum Forken finden
-
 Forken Sie ein Repository, um an einem Projekt mitzuarbeiten. {% data reusables.repositories.you-can-fork %}
 
 {% if currentVersion == "free-pro-team@latest" %}Sie können [Explore](https://github.com/explore) durchsuchen, um Projekte zu finden und an Open-Source-Repositorys mitzuarbeiten. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."

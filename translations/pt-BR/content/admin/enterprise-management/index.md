@@ -13,4 +13,4 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
 ---
-### Índice
+

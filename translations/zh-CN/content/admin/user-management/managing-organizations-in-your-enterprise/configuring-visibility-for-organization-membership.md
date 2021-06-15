@@ -13,6 +13,7 @@ topics:
   - Organizations
   - User account
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 您也可以使用命令行实用程序，在您的实例的所有当前组织成员中强制执行默认设置。 例如，如果您需要每个组织成员的可见性都设为公开，可以将默认值设为公开，并在管理员设置中为所有新成员强制使用默认值，然后使用命令行实用程序在现有成员中强制使用公开设置。
 {% endif %}

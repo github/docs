@@ -19,7 +19,7 @@ versions:
 5. Click **Update saved reply**.
 ![Update saved reply](/assets/images/help/settings/saved-replies-save-edit.png)
 
-### Further reading
+## Further reading
 
 - "[Creating a saved reply](/articles/creating-a-saved-reply)"
 - "[Deleting a saved reply](/articles/deleting-a-saved-reply)"
