@@ -2,6 +2,7 @@ import { Breadcrumbs } from '../Breadcrumbs'
 import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
 import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { Link } from 'components/Link'
 
 export const SubLandingHero = () => {
   const { title, intro, featuredTrack } = useProductSubLandingContext()
@@ -9,7 +10,7 @@ export const SubLandingHero = () => {
 
   const guideItems = featuredTrack?.guides?.map((guide) => (
     <li className="px-2 d-flex flex-shrink-0">
-      <a
+      <Link
         href={`${guide.href}?learn=${featuredTrack.trackName}`}
         className="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline"
       >
@@ -32,7 +33,7 @@ export const SubLandingHero = () => {
         <div className="lead-mktg color-text-secondary f5 my-4 truncate-overflow-8">
           {guide.intro}
         </div>
-      </a>
+      </Link>
     </li>
   ))
 
@@ -40,7 +41,7 @@ export const SubLandingHero = () => {
     <div>
       <header className="d-flex gutter mb-6">
         <div className="col-12">
-          <Breadcrumbs />
+          <Breadcrumbs variant="large" />
           <h1 className="my-3 font-mktg">{title} guides</h1>
           <div
             className="lead-mktg color-text-secondary f4 description-text"
@@ -64,7 +65,7 @@ export const SubLandingHero = () => {
                   {featuredTrack.description}
                 </div>
                 {featuredTrack.guides && (
-                  <a
+                  <Link
                     className="d-inline-block border color-border-inverse color-text-inverse px-4 py-2 f5 no-underline text-bold"
                     role="button"
                     href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}`}
@@ -73,7 +74,7 @@ export const SubLandingHero = () => {
                       <ArrowRightIcon size={20} />
                     </span>
                     {t(`start_path`)}
-                  </a>
+                  </Link>
                 )}
               </div>
             </li>
