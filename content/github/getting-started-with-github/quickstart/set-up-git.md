@@ -55,10 +55,10 @@ If you [clone with SSH](/github/getting-started-with-github/about-remote-reposit
 
 ## Celebrate
 
-Congratulations, you now have Git and {% data variables.product.product_name %} all set up! What do you want to do next?
+Congratulations, you now have Git and {% data variables.product.product_name %} all set up! You may now choose to create a repository where you can put your projects and share the code around the world . For more information see "[Create a repository](/articles/create-a-repo)".
 
-- **Set up Git**
-- "[Create a repository](/articles/create-a-repo)"
-- "[Fork a repository](/articles/fork-a-repo)"
-- "[Be social](/articles/be-social)"
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+You can create a copy of a repository by forking it and propose the changes that you want to see without affecting the upstream repository. For more inforation see "[Fork a repository](/articles/fork-a-repo)".
+
+Each repository in {% data variables.product.product_name %} is associated with some people or an orgranization. You can interact with the people, repositories and orgranization by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)".
+
+{% data variables.product.product_name %} has a great community support where you can ask your queries to the people and communicate with them around the world. Join the conversation on Github Support Community and {% data reusables.support.connect-in-the-forum-bootcamp %}.
