@@ -19,6 +19,6 @@ Your issues and pull request dashboards are available at the top of any page. On
 2. Optionally, choose a filter or [use the search bar to filter for more specific results](/articles/using-search-to-filter-issues-and-pull-requests).
   ![List of pull requests with the "Created" filter selected](/assets/images/help/overview/pr_dashboard_created.png)
 
-### Further reading
+## Further reading
 
 - {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}”[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

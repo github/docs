@@ -87,6 +87,6 @@ Only the user who created the pull request can give you permission to push commi
 
 Your new commits will be reflected on the original pull request on {% data variables.product.product_location %}.
 
-### Further Reading
+## Further Reading
 
 - "[About forks](/articles/about-forks)"

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 使用 Sort（排序）菜单可按相关性、星号数量、复刻数量以及项目最近更新时间来排序结果。
 
   ![含有排序搜索结果选项的菜单](/assets/images/help/search/repo-search-sort.png)

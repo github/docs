@@ -13,6 +13,6 @@ topics:
 
 If you publish a security advisory in error, you can withdraw the security advisory by contacting {% data variables.contact.contact_support %}.
 
-### Further reading
+## Further reading
 
 - [Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)

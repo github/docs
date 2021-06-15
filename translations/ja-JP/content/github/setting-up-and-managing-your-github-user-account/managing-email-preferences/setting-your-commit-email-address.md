@@ -19,6 +19,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### コミットメールアドレスについて
 
 {% data variables.product.product_name %}は、コミットメールアドレスを使ってコミットを{% data variables.product.product_name %}アカウントに関連づけます。 コマンドラインからプッシュするコミットや、WebベースのGit操作に関連づけられるメールアドレスは選択できます。

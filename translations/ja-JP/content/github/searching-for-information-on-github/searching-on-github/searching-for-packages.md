@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 ### パッケージの検索について
@@ -19,8 +20,7 @@ redirect_from:
 {% data variables.product.product_name %} 全体にわたってグローバルにパッケージを検索できます。あるいは、特定の Organization のみのパッケージの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 {% if enterpriseServerVersions contains currentVersion %}
-パッケージを検索できるのは
-{% data variables.product.product_name %} だけで、たとえ {% data variables.product.prodname_github_connect %} 有効にしていても{% data variables.product.prodname_dotcom_the_website %} では検索できません。
+You can only search for packages on {% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

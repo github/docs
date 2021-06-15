@@ -19,7 +19,7 @@ When you're collaborating on projects with Git and {% data variables.product.pro
 
 You can configure Git to handle line endings automatically so you can collaborate effectively with people who use different operating systems.
 
-### Global settings for line endings
+## Global settings for line endings
 
 The `git config core.autocrlf` command is used to change how Git handles line endings. It takes a single argument.
 
@@ -57,7 +57,7 @@ $ git config --global core.autocrlf input
 
 {% endlinux %}
 
-### Per-repository settings
+## Per-repository settings
 
 Optionally, you can configure a *.gitattributes* file to manage how Git reads line endings in a specific repository. When you commit this file to a repository, it overrides the `core.autocrlf` setting for all repository contributors. This ensures consistent behavior for all users, regardless of their Git settings and environment.
 
@@ -68,7 +68,7 @@ A *.gitattributes* file looks like a table with two columns:
 * On the left is the file name for Git to match.
 * On the right is the line ending configuration that Git should use for those files.
 
-#### Example
+### Example
 
 Here's an example *.gitattributes* file. You can use it as a template for your repositories:
 
@@ -99,7 +99,7 @@ You'll notice that files are matched—`*.c`, `*.sln`, `*.png`—, separated by 
 
 - `binary` Git will understand that the files specified are not text, and it should not try to change them. The `binary` setting is also an alias for `-text -diff`.
 
-### Refreshing a repository after changing line endings
+## Refreshing a repository after changing line endings
 
 When you set the `core.autocrlf` option or commit a *.gitattributes* file, you may find that Git reports changes to files that you have not modified. Git has changed line endings to match your new configuration.
 
@@ -123,7 +123,7 @@ To ensure that all the line endings in your repository match your new configurat
   $ git commit -m "Normalize all the line endings"
   ```
 
-### Further reading
+## Further reading
 
 - [Customizing Git - Git Attributes](https://git-scm.com/book/en/Customizing-Git-Git-Attributes) in the Pro Git book
 - [git-config](https://git-scm.com/docs/git-config) in the man pages for Git

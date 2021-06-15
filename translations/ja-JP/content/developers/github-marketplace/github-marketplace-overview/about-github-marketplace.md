@@ -10,6 +10,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace)は、{% data variables.product.prodname_dotcom %}のワークフローを拡張し、改善したい開発者とあなたをつなぎます。 {% data variables.product.prodname_marketplace %}で利用する、開発者のための無料及び有料のツールをリストできます。 {% data variables.product.prodname_marketplace %}は、開発者に{% data variables.product.prodname_actions %}とアプリケーションという2種類のツールを提供します。それぞれのツールは、{% data variables.product.prodname_marketplace %}への追加に際して異なるステップを必要とします。
 
 ### GitHub Actions
@@ -18,7 +19,7 @@ topics:
 
 {% data variables.product.prodname_marketplace %}における{% data variables.product.prodname_actions %}の公開について学ぶには、 「[アクションをGitHub Marketplaceで公開する](/actions/creating-actions/publishing-actions-in-github-marketplace)」を参照してください。
 
-### アプリケーション
+### アプリ
 
 誰でも他のユーザと{% data variables.product.prodname_marketplace %}で無料でアプリケーションを共有できますが、販売できるのはOrganizationが所有するアプリケーションのみです。
 

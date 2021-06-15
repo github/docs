@@ -23,7 +23,7 @@ topics:
 
 To better manage your project, you can prioritize issues or pull requests within a milestone. For more information, see "[About milestones](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
 
-### Further reading
+## Further reading
 
 * "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
 * "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"

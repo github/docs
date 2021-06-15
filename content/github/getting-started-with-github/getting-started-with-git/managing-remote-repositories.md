@@ -22,7 +22,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Adding a remote repository
+## Adding a remote repository
 
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
 
@@ -44,7 +44,7 @@ $ git remote -v
 
 For more information on which URL to use, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
-#### Troubleshooting: Remote origin already exists
+### Troubleshooting: Remote origin already exists
 
 This error means you've tried to add a remote with a name that already exists in your local repository.
 
@@ -54,11 +54,11 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 ```
 
 To fix this, you can:
-* Use a different name for the new remote
-* Rename the existing remote repository
-* Delete the existing remote repository
+* Use a different name for the new remote.
+* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
+* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
 
-### Changing a remote repository's URL
+## Changing a remote repository's URL
 
 The `git remote set-url` command changes an existing remote repository URL.
 
@@ -81,7 +81,7 @@ https://{% data variables.command_line.backticks %}/<em>USERNAME</em>/<em>REPOSI
 git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
 
-#### Switching remote URLs from SSH to HTTPS
+### Switching remote URLs from SSH to HTTPS
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
@@ -107,7 +107,7 @@ The next time you `git fetch`, `git pull`, or `git push` to the remote repositor
 
 You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
-#### Switching remote URLs from HTTPS to SSH
+### Switching remote URLs from HTTPS to SSH
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
@@ -129,7 +129,7 @@ You can [use a credential helper](/github/getting-started-with-github/caching-yo
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-#### Troubleshooting: No such remote '[name]'
+### Troubleshooting: No such remote '[name]'
 
 This error means that the remote you tried to change doesn't exist:
 
@@ -140,7 +140,7 @@ $ git remote set-url sofake https://{% data variables.command_line.codeblock %}/
 
 Check that you've correctly typed the remote name.
 
-### Renaming a remote repository
+## Renaming a remote repository
 
 Use the `git remote rename` command to rename an existing remote.
 
@@ -148,7 +148,7 @@ The `git remote rename` command takes two arguments:
 * An existing remote name, for example, `origin`
 * A new name for the remote, for example, `destination`
 
-### Example
+## Example
 
 These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
 
@@ -167,7 +167,7 @@ $ git remote -v
 > destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-#### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
+### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
 
 This error means that the remote you tried the old remote name you typed doesn't exist.
 
@@ -180,18 +180,18 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-#### Troubleshooting: Remote [new name] already exists
+### Troubleshooting: Remote [new name] already exists
 
 This error means that the remote name you want to use already exists. To solve this, either use a different remote name, or rename the original remote.
 
-### Removing a remote repository 
+## Removing a remote repository 
 
 Use the `git remote rm` command to remove a remote URL from your repository.
 
 The `git remote rm` command takes one argument:
 * A remote name, for example, `destination`
 
-### Example
+## Example
 
 These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
 
@@ -218,7 +218,7 @@ removes the remote and its references from your local repository.
 
 {% endwarning %}
 
-#### Troubleshooting: Could not remove config section 'remote.[name]'
+### Troubleshooting: Could not remove config section 'remote.[name]'
 
 This error means that the remote you tried to delete doesn't exist:
 
@@ -229,6 +229,6 @@ $ git remote rm sofake
 
 Check that you've correctly typed the remote name.
 
-### Further reading
+## Further reading
 
 - "[Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

@@ -20,7 +20,7 @@ The bottom graph shows the average number of commits by day of the week for the 
 
 ![Repository commit week graph](/assets/images/help/graphs/repo_commit_activity_week_graph.png)
 
-### Accessing the commits graph
+## Accessing the commits graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

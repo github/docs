@@ -20,11 +20,11 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to create a continuous integration (CI) workflow that builds and tests Node.js code. If your CI tests pass, you may want to deploy your code or publish a package.
 
-### Prerequisites
+## Prerequisites
 
 We recommend that you have a basic understanding of Node.js, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
@@ -33,7 +33,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-### Starting with the Node.js workflow template
+## Starting with the Node.js workflow template
 
 {% data variables.product.prodname_dotcom %} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
@@ -72,7 +72,7 @@ jobs:
 
 {% data reusables.github-actions.example-github-runner %}
 
-### Specifying the Node.js version
+## Specifying the Node.js version
 
 The easiest way to specify a Node.js version is by using the `setup-node` action provided by {% data variables.product.prodname_dotcom %}. For more information see, [`setup-node`](https://github.com/actions/setup-node/).
 
@@ -135,13 +135,13 @@ If you don't specify a Node.js version, {% data variables.product.prodname_dotco
 {% else %} For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-### Installing dependencies
+## Installing dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {% data variables.product.prodname_dotcom %}-hosted runners also have Grunt, Gulp, and Bower installed.
 
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
-#### Example using npm
+### Example using npm
 
 This example installs the dependencies defined in the *package.json* file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
 
@@ -171,7 +171,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using Yarn
+### Example using Yarn
 
 This example installs the dependencies defined in the *package.json* file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
@@ -199,7 +199,7 @@ steps:
   run: yarn --frozen-lockfile
 ```
 
-#### Example using a private registry and creating the .npmrc file
+### Example using a private registry and creating the .npmrc file
 
 {% data reusables.github-actions.setup-node-intro %}
 
@@ -235,7 +235,7 @@ The example above creates an *.npmrc* file with the following contents:
 always-auth=true
 ```
 
-#### Example caching dependencies
+### Example caching dependencies
 
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
 
@@ -261,7 +261,7 @@ steps:
 ```
 {% endraw %}
 
-### Building and testing your code
+## Building and testing your code
 
 You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your *package.json* file and `npm test` to run your test suite, you would add those commands in your workflow file.
 
@@ -277,10 +277,10 @@ steps:
 - run: npm test
 ```
 
-### Packaging workflow data as artifacts
+## Packaging workflow data as artifacts
 
 You can save artifacts from your build and test steps to view after a job completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-### Publishing to package registries
+## Publishing to package registries
 
 You can configure your workflow to publish your Node.js package to a package registry after your CI tests pass. For more information about publishing to npm and {% data variables.product.prodname_registry %}, see "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)."

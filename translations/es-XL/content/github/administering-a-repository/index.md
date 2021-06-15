@@ -14,8 +14,7 @@ children:
   - /configuring-pull-request-merges
   - /defining-the-mergeability-of-pull-requests
   - /releasing-projects-on-github
-  - /securing-your-repository
-  - /keeping-your-dependencies-updated-automatically
+  - /finding-information-in-a-repository
 ---
 ### Índice
     {% if currentVersion == "free-pro-team@latest" %}

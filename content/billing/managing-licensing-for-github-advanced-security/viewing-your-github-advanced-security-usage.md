@@ -17,7 +17,7 @@ topics:
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."
 
-### Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
+## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
 You can check how many seats your license includes and how many of them are currently used.
 

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### 围栏代码块
 
 通过在代码块的前后输入三反引号 <code>\`\`\`</code>，可创建围栏代码块。 我们建议在代码块的前后各留一个空白行，使原始格式更易辨读。
@@ -29,7 +30,22 @@ function test() {
 
 {% endtip %}
 
+要在围栏代码块中显示三重倒引号，请将其包在四个倒引号内。
+
+
+<pre>
+```` 
+```
+Look! You can see my backticks.
+```
+````
+</pre>
+
+![使用倒引号块呈现的围栏代码](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+
+
 ### 语法突显
+
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 您可以添加可选的语言标识符，以在围栏代码块中启用语法突显。

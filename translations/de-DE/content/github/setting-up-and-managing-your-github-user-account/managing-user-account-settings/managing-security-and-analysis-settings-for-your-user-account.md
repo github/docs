@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account
 ---
+
 ### About management of security and analysis settings
 
 {% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
@@ -18,7 +19,7 @@ You can still manage the security and analysis features for individual repositor
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-For an overview of repository-level security, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)."
+For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
 
 ### Enabling or disabling features for existing repositories
 

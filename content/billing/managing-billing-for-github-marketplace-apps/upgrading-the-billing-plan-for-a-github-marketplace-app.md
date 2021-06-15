@@ -19,7 +19,7 @@ topics:
 ---
 When you upgrade an app, your payment method is charged a prorated amount based on the time remaining until your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
-### Upgrading an app for your personal account
+## Upgrading an app for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -28,7 +28,7 @@ When you upgrade an app, your payment method is charged a prorated amount based 
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Upgrading an app for your organization
+## Upgrading an app for your organization
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

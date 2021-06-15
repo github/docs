@@ -40,7 +40,7 @@ When you convert an organization member to an outside collaborator, their privil
 6. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
   ![Information on outside collaborators permissions and Convert to outside collaborators button](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
 
-### Further reading
+## Further reading
 
 - "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
 - "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

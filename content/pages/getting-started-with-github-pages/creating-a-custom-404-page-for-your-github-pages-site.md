@@ -31,6 +31,6 @@ topics:
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 
 - [Front matter](http://jekyllrb.com/docs/frontmatter) in the Jekyll documentation

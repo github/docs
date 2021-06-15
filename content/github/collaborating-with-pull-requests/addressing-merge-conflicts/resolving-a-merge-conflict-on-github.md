@@ -62,6 +62,6 @@ If a site administrator disables the merge conflict editor for pull requests bet
 {% endif %}
 1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
 
-### Further reading
+## Further reading
 
 - "[About pull request merges](/articles/about-pull-request-merges)"

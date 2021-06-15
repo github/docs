@@ -84,6 +84,7 @@ _Eventos_
 - [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 - [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
 - [`GET /repos/:owner/:repo/events`](/rest/reference/activity#list-repository-events)
+- [`GET /repos/:owner/:repo/events/issues`](/rest/reference/issues#list-issue-events-for-a-repository)
 - [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
 - [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
@@ -456,6 +457,14 @@ _Versões_
 - [`GET /user/gpg_keys/:gpg_key_id`](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user) (:read)
 - [`DELETE /user/gpg_keys/:gpg_key_id`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user) (:write)
 
+{% if currentVersion == "free-pro-team@latest" %}
+### Permission on "interaction limits"
+
+- [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (:read)
+- [`PUT /user/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-your-public-repositories) (:write)
+- [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (:write)
+{% endif %}
+
 ### Permissão em "problemas"
 
 Problemas e pull requests estão estreitamente relacionados. Para obter mais informações, consulte "[Lista de problemas atribuídos ao usuário autenticado](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)". Se seu aplicativo GitHub tiver permissões em problemas e não em pull requests, esses pontos de extremidade irão limitar-se a problemas. Pontos de extremidade que retornam problemas e pull requests serão filtrados. Os pontos de extremidade que permitem operações em ambos problemas e pull requests estarão restritos a problemas.
@@ -624,6 +633,10 @@ _Equipes_
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
 {% endif %}
 
+### Permission on "organization events"
+
+- [`GET /users/:username/events/orgs/:org`](/rest/reference/activity#list-organization-events-for-the-authenticated-user) (:read)
+
 ### Permissão em "hooks da organização"
 
 - [`GET /orgs/:org/hooks`](/rest/reference/orgs#webhooks/#list-organization-webhooks) (:read)
@@ -639,10 +652,10 @@ _Equipes_
 {% if enterpriseServerVersions contains currentVersion %}
 ### Permissão em "hooks pre-receive da organização"
 
-- [`GET /orgs/:org/pre-receive-hooks`](/v3/enterprise-admin/org_pre_receive_hooks/#list-pre-receive-hooks-for-an-organization) (:read)
-- [`GET /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/org_pre_receive_hooks/#get-a-pre-receive-hook-for-an-organization) (:read)
-- [`PATCH /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/org_pre_receive_hooks/#update-pre-receive-hook-enforcement-for-an-organization) (:write)
-- [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/org_pre_receive_hooks/#remove-pre-receive-hook-enforcement-for-an-organization) (:write)
+- [`GET /orgs/:org/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization) (:read)
+- [`GET /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization) (:read)
+- [`PATCH /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization) (:write)
+- [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization) (:write)
 {% endif %}
 
 ### Permissão em "projetos da organização"

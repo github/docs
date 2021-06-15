@@ -1,7 +1,7 @@
 ---
 title: Reviewing the audit log for your organization
 intro: 'The audit log allows organization admins to quickly review the actions performed by members of your organization. It includes details such as who performed the action, what the action was, and when it was performed.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-the-audit-log-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization
@@ -14,7 +14,7 @@ topics:
   - Teams
 ---
 
-### Accessing the audit log
+## Accessing the audit log
 
 The audit log lists events triggered by activities that affect your organization within the last 90 days. Only owners can access an organization's audit log.
 
@@ -22,11 +22,11 @@ The audit log lists events triggered by activities that affect your organization
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 
-### Searching the audit log
+## Searching the audit log
 
 {% data reusables.audit_log.audit-log-search %}
 
-#### Search based on the action performed
+### Search based on the action performed
 
 To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped within the following categories:
 
@@ -82,7 +82,7 @@ Each category has a set of associated actions that you can filter on. For exampl
   * `action:team.create` finds all events where a team was created.
   * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
-#### Search based on time of action
+### Search based on time of action
 
 Use the `created` qualifier to filter events in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -97,7 +97,7 @@ For example:
 
 The audit log contains data for the past 90 days, but you can use the `created` qualifier to search for events earlier than that.
 
-#### Search based on location
+### Search based on location
 
 Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or its full name. Keep in mind that countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
@@ -106,19 +106,19 @@ Using the qualifier `country`, you can filter events in the audit log based on t
   * `country:"United States"` all finds events that occurred in the United States.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Exporting the audit log
+## Exporting the audit log
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-### Using the audit log API
+## Using the audit log API
 
 You can interact with the audit log using the GraphQL API{% if currentVersion == "free-pro-team@latest" %} or the REST API{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### Using the GraphQL API
+### Using the GraphQL API
 
 {% endif %}
 
@@ -141,7 +141,7 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### Using the REST API
+### Using the REST API
 
 {% note %}
 
@@ -159,13 +159,13 @@ For more information about the audit log REST API, see "[Organizations](/rest/re
 
 {% endif %}
 
-### Audit log actions
+## Audit log actions
 
 An overview of some of the most common actions that are recorded as events in the audit log.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `account` category actions
+### `account` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -174,7 +174,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/).
 | `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/articles/about-billing-for-github-marketplace/).
 
-#### `advisory_credit` category actions
+### `advisory_credit` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -183,14 +183,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `decline` | Triggered when someone declines credit for a security advisory.
 | `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.
 
-#### `billing` category actions
+### `billing` category actions
 
 | Action | Description
 |------------------|-------------------
 | `change_billing_type` | Triggered when your organization [changes how it pays for {% data variables.product.prodname_dotcom %}](/articles/adding-or-editing-a-payment-method).
 | `change_email` | Triggered when your organization's [billing email address](/articles/setting-your-billing-email) changes.
 
-#### `codespaces` category actions
+### `codespaces` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -204,42 +204,42 @@ An overview of some of the most common actions that are recorded as events in th
 
 
 
-#### `dependabot_alerts` category actions
+### `dependabot_alerts` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all existing {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all existing {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
 
-#### `dependabot_alerts_new_repos` category actions
+### `dependabot_alerts_new_repos` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
 
-#### `dependabot_security_updates` category actions
+### `dependabot_security_updates` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.
 
-#### `dependabot_security_updates_new_repos` category actions
+### `dependabot_security_updates_new_repos` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.
 
-#### `dependency_graph` category actions
+### `dependency_graph` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables the dependency graph for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `enable` | Triggered when an organization owner enables the dependency graph for all existing repositories.
 
-#### `dependency_graph_new_repos` category actions
+### `dependency_graph_new_repos` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -248,14 +248,14 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `discussion_post` category actions
+### `discussion_post` category actions
 
 | Action | Description
 |------------------|-------------------
 | `update` | Triggered when [a team discussion post is edited](/articles/managing-disruptive-comments/#editing-a-comment).
 | `destroy` | Triggered when [a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
 
-#### `discussion_post_reply` category actions
+### `discussion_post_reply` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -263,14 +263,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `destroy` | Triggered when [a reply to a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-#### `enterprise` category actions
+### `enterprise` category actions
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `environment` category actions
+### `environment` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -281,7 +281,7 @@ An overview of some of the most common actions that are recorded as events in th
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `git` category actions
+### `git` category actions
 
 {% note %}
 
@@ -299,7 +299,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `hook` category actions
+### `hook` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -308,14 +308,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `destroy` | Triggered when an existing hook was removed from a repository.
 | `events_changed` | Triggered when the events on a hook have been altered.
 
-#### `integration_installation_request` category actions
+### `integration_installation_request` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when an organization member requests that an organization owner install an integration for use in the organization.
 | `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
 
-#### `issue` category actions
+### `issue` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -323,13 +323,13 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `marketplace_agreement_signature` category actions
+### `marketplace_agreement_signature` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
 
-#### `marketplace_listing` category actions
+### `marketplace_listing` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -343,7 +343,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
-#### `members_can_create_pages` category actions
+### `members_can_create_pages` category actions
 
 For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
@@ -354,7 +354,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% endif %}
 
-#### `org` category actions
+### `org` category actions
 
 | Action | Description
 |------------------|-------------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
@@ -401,7 +401,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `org_credential_authorization` category actions
+### `org_credential_authorization` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -412,7 +412,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-#### `organization_label` category actions
+### `organization_label` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -422,7 +422,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% endif %}
 
-#### `oauth_application` category actions
+### `oauth_application` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -433,7 +433,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-#### `packages` category actions
+### `packages` category actions
 
 | Action | Description |
 |--------|-------------|
@@ -447,7 +447,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `payment_method` category actions
+### `payment_method` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -457,12 +457,12 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% endif %}
 
-#### `profile_picture` category actions
+### `profile_picture` category actions
 | Action | Description
 |------------------|-------------------
 | update | Triggered when you set or update your organization's profile picture.
 
-#### `project` category actions
+### `project` category actions
 
 | Action | Description
 |--------------------|---------------------
@@ -476,7 +476,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_team_permission` | Triggered when a team's project board permission level is changed or when a team is added or removed from a project board. |
 | `update_user_permission` | Triggered when an organization member or outside collaborator is added to or removed from a project board or has their permission level changed.|
 
-#### `protected_branch` category actions
+### `protected_branch` category actions
 
 | Action | Description
 |--------------------|---------------------
@@ -497,7 +497,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `pull_request` category actions
+### `pull_request` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -511,7 +511,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `create_review_request` | Triggered when a review is requested.
 | `remove_review_request` | Triggered when a review request is removed.
 
-#### `pull_request_review` category actions
+### `pull_request_review` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -519,7 +519,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `dismiss` | Triggered when a review is dismissed.
 | `delete` | Triggered when a review is deleted.
 
-#### `pull_request_review_comment` category actions
+### `pull_request_review_comment` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -528,7 +528,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `delete` | Triggered when a review comment is deleted.
 {% endif %}
 
-#### `repo` category actions
+### `repo` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -562,7 +562,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `repository_advisory` category actions
+### `repository_advisory` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -575,7 +575,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `reopen` | Triggered when someone reopens as draft security advisory.
 | `update` | Triggered when someone edits a draft or published security advisory.
 
-#### `repository_content_analysis` category actions
+### `repository_content_analysis` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -584,7 +584,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 {% endif %}{% if currentVersion != "github-ae@latest" %}
 
-#### `repository_dependency_graph` category actions
+### `repository_dependency_graph` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -592,7 +592,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository.
 
 {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-#### `repository_secret_scanning` category actions
+### `repository_secret_scanning` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -600,7 +600,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository.
 
 {% endif %}{% if currentVersion != "github-ae@latest" %}
-#### `repository_vulnerability_alert` category actions
+### `repository_vulnerability_alert` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -609,7 +609,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 
 {% endif %}{% if currentVersion == "free-pro-team@latest" %}
-#### `repository_vulnerability_alerts` category actions
+### `repository_vulnerability_alerts` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -618,14 +618,14 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-#### `secret_scanning` category actions
+### `secret_scanning` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables secret scanning for all existing{% if currentVersion == "free-pro-team@latest" %}, private{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `enable` | Triggered when an organization owner enables secret scanning for all existing{% if currentVersion == "free-pro-team@latest" %}, private{% endif %} repositories.
 
-#### `secret_scanning_new_repos` category actions
+### `secret_scanning_new_repos` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -635,7 +635,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `sponsors` category actions
+### `sponsors` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -658,7 +658,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `waitlist_join` | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")
 {% endif %}
 
-#### `team` category actions
+### `team` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -673,7 +673,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team).
 | `remove_repository` | Triggered when a repository is no longer under a team's control.
 
-#### `team_discussions` category actions
+### `team_discussions` category actions
 
 | Action | Description
 |---|---|
@@ -681,12 +681,12 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when an organization owner enables team discussions for an organization.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest"%}
-#### `workflows` category actions
+### `workflows` category actions
 
 {% data reusables.actions.actions-audit-events-workflow %}
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Keeping your organization secure](/articles/keeping-your-organization-secure)"

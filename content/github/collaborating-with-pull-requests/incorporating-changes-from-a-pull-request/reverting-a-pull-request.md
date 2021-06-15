@@ -12,11 +12,11 @@ versions:
 topics:
   - Pull requests
 ---
-### About reverting a pull request
+## About reverting a pull request
 
 Reverting a pull request on {% data variables.product.product_name %} creates a new pull request that contains one revert of the merge commit from the original merged pull request.
 
-### Reverting a pull request
+## Reverting a pull request
 
 {% note %}
 

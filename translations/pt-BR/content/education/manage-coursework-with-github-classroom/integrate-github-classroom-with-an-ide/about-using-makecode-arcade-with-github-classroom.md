@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ---
+
 ### Sobre o MakeCode Arcade
 
 O MakeCode Arcade é um ambiente de desenvolvimento integrado on-line (IDE) para o desenvolvimento de jogos retrô arcade que usa a programação de blocos de arrastar e soltar e JavaScript. Os alunos podem escrever, editar, executar, testar e depurar códigos em um navegador com o MakeCode Arcade. Para obter mais informações sobre IDEs on-line e {% data variables.product.prodname_classroom %}, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE on-line](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."

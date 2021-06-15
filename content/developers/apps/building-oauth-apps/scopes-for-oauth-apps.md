@@ -37,7 +37,7 @@ X-Accepted-OAuth-Scopes: user
 * `X-OAuth-Scopes` lists the scopes your token has authorized.
 * `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
 
-### Available scopes
+## Available scopes
 
 Name | Description
 -----|-----------|{% if currentVersion != "github-ae@latest" %}
@@ -88,7 +88,7 @@ can specify multiple scopes by separating them with a space using `%20`:
 
 {% endnote %}
 
-### Requested scopes and granted scopes
+## Requested scopes and granted scopes
 
 The `scope` attribute lists scopes attached to the token that were granted by
 the user. Normally, these scopes will be identical to what you requested.
@@ -109,7 +109,7 @@ additional permission, but don’t forget that users can always say no.
 Check out the [Basics of Authentication guide](/guides/basics-of-authentication/), which
 provides tips on handling modifiable token scopes.
 
-### Normalized scopes
+## Normalized scopes
 
 When requesting multiple scopes, the token is saved with a normalized list
 of scopes, discarding those that are implicitly included by another requested

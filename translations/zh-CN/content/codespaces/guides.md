@@ -1,7 +1,7 @@
 ---
-title: Codespaces guides
+title: 代码空间指南
 shortTitle: 指南
-intro: 'Learn how to make the most of GitHub {% data reusables.gated-features.codespaces %}'
+intro: '了解如何充分利用 GitHub {% data reusables.gated-features.codespaces %}'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:

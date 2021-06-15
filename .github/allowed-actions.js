@@ -6,7 +6,7 @@
 module.exports = [
   "actions/cache@0781355a23dac32fd3bac414512f4b903437991a", // v2.1.3
   "actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f", // v2.3.4
-  "actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9", // v3.0.0
+  "actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d", // v4.0.2
   "actions/labeler@5f867a63be70efff62b767459b009290364495eb", // v2.2.0
   "actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e", // v2.1.4
   "actions/setup-python@dc73133d4da04e56a135ae2246682783cc7c7cb6", // v2.2.2
@@ -29,7 +29,7 @@ module.exports = [
   "lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8",
   "lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb",
   "pascalgn/automerge-action@c9bd1823770819dc8fb8a5db2d11a3a95fbe9b07", // v0.12.0
-  "peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326",
+  "peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e",
   "peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd",
   "peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43",
   "rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9",

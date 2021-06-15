@@ -12,6 +12,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 {% warning %}
 
 Se você oferece um {% data variables.product.prodname_github_app %} em {% data variables.product.prodname_marketplace %}, seu aplicativo deverá identificar usuários seguindo o fluxo de autorização do OAuth. Você não precisa configurar {% data variables.product.prodname_oauth_app %} separadamente para dar suporte a este fluxo. Consulte "[Identificar e autorizar usuários para {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" para obter mais informações.

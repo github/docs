@@ -32,5 +32,5 @@ topics:
 {% data reusables.organizations.send-invitation %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
-### Further reading
+## Further reading
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

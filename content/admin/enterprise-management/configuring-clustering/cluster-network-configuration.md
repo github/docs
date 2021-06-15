@@ -14,13 +14,13 @@ topics:
   - Infrastructure
   - Networking
 ---
-### Network considerations
+## Network considerations
 
 The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
 
-#### Application ports for end users
+### Application ports for end users
 
 Application ports provide web application and Git access for end users.
 
@@ -32,7 +32,7 @@ Application ports provide web application and Git access for end users.
 | 443/TCP   | HTTPS | Yes |
 | 9418/TCP  | Simple Git protocol port<br>(Disabled in private mode) | No |
 
-#### Administrative ports
+### Administrative ports
 
 Administrative ports are not required for basic application use by end users.
 
@@ -44,7 +44,7 @@ Administrative ports are not required for basic application use by end users.
 | 8080/TCP  | Management Console HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
 | 8443/TCP  | Management Console HTTPS | Yes |
 
-#### Cluster communication ports
+### Cluster communication ports
 
 If a network level firewall is in place between nodes, these ports will need to be accessible. The communication between nodes is not encrypted. These ports should not be accessible externally.
 
@@ -77,7 +77,7 @@ If a network level firewall is in place between nodes, these ports will need to 
 | 8302/UDP | Consul |
 | 25827/UDP | Collectd |
 
-### Configuring a load balancer
+## Configuring a load balancer
 
  We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
 
@@ -86,7 +86,7 @@ If a network level firewall is in place between nodes, these ports will need to 
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Handling client connection information
+## Handling client connection information
 
 Because client connections to the cluster come from the load balancer, the client IP address can be lost. To properly capture the client connection information, additional consideration is required.
 
@@ -94,7 +94,7 @@ Because client connections to the cluster come from the load balancer, the clien
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
+### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
 
 We strongly recommend enabling PROXY support for both your instance and the load balancer.
 
@@ -106,7 +106,7 @@ We strongly recommend enabling PROXY support for both your instance and the load
 
   {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
+### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
@@ -118,12 +118,12 @@ $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-#### Configuring Health Checks
+### Configuring Health Checks
 Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-### DNS Requirements
+## DNS Requirements
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
