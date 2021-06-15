@@ -54,9 +54,9 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 ```
 
 To fix this, you can:
-* Use a different name for the new remote
-* Rename the existing remote repository
-* Delete the existing remote repository
+* Use a different name for the new remote.
+* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
+* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
 
 ## Changing a remote repository's URL
 
