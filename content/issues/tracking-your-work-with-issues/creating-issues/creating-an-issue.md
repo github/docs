@@ -41,7 +41,7 @@ If you're using a project board to track and prioritize your work, you can conve
   ![New Issues button](/assets/images/help/issues/new_issues_button.png)
 4. If there are multiple issue types, click **Get started** next to the type of issue you'd like to open.
   ![Select the type of issue you want to create](/assets/images/help/issues/issue_template_get_started_button.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion >= "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 5. Optionally, click **Open a blank issue.** if the type of issue you'd like to open isn't included in the available options.
   ![Link to open a blank issue](/assets/images/help/issues/blank_issue_link.png)
 {% else %}
