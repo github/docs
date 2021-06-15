@@ -4,7 +4,6 @@ intro: 'You can create and pay for a {% data variables.product.prodname_dotcom %
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
-  - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
   free-pro-team: '*'
