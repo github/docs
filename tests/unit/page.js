@@ -501,6 +501,20 @@ describe('Page class', () => {
       expect(page.versions['enterprise-server']).toBe('>=2.21')
     })
 
+    test('pages that use short names in versions frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'short-versions.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      expect(page.versions.fpt).toBe('*')
+      expect(page.versions.ghes).toBe('>3.0')
+      expect(page.versions.ghae).toBeUndefined()
+      expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
+      expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
+      expect(page.applicableVersions.includes(`github-ae@latest`)).toBe(false)
+    })
+
     test('index page', async () => {
       const page = await Page.init({
         relativePath: 'index.md',

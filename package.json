@@ -13,6 +13,7 @@
     ".next/cache"
   ],
   "dependencies": {
+    "@hapi/accept": "^5.0.2",
     "@primer/components": "^28.0.4",
     "@primer/css": "^16.2.0",
     "@primer/octicons": "^14.1.0",
@@ -60,6 +61,7 @@
     "next": "^10.2.3",
     "node-fetch": "^2.6.1",
     "parse5": "^6.0.1",
+    "path-to-regexp": "^0.1.7",
     "port-used": "^2.0.8",
     "rate-limit-redis": "^2.1.0",
     "react": "^17.0.2",
