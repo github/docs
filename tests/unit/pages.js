@@ -1,5 +1,5 @@
 const path = require('path')
-const { loadPages, loadPageMap } = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/page-data')
 const languageCodes = Object.keys(require('../../lib/languages'))
 const { liquid } = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
