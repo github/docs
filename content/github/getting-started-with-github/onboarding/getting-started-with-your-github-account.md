@@ -17,18 +17,17 @@ To sign up for a {% data variables.product.product_name %} account, navigate to 
 
 To keep your {% data variables.product.product_name %} account secure you should generate a strong and unique password with more than 16 characters using a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
+{% if currentVersion == 'free-pro-team@latest' or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
 **Note**: Changing your {% data variables.product.product_name %} username in the future can have unintended consequences, like some contributions no longer being attributed to you. For more information, see “[Changing your GitHub username](/github/setting-up-and-managing-your-github-user-account/changing-your-github-username#changing-your-username)."
 
 {% endnote %}
-
-{% if currentVersion == 'free-pro-team@latest' %}
+{% endif %}
 ### Choosing your {% data variables.product.product_name %} product
 {% data variables.product.prodname_dotcom %} offers both free and paid products, each with a different set of features. {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_pro %} offer features for individual users. {% data variables.product.prodname_team %} offers collaboration and management tools for teams. {% data variables.product.prodname_enterprise %} offers security, compliance, and deployment controls for organizations.
 
 For more information, see "[GitHub's products](/github/getting-started-with-github/learning-about-github/githubs-products)."
-{% endif %}
 
 {% if currentVersion == 'free-pro-team@latest' %}
 ### Verifying your email address
@@ -37,6 +36,7 @@ To ensure you can use all of {% data variables.product.product_name %}'s feature
 For more information, see "[Verifying your email address](/github/getting-started-with-github/signing-up-for-github/verifying-your-email-address)."
 {% endif %}
 
+{% if currentVersion == 'free-pro-team@latest' or enterpriseServerVersions contains currentVersion %}
 ### Configuring two-factor authentication
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. 
 
@@ -47,7 +47,7 @@ Two-factor authentication, or 2FA, is an extra layer of security used when loggi
 {% endnote %}
 
 For more information, see "[About two-factor authentication](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
-
+{% endif %}
 ### Viewing your {% data variables.product.product_name %} profile and contribution graph
 Your {% data variables.product.product_name %} profile tells people the story of your work through the repositories and gists you've pinned, the organizations you're part of, the contributions you've made, and the projects you've created. For more information, see “[About your profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)."
 
@@ -131,12 +131,16 @@ You are the owner of any repository you create in your user account and have ful
 As the owner of a repository you can configure several settings, including the repository's visibility, topics, and social media preview. For more information, see “[Managing repository settings](/github/administering-a-repository/managing-repository-settings)."
 
 ### Setting up your project for healthy contributions
+{% if currentVersion == 'free-pro-team@latest' %}
 To encourage collaborators in your repository, you need a community that encourages people to use, contribute to, and evangelize your project. For more information, see “[Building Welcoming Communities](https://opensource.guide/building-community/)" in the Open Source Guides.
 
 By adding files like contributing guidelines, a code of conduct, and a license to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see “[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 You can use the community profile for your public repository to ensure your project has all the recommended files to help people use and contribute to your project. For more information, see “[About community profiles for public repositories](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
-
+{% endif %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+By adding files like contributing guidelines, a code of conduct, and support resources to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see “[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+{% endif %}
 {% if currentVersion == 'free-pro-team@latest' %}
 ### Managing security vulnerabilities
 You can discover, discuss, fix, and disclose security vulnerabilities in your repositories with security policies and {% data variables.product.prodname_security_advisories %}. For more information, see “[Managing security advisories for vulnerabilities in your project](/code-security/security-advisories)."
@@ -151,16 +155,18 @@ Notifications provide updates about the activity on {% data variables.product.pr
 ### Working with {% data variables.product.prodname_pages %}
 You can use {% data variables.product.prodname_pages %} to create and host a website directly from a {% data variables.product.product_name %} repository. For more information, see “[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
+{% if currentVersion == 'free-pro-team@latest' %}
 ### Using {% data variables.product.prodname_discussions %}
 You can enable {% data variables.product.prodname_discussions %} for your repository to help build a community around your project. Maintainers, contributors and visitors can use discussions to share announcements, ask and answer questions, and participate in conversations around goals. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
-
+{% endif %}
 ## Part 4: Customizing and automating your work on {% data variables.product.product_name %}
 
 {% data reusables.getting-started.customizing-and-automating %}
 
+{% if currentVersion == 'free-pro-team@latest' %}
 ### Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-
+{% endif %}
 ### Using the {% data variables.product.product_name %} APIs
 {% data reusables.getting-started.api %}
 
@@ -177,10 +183,12 @@ As a repository administrator, you can secure your repositories by configuring r
 
 For more information on steps you can take to secure your repositories, see "[Securing your repository](/code-security/getting-started/securing-your-repository)".
 
+{% if currentVersion == 'free-pro-team@latest' %}
 ### Managing your dependencies
 A large part of building securely is maintaining your project's dependencies to ensure that all packages and applications you depend on are updated and secure. You can manage your repository's dependencies on {% data variables.product.product_name %} by exploring the dependency graph for your repository, using Dependabot to automatically raise pull requests to keep your dependencies up-to-date, and receiving Dependabot alerts and security updates for vulnerable dependencies. 
 
 For more information, see "[Securing your software supply chain](/code-security/supply-chain-security)". 
+{% endif %}
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 {% data reusables.getting-started.participating-in-community %}
@@ -200,6 +208,7 @@ For more information, see "[Securing your software supply chain](/code-security/
 
 ### Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
-{% endif %}
+
 ## Further reading
 - "[Getting started with {% data variables.product.prodname_team %}](/github/getting-started-with-github/onboarding/getting-started-with-github-team)"
+{% endif %}
