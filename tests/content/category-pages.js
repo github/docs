@@ -64,7 +64,6 @@ describe('category pages', () => {
 
       if (!categoryTuples.length) return
 
-      // TODO rework this for the new site tree structure
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {
@@ -78,9 +77,9 @@ describe('category pages', () => {
             const indexContents = await readFileAsync(indexAbsPath, 'utf8')
             const { data } = matter(indexContents)
             categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
-            const articleLinks = data.children.filter(link => {
-              const mdPath = getPath(productDir, indexLink, link)
-              return fs.existsSync(mdPath) && fs.lstatSync(mdPath).isFile()
+            const articleLinks = data.children.filter(child => {
+              const mdPath = getPath(productDir, indexLink, child)
+              return fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()
             })
 
             // Save the index title for later testing
@@ -128,7 +127,6 @@ describe('category pages', () => {
             )
           })
 
-          // TODO get these tests passing after the new site tree code is in production
           test('contains all expected articles', () => {
             const missingArticlePaths = difference(availableArticlePaths, publishedArticlePaths)
             const errorMessage = formatArticleError('Missing article links:', missingArticlePaths)
