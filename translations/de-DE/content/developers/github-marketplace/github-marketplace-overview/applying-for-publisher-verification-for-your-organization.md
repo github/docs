@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
 ---
+
 Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.
 
 Once your organization has been verified, you can publish paid plans for your app. For information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."

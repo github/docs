@@ -25,7 +25,7 @@ versions:
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Creating a saved reply](/articles/creating-a-saved-reply)"
 - "[Editing a saved reply](/articles/editing-a-saved-reply)"

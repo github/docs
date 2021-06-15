@@ -20,13 +20,13 @@ topics:
 <!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
-### About vulnerable dependencies
+## About vulnerable dependencies
 
 {% data reusables.repositories.a-vulnerability-is %}
 
 When your code depends on a package that has a security vulnerability, this vulnerable dependency can cause a range of problems for your project or the people who use it.
 
-### Detection of vulnerable dependencies
+## Detection of vulnerable dependencies
 
 {% data variables.product.prodname_dependabot %} detects vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
@@ -45,7 +45,7 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 
 {% endnote %}
 
-### {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
+## {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
 
 {% data reusables.repositories.enable-security-alerts %}
 
@@ -70,7 +70,7 @@ For repositories where {% data variables.product.prodname_dependabot_security_up
 
 {% endwarning %}
 
-### Access to {% data variables.product.prodname_dependabot %} alerts
+## Access to {% data variables.product.prodname_dependabot %} alerts
 
 You can see all of the alerts that affect a particular project{% if currentVersion == "free-pro-team@latest" %} on the repository's Security tab or{% endif %} in the repository's dependency graph. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 
@@ -82,7 +82,7 @@ By default, we notify people with admin permissions in the affected repositories
 You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular vulnerability in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
 - "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"

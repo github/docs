@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
 ---
+
 ### Videos about {% data variables.product.prodname_classroom %}
 
 You can watch a series of short video tutorials about the configuration and use of {% data variables.product.prodname_classroom %}. To watch all videos as part of a continuous playlist, see the [{% data variables.product.prodname_classroom %} Getting Started Guide](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u) on YouTube.

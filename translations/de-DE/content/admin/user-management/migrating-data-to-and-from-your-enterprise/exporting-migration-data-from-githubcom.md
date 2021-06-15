@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
 1. Stellen Sie sicher, dass Sie für die Repositorys in der Quellorganisation über [Inhaberberechtigungen](/articles/permission-levels-for-an-organization/) verfügen.

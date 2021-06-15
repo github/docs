@@ -17,6 +17,6 @@ You can choose which contributors are included in metrics and create teams of co
 
 {% data reusables.github-insights.events %} For more information, see "[Managing events](/insights/installing-and-configuring-github-insights/managing-events)."
 
-### Further reading
+## Further reading
 - "[Metrics available with {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)"
 - "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} and data protection for your organization</a>"

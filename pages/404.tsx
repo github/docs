@@ -7,13 +7,11 @@ import {
   GitPullRequestIcon,
   PeopleIcon,
   CommentDiscussionIcon,
-  ThumbsdownIcon,
-  ThumbsupIcon,
 } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
-export default function Custom404(props: any) {
+export default function Custom404() {
   const router = useRouter()
   const { currentVersion, isEnterprise } = useVersion()
 
@@ -34,11 +32,13 @@ export default function Custom404(props: any) {
           role="banner"
         >
           <Link href={`/${router.locale}`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="color-text-primary" aria-hidden="true" tabIndex={-1}>
               <MarkGithubIcon size={32} />
             </a>
           </Link>
           <Link href={`/${router.locale}`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto">
               GitHub Docs
             </a>

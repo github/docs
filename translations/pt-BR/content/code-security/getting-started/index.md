@@ -7,9 +7,13 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Repositories
+  - Dependencies
+  - Vulnerabilities
 children:
-  - /about-securing-your-repository
+  - /github-security-features
+  - /securing-your-repository
+  - /securing-your-organization
   - /adding-a-security-policy-to-your-repository
 ---
-### Índice
+

@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 3. 左サイドバーで [**{% data variables.product.prodname_oauth_app %}s**] をクリックします。 ![左サイドバーの {% data variables.product.prodname_oauth_app %} タブ](/assets/images/help/settings/developer-settings-oauth-apps.png)

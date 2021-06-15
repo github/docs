@@ -14,6 +14,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### About roles in an enterprise
 
 Everyone in an enterprise is a member of the enterprise. You can also assign administrative roles to members of your enterprise. Each administrator role maps to business functions and provides permissions to do specific tasks within the enterprise.
@@ -26,7 +27,7 @@ For more information about adding people to your enterprise, see "{% if currentV
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
 - Administratoren verwalten
-- {% if currentVersion == "free-pro-team@latest" %}Adding and removing {% elsif currentVersion == "github-ae@latest" %}Managing{% endif %} organizations {% if currentVersion == "free-pro-team@latest" %}to and from {% elsif currentVersion == "github-ae@latest" %} in{% endif %} the enterprise
+- {% if currentVersion == "free-pro-team@latest" %}Adding and removing {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Managing{% endif %} organizations {% if currentVersion == "free-pro-team@latest" %}to and from {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} in{% endif %} the enterprise
 - Enterprise-Einstellungen verwalten
 - Richtlinien organisationsübergreifend durchsetzen
 {% if currentVersion == "free-pro-team@latest" %}- Managing billing settings{% endif %}
@@ -55,6 +56,10 @@ Billing managers only have access to your enterprise's billing settings. Billing
 - Andere Abrechnungsmanager hinzufügen oder entfernen
 
 Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. Abrechnungsmanager müssen über ein persönliches Konto auf {% data variables.product.prodname_dotcom %} verfügen.
+
+### About support entitlements
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 ### Weiterführende Informationen
 

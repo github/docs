@@ -22,7 +22,8 @@ export const Header = () => {
   const showVersionPicker =
     relativePath === 'index.md' ||
     currentLayoutName === 'product-landing' ||
-    currentLayoutName === 'product-sublanding'
+    currentLayoutName === 'product-sublanding' ||
+    currentLayoutName === 'release-notes'
 
   return (
     <div className="border-bottom color-border-secondary no-print">

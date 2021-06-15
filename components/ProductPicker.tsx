@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router'
-import { LinkExternalIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { ChevronDownIcon } from '@primer/octicons-react'
+import { ChevronDownIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { Details, useDetails } from '@primer/components'
 
 export const ProductPicker = () => {

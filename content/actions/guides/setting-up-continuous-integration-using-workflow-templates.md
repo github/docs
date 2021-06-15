@@ -42,7 +42,7 @@ Once a push is made to your repository, you can follow the status and detailed l
 
 For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-### Further reading
+## Further reading
 
 - "[About continuous integration](/articles/about-continuous-integration)"
 - "[Managing a workflow run](/articles/managing-a-workflow-run)"

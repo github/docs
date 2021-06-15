@@ -1,1 +1,5 @@
-1. Klicke unter Deinem Repository-Namen auf {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests**. ![Auswahl der Issue- und Pull-Request-Registerkarten](/assets/images/help/repository/repo-tabs-pull-requests.png)
+1. Klicken Sie unter dem Namen des Repositorys auf
+{% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests**.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@issue-4483" %}
+ ![Issues and pull requests tab selection](/assets/images/help/repository/repo-tabs-pull-requests.png){% else %}
+ ![Issues tab](/assets/images/enterprise/3.1/help/repository/repo-tabs-pull-requests.png){% endif %}

@@ -21,7 +21,7 @@ When you create a new organization from scratch, it doesn't have any repositorie
 {% data reusables.organizations.new-organization %}
 4. Follow the prompts to create your organization. {% if currentVersion == "free-pro-team@latest" %}For more information about the plans available for your team, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)."{% endif %}
 
-### Further reading
+## Further reading
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Setting your billing email](/articles/setting-your-billing-email)"{% endif %}

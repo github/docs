@@ -12,13 +12,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### About keyboard shortcuts
+## About keyboard shortcuts
 
 Typing <kbd>?</kbd> in {% data variables.product.product_name %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
 Below is a list of some of the available keyboard shortcuts.
 
-### Site wide shortcuts
+## Site wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -26,7 +26,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
-### Repositories
+## Repositories
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -38,7 +38,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
 |<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
-### Source code editing
+## Source code editing
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -59,7 +59,7 @@ Below is a list of some of the available keyboard shortcuts.
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
-### Source code browsing
+## Source code browsing
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -71,7 +71,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>a</kbd> | Show or hide annotations on diffs
 |<kbd>b</kbd> | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."
 
-### Comments
+## Comments
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -84,7 +84,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>control g</kbd> or <kbd>command g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
 | <kbd>r</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
-### Issue and pull request lists
+## Issue and pull request lists
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -97,7 +97,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>a</kbd> | Filter by or edit assignee. For more information, see "[Filtering issues and pull requests by assignees](/articles/filtering-issues-and-pull-requests-by-assignees)."
 |<kbd>o</kbd> or <kbd>enter</kbd> | Open issue
 
-### Issues and pull requests
+## Issues and pull requests
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>q</kbd> | Request a reviewer. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review/)."
@@ -106,7 +106,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>a</kbd> | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)."
 |<kbd>cmd + shift + p</kbd> or <kbd>control + shift + p</kbd> | Toggles between the **Write** and **Preview** tabs
 
-### Changes in pull requests
+## Changes in pull requests
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -118,9 +118,9 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
 
-### Project boards
+## Project boards
 
-#### Moving a column
+### Moving a column
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -132,7 +132,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>→</kbd> or <kbd>l</kbd> | Move column to the right
 |<kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move column to the rightmost position
 
-#### Moving a card
+### Moving a card
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -152,14 +152,14 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move card to the bottom of the rightmost column
 |<kbd>command + shift + →</kbd> or <kbd>command + shift + l</kbd> or <kbd>control + shift + →</kbd> or <kbd>control + shift + l</kbd> | Move card to the bottom of the rightmost column
 
-#### Previewing a card
+### Previewing a card
 
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>esc</kbd> | Close the card preview pane
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %}
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -171,7 +171,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 {% endif %}
 
-### Notifications
+## Notifications
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Keyboard shortcut | Description
@@ -189,7 +189,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>shift + m</kbd> | Mute thread
 {% endif %}
 
-### Network graph
+## Network graph
 
 | Keyboard shortcut | Description
 |-----------|------------

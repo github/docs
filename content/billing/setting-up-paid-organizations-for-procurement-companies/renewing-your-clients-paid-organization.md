@@ -21,7 +21,7 @@ topics:
 
 {% endtip %}
 
-### Updating your organization's credit card
+## Updating your organization's credit card
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}

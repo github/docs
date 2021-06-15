@@ -22,7 +22,7 @@ For more information, see:
 - "[Deleting an organization account](/articles/deleting-an-organization-account)"
 - "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)"
 
-### Back up your account data
+## Back up your account data
 
 Before you delete your user account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account.
 
@@ -32,7 +32,7 @@ Before you delete your user account, make a copy of all repositories, private fo
 
 {% endwarning %}
 
-### Delete your user account
+## Delete your user account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

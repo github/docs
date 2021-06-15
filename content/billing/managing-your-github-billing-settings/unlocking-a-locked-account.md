@@ -25,7 +25,7 @@ You can unlock and access your account by updating your organization's payment m
 
 You can downgrade your organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {% data variables.product.product_name %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
 
-### Unlocking an organization's features due to a declined payment
+## Unlocking an organization's features due to a declined payment
 
 If your organization's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 

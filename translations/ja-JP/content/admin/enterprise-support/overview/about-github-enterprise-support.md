@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 {% note %}
 
 **注釈**: {% data reusables.support.data-protection-and-privacy %}
@@ -23,8 +24,7 @@ topics:
 {% data variables.product.product_name %} には英語{% if enterpriseServerVersions contains currentVersion %}と日本語の {% data variables.contact.enterprise_support %} が含まれます{% endif %}。
 
 {% if enterpriseServerVersions contains currentVersion %}
-以下については、
-{% data variables.contact.contact_enterprise_portal %} を通じて {% data variables.contact.enterprise_support %} に連絡できます。
+You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
  - {% data variables.product.product_name %} のインストールと利用
  - 調査対象となっているエラーの原因の特定および検証
 

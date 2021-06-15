@@ -1,7 +1,7 @@
 ---
 title: Communicating on GitHub
 intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.product_name %}.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
   - /articles/about-discussions-in-issues-and-pull-requests/
@@ -17,7 +17,7 @@ topics:
   - Discussions
   - Fundamentals
 ---
-### Introduction
+## Introduction
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
@@ -28,18 +28,18 @@ You can create and participate in issues, pull requests, {% data variables.produ
 You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
-#### Issues
+### Issues
 - are useful for discussing specific details of a project such as bug reports, planned improvements and feedback. 
 - are specific to a repository, and usually have a clear owner. 
 - are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
   
-#### Pull requests
+### Pull requests
 - allow you to propose specific changes.
 - allow you comment directly on proposed changes suggested by others. 
 - are specific to a repository. 
  
 {% if currentVersion == "free-pro-team@latest" %}
-#### {% data variables.product.prodname_discussions %}
+### {% data variables.product.prodname_discussions %}
 -  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
 -  may span many repositories. 
 -  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
@@ -47,23 +47,23 @@ You can create and participate in issues, pull requests and team discussions, de
 -  often do not result in an actionable task.
 {% endif %}
 
-#### Team discussions
+### Team discussions
 - can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
 - allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% if currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} 
 - provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
 - often don’t have a clear owner.
 - often do not result in an actionable task.{% endif %}
 
-### Which discussion tool should I use?
+## Which discussion tool should I use?
 
-#### Scenarios for issues
+### Scenarios for issues
 
 - I want to keep track of tasks, enhancements and bugs.
 - I want to file a bug report.
 - I want to share feedback about a specific feature.
 - I want to ask a question about files in the repository.
 
-##### Issue example
+#### Issue example
 
 This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix. 
 
@@ -74,14 +74,14 @@ This example illustrates how a {% data variables.product.prodname_dotcom %} user
 - A discussion ensues, and eventually, a consensus will be reached about the fix to apply.
 - A contributor can then create a pull request with the fix.
 
-#### Scenarios for pull requests
+### Scenarios for pull requests
 
 - I want to fix a typo in a repository.
 - I want to make changes to a repository.
 - I want to make changes to fix an issue.
 - I want to comment on changes suggested by others.
 
-##### Pull request example
+#### Pull request example
 
 This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
 
@@ -98,14 +98,14 @@ The **Files changed** tab of the pull request shows the implemented fix.
 - A repository maintainer reviews the pull request, comments on it, and merges it.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Scenarios for {% data variables.product.prodname_discussions %}
+### Scenarios for {% data variables.product.prodname_discussions %}
 
 - I have a question that's not necessarily related to specific files in the repository.
 - I want to share news with my collaborators, or my team.
 - I want to start or participate in an open-ended conversation.
 - I want to make an announcement to my community.
 
-##### {% data variables.product.prodname_discussions %} example
+#### {% data variables.product.prodname_discussions %} example
 
 This example shows the {% data variables.product.prodname_discussions %} welcome post for the {% data variables.product.prodname_dotcom %} Docs open source repository, and illustrates how the team wants to collaborate with their community.
 
@@ -115,7 +115,7 @@ This community maintainer started a discussion to welcome the community, and to 
 
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-#### Scenarios for team discussions
+### Scenarios for team discussions
 
 - I have a question that's not necessarily related to specific files in the repository.
 - I want to share news with my collaborators, or my team.
@@ -126,7 +126,7 @@ This community maintainer started a discussion to welcome the community, and to 
 As you can see, team discussions are very similar to {% data variables.product.prodname_discussions %}. For {% data variables.product.prodname_dotcom_the_website %}, we recommend using {% data variables.product.prodname_discussions %} as the starting point for conversations. You can use {% data variables.product.prodname_discussions %} to collaborate with any community on {% data variables.product.prodname_dotcom %}. If you are part of an organization, and would like to initiate conversations within your organization or team within that organization, you should use team discussions.
 {% endif %}
 
-##### Team discussion example
+#### Team discussion example
 
 This example shows a team post for the `octo-team` team.
 
@@ -139,7 +139,7 @@ The `octocat` team member posted a team discussion, informing the team of variou
 
 {% endif %}
 
-### Next steps
+## Next steps
 
 These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
 

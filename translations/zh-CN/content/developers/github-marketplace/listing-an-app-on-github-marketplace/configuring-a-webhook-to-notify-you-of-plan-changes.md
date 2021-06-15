@@ -13,6 +13,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 {% data variables.product.prodname_marketplace %} 事件 web 挂钩只能在应用程序的 {% data variables.product.prodname_marketplace %} 上架页面中进行设置。 您可以在[应用程序的开发者设置页面](https://github.com/settings/developers)中配置所有其他事件。 如果您尚未创建 {% data variables.product.prodname_marketplace %} 上架信息，请阅读“[创建 {% data variables.product.prodname_marketplace %} 上架信息](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)”了解方法。
 
 ### 创建 web 挂钩

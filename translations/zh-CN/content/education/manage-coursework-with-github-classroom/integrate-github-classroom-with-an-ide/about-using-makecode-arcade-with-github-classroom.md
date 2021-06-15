@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ---
+
 ### 关于 MakeCode Arcade
 
 MakeCode Arcade 是一个在线集成开发环境 (IDE)，用于使用拖放块编程和 JavaScript 开发复古街机游戏。 学生可以使用 MakeCode Arcade 在浏览器中编写、编辑、运行、测试和调试代码。 有关在线 IDE 和 {% data variables.product.prodname_classroom %} 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与在线 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)”。

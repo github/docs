@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### Cenários de falha
 
 Tanto a alta disponibilidade (High Availability, HA) quanto o cluster fornecem redundância ao eliminar o nó único como ponto de falha. Ambos podem fornecer disponibilidade nos seguintes cenários:

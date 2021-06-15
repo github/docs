@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### Grundlegendes zu Netzwerken
 
 Das einfachste Netzwerkdesign für Clustering besteht darin, die Knoten in einem einzelnen LAN zu platzieren. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. Zudem sollte die Latenz kleiner als 1 ms sein.

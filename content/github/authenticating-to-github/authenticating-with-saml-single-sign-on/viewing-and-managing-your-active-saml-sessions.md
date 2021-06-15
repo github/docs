@@ -24,6 +24,6 @@ topics:
 
   {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

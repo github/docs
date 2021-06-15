@@ -31,7 +31,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 4. Open Terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
@@ -109,7 +109,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 4. Open Terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell

@@ -7,15 +7,17 @@ name: Check unallowed file changes
 on:
   pull_request_target:
     paths:
+      - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
-      - 'translations/**'
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'lib/graphql/**'
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
+      - 'scripts/**'
+      - 'translations/**'
 
 jobs:
   triage:
@@ -63,15 +65,17 @@ jobs:
             openapi:
               - 'lib/rest/static/**'
             notAllowed:
+              - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
-              - 'translations/**'
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'lib/graphql/**'
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
+              - 'scripts/**'
+              - 'translations/**'
 
       # When there are changes to files we can't accept
       # and no review exists,leave a REQUEST_CHANGES review
@@ -83,17 +87,17 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const badFilesArr = [
-              'translations/**',
-              'lib/rest/static/**',
+              '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
-              'translations/**',
               'assets/fonts/**',
               'data/graphql/**',
               'lib/graphql/**',
               'lib/redirects/**',
               'lib/rest/**',
-              'lib/webhooks/**'
+              'lib/webhooks/**',
+              'scripts/**',
+              'translations/**'
             ]
 
             const badFiles = badFilesArr.join('\n')

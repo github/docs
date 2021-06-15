@@ -1,6 +1,6 @@
 ---
-title: Verifying or approving a domain for your organization
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.'
+title: 验证或批准您组织的域
+intro: '您可以通过 {% data variables.product.company_short %} 验证您对域的所有权，确认您的组织身份。 您也可以批准 {% data variables.product.company_short %} 可以为您的组织成员发送电子邮件通知的域名。'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -22,27 +22,27 @@ topics:
 
 验证组织域的所有权后，将在组织的资料中显示“Verified（已验证）”徽章。 如果您的组织位于 {% data variables.product.prodname_ghe_cloud %} 上并且已同意公司服务条款，则组织所有者将能够通过查看验证域内每个成员的电子邮件地址来验证组织成员的身份。 更多信息请参阅“[关于组织的资料页面](/articles/about-your-organization-s-profile/)”和“[升级到公司服务条款](/articles/upgrading-to-the-corporate-terms-of-service)”。
 
-如果您的组织由企业帐户拥有，则“已验证”徽章将显示在组织的基本资料上，除了显示组织的任何已验证域之外，还能够显示企业帐户的任何已验证域。 Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owners. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+如果您的组织由企业帐户拥有，则“已验证”徽章将显示在组织的基本资料上，除了显示组织的任何已验证域之外，还能够显示企业帐户的任何已验证域。 组织所有者可以查看企业所有者已验证或批准的任何域，如果组织所有者也是企业所有者，则可以编辑域名。 更多信息请参阅“[验证或批准企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)”。
 
 {% data reusables.organizations.verified-domains-details %}
 
-在 {% data variables.product.prodname_ghe_cloud %} 上，验证组织域的所有权后，您可以将组织的电子邮件通知限制为该域。 For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+在 {% data variables.product.prodname_ghe_cloud %} 上，验证组织域的所有权后，您可以将组织的电子邮件通知限制为该域。 更多信息请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”。
 
-### About domain approval
+### 关于域批准
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
 {% data reusables.enterprise-accounts.approved-domains-about %}
 
-After you approve domains for your organization, you can restrict email notifications for activity within the organization to users with verified email addresses within verified or approved domains. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+批准组织域名后，您可以将组织内活动的电子邮件通知限制为已验证或批准的域内具有已验证电子邮件地址的用户。 更多信息请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”。
 
-Enterprise owners cannot see which organization members or email addresses receive notifications within approved domains.
+企业所有者无法看到哪个组织成员或电子邮件地址在已批准的域内接收通知。
 
-Enterprise owners can also approve additional domains for organizations owned by the enterprise. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+企业所有者也可以批准企业拥有的其他组织的域名。 更多信息请参阅“[验证或批准企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)”。
 
-### Verifying a domain for your organization
+### 验证组织的域
 
-To verify a domain, you must have access to modify domain records with your domain hosting service.
+要验证域，您必须有权使用域托管服务修改域记录。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -54,11 +54,11 @@ To verify a domain, you must have access to modify domain records with your doma
    ```shell
    $ dig _github-challenge-<em>ORGANIZATION</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
-1. After confirming your TXT record is added to your DNS, follow steps one through three above to navigate to your organization's approved and verified domains.
+1. 确认您的 TXT 记录已添加到 DNS 后，请按照上述步骤一至三导航到组织批准和验证的域。
 {% data reusables.organizations.continue-verifying-domain %}
 11. （可选）组织的资料页面中显示“Verified（已验证）”徽章后，您可以从域托管服务的 DNS 记录中删除 TXT 条目。 ![已验证徽章](/assets/images/help/organizations/verified-badge.png)
 
-### Approving a domain for your organization
+### 批准组织的域
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
@@ -74,9 +74,9 @@ To verify a domain, you must have access to modify domain records with your doma
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-### Removing an approved or verified domain
+### 删除已批准或已验证的域
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
-1. To the right of the domain to remove, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**. !["Delete" for a domain](/assets/images/help/organizations/domains-delete.png)
+1. 在要删除的域的右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 ** Delete（删除）**。 ![域的"删除"](/assets/images/help/organizations/domains-delete.png)

@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
 ---
+
 ### 转让
 
 作业是 {% data variables.product.prodname_classroom %} 中的课程。 教师可以将作业分配给单个学生或一组学生。 教师可以导入作业的启动代码，指派学生，并为每项作业设定最后期限。 更多信息请参阅“[个人作业](#individual-assignment)”和“[小组作业](#group-assignment)”的定义。

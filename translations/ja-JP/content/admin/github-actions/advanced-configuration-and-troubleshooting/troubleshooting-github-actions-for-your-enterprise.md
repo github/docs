@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 ---
+
 ### {% data variables.product.prodname_ghe_server %} に自己署名証明書を使用する場合のセルフホストランナーの設定
 
 {% data reusables.actions.enterprise-self-signed-cert %} 詳しい情報については、「[TLS を設定する](/admin/configuration/configuring-tls)」を参照してください。

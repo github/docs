@@ -78,7 +78,7 @@
   term: 卡
   description: 项目板中与某个议题或拉取请求关联的可移动方框。
 - 
-  term: 检查
+  term: check
   description: >-
     检查是指 {% data variables.product.product_name %} 上的一种状态检查。请参阅“[状态检查](#status-checks)”。
 - 
@@ -250,7 +250,7 @@
   description: >-
     免费的用户帐户结算方案。用户可以通过无限的协作者协作处理无限的公共仓库。
 - 
-  term: Gist
+  term: gist
   description: >-
     Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
 - 
@@ -754,9 +754,6 @@
   term: web 挂钩
   description: >-
     Web 挂钩可让您构建或设置订阅 GitHub.com 上特定事件的 GitHub 应用程序。Web 挂钩提供一种通知方式，只要仓库或组织中发生特定操作，就会发送通知到外部 web 服务器。也称为“服务挂钩”。
-- 
-  term: 与 GitHub 结合使用
-  description: 支持 GitHub 的集成列表。
 - 
   term: 写入权限
   description: >-

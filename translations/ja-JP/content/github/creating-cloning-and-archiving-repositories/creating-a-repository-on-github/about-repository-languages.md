@@ -16,6 +16,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data variables.product.product_name %} は、オープンソースの [Linguist ライブラリ](https://github.com/github/linguist)を使用して、
 構文の強調表示とリポジトリ統計のファイル言語を決定します。 デフォルトブランチに変更をプッシュすると、言語統計が更新されます。
 

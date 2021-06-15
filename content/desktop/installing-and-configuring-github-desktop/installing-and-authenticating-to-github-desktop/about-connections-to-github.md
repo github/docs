@@ -13,5 +13,5 @@ After you authenticate to {% data variables.product.prodname_dotcom %}, you can 
 
 {% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-### Further reading
+## Further reading
 - "[Cloning and forking repositories from GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"

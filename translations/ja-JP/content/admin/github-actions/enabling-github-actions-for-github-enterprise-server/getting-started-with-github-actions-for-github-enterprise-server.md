@@ -14,6 +14,7 @@ topics:
   - Actions
   - Enterprise
 ---
+
 {% data reusables.actions.enterprise-beta %}
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -36,20 +37,20 @@ topics:
 
 {% endif %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
+{% data variables.product.product_location %} で使用可能な CPU およびメモリリソースによって、{% data variables.product.prodname_actions %} の最大ジョブスループットが決まります。
 
-Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
+{% data variables.product.company_short %} での内部テストでは、さまざまな CPU およびメモリ設定の {% data variables.product.prodname_ghe_server %} インスタンスで次の最大スループットが実証されました。 インスタンスのアクティビティの全体的なレベルに応じて、スループットが異なる場合があります。
 
-| vCPUs | メモリ    | Maximum job throughput |
-|:----- |:------ |:---------------------- |
-| 4     | 32 GB  | Demo or light testing  |
-| 8     | 64 GB  | 25ジョブ                  |
-| 16    | 160 GB | 35ジョブ                  |
-| 32    | 256 GB | 100ジョブ                 |
+| vCPUs | メモリ    | 最大ジョブスループット数 |
+|:----- |:------ |:------------ |
+| 4     | 32 GB  | デモまたは軽いテスト   |
+| 8     | 64 GB  | 25ジョブ        |
+| 16    | 160 GB | 35ジョブ        |
+| 32    | 256 GB | 100ジョブ       |
 
-If you {% if currentVersion == "enterprise-server@2.22" %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. {% data variables.product.prodname_ghe_server %}のキャパシティとパフォーマンスのモニタリングに関する詳しい情報については「[アプラインアンスのモニタリング](/admin/enterprise-management/monitoring-your-appliance)」を参照してください。
+既存のインスタンスのユーザに対して {% data variables.product.prodname_actions %} の{% if currentVersion == "enterprise-server@2.22" %}ベータを有効化した{% else %}有効化する{% endif %}場合は、ユーザのアクティビティのレベルとインスタンスの自動化を確認し、ユーザーに適切な CPU とメモリをプロビジョニングしたことを確認してください。 {% data variables.product.prodname_ghe_server %}のキャパシティとパフォーマンスのモニタリングに関する詳しい情報については「[アプラインアンスのモニタリング](/admin/enterprise-management/monitoring-your-appliance)」を参照してください。
 
-For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
+{% data variables.product.product_location %} の最小ハードウェア要件の詳細については、インスタンスのプラットフォームのハードウェアに関する考慮事項を参照してください。
 
 - [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
 - [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
@@ -119,7 +120,7 @@ For more information about minimum hardware requirements for {% data variables.p
 
 ユーザーが Enterprise で使用できるアクションを制御できます。 これには、{% data variables.product.prodname_dotcom_the_website %} からのアクションへの自動アクセス用の {% data variables.product.prodname_github_connect %} の設定、または {% data variables.product.prodname_dotcom_the_website %} からのアクションの手動同期が含まれます。
 
-For more information, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
+詳しい情報については、「[Enterprise でのアクションの使用について](/admin/github-actions/about-using-actions-in-your-enterprise)」を参照してください。
 
 ### {% data variables.product.prodname_actions %} の一般的なセキュリティ強化
 
