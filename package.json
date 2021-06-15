@@ -201,6 +201,7 @@
     "browser-test-server": "cross-env NODE_ENV=production PORT=4001 node server.js",
     "browser-test-tests": "cross-env BROWSER=1 jest tests/browser/browser.js",
     "sync-search": "start-server-and-test sync-search-server 4002 sync-search-indices",
+    "sync-search-ghes-release": "GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-dry-run": "DRY_RUN=1 npm run sync-search",
     "sync-search-server": "cross-env NODE_ENV=production PORT=4002 node server.js",
     "sync-search-indices": "script/sync-search-indices.js",
