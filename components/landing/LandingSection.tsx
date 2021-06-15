@@ -1,5 +1,4 @@
 import cx from 'classnames'
-import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
   title?: React.ReactNode
@@ -9,8 +8,6 @@ type Props = {
   description?: string
 }
 export const LandingSection = ({ title, children, className, sectionLink, description }: Props) => {
-  const { t } = useTranslation('product_sublanding')
-
   return (
     <div className={cx('container-xl px-3 px-md-6', className)} id={sectionLink}>
       {title && (
@@ -21,7 +18,7 @@ export const LandingSection = ({ title, children, className, sectionLink, descri
       {description && (
         <div
           className="lead-mktg color-text-secondary f4 description-text"
-          dangerouslySetInnerHTML={{ __html: t(description) }}
+          dangerouslySetInnerHTML={{ __html: description }}
         />
       )}
       {children}
