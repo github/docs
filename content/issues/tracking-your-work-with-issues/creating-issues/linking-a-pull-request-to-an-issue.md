@@ -25,7 +25,7 @@ topics:
 
 You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manually or {% endif %}using a supported keyword in the pull request description. 
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue. {% if currentVersion ver_lt "enterprise-server@2.21" %}If the pull request and the issue are in different repositories, {% data variables.product.product_name %} will display the link after the pull request is merged, if the person who merges the pull request also has permission to close the issue.{% endif %}
+When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
 When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 

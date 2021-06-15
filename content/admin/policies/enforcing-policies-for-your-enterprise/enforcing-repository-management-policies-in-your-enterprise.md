@@ -107,14 +107,6 @@ To keep your repository size manageable and prevent performance issues, you can 
 
 By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
 
-{% if currentVersion ver_lt "enterprise-server@2.20" %}
-{% tip %}
-
-**Note:** Only files larger than {% data variables.large_files.warning_size %} will be checked against the Git push limit. If you need to set a lower push limit, contact {% data variables.contact.contact_ent_support %} for assistance.
-
-{% endtip %}
-{% endif %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}

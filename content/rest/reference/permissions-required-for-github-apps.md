@@ -604,9 +604,6 @@ _Teams_
 - [`GET /orgs/:org/teams`](/rest/reference/teams#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/rest/reference/teams#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/rest/reference/teams#get-a-team-by-name) (:read)
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-- [`GET /teams/:team_id`](/rest/reference/teams#get-a-team) (:read)
-{% endif %}
 - [`PATCH /teams/:team_id`](/rest/reference/teams#update-a-team) (:write)
 - [`DELETE /teams/:team_id`](/rest/reference/teams#delete-a-team) (:write)
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}

@@ -465,9 +465,6 @@ While most of your API interaction should occur using your server-to-server inst
 * [List teams](/rest/reference/teams#list-teams)
 * [Create a team](/rest/reference/teams#create-a-team)
 * [Get a team by name](/rest/reference/teams#get-a-team-by-name)
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-* [Get a team](/rest/reference/teams#get-a-team)
-{% endif %}
 * [Update a team](/rest/reference/teams#update-a-team)
 * [Delete a team](/rest/reference/teams#delete-a-team)
 {% if currentVersion == "free-pro-team@latest" %}

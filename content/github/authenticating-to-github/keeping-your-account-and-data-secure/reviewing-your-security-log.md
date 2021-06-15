@@ -15,7 +15,7 @@ topics:
 ---
 ## Accessing your security log
 
-The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
+The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user_settings.access_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}

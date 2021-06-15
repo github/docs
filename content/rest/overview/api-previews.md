@@ -95,16 +95,6 @@ View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code 
 
 **Custom media type:** `scarlet-witch-preview`
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-## Nested teams
-
-Include nested team content in [team](/rest/reference/teams) payloads.
-
-**Custom media type:** `hellcat-preview`
-**Announced:** [2017-09-01](https://developer.github.com/changes/2017-08-30-preview-nested-teams)
-
-{% endif %}
-
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ## Global webhooks
@@ -114,15 +104,6 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 **Custom media type:** `superpro-preview`
 **Announced:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-## Repository transfer
-
-Transfer a [repository](/rest/reference/repos) to an organization or user.
-
-**Custom media type:** `nightshade-preview`
-**Announced:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
@@ -147,16 +128,6 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
-## Retrieve hovercard information
-
-Retrieve information from [someone's hovercard](/rest/reference/users#get-contextual-information-for-a-user).
-
-**Custom media type:** `hagar-preview`
-**Announced:** [2018-03-21](https://developer.github.com/changes/2018-03-21-hovercard-api-preview)
-
-{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 ## Check runs and check suites API
@@ -216,16 +187,6 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-## Draft pull requests
-
-You can use the Draft Pull Requests API and its [pull request](/rest/reference/pulls) endpoints to see whether a pull request is in draft state. To learn more about draft pull requests, see "[About pull requests](/articles/about-pull-requests/)".
-
-**Custom media types:** `shadow-cat-preview`
-**Announced:** [2019-02-14](https://developer.github.com/changes/2019-02-14-draft-pull-requests/)
-
-{% endif %}
-
 ## Enable and disable Pages
 
 You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
@@ -239,14 +200,6 @@ You can use two new endpoints in the [Commits API](/rest/reference/repos#commits
 
 **Custom media types:** `groot-preview`
 **Announced:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-## Uninstall a GitHub App
-
-Owners of GitHub Apps can now uninstall an app using the [Apps API](/rest/reference/apps#delete-an-installation-for-the-authenticated-app).
-
-**Custom media types:** `gambit-preview`
-{% endif %}
 
 ## Enable or disable vulnerability alerts for a repository
 
@@ -277,15 +230,6 @@ You can use a new endpoint to [Create a repository using a template](/rest/refer
 
 **Custom media types:** `baptiste-preview`
 **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
-{% if currentVersion == "enterprise-server@2.20" %}
-## New OAuth Applications API endpoints
-
-You can more securely manage tokens for OAuth Apps by using OAuth tokens as input parameters instead of path parameters with the new [OAuth Applications API](/rest/reference/apps#oauth-applications) endpoints.
-
-**Custom media types:** `doctor-strange-preview`
-**Announced:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
-{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 ## New visibility parameter for the Repositories API

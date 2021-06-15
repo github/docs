@@ -173,11 +173,6 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 
 {% endnote %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-{% data reusables.pre-release-program.fury-pre-release %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
-
     POST /app-manifests/{code}/conversions
 
 For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/reference/apps#create-a-github-app-from-a-manifest).
