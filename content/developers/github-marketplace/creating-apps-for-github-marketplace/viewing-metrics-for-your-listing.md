@@ -20,7 +20,7 @@ You can view metrics for the past day (24 hours), week, month, or for the entire
 
 {% endnote %}
 
-### Performance metrics
+## Performance metrics
 
 The Insights page displays these performance metrics, for the selected time period:
 
@@ -34,7 +34,7 @@ The Insights page displays these performance metrics, for the selected time peri
 
 {% endnote %}
 
-#### Conversion performance
+### Conversion performance
 
 * **Unique visitors to landing page:** Number of people who viewed your GitHub App's landing page.
 * **Unique visitors to checkout page:** Number of people who viewed one of your GitHub App's checkout pages.

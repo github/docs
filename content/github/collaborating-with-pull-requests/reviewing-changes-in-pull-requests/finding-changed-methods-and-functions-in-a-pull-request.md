@@ -38,7 +38,7 @@ The summary list of methods and functions is created from these supported file t
 6. You'll be redirected to the first line of the function or method you selected.
  ![view function or method in files changed](/assets/images/help/pull_requests/view-selected-function-or-method.png)
 
-### Further reading
+## Further reading
 
 - "[About comparing branches in a pull request](/articles/about-comparing-branches-in-pull-requests)"
 - "[Filtering files in a pull request by file type](/articles/filtering-files-in-a-pull-request)"

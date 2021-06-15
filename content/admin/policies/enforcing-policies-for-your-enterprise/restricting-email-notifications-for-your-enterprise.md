@@ -14,10 +14,10 @@ topics:
 redirect_from:
   - /admin/policies/restricting-email-notifications-for-your-enterprise
 ---
-### About email restrictions for your enterprise account
+## About email restrictions for your enterprise account
 
 {% data reusables.enterprise-accounts.email-restrictions-about %}
 
-### Restricting email notifications for your enterprise account
+## Restricting email notifications for your enterprise account
 
 {% data reusables.enterprise-accounts.email-restrictions-restricting %}

@@ -18,7 +18,7 @@ When you follow people, you'll see their public activity in the activity view of
 To stop following someone, visit their profile page and click **Unfollow** under their profile image.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+## Further reading
 
 - "[Saving repositories with stars](/articles/saving-repositories-with-stars/)"
 - "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)"

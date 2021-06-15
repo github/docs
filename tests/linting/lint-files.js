@@ -16,8 +16,12 @@ const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema'
 const renderContent = require('../../lib/render-content')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const { execSync } = require('child_process')
-const allVersions = Object.keys(require('../../lib/all-versions'))
-const enterpriseServerVersions = allVersions.filter(v => v.startsWith('enterprise-server@'))
+const allVersions = require('../../lib/all-versions')
+const { supported } = require('../../lib/enterprise-server-releases')
+const getIfversionConditionals = require('../helpers/get-ifversion-conditionals')
+const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
+const versionShortNames = Object.values(allVersions).map(v => v.shortName)
+const allowedVersionOperators = require('../../lib/liquid-tags/ifversion-supported-operators')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -29,6 +33,8 @@ const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
 const learningTracks = path.join(rootDir, 'data/learning-tracks')
 
 const languageCodes = Object.keys(languages)
+
+const versionShortNameExceptions = ['ghae-next', 'ghae-issue-']
 
 // WARNING: Complicated RegExp below!
 //
@@ -147,6 +153,11 @@ const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 //
 const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 
+// Strings in Liquid will always evaluate true _because_ they are strings; instead use unquoted variables, like {% if foo %}.
+// - {% if "foo" %}
+// - {% unless "bar" %}
+const stringInLiquidRegex = /{% (?:if|ifversion|elseif|unless) (?:"|').+?%}/g
+
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -157,6 +168,7 @@ const badEarlyAccessImageErrorText = 'Found article images/links leaking incorre
 const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
+const stringInLiquidErrorText = 'Found Liquid conditionals that evaluate a string instead of a variable. Remove the quotes around the variable!'
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -273,7 +285,8 @@ describe('lint markdown content', () => {
   describe.each(mdToLint)(
     '%s',
     (markdownRelPath, markdownAbsPath) => {
-      let content, ast, links, yamlScheduledWorkflows, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData
+      let content, ast, links, yamlScheduledWorkflows, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData,
+      ifversionConditionals
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
@@ -308,6 +321,9 @@ describe('lint markdown content', () => {
         })))
           .flat()
           .map(schedule => schedule.cron)
+
+        ifversionConditionals = getIfversionConditionals(data)
+          .concat(getIfversionConditionals(bodyContent))
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -315,6 +331,11 @@ describe('lint markdown content', () => {
         if (isHidden) {
           expect(isEarlyAccess || isSitePolicy).toBe(true)
         }
+      })
+
+      test('ifversion conditionals are valid in markdown', async () => {
+        const errors = validateIfversionConditionals(ifversionConditionals)
+        expect(errors.length, errors.join('\n')).toBe(0)
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -408,6 +429,12 @@ describe('lint markdown content', () => {
           })
         })
 
+        test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
+          const matches = (content.match(stringInLiquidRegex) || [])
+          const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
+
         test('URLs must not contain a hard-coded language code', async () => {
           const matches = links.filter(link => {
             return /\/(?:${languageCodes.join('|')})\//.test(link)
@@ -486,13 +513,20 @@ describe('lint yaml content', () => {
   describe.each(ymlToLint)(
     '%s',
     (yamlRelPath, yamlAbsPath) => {
-      let dictionary, isEarlyAccess
+      let dictionary, isEarlyAccess, ifversionConditionals
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+        ifversionConditionals = getIfversionConditionals(fileContents)
+
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
+      })
+
+      test('ifversion conditionals are valid in yaml', async () => {
+        const errors = validateIfversionConditionals(ifversionConditionals)
+        expect(errors.length, errors.join('\n')).toBe(0)
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -667,6 +701,22 @@ describe('lint yaml content', () => {
           const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
         })
+
+        test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
+          const matches = []
+
+          for (const [key, content] of Object.entries(dictionary)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = (contentStr.match(stringInLiquidRegex) || [])
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            }
+          }
+
+          const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
       }
     }
   )
@@ -836,3 +886,64 @@ describe('lint learning tracks', () => {
     }
   )
 })
+
+function validateVersion (version) {
+  return versionShortNames.includes(version) ||
+    versionShortNameExceptions.some(exception => version.startsWith(exception))
+}
+
+function validateIfversionConditionals (conds) {
+  const errors = []
+
+  conds.forEach(cond => {
+    // This will get us an array of strings, where each string may have these space-separated parts:
+    // * Length 1: `<version>` (example: `fpt`)
+    // * Length 2: `not <version>` (example: `not ghae`)
+    // * Length 3: `<version> <operator> <release>` (example: `ghes > 3.0`)
+    const condParts = cond
+      .split(/ (or|and) /)
+      .filter(part => !(part === 'or' || part === 'and'))
+
+    condParts
+      .forEach(str => {
+        const strParts = str.split(' ')
+        // if length = 1, this should be a valid short version name.
+        if (strParts.length === 1) {
+          const version = strParts[0]
+          const isValidVersion = validateVersion(version)
+          if (!isValidVersion) {
+            errors.push(`"${version}" is not a valid short version name`)
+          }
+        }
+
+        // if length = 2, this should be 'not' followed by a valid short version name.
+        if (strParts.length === 2) {
+          const [notKeyword, version] = strParts
+          const isValidVersion = validateVersion(version)
+          const isValid = notKeyword === 'not' && isValidVersion
+          if (!isValid) {
+            errors.push(`"${cond}" is not a valid conditional`)
+          }
+        }
+
+        // if length = 3, this should be a range in the format: ghes > 3.0
+        // where the first item is `ghes` (currently the only version with numbered releases),
+        // the second item is a supported operator, and the third is a supported GHES release.
+        if (strParts.length === 3) {
+          const [version, operator, release] = strParts
+          const isGhes = version === 'ghes'
+          const isSupportedOperator = allowedVersionOperators.includes(operator)
+          const isSupportedRelease = supported.includes(release)
+          const isValid = isGhes && isSupportedOperator && isSupportedRelease
+          const errorMessage = str === cond
+            ? `"${str}" is not a valid operation`
+            : `"${str}" is not a valid operation inside "${cond}"`
+            if (!isValid) {
+            errors.push(errorMessage)
+          }
+        }
+      })
+  })
+
+  return errors
+}

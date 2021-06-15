@@ -13,19 +13,19 @@ versions:
 topics:
   - Accounts
 ---
-### Accessing your personal dashboard
+## Accessing your personal dashboard
 
 Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
 To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
 
-### Finding your recent activity
+## Finding your recent activity
 
 In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests you're working on. Under "Recent activity", you can preview up to 12 recent updates made in the last two weeks.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-### Finding your top repositories and teams
+## Finding your top repositories and teams
 
 In the left sidebar of your dashboard, you can access the top repositories and teams you use.
 
@@ -35,7 +35,7 @@ The list of top repositories is automatically generated, and can include any rep
 
 You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
 
-### Staying updated with activity from the community
+## Staying updated with activity from the community
 
 In the "All activity" section of your news feed, you can view updates from repositories you're subscribed to and people you follow. The "All activity" section shows updates from repositories you watch or have starred, and from users you follow.
 
@@ -49,10 +49,10 @@ You'll see updates in your news feed when a user you follow:
 
 For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
 
-### Exploring recommended repositories
+## Exploring recommended repositories
 
 In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
-### Further reading
+## Further reading
 
 - "[About your organization dashboard](/articles/about-your-organization-dashboard)"

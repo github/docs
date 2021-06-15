@@ -15,7 +15,7 @@ Once your server is configured to receive payloads, it'll listen for any payload
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Setting your secret token
+## Setting your secret token
 
 You'll need to set up your secret token in two places: GitHub and your server.
 
@@ -34,7 +34,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 **Never** hardcode the token into your app!
 
-### Validating payloads from GitHub
+## Validating payloads from GitHub
 
 When your secret token is set, {% data variables.product.product_name %} uses it to create a hash signature with each payload. This hash signature is included with the headers of each request as {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
 

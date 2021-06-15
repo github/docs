@@ -15,7 +15,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Configuring the retention period for GitHub Actions artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %} 
 {% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} stores full build logs and artifacts for 90 days.{% endif %} 
 
-### Download artifacts with the {% data variables.product.prodname_dotcom %} UI
+## Download artifacts with the {% data variables.product.prodname_dotcom %} UI
 
 {% data reusables.repositories.permissions-statement-read %}
 
@@ -30,7 +30,7 @@ versions:
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
     {% endif %}
 
-### Download artifacts with {% data variables.product.prodname_cli %}
+## Download artifacts with {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 

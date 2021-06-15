@@ -24,7 +24,7 @@ topics:
 
 {% endtip %}
 
-### Upgrading an organization's number of paid seats
+## Upgrading an organization's number of paid seats
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -33,7 +33,7 @@ topics:
 
 After you add seats, the payment method on file for the organization will be charged a pro-rated amount based on the number of seats you're adding and the amount of time left in your billing cycle.
 
-### Downgrading an organization's number of paid seats to free
+## Downgrading an organization's number of paid seats to free
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}

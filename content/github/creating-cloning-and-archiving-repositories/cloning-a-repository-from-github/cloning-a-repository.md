@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-### About cloning a repository
+## About cloning a repository
 
 You can clone a repository from {% data variables.product.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.product.product_location %} to your local machine.
 
@@ -27,7 +27,7 @@ You can clone your existing repository or clone another person's existing reposi
 {% endtip %}
 {% endif %}
 
-### Cloning a repository using the command line
+## Cloning a repository using the command line
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.copy-clone-url %}
@@ -36,7 +36,7 @@ You can clone your existing repository or clone another person's existing reposi
 {% data reusables.command_line.git-clone-url %}
 {% data reusables.command_line.local-clone-created %}
 
-### Cloning a repository to {% data variables.product.prodname_desktop %}
+## Cloning a repository to {% data variables.product.prodname_desktop %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
@@ -44,7 +44,7 @@ You can clone your existing repository or clone another person's existing reposi
 
 For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
 
-### Cloning an empty repository
+## Cloning an empty repository
 
 An empty repository contains no files. It's often made if you don't initialize the repository with a README when creating it.
 
@@ -60,7 +60,7 @@ An empty repository contains no files. It's often made if you don't initialize t
 {% data reusables.command_line.git-clone-url %}
 {% data reusables.command_line.local-clone-created %}
 
-### Troubleshooting cloning errors
+## Troubleshooting cloning errors
 
 When cloning a repository it's possible that you might encounter some errors.
 
@@ -72,7 +72,7 @@ If you're unable to clone a repository, check that:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Further reading
+## Further reading
 
 - "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
 {% endif %}

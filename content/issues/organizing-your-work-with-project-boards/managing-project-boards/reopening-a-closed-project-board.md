@@ -24,6 +24,6 @@ When you reopen a project board, you have the option to *sync* automation, which
     - To reopen your project board without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**.
   ![Reopen closed project board drop-down menu](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-### Further reading
+## Further reading
 
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"

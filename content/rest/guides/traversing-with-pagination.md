@@ -22,7 +22,7 @@ In this guide, we'll make some calls to the {% data variables.product.product_na
 the results using pagination. You can find the complete source code for this project
 in the [platform-samples][platform samples] repository.
 
-### Basics of Pagination
+## Basics of Pagination
 
 To start with, it's important to know a few facts about receiving paginated items:
 
@@ -58,7 +58,7 @@ Nice!
 
 **Always** rely on these link relations provided to you. Don't try to guess or construct your own URL.
 
-#### Navigating through the pages
+### Navigating through the pages
 
 Now that you know how many pages there are to receive, you can start navigating
 through the pages to consume the results. You do this by passing in a `page`
@@ -82,7 +82,7 @@ and more importantly, `rel="prev"` lets you know the page number of the previous
 page. Using this information, you could construct some UI that lets users jump
 between the first, previous, next, or last list of results in an API call.
 
-#### Changing the number of items received
+### Changing the number of items received
 
 By passing the `per_page` parameter, you can specify how many items you want
 each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
@@ -100,7 +100,7 @@ As you might have guessed, the `rel="last"` information says that the last page
 is now 20. This is because we are asking for more information per page about
 our results.
 
-### Consuming the information
+## Consuming the information
 
 You don't want to be making low-level curl calls just to be able to work with
 pagination, so let's write a little Ruby script that does everything we've
@@ -190,7 +190,7 @@ until last_response.rels[:next].nil?
 end
 ```
 
-### Constructing Pagination Links
+## Constructing Pagination Links
 
 Normally, with pagination, your goal isn't to concatenate all of the possible
 results, but rather, to produce a set of navigation, like this:

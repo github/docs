@@ -15,7 +15,7 @@ type: 'tutorial'
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About self-hosted runner groups
+## About self-hosted runner groups
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
@@ -31,7 +31,7 @@ When an enterprise admin grants an organization access to a runner group, organi
 
 When new runners are created, they are automatically assigned to the default group. Runners can only be in one group at a time. You can move runners from the default group to another group. For more information, see "[Moving a self-hosted runner to a group](#moving-a-self-hosted-runner-to-a-group)."
 
-### Creating a self-hosted runner group for an organization
+## Creating a self-hosted runner group for an organization
 
 All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group.
 
@@ -62,7 +62,7 @@ When creating a group, you must choose a policy that defines which repositories 
    ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. Click **Save group** to create the group and apply the policy.
 
-### Creating a self-hosted runner group for an enterprise
+## Creating a self-hosted runner group for an enterprise
 
 Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups.
 
@@ -94,13 +94,13 @@ When creating a group, you must choose a policy that defines which organizations
     ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. Click **Save group** to create the group and apply the policy.
 
-### Changing the access policy of a self-hosted runner group
+## Changing the access policy of a self-hosted runner group
 
 You can update the access policy of a runner group, or rename a runner group.
 
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 
-### Moving a self-hosted runner to a group
+## Moving a self-hosted runner to a group
 
 New self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
@@ -111,7 +111,7 @@ New self-hosted runners are automatically assigned to the default group, and can
 1. To move the runner, click on the destination group.
     ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 
-### Removing a self-hosted runner group
+## Removing a self-hosted runner group
 
 Self-hosted runners are automatically returned to the default group when their group is removed.
 

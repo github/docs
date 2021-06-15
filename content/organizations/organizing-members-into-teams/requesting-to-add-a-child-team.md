@@ -34,7 +34,7 @@ If you're an organization owner or you have team maintainer permissions in both 
 9. Click **Confirm changes** to send a request to add the child team.
   ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"
 - "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"

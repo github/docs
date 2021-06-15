@@ -27,7 +27,7 @@ You can create default support resources for your organization or user account. 
 
 {% endtip %}
 
-### Adding support resources to your project
+## Adding support resources to your project
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

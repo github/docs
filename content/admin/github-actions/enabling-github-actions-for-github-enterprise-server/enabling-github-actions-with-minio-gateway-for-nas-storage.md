@@ -9,7 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
 ---
-### Prerequisites
+## Prerequisites
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -20,7 +20,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
   
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Enabling {% data variables.product.prodname_actions %} with MinIO Gateway for NAS storage
+## Enabling {% data variables.product.prodname_actions %} with MinIO Gateway for NAS storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

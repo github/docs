@@ -12,11 +12,11 @@ versions:
 topics:
   - Enterprise
 ---
-### About SAML access to your enterprise account
+## About SAML access to your enterprise account
 
 When you enable SAML single sign-on for your enterprise account, each enterprise member can link their external identity on your identity provider (IdP) to their existing {% data variables.product.product_name %} account. {% data reusables.saml.about-saml-access-enterprise-account %}
 
-### Viewing and revoking a linked identity
+## Viewing and revoking a linked identity
 
 {% data reusables.saml.about-linked-identities %}
 
@@ -39,7 +39,7 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### Viewing and revoking an active SAML session
+## Viewing and revoking an active SAML session
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -48,7 +48,7 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### Viewing and revoking authorized credentials
+## Viewing and revoking authorized credentials
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -60,6 +60,6 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Further reading
+## Further reading
 
 - "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

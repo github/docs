@@ -1,7 +1,7 @@
 ---
 title: About coordinated disclosure of security vulnerabilities
 intro: 'Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
   free-pro-team: '*'
 type: overview
@@ -10,13 +10,13 @@ topics:
   - Vulnerabilities
 ---
 
-### About disclosing vulnerabilities in the industry
+## About disclosing vulnerabilities in the industry
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
 The initial report of a vulnerability is made privately, and the full details are only published once the maintainer has acknowledged the issue, and ideally made remediations or a patch available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" on the OWASP Cheat Sheet Series website.
 
-#### Best practices for vulnerability reporters
+### Best practices for vulnerability reporters
 
 It's good practice to report vulnerabilities privately to maintainers. When possible, as a vulnerability reporter, we recommend you avoid:
 - Disclosing the vulnerability publicly without giving maintainers a chance to remediate.
@@ -28,7 +28,7 @@ It's acceptable for vulnerability reporters to disclose a vulnerability publicly
 
 We recommend vulnerability reporters clearly state the terms of their disclosure policy as part of their reporting process. Even if the vulnerability reporter does not adhere to a strict policy, it's a good idea to set clear expectations for maintainers in terms of timelines on intended vulnerability disclosures. For an example of disclosure policy, see the "[Security Lab's disclosure policy](https://securitylab.github.com/advisories#policy)" on the GitHub Security Lab website.
 
-#### Best practices for maintainers
+### Best practices for maintainers
 
 As a maintainer, it's good practice to clearly indicate how and where you want to receive reports for vulnerabilities. If this information is not clearly available, vulnerability reporters don't know how to contact you, and may resort to extracting developer email addresses from git commit histories to try to find an appropriate security contact. This can lead to friction, lost reports, or the publication of unresolved reports.
 
@@ -43,7 +43,7 @@ Maintainers should disclose vulnerabilities in a timely manner. If there is a se
 
 Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in software, and users will trust maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
 
-### About reporting and disclosing vulnerabilities in projects on {% data variables.product.prodname_dotcom %}
+## About reporting and disclosing vulnerabilities in projects on {% data variables.product.prodname_dotcom %}
 
 The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom_the_website %} is as follows:
 

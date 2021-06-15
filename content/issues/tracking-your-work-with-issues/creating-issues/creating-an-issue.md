@@ -51,6 +51,6 @@ If you're using a project board to track and prioritize your work, you can conve
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
-### Further reading
+## Further reading
 
 - "[Writing on GitHub](/github/writing-on-github)"

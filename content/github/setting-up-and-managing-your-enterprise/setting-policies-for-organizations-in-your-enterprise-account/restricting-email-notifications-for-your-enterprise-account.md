@@ -14,10 +14,10 @@ topics:
   - Notifications
   - Policy
 ---
-### About email restrictions for your enterprise account
+## About email restrictions for your enterprise account
 
 {% data reusables.enterprise-accounts.email-restrictions-about %}
 
-### Restricting email notifications for your enterprise account
+## Restricting email notifications for your enterprise account
 
 {% data reusables.enterprise-accounts.email-restrictions-restricting %}

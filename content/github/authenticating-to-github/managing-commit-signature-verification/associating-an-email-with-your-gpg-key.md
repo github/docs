@@ -49,7 +49,7 @@ If you're using a GPG key that matches your committer identity and your verified
   ```
 11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
 
-### Further reading
+## Further reading
 
 - "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 - "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"

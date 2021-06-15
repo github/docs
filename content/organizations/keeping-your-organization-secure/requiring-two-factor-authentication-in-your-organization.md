@@ -12,7 +12,7 @@ topics:
   - Teams
 ---
 
-### About two-factor authentication for organizations
+## About two-factor authentication for organizations
 
 {% data reusables.two_fa.about-2fa %} You can require all {% if currentVersion == "free-pro-team@latest" %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
@@ -34,13 +34,13 @@ You can also require two-factor authentication for organizations in an enterpris
 
 {% data reusables.two_fa.auth_methods_2fa %}
 
-### Prerequisites
+## Prerequisites
 
 Before you can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. For more information, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
 Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/viewing-whether-users-in-your-organization-have-2fa-enabled)."
 
-### Requiring two-factor authentication in your organization
+## Requiring two-factor authentication in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -51,7 +51,7 @@ Before you require use of two-factor authentication, we recommend notifying {% i
 8. If any members or outside collaborators are removed from the organization, we recommend sending them an invitation that can reinstate their former privileges and access to your organization. They must enable two-factor authentication before they can accept your invitation.
 {% endif %}
 
-### Viewing people who were removed from your organization
+## Viewing people who were removed from your organization
 
 To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search your organization's audit log](/articles/reviewing-the-audit-log-for-your-organization/#accessing-the-audit-log) for people removed from your organization. The audit log event will show if a person was removed for 2FA non-compliance.
 
@@ -67,11 +67,11 @@ To view people who were automatically removed from your organization for non-com
 
  You can also view people who were removed from your organization by using a [time frame](/articles/reviewing-the-audit-log-for-your-organization/#search-based-on-time-of-action) in your search.
 
-### Helping removed members and outside collaborators rejoin your organization
+## Helping removed members and outside collaborators rejoin your organization
 
 If any members or outside collaborators are removed from the organization when you enable required use of two-factor authentication, they'll receive an email notifying them that they've been removed. They should then enable 2FA for their personal account, and contact an organization owner to request access to your organization.
 
-### Further reading
+## Further reading
 
 - "[Viewing whether users in your organization have 2FA enabled](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 - "[Securing your account with two-factor authentication (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa)"

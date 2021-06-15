@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.secret-scanning.beta %}
 
-### Managing {% data variables.product.prodname_secret_scanning %} alerts
+## Managing {% data variables.product.prodname_secret_scanning %} alerts
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -47,7 +47,7 @@ topics:
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
    {% endif %}
 
-### Securing compromised secrets
+## Securing compromised secrets
 
 Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.prodname_dotcom %} recommends the following actions for compromised secrets:
 
@@ -55,7 +55,7 @@ Once a secret has been committed to a repository, you should consider the secret
 - For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
+## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
 
 When a new secret is detected, {% data variables.product.prodname_dotcom %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts, or are the author of the commit that contains the secret and are not ignoring the repository.
 

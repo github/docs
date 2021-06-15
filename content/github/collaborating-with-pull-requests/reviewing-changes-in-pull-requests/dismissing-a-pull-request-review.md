@@ -25,7 +25,7 @@ This changes the status of the review to a review comment. When you dismiss a re
 5. Type your reason for dismissing the review, then click **Dismiss review**.
   ![Dismiss review button](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-### Further reading
+## Further reading
 
 - "[About pull request reviews](/articles/about-pull-request-reviews)"
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"

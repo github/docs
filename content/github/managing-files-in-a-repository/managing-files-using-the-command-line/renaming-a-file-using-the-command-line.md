@@ -39,6 +39,6 @@ Many files can be [renamed directly on {% data variables.product.product_name %}
   ```
 {% data reusables.git.git-push %}
 
-### Further reading
+## Further reading
 - "[Moving a file to a new location using the command line](/articles/moving-a-file-to-a-new-location-using-the-command-line)"
 - "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)"

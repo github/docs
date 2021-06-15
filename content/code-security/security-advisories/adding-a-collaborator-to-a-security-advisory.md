@@ -16,7 +16,7 @@ topics:
 
 People with admin permissions to a security advisory can add collaborators to the security advisory.
 
-### Adding a collaborator to a security advisory
+## Adding a collaborator to a security advisory
 
 Collaborators have write permissions to the security advisory. For more information, see "[Permission levels for security advisories](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)."
 
@@ -35,7 +35,7 @@ Collaborators have write permissions to the security advisory. For more informat
 6. Click **Add**.
   ![Add button](/assets/images/help/security/security-advisory-add-collaborator-button.png)
 
-### Further reading
+## Further reading
 
 - "[Permission levels for security advisories](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
 - "[Collaborating in a temporary private fork to resolve a security vulnerability](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

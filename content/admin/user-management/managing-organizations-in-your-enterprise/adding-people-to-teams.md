@@ -21,7 +21,7 @@ Each team has its own individually defined [access permissions for repositories 
 - Members with the owner role can add or remove existing organization members from all teams.
 - Members of teams that give admin permissions can only modify team membership and repositories for that team.
 
-### Setting up a team
+## Setting up a team
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -29,7 +29,7 @@ Each team has its own individually defined [access permissions for repositories 
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-### Mapping teams to LDAP groups (for instances using LDAP Sync for user authentication)
+## Mapping teams to LDAP groups (for instances using LDAP Sync for user authentication)
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
