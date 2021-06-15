@@ -77,7 +77,7 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
-  const hasGuidesPage = page.children.includes('/guides')
+  const hasGuidesPage = (page.children || []).includes('/guides')
   return {
     ...pick(page, [
       'title',
