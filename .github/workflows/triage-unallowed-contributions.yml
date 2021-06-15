@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
       - name: Check for existing requested changes
         id: requested-change
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: json
@@ -82,7 +82,7 @@ jobs:
       - name: Request pull request changes
         # Check for no reviews or reviews that aren't CHANGES_REQUESTED
         if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -118,7 +118,7 @@ jobs:
         # Check that unallowed files aren't modified and that a
         # CHANGES_REQUESTED review already exists
         if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
