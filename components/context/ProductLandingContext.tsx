@@ -51,6 +51,7 @@ export type ProductLandingContextT = {
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
+  hasGuidesPage: boolean
   releases: Array<{
     version: string
     firstPreviousRelease: string
@@ -76,6 +77,7 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
+  const hasGuidesPage = page.children.includes('/guides')
   return {
     ...pick(page, [
       'title',
@@ -85,6 +87,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'intro',
       'product_video',
     ]),
+    hasGuidesPage,
     product: {
       href: productTree.href,
       title: productTree.renderedShortTitle || productTree.renderedFullTitle,
@@ -131,8 +134,8 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
         return {
           label: req.context.site.data.ui.toc[key],
           viewAllHref:
-            key === 'guides' && !req.context.currentCategory
-              ? `${req.context.currentPath}/${key}`
+            key === 'guides' && !req.context.currentCategory && hasGuidesPage 
+              ? `${req.context.currentPath}/guides`
               : '',
           articles: links.map((link: any) => {
             return {

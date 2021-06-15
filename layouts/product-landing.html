@@ -56,7 +56,9 @@
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
               <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="guides"><a href="#guides">{% data ui.toc.guides %}</a></h3>
               {% unless currentCategory %}
+              {% if page.children contains "/guides" %}
                 <a href="{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
+              {% endif %}
               {% endunless %}
             </div>
             <ul class="list-style-none">
@@ -141,7 +143,9 @@
             </div>
 
             {% unless currentCategory %}
+            {% if page.children contains "/guides" %}
               <a href="{{ currentPath }}/guides" class="btn btn-outline float-right">Explore guides {% octicon "arrow-right" %}</a>
+            {% endif %}
             {% endunless %}
           </div>
         </div>
