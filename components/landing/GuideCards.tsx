@@ -10,7 +10,7 @@ import { GuideCard } from 'components/landing/GuideCard'
 export const GuideCards = () => {
   const router = useRouter()
   const { currentCategory } = useMainContext()
-  const { guideCards } = useProductLandingContext()
+  const { guideCards, hasGuidesPage } = useProductLandingContext()
   const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
 
   if (!guideCards) {
@@ -25,7 +25,7 @@ export const GuideCards = () => {
         })}
       </div>
 
-      {!currentCategory && (
+      {!currentCategory && hasGuidesPage && (
         <Link href={`${routePath}/guides`} className="btn btn-outline float-right">
           Explore guides <ArrowRightIcon />
         </Link>

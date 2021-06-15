@@ -61,6 +61,7 @@ module.exports = function (app) {
   app.use(require('./record-redirect'))
   app.use(instrument('./detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(instrument('./context'))) // Must come before early-access-*, handle-redirects
+  app.use(asyncMiddleware(instrument('./contextualizers/short-versions'))) // Support version shorthands
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
