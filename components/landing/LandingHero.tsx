@@ -34,22 +34,24 @@ export const LandingHero = () => {
         />
 
         {introLinks &&
-          Object.entries(introLinks).filter(([key, link])=> {
-            return link && !key.includes('raw')
-          }).map(([key, link], i) => {
-            if (!link) {
-              return null
-            }
-            return (
-              <FullLink
-                key={link}
-                href={link}
-                className={cx('btn-mktg bt-large f4 mt-3 mr-3', i !== 0 && 'btn-outline-mktg')}
-              >
-                {t(key)}
-              </FullLink>
-            )
-          })}
+          Object.entries(introLinks)
+            .filter(([key, link]) => {
+              return link && !key.includes('raw')
+            })
+            .map(([key, link], i) => {
+              if (!link) {
+                return null
+              }
+              return (
+                <FullLink
+                  key={link}
+                  href={link}
+                  className={cx('btn-mktg bt-large f4 mt-3 mr-3', i !== 0 && 'btn-outline-mktg')}
+                >
+                  {t(key)}
+                </FullLink>
+              )
+            })}
       </div>
 
       {product_video && (

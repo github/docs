@@ -32,7 +32,10 @@ export const TocLanding = () => {
               </div>
 
               {productCallout && (
-                <div className="product-callout border rounded-1 mb-4 p-3 color-border-success color-bg-success" dangerouslySetInnerHTML={{__html: productCallout }} />
+                <div
+                  className="product-callout border rounded-1 mb-4 p-3 color-border-success color-bg-success"
+                  dangerouslySetInnerHTML={{ __html: productCallout }}
+                />
               )}
             </div>
 
