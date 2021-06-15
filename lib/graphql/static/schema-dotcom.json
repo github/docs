@@ -57279,7 +57279,7 @@
             },
             {
               "name": "to",
-              "description": "<p>Only contributions made before and up to and including this time will be\ncounted. If omitted, defaults to the current time.</p>",
+              "description": "<p>Only contributions made before and up to (including) this time will be\ncounted. If omitted, defaults to the current time or one year from the\nprovided from argument.</p>",
               "type": {
                 "name": "DateTime",
                 "id": "datetime",
