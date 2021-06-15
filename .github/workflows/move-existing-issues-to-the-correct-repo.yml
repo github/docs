@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: move_to_correct_repo
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
