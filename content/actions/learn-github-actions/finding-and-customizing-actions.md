@@ -54,11 +54,8 @@ An action's listing page includes the action's version and the workflow syntax r
 1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
 
-{% if currentVersion == "free-pro-team@latest" %}
-
 {% data reusables.dependabot.version-updates-for-actions %}
 
-{% endif %}
 {% endif %}
 
 ### Using release management for your custom actions
