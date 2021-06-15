@@ -4,9 +4,14 @@ import { ArticleVersionPicker } from 'components/article/ArticleVersionPicker'
 import { Breadcrumbs } from 'components/Breadcrumbs'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { ArticleTitle } from 'components/article/ArticleTitle'
+import { ArticleList } from 'components/landing/ArticleList'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 export const TocLanding = () => {
-  const { title, introPlainText, tocItems, productCallout, variant } = useTocLandingContext()
+  const { title, introPlainText, tocItems, productCallout, variant, featuredLinks } =
+    useTocLandingContext()
+  const { t } = useTranslation('toc')
+
   return (
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
@@ -24,7 +29,7 @@ export const TocLanding = () => {
 
         <div className="article-grid-container">
           <div>
-            <div className="mt-8">
+            <div className="mt-7">
               <ArticleTitle>{title}</ArticleTitle>
 
               <div className="lead-mktg">
@@ -42,6 +47,28 @@ export const TocLanding = () => {
             <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0" />
 
             <div className={variant === 'expanded' ? 'mt-7' : 'mt-2'}>
+              {featuredLinks.gettingStarted && featuredLinks.popular && (
+                <div className="pb-8 container-xl">
+                  <div className="gutter gutter-xl-spacious clearfix">
+                    <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
+                      <ArticleList
+                        title={t('getting_started')}
+                        variant="spaced"
+                        articles={featuredLinks.gettingStarted}
+                      />
+                    </div>
+
+                    <div className="col-12 col-lg-6 float-left">
+                      <ArticleList
+                        title={t('popular')}
+                        variant="spaced"
+                        articles={featuredLinks.popular}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <TableOfContents items={tocItems} variant={variant} />
             </div>
           </div>

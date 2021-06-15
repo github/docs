@@ -1,5 +1,6 @@
 import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
+import { FeaturedLink, getFeaturedLinksFromReq } from './ProductLandingContext'
 
 export type TocItem = {
   fullPath: string
@@ -13,6 +14,7 @@ export type TocLandingContextT = {
   productCallout: string
   tocItems: Array<TocItem>
   variant?: 'compact' | 'expanded'
+  featuredLinks: Record<string, Array<FeaturedLink>>
 }
 
 export const TocLandingContext = createContext<TocLandingContextT | null>(null)
@@ -36,5 +38,7 @@ export const getTocLandingContextFromRequest = (req: any): TocLandingContextT =>
       pick(obj, ['fullPath', 'title', 'intro'])
     ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
+
+    featuredLinks: getFeaturedLinksFromReq(req),
   }
 }
