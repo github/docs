@@ -83,9 +83,11 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
       deployment_id: deploymentId,
       state: 'in_progress',
       description: 'Deploying the app...',
-      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'
+      // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+      // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
       mediaType: {
-        previews: ['flash']
+        previews: ['ant-man', 'flash']
       }
     })
     console.log('🚀 Deployment status: in_progress - Preparing to deploy the app...')
@@ -409,9 +411,11 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
       description: successMessage,
       ...logUrl && { log_url: logUrl },
       environment_url: homepageUrl,
-      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'
+      // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+      // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
       mediaType: {
-        previews: ['flash']
+        previews: ['ant-man', 'flash']
       }
     })
 
@@ -432,9 +436,11 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
           description: failureMessage,
           ...logUrl && { log_url: logUrl },
           environment_url: homepageUrl,
-          // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'
+          // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+          // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+          // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
           mediaType: {
-            previews: ['flash']
+            previews: ['ant-man', 'flash']
           }
         })
 
