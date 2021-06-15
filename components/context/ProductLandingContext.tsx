@@ -139,7 +139,10 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
       .map(([key, links]: any) => {
         return {
-          label: req.context.site.data.ui.toc[key],
+          label:
+            key === 'popular'
+              ? req.context.page.featuredLinks.popularHeading || req.context.site.data.ui.toc[key]
+              : req.context.site.data.ui.toc[key],
           viewAllHref:
             key === 'guides' && !req.context.currentCategory && hasGuidesPage 
               ? `${req.context.currentPath}/guides`
