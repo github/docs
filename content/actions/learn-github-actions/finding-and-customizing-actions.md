@@ -1,16 +1,16 @@
 ---
 title: Finding and customizing actions
 shortTitle: Finding and customizing actions
-intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
+intro: "Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application's repository. This guide will show you how to discover, use, and customize actions."
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
   - /actions/getting-started-with-github-actions/using-actions-from-github-marketplace
   - /actions/getting-started-with-github-actions/using-community-workflows-and-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  free-pro-team: "*"
+  enterprise-server: ">=2.22"
+  github-ae: "*"
 type: how_to
 topics:
   - Fundamentals
@@ -28,9 +28,11 @@ The actions you use in your workflow can be defined in:
 - The same repository where your workflow file references the action
 - A published Docker container image on Docker Hub
 
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community. [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category.
+{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% if currentVersion == "free-pro-team@latest" %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 ## Browsing Marketplace actions in the workflow editor
 
@@ -38,9 +40,9 @@ You can search and browse actions directly in your repository's workflow editor.
 
 1. In your repository, browse to the workflow file you want to edit.
 1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
+   ![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
 1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
+   ![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
 ## Adding an action to your workflow
 
@@ -48,11 +50,9 @@ An action's listing page includes the action's version and the workflow syntax r
 
 1. Navigate to the action you want to use in your workflow.
 1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
-![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
+   ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
 1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
-
-{% if currentVersion == "free-pro-team@latest" %}
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
@@ -70,7 +70,7 @@ Tags are useful for letting you decide when to switch between major and minor ve
 
 ```yaml
 steps:
-    - uses: actions/javascript-action@v1.0.1
+  - uses: actions/javascript-action@v1.0.1
 ```
 
 ### Using SHAs
@@ -79,7 +79,7 @@ If you need more reliable versioning, you should use the SHA value associated wi
 
 ```yaml
 steps:
-    - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+  - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
 ```
 
 ### Using branches
@@ -88,7 +88,7 @@ Specifying a target branch for the action means it will always run the version c
 
 ```yaml
 steps:
-    - uses: actions/javascript-action@main
+  - uses: actions/javascript-action@main
 ```
 
 For more information, see "[Using release management for actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
@@ -102,19 +102,20 @@ To see the inputs and outputs of an action, check the `action.yml` or `action.ya
 In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
 
 ```yaml
-name: 'Example'
-description: 'Receives file and generates output'
+name: "Example"
+description: "Receives file and generates output"
 inputs:
-  file-path:  # id of input
+  file-path: # id of input
     description: "Path to test script"
     required: true
-    default: 'test-file.js'
+    default: "test-file.js"
 outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
 
 {% if currentVersion == "github-ae@latest" %}
+
 ## Using the actions included with {% data variables.product.prodname_ghe_managed %}
 
 By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
