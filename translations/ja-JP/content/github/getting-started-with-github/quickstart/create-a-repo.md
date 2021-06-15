@@ -15,11 +15,12 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### リポジトリの作成
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 [オープンソースプロジェクト](http://opensource.org/about)では、より優れた信頼性のあるソフトウェアを作成するためにコードを共有できます。
+オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 [オープンソースプロジェクト](http://opensource.org/about)では、より優れた信頼性のあるソフトウェアを作成するためにコードを共有できます。 You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
@@ -39,9 +40,7 @@ topics:
 
 {% data reusables.repositories.create_new %}
 2. リポジトリに、短くて覚えやすい名前を入力します。 たとえば、"hello-world" といった名前です。 ![リポジトリ名を入力するフィールド](/assets/images/help/repository/create-repository-name.png)
-3. 必要な場合、リポジトリの説明を追加します。 たとえば、「
-{% data variables.product.product_name %} の最初のリポジトリ」などです。
-  ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
+3. 必要な場合、リポジトリの説明を追加します。 たとえば、「{% data variables.product.product_name %} の最初のリポジトリ」などです。 ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -79,6 +78,7 @@ topics:
 
 - [Git をセットアップする](/articles/set-up-git)
 - **リポジトリの作成**
+- "[Clone a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
 - [リポジトリをフォークする](/articles/fork-a-repo)
 - [交流する](/articles/be-social)
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

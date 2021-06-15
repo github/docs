@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 以下は、Marketplaceのリストで利用できる便利なエンドポイントです。
 
 * [プランのリスト](/rest/reference/apps#list-plans)

@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
 ---
+
 ### {% data variables.product.prodname_GH_advanced_security %} について
 
 {% data reusables.advanced-security.ghas-helps-developers %}

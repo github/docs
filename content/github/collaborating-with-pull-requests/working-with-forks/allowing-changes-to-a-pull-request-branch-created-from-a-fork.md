@@ -19,7 +19,7 @@ Pull request authors can give these permissions when they initially create a pul
 
 You can set commit permissions when you first create a pull request from a fork. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)." Additionally, you can modify an existing pull request to let repository maintainers make commits to your branch.
 
-### Enabling repository maintainer permissions on existing pull requests
+## Enabling repository maintainer permissions on existing pull requests
 
 1. On {% data variables.product.product_name %}, navigate to the main page of the upstream repository of your pull request.
 2. Under the upstream repository name, click {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests**.
@@ -29,6 +29,6 @@ You can set commit permissions when you first create a pull request from a fork.
 
   ![allow-maintainers-to-make-edits-sidebar-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits-sidebar-checkbox.png)
 
-### Further reading
+## Further reading
 
 - "[Committing changes to a pull request branch created from a fork](/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

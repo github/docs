@@ -1,4 +1,4 @@
-- [最低要求](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
+- [最低要求](#minimum-requirements){% if currentversion == "enterprise-server@2.22" %}
 - [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222){% endif %}
 - [存储器](#storage)
 - [CPU 和内存](#cpu-and-memory)

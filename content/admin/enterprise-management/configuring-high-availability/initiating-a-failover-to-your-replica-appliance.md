@@ -45,6 +45,6 @@ The time required to failover depends on how long it takes to manually promote t
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### Further reading
+## Further reading
 
 - "[Utilities for replication management](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

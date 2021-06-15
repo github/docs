@@ -21,6 +21,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### Preparar para a atualização
 
 1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".

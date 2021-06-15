@@ -1,7 +1,7 @@
 ---
-title: GitHub Enterprise guides
+title: GitHub Enterprise 指南
 shortTitle: 指南
-intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
+intro: '学习如何通过 {% data variables.product.product_name %} 提高开发人员的工作效率和代码质量。'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:

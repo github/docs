@@ -11,7 +11,7 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
 ---
-### About authentication to {% data variables.product.prodname_dotcom %}
+## About authentication to {% data variables.product.prodname_dotcom %}
 
 To keep your account secure, you must authenticate before you can access{% if currentVersion != "github-ae@latest" %} certain{% endif %} resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be. 
 
@@ -21,7 +21,7 @@ You can access your resources in {% data variables.product.product_name %} in a 
 - Personal access token
 - SSH key
 
-### Authenticating in your browser
+## Authenticating in your browser
 
 You can authenticate to {% data variables.product.product_name %} in your browser {% if currentVersion == "github-ae@latest" %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
 
@@ -32,11 +32,11 @@ You can authenticate to {% data variables.product.product_name %} in your browse
     - In addition to authentication with a mobile application or a text message, you can optionally add a secondary method of authentication with a security key using WebAuthn. For more information, see "[Configuring two-factor authentication using a security key](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 {% endif %}
 
-### Authenticating with {% data variables.product.prodname_desktop %}
+## Authenticating with {% data variables.product.prodname_desktop %}
 
 You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
 
-### Authenticating with the API
+## Authenticating with the API
 
 You can authenticate with the API in different ways.
 
@@ -47,7 +47,7 @@ You can authenticate with the API in different ways.
 - **GitHub Apps**
     - For GitHub Apps in production, you should authenticate on behalf of the app installation. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/)."
 
-### Authenticating with the command line
+## Authenticating with the command line
 
 You can access repositories on {% data variables.product.product_name %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
@@ -59,7 +59,7 @@ You can access repositories on {% data variables.product.product_name %} from th
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 
-### {% data variables.product.company_short %}'s token formats
+## {% data variables.product.company_short %}'s token formats
 
 {% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
 

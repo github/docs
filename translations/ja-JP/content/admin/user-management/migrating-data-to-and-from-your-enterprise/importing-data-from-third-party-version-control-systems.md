@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Mercurialからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}

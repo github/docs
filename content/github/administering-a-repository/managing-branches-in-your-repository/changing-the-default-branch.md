@@ -13,7 +13,7 @@ redirect_from:
 topics:
   - Repositories
 ---
-### About changing the default branch
+## About changing the default branch
 
 You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
@@ -37,11 +37,11 @@ You can also rename the default branch. For more information, see "[Renaming a b
 
 {% endif %}
 
-### Prerequisites
+## Prerequisites
 
 To change the default branch, your repository must have more than one branch. For more information, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
-### Changing the default branch
+## Changing the default branch
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 

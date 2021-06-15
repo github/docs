@@ -24,21 +24,21 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-### Canceling an app for your personal account
+## Canceling an app for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Canceling a free trial for an app for your personal account
+## Canceling a free trial for an app for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Canceling an app for your organization
+## Canceling an app for your organization
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -49,7 +49,7 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Canceling a free trial for an app for your organization
+## Canceling a free trial for an app for your organization
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
@@ -33,7 +34,7 @@ topics:
 
 ### インスタンスタイプの決定
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+AWS で{% data variables.product.product_location %} を起動する前に、Organization のニーズに最適なマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

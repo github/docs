@@ -15,7 +15,7 @@ Once your server is configured to receive payloads, it'll listen for any payload
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Setting your secret token
+## Setting your secret token
 
 You'll need to set up your secret token in two places: GitHub and your server.
 
@@ -34,7 +34,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 **Never** hardcode the token into your app!
 
-### Validating payloads from GitHub
+## Validating payloads from GitHub
 
 When your secret token is set, {% data variables.product.product_name %} uses it to create a hash signature with each payload. This hash signature is included with the headers of each request as {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
 
@@ -89,7 +89,7 @@ end{% endif %}
 
 Your language and server implementations may differ from this example code. However, there are a number of very important things to point out:
 
-* No matter which implementation you use, the hash signature starts with {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, using the key of your secret token and your payload body.
+* No matter which implementation you use, the hash signature starts with {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, using the key of your secret token and your payload body.
 
 * Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 

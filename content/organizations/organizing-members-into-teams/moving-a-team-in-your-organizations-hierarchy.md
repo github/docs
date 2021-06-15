@@ -40,6 +40,6 @@ Organization owners can change the parent of any team. Team maintainers can chan
 9. Click **Confirm new parent team**.
   ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"

@@ -1,6 +1,6 @@
 ---
 title: 使用 GitHub
-intro: ''
+intro: '探索来自不同平台和设备的 {% data variables.product.company_short %} 产品。'
 redirect_from:
   - /articles/using-github
 versions:

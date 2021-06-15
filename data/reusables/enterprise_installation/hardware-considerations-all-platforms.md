@@ -3,13 +3,13 @@
 - [Storage](#storage)
 - [CPU and memory](#cpu-and-memory)
 
-#### Minimum requirements
+### Minimum requirements
 
 We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-#### Storage
+### Storage
 
 We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
 
@@ -23,7 +23,7 @@ To configure{% if currentVersion == "enterprise-server@2.22" %} the beta of{% en
 
 You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
 
-#### CPU and memory
+### CPU and memory
 
 The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 

@@ -17,6 +17,7 @@ topics:
   - Enterprise
   - Pages
 ---
+
 ### Habilitar sites públicos para {% data variables.product.prodname_pages %}
 
 {% if enterpriseServerVersions contains currentVersion %}Se o modo privado for habilitado na sua empresa, o {% else %}O {% endif %}público não poderá acessar sites de {% data variables.product.prodname_pages %} hospedados pela sua empresa, a menos que você habilite os sites públicos.
@@ -44,8 +45,7 @@ topics:
 ### Desabilitar {% data variables.product.prodname_pages %} para a sua empresa
 
 {% if enterpriseServerVersions contains currentVersion %}
-Se o isolamento de subdomínio estiver desabilitado para sua empresa, você também deverá desabilitar
-{% data variables.product.prodname_pages %} para proteger você de possíveis vulnerabilidades de segurança. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/admin/configuration/enabling-subdomain-isolation)".
+Se o isolamento de subdomínio estiver desabilitado para sua empresa, você também deverá desabilitar {% data variables.product.prodname_pages %} para se proteger de possíveis vulnerabilidades de segurança. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/admin/configuration/enabling-subdomain-isolation)".
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}

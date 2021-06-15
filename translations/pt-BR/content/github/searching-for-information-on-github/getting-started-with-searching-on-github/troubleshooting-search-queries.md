@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 ### Possíveis tempos limite
 
 Algumas consultas têm uma computação dispendiosa para a nossa infraestrutura de pesquisa executar. Para manter a pesquisa rápida para todos, limitamos o tempo de execução das consultas individuais. Nas raras situações em que uma consulta excede o tempo limite, a pesquisa retorna todas as correspondências encontradas antes do tempo limite e informa a ocorrência dele.

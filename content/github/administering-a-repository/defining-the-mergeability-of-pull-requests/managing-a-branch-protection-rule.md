@@ -25,7 +25,7 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 ---
-### About branch protection rules
+## About branch protection rules
 
 {% data reusables.repositories.branch-rules-example %}
 
@@ -39,7 +39,7 @@ To create an exception to an existing branch rule, you can create a new branch p
 
 For more information about each of each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
-### Creating a branch protection rule
+## Creating a branch protection rule
 
 When you create a branch rule, the branch you specify doesn't have to exist yet in the repository.
 
@@ -65,7 +65,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
    - From the list of available status checks, select the checks you want to require.
      ![List of available status checks](/assets/images/help/repository/required-statuses-list.png)
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@issue-4382" %}
 1. Optionally, select **Require conversation resolution before merging**.
   ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
 {%- endif %}
@@ -86,7 +86,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
 1. Click **Create**.
 
-### Editing a branch protection rule
+## Editing a branch protection rule
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -97,7 +97,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Click **Save changes**.
   ![Save changes button](/assets/images/help/repository/save-branch-protection-rule.png)
 
-### Deleting a branch protection rule
+## Deleting a branch protection rule
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

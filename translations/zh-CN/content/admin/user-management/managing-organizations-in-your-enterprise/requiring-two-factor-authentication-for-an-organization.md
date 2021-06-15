@@ -8,12 +8,13 @@ versions:
   enterprise-server: '*'
 type: how_to
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies
   - Security
 ---
+
 使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
@@ -36,9 +37,8 @@ topics:
 
 在您要求使用双重身份验证之前，我们建议通知组织成员和外部协作者，并要求他们为帐户设置双重身份验证。 您可以在组织的 People 选项卡上[查看成员和外部协作者是否已使用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}

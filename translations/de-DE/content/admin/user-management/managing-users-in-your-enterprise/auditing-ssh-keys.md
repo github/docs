@@ -15,6 +15,7 @@ topics:
   - Security
   - SSH
 ---
+
 Sobald das Audit initiiert ist, werden alle vorhandenen SSH-Schlüssel deaktiviert und Benutzer gezwungen, sie zu genehmigen oder abzulehnen, bevor sie diese klonen, abrufen oder per Push-Vorgang an Repositorys übertragen können. Ein Audit eignet sich in Situationen, in denen ein Mitarbeiter oder Vertragsnehmer das Unternehmen verlässt und Sie sicherstellen müssen, dass alle Schlüssel verifiziert sind.
 
 ### Audit initiieren

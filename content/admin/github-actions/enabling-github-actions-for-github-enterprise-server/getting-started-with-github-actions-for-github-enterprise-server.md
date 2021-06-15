@@ -24,7 +24,7 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% endif %}
 
-### Review hardware considerations
+## Review hardware considerations
 
 {% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
 
@@ -61,7 +61,7 @@ For more information about minimum hardware requirements for {% data variables.p
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
-### External storage requirements
+## External storage requirements
 
 To enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, you must have access to external blob storage.
 
@@ -81,15 +81,15 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Amazon S3 permissions
+### Amazon S3 permissions
 
 {% data reusables.actions.enterprise-s3-permission %}
 
-### Enabling {% data variables.product.prodname_actions %}
+## Enabling {% data variables.product.prodname_actions %}
 
 {% data variables.product.prodname_actions %} support on {% data variables.product.prodname_ghe_server %} 2.22 was available as a limited beta. To configure {% data variables.product.prodname_actions %} for your instance, upgrade to {% data variables.product.prodname_ghe_server %} 3.0 or later. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes) and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
 
-### Further reading
+## Further reading
 
 - "Hardware considerations" for your platform in "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)"
 
@@ -97,7 +97,7 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-### Enabling {% data variables.product.prodname_actions %} with your storage provider
+## Enabling {% data variables.product.prodname_actions %} with your storage provider
 
 Follow one of the procedures below to enable {% data variables.product.prodname_actions %} with your chosen storage provider:
 
@@ -105,23 +105,23 @@ Follow one of the procedures below to enable {% data variables.product.prodname_
 * [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
 * [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
-### Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
+## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 
 You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
 
-### Adding self-hosted runners
+## Adding self-hosted runners
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
-### Managing which actions can be used in your enterprise
+## Managing which actions can be used in your enterprise
 
 You can control which actions your users are allowed to use in your enterprise. This includes setting up {% data variables.product.prodname_github_connect %} for automatic access to actions from {% data variables.product.prodname_dotcom_the_website %}, or manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}.
 
 For more information, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
 
-### General security hardening for {% data variables.product.prodname_actions %} 
+## General security hardening for {% data variables.product.prodname_actions %} 
 
 If you want to learn more about security practices for {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
 

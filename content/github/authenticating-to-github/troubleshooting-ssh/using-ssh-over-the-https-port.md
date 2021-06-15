@@ -25,7 +25,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
 
-### Enabling SSH connections over HTTPS
+## Enabling SSH connections over HTTPS
 
 If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.product.product_location %} to run though that server and port.
 

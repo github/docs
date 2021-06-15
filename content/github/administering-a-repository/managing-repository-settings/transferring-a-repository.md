@@ -20,7 +20,7 @@ versions:
 topics:
   - Repositories
 ---
-### About repository transfers
+## About repository transfers
 
 When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, project boards, and settings.
 
@@ -33,7 +33,7 @@ Prerequisites for repository transfers: {% if currentVersion == "free-pro-team@l
 
 {% if currentVersion == "free-pro-team@latest" %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
-#### What's transferred with a repository?
+### What's transferred with a repository?
 
 When you transfer a repository, its issues, pull requests, wiki, stars, and watchers are also transferred. If the transferred repository contains webhooks, services, secrets, or deploy keys, they will remain associated after the transfer is complete. Git information about commits, including contributions, is preserved. In addition:
 
@@ -50,13 +50,13 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-#### Repository transfers and organizations
+### Repository transfers and organizations
 
 To transfer repositories to an organization, you must have repository creation permissions in the receiving organization. If organization owners have disabled repository creation by organization members, only organization owners can transfer repositories out of or into the organization.
 
 Once a repository is transferred to an organization, the organization's default repository permission settings and default membership privileges will apply to the transferred repository.
 
-### Transferring a repository owned by your user account
+## Transferring a repository owned by your user account
 
 You can transfer your repository to any user account that accepts your repository transfer. When a repository is transferred between two user accounts, the original repository owner and collaborators are automatically added as collaborators to the new repository.
 
@@ -66,7 +66,7 @@ You can transfer your repository to any user account that accepts your repositor
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.transfer-repository-steps %}
 
-### Transferring a repository owned by your organization
+## Transferring a repository owned by your organization
 
 If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your user account or to another organization.
 

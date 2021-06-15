@@ -16,7 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
 ---
-### About SAML SSO
+## About SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -30,7 +30,7 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% endif %}
 
-### Supported identity providers
+## Supported identity providers
 
 {% data variables.product.product_name %} supports SAML SSO with IdPs that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
@@ -40,7 +40,7 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 - Azure AD
 {% endif %}
 
-### Enabling SAML SSO
+## Enabling SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -62,7 +62,7 @@ During initialization for {% data variables.product.product_name %}, you must co
 
 {% endif %}
 
-### Editing the SAML SSO configuration
+## Editing the SAML SSO configuration
 
 If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.product.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
 
@@ -92,7 +92,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 
 {% endif %}
 
-### Disabling SAML SSO
+## Disabling SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 

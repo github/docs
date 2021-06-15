@@ -10,13 +10,13 @@ topics:
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/about-repository-visibility
 ---
+
 ### Sobre a visibilidade do repositório
 
 {% if currentVersion == "github-ae@latest" %}Ao criar um repositório pertencente à sua conta de usuário, o repositório é sempre privado. Ao criar um repositório pertencente a uma organização, você pode optar por tornar o repositório privado ou interno.{% else %}Ao criar um repositório, você pode escolher tornar o repositório público ou privado.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} Se você estiver criando o repositório em uma organização{% if currentVersion == "free-pro-team@latest" %} pertencente a uma conta corporativa{% endif %}, você também poderá optar por tornar o repositório interno.{% endif %}{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-Se
-{% data variables.product.product_location %} não está em modo privado ou por trás de um firewall, repositórios públicos podem ser acessados por todos na internet. Caso contrário, os repositórios públicos estarão disponíveis para todos usando {% data variables.product.product_location %}, incluindo colaboradores externos. Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização. {% if currentVersion ver_gt "enterprise-server@2.19" %} Repositórios internos podem ser acessados pelo integrantes da empresa. Para obter mais informações, consulte "[Sobre repositórios internos](#about-internal-repositories)."{% endif %}
+Se {% data variables.product.product_location %} não estiver em modo privado ou por trás de um firewall, repositórios públicos poderão ser acessados por todos na internet. Caso contrário, os repositórios públicos estarão disponíveis para todos usando {% data variables.product.product_location %}, incluindo colaboradores externos. Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização. {% if currentVersion ver_gt "enterprise-server@2.19" %} Repositórios internos podem ser acessados pelo integrantes da empresa. Para obter mais informações, consulte "[Sobre repositórios internos](#about-internal-repositories)."{% endif %}
 {% elsif currentVersion == "github-ae@latest" %}
 Os repositórios só podem ser acessados por você, pelas pessoas com as quais você compartilha explicitamente o acesso e, para repositórios da organização, por determinados integrantes da organização. Repositórios internos podem ser acessados por todos os integrantes da empresa. Para obter mais informações, consulte "[Sobre repositórios internos](#about-internal-repositories)."
 {% else %}

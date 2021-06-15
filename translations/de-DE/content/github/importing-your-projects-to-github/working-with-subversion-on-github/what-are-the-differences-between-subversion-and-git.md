@@ -9,6 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### Verzeichnisstruktur
 
 Jede *Referenz* oder gekennzeichnete Snapshot eines Commits in einem Projekt ist in bestimmten Unterverzeichnissen organisiert, beispielsweise `trunk`, `branches` und `tags`. Beispielsweise kann ein SVN-Projekt mit zwei in Entwicklung befindlichen Features wie folgt aussehen:

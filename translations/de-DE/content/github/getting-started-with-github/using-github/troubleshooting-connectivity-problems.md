@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Häufig treten Verbindungsprobleme auf, weil eine Firewall, ein Proxyserver, das Unternehmensnetzwerk oder ein anderes Netzwerk so konfiguriert ist, dass {% data variables.product.prodname_dotcom %} blockiert wird.
 
 ### Allowing {% data variables.product.prodname_dotcom %}'s IP addresses

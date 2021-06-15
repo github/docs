@@ -25,13 +25,14 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 {% endwarning %}
 
-### Configuring two-factor authentication using a TOTP mobile app
+## Configuring two-factor authentication using a TOTP mobile app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
 - [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
+- [Keeper](https://docs.keeper.io/enterprise-guide/storing-two-factor-codes)
 
 {% tip %}
 
@@ -55,7 +56,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Configuring two-factor authentication using text messages
+## Configuring two-factor authentication using text messages
 
 If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
 
@@ -80,7 +81,7 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 {% endif %}
 
-### Configuring two-factor authentication using a security key
+## Configuring two-factor authentication using a security key
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
@@ -104,7 +105,7 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 	![Download recovery codes button](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
 - "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"

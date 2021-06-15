@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-### About repository templates
+## About repository templates
 
 Anyone with read permissions to a template repository can create a repository from that template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."
 
@@ -34,7 +34,7 @@ Creating a repository from a template is similar to forking a repository, but th
 
 For more information about forks, see "[About forks](/articles/about-forks)."
 
-### Creating a repository from a template
+## Creating a repository from a template
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Above the file list, click **Use this template**.

@@ -30,7 +30,7 @@ When you open an issue from code, the issue contains a snippet showing the line 
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-### Further reading
+## Further reading
 
 - "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)"
 - "[Getting permanent links to files](/github/managing-files-in-a-repository/getting-permanent-links-to-files)"
