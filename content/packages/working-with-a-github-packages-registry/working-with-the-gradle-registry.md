@@ -164,9 +164,9 @@ subprojects {
    $ gradle publish
   ```
   
-## Using a package
+## Using a published package
 
-To use a package from {% data variables.product.prodname_registry %} without installing the package, add the package as a dependency and add the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
+To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and add the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
@@ -209,47 +209,6 @@ To use a package from {% data variables.product.prodname_registry %} without ins
           }
       }
   }
-  ```
-
-## Installing a package
-
-You can install a package by adding the package as a dependency to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
-
-{% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
-
-  Example using Gradle Groovy:
-  ```shell
-  dependencies {
-      implementation 'com.example:package'
-  }
-  ```
-  Example using Kotlin DSL:
-  ```shell
-  dependencies {
-      implementation("com.example:package")
-  }
-  ```
-
-3. Add the maven plugin to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
-
-  Example using Gradle Groovy:
-  ```shell
-  plugins {
-      id 'maven'
-  }
-  ```
-  Example using Kotlin DSL:
-  ```shell
-  plugins {
-      `maven`
-  }
-  ```
-
-  3. Install the package.
-
-  ```shell
-  $ gradle install
   ```
 
 ## Further reading
