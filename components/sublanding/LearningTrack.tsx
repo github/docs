@@ -9,9 +9,9 @@ type Props = {
 
 const MAX_VISIBLE_GUIDES = 4
 export const LearningTrack = ({ track }: Props) => {
-  const [visibleGuides, setVisibleGuides] = useState(track.guides?.slice(0, 4))
+  const [visibleGuides, setVisibleGuides] = useState(track?.guides?.slice(0, 4))
   const showAll = () => {
-    setVisibleGuides(track.guides)
+    setVisibleGuides(track?.guides)
   }
   const { t } = useTranslation('product_sublanding')
 
@@ -21,16 +21,16 @@ export const LearningTrack = ({ track }: Props) => {
         <div className="Box-header bg-gradient--blue-pink p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-8 col-md-12 col-xl-8">
             <div className="my-xl-0 mr-xl-3">
-              <h5 className="mb-3 color-text-inverse font-mktg h3-mktg ">{track.title}</h5>
+              <h5 className="mb-3 color-text-inverse font-mktg h3-mktg ">{track?.title}</h5>
               <p className="color-text-inverse truncate-overflow-3 learning-track--description">
-                {track.description}
+                {track?.description}
               </p>
             </div>
           </div>
           <a
             className="d-inline-block border color-border-inverse color-text-inverse px-3 py-2 f5 no-underline text-bold no-wrap mt-3 mt-md-0"
             role="button"
-            href={`${track.guides && track.guides[0].href}?learn=${track.trackName}`}
+            href={`${track?.guides && track?.guides[0].href}?learn=${track?.trackName}`}
           >
             {t('start')}
             <span className="mr-2">
@@ -42,10 +42,10 @@ export const LearningTrack = ({ track }: Props) => {
           <div>
             <a
               className="Box-row d-flex flex-items-center color-text-primary no-underline js-show-more-item"
-              href={`${guide.href}?learn=${track.trackName}`}
+              href={`${guide.href}?learn=${track?.trackName}`}
             >
               <div className="circle color-bg-tertiary d-inline-flex mr-4">
-                {track.guides && (
+                {track?.guides && (
                   <span className="m-2 f3 lh-condensed-ultra text-center text-bold step-circle-text">
                     {track.guides?.indexOf(guide) + 1}
                   </span>
@@ -56,7 +56,7 @@ export const LearningTrack = ({ track }: Props) => {
                 {t('guide_types')[guide.page.type]}
               </div>
             </a>
-            {track.guides && track.guides?.indexOf(guide) + 1 === MAX_VISIBLE_GUIDES ? (
+            {track?.guides && track?.guides?.indexOf(guide) + 1 === MAX_VISIBLE_GUIDES ? (
               <button
                 className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-text-link pt-1 pb-3 col-12 js-show-more-button"
                 onClick={showAll}
@@ -66,7 +66,7 @@ export const LearningTrack = ({ track }: Props) => {
                   style={{ bottom: '50px' }}
                 ></div>
                 <span>
-                  Show {track.guides?.length - MAX_VISIBLE_GUIDES} {t(`more_guides`)}
+                  Show {track?.guides?.length - MAX_VISIBLE_GUIDES} {t(`more_guides`)}
                 </span>
               </button>
             ) : (
