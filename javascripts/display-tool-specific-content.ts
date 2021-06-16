@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { sendEvent, EventType } from './events'
 
@@ -29,7 +30,9 @@ export default function displayToolSpecificContent() {
       event.preventDefault()
       const target = event.target as HTMLElement
       highlightTabForTool(target.dataset.tool || '')
-      showToolSpecificContent(target.dataset.tool || '', toolElements)
+      preserveAnchorNodePosition(document, () => {
+        showToolSpecificContent(target.dataset.tool || '', toolElements)
+      })
 
       // Save this preference as a cookie.
       Cookies.set('toolPreferred', target.dataset.tool || '', { sameSite: 'strict', secure: true })
@@ -76,7 +79,8 @@ function getDefaultTool(detectedTools: Array<string>): string {
 
   // If there is a default tool and the tool is present on this page
   const defaultToolEl = document.querySelector('[data-default-tool]') as HTMLElement
-  const defaultToolValue = defaultToolEl.dataset.defaultTool
+
+  const defaultToolValue = defaultToolEl ? defaultToolEl.dataset.defaultTool : ''
   if (defaultToolValue && detectedTools.includes(defaultToolValue)) {
     return defaultToolValue
   }
