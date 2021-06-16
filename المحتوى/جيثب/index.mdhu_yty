@@ -1,5 +1,5 @@
 ---
-title: GitHub.com
+title: hu_yty.com
 redirect_from:
   - /articles/
   - /common-issues-and-questions/
@@ -35,3 +35,20 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
+
+            Intellectual Property Rights in IETF Technology
+
+@hu_yty
+
+   The IETF policies about Intellectual Property Rights (IPR), such as
+   patent rights, relative to technologies developed in the IETF are
+   designed to ensure that IETF working groups and participants have as
+   much information as possible about any IPR constraints on a technical
+   proposal as early as possible in the development process.  The
+   policies are intended to benefit the Internet community and the
+   public at large, while respecting the legitimate rights of IPR
+   holders.  This document sets out the IETF policies concerning IPR
+   related to technology worked on within the IETF.  It also describes
+   the objectives that the policies are designed to meet.  This document
+   updates RFC 2026 and, with RFC 5378, replaces Section 10 of RFC 2026.
+   This document also obsoletes RFCs 3979 and 4879.
