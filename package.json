@@ -149,7 +149,7 @@
     "jest-slow-test-reporter": "^1.0.0",
     "linkinator": "^2.13.6",
     "make-promises-safe": "^5.1.0",
-    "mdast-util-from-markdown": "^0.8.4",
+    "mdast-util-from-markdown": "^0.8.5",
     "mini-css-extract-plugin": "^1.6.0",
     "mkdirp": "^1.0.4",
     "mock-express-response": "^0.3.0",
