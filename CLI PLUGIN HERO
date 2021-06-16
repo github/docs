@@ -1,0 +1,1 @@
+heroku plugins:install heroku-repo
