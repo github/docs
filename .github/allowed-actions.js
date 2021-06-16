@@ -10,7 +10,6 @@ module.exports = [
   "actions/labeler@5f867a63be70efff62b767459b009290364495eb", // v2.2.0
   "actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e", // v2.1.4
   "actions/setup-python@dc73133d4da04e56a135ae2246682783cc7c7cb6", // v2.2.2
-  "ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262", // v1.64.1
   "actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da", // v3.0.16
   "alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9",
   "andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84",
