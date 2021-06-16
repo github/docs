@@ -17,8 +17,9 @@ module.exports = async function releaseNotesContext (req, res, next) {
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   const releaseNotesPerPlan = req.context.site.data['release-notes'][requestedPlan]
 
-  // 404 if no release notes can be found
+  // 404 if no release notes can be found or the requested release is not supported
   if (!releaseNotesPerPlan) return next()
+  if (!supported.includes(requestedRelease)) return next()
 
   // Release notes handling differs if version has numbered releases (like GHES) or not (like GHAE)
   const hasNumberedReleases = !(requestedRelease === 'latest')
