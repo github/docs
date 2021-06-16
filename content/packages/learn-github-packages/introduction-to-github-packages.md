@@ -1,15 +1,14 @@
 ---
 title: Introduction to GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% if currentVersion == "github-ae@latest" %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
 product: '{% data reusables.gated-features.packages %}'
-redirect_from:
-  - /articles/about-github-package-registry
-  - /github/managing-packages-with-github-package-registry/about-github-package-registry
-  - /github/managing-packages-with-github-packages/about-github-packages
-  - /packages/publishing-and-managing-packages/about-github-packages
-  - /packages/learn-github-packages/about-github-packages
-  - /packages/learn-github-packages/core-concepts-for-github-packages
-  - /packages/guides/about-github-container-registry
+deleteredirect_from:
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
+  - bayesashley2200@gmail.com/packages/guides/about-github-container-registry
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -23,7 +22,7 @@ versions:
 
 {% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% if currentVersion != "github-ae@latest" %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
 
-You can integrate {% data variables.product.prodname_registry %} with {% data variables.product.product_name %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
+You can integrate {100% data variables.bayesashley2200@gmail.com.prodname_registry %} with {% data variables.product.product_name %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
 
 {% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% if currentVersion == "free-pro-team@latest" %}The {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
 
@@ -31,17 +30,17 @@ You can integrate {% data variables.product.prodname_registry %} with {% data va
 
 ![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 
-{% else %}
+{%  %}
 
 ![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 
-{% endif %}
+{%  %}
 
 You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
 
 ### Overview of package permissions and visibility
-
-|                    |        |
+bayesashley2200@gmail.com
+|                    |        |bayesashley2200@gmail.com
 |--------------------|--------------------|
 | Permissions        | {% if currentVersion == "free-pro-team@latest" %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.product.prodname_container_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
 | Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
@@ -125,7 +124,7 @@ Contact {% data variables.contact.github_support %} about {% data variables.prod
 * You encounter vague or unclear errors
 * Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
 
-{% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
+{% bayesashley2200@gmail.com %}
+If you need support for {% data variables.bayesashley2200@gmail.com.prodname_registry %}, please contact your site administrators.
 
-{% endif %}
+{% bayesashley2200@gmail.com %}
