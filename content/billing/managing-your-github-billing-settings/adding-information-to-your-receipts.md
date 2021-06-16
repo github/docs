@@ -12,7 +12,6 @@ redirect_from:
   - /articles/how-can-i-add-extra-information-to-my-organization-s-receipts/
   - /articles/adding-information-to-your-organization-s-receipts/
   - /articles/adding-information-to-your-receipts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-information-to-your-receipts
 versions:
   free-pro-team: '*'
@@ -30,14 +29,14 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endwarning %}
 
-### Adding information to your personal account's receipts
+## Adding information to your personal account's receipts
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-### Adding information to your organization's receipts
+## Adding information to your organization's receipts
 
 {% note %}
 

@@ -1,7 +1,7 @@
 ---
 title: Audited actions
 intro: You can search the audit log for a wide variety of actions.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/articles/audited-actions/
   - /enterprise/admin/installation/audited-actions
@@ -17,7 +17,7 @@ topics:
   - Security
 ---
 
-### Authentication
+## Authentication
 
 Action                               | Description
 ------------------------------------ | ----------------------------------------
@@ -40,13 +40,13 @@ Action                               | Description
   [2fa]: /articles/about-two-factor-authentication
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
-### Hooks
+## Hooks
 
 Action                            | Description
 --------------------------------- | -------------------------------------------
@@ -55,7 +55,7 @@ Action                            | Description
 `hook.destroy`                    | A hook was deleted.
 `hook.events_changed`             | A hook's configured events were changed.
 
-### Enterprise configuration settings
+## Enterprise configuration settings
 
 Action                                          | Description
 ----------------------------------------------- | -------------------------------------------{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
@@ -67,7 +67,7 @@ Action                                          | Description
 
 {% if currentVersion == "github-ae@latest" %}
 
-### IP allow lists
+## IP allow lists
 
 Name                                 | Description
 ------------------------------------:| -----------------------------------------------------------
@@ -81,7 +81,7 @@ Name                                 | Description
 
 {% endif %}
 
-### Issues and pull requests
+## Issues and pull requests
 
 Action                               | Description
 ------------------------------------ | -----------------------------------------------------------
@@ -90,7 +90,7 @@ Action                               | Description
 `pull_request_review_comment.delete` | A comment on a pull request was deleted.
 `issue.destroy`                      | An issue was deleted from the repository. For more information, see "[Deleting an issue](/github/managing-your-work-on-github/deleting-an-issue)."
 
-### Organizations
+## Organizations
 
 Action             | Description
 ------------------ | ----------------------------------------------------------
@@ -98,7 +98,7 @@ Action             | Description
 `org.delete`       | An organization was deleted by a user-initiated background job.{% if currentVersion != "github-ae@latest" %}
 `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
 
-### Protected branches
+## Protected branches
 
 Action                     | Description
 -------------------------- | ----------------------------------------------------------
@@ -113,7 +113,7 @@ Action                     | Description
 `protected_branch.rejected_ref_update `     | A branch update attempt is rejected.
 `protected_branch.policy_override `         | A branch protection requirement is overridden by a repository administrator.
 
-### Repositories
+## Repositories
 
 Action                | Description
 --------------------- | -------------------------------------------------------
@@ -133,7 +133,7 @@ Action                | Description
 `repo.config.lock_anonymous_git_access` | A repository's anonymous Git read access setting is locked, preventing repository administrators from changing (enabling or disabling) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."
 `repo.config.unlock_anonymous_git_access` | A repository's anonymous Git read access setting is unlocked, allowing repository administrators to change (enable or disable) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
 
-### Site admin tools
+## Site admin tools
 
 Action                        | Description
 ----------------------------- | -----------------------------------------------
@@ -143,7 +143,7 @@ Action                        | Description
 `staff.repo_unlock`           | A site admin unlocked (temporarily gained full access to) one of a user's private repositories.
 `staff.unlock`                | A site admin unlocked (temporarily gained full access to) all of a user's private repositories.
 
-### Teams
+## Teams
 
 Action                            | Description
 --------------------------------- | -------------------------------------------
@@ -154,7 +154,7 @@ Action                            | Description
 `team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
 
 
-### Users
+## Users
 
 Action                            | Description
 --------------------------------- | -------------------------------------------

@@ -1,5 +1,5 @@
 const { liquid } = require('../../lib/render-content')
-const { loadPageMap } = require('../../lib/pages')
+const { loadPageMap } = require('../../lib/page-data')
 const entities = new (require('html-entities').XmlEntities)()
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 

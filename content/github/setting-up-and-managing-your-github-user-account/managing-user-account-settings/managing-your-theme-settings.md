@@ -21,6 +21,6 @@ For choice and flexibility in how and when you use {% data variables.product.pro
     - If you chose to follow your system settings, click a day theme and a night theme.
       ![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png)
 
-### Further reading
+## Further reading
 
 - "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"

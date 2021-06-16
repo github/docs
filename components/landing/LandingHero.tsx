@@ -33,44 +33,25 @@ export const LandingHero = () => {
           dangerouslySetInnerHTML={{ __html: intro }}
         />
 
-        {/* idea to abstract the introLinks into something more component-like */}
-        {/* {introLinks.map((link) => {
-            return (
-              <FullLink
-                href={link.href}
-                className={cx(
-                  'btn-mktg btn-large f4 mt-3 mr-3',
-                  link.secondary && 'btn-outline-mktg'
-                )}
-              >
-                {t(link.translationKeyLabel)}
-              </FullLink>
-            )
-          })} */}
-
-        {introLinks?.quickstart && (
-          <FullLink href={introLinks.quickstart} className="btn-mktg btn-large f4 mt-3 mr-3">
-            {t('quickstart')}
-          </FullLink>
-        )}
-
-        {introLinks?.reference && (
-          <FullLink
-            href={introLinks.reference}
-            className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
-          >
-            {t('reference')}
-          </FullLink>
-        )}
-
-        {introLinks?.overview && (
-          <FullLink
-            href={introLinks.overview}
-            className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
-          >
-            {t('overview')}
-          </FullLink>
-        )}
+        {introLinks &&
+          Object.entries(introLinks)
+            .filter(([key, link]) => {
+              return link && !key.includes('raw')
+            })
+            .map(([key, link], i) => {
+              if (!link) {
+                return null
+              }
+              return (
+                <FullLink
+                  key={link}
+                  href={link}
+                  className={cx('btn-mktg bt-large f4 mt-3 mr-3', i !== 0 && 'btn-outline-mktg')}
+                >
+                  {t(key)}
+                </FullLink>
+              )
+            })}
       </div>
 
       {product_video && (

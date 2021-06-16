@@ -4,7 +4,7 @@ import { useDetails, Details } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
-import { CurrentProductTree, useMainContext } from 'components/context/MainContext'
+import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
 export const SidebarProduct = () => {
@@ -82,7 +82,7 @@ export const SidebarProduct = () => {
 
 type SectionProps = {
   routePath: string
-  page: CurrentProductTree
+  page: ProductTreeNode
   title: string
   defaultOpen: boolean
 }
@@ -108,10 +108,10 @@ const CollapsibleSection = (props: SectionProps) => {
         </div>
       </summary>
 
-      {!hideChildren && (
+      {!hideChildren && page.childPages.length > 0 && (
         <>
           {/* <!-- some categories have maptopics with child articles --> */}
-          {page.childPages[0].page.documentType === 'mapTopic' ? (
+          {page.childPages[0]?.page.documentType === 'mapTopic' ? (
             <ul className="sidebar-topics list-style-none position-relative">
               {page.childPages.map((childPage, i) => {
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
@@ -165,7 +165,7 @@ const CollapsibleSection = (props: SectionProps) => {
                 )
               })}
             </ul>
-          ) : page.childPages[0].page.documentType === 'article' ? (
+          ) : page.childPages[0]?.page.documentType === 'article' ? (
             <ul className="sidebar-articles list-style-none">
               {/* <!-- some categories have no maptopics, only articles --> */}
               {page.childPages.map((childPage, i, arr) => {

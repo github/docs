@@ -10,6 +10,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 You can use these endpoints to administer your enterprise.

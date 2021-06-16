@@ -17,7 +17,7 @@ You must have the proper permissions for any action to use the equivalent query 
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a 404 error page.  
 
-### Supported query parameters
+## Supported query parameters
 
 Query parameter | Example
 ---  | ---
@@ -27,6 +27,6 @@ Query parameter | Example
 `body` | `https://github.com/octo-org/octo-repo/releases/new?body=Adds+widgets+support` creates a release with the description "Adds widget support" in the release body.
 `prerelease` | `https://github.com/octo-org/octo-repo/releases/new?prerelease=1` creates a release that will be identified as non-production ready.
 
-### Further reading
+## Further reading
 
 - "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"

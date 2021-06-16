@@ -40,7 +40,7 @@ If you plan to enable {% data variables.product.prodname_actions %} for the user
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
+### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
 
 {% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
 

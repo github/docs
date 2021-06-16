@@ -12,7 +12,7 @@ versions:
 topics:
   - Pull requests
 ---
-### About pull request merges
+## About pull request merges
 
 In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. By default, any pull request can be merged at any time, unless the head branch is in conflict with the base branch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
@@ -34,7 +34,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 {% endtip %}
 {% endif %}
 
-### Merging a pull request on {% data variables.product.prodname_dotcom %}
+## Merging a pull request on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. In the "Pull Requests" list, click the pull request you'd like to merge.
@@ -82,7 +82,7 @@ Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/g
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-### Further reading
+## Further reading
 
 - "[Reverting a pull request](/articles/reverting-a-pull-request)"
 - "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {% data variables.product.prodname_desktop %}

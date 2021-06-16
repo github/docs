@@ -24,7 +24,7 @@ Project board automation can also help teams develop a shared understanding of a
 
 {% data reusables.project-management.resync-automation %}
 
-### Automation options
+## Automation options
 
 | Column preset | Configuration options |
 | --- | --- |
@@ -32,12 +32,12 @@ Project board automation can also help teams develop a shared understanding of a
 | In progress | <ul><li>Move all newly opened pull requests here</li><li>Move all reopened issues here</li><li>Move all reopened pull requests here</li><li>Move all pull requests that meet the base branch's minimum number of required reviews here</li><li>Move all pull requests that no longer meet the base branch's minimum number of required reviews here</li></ul> |
 | Done | <ul><li>Move all closed issues here</li><li>Move all merged pull requests here</li><li>Move all closed, unmerged pull requests here</li></ul> |
 
-### Project progress tracking
+## Project progress tracking
 
 You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
 
 For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
-### Further reading
+## Further reading
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}

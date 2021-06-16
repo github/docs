@@ -22,7 +22,7 @@ versions:
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### About Docker support
+## About Docker support
 
 When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
@@ -32,13 +32,13 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 
 {% endif %}
 
-### Authenticating to {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### Authenticating with a personal access token
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -79,7 +79,7 @@ To use this example login command, replace `USERNAME` with your {% data variable
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
-### Publishing an image
+## Publishing an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
@@ -163,7 +163,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
   {% endnote %}
 
-#### Example publishing a Docker image
+### Example publishing a Docker image
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 These examples assume your instance has subdomain isolation enabled.
@@ -225,7 +225,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-### Downloading an image
+## Downloading an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
@@ -257,6 +257,6 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

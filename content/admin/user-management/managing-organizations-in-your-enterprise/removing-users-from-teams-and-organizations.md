@@ -21,7 +21,7 @@ Only owners or team admins can remove organization members. When a user is remov
 
 {% endwarning %}
 
-### Removing a team member
+## Removing a team member
 
 {% warning %}
 
@@ -39,7 +39,7 @@ To remove an existing member of a team synced to an LDAP group, contact your LDA
 5. Above the list of team members, use the drop-down menu and click **Remove from team**.
 ![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
 
-### Removing a user from an organization
+## Removing a user from an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

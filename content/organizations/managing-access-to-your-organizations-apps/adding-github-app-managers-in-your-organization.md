@@ -15,7 +15,7 @@ topics:
 
 For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#github-app-managers)."
 
-### Giving someone the ability to manage all {% data variables.product.prodname_github_app %}s owned by the organization
+## Giving someone the ability to manage all {% data variables.product.prodname_github_app %}s owned by the organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -23,7 +23,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 1. Under "Management", type the username of the person you want to designate as a {% data variables.product.prodname_github_app %} manager in the organization, and click **Grant**.
 ![Add a {% data variables.product.prodname_github_app %} manager](/assets/images/help/organizations/add-github-app-manager.png)
 
-### Giving someone the ability to manage an individual {% data variables.product.prodname_github_app %}
+## Giving someone the ability to manage an individual {% data variables.product.prodname_github_app %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -35,7 +35,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 ![Add a {% data variables.product.prodname_github_app %} manager for a specific app](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"
 {% endif %}

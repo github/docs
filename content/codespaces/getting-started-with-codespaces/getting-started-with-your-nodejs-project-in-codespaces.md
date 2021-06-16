@@ -14,16 +14,16 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to set up your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
-#### Prerequisites 
+### Prerequisites 
 
 - You should have an existing JavaScript, Node.js, or TypeScript project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-node
 - You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
 
-### Step 1: Open your project in a codespace
+## Step 1: Open your project in a codespace
 
 1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
   
@@ -38,7 +38,7 @@ You can customize your codespace by adjusting the amount of vCPUs and RAM, [addi
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
-### Step 2: Add a dev container to your codespace from a template  
+## Step 2: Add a dev container to your codespace from a template  
 
 The default codespaces container will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
@@ -51,7 +51,7 @@ To set up your project with a custom container, you will need to use a `devconta
   ![Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
 {% data reusables.codespaces.rebuild-command %}
 
-#### Anatomy of your dev container
+### Anatomy of your dev container
 
 Adding the Node.js dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
 
@@ -60,7 +60,7 @@ Adding the Node.js dev container template adds a `.devcontainer` folder to the r
 
 The newly added `devcontainer.json` file defines a few properties that are described after the sample.
 
-##### devcontainer.json
+#### devcontainer.json
 
 ```json
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
@@ -107,7 +107,7 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 - **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
 - **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
 
-##### Dockerfile
+#### Dockerfile
 
 ```bash
 # [Choice] Node.js version: 14, 12, 10
@@ -128,7 +128,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
 You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our Dockerfile.
 
-### Step 3: Modify your devcontainer.json file 
+## Step 3: Modify your devcontainer.json file 
 
 With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install npm when your codespace launches and make a list of ports inside the container available locally.
 
@@ -150,7 +150,7 @@ With your dev container added and a basic understanding of what everything does,
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
 
-### Step 4: Run your application
+## Step 4: Run your application
 
 In the previous section, you used the `postCreateCommand` to installing a set of packages via npm. You can now use this to run our application with npm.
 
@@ -162,11 +162,11 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
   ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
 
-### Step 5: Commit your changes
+## Step 5: Commit your changes
 
 {% data reusables.codespaces.committing-link-to-procedure %} 
 
-### Next steps
+## Next steps
 
 You should now be ready start developing your JavaScript project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
 

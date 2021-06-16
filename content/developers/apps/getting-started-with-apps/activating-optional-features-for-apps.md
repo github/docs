@@ -17,14 +17,14 @@ topics:
 
 {% endwarning %}
 
-### Activating {% if currentVersion ver_lt "enterprise-server@3.1" %} beta {% else %} optional {% endif %} features for {% data variables.product.prodname_github_apps %}
+## Activating {% if currentVersion ver_lt "enterprise-server@3.1" %} beta {% else %} optional {% endif %} features for {% data variables.product.prodname_github_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 3. Select the {% data variables.product.prodname_github_app %} you want to enable {% if currentVersion ver_lt "enterprise-server@3.1" %} a beta {% else %} an optional {% endif %} feature for.
 {% data reusables.apps.optional_feature_activation %}
 
-### Activating {% if currentVersion ver_lt "enterprise-server@3.1" %} beta {% else %} optional {% endif %} features for {% data variables.product.prodname_oauth_app %}s
+## Activating {% if currentVersion ver_lt "enterprise-server@3.1" %} beta {% else %} optional {% endif %} features for {% data variables.product.prodname_oauth_app %}s
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

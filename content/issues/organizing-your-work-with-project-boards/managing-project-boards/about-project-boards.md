@@ -25,7 +25,7 @@ Types of project boards:
 - **Organization-wide project boards** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
 - **Repository project boards** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
 
-### Creating and viewing project boards
+## Creating and viewing project boards
 
 To create a project board for your organization, you must be an organization member. Organization owners and people with project board admin permissions can customize access to the project board.
 
@@ -43,7 +43,7 @@ You can also [disable project boards in a repository](/articles/disabling-projec
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### Templates for project boards
+## Templates for project boards
 
 You can use templates to quickly set up a new project board. When you use a template to create a project board, your new board will include columns as well as cards with tips for using project boards. You can also choose a template with automation already configured.
 
@@ -60,7 +60,7 @@ For more information on automation for project boards, see "[About automation fo
 
 {% data reusables.project-management.copy-project-boards %}
 
-### Further reading
+## Further reading
 
 - "[Creating a project board](/articles/creating-a-project-board)"
 - "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}

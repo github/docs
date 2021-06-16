@@ -14,22 +14,22 @@ topics:
 redirect_from:
   - /admin/configuration/verifying-or-approving-a-domain-for-your-enterprise
 ---
-### About verification of domains
+## About verification of domains
 
 {% data reusables.enterprise-accounts.domains-about-verification %}
 
-### About approval of domains
+## About approval of domains
 
 {% data reusables.enterprise-accounts.domains-about-approval %}
 
-### Verifying a domain for your enterprise account
+## Verifying a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.domains-verifying %}
 
-### Approving a domain for your enterprise account
+## Approving a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.domains-approving %}
 
-### Removing an approved or verified domain
+## Removing an approved or verified domain
 
 {% data reusables.enterprise-accounts.domains-removing %}

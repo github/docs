@@ -20,7 +20,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Xamarin project. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy.
 
@@ -31,7 +31,7 @@ For a full list of available Xamarin SDK versions on the {% data variables.produ
 
 {% data reusables.github-actions.macos-runner-preview %}
 
-### Prerequisites
+## Prerequisites
 
 We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
@@ -39,7 +39,7 @@ We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML
 - "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
 - "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 
-### Bulding Xamarin.iOS apps
+## Bulding Xamarin.iOS apps
 
 The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
 
@@ -79,7 +79,7 @@ jobs:
 ```
 {% endraw %}
 
-### Bulding Xamarin.Android apps
+## Bulding Xamarin.Android apps
 
 The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
 
@@ -113,7 +113,7 @@ jobs:
 ```
 {% endraw %}
 
-### Specifying a .NET version
+## Specifying a .NET version
 
 To use a preinstalled version of the .NET Core SDK on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `setup-dotnet` action. This action finds a specific version of .NET from the tools cache on each runner, and adds the necessary binaries to `PATH`. These changes will persist for the remainder of the job.
  
