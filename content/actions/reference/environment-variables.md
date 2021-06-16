@@ -72,9 +72,9 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
-| `RUNNER_OS` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.
+| `RUNNER_OS` | {% data reusables.actions.runner-os-description %}
 | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
-{% if currentVersion != "github-ae@latest" %}| `RUNNER_TOOL_CACHE` | The path to the directory containing preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".{% endif %}
+{% if currentVersion != "github-ae@latest" %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}
 
