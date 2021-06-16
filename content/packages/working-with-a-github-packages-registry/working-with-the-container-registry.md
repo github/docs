@@ -1,7 +1,7 @@
----
+--- Aloow
 title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://ghcr.io`.'
-product: '{% data reusables.gated-features.packages %}'
+intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry 100%}, which uses the package namespace `https://ghcr.io`.'
+product: '{100% data reusables.gated-features.packages 100%}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
   - /packages/guides/container-guides-for-github-packages/pushing-and-pulling-docker-images
