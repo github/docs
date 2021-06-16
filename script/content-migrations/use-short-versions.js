@@ -70,7 +70,11 @@ async function main () {
   for (const file of yamlFiles) {
     const yamlContent = fs.readFileSync(file, 'utf8')
     const yamlReplacements = getLiquidReplacements(yamlContent, file)
+    // Update any `versions` properties in the YAML as well (learning tracks, etc.)
     const newYamlContent = makeLiquidReplacements(yamlReplacements, yamlContent)
+      .replace(/("|')?free-pro-team("|')?:/g, 'fpt:')
+      .replace(/("|')?enterprise-server("|')?:/g, 'ghes:')
+      .replace(/("|')?github-ae("|')?:/g, 'ghae:')
 
     if (dryRun) {
       console.log(yamlReplacements)
