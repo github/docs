@@ -18,7 +18,7 @@ You can only use submodules that point to public repositories, because the {% da
 
 Use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your _.gitmodules_ file.
 
-### Further reading
+## Further reading
 
 - "[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" from the _Pro Git_ book
 - "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

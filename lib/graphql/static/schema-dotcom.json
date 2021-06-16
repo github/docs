@@ -2048,7 +2048,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -2106,7 +2106,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -14984,7 +14984,7 @@
               "Mutation.createDeployment"
             ],
             "owning_teams": [
-              "@github/ecosystem-api"
+              "@github/c2c-actions-service"
             ],
             "accept_header": "application/vnd.github.flash-preview+json",
             "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -57279,7 +57279,7 @@
             },
             {
               "name": "to",
-              "description": "<p>Only contributions made before and up to and including this time will be\ncounted. If omitted, defaults to the current time.</p>",
+              "description": "<p>Only contributions made before and up to (including) this time will be\ncounted. If omitted, defaults to the current time or one year from the\nprovided from argument.</p>",
               "type": {
                 "name": "DateTime",
                 "id": "datetime",
@@ -70019,7 +70019,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -70118,7 +70118,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"

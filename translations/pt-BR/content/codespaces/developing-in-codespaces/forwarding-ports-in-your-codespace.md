@@ -46,7 +46,7 @@ Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pod
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Clique com o botão direito na porta que você deseja compartilhar e clique em **Tornar pública**. ![Opção para tornar a porta pública no menu com o clique com o botão direito](/assets/images/help/codespaces/make-public-option.png)
-1. À direita do endereço local para a porta, clique no ícone copiar. ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. À direita do endereço local para a porta, clique no ícone copiar. ![Copiar ícone para o URL de porta](/assets/images/help/codespaces/copy-icon-port-url.png)
 1. Envie a URL copiada para a pessoa com quem você deseja compartilhar a porta.
 
 ### Adicionar uma porta à configuração do código

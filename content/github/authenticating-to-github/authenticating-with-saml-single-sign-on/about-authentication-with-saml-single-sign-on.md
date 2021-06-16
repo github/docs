@@ -11,7 +11,7 @@ versions:
 topics:
   - SSO
 ---
-### About authentication with SAML SSO
+## About authentication with SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -41,7 +41,7 @@ If you don't have a personal access token or an SSH key, you can create a person
 
 To use a new or existing personal access token or SSH key with an organization that uses or enforces SAML SSO, you will need to authorize the token or authorize the SSH key for use with a SAML SSO organization. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
-### About {% data variables.product.prodname_oauth_apps %} and SAML SSO
+## About {% data variables.product.prodname_oauth_apps %} and SAML SSO
 
 You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} to access an organization that uses or enforces SAML SSO.
 
@@ -49,7 +49,7 @@ After an enterprise or organization owner enables or enforces SAML SSO for an or
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 {% if currentVersion == "free-pro-team@latest" %}- "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% if currentVersion == "github-ae@latest" %}- "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 ---
+
 ### Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.actions.enterprise-self-signed-cert %} For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."

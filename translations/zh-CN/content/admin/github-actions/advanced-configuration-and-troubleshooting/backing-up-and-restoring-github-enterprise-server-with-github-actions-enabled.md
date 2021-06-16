@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ---
+
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
 如果您使用 {% data variables.product.prodname_enterprise_backup_utilities %} 来备份 {% data variables.product.product_location %}，请务必注意，存储在外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在备份中。

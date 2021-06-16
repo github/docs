@@ -1,0 +1,29 @@
+---
+date: '2020-10-20'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}
+  bugs:
+    - |
+      Si la configuración de la cuenta de almacenamiento falló su validación cuando se configuró GitHub Actions, se requirió ejecutar `ghe-actions-teardown` antes de hacer un intento nuevo. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
+    - |
+      Una configuración de proxy personalizado pudo haber afectado de forma adversa al ambiente de GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
+    - |
+      En un cambio de dirección de eth0, Nomad y Consul podrían dejar de responder. {% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
+    - |
+      Cuando se utilizan certificados auto-firmados, GHES podría tener excepciones de validación de SSL al configurar las GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
+    - |
+      El utilizar una GitHub Action desde un nombre de rama con un caracter `+` o `/` resultó en un error: `Unable to resolve action`. {% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
+    - |
+      El mensaje de la "Política de confirmación para el requisito bifactorial" en una cuenta empresarial fue incorrecto. {% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
+    - |
+      En ciertas solicitudes mayores a 100MB, el buffer de Kafka pudo estar sobreasignado. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
+  known_issues:
+    - En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
+    - Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
+    - Las propuestas no pueden cerrarse si contienen un enlace permanente a un blob en el mismo repositorio en donde la ruta es mayor a 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
+    - Las GitHub Actions pueden fallar en su inicio exitoso si se habilitaron previamente en una instancia que ejecutara la versión 2.22.0 y se actualiza a la 2.22.2. (actualizado en 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
+    - En una instancia 2.22.2 recién configurada o después de actualizar 2.22.2, ya no se actualizará la fuente de actividad en el tablero de una organización. (actualizado 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
+    - Las bitácoras de auditoría pueden atribuirse a la 127.0.0.1 en vez de a la dirección IP origen real. (actualizado 2020-11-02) {% comment %}https://github.com/github/enterprise2/issues/21514 {% endcomment %}

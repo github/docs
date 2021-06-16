@@ -13,23 +13,23 @@ topics:
   - Teams
 ---
 
-### Accessing your organization dashboard
+## Accessing your organization dashboard
 
 {% data reusables.dashboard.access-org-dashboard %}
 
-### Finding your recent activity
+## Finding your recent activity
 
 In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests in your organization.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-### Finding repositories in your organization
+## Finding repositories in your organization
 
 In the left sidebar of your dashboard, you can access your organization's top repositories you're active in.
 
 ![List of repositories you're most active in from your organization](/assets/images/help/dashboard/repositories-from-organization-dashboard.png)
 
-### Staying updated with activity from the organization
+## Staying updated with activity from the organization
 
 In the "All activity" section of your news feed, you can view updates from other teams and repositories in your organization.
 
@@ -44,6 +44,6 @@ For instance, the organization news feed shows updates when someone in the organ
  - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
  - Creates a public repository.{% endif %}
 
-### Further information
+## Further information
 
 - "[About your personal dashboard](/articles/about-your-personal-dashboard)"

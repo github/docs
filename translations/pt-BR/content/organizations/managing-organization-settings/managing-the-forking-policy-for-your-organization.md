@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a política de bifurcação da sua organização
-intro: 'Você pode permitir ou impedir a bifurcação de qualquer repositório privado{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} ou interno{% endif %} pertencentes à sua organização.'
+intro: 'Você pode permitir ou impedir a bifurcação de qualquer privado{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} e repositórios internos{% endif %} pertencentes à sua organização.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization

@@ -1,5 +1,5 @@
 ---
-title: Working with the NuGet registry
+title: Trabajar con el registro de NuGet
 intro: 'Puedes configurar la interfaz de línea de comando (CLI) `dotnet` para publicar paquetes NuGet en {% data variables.product.prodname_registry %} y utilizar paquetes almacenados en {% data variables.product.prodname_registry %} como dependencias en un proyecto de .NET.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -24,9 +24,9 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+#### Autenticarte con el `GITHUB_TOKEN` en {% data variables.product.prodname_actions %}
 
-Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
+Utiliza el siguiente comando para autenticarte en el {% data variables.product.prodname_registry %} en un flujo de trabajo de {% data variables.product.prodname_actions %} utilizando el `GITHUB_TOKEN` en vez de codificar un token rígidamente en un archivo de nuget.config en el repositorio:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
@@ -230,7 +230,7 @@ El uso de paquetes desde {% data variables.product.prodname_dotcom %} en tu proy
 
 ### Solución de problemas
 
-Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+Tu paquete de NuGet podría fallar en subirse si la `RepositoryUrl` en *.csproj* no se configuró en el repositorio esperado.
 
 ### Leer más
 

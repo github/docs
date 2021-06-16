@@ -17,6 +17,7 @@ topics:
   - Logging
   - Security
 ---
+
 Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-Stil unterstützen (z. B. [Logstash](http://logstash.net/) und [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
 ### Protokollweiterleitung aktivieren
@@ -42,7 +43,6 @@ Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-St
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Problemlösungen
-If you run into issues with log forwarding, contact
 
-{% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
+Wenden Sie sich bei Protokollweiterleitungsproblemen an den {% data variables.contact.contact_ent_support %}, und hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an.
 {% endif %}

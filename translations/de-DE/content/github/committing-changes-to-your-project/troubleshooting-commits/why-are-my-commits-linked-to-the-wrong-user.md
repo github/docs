@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% tip %}
 
 **Hinweis**: Falls Deine Commits mit einem anderen Benutzer verknüpft sind, bedeutet dies nicht, dass der Benutzer auf Dein Repository zugreifen kann. Ein Benutzer kann nur dann auf Dein Repository zugreifen, wenn Du ihn als Mitarbeiter oder zu einem Team hinzufügst, das über Zugriff auf das Repository verfügt.

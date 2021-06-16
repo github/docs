@@ -25,7 +25,7 @@ git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 As an example, you usually run `git push origin main` to push your local changes
 to your online repository.
 
-### Renaming branches
+## Renaming branches
 
 To rename a branch, you'd use the same `git push` command, but you would add
 one more argument: the name of the new branch. For example:
@@ -36,7 +36,7 @@ git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME
 
 This pushes the `LOCALBRANCHNAME` to your `REMOTENAME`, but it is renamed to `REMOTEBRANCHNAME`.
 
-### Dealing with "non-fast-forward" errors
+## Dealing with "non-fast-forward" errors
 
 If your local copy of a repository is out of sync with, or "behind," the upstream
 repository you're pushing to, you'll get a message saying `non-fast-forward updates were rejected`.
@@ -45,7 +45,7 @@ you are able to push your local changes.
 
 For more information on this error, see "[Dealing with non-fast-forward errors](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)."
 
-### Pushing tags
+## Pushing tags
 
 By default, and without additional parameters, `git push` sends all matching branches
 that have the same names as remote branches.
@@ -62,7 +62,7 @@ To push all your tags, you can type the command:
 git push <em> &lt;REMOTENAME></em> --tags
 ```
 
-### Deleting a remote branch or tag
+## Deleting a remote branch or tag
 
 The syntax to delete a branch is a bit arcane at first glance:
 
@@ -75,7 +75,7 @@ you'd take to rename a branch. However, here, you're telling Git to push _nothin
 into `BRANCHNAME` on `REMOTENAME`. Because of this, `git push` deletes the branch
 on the remote repository.
 
-### Remotes and forks
+## Remotes and forks
 
 You might already know that [you can "fork" repositories](https://guides.github.com/overviews/forking/) on GitHub.
 
@@ -106,7 +106,7 @@ and [initiate a pull request](/articles/about-pull-requests).
 
 For more information on working with forks, see "[Syncing a fork](/articles/syncing-a-fork)".
 
-### Further reading
+## Further reading
 
 - [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
 - [`git remote` man page](https://git-scm.com/docs/git-remote.html)

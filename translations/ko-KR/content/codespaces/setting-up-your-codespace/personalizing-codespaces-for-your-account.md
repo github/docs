@@ -51,8 +51,10 @@ When you create a new codespace, {% data variables.product.prodname_dotcom %} cl
 * _install_
 * _bootstrap.sh_
 * _bootstrap_
+* _script/bootstrap_
 * _setup.sh_
 * _setup_
+* _script/setup_
 
 If none of these files are found, then any files or folders in `dotfiles` starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
 

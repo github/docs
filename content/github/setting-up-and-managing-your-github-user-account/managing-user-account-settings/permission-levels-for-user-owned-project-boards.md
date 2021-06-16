@@ -11,7 +11,7 @@ versions:
 topics:
   - Accounts
 ---
-### Permissions overview
+## Permissions overview
 
 There is only one owner of a user-owned project board; this permission cannot be shared with another user account. In addition to the owner, other people can collaborate on project boards.
 
@@ -19,7 +19,7 @@ There are three levels of permissions for project board collaborators:
 
 {% data reusables.project-management.project-board-permissions %}
 
-### Owner and admin permissions for a user-owned project board
+## Owner and admin permissions for a user-owned project board
 
 The project board owner and collaborators with admin access have full control of the project board. In addition to all the permissions allowed by project board collaborators, a project board owner and collaborator with admin access can:
 
@@ -29,7 +29,7 @@ The project board owner and collaborators with admin access have full control of
 - [Close a project board](/articles/closing-a-project-board/)
 - [Reopen a closed project board](/articles/reopening-a-closed-project-board)
 
-### Read and write permissions for a user-owned project board
+## Read and write permissions for a user-owned project board
 
 Collaborators with read access to a user-owned project board can:
 
@@ -51,10 +51,10 @@ Collaborators with write access to a user-owned project board can:
 - Track progress on your project board
 - Archive cards on a project board
 
-### Project board visibility
+## Project board visibility
 
 You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. By default, user-owned project boards are private. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
 
-### Further reading
+## Further reading
 
   - "[Managing access to your user account's project boards](/articles/managing-access-to-your-user-account-s-project-boards)"

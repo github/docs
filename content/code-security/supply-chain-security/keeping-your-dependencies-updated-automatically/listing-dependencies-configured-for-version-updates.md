@@ -13,7 +13,7 @@ topics:
   - Version updates
   - Dependencies
 ---
-### Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
+## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
 
 After you've enabled version updates, you can confirm that your configuration is correct using the **{% data variables.product.prodname_dependabot %}** tab in the dependency graph for the repository. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
@@ -26,7 +26,7 @@ After you've enabled version updates, you can confirm that your configuration is
 
 If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
 
-### Viewing {% data variables.product.prodname_dependabot %} log files
+## Viewing {% data variables.product.prodname_dependabot %} log files
 
 1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
   ![View log file](/assets/images/help/dependabot/last-checked-link.png)

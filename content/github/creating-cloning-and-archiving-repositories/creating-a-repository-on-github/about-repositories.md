@@ -31,7 +31,7 @@ You can use repositories to manage your work and collaborate with others.
 
 {% data reusables.repositories.repo-size-limit %}
 
-### Further reading
+## Further reading
 
 - "[Creating a new repository](/articles/creating-a-new-repository)"
 - "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"

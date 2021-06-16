@@ -17,15 +17,15 @@ topics:
 ---
 For authentication information, see "[Authenticating with GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-### Public installation flow
+## Public installation flow
 
 Public installation flows have a landing page to enable other people besides the app owner to install the app in their repositories. This link is provided in the "Public link" field when setting up your GitHub App. For more information, see "[Installing GitHub Apps](/apps/installing-github-apps/)."
 
-### Private installation flow
+## Private installation flow
 
 Private installation flows allow only the owner of a GitHub App to install it. Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the user account if the GitHub App is owned by an individual account. Private{% if currentVersion ver_lt "enterprise-server@3.2" or currentVersion == "github-ae@latest" %}, or internal,{% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
 
-### Changing who can install your GitHub App
+## Changing who can install your GitHub App
 
 To change who can install the GitHub App:
 

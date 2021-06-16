@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/configuration/about-enterprise-configuration
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} 詳しい情報については、「[サイトアドミンのダッシュボード](/admin/configuration/site-admin-dashboard)」を参照してください。
 
@@ -21,8 +22,7 @@ redirect_from:
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-Enterprise に初めてアクセスするときは、初期設定を完了して、
-{% data variables.product.product_name %} を使用できるようにします。 The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
+The first time you access your enterprise, you will complete an initial configuration to get {% data variables.product.product_name %} ready to use. 初期設定には、Enterprise とアイデンティティプロバイダ (IdP) の接続、SAML SSO による認証、Enterprise 内のリポジトリと Organization のポリシーの設定、および送信メール用の SMTP の設定が含まれます。 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
 
 後で、サイトアドミンのダッシュボードと Enterprise 設定を使用して、さらに Enterprise の設定を行い、ユーザ、Organization、およびリポジトリを管理し、リスクを軽減して品質を向上させるポリシーを設定できます。
 

@@ -1,7 +1,7 @@
 ---
-title: Getting started with your Node.js project in Codespaces
-shortTitle: Getting started with your Node.js project
-intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+title: 开始在代码空间中使用 Node.js 项目
+shortTitle: 开始使用 Node.js 项目
+intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 JavaScript、Node.js 或 TypeScript 项目。'
 versions:
   free-pro-team: '*'
 type: tutorial
@@ -16,46 +16,46 @@ topics:
 
 ### 简介
 
-This guide shows you how to set up your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+本指南介绍如何在 {% data variables.product.prodname_codespaces %} 中设置 JavaScript、Node.js 或 TypeScript 项目。 它将演示在代码空间中打开项目以及从模板添加和修改开发容器配置的示例。
 
 #### 基本要求
 
-- You should have an existing JavaScript, Node.js, or TypeScript project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-node
-- You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
+- 您应该在 {% data variables.product.prodname_dotcom_the_website %} 的仓库中有现有的 JavaScript、Node.js 或 TypeScript 项目。 如果您没有项目，可以使用以下示例尝试本教程：https://github.com/microsoft/vscode-remote-try-node
+- 您必须为组织启用 {% data variables.product.prodname_codespaces %} 。
 
-### Step 1: Open your project in a codespace
+### 步骤 1：在代码空间中打开项目
 
-1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
+1. 导航到项目的仓库。 在仓库名称下，使用 {% octicon "download" aria-label="The download icon" %} **Code（代码）**下拉菜单选择 **Open with Codespaces（使用 Codespaces 打开）**。 如果您看不到此选项，则您的项目不能用于 {% data variables.product.prodname_codespaces %}。
 
   ![使用 Codespaces 打开按钮](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**. ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
+2. 要创建新的代码空间，请单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。 ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
+创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 默认情况下，代码空间的容器有许多语言和运行时，包括 Node.js、JavaScript、Typescript、nvm、npm 和 yarn。 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed.
+您可以通过调整 vCPU 和 RAM 的数量、[添加 dotfiles 以个性化环境](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)或者修改安装的工具和脚本来自定义代码空间。
 
-{% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+{% data variables.product.prodname_codespaces %} 使用名为 `devcontainer.json` 的文件来存储配置。 在启动时， {% data variables.product.prodname_codespaces %} 使用文件安装项目可能需要的任何工具、依赖项或其他设置。 更多信息请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
-### Step 2: Add a dev container to your codespace from a template
+### 步骤 2：从模板将开发容器添加到您的代码空间
 
-The default codespaces container will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
+默认代码空间容器将支持运行 Node.js 项目，如开箱即用 [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node)。 通过设置自定义容器，您可以自定义在代码空间创建过程中运行的工具和脚本，并确保为仓库中的所有 {% data variables.product.prodname_codespaces %} 用户提供完全可复制的环境。
 
-To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的更多信息，请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". 单击 **Codespaces: Add Development Container Configuration Files...（Codespaces：添加开发容器配置文件...）** ![命令选择板中的"Codespaces：添加开发容器配置文件..."](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-3. For this example, click **Node.js**.  If you need additional features you can select any container that’s specific to Node or a combination of tools such as Node and MongoDB. ![Select Node option from the list](/assets/images/help/codespaces/add-node-prebuilt-container.png)
-4. Click the recommended version of Node.js. ![Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". 单击 **Codespaces: Rebuild Container（代码空间：重建容器）**。 ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+1. 访问命令面板 (`shift command P` / `shift control P`)，然后开始输入 "dev container"。 单击 **Codespaces: Add Development Container Configuration Files...（Codespaces：添加开发容器配置文件...）** ![命令选择板中的"Codespaces：添加开发容器配置文件..."](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+3. 对于此示例，单击 **Node.js**。  如果需要其他功能，您可以选择任何特定于节点或工具（如节点和 MongoDB）组合的容器。 ![从列表中选择节点选项](/assets/images/help/codespaces/add-node-prebuilt-container.png)
+4. 单击推荐的 Node.js 版本。 ![Node.js 版本选择](/assets/images/help/codespaces/add-node-version.png)
+5. 要重建容器，请访问命令面板 (`shift command P` / `shift control P`)，然后开始输入 "rebuild"。 单击 **Codespaces: Rebuild Container（代码空间：重建容器）**。 ![重建容器选项](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-#### Anatomy of your dev container
+#### 开发容器的剖析
 
-Adding the Node.js dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
+添加 Node.js 开发容器模板会将 `.devcontainer` 文件夹添加到项目仓库的根目录中，其中包含以下文件：
 
 - `devcontainer.json`
 - Dockerfile
 
-The newly added `devcontainer.json` file defines a few properties that are described after the sample.
+新添加的 `devcontainer.json` 文件定义了几个在样本之后描述的属性。
 
 ##### devcontainer.json
 
@@ -91,18 +91,18 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 }
 ```
 
-- **Name** - You can name your dev container anything, this is just the default.
-- **Build** - The build properties.
-  - **dockerfile** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
+- **Name** - 您可以将开发容器命名为任何名称，这只是默认名称。
+- **Build** - 构建属性。
+  - **dockerfile** - 在构建对象中，dockerfile 是对 Dockerfile 的引用，该文件也是从模板中添加的。
   - **Args**
-    - **Variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
-  - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
-- **Extensions** - These are extensions included by default.
-  - **Dbaeumer.vscode-eslint** - ES lint is a great extension for linting, but for JavaScript there are a number of great Marketplace extensions you could also include.
-- **forwardPorts** - Any ports listed here will be forwarded automatically.
-- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
-- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
+    - **Variant**：此文件仅包含一个构建参数，即我们要用于传递到 Dockerfile 的节点变量。
+- **Settings** - 它们是您可以设置的 {% data variables.product.prodname_vscode %} 设置。
+  - **Terminal.integrated.shell.linux** - 虽然 bash 是此处的默认设置，但您可以通过修改它来使用其他终端 shell。
+- **Extensions** - 它们是默认包含的扩展名。
+  - **Dbaeumer.vscode-eslint** - ES lint 是 linting 的良好扩展，但是对于 JavaScript，您还可以包括许多出色的 Marketplace 扩展。
+- **forwardPorts** - 此处列出的任何端口都将自动转发。
+- **postCreateCommand** - 如果您要在进入 Dockerfile 中未定义的代码空间后执行任何操作，您可以在此处执行。
+- **remoteUser** - 默认情况下，您以 vscode 用户身份运行，但您可以选择将其设置为 root。
 
 ##### Dockerfile
 
@@ -123,52 +123,52 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 # RUN su node -c "npm install -g <your-package-list-here>"
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our Dockerfile.
+您可以使用 Dockerfile 添加其他容器层，以指定要包含在 Dockerfile 中的操作系统包、节点版本或全局包。
 
-### Step 3: Modify your devcontainer.json file
+### 步骤 3：修改 devcontainer.json 文件
 
-With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install npm when your codespace launches and make a list of ports inside the container available locally.
+添加了开发容器并基本了解所有功能之后，您现在可以进行更改以针对您的环境进行配置。 在此示例中，您将添加属性以在代码空间启动时安装 npm，并使容器内的端口列表在本地可用。
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to exand the `.devcontainer` folder to see it.
+1. 在 Explorer 中，从树中选择 `devcontainer.json` 文件来打开它。 您可能需要展开 `.devcontainer` 文件夹才能看到它。
 
   ![命令面板中的"Codespaces：重建容器"](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. Add the following lines to your `devcontainer.json` file after `extensions`:
+2. 在 `devcontainer.json` 文件中的 `extensions` 后面添加以下行：
 
   ```json{:copy}
   "postCreateCommand": "npm install",
   "forwardPorts": [4000],
   ```
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) in the {% data variables.product.prodname_vscode %} docs.
+  有关 `devcontainer.json` 属性的更多信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的 [devcontainer.json 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)。
 
-3. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". 单击 **Codespaces: Rebuild Container（代码空间：重建容器）**。
+3. 要重建容器，请访问命令面板 (`shift command P` / `shift control P`)，然后开始输入 "rebuild"。 单击 **Codespaces: Rebuild Container（代码空间：重建容器）**。
 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+  ![重建容器选项](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-  Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+  在代码空间内进行重建可确保在将更改提交到仓库之前，更改能够按预期工作。 如果某些问题导致了故障，您将进入带有恢复容器的代码空间中，您可以从该容器进行重建以继续调整容器。
 
 
-### Step 4: Run your application
+### 步骤 4：运行应用程序
 
-In the previous section, you used the `postCreateCommand` to installing a set of packages via npm. You can now use this to run our application with npm.
+在上一节中，您使用 `postCreateCommand` 通过 npm 安装了一组包。 您现在可以使用它来通过 npm 运行应用程序。
 
-1. Run your start command in the terminal with`npm start`.
+1. 在终端中使用 `npm start` 运行启动命令。
 
-  ![npm start in terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
+  ![终端的 npm 启动](/assets/images/help/codespaces/codespaces-npmstart.png)
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. 项目启动时，您应该在右下角看到一个信息框，提示您连接到项目使用的端口。
 
-  ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+  ![端口转发信息框](/assets/images/help/codespaces/codespaces-port-toast.png)
 
-### Step 5: Commit your changes
+### 步骤 5：提交更改
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
 ### 后续步骤
 
-You should now be ready start developing your JavaScript project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
+现在，您应该准备开始在 {% data variables.product.prodname_codespaces %} 中开发您的 JavaScript 项目。 以下是用于更高级场景的一些额外资源。
 
-- [Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
-- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
+- [管理代码空间的加密密码](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+- [管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
 - [代码空间中的转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)

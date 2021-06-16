@@ -13,7 +13,7 @@ topics:
 ---
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
-### About content attachments
+## About content attachments
 
 A GitHub App can register domains that will trigger `content_reference` events. When someone includes a URL that links to a registered domain in the body or comment of an issue or pull request, the app receives the [`content_reference` webhook](/webhooks/event-payloads/#content_reference). You can use content attachments to visually provide more context or data for the URL added to an issue or pull request. The URL must be a fully-qualified URL, starting with either `http://` or `https://`. URLs that are part of a markdown link are ignored and don't trigger the `content_reference` event.
 
@@ -28,7 +28,7 @@ Content attachments will not retroactively update URLs. It only works for URLs a
 
 See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" or "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" for the steps needed to configure GitHub App permissions and event subscriptions.
 
-### Implementing the content attachment flow
+## Implementing the content attachment flow
 
 The content attachment flow shows you the relationship between the URL in the issue or pull request, the `content_reference` webhook event, and the REST API endpoint you need to call to update the issue or pull request with additional information:
 
@@ -83,7 +83,7 @@ For more information about creating an installation token, see "[Authenticating 
 
 ![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)
 
-### Using content attachments in GraphQL
+## Using content attachments in GraphQL
 We provide the `node_id` in the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) event so you can refer to the `createContentAttachment` mutation in the GraphQL API.
 
 {% data reusables.pre-release-program.corsair-preview %}
@@ -122,7 +122,7 @@ curl -X "POST" "https://api.github.com/graphql" \
 
 For more information on `node_id`, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
 
-### Example using Probot and GitHub App Manifests
+## Example using Probot and GitHub App Manifests
 
 To quickly setup a GitHub App that can use the {% data variables.product.prodname_unfurls %} API, you can use [Probot](https://probot.github.io/). See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" to learn how Probot uses GitHub App Manifests.
 

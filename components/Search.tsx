@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef, Children, ReactNode } from 'react'
-import cx from 'classnames'
+import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import debounce from 'lodash/debounce'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { sendEvent } from '../javascripts/events'
+import { sendEvent, EventType } from '../javascripts/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 
@@ -31,14 +30,11 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   const { currentVersion } = useVersion()
 
   // Figure out language and version for index
-  const { expose } = useMainContext()
-  const {
-    searchOptions: { languages, versions, nonEnterpriseDefaultVersion },
-  } = JSON.parse(expose)
+  const { languages, searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   const router = useRouter()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
-  const version = versions[currentVersion] || versions[nonEnterpriseDefaultVersion]
-  const language = (languages.includes(router.locale) && router.locale) || 'en'
+  const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
+  const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
 
   // If the user shows up with a query in the URL, go ahead and search for it
   useEffect(() => {
@@ -130,7 +126,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
     // Analytics tracking
     if (xquery) {
       sendEvent({
-        type: 'search',
+        type: EventType.search,
         search_query: xquery,
         // search_context
       })
@@ -184,6 +180,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
           </div>
         )}
       </div>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         className={'search-overlay-desktop' + (!isStandalone && query ? ' js-open' : '')}
         onClick={closeSearch}
@@ -200,6 +197,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
             className={'ais-SearchBox-input' + (isStandalone || query ? ' js-open' : '')}
             type="search"
             placeholder={t`placeholder`}
+            /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus={isStandalone}
             autoComplete="off"
             autoCorrect="off"

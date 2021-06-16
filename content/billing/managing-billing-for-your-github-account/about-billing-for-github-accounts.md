@@ -11,7 +11,6 @@ redirect_from:
   - /articles/organization-billing-plans/
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
   free-pro-team: '*'
@@ -28,8 +27,12 @@ You can choose monthly or yearly billing, and you can upgrade or downgrade your 
 
 You can purchase other features and products with your existing {% data variables.product.product_name %} payment information. For more information, see "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 
+{% data reusables.user_settings.context_switcher %}
+
 {% tip %}
 
 **Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 {% endtip %}
+
+

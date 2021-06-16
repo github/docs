@@ -18,6 +18,7 @@ topics:
   - Security
   - User account
 ---
+
 Se funcionários saírem da empresa, você poderá suspender suas contas do {% data variables.product.prodname_ghe_server %} para disponibilizar licenças de usuário em sua licença {% data variables.product.prodname_enterprise %}, embora os problemas, comentários, repositórios, gists e outros dados que eles criaram continuem existindo. Usuários suspensos não podem entrar na sua instância nem fazer push ou pull de códigos.
 
 Quando você suspende um usuário, a alteração entra em vigor na mesma hora e o usuário não recebe notificações a respeito. Se tentar fazer pull ou push em um repositório, o usuário receberá este erro:

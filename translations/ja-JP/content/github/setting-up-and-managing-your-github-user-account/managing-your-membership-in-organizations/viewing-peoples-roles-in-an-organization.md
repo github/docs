@@ -12,13 +12,14 @@ versions:
 topics:
   - Accounts
 ---
+
 {% note %}
 
 **メモ:** Organization における人のロールを表示するには、Organization のメンバーでなければなりません。
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Organization 内の人のリストが表示されます。 ロールでリストをフィルタリングするには、[**Role**] をクリックします。 ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)

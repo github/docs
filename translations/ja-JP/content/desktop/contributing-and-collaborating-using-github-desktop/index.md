@@ -9,7 +9,7 @@ versions:
 children:
   - /adding-and-cloning-repositories
   - /making-changes-in-a-branch
+  - /managing-commits
   - /working-with-your-remote-repository-on-github-or-github-enterprise
   - /keeping-your-local-repository-in-sync-with-github
 ---
-### 目次

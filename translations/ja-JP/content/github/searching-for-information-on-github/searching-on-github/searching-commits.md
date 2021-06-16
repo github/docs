@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data variables.product.product_name %} 全体にわたってグローバルにコミットを検索できます。あるいは、特定のリポジトリや Organization のコミットに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 コミットを検索する場合、リポジトリの[デフォルトブランチ](/articles/about-branches)だけが検索されます。

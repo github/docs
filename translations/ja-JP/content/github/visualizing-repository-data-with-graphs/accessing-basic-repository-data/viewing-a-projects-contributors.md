@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### コントリビューターについて
 
 コントリビューターグラフで{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}、コミットの共作者を含めて{% endif %}、リポジトリに貢献した上位 100 人のコントリビューターを表示できます。 マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
@@ -27,7 +28,7 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 左サイドバーで [**Contributors**] をクリックします。 ![コントリビュータータブ](/assets/images/help/graphs/contributors_tab.png)
-4. オプションで、特定の期間におけるコントリビューターを表示するには、クリックしてから、その期間が選択されるまでドラッグしてください。 ![コントリビュータグラフで選択した時間範囲](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+4. オプションで、特定の期間におけるコントリビューターを表示するには、クリックしてから、その期間が選択されるまでドラッグしてください。 The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday. ![コントリビュータグラフで選択した時間範囲](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
 ### コントリビューターのトラブルシューティング
 

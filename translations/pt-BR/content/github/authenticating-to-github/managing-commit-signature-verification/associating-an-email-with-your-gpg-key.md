@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% note %}
 
 Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {% data variables.product.product_name %}, você poderá começar a assinar commits e tags.

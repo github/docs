@@ -17,7 +17,7 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About encrypted secrets
+## About encrypted secrets
 
 Secrets are encrypted environment variables that you create in an organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
 
@@ -27,7 +27,7 @@ Secrets are encrypted environment variables that you create in an organization{%
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 {% endif %}
 
-#### Naming your secrets
+### Naming your secrets
 
 {% data reusables.codespaces.secrets-naming %}
 
@@ -37,7 +37,7 @@ For secrets stored at the environment level, you can enable required reviewers t
 
 To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
 
-#### Accessing your secrets
+### Accessing your secrets
 
 To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
@@ -55,11 +55,11 @@ Organization and repository secrets are read when a workflow run is queued, and 
 
 You can also manage secrets using the REST API. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
-#### Limiting credential permissions
+### Limiting credential permissions
 
 When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
 
-### Creating encrypted secrets for a repository
+## Creating encrypted secrets for a repository
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
@@ -71,7 +71,7 @@ When generating credentials, we recommend that you grant the minimum permissions
 1. Enter the value for your secret.
 1. Click **Add secret**.
 
-If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0"or currentVersion == "github-ae@latest" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
+If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
 {% note %}
 
@@ -81,7 +81,7 @@ If your repository {% if currentVersion == "free-pro-team@latest" or currentVers
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 
-### Creating encrypted secrets for an environment
+## Creating encrypted secrets for an environment
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
@@ -95,7 +95,7 @@ If your repository {% if currentVersion == "free-pro-team@latest" or currentVers
 1. Click **Add secret**.
 {% endif %}
 
-### Creating encrypted secrets for an organization
+## Creating encrypted secrets for an organization
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
@@ -110,7 +110,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. From the **Repository access** dropdown list, choose an access policy.
 1. Click **Add secret**.
 
-### Reviewing access to organization-level secrets
+## Reviewing access to organization-level secrets
 
 You can check which access policies are being applied to a secret in your organization.
 
@@ -121,7 +121,7 @@ You can check which access policies are being applied to a secret in your organi
 ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
 
-### Using encrypted secrets in a workflow
+## Using encrypted secrets in a workflow
 
 {% note %}
 
@@ -146,7 +146,7 @@ Avoid passing secrets between processes from the command line, whenever possible
 
 If you must pass secrets within a command line, then enclose them within the proper quoting rules. Secrets often contain special characters that may unintentionally affect your shell. To escape these special characters, use quoting with your environment variables. For example:
 
-#### Example using Bash
+### Example using Bash
 
 {% raw %}
 ```yaml
@@ -159,7 +159,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using PowerShell
+### Example using PowerShell
 
 {% raw %}
 ```yaml
@@ -172,7 +172,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using Cmd.exe
+### Example using Cmd.exe
 
 {% raw %}
 ```yaml
@@ -185,7 +185,7 @@ steps:
 ```
 {% endraw %}
 
-### Limits for secrets
+## Limits for secrets
 
 You can store up to 1,000 organization secrets{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
 

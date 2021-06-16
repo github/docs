@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
 ---
+
 ### Sobre a identidade e gestão de acesso para a sua conta corporativa
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Habilitar o login único SAML para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."

@@ -16,6 +16,7 @@ topics:
   - GitHub Connect
   - GitHub search
 ---
+
 Quando você habilita a pesquisa unificada, os usuários podem ver resultados em conteúdos públicos e privados no {% data variables.product.prodname_dotcom_the_website %} quando pesquisam pela {% data variables.product.product_location_enterprise %}.
 
 Os usuários não conseguirão pesquisar na {% data variables.product.product_location_enterprise %} pelo {% data variables.product.prodname_dotcom_the_website %}, mesmo se tiverem acesso aos dois ambientes. Eles só poderão pesquisar nos repositórios privados em que você habilitou a {% data variables.product.prodname_unified_search %} e não terão acesso às organizações conectadas do {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)" e "[Habilitar a pesquisa em repositórios privados do {% data variables.product.prodname_dotcom_the_website %} na conta do {% data variables.product.prodname_ghe_server %}](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)".

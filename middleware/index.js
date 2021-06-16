@@ -54,12 +54,14 @@ module.exports = function (app) {
   app.use(require('compression')())
   app.use(require('./disable-caching-on-safari'))
   app.use(require('./set-fastly-surrogate-key'))
+  app.use(require('./catch-bad-accept-language'))
 
   // *** Config and context for redirects ***
   app.use(require('./req-utils')) // Must come before record-redirect and events
   app.use(require('./record-redirect'))
   app.use(instrument('./detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(instrument('./context'))) // Must come before early-access-*, handle-redirects
+  app.use(asyncMiddleware(instrument('./contextualizers/short-versions'))) // Support version shorthands
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
@@ -121,10 +123,12 @@ module.exports = function (app) {
   app.use(asyncMiddleware(instrument('./contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument('./contextualizers/breadcrumbs')))
   app.use(asyncMiddleware(instrument('./contextualizers/early-access-breadcrumbs')))
+  app.use(asyncMiddleware(instrument('./contextualizers/product-examples')))
 
   app.use(asyncMiddleware(instrument('./dev-toc')))
   app.use(asyncMiddleware(instrument('./featured-links')))
   app.use(asyncMiddleware(instrument('./learning-track')))
+  app.use(asyncMiddleware(instrument('./is-next-request')))
 
   // *** Headers for pages only ***
   app.use(require('./set-fastly-cache-headers'))

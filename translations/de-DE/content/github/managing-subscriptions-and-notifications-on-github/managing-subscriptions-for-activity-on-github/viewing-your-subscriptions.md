@@ -22,6 +22,7 @@ versions:
 topics:
   - Notifications
 ---
+
 Du erhältst Benachrichtigungen zu Deinen Abonnements über laufende Aktivitäten auf {% data variables.product.product_name %}. Es gibt mehrere Gründe, warum Du eine Unterhaltung abonniert haben kannst. Weitere Informationen findest Du unter „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."
 
 Wir empfehlen Dir, Deine Abonnements als Teil eines effizienten Workflows für Benachrichtigungen zu überprüfen und allenfalls abzubestellen. Weitere Informationen über Deine Abmeldeoptionen findest Du unter „[Abonnements verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."

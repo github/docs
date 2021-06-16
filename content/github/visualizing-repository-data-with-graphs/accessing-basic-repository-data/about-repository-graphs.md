@@ -28,7 +28,7 @@ All other repository graphs are available in all repositories. Every repository 
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Accessing basic repository data](/articles/accessing-basic-repository-data)"
 - "[Analyzing changes to a repository's content](/articles/analyzing-changes-to-a-repository-s-content)"

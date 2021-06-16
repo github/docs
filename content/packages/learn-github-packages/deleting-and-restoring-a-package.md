@@ -69,11 +69,6 @@ To delete a package that has granular permissions separate from a repository, su
 
 {% endif %}
 
-
-## Automate package version deletion with {% data variables.product.prodname_actions %}
-
-You can automate package version deletion using an official action created by {% data variables.product.company_short %}. This action is available in the actions repository or on {% data variables.product.prodname_marketplace %} and only works with repository-scoped packages. For more information, see the "Delete Package Versions" action on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/delete-package-versions) or in the [actions repository](https://github.com/actions/delete-package-versions).
-
 ## Deleting a package version
 
 ### Deleting a version of a repository-scoped package on {% data variables.product.prodname_dotcom %}

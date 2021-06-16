@@ -79,14 +79,14 @@ on:
     types: [ created ]
 
 env:
-  AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
-  ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: MY_ECS_CLUSTER                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
+  AWS_REGION: MY_AWS_REGION                   # これをお好みの AWS リージョンに設定する (us-west-1 など)
+  ECR_REPOSITORY: MY_ECR_REPOSITORY           # これを Amazon ECR リポジトリ名に設定する
+  ECS_SERVICE: MY_ECS_SERVICE                 # これを Amazon ECS サービス名に設定する
+  ECS_CLUSTER: MY_ECS_CLUSTER                 # これを Amazon ECS クラスタ名に設定する
+  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # これを Amazon ECS タスク定義へのパスに設定する
+                                               # ファイル (.aws/task-definition.json など)
+  CONTAINER_NAME: MY_CONTAINER_NAME           # これをタスク定義の containerDefinitions セクションで
+                                               # コンテナの名前に設定する
 
 defaults:
   run:
@@ -121,9 +121,9 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          # Build a docker container and
-          # push it to ECR so that it can
-          # be deployed to ECS.
+          # Docker コンテナを作成し
+          # ECR にプッシュして
+          # ECS にデプロイできるようにする。
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"

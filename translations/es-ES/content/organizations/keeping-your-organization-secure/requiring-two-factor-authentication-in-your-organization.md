@@ -57,8 +57,8 @@ Para ver las personas que se eliminaron automáticamente de tu organización por
 
 ![Evento de registro de auditoría que muestra un usuario eliminado por no cumplir con la 2FA](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Ingresa tu consulta de búsqueda. Para buscar por:
     - Miembros de la organización eliminados, utiliza `action:org.remove_member` en tu consulta de búsqueda

@@ -14,13 +14,13 @@ topics:
 ---
 Most of the limits below affect both {% data variables.product.product_name %} and the API.
 
-### Text limits
+## Text limits
 
 Text files over **1 MB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
 
 Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
-### Diff limits
+## Diff limits
 
 Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
@@ -30,6 +30,6 @@ Because diffs can become very large, we impose these limits on diffs for commits
 
 Some portions of a limited diff may be displayed, but anything exceeding the limit is not shown.
 
-### Commit listings limits
+## Commit listings limits
 
 The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).

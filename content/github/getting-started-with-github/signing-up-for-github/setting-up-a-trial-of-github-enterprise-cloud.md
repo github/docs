@@ -10,7 +10,7 @@ versions:
 topics:
   - Accounts
 ---
-### About trials of {% data variables.product.prodname_ghe_cloud %}
+## About trials of {% data variables.product.prodname_ghe_cloud %}
 
 You can set up a 14-day trial to evaluate {% data variables.product.prodname_ghe_cloud %} on a new organization account. You do not need to provide a payment method during the trial unless you add {% data variables.product.prodname_marketplace %} apps to your organization that require a payment method. For more information, see "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">About billing for {% data variables.product.prodname_marketplace %}</a>."
 
@@ -20,7 +20,7 @@ Trials are also available for {% data variables.product.prodname_ghe_server %}. 
 
 {% data reusables.products.which-product-to-use %}
 
-### Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
+## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
 Before you can start your trial of {% data variables.product.prodname_ghe_cloud %}, you must have an existing user account or create a new user account. For more information, see "<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Signing up for a new {% data variables.product.prodname_dotcom %} account</a>."
 
@@ -42,13 +42,13 @@ Before you can start your trial of {% data variables.product.prodname_ghe_cloud 
  ![Number of employees drop-down menu](/assets/images/help/organizations/employees-drop-down.png)
 10. Review the <a href="/articles/github-enterprise-cloud-evaluation-agreement" class="dotcom-only">Evaluation License Agreement</a>, then click **Next**.
 
-### Exploring {% data variables.product.prodname_ghe_cloud %}
+## Exploring {% data variables.product.prodname_ghe_cloud %}
 
 After setting up your trial, you can explore {% data variables.product.prodname_ghe_cloud %} by following the [Enterprise Onboarding Guide](https://resources.github.com/enterprise-onboarding/).
 
 {% data reusables.products.product-roadmap %}
 
-### Finishing your trial
+## Finishing your trial
 
 You can buy {% data variables.product.prodname_enterprise %} or downgrade to {% data variables.product.prodname_team %} at any time during your trial.
 
@@ -64,6 +64,6 @@ Downgrading to {% data variables.product.prodname_free_team %} for organizations
   ![Buy Enterprise and Downgrade to Team buttons](/assets/images/help/organizations/finish-trial-buttons.png)
 6. Follow the prompts to enter your payment method, then click **Submit**.
 
-### Further reading
+## Further reading
 
 - "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)"

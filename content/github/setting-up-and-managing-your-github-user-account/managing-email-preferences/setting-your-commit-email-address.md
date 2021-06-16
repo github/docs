@@ -19,7 +19,7 @@ topics:
   - Accounts
   - Notifications
 ---
-### About commit email addresses
+## About commit email addresses
 
 {% data variables.product.product_name %} uses your commit email address to associate commits with your {% data variables.product.product_name %} account. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
 
@@ -53,7 +53,7 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 If you use your {% data variables.product.product_name %}-provided `noreply` email address to make commits and then [change your username](/articles/changing-your-github-username), those commits will not be associated with your {% data variables.product.product_name %} account. This does not apply if you're using the ID-based {% data variables.product.product_name %}-provided `noreply` address. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username)."{% endif %}
 
-### Setting your commit email address on {% data variables.product.prodname_dotcom %}
+## Setting your commit email address on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.files.commit-author-email-options %}
 
@@ -63,11 +63,11 @@ If you use your {% data variables.product.product_name %}-provided `noreply` ema
 {% data reusables.user_settings.select_primary_email %}{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
 
-### Setting your commit email address in Git
+## Setting your commit email address in Git
 
 You can use the `git config` command to change the email address you associate with your Git commits. The new email address you set will be visible in any future commits you push to {% data variables.product.product_name %} from the command line. Any commits you made prior to changing your commit email address are still associated with your previous email address.
 
-#### Setting your email address for every repository on your computer
+### Setting your email address for every repository on your computer
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. {% data reusables.user_settings.set_your_email_address_in_git %}
@@ -81,7 +81,7 @@ You can use the `git config` command to change the email address you associate w
    ```
 4. {% data reusables.user_settings.link_email_with_your_account %}
 
-#### Setting your email address for a single repository
+### Setting your email address for a single repository
 
 {% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your {% data variables.product.product_name %} account.
 

@@ -16,18 +16,17 @@ topics:
   - Networking
   - Security
 ---
+
 ### Informationen zur Subdomain-Isolation
 
 Die Subdomain-Isolation mindert Cross-Site-Scripting und andere verwandte Schwachstellen. Weitere Informationen finden Sie unter „[Cross-Site-Scripting](https://de.wikipedia.org/wiki/Cross-Site-Scripting)“ auf Wikipedia. Es wird dringend empfohlen, die Subdomain-Isolation auf {% data variables.product.product_location %} zu aktivieren.
 
-Bei aktivierter Subdomain-Isolation ersetzt {% data variables.product.prodname_ghe_server %} verschiedene Pfade durch Subdomains.
+Bei aktivierter Subdomain-Isolation ersetzt {% data variables.product.prodname_ghe_server %} verschiedene Pfade durch Subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
 {% if currentVersion == "enterprise-server@2.22" %}
-To use Docker with
-{% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-|
 {% endif %}
 | Pfad ohne Subdomain-Isolation                                                                                                                                                       | Pfad mit Subdomain-Isolation                                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

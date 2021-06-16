@@ -17,9 +17,9 @@ versions:
 topics:
   - Repositories
 ---
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 
-### About release management
+## About release management
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
@@ -36,7 +36,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% endtip %}
 {% endif %}
 
-### Creating a release
+## Creating a release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -61,7 +61,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 You can also automatically create a release from the command line or in a script. For more information, see "[Releases](/rest/reference/repos/#create-a-release)."
 
-### Editing a release
+## Editing a release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -70,7 +70,7 @@ You can also automatically create a release from the command line or in a script
 4. Edit the details for the release in the form, then click **Update release**.
   ![Update a release](/assets/images/help/releases/update-release.png)
 
-### Deleting a release
+## Deleting a release
 
 You must remove all binary files attached to a release before you can delete a release.
 

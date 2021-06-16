@@ -15,6 +15,7 @@ topics:
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
+
 ### Enterprise のアイデンティティおよびアクセス管理について
 
 {% if currentVersion == "github-ae@latest" %}
