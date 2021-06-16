@@ -11,7 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
-### About {% data variables.product.prodname_github_app %} URL parameters
+## About {% data variables.product.prodname_github_app %} URL parameters
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
 
@@ -42,7 +42,7 @@ The following URL creates a new public app called `octocat-github-app` with a pr
 
 The complete list of available query parameters, permissions, and events is listed in the sections below.
 
-### {% data variables.product.prodname_github_app %} configuration parameters
+## {% data variables.product.prodname_github_app %} configuration parameters
 
  Name | Type | Description
 -----|------|-------------
@@ -62,7 +62,7 @@ The complete list of available query parameters, permissions, and events is list
 `single_file_name` | `string` | This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the `single_file` permission to `read` or `write`, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} If you need to manage multiple files, see `single_file_paths` below. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 `single_file_paths` | `array of strings` | This allows the app to access up ten specified files in a repository. When you set the `single_file` permission to `read` or `write`, this array can store the paths for up to ten files that your {% data variables.product.prodname_github_app %} will manage. These files all receive the same permission set by `single_file`, and do not have separate individual permissions. When two or more files are configured, the API returns `multiple_single_files=true`, otherwise it returns `multiple_single_files=false`.{% endif %}
 
-### {% data variables.product.prodname_github_app %} permissions
+## {% data variables.product.prodname_github_app %} permissions
 
 You can select permissions in a query string using the permission name in the following table as the query parameter name and the permission type as the query value. For example, to select `Read & write` permissions in the user interface for `contents`, your query string would include `&contents=write`. To select `Read-only` permissions in the user interface for `blocking`, your query string would include `&blocking=read`. To select `no-access` in the user interface for `checks`, your query string would not include the `checks` permission.
 
@@ -100,7 +100,7 @@ Permission | Description
 `vulnerability_alerts`| Grants access to receive security alerts for vulnerable dependencies in a repository. See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Can be one of: `none` or `read`.{% endif %}
 `watching` | Grants access to list and change repositories a user is subscribed to. Can be one of: `none`, `read`, or `write`.
 
-### {% data variables.product.prodname_github_app %} webhook events
+## {% data variables.product.prodname_github_app %} webhook events
 
 Webhook event name | Required permission | Description
 ------------------ | ------------------- | -----------

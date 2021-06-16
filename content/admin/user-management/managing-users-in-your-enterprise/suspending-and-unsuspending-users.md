@@ -37,7 +37,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 
 {% endtip %}
 
-### Suspending a user from the user admin dashboard
+## Suspending a user from the user admin dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -49,7 +49,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 6. Provide a reason to suspend the user.
 ![Suspend reason](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
 
-### Unsuspending a user from the user admin dashboard
+## Unsuspending a user from the user admin dashboard
 
 As when suspending a user, unsuspending a user takes effect immediately. The user will not be notified.
 
@@ -65,7 +65,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 5. Provide a reason to unsuspend the user.
 ![Unsuspend reason](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-### Suspending a user from the command line
+## Suspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Run [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
@@ -73,7 +73,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
   $ ghe-user-suspend <em>username</em>
   ```
 
-### Creating a custom message for suspended users
+## Creating a custom message for suspended users
 
 You can create a custom message that suspended users will see when attempting to sign in.
 
@@ -90,7 +90,7 @@ You can create a custom message that suspended users will see when attempting to
 ![Suspended user message rendered](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-### Unsuspending a user from the command line
+## Unsuspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Run [ghe-user-unsuspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
@@ -98,5 +98,5 @@ You can create a custom message that suspended users will see when attempting to
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### Further reading
+## Further reading
 - "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"

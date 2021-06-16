@@ -23,6 +23,6 @@ Collaborators do not receive a notification when you delete an issue. When visit
 !["Delete issue" text highlighted on bottom of the issue page's right side bar](/assets/images/help/issues/delete-issue.png)
 4. To confirm deletion, click **Delete this issue**.
 
-### Further reading
+## Further reading
 
 - "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)"

@@ -21,7 +21,7 @@ When you view a full review, you'll see the same version of the pull request as 
 3. On the "Conversation" tab, scroll to the review you'd like to see, then click **View changes**.
   ![Review header with link to full review](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
-### Further reading
+## Further reading
 
 - "[About pull request reviews](/articles/about-pull-request-reviews)"
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"

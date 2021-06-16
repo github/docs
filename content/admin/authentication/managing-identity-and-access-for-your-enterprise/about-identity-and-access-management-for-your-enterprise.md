@@ -15,7 +15,7 @@ topics:
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
-### About identity and access management for your enterprise
+## About identity and access management for your enterprise
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -29,7 +29,7 @@ To learn how to configure both authentication and user provisioning for {% data 
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
 - [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website

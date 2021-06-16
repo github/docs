@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-### Creating a repository for your site
+## Creating a repository for your site
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -30,7 +30,7 @@ topics:
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-### Creating your site
+## Creating your site
 
 {% data reusables.pages.must-have-repo-first %}
 
@@ -48,7 +48,7 @@ topics:
 
 {% data reusables.pages.admin-must-push %}
 
-### Next steps
+## Next steps
 
 You can add more pages to your site by creating more new files. Each file will be available on your site in the same directory structure as your publishing source. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% if currentVersion == "free-pro-team@latest" %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
 
@@ -56,7 +56,7 @@ You can also add a theme to customize your site’s look and feel. For more info
 
 To customize your site even more, you can use Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
 
-### Further reading
+## Further reading
 
 - "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
 - "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"

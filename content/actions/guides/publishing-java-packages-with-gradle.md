@@ -20,11 +20,11 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 {% data reusables.github-actions.publishing-java-packages-intro %}
 
-### Prerequisites
+## Prerequisites
 
 We recommend that you have a basic understanding of workflow files and configuration options. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
@@ -37,13 +37,13 @@ You may also find it helpful to have a basic understanding of the following:
 - "[Encrypted secrets](/actions/reference/encrypted-secrets)"
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
 
-### About package configuration
+## About package configuration
 
 The `groupId` and `artifactId` fields in the `MavenPublication` section of the _build.gradle_ file create a unique identifier for your package that registries use to link your package to a registry.  This is similar to the `groupId` and `artifactId` fields of the Maven _pom.xml_ file.  For more information, see the "[Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html)" in the Gradle documentation.
 
 The _build.gradle_ file also contains configuration for the distribution management repositories that Gradle will publish packages to. Each repository must have a name, a deployment URL, and credentials for authentication.
 
-### Publishing packages to the Maven Central Repository
+## Publishing packages to the Maven Central Repository
 
 Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the Maven Central Repository if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
 
@@ -107,7 +107,7 @@ jobs:
 
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-### Publishing packages to {% data variables.product.prodname_registry %}
+## Publishing packages to {% data variables.product.prodname_registry %}
 
 Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
 
@@ -171,7 +171,7 @@ jobs:
 
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-### Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
+## Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
 
 You can publish your packages to both the Maven Central Repository and {% data variables.product.prodname_registry %} by configuring each in your _build.gradle_ file.
 

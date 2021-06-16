@@ -47,7 +47,7 @@ For pull requests, you can also use search to:
 - Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
 
-### Further reading
+## Further reading
 
 - "[Searching issues](/articles/searching-issues)"
 - "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"

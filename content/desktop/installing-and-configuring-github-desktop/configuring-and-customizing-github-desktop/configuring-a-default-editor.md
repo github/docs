@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
-### Supported editors
+## Supported editors
 
 {% data variables.product.prodname_desktop %} supports the following editors.
 
@@ -53,7 +53,7 @@ versions:
 
 {% endwindows %}
 
-### Configuring a default editor
+## Configuring a default editor
 
 {% mac %}
 

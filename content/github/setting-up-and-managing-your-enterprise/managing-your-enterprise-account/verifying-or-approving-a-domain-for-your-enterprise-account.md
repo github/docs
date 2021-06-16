@@ -17,22 +17,22 @@ topics:
   - Organizations
   - Policy
 ---
-### About domain verification
+## About domain verification
 
 {% data reusables.enterprise-accounts.domains-about-verification %}
 
-### About domain approval
+## About domain approval
 
 {% data reusables.enterprise-accounts.domains-about-approval %}
 
-### Verifying a domain for your enterprise account
+## Verifying a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.domains-verifying %}
 
-### Approving a domain for your enterprise account
+## Approving a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.domains-approving %}
 
-### Removing an approved or verified domain
+## Removing an approved or verified domain
 
 {% data reusables.enterprise-accounts.domains-removing %}

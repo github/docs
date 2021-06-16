@@ -35,7 +35,7 @@ You can comment on a pull request, approve the changes, or request improvements 
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Further reading
+## Further reading
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"

@@ -28,7 +28,7 @@ If you allow forking of private{% if currentVersion == "free-pro-team@latest" or
   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[About forks](/articles/about-forks)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

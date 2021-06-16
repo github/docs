@@ -29,7 +29,7 @@ You can filter files in a pull request by file extension type, such as `.html` o
 5. Optionally, to clear the filter selection, under the **Files changed** tab, click **Clear**.
   ![Clear file filter selection](/assets/images/help/pull_requests/clear-file-filter.png)
 
-### Further reading
+## Further reading
 
 - "[About comparing branches in a pull request](/articles/about-comparing-branches-in-pull-requests)"
 - "[Finding changed methods and functions in a pull request](/articles/finding-changed-methods-and-functions-in-a-pull-request)"

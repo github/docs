@@ -17,13 +17,13 @@ topics:
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-### Introduction
+## Introduction
 
 This tutorial demonstrates how to use the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a project board. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
 
 In the tutorial, you will first make a workflow file that uses the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler). Then, you will customize the workflow to suit your needs.
 
-### Creating the workflow
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. Choose a project that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
@@ -60,7 +60,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
    - Change the value for `remove-labels` to the list of labels that you want to remove from issues or pull requests that are moved to the specified column(s). Separate multiple labels with commas. For example, `"help wanted, good first issue"`. For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
 6. {% data reusables.actions.commit-workflow %}
 
-### Testing the workflow
+## Testing the workflow
 
 Every time a project card on a project in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified labels from the issue or a pull request. Cards that are notes will not be affected.
 
@@ -72,7 +72,7 @@ Test your workflow out by moving an issue on your project into the target column
 4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 5. When the workflow completes, the issue that you added to the project column should have the specified labels removed.
 
-### Next steps
+## Next steps
 
 - To learn more about additional things you can do with the `andymckay/labeler` action, like adding labels or skipping this action if the issue is assigned or has a specific label, visit the [`andymckay/labeler` action documentation](https://github.com/marketplace/actions/simple-issue-labeler).
 - [Search GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) for examples of workflows using this action.

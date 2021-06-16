@@ -22,7 +22,7 @@ An organization owner must allow forks of private{% if currentVersion == "free-p
 3. Under "Features", select **Allow forking**.
   ![Checkbox to allow or disallow forking of a private repository](/assets/images/help/repository/allow-forking-specific-org-repo.png)
 
-### Further reading
+## Further reading
 
 - "[About forks](/articles/about-forks)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

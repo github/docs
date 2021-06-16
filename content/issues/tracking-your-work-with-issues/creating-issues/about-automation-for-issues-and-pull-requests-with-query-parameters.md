@@ -24,7 +24,7 @@ You must have the proper permissions for any action to use the equivalent query 
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
-### Supported query parameters
+## Supported query parameters
 
 Query parameter | Example
 ---  | ---
@@ -36,7 +36,7 @@ Query parameter | Example
 `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
 `projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project board 1.
 
-### Filling issues and pull requests with custom templates
+## Filling issues and pull requests with custom templates
 
 {% data reusables.repositories.legacy-issue-template-tip %}
 
@@ -46,6 +46,6 @@ If a repository contains only the default pull request or issue template, any ne
 
 For more information, see "[Creating a pull request template for your repository](/articles/creating-a-pull-request-template-for-your-repository)" or "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)."
 
-### Further reading
+## Further reading
 
 - "[Automation for release forms with query parameters](/articles/automation-for-release-forms-with-query-parameters)"

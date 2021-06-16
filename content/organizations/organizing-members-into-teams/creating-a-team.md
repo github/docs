@@ -32,7 +32,7 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.create_team %}
 9. Optionally, [give the team access to organization repositories](/articles/managing-team-access-to-an-organization-repository).
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"
 - "[Changing team visibility](/articles/changing-team-visibility)"

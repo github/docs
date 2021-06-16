@@ -15,7 +15,7 @@ topics:
   - Enterprise
   - Maintenance
 ---
-### About user messages
+## About user messages
 
 There are several types of user messages.
 - Messages that appear on the {% if enterpriseServerVersions contains currentVersion %}sign in or {% endif %}sign out page{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
@@ -31,7 +31,7 @@ There are several types of user messages.
 
 You can use Markdown to format your message. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github/)."
 
-### Creating a custom sign in message
+## Creating a custom sign in message
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -48,7 +48,7 @@ You can use Markdown to format your message. For more information, see "[About w
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 {% endif %}
 
-### Creating a custom sign out message
+## Creating a custom sign out message
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -65,7 +65,7 @@ You can use Markdown to format your message. For more information, see "[About w
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Creating a mandatory message
+## Creating a mandatory message
 
 You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}. 
 
@@ -97,7 +97,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-### Creating a global announcement banner
+## Creating a global announcement banner
 
 You can set a global announcement banner to be displayed to all users at the top of every page.
 

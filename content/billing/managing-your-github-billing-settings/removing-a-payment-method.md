@@ -27,7 +27,7 @@ If you're paying for your {% data variables.product.product_name %} subscription
 
 {% endtip %}
 
-### Removing your personal account's payment method
+## Removing your personal account's payment method
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -35,7 +35,7 @@ If you're paying for your {% data variables.product.product_name %} subscription
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}
 
-### Removing your organization's payment method
+## Removing your organization's payment method
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

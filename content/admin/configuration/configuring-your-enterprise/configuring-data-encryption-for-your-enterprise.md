@@ -18,7 +18,7 @@ redirect_from:
 
 {% endnote %}
 
-### About data encryption
+## About data encryption
 
 To provide a high level of security, {% data variables.product.product_name %} encrypts your data while at rest in the data centers and while your data is in transit between users' machines and the data centers.
 

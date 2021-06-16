@@ -16,7 +16,7 @@ If you include a detectable license in your repository, people who visit your re
 
 Open source licenses enable others to freely use, change, and distribute the project in your repository. For more information on repository licenses, see "[Licensing a repository](/articles/licensing-a-repository)."
 
-### Including an open source license in your repository
+## Including an open source license in your repository
 
 <!--Dotcom version uses the license tool-->
 {% if currentVersion == "free-pro-team@latest" %}
@@ -53,6 +53,6 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
