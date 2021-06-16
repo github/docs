@@ -100,14 +100,14 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 {% note %}
 
-**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-to-projects/managing-tags)."
+**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)."
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![Commit message field](/assets/images/help/desktop/commit-message.png)
-2. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
+1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
   ![Add a co-author to the commit message](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}

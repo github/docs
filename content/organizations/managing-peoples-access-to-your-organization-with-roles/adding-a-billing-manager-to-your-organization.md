@@ -29,6 +29,7 @@ Billing managers can:
 - View payment history
 - Download receipts
 - View, invite, and remove billing managers
+- Start, modify, or cancel sponsorships
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 

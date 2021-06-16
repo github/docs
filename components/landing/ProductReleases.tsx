@@ -60,7 +60,7 @@ export function ProductReleases() {
         })}
       </div>
 
-      <Link href={`${currentPath}/release-notes}`} className="btn btn-outline float-right">
+      <Link href={`${currentPath}/release-notes`} className="btn btn-outline float-right">
         {t('explore_release_notes')} <ArrowRightIcon />
       </Link>
     </div>
