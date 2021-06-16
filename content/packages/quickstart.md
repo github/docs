@@ -21,7 +21,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. {% if currentVersion ver_lt "enterprise-server@3.1" %} Create a private repository if you’d like to delete this package later, public packages cannot be deleted.{% endif %} For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone the repository to your local machine.
     ```shell
-    $ git clone https://{% if currentVersion == "github-ae@latest" %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% if currentVersion == "github-ae@latest" %}<em>HugoGarden</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
