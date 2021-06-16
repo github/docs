@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Enterprise Cloud
-intro: 'Get started with setting up and managing your GitHub Enterprise Cloud'
+title: Getting started with GitHub Enterprise Server
+intro: 'Get started with setting up and managing your GitHub Enterprise Server instance'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
