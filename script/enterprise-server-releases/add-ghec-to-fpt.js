@@ -80,7 +80,7 @@ allContentFiles
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
     // Return early if the current page frontmatter does not apply to either GHEC or the given fpt release
-    if (!data.versions['fpt']) return
+    if (!data.versions.fpt) return
 
     const conditionalsToUpdate = getConditionalsToUpdate(content)
     if (!conditionalsToUpdate.length) return
@@ -89,7 +89,7 @@ allContentFiles
     const newContent = updateLiquid(conditionalsToUpdate, content)
 
     // Add frontmatter version
-    data.versions['ghec'] = '*'
+    data.versions.ghec = '*'
 
     // Update Liquid in frontmatter props
     Object.keys(data)
