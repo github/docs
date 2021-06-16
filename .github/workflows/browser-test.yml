@@ -41,5 +41,5 @@ jobs:
       - name: Install dependencies
         run: npm ci --include=optional
 
-      - name: Run brower-test
-        run: npm run browser-test
+      - name: Run brower
+        run: npm run browser
