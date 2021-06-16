@@ -23,7 +23,7 @@ pip            | `pip`            | v21.1.2          | | **✓** | |
 pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
 pip-compile    | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |
-Terraform      | `terraform`      | <= 1.0           | **✓** | **✓** | |
+Terraform      | `terraform`      | >= 0.13, <= 1.0  | **✓** | **✓** | |
 yarn           | `npm`            | v1               | **✓** | **✓** | |
 
 [1] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle` and `build.gradle.kts` (for Kotlin projects).

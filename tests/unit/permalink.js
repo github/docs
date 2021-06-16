@@ -1,6 +1,7 @@
 const Permalink = require('../../lib/permalink')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+const getApplicableVersions = require('../../lib/get-applicable-versions')
 
 // Permalink constructor requires: languageCode, pageVersion, relativePath, title
 // Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)
@@ -12,7 +13,7 @@ describe('Permalink class', () => {
       'free-pro-team': '*',
       'enterprise-server': '*'
     }
-    const permalinks = Permalink.derive('en', 'index.md', 'Hello World', versions)
+    const permalinks = Permalink.derive('en', 'index.md', 'Hello World', getApplicableVersions(versions))
     expect(permalinks.length).toBeGreaterThan(1)
     const homepagePermalink = permalinks.find(permalink => permalink.pageVersion === 'homepage')
     expect(homepagePermalink.href).toBe('/en')

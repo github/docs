@@ -16,7 +16,7 @@ All members of an organization can view organization insights. For more informat
 
 You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
 
-### Viewing organization activity insights
+## Viewing organization activity insights
 
 {% note %}
 
@@ -35,7 +35,7 @@ With organization activity insights you can view weekly, monthly, and yearly dat
 5. Optionally, in the upper-right corner of the page, choose to view data for up to three repositories and click **Apply**.
   ![Choose repositories to view org insights](/assets/images/help/organizations/org-insights-repos.png)
 
-### Viewing organization dependency insights
+## Viewing organization dependency insights
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
 {% data reusables.profile.access_org %}
@@ -51,7 +51,7 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 7. You can click on {% octicon "package" aria-label="The package icon" %} **dependents** next to each vulnerability to see which dependents in your organization are using each library.
   ![My organizations vulnerable dependents](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
-### Further reading
+## Further reading
  - "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
  - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
  - "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"

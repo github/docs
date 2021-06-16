@@ -22,6 +22,6 @@ Use a *.gitattributes* file to mark files that match a given "pattern" with the 
 search/index.json linguist-generated=true
   ```
 
-### Further reading
+## Further reading
 - "[Generated code](https://github.com/github/linguist/#generated-code)" in the Linguist documentation
 - "[Creating new files](/articles/creating-new-files/)"

@@ -9,7 +9,10 @@ export type BreadcrumbT = {
   href?: string
 }
 
-export const Breadcrumbs = () => {
+type Props = {
+  variant?: 'default' | 'large'
+}
+export const Breadcrumbs = ({ variant = 'default' }: Props) => {
   const router = useRouter()
   const pathWithLocale = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
   const { breadcrumbs } = useMainContext()
@@ -26,20 +29,6 @@ export const Breadcrumbs = () => {
           <span key={title} title={title}>
             {breadcrumb.title}
           </span>
-        ) : pathWithLocale.includes('/guides') ? (
-          <span className="text-mono color-text-secondary text-uppercase">
-            <Link
-              key={title}
-              href={breadcrumb.href}
-              title={title}
-              className={cx(
-                'd-inline-block',
-                pathWithLocale === breadcrumb.href && 'color-text-tertiary'
-              )}
-            >
-              {breadcrumb.title}
-            </Link>
-          </span>
         ) : (
           <Link
             key={title}
@@ -47,6 +36,7 @@ export const Breadcrumbs = () => {
             title={title}
             className={cx(
               'd-inline-block',
+              variant === 'large' && 'text-uppercase text-mono',
               pathWithLocale === breadcrumb.href && 'color-text-tertiary'
             )}
           >

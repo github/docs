@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Using Git rebase
+## Using Git rebase
 
 In this example, we will cover all of the `git rebase` commands available, except for `exec`.
 
@@ -122,7 +122,7 @@ i cant' typ goods
 
 As before, Git is showing the commit message for you to edit. You can change the text (`"i cant' typ goods"`), save the file, and close the editor. Git will finish the rebase and return you to the terminal.
 
-### Pushing rebased code to GitHub
+## Pushing rebased code to GitHub
 
 Since you've altered Git history, the usual `git push origin` **will not** work. You'll need to modify the command by "force-pushing" your latest changes:
 
@@ -140,6 +140,6 @@ Force pushing has serious implications because it changes the historical sequenc
 
 {% endwarning %}
 
-### Further reading
+## Further reading
 
 * "[Resolving merge conflicts after a Git rebase](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)"

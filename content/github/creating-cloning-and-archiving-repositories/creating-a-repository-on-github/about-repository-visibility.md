@@ -10,7 +10,7 @@ topics:
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/about-repository-visibility
 ---
-### About repository visibility
+## About repository visibility
 
 {% if currentVersion == "github-ae@latest" %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} If you're creating the repository in an organization{% if currentVersion == "free-pro-team@latest" %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}
 
@@ -27,7 +27,7 @@ Organization owners always have access to every repository created in an organiz
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### About internal repositories
+## About internal repositories
 
 {% note %}
 

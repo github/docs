@@ -13,7 +13,7 @@ versions:
 topics:
   - Pull requests
 ---
-### Creating a branch
+## Creating a branch
 
 {% data reusables.repositories.navigate-to-repo %}
 
@@ -24,7 +24,7 @@ topics:
 1. Type a unique name for your new branch, then select **Create branch**.
     ![branch creation text box](/assets/images/help/branch/branch-creation-text-box.png)
 
-### Deleting a branch
+## Deleting a branch
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
@@ -46,7 +46,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 {% endif %}
 For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
-### Further reading
+## Further reading
 
 - "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)"
 - "[Viewing branches in your repository](/github/administering-a-repository/viewing-branches-in-your-repository)"

@@ -26,7 +26,7 @@ topics:
 ![Delete project button](/assets/images/help/projects/delete-project-button.png)
 5. To confirm that you want to delete the project board, click **OK**.
 
-### Further reading
+## Further reading
 
 - "[Closing a project board](/articles/closing-a-project-board)"
 - "[Disabling project boards in a repository](/articles/disabling-project-boards-in-a-repository)"

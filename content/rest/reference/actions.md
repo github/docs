@@ -9,6 +9,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.ae-beta %}

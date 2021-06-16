@@ -17,7 +17,7 @@ Once the commit is on the default branch, any tags that contain the commit will 
 
 ![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
-### Further reading
+## Further reading
 
 * "[Signing commits](/articles/signing-commits)"
 * "[Signing tags](/articles/signing-tags)"

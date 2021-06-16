@@ -11,7 +11,7 @@ versions:
 topics:
   - Accounts
 ---
-### About permissions levels for a user account repository
+## About permissions levels for a user account repository
 
 Repositories owned by user accounts have one owner. Ownership permissions can't be shared with another user account.
 
@@ -23,7 +23,7 @@ You can also {% if currentVersion == "free-pro-team@latest" %}invite{% else %}ad
 
 {% endtip %}
 
-### Owner access for a repository owned by a user account
+## Owner access for a repository owned by a user account
 
 The repository owner has full control of the repository. In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
@@ -51,7 +51,7 @@ The repository owner has full control of the repository. In addition to the acti
 | Display a sponsor button | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 | Allow or disallow auto-merge for pull requests | "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | {% endif %}
 
-### Collaborator access for a repository owned by a user account
+## Collaborator access for a repository owned by a user account
 
 Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
@@ -83,6 +83,6 @@ Collaborators can also perform the following actions.
 | Publish, view, or install packages | "[Publishing and managing packages](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" |{% endif %}
 | Remove themselves as collaborators on the repository | "[Removing yourself from a collaborator's repository](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)" |
 
-### Further reading
+## Further reading
 
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

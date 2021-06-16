@@ -17,11 +17,11 @@ topics:
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-### Notifications and subscriptions
+## Notifications and subscriptions
 
 You can choose to receive ongoing updates about specific activity on {% data variables.product.product_name %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
 
-#### Subscription options
+### Subscription options
 
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
@@ -34,7 +34,7 @@ You can also choose to automatically watch all repositories that you have push a
 
 If you're no longer interested in a conversation, you can unsubscribe, unwatch, or customize the types of notifications you'll receive in the future. For example, if you no longer want to receive notifications from a particular repository, you can click **Unsubscribe**. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
-#### Default subscriptions
+### Default subscriptions
 
 In general, you are automatically subscribed to conversations by default when you have:
 - Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
@@ -50,7 +50,7 @@ By default, you also automatically watch all repositories that you create and ar
 
 To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.product_name %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
-### Customizing notifications and subscriptions
+## Customizing notifications and subscriptions
 
 You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
 
@@ -64,7 +64,7 @@ To customize how you'd like to receive updates for specific pull requests or iss
 You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)."
 {% endif %}
 
-### Reasons for receiving notifications
+## Reasons for receiving notifications
 
 Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)."
 
@@ -78,7 +78,7 @@ You can filter your inbox by the reason you're subscribed to notifications. For 
 
 If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
 
-### Triaging notifications from your inbox
+## Triaging notifications from your inbox
 
 To effectively manage your notifications, you can triage your inbox with options to:
 - Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
@@ -88,14 +88,14 @@ To effectively manage your notifications, you can triage your inbox with options
 
 From your inbox you can also triage multiple notifications at once. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
 
-### Customizing your notifications inbox
+## Customizing your notifications inbox
 
 To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
-### Notification retention policy
+## Notification retention policy
 
 Notifications that are not marked as **Saved** are kept for 5 months. Notifications marked as **Saved** are kept indefinitely. If your saved notification is older than 5 months and you unsave it, the notification will disappear from your inbox within a day.
 
-### Feedback and support
+## Feedback and support
 
 If you have feedback or feature requests for notifications, use the [feedback form for notifications](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).

@@ -5,7 +5,6 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
   - /articles/renewing-your-client-s-paid-organization
   - /articles/renewing-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
 versions:
   free-pro-team: '*'
@@ -21,7 +20,7 @@ topics:
 
 {% endtip %}
 
-### Updating your organization's credit card
+## Updating your organization's credit card
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}

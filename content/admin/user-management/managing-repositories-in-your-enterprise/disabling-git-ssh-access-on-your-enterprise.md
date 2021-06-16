@@ -25,7 +25,7 @@ topics:
   - Security
   - SSH
 ---
-### Disabling Git SSH access to a specific repository
+## Disabling Git SSH access to a specific repository
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -38,7 +38,7 @@ topics:
 1. Under "Git SSH access", use the drop-down menu, and click **Disabled**.
  ![Git SSH access drop-down menu with disabled option selected](/assets/images/enterprise/site-admin-settings/git-ssh-access-repository-setting.png)
 
-### Disabling Git SSH access to all repositories owned by a user or organization
+## Disabling Git SSH access to all repositories owned by a user or organization
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -49,7 +49,7 @@ topics:
 7. Under "Git SSH access", use the drop-down menu, and click **Disabled**. Then, select **Enforce on all repositories**.
  ![Git SSH access drop-down menu with disabled option selected](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
-### Disabling Git SSH access to all repositories in your enterprise
+## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}

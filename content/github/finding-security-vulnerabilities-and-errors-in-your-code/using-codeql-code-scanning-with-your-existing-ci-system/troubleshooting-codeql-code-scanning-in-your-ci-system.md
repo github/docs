@@ -7,8 +7,6 @@ versions:
   enterprise-server: '2.22'
 topics:
   - Security
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system
 ---
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
@@ -16,7 +14,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### The `init` command takes too long
+## The `init` command takes too long
 
 Before the {% data variables.product.prodname_codeql_runner %} can build and analyze code, it needs access to the {% data variables.product.prodname_codeql %} bundle, which contains the {% data variables.product.prodname_codeql %} CLI and the {% data variables.product.prodname_codeql %} libraries.
 
@@ -25,7 +23,7 @@ The {% data variables.product.prodname_codeql %} bundle is cached between runs, 
 
 To avoid this automatic download, you can manually download the {% data variables.product.prodname_codeql %} bundle to your machine and specify the path using the `--codeql-path` flag of the `init` command.
 
-### No code found during the build
+## No code found during the build
 
 If the `analyze` command for the {% data variables.product.prodname_codeql_runner %} fails with an error `No source code was seen during the build`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure.
 

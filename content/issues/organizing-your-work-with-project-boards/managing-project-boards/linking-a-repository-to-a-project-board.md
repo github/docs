@@ -34,6 +34,6 @@ Anyone with write permissions to a project board can link repositories owned by 
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[About projects boards](/articles/about-project-boards)"

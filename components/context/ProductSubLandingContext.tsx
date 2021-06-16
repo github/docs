@@ -6,7 +6,7 @@ export type FeaturedTrack = {
   title: string
   description: string
   guides?: Array<{ href: string; page: { type: string }; title: string; intro: string }>
-}
+} | null
 
 export type ArticleGuide = {
   href: string
@@ -45,14 +45,16 @@ export const getProductSubLandingContextFromRequest = (req: any): ProductSubLand
   return {
     ...pick(page, ['intro', 'allTopics']),
     title: req.context.productMap[req.context.currentProduct].name,
-    featuredTrack: {
-      ...pick(page.featuredTrack, ['title', 'description', 'trackName', 'guides']),
-      guides: (page.featuredTrack?.guides || []).map((guide: any) => {
-        return pick(guide, ['title', 'intro', 'href', 'page.type'])
-      }),
-    },
+    featuredTrack: page.featuredTrack
+      ? {
+          ...pick(page.featuredTrack, ['title', 'description', 'trackName']),
+          guides: (page.featuredTrack?.guides || []).map((guide: any) => {
+            return pick(guide, ['title', 'intro', 'href', 'page.type'])
+          }),
+        }
+      : null,
     learningTracks: (page.learningTracks || []).map((track: any) => ({
-      ...pick(track, ['title', 'description', 'trackName', 'guides']),
+      ...pick(track, ['title', 'description', 'trackName']),
       guides: (track.guides || []).map((guide: any) => {
         return pick(guide, ['title', 'intro', 'href', 'page.type'])
       }),

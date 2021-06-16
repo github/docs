@@ -18,6 +18,6 @@ Anyone with admin permissions to a repository can enable or disable the automati
 3. Under "Merge button", select or unselect **Automatically delete head branches**.
   ![Checkbox to enable or disable automatic deletion of branches](/assets/images/help/repository/automatically-delete-branches.png)
 
-### Further reading
+## Further reading
 - "[Merging a pull request](/articles/merging-a-pull-request)"
 - "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"

@@ -5,18 +5,16 @@ versions:
   enterprise-server: <=2.22
 topics:
   - Security
-redirect_from:
-  - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 ---
 <!--See /content/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies for the current version of this article -->
 
-### About vulnerable dependencies
+## About vulnerable dependencies
 
 {% data reusables.repositories.a-vulnerability-is %}
 
 When your code depends on a package that has a security vulnerability, this vulnerable dependency can cause a range of problems for your project or the people who use it.
 
-### Detection of vulnerable dependencies
+## Detection of vulnerable dependencies
 
  {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %} detects vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %}{% else %}{% data variables.product.product_name %} detects vulnerable dependencies and sends security alerts{% endif %} when:
 
@@ -34,9 +32,9 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 {% endnote %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
+## {% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies
 {% else %}
-### Security alerts for vulnerable dependencies
+## Security alerts for vulnerable dependencies
 {% endif %}
 
 {% data reusables.repositories.enable-security-alerts %}
@@ -55,7 +53,7 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% endwarning %}
 
-### Access to {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts
+## Access to {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts
 
 You can see all of the alerts that affect a particular project in the repository's dependency graph.
 

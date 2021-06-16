@@ -18,11 +18,11 @@ topics:
   - Accounts
   - Repositories
 ---
-### Deleting forks of private repositories
+## Deleting forks of private repositories
 
 While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
-### Removing collaborator permissions from a person contributing to a repository
+## Removing collaborator permissions from a person contributing to a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -37,7 +37,7 @@ While forks of private repositories are deleted when a collaborator is removed, 
   ![Remove link](/assets/images/help/organizations/Collaborator-Remove.png)
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
 - "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

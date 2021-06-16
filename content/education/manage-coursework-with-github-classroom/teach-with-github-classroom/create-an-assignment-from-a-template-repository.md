@@ -11,7 +11,7 @@ You can use a template repository on {% data variables.product.product_name %} a
 
 To use the template repository for your assignment, the template repository must be owned by your organization, or the visibility of the template repository must be public.
 
-### Further reading
+## Further reading
 
 - "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"
 - "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)"

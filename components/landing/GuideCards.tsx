@@ -10,22 +10,23 @@ import { GuideCard } from 'components/landing/GuideCard'
 export const GuideCards = () => {
   const router = useRouter()
   const { currentCategory } = useMainContext()
-  const { guideCards } = useProductLandingContext()
+  const { featuredLinks, hasGuidesPage } = useProductLandingContext()
+
   const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
 
-  if (!guideCards) {
+  if (!featuredLinks.guideCards) {
     return null
   }
 
   return (
     <div>
       <div className="d-lg-flex gutter-lg flex-items-stretch">
-        {(guideCards || []).map((guide) => {
+        {(featuredLinks.guideCards || []).map((guide) => {
           return <GuideCard key={guide.href} guide={guide} />
         })}
       </div>
 
-      {!currentCategory && (
+      {!currentCategory && hasGuidesPage && (
         <Link href={`${routePath}/guides`} className="btn btn-outline float-right">
           Explore guides <ArrowRightIcon />
         </Link>
