@@ -14,9 +14,9 @@ GitHub provides two types of Enterprise products:
 - **GitHub Enterprise Cloud**
 - **GitHub Enterprise Server**
 
-The main difference between the products are that GitHub Enterprise Cloud is hosted by GitHub.
+The main difference between the products are that GitHub Enterprise Server is hosted by GitHub.
 
-Within the GitHub Enterprise Cloud product, there are two different types of account that can be used:
+Within the GitHub Enterprise Server product, there are two different types of account that can be used:
 
 - A single org account, for example https://github.com/github, that uses GHEC
 - An enterprise account on GHEC that contains multiple orgs
@@ -39,7 +39,7 @@ To use an organization account with GHEC, you will first need to create an organ
 
 Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[Upgrading your GitHub subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
-#### Billing for GHEC
+#### Billing for GHES
 
 When you choose to use an organization account with GitHub Enterprise Cloud, you'll first have access to a [14-day trial](/github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase GitHub Enterprise or GitHub Team before your trial ends, your organization will be downgraded to GitHub Free and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
