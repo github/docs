@@ -23,3 +23,4 @@ sections:
     - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
     - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
