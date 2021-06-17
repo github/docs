@@ -55,6 +55,7 @@ export const SidebarNav = () => {
             width: 280px;
             height: 100vh;
             flex-shrink: 0;
+            padding-bottom: 32px;
           }
         `}
       </style>

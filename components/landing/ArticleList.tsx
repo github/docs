@@ -41,7 +41,7 @@ export const ArticleList = ({
         </div>
       )}
 
-      <ul className="list-style-none">
+      <ul className="list-style-none" data-testid="article-list">
         {articles.map((link) => {
           return (
             <li key={link.href} className={cx(variant === 'compact' && 'border-top')}>
