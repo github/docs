@@ -7,8 +7,11 @@ module.exports = async function features (req, res, next) {
   Object.keys(req.context.site.data.features).forEach(featureName => {
     const { versions } = req.context.site.data.features[featureName]
     const applicableVersions = getApplicableVersions(versions, req.path)
-    // Adding this to the context object gives us the ability to use `{% if featureName %}` conditionals in content files.
-    req.context[featureName] = applicableVersions.includes(req.context.currentVersion)
+
+    // Adding the resulting boolean to the context object gives us the ability to use
+    // `{% if featureName ... %}` conditionals in content files.
+    const isFeatureAvailableInCurrentVersion = applicableVersions.includes(req.context.currentVersion)
+    req.context[featureName] = isFeatureAvailableInCurrentVersion
   })
 
   return next()
