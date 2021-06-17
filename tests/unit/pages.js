@@ -7,8 +7,9 @@ const GithubSlugger = require('github-slugger')
 const slugger = new GithubSlugger()
 const Entities = require('html-entities').XmlEntities
 const entities = new Entities()
-const { chain, difference } = require('lodash')
+const { chain, difference, pick } = require('lodash')
 const checkIfNextVersionOnly = require('../../lib/check-if-next-version-only')
+const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
 
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
@@ -42,13 +43,23 @@ describe('pages module', () => {
     })
 
     test('redirect_from routes are unique across English pages', () => {
-      const sourceRedirectFrom = chain(pages)
+      const englishPages = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
-        .map('redirect_from')
-        .flatten()
+        .map(pages => pick(pages, ['redirect_from', 'applicableVersions']))
         .value()
-      const duplicates = sourceRedirectFrom.reduce((acc, el, i, arr) => {
+
+      const versionedRedirects = []
+
+      englishPages.forEach(page => {
+        page.redirect_from.forEach(redirect => {
+          page.applicableVersions.forEach(version => {
+            versionedRedirects.push(removeFPTFromPath(path.posix.join('/', version, redirect)))
+          })
+        })
+      })
+
+      const duplicates = versionedRedirects.reduce((acc, el, i, arr) => {
         if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el)
         return acc
       }, [])
