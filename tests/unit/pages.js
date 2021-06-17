@@ -46,9 +46,13 @@ describe('pages module', () => {
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
         .map('redirect_from')
-        .flatten()
         .value()
-      const duplicates = sourceRedirectFrom.reduce((acc, el, i, arr) => {
+
+      const foundDuplicates = sourceRedirectFrom.filter(files => {
+        return files.filter((e, i, a) => a.indexOf(e) !== i).length > 0
+      }).flat()
+
+      const duplicates = foundDuplicates.reduce((acc, el, i, arr) => {
         if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el)
         return acc
       }, [])
