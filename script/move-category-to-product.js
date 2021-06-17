@@ -61,7 +61,7 @@ function main () {
     fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: 10000 }))
   })
 
-  // // Move the files.
+  // Move the files.
   execSync(`git mv ${oldCategoryPath}/* ${newProductPath}`)
 
   // Remove the category from the old product TOC.
