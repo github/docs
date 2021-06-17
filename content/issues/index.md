@@ -10,6 +10,7 @@ topics:
   - Issues
   - Projects
 children:
+  - /quickstart
   - /tracking-your-work-with-issues
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
