@@ -79,3 +79,7 @@ When creating a secret in an organization, you can use a policy to limit which r
    The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
    ![Update or remove an organization secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   
+## Adding {% data variables.product.prodname_dependabot %} to your registries IP allow list
+
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. For more information, see "[Meta](/rest/reference/meta)."

@@ -4,7 +4,8 @@ const createStagingAppName = require('./create-staging-app-name')
 module.exports = async function undeployFromStaging ({
   herokuToken,
   octokit,
-  pullRequest
+  pullRequest,
+  runId = null
 }) {
   // Start a timer so we can report how long the deployment takes
   const startTime = Date.now()
@@ -22,6 +23,9 @@ module.exports = async function undeployFromStaging ({
       ref: branch
     }
   } = pullRequest
+
+  const workflowRunLog = runId ? `https://github.com/${owner}/${repo}/actions/runs/${runId}` : null
+  const logUrl = workflowRunLog
 
   const appName = createStagingAppName({ repo, pullNumber, branch })
 
@@ -78,6 +82,7 @@ module.exports = async function undeployFromStaging ({
         deployment_id: deployment.id,
         state: 'inactive',
         description: 'The app was undeployed',
+        ...logUrl && { log_url: logUrl },
         // The 'ant-man' preview is required for `state` values of 'inactive', as well as
         // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
         // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
