@@ -11,6 +11,7 @@ topics:
   - Projects
 children:
   - /tracking-your-work-with-issues
+  - /trying-out-the-new-projects-experience
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
 redirect_from:
