@@ -54,3 +54,4 @@ sections:
         ```
 
       2. If it shows one or more nodes are affected, reboot the affected nodes.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
