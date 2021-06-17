@@ -1,0 +1,53 @@
+name: site-policy-sync
+
+# **What it does**: Updates our site-policy repo when changes happen to site policy docs.
+# **Why we have it**: We want keep site-policy repo up to date.
+# **Who does it impact**: Site-policy team.
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow pull requests merged to the main branch
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+    paths:
+      - 'content/github/site-policy/**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  copy-file:
+    if: |
+      github.event.pull_request.merged == true &&
+      github.repository == 'github/docs-internal'
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      # Sets commit message
+      - name: custom message
+        run: |
+          echo "MESSAGE=${{github.event.pull_request.title}}" >> $GITHUB_ENV
+
+      # Pushes to other repo
+      - name: Push folder to another repository
+        uses: crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_SITEPOLICY }}
+        with:
+          source_folder: 'content/github/site-policy'
+          destination_repo: 'github/site-policy'
+          destination_branch: 'main'
+          destination_branch_create: 'repo-sync'
+          destination_folder: 'Policies'
+          user_email: 'site-policy-bot@users.noreply.github.com'
+          user_name: 'site-policy-bot'
+          commit_msg: '${{ env.MESSAGE }}'

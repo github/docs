@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **短版本：** _我们托管全球各地大量的协作项目，仅当用户能够善意一起工作时，该协作才能正常进行。 在使用服务时，必须遵守我们的可接受使用政策，包括对您可以发布的内容、对服务的操作的一些限制，以及其他限制规定。 简言之，要互惠互利。_
@@ -14,7 +17,7 @@ versions:
 您负责遵照所有相关的法律、法规以及我们所有的可接受使用政策来使用服务。 这些政策可能不时更新，请参阅下面的内容以及我们的[服务条款](/articles/github-terms-of-service)和[公司服务条款](/articles/github-corporate-terms-of-service)。
 
 ### 2. 内容限制
-在任何情况下用户都不能上传、发布、托管、执行或传输以下任何内容到仓库：
+在任何情况下用户都不能上传、发布、托管、执行或传输以下任何内容：
 
 - 非法或宣传非法活动；
 
@@ -28,16 +31,20 @@ versions:
 
 - 属于或包含可能对公共利益（包括健康、安全、选举廉正和公民参与）产生不利影响的虚假、不准确或有意欺骗性信息；
 
-- 包含或安装任何主动的恶意软件或漏洞利用软件，或者使用我们平台的漏洞来传输（如命令和控制系统部分）；或者
+- 直接支持[非法的主动攻击或恶意软件活动](/github/site-policy/github-community-guidelines#active-malware-or-exploits) ，这些活动正在造成技术伤害 - 例如使用我们的平台来提供恶意执行或作为攻击基础架构。 例如，通过组织拒绝服务攻击或管理命令和控制服务器 - 在发生滥用行为之前没有隐含或明确的双重用途目的；或
+
+- 共享未经授权的产品许可密钥、用于生成未经授权的产品许可密钥的软件，或用于绕过产品许可密钥检查的软件，包括将免费许可证延长至试用期之后；或
 
 - 侵犯任何方的任何专有权利，包括专利、商标、商业秘密、版权、肖像权或其他权利。
+
+更多详细信息请参阅我们的[社区指导方针](/github/site-policy/github-community-guidelines#what-is-not-allowed) 。
 
 ### 3. 行为限制
 在使用服务时，任何情况下都不能：
 
 - 骚扰、辱骂、威胁或煽动暴力对待任何个人或团体，包括我们的员工、高管和代理或其他用户；
 
-- post off-topic content, or interact with platform features, in a way that significantly or repeatedly disrupts the experience of other users;
+- 发布与主题无关的内容，或者以严重影响或反复干扰其他用户体验的方式使用平台功能。
 
 - 将我们的服务器用于任何形式的过度自动化批量活动（如发送垃圾邮件或加密货币挖矿），通过自动化方式对我们的服务器施加不当的负担，或者通过我们的服务器转发任何其他形式的主动广告或招揽，如快速致富方案；
 
@@ -50,17 +57,17 @@ versions:
 ### 4. 服务使用限制
 未获明确的书面同意，不得重制、重复、复制、销售、转售或利用服务的任何部分、使用服务或访问服务。
 
-### 5. Information Usage Restrictions
-You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
+### 5. 信息使用限制
+您可以出于以下原因使用我们服务中的信息，无论是爬取、通过我们的 API 收集还是以其他方式获取信息：
 
--  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
--  Archivists may use public information from the Service for archival purposes.
+-  研究人员可以出于研究目的而从服务中爬取公开的非个人信息，但仅当来自该研究的出版物[开放访问时](https://en.wikipedia.org/wiki/Open_access)才可爬取。
+-  存档人员可以将本服务中的公开信息用于存档目的。
 
-Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. 有关我们的 API 条款，请参阅我们[服务条款](/articles/github-terms-of-service#h-api-terms)的 H 部分。
+爬取是指通过自动化过程（如自动程序或网络爬虫 ）从我们的服务中提取数据。 爬取不是指通过我们的 API 收集信息。 有关我们的 API 条款，请参阅我们[服务条款](/articles/github-terms-of-service#h-api-terms)的 H 部分。
 
-You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+不得将服务中的信息（无论是爬取、通过我们的 API 收集的还是以其他方式获取的信息）用于垃圾邮件目的，包括向用户发送未经请求的电子邮件或出售用户个人信息（定义见 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)），例如向招聘人员、猎头或职介所出售此类信息。
 
-Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+对服务信息的使用必须遵守 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)。
 
 ### 6. 隐私
 禁止滥用用户个人信息。

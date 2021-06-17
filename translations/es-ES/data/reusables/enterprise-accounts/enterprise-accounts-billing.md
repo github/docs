@@ -1,0 +1,1 @@
+Las cuentas empresariales están actualmente disponibles para los clientes de {% data variables.product.prodname_ghe_cloud %} y {% data variables.product.prodname_ghe_server %} que paguen por factura. La facturación para todas las organizaciones e instancias de {% data variables.product.prodname_ghe_server %} conectadas a tu cuenta empresarial se agregará en una sola factura.

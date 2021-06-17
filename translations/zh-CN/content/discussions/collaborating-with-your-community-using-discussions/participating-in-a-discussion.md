@@ -1,6 +1,6 @@
 ---
-title: Participating in a discussion
-intro: You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.
+title: 参与讨论
+intro: '您可以在仓库的论坛中与社区和维护者交流 {% data variables.product.product_name %} 上的项目。'
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -8,24 +8,24 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-### About participation in a discussion
+### 关于参与讨论
 
-{% data reusables.discussions.about-discussions %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-In addition to starting or viewing a discussion, you can comment in response to the original comment from the author of the discussion. You can also create a comment thread by replying to an individual comment that another community member made within the discussion, and react to comments with emoji. For more information about reactions, see "[About conversations on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github#reacting-to-ideas-in-comments)."
+除了开始或查看讨论之外，您还可以对讨论作者的原始评论做出响应。 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
 
-You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)."
+您可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。 更多信息请参阅“[保持您在 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。
 
 ### 基本要求
 
-Discussions must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+必须对仓库启用讨论，您才可以参与仓库中的讨论。 更多信息请参阅“[启用和禁用仓库讨论](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
-### Creating a discussion
+### 创建讨论
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Marking a comment as an answer
+### 将评论标记为答案
 
-Discussion authors and users with the triage role or greater for a repository can mark a comment as the answer to a discussion in the repository.
+对于仓库具有分类角色或更高角色的讨论作者和用户可以将评论标记为仓库中讨论的答案。
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}

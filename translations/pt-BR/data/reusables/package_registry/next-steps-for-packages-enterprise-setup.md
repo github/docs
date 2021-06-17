@@ -1,0 +1,3 @@
+Como a próxima etapa, você pode personalizar os ecossistemas de pacote que você gostaria de disponibilizar para os usuários finais em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a compatibilidade com o ecossistema de pacote para a sua empresa](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)".
+
+Para uma visão geral sobre como começar a {% data variables.product.prodname_registry %} em {% data variables.product.prodname_dotcom %}, consulte "[Primeiros passos com o GitHub Packages para a sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."

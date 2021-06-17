@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Before testing your SSH connection, you should have:
@@ -31,7 +33,7 @@ When you test your connection, you'll need to authenticate this action using you
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches one of the messages in step 2, then type `yes`:
+3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

@@ -5,16 +5,23 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
 Neste guia, você aprenderá os componentes básicos necessários para criar e usar uma ação de etapas de execução compostas empacotada. Para manter o foco deste guia nos componentes necessários para empacotar a ação, a funcionalidade do código da ação é mínima. A ação imprime "Hello World" e "Goodbye", ou, se você fornecer um nome personalizado, imprimirá "Hello [who-to-greet]" e "Goodbye". A ação também mapeia um número aleatório para a variável de saída `random-number` e executa um script denominado `goodbye.sh`.
 
 Ao terminar esse projeto, você saberá como criar sua própria ação de etapas de execução compostas e poderá testá-la em um fluxo de trabalho.
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Pré-requisitos
 
@@ -64,12 +71,12 @@ Antes de começar, você criará um repositório {% data variables.product.produ
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -116,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

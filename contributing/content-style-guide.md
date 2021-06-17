@@ -13,6 +13,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Commands](#commands)
   - [Examples](#examples)
   - [Indentation](#indentation)
+  - [Scheduled workflows](#scheduled-workflows)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -145,9 +146,17 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: ${{ matrix.python }}
 ```
 
+### Scheduled workflows
+
+Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
+
+- Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
+- Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
+- Use a different time for each example.
+
 ## Headers
 
-Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
+Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
@@ -172,7 +181,9 @@ Do not include your username or avatar in any images. If a screenshot must inclu
 
 ## Inclusive language
 
-It’s critical that all of our documentation is inclusive and respectful of our audience of people in widely varying circumstances from all over the planet. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+
+Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
 | Use | Avoid |
 | --- | --- |
@@ -206,7 +217,7 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H3 header.
+Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
@@ -225,6 +236,10 @@ It's not necessary to link to an external product’s website when we mention an
 For general guidelines, see “[Lists](https://brand.github.com/content/grammar#lists)” in GitHub’s Brand Guide.
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
+
+When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
+* `foo`: Something that provides bar.
+* `bar`: Something provided by foo.
 
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
@@ -276,7 +291,7 @@ Take care to distinguish between product names and product elements. For more in
 Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Reusables and variables
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the data directory in the github/docs repository and the “Product names” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
 ## Tables
 

@@ -1,50 +1,50 @@
 ---
-title: Configure default settings for assignment repositories
-shortTitle: Configure defaults for assignment repositories
-intro: You can use the Probot Settings app to configure the default settings for repositories that {% data variables.product.prodname_classroom %} creates for an assignment.
-permissions: Organization owners can configure default settings for assignment repositories by installing a {% data variables.product.prodname_github_app %} for the organization.
+title: Configurar as configurações-padrão para repositórios de atribuição
+shortTitle: Configurar padrões para repositórios de atribuição
+intro: Você pode usar o aplicativo de Configurações do Probot para definir as configurações-padrão para repositórios que {% data variables.product.prodname_classroom %} cria para uma atribuição.
+permissions: Os proprietários da organização podem definir as configurações-padrão para repositórios de atribuições instalando um {% data variables.product.prodname_github_app %} para a organização.
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/probot-settings
 ---
 
-### About configuration of defaults for assignment repositories
+### Sobre a configuração de padrões para repositórios de atribuições
 
-{% data variables.product.prodname_classroom %} creates a repository that belongs for each student or team that accepts an assignment. The repository belongs to the organization that you use for {% data variables.product.prodname_classroom %}. Assignment repositories can be empty, or you can use a template repository. For more information, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)."
+{% data variables.product.prodname_classroom %} cria um repositório que pertence a cada aluno ou equipe que aceita uma atribuição. O repositório pertence à organização que você utiliza para {% data variables.product.prodname_classroom %}. Repositórios de atribuições podem estar vazios ou você pode usar um repositório-modelo. Para obter mais informações, consulte "[Criar uma atribuição a partir de um repositório modelo](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)".
 
 {% data reusables.classroom.you-may-want-to-predefine-repository-settings %}
 
-With the Probot Settings app, you can create a file named _.github/settings.yml_ in a repository that contains a list of settings for the repository, and then install a {% data variables.product.prodname_github_app %} for your organization that automatically applies the settings to the repository.
+Com o aplicativo de configurações do Probot, você pode criar um arquivo denominado _.github/settings.yml_ em um repositório que contém uma lista de configurações para o repositório e, em seguida, instalar um {% data variables.product.prodname_github_app %} para a sua organização que aplica automaticamente as configurações do repositório.
 
-You can include _.github/settings.yml_ in a template repository that you use for an assignment in {% data variables.product.prodname_classroom %}. When an individual or team accepts the assignment, {% data variables.product.prodname_classroom %} creates the assignment repository, and the Settings app automatically applies the settings from _.github/settings.yml_.
+Você pode incluir _.github/settings.yml_ em um repositório de modelo que você usa para uma atribuição em {% data variables.product.prodname_classroom %}. Quando um indivíduo ou equipe aceita a atribuição, {% data variables.product.prodname_classroom %} cria o repositório de atribuições, e o aplicativo de configurações aplica automaticamente as configurações do _.github/settings.yml_.
 
-Probot is a a project, framework, and collection of free apps to automate {% data variables.product.product_name %}. A Probot app can listen to repository events, like the creation of new commits, comments, and issues, and automatically respond to the event.
+O Probot é um projeto, estrutura e coleção de aplicativos grátis para automatizar o {% data variables.product.product_name %}. Um aplicativo Probot pode ouvir eventos do repositório, como a criação de novos commits, comentários e problemas, e automaticamente responder ao evento.
 
-For more information, see the [Probot website](https://probot.github.io) and the [Settings app website](https://probot.github.io/apps/settings/). For more information about {% data variables.product.prodname_github_apps %}, see "[About apps](/developers/apps/about-apps)."
+Para obter mais informações, consulte o site do Probot [](https://probot.github.io) e o [site de aplicativos configurações](https://probot.github.io/apps/settings/). Para obter mais informações sobre {% data variables.product.prodname_github_apps %}, consulte "[Sobre aplicativos](/developers/apps/about-apps)".
 
-### Adding the Settings app to your organization
+### Adicionar o aplicativo de configurações à sua organização
 
-After you install the Probot Settings app for your organization, the app will apply the settings that you define in _.github/settings.yml_  for any repository in your organization, including new assignment repositories that {% data variables.product.prodname_classroom %} creates.
+Após instalar o aplicativo de configurações do Probot para sua organização, o aplicativo irá aplicar as configurações que você definir em _.github/settings.yml_ para qualquer repositório na sua organização, incluindo novos repositórios de atribuições que {% data variables.product.prodname_classroom %} cria.
 
-1. Navigate to the [Settings app page](https://github.com/apps/settings).
-1. Click **Install**, then click the organization that you use for  {% data variables.product.prodname_classroom %}. Provide the app full access to all repositories owned by the organization. ![Installing the Probot Settings app](/assets/images/help/classroom/probot-settings.gif)
+1. Navegue até a [página do aplicativo de configurações](https://github.com/apps/settings).
+1. Clique em **Instalar** e, em seguida, clique na organização que você usa para {% data variables.product.prodname_classroom %}. Forneça acesso total ao aplicativo para todos os repositórios pertencentes à organização. ![Instalar o aplicativo de configurações Probot](/assets/images/help/classroom/probot-settings.gif)
 
-### Configuring default settings for an assignment repository
+### Definir as configurações-padrão para um repositório de atribuição
 
-1. Create a template repository that contains a _.github/settings.yml_ file. For a complete list of settings, see the [README](https://github.com/probot/settings#github-settings) for the `probot/settings` repository. For more information about using a template repository for starter code in {% data variables.product.prodname_classroom %}, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)."
+1. Crie um repositório de modelo que contenha um arquivo _.github/settings.yml_. Para obter uma lista completa de configurações, consulte o [LEIAME](https://github.com/probot/settings#github-settings) para o repositório `probot/settings`. Para obter mais informações sobre o uso de um repositório de modelo para o código inicial em {% data variables.product.prodname_classroom %}, consulte "[Criar uma atribuição a partir de um repositório de modelo](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)".
 
     {% warning %}
 
-    **Warning:** Do not define `collaborators` in the _.github/settings.yml_ file for your template repository. {% data variables.product.prodname_classroom %} automatically grants teachers and teaching assistants access to assignment repositories.
+    **Aviso:** Não defina os `colaboradores` no arquivo _.github/settings.yml_ para o repositório de modelo. {% data variables.product.prodname_classroom %} concede automaticamente a professores e assistentes de professores acesso aos repositórios de atribuições.
 
     {% endwarning %}
 
-1. Create an assignment using the template repository containing _.github/settings.yml_ as the starter code. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+1. Crie uma atribuição usando o repositório de modelo que contém _.github/settings.yml_ como código inicial. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-The Probot Settings app for your organization will now apply the settings you define in _.github/settings.yml_ within the template repository to every assignment repository that {% data reusables.classroom.you-may-want-to-predefine-repository-settings %} creates for a student or team.
+Agora, o aplicativo de configurações do Probot para sua organização aplicará as configurações que você definir em _.github/settings.yml_ dentro do repositório de modelo para cada repositório de atividade que {% data reusables.classroom.you-may-want-to-predefine-repository-settings %} criar para um aluno ou equipe.
 
 ### Leia mais
 
-- [Probot apps](https://probot.github.io/apps/)
-- [Probot documentation](https://probot.github.io/docs/)
+- [Aplicativos do Probot](https://probot.github.io/apps/)
+- [Documentação do Probot](https://probot.github.io/docs/)

@@ -1,0 +1,8 @@
+/* Survey override */
+:checked + .x-radio-label {
+  background: var(--color-auto-blue-5);
+
+  svg {
+    fill: var(--color-auto-inverse);
+  }
+}

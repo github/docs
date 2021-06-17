@@ -1,6 +1,7 @@
 const request = require('supertest')
 const nock = require('nock')
-const app = require('../../server')
+const cheerio = require('cheerio')
+const app = require('../../lib/app')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
@@ -14,8 +15,9 @@ describe('POST /events', () => {
     process.env.HYDRO_SECRET = '$HYDRO_SECRET$'
     process.env.HYDRO_ENDPOINT = 'http://example.com/hydro'
     agent = request.agent(app)
-    const csrfRes = await agent.get('/csrf')
-    csrfToken = csrfRes.body.token
+    const csrfRes = await agent.get('/en')
+    const $ = cheerio.load(csrfRes.text || '', { xmlMode: true })
+    csrfToken = $('meta[name="csrf-token"]').attr('content')
     nock('http://example.com')
       .post('/hydro')
       .reply(200, {})
@@ -72,7 +74,7 @@ describe('POST /events', () => {
     const pageExample = { ...baseExample, type: 'page' }
 
     it('should record a page event', () =>
-      checkEvent(pageExample, 201)
+      checkEvent(pageExample, 200)
     )
 
     it('should require a type', () =>
@@ -117,6 +119,16 @@ describe('POST /events', () => {
           timestamp: 1234
         }
       }, 400)
+    )
+
+    it('should allow page_event_id', () =>
+      checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          page_event_id: baseExample.context.event_id
+        }
+      }, 200)
     )
 
     it('should not allow a honeypot token', () =>
@@ -189,7 +201,7 @@ describe('POST /events', () => {
       }, 400)
     )
 
-    it('should a valid os option', () =>
+    it('should os a valid os option', () =>
       checkEvent({
         ...pageExample,
         context: {
@@ -268,20 +280,13 @@ describe('POST /events', () => {
         }
       }, 400)
     )
-
-    it('should page_render_duration is a positive number', () =>
-      checkEvent({
-        ...pageExample,
-        page_render_duration: -0.5
-      }, 400)
-    )
   })
 
   describe('exit', () => {
     const exitExample = {
       ...baseExample,
       type: 'exit',
-      exit_page_id: 'c93c2d16-8e07-43d5-bc3c-eacc999c184d',
+      exit_render_duration: 0.9,
       exit_first_paint: 0.1,
       exit_dom_interactive: 0.2,
       exit_dom_complete: 0.3,
@@ -290,15 +295,14 @@ describe('POST /events', () => {
     }
 
     it('should record an exit event', () =>
-      checkEvent(exitExample, 201)
+      checkEvent(exitExample, 200)
     )
 
-    it('should require exit_page_id', () =>
-      checkEvent({ ...exitExample, exit_page_id: undefined }, 400)
-    )
-
-    it('should require exit_page_id is a uuid', () =>
-      checkEvent({ ...exitExample, exit_page_id: 'afjdskalj' }, 400)
+    it('should exit_render_duration is a positive number', () =>
+      checkEvent({
+        ...exitExample,
+        exit_render_duration: -0.5
+      }, 400)
     )
 
     it('exit_first_paint is a number', () =>
@@ -326,7 +330,7 @@ describe('POST /events', () => {
     }
 
     it('should send a link event', () =>
-      checkEvent(linkExample, 201)
+      checkEvent(linkExample, 200)
     )
 
     it('link_url is a required uri formatted string', () =>
@@ -343,7 +347,7 @@ describe('POST /events', () => {
     }
 
     it('should record a search event', () =>
-      checkEvent(searchExample, 201)
+      checkEvent(searchExample, 200)
     )
 
     it('search_query is required string', () =>
@@ -351,7 +355,7 @@ describe('POST /events', () => {
     )
 
     it('search_context is optional string', () =>
-      checkEvent({ ...searchExample, search_context: undefined }, 201)
+      checkEvent({ ...searchExample, search_context: undefined }, 200)
     )
   })
 
@@ -363,11 +367,11 @@ describe('POST /events', () => {
     }
 
     it('should record a navigate event', () =>
-      checkEvent(navigateExample, 201)
+      checkEvent(navigateExample, 200)
     )
 
     it('navigate_label is optional string', () =>
-      checkEvent({ ...navigateExample, navigate_label: undefined }, 201)
+      checkEvent({ ...navigateExample, navigate_label: undefined }, 200)
     )
   })
 
@@ -381,7 +385,7 @@ describe('POST /events', () => {
     }
 
     it('should record a survey event', () =>
-      checkEvent(surveyExample, 201)
+      checkEvent(surveyExample, 200)
     )
 
     it('survey_vote is boolean', () =>
@@ -407,7 +411,7 @@ describe('POST /events', () => {
     }
 
     it('should record an experiment event', () =>
-      checkEvent(experimentExample, 201)
+      checkEvent(experimentExample, 200)
     )
 
     it('experiment_name is required string', () =>
@@ -419,7 +423,7 @@ describe('POST /events', () => {
     )
 
     it('experiment_success is optional boolean', () =>
-      checkEvent({ ...experimentExample, experiment_success: undefined }, 201)
+      checkEvent({ ...experimentExample, experiment_success: undefined }, 200)
     )
   })
 
@@ -432,7 +436,7 @@ describe('POST /events', () => {
     }
 
     it('should record an redirect event', () =>
-      checkEvent(redirectExample, 201)
+      checkEvent(redirectExample, 200)
     )
 
     it('redirect_from is required url', () =>
@@ -452,7 +456,7 @@ describe('POST /events', () => {
     }
 
     it('should record an clipboard event', () =>
-      checkEvent(clipboardExample, 201)
+      checkEvent(clipboardExample, 200)
     )
 
     it('clipboard_operation is required copy, paste, cut', () =>
@@ -467,7 +471,28 @@ describe('POST /events', () => {
     }
 
     it('should record a print event', () =>
-      checkEvent(printExample, 201)
+      checkEvent(printExample, 200)
     )
+  })
+
+  describe('preference', () => {
+    const preferenceExample = {
+      ...baseExample,
+      type: 'preference',
+      preference_name: 'application',
+      preference_value: 'cli'
+    }
+
+    it('should record an application event', () =>
+      checkEvent(preferenceExample, 200)
+    )
+
+    it('preference_name is string', () => {
+      checkEvent({ ...preferenceExample, preference_name: null }, 400)
+    })
+
+    it('preference_value is string', () => {
+      checkEvent({ ...preferenceExample, preference_value: null }, 400)
+    })
   })
 })

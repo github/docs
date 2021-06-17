@@ -1,8 +1,12 @@
 name: Repo Freeze Reminders
 
+# **What it does**: This reminds us that the repository is frozen for deploys.
+# **Why we have it**: To remind us to turn off the freeze after the freeze period is over.
+# **Who does it impact**: Docs engineering.
+
 on:
   schedule:
-    - cron: '00 11 * * *' # once per day around 11:00am UTC
+    - cron: '9 11 * * *' # once per day around 11:09am UTC
 
 env:
   FREEZE: ${{ secrets.FREEZE }}

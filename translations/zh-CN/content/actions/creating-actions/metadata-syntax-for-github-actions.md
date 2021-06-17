@@ -1,5 +1,5 @@
 ---
-title: GitHub 操作的元数据语法
+title: GitHub Actions 的元数据语法
 shortTitle: 元数据语法
 intro: 您可以创建操作来执行仓库中的任务。 操作需要使用 YAML 语法的元数据文件。
 product: '{% data reusables.gated-features.actions %}'
@@ -11,10 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于 {% data variables.product.prodname_actions %} 的 YAML 语法
 
@@ -55,7 +58,7 @@ inputs:
 
 在指定工作流程文件中某个操作的输入或者使用默认输入值时，{% data variables.product.prodname_dotcom %} 将为名称为 `INPUT_<VARIABLE_NAME>` 的输入创建环境变量。 创建的环境变量将输入名称转换为大写，并将空格替换为 `_` 字符。
 
-例如，如果工作流程定义了 numOctocats and octocatEyeColor 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
+例如，如果工作流程定义了 `numOctocats` 和 `octocatEyeColor` 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
 
 #### `inputs.<input_id>`
 
@@ -72,6 +75,10 @@ inputs:
 #### `inputs.<input_id>.default`
 
 **可选** 表示默认值的 `string`。 当工作流程文件中未指定输入参数时使用默认值。
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**可选** 如果使用输入参数，此 `string` 将记录为警告消息。 您可以使用此警告通知用户输入已被弃用，并提及任何其他替代方式。
 
 ### `outputs`
 
@@ -110,12 +117,12 @@ outputs:
 
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -186,7 +193,7 @@ runs:
 
 #### `pre-if`
 
-**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。 
+**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。
 
 在此示例中，`cleanup.js` 仅在基于 Linux 的运行器上运行：
 
@@ -194,7 +201,7 @@ runs:
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 
@@ -230,7 +237,7 @@ runs:
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
 
@@ -254,19 +261,23 @@ runs:
 
 
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **必要** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本：
+
+{% raw %}
 
 
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
 
+
+{% endraw %}
 
 或者，您也可以使用 `$GITHUB_ACTION_PATH`：
 
@@ -275,7 +286,7 @@ runs:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -285,31 +296,31 @@ runs:
 
 
 
-##### `runs.steps.shell`
+##### `runs.steps[*].shell`
 
 **必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)列出的任何 shell。
 
 
 
-##### `runs.steps.name`
+##### `runs.steps[*].name`
 
 **可选** 组合运行步骤的名称。
 
 
 
-##### `runs.steps.id`
+##### `runs.steps[*].id`
 
 **可选** 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
 
 
-##### `runs.steps.env`
+##### `runs.steps[*].env`
 
-**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合运行步骤中使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
+**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合运行步骤中使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
 
 
 
-##### `runs.steps.working-directory`
+##### `runs.steps[*].working-directory`
 
 **可选**  指定命令在其中运行的工作目录。
 
@@ -317,7 +328,7 @@ runs:
 
 ### 用于 Docker 操作的 `runs`
 
-**必要** 配置用于 Docker 操作的图像。 
+**必要** 配置用于 Docker 操作的图像。
 
 
 
@@ -326,7 +337,7 @@ runs:
 
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -339,7 +350,7 @@ runs:
 
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```
@@ -368,7 +379,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
@@ -378,7 +389,7 @@ runs:
 
 #### `runs.image`
 
-**必要** 要用作容器来运行操作的 Docker 映像。 值可以是 Docker 基本映像名称、仓库中的本地 `Dockerfile`、Docker Hub 中的公共映像或另一个注册表。 要引用仓库本地的 `Dockerfile`，请使用操作元数据文件的相对路径。 `Docker` 应用程序将执行此文件。
+**必要** 要用作容器来运行操作的 Docker 映像。 值可以是 Docker 基本映像名称、仓库中的本地 `Dockerfile`、Docker Hub 中的公共映像或另一个注册表。 要引用仓库本地的 `Dockerfile`，文件必须命名为 `Dockerfile`，并且您必须使用操作元数据文件的相对路径。 `Docker` 应用程序将执行此文件。
 
 
 
@@ -407,7 +418,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```
@@ -480,7 +491,7 @@ branding:
 
 <table>
 <tr>
-<td>活动</td>
+<td>activity</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -495,7 +506,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>存档</td>
+<td>archive</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -573,10 +584,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>代码</td>
+<td>code</td>
 </tr>
 <tr>
-<td>命令</td>
+<td>command</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -619,18 +630,18 @@ branding:
 </tr>
 <tr>
 <td>facebook</td>
-<td>快进</td>
+<td>fast-forward</td>
 <td>feather</td>
 <td>file-minus</td>
 </tr>
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>文件</td>
+<td>file</td>
 <td>film</td>
 </tr>
 <tr>
-<td>过滤</td>
+<td>filter</td>
 <td>flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
@@ -649,7 +660,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>哈希</td>
+<td>hash</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -751,7 +762,7 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>倒回</td>
+<td>rewind</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
@@ -776,7 +787,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>边栏</td>
+<td>sidebar</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -788,7 +799,7 @@ branding:
 <tr>
 <td>speaker</td>
 <td>square</td>
-<td>星标</td>
+<td>star</td>
 <td>stop-circle</td>
 </tr>
 <tr>
@@ -798,7 +809,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>标记</td>
+<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -828,15 +839,15 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>上传</td>
+<td>upload</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>用户</td>
-<td>用户</td>
+<td>user</td>
+<td>users</td>
 <td>video-off</td>
 </tr>
 <tr>
@@ -848,7 +859,7 @@ branding:
 <tr>
 <td>volume-x</td>
 <td>volume</td>
-<td>查看</td>
+<td>watch</td>
 <td>wifi-off</td>
 </tr>
 <tr>

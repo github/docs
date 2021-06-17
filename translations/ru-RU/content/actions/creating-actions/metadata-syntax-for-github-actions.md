@@ -11,10 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About YAML syntax for {% data variables.product.prodname_actions %}
 
@@ -55,7 +58,7 @@ inputs:
 
 When you specify an input to an action in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-For example, if a workflow defined the numOctocats and octocatEyeColor inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 #### `inputs.<input_id>`
 
@@ -72,6 +75,10 @@ For example, if a workflow defined the numOctocats and octocatEyeColor inputs, t
 #### `inputs.<input_id>.default`
 
 **Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs`
 
@@ -104,12 +111,12 @@ outputs:
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -117,6 +124,7 @@ runs:
 {% endraw %}
 
 #### `outputs.<output_id>.value`
+
 **Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
 For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
@@ -163,7 +171,7 @@ In this example, `cleanup.js` only runs on Linux-based runners:
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 #### `сообщение`
@@ -189,7 +197,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
 ### `runs` for composite run steps actions
@@ -204,46 +212,49 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 **Required** The run steps that you plan to run in this action.
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **Required** The command you want to run. This can be inline or a script in your action repository:
+
+{% raw %}
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+{% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
 
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
 
 For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-##### `runs.steps.shell`
+##### `runs.steps[*].shell`
 
 **Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
 
-##### `runs.steps.name`
+##### `runs.steps[*].name`
 
 **Optional** The name of the composite run step.
 
-##### `runs.steps.id`
+##### `runs.steps[*].id`
 
 **Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-##### `runs.steps.env`
+##### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
-##### `runs.steps.working-directory`
+##### `runs.steps[*].working-directory`
 
 **Optional**  Specifies the working directory where the command is run.
 
@@ -254,7 +265,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 #### Example using a Dockerfile in your repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -262,7 +273,7 @@ runs:
 #### Example using public Docker registry container
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```
@@ -284,14 +295,14 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
 
 #### `runs.image`
 
-**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, use a path relative to your action metadata file. The `docker` application will execute this file.
+**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, the file must be named `Dockerfile` and you must use a path relative to your action metadata file. The `docker` application will execute this file.
 
 #### `runs.env`
 
@@ -312,7 +323,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```
@@ -491,7 +502,7 @@ The name of the [Feather](https://feathericons.com/) icon to use.
 <td>download-cloud</td>
 </tr>
 <tr>
-<td>download</td>
+<td>скачать</td>
 <td>droplet</td>
 <td>edit-2</td>
 <td>edit-3</td>

@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 With SSH keys, if someone gains access to your computer, they also gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. You can use `ssh-agent` to securely save your passphrase so you don't have to reenter it.
@@ -18,12 +20,11 @@ With SSH keys, if someone gains access to your computer, they also gain access t
 You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
 
 ```shell
-$ ssh-keygen -p
-# Start the SSH key creation process
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -88,7 +89,7 @@ The `ssh-agent` process will continue to run until you log out, shut down your c
 
 ### Saving your passphrase in the keychain
 
-On OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

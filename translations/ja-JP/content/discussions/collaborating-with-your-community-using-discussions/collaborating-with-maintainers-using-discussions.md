@@ -1,7 +1,7 @@
 ---
-title: Collaborating with maintainers using discussions
-shortTitle: Collaborating with maintainers
-intro: You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.
+title: ディスカッションを使用してメンテナとコラボレーションする
+shortTitle: メンテナとコラボレーションする
+intro: 'ディスカッションでプロジェクトのメンテナと連絡を取り合うことにより、{% data variables.product.product_name %} でプロジェクトの目標、計画、健全性、およびコミュニティに貢献できます。'
 permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -9,40 +9,42 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-### About collaboration with maintainers using discussions
+### ディスカッションを利用したメンテナとのコラボレーションについて
 
-{% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} プロジェクトを使用または貢献する場合は、ディスカッションを開始して提案を行い、計画、質問、アイデア、フィードバックについてメンテナやコミュニティメンバーと交流することができます。 詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
-{% data reusables.discussions.about-categories-and-formats %} Repository administrators and project maintainers can delete a discussion. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)."
+{% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
 
-{% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
+Repository administrators and project maintainers can delete a discussion. 詳しい情報については、「[リポジトリ内のディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)」を参照してください。
 
-![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
+{% data reusables.discussions.github-recognizes-members %} これらのメンバーは、プロジェクトのディスカッションに最も役立つコントリビューターのリストに表示されます。 プロジェクトが成長するにつれて、コミュニティのアクティブなメンバーにより高いアクセス許可を付与できます。 詳しい情報については、「[上位貢献者により高いアクセス許可を付与する](/discussions/guides/granting-higher-permissions-to-top-contributors) 」を参照してください。
 
-For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
+![プロジェクトのディスカッションに最も役立つ貢献者](/assets/images/help/discussions/most-helpful.png)
+
+ディスカッションへの参加に関する詳しい情報については、「[ディスカッションに参加する](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)」を参照してください。
 
 ### 必要な環境
 
-To collaborate with maintainers using discussions, a repository administrator or project maintainer must enable discussions for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+ディスカッションを使用してメンテナとコラボレーションするには、リポジトリ管理者またはプロジェクトメンテナがリポジトリのディスカッションを有効にする必要があります。 詳しい情報については、「[リポジトリのディスカッションの有効化または無効化](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)」を参照してください。
 
-### Starting a discussion
+### ディスカッションを開始する
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Filtering the list of discussions
+### ディスカッションのリストをフィルタする
 
-You can search for discussions and filter the list of discussions in a repository. For more information, see "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+ディスカッションを検索し、リポジトリ内のディスカッションのリストをフィルタできます。 詳しい情報については、「[ ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. In the **Search all discussions** field, type a search query. Optionally, to the right of the search field, click a button to further filter the results. ![Search bar and buttons for filtering discussions](/assets/images/help/discussions/search-and-filter-controls.png)
-1. In the list of discussions, click the discussion you want to view. ![Discussion search results](/assets/images/help/discussions/search-result.png)
+1. [**Search all discussions**] フィールドに、検索クエリを入力します。 必要に応じて、検索フィールドの右側にあるボタンをクリックして、結果をさらにフィルタします。 ![ディスカッションをフィルタするための検索バーとボタン](/assets/images/help/discussions/search-and-filter-controls.png)
+1. ディスカッションのリストで、表示するディスカッションをクリックします。 ![ディスカッション検索結果](/assets/images/help/discussions/search-result.png)
 
-### Converting an issue to a discussion
+### Issue をディスカッションに変換する
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions in your repository](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion#converting-an-issue-to-a-discussion)."
+{% data reusables.discussions.you-can-convert-an-issue %}詳しい情報については、「[リポジトリ内のディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion#converting-an-issue-to-a-discussion)」を参照してください。
 
 ### 参考リンク
 
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
+- 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
+- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」

@@ -1,6 +1,6 @@
 ---
-title: Managing categories for discussions in your repository
-intro: You can categorize the discussions in your repository to organize conversations for your community members, and you can choose a format for each category.
+title: 管理仓库中讨论的类别
+intro: 您可以对仓库中的讨论进行分类，以组织社区成员的对话，也可为每个类别选择格式。
 permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -8,49 +8,50 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-### About categories for discussions
+### 关于讨论类别
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
-Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations.{% data reusables.discussions.repository-category-limit %}
+{% data reusables.discussions.about-announcement-format %}
 
-For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+每个类别必须具有唯一的名称和表情符号配对，并可以附有说明其用途的详细说明。 类别帮助维护者组织如何提交对话，并可自定义，以帮助区分问答或更多开放式对话的类别。 {% data reusables.discussions.repository-category-limit %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
-### Default categories
+### 默认类别
 
-| 分类              | Purpose                                                              | 类型                    |
-|:--------------- |:-------------------------------------------------------------------- |:--------------------- |
-| #️⃣ General     | Anything and everything relevant to the project                      | Open-ended discussion |
-| 💡Ideas          | Ideas to change or improve the project                               | Open-ended discussion |
-| 🙏 Q&A           | Questions for the community to answer, with a question/answer format | Question and Answer   |
-| 🙌 Show and tell | Creations, experiments, or tests relevant to the project             | Open-ended discussion |
+| 分类      | 目的                  | 格式    |
+|:------- |:------------------- |:----- |
+| 📣 公告    | 项目维护者提供的最新消息和新闻     | 公告    |
+| #️⃣ 常规  | 与项目相关的任何及所有内容       | 开放式讨论 |
+| 💡 想法    | 改变或改进项目的想法          | 开放式讨论 |
+| 🙏 问答    | 供社区回答的问题，使用问题/回答的形式 | 问题及解答 |
+| 🙌 展示和说明 | 与项目有关的创作、试验或测试      | 开放式讨论 |
 
-### Creating a category
+### 创建类别
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
-1. Click **New category**. !["New category" button above list of discussion categories for a repository](/assets/images/help/discussions/click-new-category-button.png)
-1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)." ![Emoji, title, description, and discussion format for new category](/assets/images/help/discussions/edit-category-details.png)
-1. 单击 **Create（创建）**。 !["Create" button for new category](/assets/images/help/discussions/new-category-click-create-button.png)
+1. 单击 **New category（新类别）**。 ![仓库讨论类别列表上方的"新类别"按钮](/assets/images/help/discussions/click-new-category-button.png)
+1. 编辑类别的表情符号、标题、说明和讨论格式。 有关讨论格式的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。 ![新类别的表情符号、标题、说明和讨论格式](/assets/images/help/discussions/edit-category-details.png)
+1. 单击 **Create（创建）**。 ![新类别的"创建"按钮](/assets/images/help/discussions/new-category-click-create-button.png)
 
-### Editing a category
+### 编辑类别
 
-You can edit a category to change the category's emoji, title, description, and discussion format.
+您可以编辑类别以更改类别的表情符号、标题、说明和讨论格式。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. To the right of a category in the list, click {% octicon "pencil" aria-label="The pencil icon" %}. ![Edit button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-edit-for-category.png)
+1. 在列表中类别右侧，单击 {% octicon "pencil" aria-label="The pencil icon" %}。 ![仓库类别列表中类别右侧的编辑按钮](/assets/images/help/discussions/click-edit-for-category.png)
 1. {% data reusables.discussions.edit-category-details %}
-![Editing emoji, title, description, and discussion format for existing category](/assets/images/help/discussions/edit-existing-category-details.png)
-1. 单击 **Save changes（保存更改）**。 !["Save changes" button for existing category](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
+![编辑现有类别的表情符号、标题、说明和讨论格式](/assets/images/help/discussions/edit-existing-category-details.png)
+1. 单击 **Save changes（保存更改）**。 ![现有类别的"保存更改"按钮](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-### Deleting a category
+### 删除类别
 
-When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
+删除类别时，{% data variables.product.product_name %} 会将已删除类别中的所有讨论移到您选择的现有类别。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. To the right of a category in the list, click {% octicon "trash" aria-label="The trash icon" %}. ![Trash button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-delete-for-category.png)
-1. Use the drop-down menu, and choose a new category for any discussions in the category you're deleting. ![Drop-down menu for choosing new category when deleting an existing category](/assets/images/help/discussions/choose-new-category.png)
-1. Click **Delete & Move**. ![Drop-down menu for choosing new category when deleting an existing category](/assets/images/help/discussions/click-delete-and-move-button.png)
+1. 在列表中类别右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。 ![仓库类别列表中类别右侧的垃圾桶按钮](/assets/images/help/discussions/click-delete-for-category.png)
+1. 使用下拉菜单，为要删除的类别中的任何讨论选择新类别。 ![删除现有类别时用于选择新类别的下拉菜单](/assets/images/help/discussions/choose-new-category.png)
+1. 单击 **Delete & Move（删除并移动）**。 ![删除现有类别时用于选择新类别的下拉菜单](/assets/images/help/discussions/click-delete-and-move-button.png)

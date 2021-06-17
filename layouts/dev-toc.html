@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
 <head>
 <meta charset="utf-8" />
 <title>Docs TOC</title>
-<link rel="stylesheet" href="/dist/index.css">
+<link rel="stylesheet" href="{{ builtAssets.main.css }}">
 <link rel="alternate icon" type="image/png" href="/assets/images/site/favicon.png">
 <link rel="icon" type="image/svg+xml" href="/assets/images/site/favicon.svg">
 </head>
-  
+
 <body class="dev-toc p-3 m-3">
 <main class="width-full">
 
@@ -28,27 +28,22 @@
 <details class="mb-1"><summary>{{product[1].title}}</summary>
 <ul class="products-list">
 <li title="{{product[1].title}}">
-  <a href="/{{currentLanguage}}{{product[1].href}}">{{ product[1].title }}</a>
+  <a href="{{product[1].href}}">{{ product[1].title }}</a>
   {% for category in product[1].categories %}
-  {% capture fullPathToCategory %}/{{currentLanguage}}{{category[1].href}}{% endcapture %}
   <ul>
   <li>
-    <a href="{{fullPathToCategory}}">{{ category[1].title }}</a>
+    <a href="{{ category[1].href }}">{{ category[1].title }}</a>
       <!-- some categories have maptopics with child articles -->
       {% if category[1].maptopics %}
-      <ul">
+      <ul>
         {% for maptopic in category[1].maptopics %}
           {% unless maptopic[1].hidden %}
-            {% capture fullPathToMaptopic %}/{{currentLanguage}}{{maptopic[1].href}}{% endcapture %}
-
             <li>
-              <a href="{{fullPathToMaptopic}}">{{ maptopic[1].title }}</a>
+              <a href="{{ maptopic[1].href }}">{{ maptopic[1].title }}</a>
               <ul>
                 {% for article in maptopic[1].articles %}
-                {% capture fullPathToArticle %}/{{currentLanguage}}{{article[1].href}}{% endcapture %}
-
                 <li>
-                  <a href="{{fullPathToArticle}}">{{ article[1].title }}</a>
+                  <a href="{{ article[1].href }}">{{ article[1].title }}</a>
                 </li>
                 {% endfor %}
               </ul>
@@ -60,10 +55,9 @@
       {% else %}
       <ul>
         {% for article in category[1].articles %}
-        {% capture fullPathToArticle %}/{{currentLanguage}}{{article[1].href}}{% endcapture %}
-        <li>
-          <a href="{{fullPathToArticle}}">{{ article[1].title }}</a>
-        </li>
+          <li>
+            <a href="{{ article[1].href }}">{{ article[1].title }}</a>
+          </li>
         {% endfor %}
       </ul>
       {% endif %}

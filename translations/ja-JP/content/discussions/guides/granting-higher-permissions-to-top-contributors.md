@@ -1,6 +1,6 @@
 ---
-title: Granting higher permissions to top contributors
-intro: 'Repository administrators can promote any community member to a moderator and maintainer.'
+title: 上位コントリビューターにより高い権限を付与する
+intro: リポジトリ管理者は、コミュニティメンバーをモデレータおよびメンテナに昇格させることができます。
 versions:
   free-pro-team: '*'
 ---
@@ -9,24 +9,24 @@ versions:
 
 ### はじめに
 
-The most helpful contributors for the past 30 days are highlighted on the {% data variables.product.prodname_discussions %} dashboard, based on how many comments were marked as answers by other community members. Helpful contributors can help drive a healthy community and moderate and guide the community space in addition to maintainers.
+過去 30 日間で最も貢献したコントリビューターは、他のコミュニティメンバーによって回答としてマークされたコメントの数に基づいて、{% data variables.product.prodname_discussions %} ダッシュボードで強調表示されます。 貢献度の高いコントリビューターは、健全なコミュニティを推進し、メンテナに加えて、節度のあるコミュニティスペースに導くことができます。
 
-### Step 1: Audit your discussions top contributors
+### ステップ 1: ディスカッションの上位コントリビューターを監査する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to see who qualifies to moderate the discussion.
+1. コントリビューターのリストとアクセス権限を比較して、ディスカッションをモデレートする資格があるユーザを確認します。
 
-### Step 2: Review permission levels for discussions
+### ステップ 2: ディスカッションの権限レベルを確認する
 
-People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+リポジトリのトリアージ権限を持つユーザは、コメントを回答としてマークし、役に立たなくなった、またはコミュニティに損害を与えているディスカッションをロックし、アイデアがまだ開発の初期段階にあるときに Issue をディスカッションに変換することで、プロジェクトのディスカッションをモデレートするのに役立ちます。 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
 
-For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[Repository permissions levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+リポジトリの権限レベルおよび {% data variables.product.prodname_discussions %} に関する詳しい情報については、「[Organization のリポジトリの権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 
-### Step 3: Change permissions levels for top contributors
+### ステップ 3: 上位コントリビューターのアクセス権限レベルを変更する
 
-You can change a contributor's permission levels to give them more access to the tooling they need to moderate GitHub Discussions. To change a person's or team's permission levels, see "[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."
+コントリビューターのアクセス権限レベルを変更して、GitHub ディスカッションをモデレートするために必要なより多くのツールにアクセスできるようになります。 個人またはTeam の権限レベルの変更について詳しくは、「[リポジトリへのアクセス権を持つ Team と人を管理する](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
 
-### Step 4: Notify community members of elevated access
+### ステップ 4: アクセス権限の昇格をコミュニティメンバーに通知する
 
-When you change a collaborators permission level, they will receive a notification for the change.
+コラボレータの権限レベルを変更すると、変更通知がコラボレータに送信されます。

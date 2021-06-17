@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ## 节点限制
@@ -17,7 +19,7 @@ versions:
 * `first` 和 `last` 的值必须在 1 至 100 之间。
 * 单个调用请求的[节点](/graphql/guides/introduction-to-graphql#node)总数不能超过 500,000。
 
-#### 计算调用中的节点
+### 计算调用中的节点
 
 下面两个示例显示如何计算调用中的节点总数。
 
@@ -117,7 +119,7 @@ versions:
 
                    = 22,060 total nodes</pre>
 
-### 速率限制
+## 速率限制
 
 GraphQL API v4 限制不同于 REST API v3 的 [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
 
@@ -130,12 +132,6 @@ API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL �
 
 GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
 
-{% if currentVersion == "free-pro-team@latest" %}
-
-对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %}，对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源的请求上限已提升至每小时 15,000 点。
-
-{% endif %}
-
 请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API v4 和 REST API v3 使用的速率限制不同。
 
 {% note %}
@@ -144,7 +140,7 @@ GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点�
 
 {% endnote %}
 
-#### 返回调用的速率限制状态
+### 返回调用的速率限制状态
 
 使用 REST API v3，可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头查看速率限制状态。
 
@@ -172,7 +168,7 @@ query {
 
 * `resetAt` 字段可返回当前速率限制期限内重置的时间（[UTC 时期秒数](http://en.wikipedia.org/wiki/Unix_time)）。
 
-#### 在运行调用之前计算速率限制分数
+### 在运行调用之前计算速率限制分数
 
 查询 `rateLimit` 对象会返回调用分数，但运行调用需要根据限制进行计算。 为避免这种两难局面，可以在运行之前计算调用分数。 下面的计算方法算出的结果与 `rateLimit { cost }` 返回的成本大致相同。
 

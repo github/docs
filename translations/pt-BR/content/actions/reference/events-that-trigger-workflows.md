@@ -10,10 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Configurar eventos de fluxo de trabalho
 
@@ -40,6 +42,8 @@ As etapas a seguir ocorrem para acionar a execução de um fluxo de trabalho:
 ### Eventos programados
 
 O evento `agenda` permite que você acione um fluxo de trabalho em um horário agendado.
+
+{% data reusables.actions.schedule-delay %}
 
 #### `schedule`
 
@@ -79,6 +83,8 @@ Você pode usar estes operadores em qualquer um dos cinco campos:
 {% endnote %}
 
 Você pode usar [crontab guru](https://crontab.guru/) para ajudar a gerar a sintaxe cron e confirmar a hora em que ela será executada. Para ajudar você a começar, há também uma lista de [exemplos de crontab guru](https://crontab.guru/examples.html).
+
+As notificações de fluxos de trabalho agendados são enviadas ao usuário que modificou a sintaxe cron no arquivo do fluxo de trabalho. Para obter mais informações, consulte "[Notificações para execuções do fluxo de trabalho](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)".
 
 ### Eventos manuais
 
@@ -129,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        eco "- em ${{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          eco "- em ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -159,7 +165,9 @@ em:
 
 ### Eventos webhook
 
-É possível configurar o fluxo de trabalho para ser executado quando eventos webhook forem criados no GitHub. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks).
+Você pode configurar seu fluxo de trabalho para executar quando eventos de webhook forem gerados em {% data variables.product.product_name %}. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks).
+
+Nem todos os eventos de webhook acionam fluxos de trabalho. Para obter a lista completa de eventos de webhook disponíveis e suas cargas, consulte "[Eventos e cargas de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)".
 
 #### `check_run`
 
@@ -167,18 +175,18 @@ Executa o fluxo de trabalho sempre que o evento `check_run` ocorre. {% data reus
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga de evento webhook                            | Tipos de atividade                                                                           | `GITHUB_SHA`                   | `GITHUB_REF`  |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------ | ------------- |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Último commit no branch padrão | Branch padrão |
+| Carga de evento webhook                            | Tipos de atividade                                            | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| -------------------------------------------------- | ------------------------------------------------------------- | ------------------------------ | ------------- |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | Último commit no branch padrão | Branch padrão |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Por exemplo, você pode executar um fluxo de trabalho quando uma execução de verificação tiver sido `rerequested` ou `requested_action`.
+Por exemplo, você pode executar um fluxo de trabalho quando uma execução de verificação tiver sido `rerequested` ou `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -269,6 +277,12 @@ on:
   deployment_status
 ```
 
+{% note %}
+
+**Observação:** Quando o estado de um status de implantação está definido como `inativo`, um evento webhook não será criado.
+
+{% endnote %}
+
 #### `bifurcação`
 
 Executa o fluxo de trabalho sempre que alguém bifurca um repositório, o que aciona o evento `fork`. Para obter informações sobre a API REST, consulte "[Criar uma bifurcação](/rest/reference/repos#create-a-fork)".
@@ -309,9 +323,9 @@ Executa o fluxo de trabalho sempre que o evento `issue_comment` ocorre. {% data 
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga de evento webhook                                   | Tipos de atividade                                                | `GITHUB_SHA`                   | `GITHUB_REF`  |
-| --------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ | ------------- |
-| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Último commit no branch padrão | Branch padrão |
+| Carga de evento webhook                                                                      | Tipos de atividade                                                | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ | ------------- |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Último commit no branch padrão | Branch padrão |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -341,7 +355,7 @@ jobs:
       - run: |
           echo "Comment on PR #${{ github.event.issue.number }}"
 
-  issue-commented:
+  issue_commented:
     # This job only runs for issue comments
     name: Issue comment
     if: ${{ !github.event.issue.pull_request }}
@@ -466,7 +480,7 @@ Por exemplo, você pode executar um fluxo de trabalho quando um cartão de proje
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -572,22 +586,29 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `pull_request_target`
 
-Este evento é semelhante ao `pull_request`, exceto que é executado no contexto do repositório-base do pull request, em vez de ser executado no commit de merge. Isso significa que você pode disponibilizar os seus segredos de forma mais segura nos fluxos de trabalho acionados pelo pull request, porque apenas os fluxos de trabalho definidos no commit no repositório-base são executados. Por exemplo, este evento permite que você crie fluxos de trabalho que etiquetam e façam comentários em pull requests, com base no conteúdo da carga do evento.
+Este evento é executado no contexto da base do pull request, em vez de no commit de merge como o evento `pull_request` faz.  Isso impede a execução de código de fluxo de trabalho inseguro do cabeçalho do pull request que poderia alterar seu repositório ou roubar quaisquer segredos que você usa no fluxo de trabalho. Este evento permite que você faça coisas como criar fluxos de trabalho que etiquetam e comentam em pull requests com base no conteúdo da carga do evento.
 
-| Carga de evento webhook                                  | Tipos de atividade                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`                          | `GITHUB_REF`                |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------- |
-| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Último commit no branch de base do PR | Branch-base do pull request |
+{% warning %}
+
+**Aviso:** O evento `pull_request_target` recebe um token de repositório de leitura/gravação e pode acessar segredos, mesmo quando é acionado a partir de uma bifurcação. Embora o fluxo de trabalho seja executado no contexto da base do pull request, você deve certificar-se de que você não irá fazer checkout, construir ou executar o código não confiável do pull request com este evento. Além disso, qualquer cache compartilham o mesmo escopo do branch de base e ajuda a evitar envenenamento do cache. Você não deve salvar o cache se houver a possibilidade de que o conteúdo de cache ter sido alterado. Para obter mais informações, consulte "[Proteger seus GitHub Actions e fluxos de trabalho: Evitar solicitações pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" no site do GitHub Security Lab.
+
+{% endwarning %}
+
+| Carga de evento webhook                                         | Tipos de atividade                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`                          | `GITHUB_REF`                |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------- |
+| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Último commit no branch de base do PR | Branch-base do pull request |
 
 Por padrão, um fluxo de trabalho só é executado quando o tipo de atividade de `pull_request_target`é `aberto,`, `sincronizado` ou `reaberto`. Para acionar fluxos de trabalho para mais tipos de atividade, use a palavra-chave `types`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
 Por exemplo, você pode executar um fluxo de trabalho quando um pull request tiver sido `atribuído`, `aberto`, `sincronizado` ou `reaberto`.
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 
@@ -597,7 +618,7 @@ on: pull_request_target
 
 {% note %}
 
-**Observação:** a carga de webhook disponível para o GitHub Actions não inclui os atributos `added`, `removed` e `modified` no objeto `commit`. É possível recuperar o objeto de commit completo usando a API REST. Para obter mais informações, consulte "[Obter um único commit](/rest/reference/repos#get-a-single-commit)"".
+**Observação:** a carga de webhook disponível para o GitHub Actions não inclui os atributos `added`, `removed` e `modified` no objeto `commit`. É possível recuperar o objeto de commit completo usando a API REST. Para obter mais informações, consulte "[Obter um commit](/rest/reference/repos#get-a-commit)".
 
 {% endnote %}
 
@@ -656,6 +677,12 @@ on:
     types: [published]
 ```
 
+{% note %}
+
+**Observação:** O tipo</code>prereleased`não será acionado para pré-versões publicadas a partir de versões de rascunho, mas o tipo <code>published` será acionado. Se você quiser que um fluxo de trabalho seja executado quando *e* forem publicadas pré-versões, assine `published` em vez de `released` e `prereleased`.
+
+{% endnote %}
+
 #### `status`
 
 Executa o fluxo de trabalho sempre que o status de um commit do Git muda, o que aciona o evento `status`. Para obter informações sobre a API REST, consulte [Status](/rest/reference/repos#statuses).
@@ -693,7 +720,7 @@ on:
     types: [started]
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `workflow_run`
 
@@ -701,13 +728,15 @@ on:
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga de evento webhook                                  | Tipos de atividade | `GITHUB_SHA`                   | `GITHUB_REF`  |
-| -------------------------------------------------------- | ------------------ | ------------------------------ | ------------- |
-| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a              | Último commit no branch padrão | Branch padrão |
+| Carga de evento webhook                                  | Tipos de atividade                    | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| -------------------------------------------------------- | ------------------------------------- | ------------------------------ | ------------- |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - `completed`<br/>- `requested` | Último commit no branch padrão | Branch padrão |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Se precisar filtrar os branches desse evento, você poderá usar `branches` ou `branches-ignore`.
 
-Neste exemplo, um fluxo de trabalho está configurado para ser executado separadamente após o fluxo de trabalho "Executar testes".
+Neste exemplo, um fluxo de trabalho está configurado para ser executado após o fluxo de trabalho "Executar Testes" separado ser concluído.
 
 ```yaml
 on:
@@ -721,8 +750,29 @@ on:
 
 {% endif %}
 
+Para executar um trabalho de fluxo de trabalho condicionalmente baseado no resultado da execução do fluxo de trabalho anterior, você pode usar a condicional [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) ou [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) combinada com com a conclusão `` da execução anterior. Por exemplo:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
+    steps:
+      ...
+  on-failure:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'failure' }}{% endraw %}
+    steps:
+      ...
+```
+
 ### Acionar novos fluxos de trabalho usando um token de acesso pessoal
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} Para obter mais informações, consulte "[Efetuando a autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
-Se você deseja acionar um fluxo de trabalho a partir de uma execução do fluxo de trabalho, você pode acionar o evento usando um token de acesso pessoal. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+Se você deseja acionar um fluxo de trabalho a partir de uma execução do fluxo de trabalho, você pode acionar o evento usando um token de acesso pessoal. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. Para mais informações sobre como armazenar um token de acesso pessoal como segredo, consulte "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".

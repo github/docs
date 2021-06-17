@@ -5,13 +5,16 @@ redirect_from:
   - /articles/github-community-guidelines
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 数百万开发者在 GitHub 上托管了数百万个项目，包括开源和闭源项目，我们很荣幸能够为促进社区的日常协作发挥作用。 走在一起，我们都有机会和责任让这个社区成为我们值得骄傲的地方。
 
 GitHub 的用户来自世界各地，有上周才创建其第一个 "Hello World" 项目的新人，也有享誉全球的软件开发高手，他们带来了各种不同的观点、想法和经验。 我们致力于让 GitHub 成为一个海纳百川的环境，接纳各种不同的声音和观点，打造一个所有人都能畅所欲言的空间。
 
-我们依靠社区成员传达期望、[仲裁](#what-if-something-or-someone-offends-you)他们的项目以及{% data variables.contact.report_abuse %}或{% data variables.contact.report_content %}。 By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices), which include our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). 我们将调查任何滥用举报，并且可能在我们的网站上仲裁我们确定违反了 GitHub 服务条款的公共内容。
+我们依靠社区成员传达期望、[仲裁](#what-if-something-or-someone-offends-you)他们的项目以及{% data variables.contact.report_abuse %}或{% data variables.contact.report_content %}。 通过概述我们期望社区内出现的情况，我们希望帮助您理解如何在 GitHub 上进行最佳的协作，以及哪种操作或内容可能违反我们的[服务条款](#legal-notices)，包括我们的[可接受使用政策](/github/site-policy/github-acceptable-use-policies)。 我们将调查任何滥用举报，并且可能在我们的网站上仲裁我们确定违反了 GitHub 服务条款的公共内容。
 
 ### 建立强大的社区
 
@@ -47,25 +50,38 @@ GitHub 社区的主要目的是协作处理软件项目。 我们希望人们能
 
 我们致力于维持一个用户能够自由表达意见并对彼此想法（包括技术和其他方面）提出挑战的社区。 但当思想被压制时，这种讨论不可能促进富有成果的对话，因为因为社区成员被禁声或害怕说出来。 因此，您应该始终尊重他人，言行文明，不要对他人有任何人身攻击以谁为由攻击他人。 我们不容忍以下越界行为：
 
-- #### Threats of violence You may not threaten violence towards others or use the site to organize, promote, or incite acts of real-world violence or terrorism. 仔细考虑您使用的文字、发布的图像、编写的软件以及其他人会如何解读它们。 即使您只是开个玩笑，但别人不见得这样理解。 如果您认为别人*可能*会将您发布的内容解读为威胁或者煽动暴力或恐怖主义， 不要在 GitHub 上发布。 在非常情况下， 如果我们认为可能存在真正的人身伤害风险或公共安全威胁，我们可能会向执法机构报告暴力威胁。
+- #### 暴力威胁 不得暴力威胁他人，也不得利用网站组织、宣传或煽动现实世界中的暴力或恐怖主义行为。 仔细考虑您使用的文字、发布的图像、编写的软件以及其他人会如何解读它们。 即使您只是开个玩笑，但别人不见得这样理解。 如果您认为别人*可能*会将您发布的内容解读为威胁或者煽动暴力或恐怖主义， 不要在 GitHub 上发布。 在非常情况下， 如果我们认为可能存在真正的人身伤害风险或公共安全威胁，我们可能会向执法机构报告暴力威胁。
 
-- #### Hate speech and discrimination While it is not forbidden to broach topics such as age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation, we do not tolerate speech that attacks a person or group of people on the basis of who they are. 只要认识到以一种侵略性或侮辱性的方式处理这些（及其他）敏感的专题，就可能使其他人感到不受欢迎甚至不安全。 虽然总是存在误解的可能性，但我们期望社区成员在讨论敏感问题时保持尊重和平静。
+- ####仇恨言论和歧视 虽然不禁止谈论年龄、身材、能力、种族、性别认同和表达、经验水平、国籍、外貌、民族、宗教或性认同和性取向等话题，但我们不允许基于身份特征攻击任何个人或群体。 只要认识到以一种侵略性或侮辱性的方式处理这些（及其他）敏感的专题，就可能使其他人感到不受欢迎甚至不安全。 虽然总是存在误解的可能性，但我们期望社区成员在讨论敏感问题时保持尊重和平静。
 
-- #### Bullying and harassment We do not tolerate bullying or harassment. 这意味着我们不允许针对任何特定个人或群体的典型骚扰或恐吓行为。 一般来说，如果您屡次三番采取多余的行动，就很可能走进了欺凌或骚扰的歧途。
+- #### 欺凌和骚扰 我们不容忍欺凌或骚扰。 这意味着我们不允许针对任何特定个人或群体的典型骚扰或恐吓行为。 一般来说，如果您屡次三番采取多余的行动，就很可能走进了欺凌或骚扰的歧途。
 
-- #### Disrupting the experience of other users Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
+- ### 破坏其他用户的体验 成为社区的一部分包括认识到您的行为如何影响他人，并与他人及其依赖的平台进行有意义和富有成效的互动。 不允许重复发布与主题无关的评论、开启空洞或无意义的议题或拉取请求，或者以不断破坏其他用户体验的方式使用任何其他平台功能等行为。 虽然我们鼓励维护人员根据个别情况调整自己的项目，但 GitHub 员工可能会对从事此类行为的帐户采取进一步的限制措施。
 
-- #### Impersonation You may not seek to mislead others as to your identity by copying another person's avatar, posting content under their email address, using a similar username or otherwise posing as someone else. 冒充是骚扰的一种形式。
+- ####冒充 不得通过复制他人头像、在他人的电子邮件地址下发布内容、使用类似的用户名或以他人身份发帖等方式来误传您的身份。 冒充是骚扰的一种形式。
 
-- #### Doxxing and invasion of privacy Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. 根据具体情况，例如在恐吓或骚扰的情况下，我们可能会认为发布他人信息（例如未经当事人同意而拍摄或散发的照片或视频）是侵犯隐私的行为，特别是当此类材料会给当事人带来安全风险时。
+- #### 人肉和侵犯隐私 不得发布他人的个人信息，例如个人、私人电子邮件地址、电话号码、实际地址、信用卡号码、社会保障/国民身份号码或密码。 根据具体情况，例如在恐吓或骚扰的情况下，我们可能会认为发布他人信息（例如未经当事人同意而拍摄或散发的照片或视频）是侵犯隐私的行为，特别是当此类材料会给当事人带来安全风险时。
 
-- #### Sexually obscene content Don’t post content that is pornographic. 但这并不意味着禁止一切裸体或与性有关的所有代码和内容。 我们认识到，性行为是生活的一部分，非色情的性内容可能是您项目的一部分，或者出于教育或艺术目的而呈现。 我们不允许淫秽性内容或可能涉及利用或性化未成年人的内容。
+- #### 性淫秽内容 不得发布色情内容。 但这并不意味着禁止一切裸体或与性有关的所有代码和内容。 我们认识到，性行为是生活的一部分，非色情的性内容可能是您项目的一部分，或者出于教育或艺术目的而呈现。 我们不允许淫秽性内容或可能涉及利用或性化未成年人的内容。
 
-- #### Gratuitously violent content Don’t post violent images, text, or other content without reasonable context or warnings. 在视频游戏、新闻报道以及对历史事件的描述中通常可以包含暴力内容，但我们不允许不加选择地发布暴力内容，或者以其他用户很难避开的方式发布（例如头像或议题评论）。 在其他情况下发布明确警告或免责声明有助于用户就他们是否想要参与这类内容作出明智的决定。
+- #### 过激的暴力内容 不得在没有合理的上下文或警告的情况下发布暴力图像、文本或其他内容。 在视频游戏、新闻报道以及对历史事件的描述中通常可以包含暴力内容，但我们不允许不加选择地发布暴力内容，或者以其他用户很难避开的方式发布（例如头像或议题评论）。 在其他情况下发布明确警告或免责声明有助于用户就他们是否想要参与这类内容作出明智的决定。
 
-- #### Misinformation and disinformation You may not post content that presents a distorted view of reality, whether it is inaccurate or false (misinformation) or is intentionally deceptive (disinformation) where such content is likely to result in harm to the public or to interfere with fair and equal opportunities for all to participate in public life. 例如，我们不允许可能危及群体福祉或限制他们参与自由和开放社会的内容。 鼓励积极参与表达想法、观点和经验，不得质疑个人帐户或言论。 我们通常允许模仿和讽刺，但要符合我们的“可接受使用政策”，而且我们认为上下文对于如何接收和理解信息很重要；因此，通过免责声明或其他方式澄清您的意图以及您的信息的来源，可能是适当的做法。
+- #### 错误信息和虚假信息 不得发布歪曲现实的内容，包括不准确或虚假的信息（错误信息），或者故意欺骗的信息（假信息），因为这种内容可能伤害公众，或者干扰所有人公平和平等参与公共生活的机会。 例如，我们不允许可能危及群体福祉或限制他们参与自由和开放社会的内容。 鼓励积极参与表达想法、观点和经验，不得质疑个人帐户或言论。 我们通常允许模仿和讽刺，但要符合我们的“可接受使用政策”，而且我们认为上下文对于如何接收和理解信息很重要；因此，通过免责声明或其他方式澄清您的意图以及您的信息的来源，可能是适当的做法。
 
-- #### Active malware or exploits Being part of a community includes not taking advantage of other members of the community. 我们不允许任何人利用我们的平台传递漏洞利用程序（例如，利用 GitHub 传递恶意的可执行文件）或攻击基础设施（例如，组织拒绝服务攻击或支配命令和控制服务器）。 但请注意，我们不禁止发布可用于开发恶意软件或漏洞利用程序的源代码，因为此类源代码的发布和分发具有教育价值，并且能够为安全社区带来净收益。
+- #### Active malware or exploits Being part of a community includes not taking advantage of other members of the community. 我们不允许任何人利用我们的平台直接支持造成技术损害的非法攻击， 例如利用 GitHub 作为提供恶意可执行文件的方式或作为攻击基础架构， 例如，组织拒绝服务攻击或管理命令和控制服务器。 技术损害是指资源过度消耗、物理损坏、停机、拒绝服务或数据丢失，在滥用之前没有隐含或明确的双重用途。
+
+  请注意，GitHub 允许双重用途内容，并支持发布用于研究漏洞、恶意软件或漏洞的内容，因为此类内容的发布和分发具有教育价值，并为安全社区提供净收益。 我们具有积极的意图，并利用这些项目来促进和推动整个生态系统的改善。
+
+  在极少数非常普遍地滥用两用内容的情况下，我们可能会限制访问该特定内容实例，以破坏利用 GitHub 平台作为漏洞或恶意软件 CDN 的持续非法攻击或恶意软件活动。 在大多数情况下，限制采取将内容置于身份验证背后的形式，但作为最后手段，可能涉及禁用访问或在不可能的情况下完全删除（例如，当作为 Gist 发布时）。 我们还将尽可能联系项目所有者了解实施的限制。
+
+  在可行的情况下，限制是暂时的，无助于永久清除或限制该平台上的任何特定两用内容或该内容的副本。 尽管我们的目标是使这些罕见的限制情况成为与项目所有者的合作过程，但如果您认为您的内容受到了不适当的限制，我们也有[申诉流程](#appeal-and-reinstatement)。
+
+  为了便于项目维护者自己找到解决滥用问题的途径，在上报给 GitHub 滥用报告之前，我们建议但不要求仓库所有者在张贴可能有害的安全研究内容时采取下列步骤：
+
+    * 在项目的 README.md 文件或源代码评论中，清楚地识别和描述任何可能有害的内容。
+    * 通过仓库中的 SECURITY.md 文件为任何第三方滥用查询提供首选的联系方式（例如，“请在此仓库上为任何问题或疑虑创建议题”）。 这种联系方式允许第三方直接与项目维护者联系，并有可能解决问题，而无需提交滥用报告。
+
+  *GitHub 认为 npm 注册表是一个主要用于安装和代码运行时使用的平台，而不是用于研究的平台。*
 
 
 ### 如果有人违反规则会怎么样？
@@ -80,6 +96,10 @@ GitHub 社区的主要目的是协作处理软件项目。 我们希望人们能
 * 屏蔽内容
 * 帐户暂停
 * 帐户终止
+
+### 申诉和恢复
+
+在某些情况下，例如根据用户提供的补充资料，可能有理由推翻某项行动，或在用户已解决违规行为并同意遵守我们的可接受使用政策。 如果您想对强制执行行动提出申诉，请联系[支持](https://support.github.com/contact)。
 
 ### 法律声明
 

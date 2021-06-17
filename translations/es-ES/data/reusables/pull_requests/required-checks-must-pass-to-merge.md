@@ -1,0 +1,1 @@
+Si un repositorio requiere verificaciones de estado, éstas deben pasar antes de que fusiones tu rama con la rama protegida. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".

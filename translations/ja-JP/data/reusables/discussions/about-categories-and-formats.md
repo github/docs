@@ -1,1 +1,1 @@
-All discussions must be created in a category, and repository administrators and maintainers define the categories for a repository. Categories can contain open-ended conversations, or conversations with a question/answer format.
+すべてのディスカッションは、カテゴリ内に作成しなければなりません。 メンテナンスもしくは管理権限を持つ人は、リポジトリのカテゴリを定義できます。 それぞれのカテゴリには、オープンエンドのディスカッション、質問と回答、アナウンスといったフォーマットがあります。

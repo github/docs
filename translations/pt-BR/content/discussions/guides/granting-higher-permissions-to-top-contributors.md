@@ -1,6 +1,6 @@
 ---
-title: Granting higher permissions to top contributors
-intro: 'Repository administrators can promote any community member to a moderator and maintainer.'
+title: Conceder permissões superiores aos melhores colaboradores
+intro: Administradores de repositório podem promover qualquer integrante da comunidade a moderador e mantenedor.
 versions:
   free-pro-team: '*'
 ---
@@ -9,24 +9,24 @@ versions:
 
 ### Introdução
 
-The most helpful contributors for the past 30 days are highlighted on the {% data variables.product.prodname_discussions %} dashboard, based on how many comments were marked as answers by other community members. Helpful contributors can help drive a healthy community and moderate and guide the community space in addition to maintainers.
+Os contribuidores mais úteis dos últimos 30 dias são destacados no painel de {% data variables.product.prodname_discussions %} baseado em quantos comentários foram marcados como respostas de outros integrantes da comunidade. Contribuidores úteis podem ajudar a conduzir uma comunidade saudável e moderada e guiar o espaço da comunidade, além de mantenedores.
 
-### Step 1: Audit your discussions top contributors
+### Passo 1: Audite os melhores colaboradores de suas discussões
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to see who qualifies to moderate the discussion.
+1. Compare a lista de contribuidores com suas permissões de acesso para ver quem se qualifica para moderar a discussão.
 
-### Step 2: Review permission levels for discussions
+### Passo 2: Revise os níveis de permissão para discussões
 
-People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+Pessoas com permissões de triagem para um repositório podem ajudar a moderar as discussões de um projeto marcando comentários como respostas, bloqueando discussões que já não são úteis ou prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento. Para obter mais informações, consulte "[Moderação de discussões](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
-For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[Repository permissions levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+Para obter mais informações sobre os níveis de permissão do repositório e {% data variables.product.prodname_discussions %}, consulte "[Níveis de permissões do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
-### Step 3: Change permissions levels for top contributors
+### Passo 3: Altere os níveis de permissões para os melhores contribuidores
 
-You can change a contributor's permission levels to give them more access to the tooling they need to moderate GitHub Discussions. To change a person's or team's permission levels, see "[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."
+Você pode alterar os níveis de permissão de um contribuidor para dar-lhes mais acesso às ferramentas de que precisam para moderar as discussões no GitHub. Para alterar os níveis de permissão de uma pessoa ou equipe, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."
 
-### Step 4: Notify community members of elevated access
+### Passo 4: Notifique os integrantes da comunidade sobre acesso elevado
 
-When you change a collaborators permission level, they will receive a notification for the change.
+Ao alterar o nível de permissão de colaboradores, eles receberão uma notificação referente à alteração.

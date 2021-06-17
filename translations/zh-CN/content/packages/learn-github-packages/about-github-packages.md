@@ -22,12 +22,19 @@ versions:
 
 您可以在一个仓库中托管多个包，并通过查看包的自述文件、下载统计、版本历史等，了解每个包的更多信息。
 
+<!--This diagram excludes ghcr.io since it's not released for GHES yet.-->
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+![显示托管 npm、Rubygems、Apache Maven、Gradle、Nuget 和 Docker 的 URL 的 GitHub Packages 图表](/assets/images/help/package-registry/ghes-packages-diagram.png)
+
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 创建 {% data variables.product.prodname_actions %} 工作流程时，您可以使用 `GITHUB_TOKEN` 发布和安装 {% data variables.product.prodname_registry %} 中的包，无需存储和管理个人访问令牌。 更多信息请参阅“[关于 {% data variables.product.prodname_github_container_registry %}](/packages/guides/about-github-container-registry)”。
 
 {% data reusables.package_registry.container-registry-beta %}
 
-![显示节点、RubyGems、Apache Maven、Gradle、Nuget 和容器注册表及其托管 Url 的图表](/assets/images/help/package-registry/packages-overview-diagram.png)
+![显示托管 npm、Rubygems、Apache Maven、Gradle、Nuget 和 Docker 的 URL 的 GitHub Packages 图表](/assets/images/help/package-registry/packages-overview-diagram.png)
 
 {% endif %}
 
@@ -143,7 +150,7 @@ versions:
 
 ### 管理包
 
-您可以在 {% data variables.product.product_name %} 上或使用 GraphQL API 删除私有包的版本。 使用 GraphQL API 查询和删除私有包时，必须使用与向 {% data variables.product.prodname_registry %} 验证时相同的令牌。 更多信息请参阅“[删除包](/packages/manage-packages/deleting-a-package)”和“[使用 GraphQL 进行调用](/graphql/guides/forming-calls-with-graphql)”。
+您可以在 {% data variables.product.product_name %} 用户界面中或使用 GraphQL API 删除私有包的版本。 使用 GraphQL API 查询和删除私有包时，必须使用与向 {% data variables.product.prodname_registry %} 验证时相同的令牌。 更多信息请参阅“[删除包](/packages/manage-packages/deleting-a-package)”和“[使用 GraphQL 进行调用](/graphql/guides/forming-calls-with-graphql)”。
 
 您可以配置 web 挂钩来订阅与包相关的事件，例如包的发布或更新等事件。 更多信息请参阅“[`package` web 挂钩事件](/webhooks/event-payloads/#package)”。
 

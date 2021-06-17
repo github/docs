@@ -1,6 +1,6 @@
 ---
-title: Granting higher permissions to top contributors
-intro: 'Repository administrators can promote any community member to a moderator and maintainer.'
+title: 向顶级贡献者授予更高的权限
+intro: 仓库管理员可以将任何社区成员提升到主持人和维护员。
 versions:
   free-pro-team: '*'
 ---
@@ -9,24 +9,24 @@ versions:
 
 ### 简介
 
-The most helpful contributors for the past 30 days are highlighted on the {% data variables.product.prodname_discussions %} dashboard, based on how many comments were marked as answers by other community members. Helpful contributors can help drive a healthy community and moderate and guide the community space in addition to maintainers.
+根据有多少条评论被其他社区成员标记为答案，过去 30 天内最有帮助的贡献者会在 {% data variables.product.prodname_discussions %} 仪表板上突出显示。 除了维护者之外，有帮助的贡献者也可以帮助推动一个健康的社区并主持和指导社区空间。
 
-### Step 1: Audit your discussions top contributors
+### 第 1 步：审核讨论的顶级贡献者
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to see who qualifies to moderate the discussion.
+1. 将贡献者列表与其访问权限进行比较，看谁有资格主持讨论。
 
-### Step 2: Review permission levels for discussions
+### 第 2 步：审查讨论的权限级别
 
-People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+对仓库具有分类权限的人可以通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持项目的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
 
-For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[Repository permissions levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+有关仓库权限级别和 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
-### Step 3: Change permissions levels for top contributors
+### 第 3 步：更改顶级贡献者的权限级别
 
-You can change a contributor's permission levels to give them more access to the tooling they need to moderate GitHub Discussions. To change a person's or team's permission levels, see "[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."
+您可以更改贡献者的权限级别，使他们能够更多地访问他们需要的 GitHub 讨论工具。 要更改个人或团队的权限级别，请参阅“[管理有权访问您的仓库的团队和人员](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)”。
 
-### Step 4: Notify community members of elevated access
+### 第 4 步：向社区成员通知提升的访问权限
 
-When you change a collaborators permission level, they will receive a notification for the change.
+当您更改协作者权限级别时，他们将收到更改通知。

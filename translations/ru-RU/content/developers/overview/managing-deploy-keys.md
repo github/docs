@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -43,7 +45,9 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 * Users don't have to change their local SSH settings.
 * Multiple tokens (one for each user) are not needed; one token per server is enough.
 * A token can be revoked at any time, turning it essentially into a one-use password.
+{% if enterpriseServerVersions contains currentVersion %}
 * Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
+{% endif %}
 
 ##### Cons
 
@@ -107,6 +111,36 @@ You can then use the hostname's alias to interact with the repository using SSH,
 ```bash
 $ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
+
+### Server-to-server tokens
+
+If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
+
+Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for Github Apps](/developers/apps/rate-limits-for-github-apps).
+
+##### Pros
+
+- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
+- Dedicated rate limits that grow with your organization.
+- Decoupled from GitHub user identities, so they do not consume any licensed seats.
+- Never granted a password, so cannot be directly signed in to.
+
+##### Cons
+
+- Additional setup is needed to create the GitHub App.
+- Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+
+##### Setup
+
+1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
+1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
+1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/developers/apps/creating-a-github-app).
+1. Note your GitHub App `id`.
+1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
+1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
+1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
+1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
+1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
 
 ### Machine users
 

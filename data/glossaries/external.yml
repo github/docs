@@ -1,6 +1,6 @@
 - term: '@mention'
   description:
-    to notify a person on GitHub by using `@` before their username. Users in an organization on GitHub can also be a part of a team that can be
+    To notify a person on GitHub by using `@` before their username. Users in an organization on GitHub can also be a part of a team that can be
     mentioned.
 - term: access token
   description: >-
@@ -37,7 +37,7 @@
 - term: bio
   description: >-
     The user-generated description found on a profile:
-    https://help.github.com/articles/adding-a-bio-to-your-profile/
+    [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - term: billing cycle
   description: The interval of time for your specific billing plan.
 - term: billing email
@@ -81,7 +81,7 @@
     A digital certificate issued by Certificate Authority (CA) that ensures there are valid connections between two machines, such as a user's computer and GitHub.com and verifies the ownership of a site.
 - term: card
   description: A movable square within a project board associated with an issue or pull request.
-- term: Check
+- term: check
   description: >-
     A check is a type of status check on {% data variables.product.product_name %}. See "[Status checks](#status-checks)."
 - term: checkout
@@ -91,7 +91,7 @@
     working tree is pointing to a new branch.
 - term: cherry-picking
   description: >-
-    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit.
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
 - term: child team
   description: >-
     Within nested teams, the subteam that inherits the parent team's access
@@ -112,7 +112,7 @@
   description: >-
     The ability to run GitHub Enterprise services across multiple nodes and load
     balance requests between them.
-- term: Code frequency graph
+- term: code frequency graph
   description: >-
     A repository graph that shows the content additions and deletions for each
     week in a repository's history.
@@ -128,7 +128,7 @@
 - term: commit
   description: >-
     A commit, or "revision", is an individual change to a file (or set of
-    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes commited along with who made them and when. Commits usually contain a
+    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
@@ -140,7 +140,7 @@
   description: Also known as SHA. A 40-character checksum hash that identifies the commit.
 - term: commit message
   description: >-
-    Short, descriptive text that accompanys a commit and communicates the change
+    Short, descriptive text that accompanies a commit and communicates the change
     the commit is introducing.
 - term: compare branch
   description: >-
@@ -160,12 +160,12 @@
 - term: contributions
   description: >-
     Specific activities on GitHub that will:
-    - Add a square to a user's contribution graph: "[What counts as a contribution](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)"
-    - Add activities to a user's timeline on their profile: "[Contribution activity](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)"
+    - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - term: contributor
   description: >-
     A contributor is someone who does not have collaborator access to a repository but has contributed to a project and had a pull request they opened merged into the repository.
-- term: Contributors graph
+- term: contributors graph
   description: A repository graph that displays the top 100 contributors to a repository.
 - term: coupon
   description: >-
@@ -175,17 +175,17 @@
   description: A time-based job scheduler in Unix-like computer operating systems.
 - term: cURL
   description: Used in command lines or scripts to transfer data.
-- term: Dashboard
+- term: dashboard
   description: >-
     Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)" or "[About your organization dashboard](/articles/about-your-organization-dashboard)."
 - term: default branch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
-- term: Dependents graph
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+- term: dependents graph
   description: >-
     A repository graph that shows the packages, projects, and repositories that depend on a
     public repository.
-- term: Dependencies graph
+- term: dependency graph
   description: >-
     A repository graph that shows the packages and projects that the repository depends on.
 - term: deploy key
@@ -213,7 +213,7 @@
     not been committed to the current branch.
 - term: email notifications
   description: Notifications sent to a user's email address.
-- term: Enterprise account
+- term: enterprise account
   description: Enterprise accounts allow you to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
 - term: Explorer
   description: >-
@@ -230,7 +230,7 @@
   description: >-
     A branch used to experiment with a new feature or fix an issue that is not in production. Also called a topic branch.
 - term: fenced code block
-  description: An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).
+  description: An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).
 - term: fetch
   description: >-
     When you use `git fetch`, you're adding changes from the remote repository to
@@ -253,11 +253,11 @@
   description: >-
     A user account billing plan that is free. Users can collaborate on unlimited
     public repositories with unlimited collaborators.
-- term: Gist
+- term: gist
   description: >-
     A gist is a shareable file that you can edit, clone, and fork on GitHub.
-    You can make a gist public or secret, although secret gists will be
-    available to anyone with the URL.
+    You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be
+    available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - term: Git
   description: >-
     Git is an open source program for tracking changes in text files. It was
@@ -385,7 +385,7 @@
     A personal account that cannot be accessed by the user. Accounts are locked
     when users downgrade their paid account to a free one, or if their paid plan
     is past due.
-- term: Management Console
+- term: management console
   description: >-
     A section within the GitHub Enterprise interface that contains
     administrative features.
@@ -396,21 +396,23 @@
     web-publishing background to write prose (including with links, lists,
     bullets, etc.) and have it displayed like a website. GitHub supports
     Markdown and uses a particular form of Markdown called GitHub Flavored Markdown. See [GitHub Flavored Markdown Spec](https://github.github.com/gfm/) or [Getting started with writing and formatting on GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
-- term: Markup
+- term: markup
   description: A system for annotating and formatting a document.
 - term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a
-    branch named `main` is created, and becomes the active branch. In most
-    cases, this contains the local development, though that is purely by
-    convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}
+    The default development branch. Whenever you create a Git repository,
+    a branch named `main` is created, and becomes the active branch. 
+    In most cases, this contains the local development, though that is purely by
+    convention and is not required.{% else %}Name often chosen as an alternative to `master`
+    for the default branch of a repository.{% endif %}
 - term: master
   description: >-
-    The default branch in many Git repositories. By default, when you create 
-    a new Git repository on the command line a branch called `master` is created. 
-    Many tools now use an alternative name for the default branch. For example, 
-    when you create a new repository on GitHub the default branch is called `main`.
-- term: Members graph
+    The default branch in many Git repositories. By default, when you create
+    a new Git repository on the command line, a branch called `master` is created.
+    Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example,
+    when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+- term: members graph
   description: A repository graph that shows all the forks of a repository.
 - term: mention
   description: >-
@@ -441,12 +443,12 @@
   description: >-
     A child team of a parent team. You can have multiple children (or nested)
     teams.
-- term: Network graph
+- term: network graph
   description: >-
     A repository graph that shows the branch history of the entire repository
     network, including branches of the root repository and branches of forks
     that contain commits unique to the network.
-- term: News Feed
+- term: news feed
   description: >-
     An activity view of repositories or people you watch. An organization's News
     Feed shows activity on repositories owned by the organization.
@@ -458,7 +460,7 @@
 - term: notification
   description: >-
     Updates, delivered by either the web or email depending on your settings,
-    that give you information about the activites you're interested in.
+    that give you information about the activities you're interested in.
 - term: OAuth App
   description: >-
     A third-party application that uses access tokens rather than passwords to
@@ -567,9 +569,9 @@
   description: >-
     Comments from collaborators on a pull request that approve the changes or
     request further changes before the pull request is merged.
-- term: Pulse graph
+- term: pulse graph
   description: A repository graph that gives you an overview of a repository's activity.
-- term: Punch graph
+- term: punch graph
   description: >-
     A repository graph that shows the frequency of updates to a repository based
     on the day of week and time of day
@@ -700,7 +702,7 @@
   description: >-
     A visual representation within a pull request that your commits meet the
     conditions set for the repository you're contributing to.
-- term: Status checks
+- term: status checks
   description: >-
     Status checks are external processes, such as continuous integration builds, which run for each commit you make in a repository. For more information, see "[About status checks](/articles/about-status-checks)."
 - term: star
@@ -733,7 +735,7 @@
   description: >-
     A way to explore repositories in a particular subject area, find projects to
     contribute to, and discover new solutions to a specific problem on GitHub.
-- term: Traffic graph
+- term: traffic graph
   description: >-
     A repository graph that shows a repository's traffic, including full clones
     (not fetches), visitors from the past 14 days, referring sites, and popular
@@ -779,8 +781,6 @@
     events on GitHub.com. Webhooks provide a way for notifications to be
     delivered to an external web server whenever certain actions occur on a
     repository or organization. Also called a service hook.
-- term: Works with GitHub
-  description: A listing of integrations that work with GitHub.
 - term: write access
   description: >-
     A permission level on a repository that allows the user to push, or write,

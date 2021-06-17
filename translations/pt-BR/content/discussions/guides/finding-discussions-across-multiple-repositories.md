@@ -1,20 +1,20 @@
 ---
-title: Finding discussions across multiple repositories
-intro: 'You can easily access every discussion you''ve created or participated in across multiple repositories.'
+title: Encontrar discussões entre vários repositórios
+intro: Você pode acessar facilmente todas as discussões que você criou ou participou de vários repositórios.
 versions:
   free-pro-team: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Finding discussions
+### Encontrar discussões
 
 1. Navegue até o {% data variables.product.prodname_dotcom_the_website %}.
-1. In the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, click your profile photo, then click **Your discussions**. !["Your discussions" in drop-down menu for profile photo on {% data variables.product.product_name %}](/assets/images/help/discussions/your-discussions.png)
-1. Toggle between **Created** and **Commented** to see the discussions you've created or participated in.
+1. No canto superior direito de {% data variables.product.prodname_dotcom_the_website %}, clique na sua foto de perfil e clique em **Suas discussões**. !["Suas discussões" no menu suspenso para a foto de perfil em {% data variables.product.product_name %}](/assets/images/help/discussions/your-discussions.png)
+1. Alterne entre **Criada** e **Comentada** para ver as discussões que você criou ou participou.
 
 ### Leia mais
 
-- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
-- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- "[Pesquisar discussões](/github/searching-for-information-on-github/searching-discussions)"
+- "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+- "[Gerenciar discussões para a sua comunidade](/discussions/managing-discussions-for-your-community)"

@@ -1,6 +1,6 @@
 ---
-title: Participating in a discussion
-intro: You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.
+title: Participando de uma discussão
+intro: 'Você pode conversar com a comunidade e mantenedores em um fórum do repositório para um projeto em {% data variables.product.product_name %}.'
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -8,24 +8,24 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-### About participation in a discussion
+### Sobre a participação em uma discussão
 
-{% data reusables.discussions.about-discussions %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-In addition to starting or viewing a discussion, you can comment in response to the original comment from the author of the discussion. You can also create a comment thread by replying to an individual comment that another community member made within the discussion, and react to comments with emoji. For more information about reactions, see "[About conversations on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github#reacting-to-ideas-in-comments)."
+Além de começar ou visualizar uma discussão, você pode comentar em resposta ao comentário original do autor da discussão. Você também pode criar um tópico de comentário respondendo a um comentário individual feito por outro integrante da comunidade dentro da discussão e reagir aos comentários com emoji.
 
-You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)."
+Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Manter sua segurança em {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)".
 
 ### Pré-requisitos
 
-Discussions must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+As discussões devem ser habilitadas para o repositório para que você possa participar de uma discussão no repositório. Para obter mais informações, consulte "[Habilitar ou desabilitar discussões para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository). ".
 
-### Creating a discussion
+### Criar uma discussão
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Marking a comment as an answer
+### Marcar um comentário como uma resposta
 
-Discussion authors and users with the triage role or greater for a repository can mark a comment as the answer to a discussion in the repository.
+Os autores de discussões e usuários com função de triagem ou superior para um repositório podem marcar um comentário como a resposta para uma discussão no repositório.
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}

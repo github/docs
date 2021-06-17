@@ -1,10 +1,10 @@
 # GraphQL
 
-The `/content/graphql` directory is where the GitHub GraphQL API docs live!
+GitHub GraphQL API ドキュメントは、`/content/graphql`ディレクトリにあります。
 
-* The `/content/graphql/guides` and `/content/graphql/overview` directories contain articles that are human-editable.
-* The `/content/graphql/reference` directory contains an article for each GraphQL data type used in the GitHub GraphQL API. Most of the content in this directory is rendered using `include` tags.
+* `/content/graphql/guides`および`/content/graphql/overview`ディレクトリには、ユーザーが編集できる記事があります。
+* `/content/graphql/reference`ディレクトリには、GitHub GraphQL APIで使用されるGraphQLの各データ型についての記事があります。 プルリクエストがマージ可能かを判断するためには、個別にそれぞれのプルリクエストの[詳細な表現](/rest#detailed-representations)（大きなペイロード）を取得し、その`mergeable`属性がtrueかfalseかをチェックしなければなりません。
 
-  The content rendered by `include` tags is sourced from the `/lib/graphql/static` directory, which is automatically generated from the API source code internally in GitHub, and should not be edited by a human. For more information, see the [`/lib/graphql/README.md`](/lib/graphql/README.md).
+  `include`タグによってレンダリングされるコンテンツは`/lib/graphql/static`ディレクトリから取得され、これはGitHubで内部的にAPIソースコードから自動的に生成されます。ユーザーは編集しないでください。 詳しい情報については、[`lib/graphql/README.md`](/lib/graphql/README.md)を参照してください。
 
-  **As a result, we cannot accept contributions to GraphQL API reference content in this repository.**
+  **そのため、このリポジトリでGraphQL APIリファレンスに対するコントリビューションを受け付けることはできません。**

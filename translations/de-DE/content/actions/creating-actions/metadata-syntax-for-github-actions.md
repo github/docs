@@ -1,7 +1,7 @@
 ---
 title: Metadaten-Syntax für GitHub-Aktionen
 shortTitle: Metadaten-Syntax
-intro: Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.
+intro: 'Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
@@ -11,10 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zur YAML-Syntax für {% data variables.product.prodname_actions %}
 
@@ -40,7 +43,7 @@ Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn Sie bislang noch nicht m
 
 #### Beispiel
 
-In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und entspricht standardmäßig dem Wert „1“. Die Eingabe „octocatEyeColor“ ist erforderlich und weist keinen Standardwert auf. Workflow-Dateien, die diese Aktion einsetzen, müssen das Stichwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zu `with`-Syntax finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)“.
+In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und entspricht standardmäßig dem Wert „1“. Die Eingabe „octocatEyeColor“ ist erforderlich und weist keinen Standardwert auf. Workflow-Dateien, die diese Aktion einsetzen, müssen das Stichwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zur `with`-Syntax findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)“.
 
 ```yaml
 inputs:
@@ -53,9 +56,9 @@ inputs:
     required: true
 ```
 
-Wenn Sie eine Eingabe für eine Aktion in einer Workflow-Datei angeben oder einen Standardeingabewert verwenden, erstellt {% data variables.product.prodname_dotcom %} eine Umgebungsvariable für die Eingabe mit dem Namen `INPUT_<VARIABLE_NAME>`. Die erstellte Umgebungsvariable wandelt Eingabenamen in Großbuchstaben um und ersetzt Leerzeichen durch `_`-Zeichen.
+Wenn Du eine Eingabe für eine Aktion in einer Workflow-Datei angibst oder einen Standardeingabewert verwendest, erstellt {% data variables.product.prodname_dotcom %} eine Umgebungsvariable für die Eingabe mit dem Namen `INPUT_<NAME_DER_VARIABLEN>`. Die erstellte Umgebungsvariable wandelt Eingabenamen in Großbuchstaben um und ersetzt Leerzeichen durch `_`-Zeichen.
 
-Wenn beispielsweise ein Workflow die Eingaben „numOctocats“ und „octocatEyeColor“ definiert hat, kann der Aktionscode die Werte für die Eingaben mithilfe der Umgebungsvariablen `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` lesen.
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 #### `inputs.<input_id>`
 
@@ -72,6 +75,10 @@ Wenn beispielsweise ein Workflow die Eingaben „numOctocats“ und „octocatEy
 #### `inputs.<input_id>.default`
 
 **Optional**: Ein `String`, der den Standardwert darstellt. Der Standardwert wird verwendet, wenn ein Eingabeparameter in einer Workflow-Datei nicht angegeben ist.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs`
 
@@ -103,21 +110,22 @@ outputs:
 
 {% raw %}
 ```yaml
-Outputs:
-  Zufallszahl: 
-    Beschreibung: "Zufallszahl"
-    Wert:{{ steps.random-number-generator.outputs.random-id }}
-läuft:
-  mit: "composite"
-  Schritten: 
-    - id: zuzufälliger Zahlengenerator
-      ausführen: echo "::set-output name=random-id::'(echo $RANDOM)"
-      Shell: bash
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
 ```
 {% endraw %}
 
 #### `outputs.<output_id>.value`
-**Erforderliche** Der Wert, dem der Ausgabeparameter zugeordnet wird. Sie können dies auf eine `Zeichenfolge` oder einen Ausdruck mit Kontext festlegen. Sie können z. B. die `Schritte` Kontext verwenden, um den `Wert` einer Ausgabe auf den Ausgabewert eines Schritts festzulegen.
+
+**Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
 For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
@@ -163,7 +171,7 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 #### `Beitrag`
@@ -189,63 +197,66 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
 ### `runs` for composite run steps actions
 
-**Erforderliche** Konfiguriert den Pfad zur zusammengesetzten Aktion und die Anwendung, die zum Ausführen des Codes verwendet wird.
+**Required** Configures the path to the composite action, and the application used to execute the code.
 
 #### `runs.using`
 
-**Erforderliche** Um eine Aktion für zusammengesetzte Ausführungsschritte zu verwenden, legen Sie diese auf `"zusammengesetzte"`fest.
+**Required** To use a composite run steps action, set this to `"composite"`.
 
 #### `runs.steps`
 
-**Erforderliche** Die Ausführungsschritte, die Sie in dieser Aktion ausführen möchten.
+**Required** The run steps that you plan to run in this action.
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
-**Erforderliche** Der Befehl, den Sie ausführen möchten. Dies kann inline oder ein Skript in Ihrem Aktions-Repository sein:
+**Required** The command you want to run. This can be inline or a script in your action repository:
+
+{% raw %}
 ```yaml
-läuft:
-  mit: "composite"
-  Schritte: 
-    - ausführen:{{ github.action_path }}/test/script.sh
-      Shell: bash
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/test/script.sh
+      shell: bash
+```
+{% endraw %}
+
+Alternatively, you can use `$GITHUB_ACTION_PATH`:
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: bash
 ```
 
-Alternativ können Sie `$GITHUB_ACTION_PATH`verwenden:
+For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-```yaml
-läuft:
-  verwenden: "composite"
-  Schritte: 
-    - ausführen: $GITHUB_ACTION_PATH/script.sh
-      Shell: bash
-```
+##### `runs.steps[*].shell`
 
-Weitere Informationen finden Sie unter "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
 
-##### `runs.steps.shell`
+##### `runs.steps[*].name`
 
-**Erforderliche** Die Shell, in der Sie den Befehl ausführen möchten. Sie können eine der hier aufgeführten Shells [](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)verwenden.
+**Optional** The name of the composite run step.
 
-##### `runs.steps.name`
+##### `runs.steps[*].id`
 
-**Optionaler** Der Name des zusammengesetzten Ausführungsschritts.
+**Optional** A unique identifier for the step. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-##### `runs.steps.id`
+##### `runs.steps[*].env`
 
-**Optionaler** Ein eindeutiger Bezeichner für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
-##### `runs.steps.env`
+##### `runs.steps[*].working-directory`
 
-**Optionale**  Legt eine `Zuordnung` von Umgebungsvariablen nur für diesen Schritt fest. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
-
-##### `runs.steps.working-directory`
-
-**Optionale**  Gibt das Arbeitsverzeichnis an, in dem der Befehl ausgeführt wird.
+**Optional**  Specifies the working directory where the command is run.
 
 ### `runs` for Docker actions
 
@@ -254,7 +265,7 @@ Weitere Informationen finden Sie unter "[`github context`](/actions/reference/co
 #### Beispiel für die Nutzung eines Dockerfiles in Deinem Repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -262,9 +273,9 @@ runs:
 #### Beispiel zur Nutzung des öffentlichen Docker-Registry-Containers
 
 ```yaml
-läuft: 
-  mit: 'docker'
-  Image: 'docker://debian:stretch-slim'
+runs:
+  using: 'docker'
+  image: 'docker://debian:stretch-slim'
 ```
 
 #### `runs.using`
@@ -284,14 +295,14 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
 
 #### `runs.image`
 
-**Erforderlich** Das Docker-Image, das als Container zum Ausführen der Aktion verwendet werden soll. Der Wert kann der Name des Docker-Basis-Images sein, eine lokale `Dockerdatei` in Deinem Repository, oder ein öffentliches Image im Docker-Hub oder in einer anderen Registry. Um eine lokale `Dockerdatei` innerhalb Deines Repositorys zu referenzieren, gibst Du einen Pfad relativ zur Metadaten-Datei Deiner Aktion an. Die `Docker`-Anwendung wird diese Datei ausführen.
+**Erforderlich** Das Docker-Image, das als Container zum Ausführen der Aktion verwendet werden soll. Der Wert kann der Name des Docker-Basis-Images sein, eine lokale `Dockerdatei` in Deinem Repository, oder ein öffentliches Image im Docker-Hub oder in einer anderen Registry. To reference a `Dockerfile` local to your repository, the file must be named `Dockerfile` and you must use a path relative to your action metadata file. Die `Docker`-Anwendung wird diese Datei ausführen.
 
 #### `runs.env`
 
@@ -312,7 +323,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```

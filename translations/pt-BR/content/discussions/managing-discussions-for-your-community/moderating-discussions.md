@@ -1,6 +1,6 @@
 ---
-title: Moderating discussions
-intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, and converting issues to discussions. and editing or deleting comments, discussions, and categories that don''t align with your community''s code of conduct to discussions.'
+title: Moderar discussões
+intro: 'Você pode promover uma colaboração saudável marcando comentários como respostas, bloqueando ou desbloqueando discussões, e convertendo problemas em discussões. e editando ou excluindo comentários, discussões e categorias que não estão alinhadas com o código de conduta da sua comunidade referente às discussões.'
 permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -8,32 +8,32 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-### About moderating discussions
+### Sobre a moderação de discussões
 
-{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development.
+{% data reusables.discussions.about-discussions %} Se você tiver permissões de triagem para um repositório, você poderá ajudar a moderar as discussões de um projeto marcando comentários como respostas, bloqueando discussões que não são mais úteis ou que prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento.
 
-### Marking a comment as an answer
+### Marcar um comentário como uma resposta
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}
 
-### Locking discussions
+### Bloquear discussões
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository will still be able to comment on the discussion.
+É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou quando viola o código de conduta da sua comunidade ou as [Diretrizes da Comunidade](/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Você também pode bloquear uma conversa para evitar comentários em uma discussão que você deseja usar como um anúncio para a comunidade. Ao bloquear uma conversa, as pessoas com acesso de gravação ao repositório ainda poderão comentar na discussão.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, click the discussion you want to lock. ![Lock discussion](/assets/images/help/discussions/unanswered-discussion.png)
-1. In the right margin of a discussion, click **Lock conversation**.
-1. Read the information about locking conversations and click **Lock conversation on this discussion**.
-1. When you're ready to unlock the conversation, click **Unlock conversation**, then click **Unlock conversation on this discussion**.
+1. Na lista de discussões, clique na discussão que você deseja bloquear. ![Bloquear discussão](/assets/images/help/discussions/unanswered-discussion.png)
+1. Na margem direita de uma discussão, clique em **Bloquear conversa**.
+1. Leia as informações sobre bloqueio de conversas e clique em **Bloquear conversa nesta discussão**.
+1. Quando estiver pronto para desbloquear a conversa, clique em **Desbloquear conversa** e, em seguida, clique em **desbloquear conversa nesta discussão**.
 
-### Converting an issue to a discussion
+### Converter um problema em uma discussão
 
-When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository can bulk convert issues based on labels. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
+Ao converter um problema em uma discussão, a discussão será criada automaticamente usando o conteúdo do problema. As pessoas com acesso de gravação a um repositório podem fazer a conversão de problemas em massa com base em etquetas. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-1. In the list of issues, click the issue you'd like to convert.
-1. In the right margin of an issue, click **Convert to discussion**.
-1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
-1. Click **I understand, convert this issue to a discussion**.
+1. Na lista de problemas, clique no problema que deseja converter.
+1. Na margem direita de um problema, clique em **Converter em discussão**.
+1. Selecione o menu suspenso **Escolher uma categoria** e clique em uma categoria para a sua discussão.
+1. Clique em **Eu entendo. Converta esse problema em uma discussão**.

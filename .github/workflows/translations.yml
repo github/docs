@@ -1,5 +1,9 @@
 name: Translations
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**: Docs localization
+
 on:
   schedule:
     - cron: '20 19 * * *' # once a day at 19:20 UTC / 11:20 PST
@@ -17,14 +21,17 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Find original Pull Request
-        uses: juliangruber/find-pull-request-action@64d55773c959748ad30a4184f4dc102af1669f7b
+        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
         id: pr
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           branch: translations
+          base: main
+          author: octoglot
+          state: open
       - if: ${{ steps.pr.outputs.number }}
         name: Check if already labeled
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: has-label
         with:
           script: |
@@ -44,7 +51,7 @@ jobs:
           number: ${{ steps.pr.outputs.number }}
       - if: ${{ !steps.has-label.outputs.result }}
         name: Add automerge label
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

@@ -6,6 +6,9 @@ redirect_from:
 intro: '{% data variables.product.product_name %} 使用您的仓库数据来将您连接到相关工具、人员、项目和信息。'
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
  
 ### 关于 {% data variables.product.product_name %} 对数据的使用

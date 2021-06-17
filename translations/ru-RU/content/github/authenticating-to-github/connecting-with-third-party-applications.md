@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 When a third-party application wants to identify you by your {% data variables.product.product_name %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
@@ -32,7 +35,7 @@ Applications can have *read* or *write* access to your {% data variables.product
 
 *Scopes* are named groups of permissions that an application can request to access both public and non-public data.
 
-When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
 
 {% tip %}
 
@@ -55,13 +58,13 @@ There are several types of data that applications can request.
 | Type of data              | Description                                                                                                                                                                                                                                                                                                                             |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Commit status             | You can grant access for a third-party application to report your commit status. Commit status access allows applications to determine if a build is a successful against a specific commit. Applications won't have access to your code, but they <em>can</em> read and write status information against a specific commit. |
-| Deployments               | Deployment status access allows applications to determine if a deployment is successful against a specific commit for public and private repositories. Applications won't have access to your code.                                                                                                                                     |
-| Gists                     | [Gist](https://gist.github.com) access allows applications to read or write to both your public and secret Gists.                                                                                                                                                                                                                       |
+| Deployments               | Deployment status access allows applications to determine if a deployment is successful against a specific commit for a repository. Applications won't have access to your code.                                                                                                                                                        |
+| Gists                     | [Gist](https://gist.github.com) access allows applications to read or write to {% if currentVersion != "github-ae@latest" %}both your public and{% else %}both your internal and{% endif %} secret Gists.                                                                                                                               |
 | Hooks                     | [Webhooks](/webhooks) access allows applications to read or write hook configurations on repositories you manage.                                                                                                                                                                                                                       |
 | Notification (Оповещения) | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories.                                                                                                |
 | Organizations and teams   | Organization and teams access allows apps to access and manage organization and team membership.                                                                                                                                                                                                                                        |
 | Personal user data        | User data includes information found in your user profile, like your name, e-mail address, and location.                                                                                                                                                                                                                                |
-| Repositories              | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Applications can request access for either public or private repositories on a user-wide level.                                                                                                    |
+| Repositories              | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Applications can request access for either {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} or private repositories on a user-wide level.                          |
 | Repository delete         | Applications can request to delete repositories that you administer, but they won't have access to your code.                                                                                                                                                                                                                           |
 
 ### Requesting updated permissions

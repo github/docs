@@ -1,0 +1,54 @@
+.feature-track {
+  li {
+    width: 280px;
+  }
+}
+
+.learning-track {
+  &--description {
+    min-height: 1em * $body-line-height * 3;
+  }
+}
+
+.learning-track-container {
+  width: 440px;
+}
+
+.step-circle-text {
+  color: var(--color-auto-purple-5);
+}
+
+.description-text {
+  opacity: 0.7;
+  line-height: 1.8em;
+}
+
+.uppercase-category-text {
+  letter-spacing: 0.08em;
+  font-size: 0.8em;
+}
+
+@mixin truncate($maxLine) {
+  .truncate-overflow-#{$maxLine} {
+    display: -webkit-box;
+    -webkit-line-clamp: $maxLine;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@include truncate(3);
+@include truncate(8);
+
+.fade-background-left {
+  background: linear-gradient(to right, var(--color-bg-tertiary), transparent);
+}
+
+.fade-background-right {
+  background: linear-gradient(to left, var(--color-bg-tertiary), transparent);
+}
+
+.fade-background-bottom {
+  background: linear-gradient(to top, var(--color-bg-tertiary), transparent);
+}

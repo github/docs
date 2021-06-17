@@ -11,10 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Qualquer pessoa com permissões de gravação em um repositório pode configurar a integração contínua (CI, Continuous Integration) usando o {% data variables.product.prodname_actions %}.
 
@@ -44,6 +50,6 @@ Para obter mais informações, consulte "[Aprenda {% data variables.product.prod
   
   {% if currentVersion == "free-pro-team@latest" %}
 
-- "[Gerenciar a cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)" 
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)" 
   
   {% endif %}

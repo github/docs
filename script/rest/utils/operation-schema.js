@@ -1,6 +1,7 @@
 // This schema is used to validate each generated operation object at build time
 
 module.exports = {
+  type: 'object',
 
   // Every operation must have these props
   required: [
@@ -44,7 +45,7 @@ module.exports = {
     verb: {
       description: 'The HTTP method',
       type: 'string',
-      required: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'HEAD']
+      enum: ['get', 'put', 'post', 'delete', 'patch', 'head']
     },
     requestPath: {
       description: 'The URL path',

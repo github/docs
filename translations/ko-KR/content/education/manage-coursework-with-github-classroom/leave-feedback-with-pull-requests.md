@@ -28,4 +28,4 @@ To create and access the feedback pull request, you must enable the feedback pul
 
 ### 더 읽을거리
 
-- "[Integrate {% data variables.product.prodname_classroom %} with an IDE](http://localhost:4000/en/free-pro-team@latest/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"
+- "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"

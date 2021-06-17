@@ -11,9 +11,11 @@ permissions: Alle Personen mit Leseberechtigung in einem Repository können die 
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Pakete eines Repository einsehen
 

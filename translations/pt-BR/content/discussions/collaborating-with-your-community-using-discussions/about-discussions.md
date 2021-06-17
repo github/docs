@@ -1,6 +1,6 @@
 ---
 title: Sobre discussões
-intro: Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.
+intro: 'Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
 ---
@@ -13,42 +13,48 @@ Com {% data variables.product.prodname_discussions %}, a comunidade para o seu p
 
 - Compartilhar anúncios e informações, recolher feedback, planejar e tomar decisões
 - Faça perguntas, discuta e responda às perguntas, e marque as discussões como respondidas
-- Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
+- Promova uma atmosfera convidativa para visitantes e contribuidores para discutir objetivos, desenvolvimento, administração e fluxos de trabalho
 
-![Discussions tab for a repository](/assets/images/help/discussions/hero.png)
+![Aba de discussões para um repositório](/assets/images/help/discussions/hero.png)
 
-You don't need to close a discussion like you close an issue or a pull request.
+Você não precisa fechar uma discussão como você fecha um problema ou um pull request.
 
-If a repository administrator or project maintainer enables discussions for a repository, anyone who visits the repository can create and participate in discussions for the repository. Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Se um administrador de repositório ou mantenedor do projeto permitir discussões em um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões para o repositório. Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
-For more information about management of discussions for your repository, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
+Para obter mais informações sobre o gerenciamento de discussões para o repositório, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
-### About categories and formats for discussions
+### Sobre a organização de discussão
+
+Você pode organizar discussões com categorias e etiquetas.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
-For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
+Para discussões com um formato de pergunta/resposta, é possível marcar um comentário individual dentro da discussão como a resposta da discussão. {% data reusables.discussions.github-recognizes-members %}
 
-For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
+{% data reusables.discussions.about-announcement-format %}
 
-### Best practices for discussions
+Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
-As a community member or maintainer, start a discussion to ask a question or discuss information that affects the community. For more information, see "[Collaborating with maintainers using discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)."
+{% data reusables.discussions.you-can-label-discussions %}
 
-Participate in a discussion to ask and answer questions, provide feedback, and engage with the project's community. For more information, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
+### Melhores práticas para discussões
 
-You can spotlight discussions that contain important, useful, or exemplary conversations among members in the community. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)."
+Como integrante ou mantenedor da comunidade, inicie uma discussão para fazer uma pergunta ou discutir informações que afetem a comunidade. Para obter mais informações, consulte "[Colaborar com mantenedores usando as discussões](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)".
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions in your repository](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+Participe de uma discussão para fazer e responder a perguntas, fornecer feedback e envolver-se com a comunidade do projeto. Para obter mais informações, consulte "[Participar de uma discussão](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)".
+
+Você pode destacar discussões que contenham conversas importantes, úteis ou exemplares entre os integrantes da comunidade. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)".
+
+{% data reusables.discussions.you-can-convert-an-issue %} Para obter mais informações, consulte "[Moderar discussões no seu repositório](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)".
 
 ### Compartilhando feedback
 
-You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+Você pode compartilhar seus comentários sobre {% data variables.product.prodname_discussions %} com {% data variables.product.company_short %}. Para se juntar à conversa, consulte [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
 
 ### Leia mais
 
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
+- "[Sobre escrita e formatação em {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
+- "[Pesquisar discussões](/github/searching-for-information-on-github/searching-discussions)"
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderar comentários e conversas](/github/building-a-strong-community/moderating-comments-and-conversations)"
-- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
+- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

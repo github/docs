@@ -8,6 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Security
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,7 +23,7 @@ versions:
 
 ### 使用密码
 
-敏感值绝不能以明文存储在工作流程文件中，而应存储为密码。 [密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)可在组织或仓库级配置，可用于在 {% data variables.product.product_name %} 中存储敏感信息。
+敏感值绝不能以明文存储在工作流程文件中，而应存储为密码。 [密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)可在组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、仓库或环境{% else %}或仓库{% endif %}级配置，可用于在 {% data variables.product.product_name %} 中存储敏感信息。
 
 密码使用 [Libsodium 密封箱](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)，以使它们在到达 {% data variables.product.product_name %} 前被加密处理。 [使用 UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) 或通过 [REST API](/rest/reference/actions#secrets) 提交密码时就会发生这种情况。 此客户端加密有助于最大程度地减少与 {% data variables.product.product_name %}基础架构中的意外日志记录相关的风险（例如，异常日志和请求日志等）。 密钥在上传后，{% data variables.product.product_name %} 可对其进行解密，以便它能够被注入工作流程运行时。
 
@@ -38,6 +42,10 @@ versions:
 - **审核并轮换注册密码**
     - 定期查查已注册的密码，以确认它们仍是必需的。 删除不再需要的密码。
     - 定期轮换密码，以减小泄露的密码有效的时间窗。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- **考虑要求对访问密码进行审查**
+    - 您可以使用所需的审查者来保护环境机密。 在审查者批准之前，工作流程作业无法访问环境机密。 有关在环境中存储机密或需要审查环境的更多信息，请参阅“[加密秘密](/actions/reference/encrypted-secrets)”和“[环境](/actions/reference/environments)”。
+{% endif %}
 
 ### 使用第三方操作
 
@@ -49,11 +57,13 @@ versions:
 
   将操作固定到全长提交 SHA 是当前将操作用作不可变版本的唯一方法。 固定到特定 SHA 有助于降低恶意执行者向操作仓库添加后门的风险，因为他们需要为有效的 Git 对象负载生成 SHA-1 冲突。
 
+  {% if currentVersion ver_lt "enterprise-server@3.1" %}
   {% warning %}
 
   **警告** 提交 SHA 的简短版本不安全，绝不可用于指定操作的 Git 引用。 由于仓库网络的工作方式，任何用户都可以复刻仓库，将精心编写的提交推送到与短 SHA 冲突的仓库。 这会导致该 SHA 上的后续克隆失败，因为它成为不明确的提交。 因此，使用缩短的 SHA 的任何工作流程将立即失败。
 
   {% endwarning %}
+  {% endif %}
 
 
 * **审核操作的源代码**
@@ -66,13 +76,13 @@ versions:
 
 ### 考虑跨仓库访问
 
-{% data variables.product.product_name %} 的范围有意设为每次一个仓库。 工作流程环境中使用的 `GITHUB_TOKEN` 授予与具有写入权限的用户相同的访问级别，因为任何具有写入权限的用户都可通过创建或修改工作流程文件来访问此令牌。 用户对每个仓库都有特定权限，因此，如果不谨慎实施，一个仓库的 `GITHUB_TOKEN` 库授予对另一个仓库的访问权限将会影响 {% data variables.product.prodname_dotcom %} 权限模型。 同样，在向工作流程环境添加 {% data variables.product.prodname_dotcom %} 授权令牌时也必须谨慎，因为这也会因无意中向协作者授予一般权限而影响 {% data variables.product.prodname_dotcom %} 权限模型。
+{% data variables.product.product_name %} 的范围有意设为每次一个仓库。 `GITHUB_TOKEN` 授予与具有写入权限的用户相同的访问级别，因为任何具有写入权限的用户都可通过创建或修改工作流程文件来访问此令牌。 用户对每个仓库都有特定权限，因此，如果不谨慎实施，一个仓库的 `GITHUB_TOKEN` 库授予对另一个仓库的访问权限将会影响 {% data variables.product.prodname_dotcom %} 权限模型。 同样，在向工作流程添加 {% data variables.product.prodname_dotcom %} 授权令牌时也必须谨慎，因为这也会因无意中向协作者授予一般权限而影响 {% data variables.product.prodname_dotcom %} 权限模型。
 
-我们已经[制定 {% data variables.product.prodname_dotcom %} 路线图](https://github.com/github/roadmap/issues/74)，以支持允许在 {% data variables.product.product_name %} 内跨仓库访问的流程，但这还不是一项受支持的功能。 目前，执行特权跨仓库交互的唯一方法就是将 {% data variables.product.prodname_dotcom %} 身份验证令牌或 SSH 密钥作为工作流程环境中的密码。 由于许多身份验证令牌类型不允许对特定资源进行细致的访问，因此使用错误的令牌类型存在很大风险，因为它可以授予比预期范围更广泛的访问。
+我们已经[制定 {% data variables.product.prodname_dotcom %} 路线图](https://github.com/github/roadmap/issues/74)，以支持允许在 {% data variables.product.product_name %} 内跨仓库访问的流程，但这还不是一项受支持的功能。 目前，执行特权跨仓库交互的唯一方法就是将 {% data variables.product.prodname_dotcom %} 身份验证令牌或 SSH 密钥作为工作流程中的密码。 由于许多身份验证令牌类型不允许对特定资源进行细致的访问，因此使用错误的令牌类型存在很大风险，因为它可以授予比预期范围更广泛的访问。
 
 此列表描述建议用于在工作流程中访问仓库数据的方法，按优先顺序降序排列：
 
-1. **工作流程环境中的 `GITHUB_TOKEN`**
+1. **`GITHUB_TOKEN`**
     -  此令牌的范围有意设为调用工作流程的单个仓库，并且具有与仓库具有写入权限的用户的访问级别相同。 令牌在每个作业开始之前创建，在作业完成时过期。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
     - 应尽可能使用 `GITHUB_TOKEN`。
 2. **仓库部署密钥**
@@ -135,4 +145,4 @@ versions:
 | `action:org.runner_group_removed`         | 组织管理员删除自托管运行器组时触发。                                                                                                                                                 |
 | `action:org.runner_group_renamed`         | 组织管理员重命名自托管运行器组时触发。                                                                                                                                                |
 | `action:org.runner_group_runners_added`   | 组织管理员[添加自托管运行器到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)时触发。                |
-| `action:org.runner_group_runners_removed` | 组织管理员从组中删除自托管运行器时触发。                                                                                                                                               | 
+| `action:org.runner_group_runners_removed` | 组织管理员从组中删除自托管运行器时触发。                                                                                                                                               |

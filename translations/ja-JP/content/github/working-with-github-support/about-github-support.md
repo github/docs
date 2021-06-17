@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-support
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 ### {% data variables.contact.github_support %}について
@@ -23,9 +25,9 @@ versions:
 
 ### {% data variables.contact.github_support %}への連絡
 
-{% data variables.product.prodname_free_user %}のユーザ及びOrganizationのアカウントは、トピックの閲覧、質問、ソリューションの共有、{% data variables.contact.community_support %}との直接のやりとりのために{% data variables.contact.community_support_forum %}を利用できます。 アカウント、セキュリティ、悪用の問題をレポートするために{% data variables.contact.contact_support %}に連絡することもできます。
+{% data variables.contact.community_support_forum %} を使用して、トピックの閲覧、質問、ソリューションの共有、{% data variables.contact.community_support %} との直接やり取りができます。
 
-有料のアカウントでは{% data variables.contact.contact_support %}に連絡することも、そしてプランによっては{% data variables.contact.premium_support %}もしくは{% data variables.contact.contact_ent_support %}に連絡することもできます。 {% data variables.contact.premium_support %}への連絡に関する詳しい情報については「[{% data variables.product.prodname_ghe_cloud %}の{% data variables.contact.premium_support %}について](/articles/about-github-premium-support-for-github-enterprise-cloud)」もしくは「[{% data variables.product.prodname_ghe_server %}の{% data variables.contact.premium_support %}について](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise)」を参照してください。
+アカウント、セキュリティ、不正使用の問題の報告、または有料アカウントのサポートを受けるには、{% data variables.contact.contact_support_portal %}にアクセスしてください。 {% data variables.product.prodname_dotcom_the_website %} にユーザアカウントを持たない {% data variables.product.prodname_ghe_server %} の管理者の場合は、{% data variables.contact.contact_enterprise_portal %} にアクセスしてください。
 
 ### プライベートリポジトリへの{% data variables.contact.github_support %}の一時的なアクセスの許可
 

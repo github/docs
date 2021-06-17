@@ -1,0 +1,1 @@
+1. Opcionalmente, si estás patrocinando a alguien como organización, para pagar una cantidad prorrateada en vez de hacer el pago mensual completo, debajo de "Total adeudado", haz clic en **Mejor pagar $X.XX prorrateados**. ![Enlace para pagar una cantidad prorrateada](/assets/images/help/sponsors/pay-prorated-amount-link.png)

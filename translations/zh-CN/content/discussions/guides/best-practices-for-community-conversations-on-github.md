@@ -1,49 +1,49 @@
 ---
-title: Best practices for community conversations on GitHub
-shortTitle: Best practices for community conversations
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to a discussion when you are ready to scope out the work.'
+title: GitHub 上社区对话的最佳实践
+shortTitle: 社区对话的最佳实践
+intro: 您可以使用讨论与团队进行头脑风暴，并在准备好确定工作范围时最终将对话移动到讨论中。
 versions:
   free-pro-team: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Community conversations in {% data variables.product.prodname_discussions %}
+### {% data variables.product.prodname_discussions %} 中的社区对话
 
-Since {% data variables.product.prodname_discussions %} is an open forum, there is an opportunity to bring non-code collaboration into a project's repository and gather diverse feedback and ideas more quickly. You can help drive a productive conversation by:
+由于 {% data variables.product.prodname_discussions %} 是一个开放的论坛，因此有机会将非代码协作引入项目的仓库，并更快地收集各种反馈和想法。 您可以通过以下方式帮助推动富有成果的对话：
 
-- Asking pointed questions and follow-up questions to garner specific feedback
-- Capture a diverse experience and distill it down to main points
-- Open an issue to take action based on the conversation, where applicable
+- 提出针对性的问题和后续问题，以收集具体反馈
+- 获取不同的体验并提炼到要点
+- 打开议题，根据对话采取行动（如果适用）
 
-For more information about opening an issue and cross-referencing a discussion, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+有关打开议题和交叉引用讨论的更多信息，请参阅“[从评论打开议题](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)”。
 
-### Learning about conversations on GitHub
+### 了解 GitHub 中的对话
 
-You can create and participate in discussions, issues, and pull requests, depending on the type of conversation you'd like to have.
+您可以创建和参与讨论、议题及拉取请求，具体取决于您希望进行的对话类型。
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and spike out a project's specific details before committing it to an issue, which can then be scoped. Discussions are useful for teams if:
-- You are in the discovery phase of a project and are still learning which director your team wants to go in
-- You want to collect feedback from a wider community about a project
-- You want to keep bug fixes, feature requests, and general conversations separate
+您可以使用 {% data variables.product.prodname_discussions %} 讨论大局想法、集思广益，并在将项目提交到议题之前，先找出项目的具体细节，然后可以确定议题的范围。 在以下情况下，讨论对团队非常有用：
+- 您处于项目的发现阶段，仍在了解您的团队希望由哪个主管领导
+- 您希望从更广泛的社区收集有关项目的反馈
+- 您希望将漏洞修复、功能请求和常规对话分开
 
 议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”和“[评论拉取请求](/articles/commenting-on-a-pull-request)”。
 
-{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。
+{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
-### Following contributing guidelines
+### 遵守参与指南
 
-Before you open a discussion, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
+在打开讨论之前，检查仓库是否有参与指南。 CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
 
-更多信息请参阅“[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)”。
+更多信息请参阅“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
 ### 后续步骤
 
-To continue learning about {% data variables.product.prodname_discussions %} and quickly create a discussion for your community, see "[Quickstart for {% data variables.product.prodname_discussions %}](/discussions/quickstart)."
+要继续了解 {% data variables.product.prodname_discussions %} 并快速创建社区的讨论，请参阅“[{% data variables.product.prodname_discussions %} 快速入门](/discussions/quickstart)”。
 
 ### 延伸阅读
 
-- "[设置健康参与的项目](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[使用模板鼓励有用的议题和拉取请求](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[调解评论和对话](/articles/moderating-comments-and-conversations)"
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[调解评论和对话](/communities/moderating-comments-and-conversations)"
 - "[在 {% data variables.product.prodname_dotcom %} 上编写](/articles/writing-on-github)"

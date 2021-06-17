@@ -1,0 +1,1 @@
+访问命令面板 (`shift command P` / `shift control P`)，然后开始输入 "Codespaces: Rebuild Container"。 单击 **Codespaces: Rebuild Container（代码空间：重建容器）**。 

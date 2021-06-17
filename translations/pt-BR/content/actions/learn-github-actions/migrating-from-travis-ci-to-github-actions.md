@@ -6,7 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Travis CI
+  - Migration
+  - CI
+  - CD
 ---
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -68,8 +79,8 @@ Travis CI
 ```yaml
 matrix:
   include:
-  - rvm: 2.5
-  - rvm: 2.6.3
+    - rvm: 2.5
+    - rvm: 2.6.3
 ```
 {% endraw %}
 </td>
@@ -108,8 +119,8 @@ Travis CI
 ```yaml
 branches:
   only:
-  - main
-  - 'mona/octocat'
+    - main
+    - 'mona/octocat'
 ```
 {% endraw %}
 </td>
@@ -118,7 +129,7 @@ branches:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - main
       - 'mona/octocat'
 ```
@@ -154,9 +165,9 @@ git:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-    - uses: actions/checkout@v2
-      with:
-        submodules: false
+- uses: actions/checkout@v2
+  with:
+    submodules: false
 ```
 {% endraw %}
 </td>
@@ -175,7 +186,7 @@ Ao fazer a migração do Travis CI, considere os recursos principais a seguir em
 
 #### Armazenar segredos
 
-{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. {% data variables.product.prodname_actions %} também inclui políticas que permitem limitar o acesso a segredos no nível do repositório e da organização. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}As regras de proteção do ambiente podem exigir a aprovação manual de um fluxo de trabalho para acessar segredos de ambiente. {% endif %}Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
 #### Compartilhar arquivos entre trabalhos e fluxos de trabalho
 
@@ -206,10 +217,10 @@ Ao trabalhar com diferentes linguagens em {% data variables.product.prodname_act
 Por exemplo:
 
 ```yaml
-      steps:
-        - name: Run build script
-          run: ./.github/scripts/build.sh
-          shell: bash
+steps:
+  - name: Run build script
+    run: ./.github/scripts/build.sh
+    shell: bash
 ```
 
 ### Manuseio de erros em {% data variables.product.prodname_actions %}
@@ -270,15 +281,15 @@ script:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-trabalhos:
+jobs:
   run_python:
     runs-on: ubuntu-latest
-    etapas:
-    - usa: actions/setup-python@v2
-      com:
-        python-version: '3.7'
-        arquitetura: 'x64'
-    - executar: python script.py
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -344,20 +355,20 @@ Fluxo de trabalho do {% data variables.product.prodname_actions %}
 <tr>
 <td>
 
-  ```yaml
+```yaml
 env:
   - MAVEN_PATH="/usr/local/maven"
-  ```
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
-      env:
-        MAVEN_PATH: '/usr/local/maven'
-  ```
+```yaml
+jobs:
+  maven-build:
+    env:
+      MAVEN_PATH: '/usr/local/maven'
+```
 
 </td>
 </tr>
@@ -377,24 +388,24 @@ Fluxo de trabalho do {% data variables.product.prodname_actions %}
 <tr>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 install:
-    - npm install
+  - npm install
 script:
-    - npm run build
-    - npm test
-  ```
+  - npm run build
+  - npm test
+```
 {% endraw %}
 </td>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 name: Node.js CI
 on: [push]
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -403,7 +414,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-  ```
+```
 {% endraw %}
 </td>
 </tr>

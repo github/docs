@@ -6,6 +6,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Clustering
+  - Enterprise
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
@@ -45,7 +49,7 @@ The names of the nodes can be any valid hostname you choose. The names are set a
 
 Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

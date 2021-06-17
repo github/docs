@@ -11,7 +11,7 @@ Pre-receive hooks run tests on code pushed to a repository to ensure contributio
 
 If your push isn't accepted, you'll see an error message corresponding to the failed pre-receive hook.
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.

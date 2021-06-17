@@ -1,0 +1,18 @@
+<div class="py-3 px-4 rounded color-bg-primary border-gradient--purple-pink d-flex flex-justify-between learning-track-nav">
+{% assign track = currentLearningTrack %}
+
+  <span class="d-flex flex-column">
+    {% if track.prevGuide %}
+      <span class="f6 color-text-secondary">{% data ui.learning_track_nav.prevGuide %}</span>
+      <a href="{{track.prevGuide.href}}?learn={{track.trackName}}" class="text-bold color-text-secondary">{{track.prevGuide.title}}</a>
+    {% endif %}
+  </span>
+
+  <span class="d-flex flex-column flex-items-end">
+    {% if track.nextGuide %}
+      <span class="f6 color-text-secondary">{% data ui.learning_track_nav.nextGuide %}</span>
+      <a href="{{track.nextGuide.href}}?learn={{track.trackName}}" class="text-bold color-text-secondary text-right">{{track.nextGuide.title}}</a>
+    {% endif %}
+  </span>
+
+</div>

@@ -3,15 +3,21 @@ title: Documentación de GitHub Actions
 shortTitle: GitHub Actions
 intro: 'Automatiza, personaliza y ejecuta tus flujos de trabajo de desarrollo de software directamente en tu repositorio con {% data variables.product.prodname_actions %}. Puedes descubrir, crear y compartir acciones para realizar cualquier trabajo que quieras, incluido CI/CD, y combinar acciones en un flujo de trabajo completamente personalizado.'
 featuredLinks:
-  gettingStarted:
-    - /actions/quickstart
+  guides:
     - /actions/learn-github-actions
-  guide:
-    - /actions/managing-workflow-runs
-    - /actions/hosting-your-own-runners
+    - /actions/guides/about-continuous-integration
+    - /actions/guides/about-packaging-with-github-actions
+  guideCards:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/publishing-nodejs-packages
+    - /actions/guides/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/learn-github-actions
     - /actions/reference/events-that-trigger-workflows
+    - /actions/reference/context-and-expression-syntax-for-github-actions
+    - /actions/reference/environment-variables
+    - /actions/reference/encrypted-secrets
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -23,16 +29,24 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+introLinks:
+  quickstart: /actions/quickstart
+  reference: /actions/reference
+changelog:
+  label: actions
+  prefix: 'GitHub Actions: '
+product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
+children:
+  - /quickstart
+  - /guides
+  - /learn-github-actions
+  - /managing-workflow-runs
+  - /creating-actions
+  - /using-github-hosted-runners
+  - /hosting-your-own-runners
+  - /reference
 ---
-
-<!-- {% link_with_intro /quickstart %} -->
-<!-- {% link_with_intro /guides %} -->
-<!-- {% link_with_intro /learn-github-actions %} -->
-<!-- {% link_with_intro /managing-workflow-runs %} -->
-<!-- {% link_with_intro /creating-actions %} -->
-<!-- {% link_with_intro /hosting-your-own-runners %} -->
-<!-- {% link_with_intro /reference %} -->
-
 <!-- Article links -->
 <div class="d-flex gutter my-6 py-6">
   <div class="col-4">
@@ -45,7 +59,6 @@ versions:
       {% endfor %}
     </ul>
   </div>
-
   <div class="col-4">
     <div class="featured-links-heading pb-4">
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
@@ -56,7 +69,6 @@ versions:
       {% endfor %}
     </ul>
   </div>
-
   <div class="col-4">
     <div class="featured-links-heading pb-4">
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Administrar flujos de trabajo</h3>
@@ -86,11 +98,9 @@ versions:
     <p class="mb-0">Explora las acciones de la comunidad y supercarga tu flujo de trabajo.</p>
   </a>
 </div>
-
 <!-- Code examples -->
 <div class="mt-6 pt-6">
   <h2 class="mb-2">Guías</h2>
-
   <div class="d-flex flex-wrap gutter">
     <div class="col-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-nodejs">
@@ -189,6 +199,5 @@ versions:
       </a>
     </div>
   </div>
-
   <a href="/actions/guides" class="btn btn-outline mt-4">Más guías {% octicon "arrow-right" %}</a>
 </div>

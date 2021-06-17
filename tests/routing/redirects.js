@@ -1,11 +1,12 @@
 const path = require('path')
 const { isPlainObject } = require('lodash')
 const supertest = require('supertest')
-const app = require('../../server')
+const app = require('../../lib/app')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
 const { get } = require('../helpers/supertest')
+const versionSatisfiesRange = require('../../lib/version-satisfies-range')
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -19,7 +20,7 @@ describe('redirects', () => {
 
   test('page.redirects is an array', async () => {
     const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
+      relativePath: 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
@@ -34,23 +35,24 @@ describe('redirects', () => {
       languageCode: 'en'
     })
     page.buildRedirects()
-    expect(page.redirects['/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/en/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/en/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/github`]).toBe('/en/github')
+    expect(page.redirects['/articles']).toBe('/en/github')
+    expect(page.redirects['/en/articles']).toBe('/en/github')
+    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/articles`]).toBe('/en/github')
+    expect(page.redirects['/common-issues-and-questions']).toBe('/en/github')
+    expect(page.redirects['/en/common-issues-and-questions']).toBe('/en/github')
     expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
     expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
     const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/about-conversations-on-github.md',
-      basePath: path.join(__dirname, '../../content'),
+      relativePath: 'article-with-redirect-from-string.md',
+      basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'en'
     })
     page.buildRedirects()
-    const expected = `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
-    expect(page.redirects['/en/articles/about-discussions-in-issues-and-pull-requests']).toBe(expected)
+    expect(page.redirects['/redirect-string']).toBe('/en/article-with-redirect-from-string')
   })
 
   describe('query params', () => {
@@ -76,7 +78,7 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-search-between-github-enterprise-server-and-githubcom`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
@@ -125,7 +127,7 @@ describe('redirects', () => {
     test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
-      const expected = `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop`
+      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
       expect(res.headers.location).toBe(expected)
     })
   })
@@ -156,6 +158,12 @@ describe('redirects', () => {
       const res = await get('/ja/enterprise')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseEnterpriseHome)
+    })
+
+    test('hardcoded @latest redirects to latest version', async () => {
+      const res = await get('/en/enterprise-server@latest')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(enterpriseHome)
     })
   })
 
@@ -188,11 +196,16 @@ describe('redirects', () => {
   })
 
   describe('enterprise admin', () => {
-    const enterpriseAdmin = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
+    // firstRestoredAdminGuides = 2.21
+    // lastBeforeRestoredAdminGuides = 2.20
+    // (these won't change but it's more convenient to use constants)
+    const { firstRestoredAdminGuides, getPreviousReleaseNumber, latest } = enterpriseServerReleases
+    const lastBeforeRestoredAdminGuides = getPreviousReleaseNumber(firstRestoredAdminGuides)
+    const enterpriseAdmin = `/en/enterprise-server@${latest}/admin`
     const japaneseEnterpriseAdmin = enterpriseAdmin.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/admin`)
+      const res = await get(`/enterprise/${latest}/admin`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(enterpriseAdmin)
     })
@@ -203,24 +216,39 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(enterpriseAdmin)
     })
 
-    test('admin/guides redirects to admin', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/admin/guides`)
+    test('admin/guides redirects to admin on <2.21', async () => {
+      const res = await get(`/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides`)
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(enterpriseAdmin)
+      expect(res.headers.location).toBe(enterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides))
     })
 
-    test('no version plus admin/guides redirects to admin on latest version', async () => {
-      const res = await get('/en/enterprise/admin/guides')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(enterpriseAdmin)
+    test('admin/guides does not redirect to admin on >=2.21', async () => {
+      const res = await get(`/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides`)
+      expect(res.statusCode).toBe(200)
     })
 
-    test('admin/guides redirects to admin in redirects', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/admin/guides/installation/upgrading-github-enterprise`)
+    test('no version plus admin/guides redirects to the right place on latest version', async () => {
+      const shouldRedirect = versionSatisfiesRange(latest, `<${firstRestoredAdminGuides}`)
+      const expectedStatusCode = shouldRedirect ? 301 : 200
+      const res = await get(`/en/enterprise-server@${latest}/admin/guides`)
+      expect(res.statusCode).toBe(expectedStatusCode)
+    })
+
+    test('admin/guides redirects to admin in deep links on <2.21', async () => {
+      const res = await get(`/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`)
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
       expect(redirectRes.statusCode).toBe(200)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/upgrading-github-enterprise-server`
+      const expected = `/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/enterprise-management/upgrading-github-enterprise-server`
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test('admin/guides still redirects to admin in deep links on >=2.21', async () => {
+      const res = await get(`/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`)
+      expect(res.statusCode).toBe(301)
+      const redirectRes = await get(res.headers.location)
+      expect(redirectRes.statusCode).toBe(200)
+      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -230,10 +258,15 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
     })
 
-    test('admin/guides redirects to admin (japanese)', async () => {
-      const res = await get(`/ja/enterprise/${enterpriseServerReleases.latest}/admin/guides`)
+    test('admin/guides redirects to admin on <2.21 (japanese)', async () => {
+      const res = await get(`/ja/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides`)
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
+      expect(res.headers.location).toBe(japaneseEnterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides))
+    })
+
+    test('admin/guides does not redirect to admin on >=2.21 (japanese)', async () => {
+      const res = await get(`/ja/enterprise-server@${firstRestoredAdminGuides}/admin/guides`)
+      expect(res.statusCode).toBe(200)
     })
   })
 
@@ -267,8 +300,14 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/quickstart/set-up-git`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
+
+    test('no product redirects to GitHub.com product on the latest version', async () => {
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(userArticle)
+    })
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
@@ -302,7 +341,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/access-permissions-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/learning-about-github/access-permissions-on-github`
     const redirectFromPath = '/articles/what-are-the-different-access-permissions'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
@@ -332,7 +371,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request`
+    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {

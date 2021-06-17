@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
@@ -22,26 +24,15 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ### Determining the virtual machine type
 
-Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the type of virtual machine that best fits the needs of your organization.
-
-#### Supported VM types and regions
-
-The {% data variables.product.prodname_ghe_server %} appliance requires a premium storage data disk, and is supported on any Azure VM that supports premium storage. For more information, see "[Supported VMs](https://docs.microsoft.com/azure/storage/common/storage-premium-storage#supported-vms)" in the Azure documentation. For general information about available VMs, see [the Azure virtual machines overview page](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
-
-{% data variables.product.prodname_ghe_server %} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
-
-#### Recommended VM types
-
-We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can use any supported VM type. Based on your user license count, we recommend the following instance types.
-
-|             Seats              |  Recommended type  |
-|:------------------------------:|:------------------:|
-| Trial, demo, or 10 light users | Standard_DS11_v2 |
-|           10 - 3000            | Standard_DS12_v2 |
-|          3000 - 8000           | Standard_DS14_v2 |
-|         8000 - 10000+          | Standard_DS15_v2 |
+Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+The {% data variables.product.prodname_ghe_server %} appliance requires a premium storage data disk, and is supported on any Azure VM that supports premium storage. Azure VM types with the `s` suffix support premium storage. For more information, see "[What disk types are available in Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" and "[Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" in the Azure documentation.
+
+{% data variables.product.company_short %} recommends a memory-optimized VM for {% data variables.product.prodname_ghe_server %}. For more information, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" in the Azure documentation.
+
+{% data variables.product.prodname_ghe_server %} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
 
 ### Creating the {% data variables.product.prodname_ghe_server %} virtual machine
 
@@ -106,8 +97,8 @@ We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can u
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
+### 더 읽을거리
 
-  ### 더 읽을거리
-
-  - "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
   

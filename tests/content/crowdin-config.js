@@ -1,5 +1,5 @@
-const config = require('../../lib/crowdin-config').read()
-const { loadPages } = require('../../lib/pages')
+const config = require('../helpers/crowdin-config').read()
+const { loadPages } = require('../../lib/page-data')
 const ignoredPagePaths = config.files[0].ignore
 const ignoredDataPaths = config.files[2].ignore
 
@@ -12,7 +12,7 @@ describe('crowdin.yml config file', () => {
     done()
   })
 
-  test('has expected file stucture', async () => {
+  test('has expected file structure', async () => {
     expect(config.files.length).toBe(3)
     expect(config.files[0].source).toBe('/content/**/*.md')
     expect(config.files[0].ignore).toContain('/content/README.md')

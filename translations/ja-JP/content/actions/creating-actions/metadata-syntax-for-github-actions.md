@@ -11,10 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: reference
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### {% data variables.product.prodname_actions %}のYAML構文について
 
@@ -26,11 +29,11 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 **必須**アクションの名前。 {% data variables.product.prodname_dotcom %}は`name`を**Actions**タブに表示して、それぞれのジョブのアクションを見て区別しやすくします。
 
-### `作者`
+### `author`
 
 **オプション** アクションの作者の名前。
 
-### `説明`
+### `description`
 
 **必須** アクションの短い説明。
 
@@ -55,7 +58,7 @@ inputs:
 
 ワークフローファイル内で、あるいはデフォルトの入力値を使ってアクションに入力を指定すると、{% data variables.product.prodname_dotcom %}はその入力に対応して`INPUT_<VARIABLE_NAME>`という名前の環境変数を生成します。 生成される環境変数では、入力の名前を大文字にして、空白を`_`に変換します。
 
-たとえば、ワークフローがnumOctocats及びoctocatEyeColorという入力を定義すると、アクションのコードはこれらの入力の値を`INPUT_NUMOCTOCATS`及び`INPUT_OCTOCATEYECOLOR`という環境変数で読み取れます。
+たとえば、ワークフローで `numOctocats` および `octocatEyeColor` 入力が定義されている場合、アクションコードは `INPUT_NUMOCTOCATS` および `INPUT_OCTOCATEYECOLOR` 環境変数を使用して入力の値を読み取ることができます。
 
 #### `inputs.<input_id>`
 
@@ -72,6 +75,10 @@ inputs:
 #### `inputs.<input_id>.default`
 
 **オプション** デフォルト値を示す`文字列`。 デフォルト値は、入力パラメーターがワークフローファイルで指定されたなかった場合に使われます。
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**オプション** 入力パラメータが使用されている場合、この `string` は警告メッセージとしてログに記録されます。 この警告で入力が非推奨であることをユーザに通知し、その他の方法を知らせることができます。
 
 ### `outputs`
 
@@ -95,7 +102,7 @@ outputs:
 
 **必須** 出力パラメーターの`文字列`での説明。
 
-### `outputs` for composite run steps actions
+### 複合実行ステップアクションのための`outputs`
 
 **オプション** `outputs` `outputs.<output_id>` および `outputs.<output_id>.description`（「[{% data variables.product.prodname_actions %} の `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)」を参照）と同じパラメーターを使用しますが、`value` トークンも含まれます。
 
@@ -104,12 +111,12 @@ outputs:
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -117,11 +124,12 @@ runs:
 {% endraw %}
 
 #### `outputs.<output_id>.value`
+
 **必須** 出力パラメーターがマップされる値。 これを `string` またはコンテキスト付きの式に設定できます。 たとえば、`steps` コンテキストを使用して、出力の `value` をステップの出力値に設定できます。
 
 コンテキストと式の構文の使用方法について詳しくは、「[{% data variables.product.prodname_actions %} のコンテキストと式の構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-### `runs` for JavaScript actions
+### JavaScriptアクションのための`runs`
 
 **必須** アクションのコードと、コードを実行するのに使われるアプリケーションへのパスを設定します。
 
@@ -163,7 +171,7 @@ runs:
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 #### `post`
@@ -189,10 +197,10 @@ runs:
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
-### `runs` for composite run steps actions
+### 複合実行ステップアクションのための`runs`
 
 **必須** 複合アクションへのパス、およびコードの実行に使用されるアプリケーションを設定します。
 
@@ -204,57 +212,60 @@ runs:
 
 **必須** このアクションで実行する予定の実行ステップ。
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
+
+{% raw %}
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+{% endraw %}
 
 または、`$GITHUB_ACTION_PATH` を使用できます。
 
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
 
 詳しい情報については、「[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
-##### `runs.steps.shell`
+##### `runs.steps[*].shell`
 
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。
 
-##### `runs.steps.name`
+##### `runs.steps[*].name`
 
 **オプション** 複合実行ステップの名前。
 
-##### `runs.steps.id`
+##### `runs.steps[*].id`
 
 **オプション** ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-##### `runs.steps.env`
+##### `runs.steps[*].env`
 
-**オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで {% if currentVersion == "free-pro-team@latest" または currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} を使用します。
+**オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} を使用します。
 
-##### `runs.steps.working-directory`
+##### `runs.steps[*].working-directory`
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-### `runs` for Docker actions
+### Dockerアクションのための`runs`
 
 **必須** Dockerアクションのために使われるイメージを設定します。
 
 #### リポジトリでのDockerfileの利用例
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -262,7 +273,7 @@ runs:
 #### パブリックなDockerレジストリコンテナを利用する例
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```
@@ -284,14 +295,14 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
 
 #### `runs.image`
 
-**必須** アクションを実行するためにコンテナとして使われるDockerイメージ。 この値には、Dockerのベースイメージ名、自分のリポジトリ中のローカル`Dockerfile`、Docker Hubあるいはその他のレジストリ中のパブリックなイメージを指定できます。 自分のリポジトリにローカルな`Dockerfile`を参照するには、アクションのメタデータファイルに対する相対的なパスを使ってください。 `docker`アプリケーションがこのファイルを実行します。
+**必須** アクションを実行するためにコンテナとして使われるDockerイメージ。 この値には、Dockerのベースイメージ名、自分のリポジトリ中のローカル`Dockerfile`、Docker Hubあるいはその他のレジストリ中のパブリックなイメージを指定できます。 リポジトリのローカルにある `Dockerfile` を参照するには、ファイルに `Dockerfile` という名前を付け、アクションメタデータファイルに相対的なパスを使用する必要があります。 `docker`アプリケーションがこのファイルを実行します。
 
 #### `runs.env`
 
@@ -312,7 +323,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```
@@ -365,7 +376,7 @@ branding:
 
 <table>
 <tr>
-<td>アクティビティ</td>
+<td>activity</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -380,7 +391,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>アーカイブ</td>
+<td>archive</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -459,10 +470,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>コード</td>
+<td>code</td>
 </tr>
 <tr>
-<td>コマンド</td>
+<td>command</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -512,12 +523,12 @@ branding:
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>ファイル</td>
+<td>file</td>
 <td>film</td>
 </tr>
 <tr>
 <td>filter</td>
-<td>フラグ</td>
+<td>flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
 </tr>
@@ -535,7 +546,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>ハッシュ</td>
+<td>hash</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -637,7 +648,7 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>巻き戻し</td>
+<td>rewind</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
@@ -662,7 +673,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>サイドバー</td>
+<td>sidebar</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -684,7 +695,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>タグ</td>
+<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -714,14 +725,14 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>アップロード</td>
+<td>upload</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>ユーザ</td>
+<td>user</td>
 <td>users</td>
 <td>video-off</td>
 </tr>

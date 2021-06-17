@@ -1,50 +1,50 @@
 ---
-title: Configure default settings for assignment repositories
-shortTitle: Configure defaults for assignment repositories
-intro: You can use the Probot Settings app to configure the default settings for repositories that {% data variables.product.prodname_classroom %} creates for an assignment.
-permissions: Organization owners can configure default settings for assignment repositories by installing a {% data variables.product.prodname_github_app %} for the organization.
+title: 課題リポジトリのデフォルト設定の構成
+shortTitle: 課題リポジトリのデフォルトの構成
+intro: Probot Settings アプリケーションを使って、{% data variables.product.prodname_classroom %}で課題用に作成したリポジトリのデフォルト設定を構成できます。
+permissions: Organizationのオーナーは、Organizationに対し{% data variables.product.prodname_github_app %}をインストールすることで、課題リポジトリのデフォルト設定を構成できます。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/probot-settings
 ---
 
-### About configuration of defaults for assignment repositories
+### 課題リポジトリのデフォルトの構成について
 
-{% data variables.product.prodname_classroom %} creates a repository that belongs for each student or team that accepts an assignment. The repository belongs to the organization that you use for {% data variables.product.prodname_classroom %}. Assignment repositories can be empty, or you can use a template repository. For more information, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)."
+{% data variables.product.prodname_classroom %}は、課題を受ける各学生またはチームに属するリポジトリを作成します。 このリポジトリは、{% data variables.product.prodname_classroom %}で使用するOrganizationに属します。 課題リポジトリは空か、テンプレートリポジトリを使用できます。 詳しい情報については、「[テンプレートリポジトリからの課題の作成](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)」を参照してください。
 
 {% data reusables.classroom.you-may-want-to-predefine-repository-settings %}
 
-With the Probot Settings app, you can create a file named _.github/settings.yml_ in a repository that contains a list of settings for the repository, and then install a {% data variables.product.prodname_github_app %} for your organization that automatically applies the settings to the repository.
+Probot Settingsアプリケーションを使用すると、リポジトリの設定リストが含まれる、_.github/settings.yml_という名前のファイルをリポジトリ内に作成でき、その後、その設定をリポジトリに対して自動的に設定した{% data variables.product.prodname_github_app %}をOrganization用にインストールできます。
 
-You can include _.github/settings.yml_ in a template repository that you use for an assignment in {% data variables.product.prodname_classroom %}. When an individual or team accepts the assignment, {% data variables.product.prodname_classroom %} creates the assignment repository, and the Settings app automatically applies the settings from _.github/settings.yml_.
+{% data variables.product.prodname_classroom %}で課題に使用するテンプレートリポジトリには、_.github/settings.yml_を含めることができます。 個人またはチームが課題を受け入れると、{% data variables.product.prodname_classroom %}は課題リポジトリを作成し、Settingsアプリケーションは_.github/settings.yml_から自動的に設定を適用します。
 
-Probot is a a project, framework, and collection of free apps to automate {% data variables.product.product_name %}. A Probot app can listen to repository events, like the creation of new commits, comments, and issues, and automatically respond to the event.
+Probotは、{% data variables.product.product_name %}を自動化するための、プロジェクト、フレームワーク、および無料アプリケーションを集めたものです。 Probotアプリケーションは、新しいコミット、コメント、およびIssueの作成といったリポジトリのイベントをリッスンし、そのイベントに自動的に応答できます。
 
-For more information, see the [Probot website](https://probot.github.io) and the [Settings app website](https://probot.github.io/apps/settings/). For more information about {% data variables.product.prodname_github_apps %}, see "[About apps](/developers/apps/about-apps)."
+詳しい情報については、[Probotのウェブサイト](https://probot.github.io)および[「Settings」アプリケーションのウェブサイト](https://probot.github.io/apps/settings/)を参照してください。 {% data variables.product.prodname_github_apps %}の詳細については、「[アプリケーションについて](/developers/apps/about-apps)」を参照してください。
 
-### Adding the Settings app to your organization
+### SettingsアプリケーションをOrganizationに追加する
 
-After you install the Probot Settings app for your organization, the app will apply the settings that you define in _.github/settings.yml_  for any repository in your organization, including new assignment repositories that {% data variables.product.prodname_classroom %} creates.
+Probot SettingsアプリケーションをOrganizationに対してインストールした後、アプリケーションは_.github/settings.yml_ で定義した設定を、{% data variables.product.prodname_classroom %}が作成した新しい課題を含めてOrganizationのあらゆるリポジトリに適用します。
 
-1. Navigate to the [Settings app page](https://github.com/apps/settings).
-1. Click **Install**, then click the organization that you use for  {% data variables.product.prodname_classroom %}. Provide the app full access to all repositories owned by the organization. ![Installing the Probot Settings app](/assets/images/help/classroom/probot-settings.gif)
+1. [アプリケーションの設定](https://github.com/apps/settings)ページに移動します。
+1. [**Install**]をクリックし、{% data variables.product.prodname_classroom %}で使うOrganizationをクリックします。 Organizationが所有するすべてのリポジトリに対し、アプリケーションに完全なアクセスを与えてください。 ![Probot Settingsアプリケーションをインストールする](/assets/images/help/classroom/probot-settings.gif)
 
-### Configuring default settings for an assignment repository
+### 課題リポジトリのデフォルト設定を構成する
 
-1. Create a template repository that contains a _.github/settings.yml_ file. For a complete list of settings, see the [README](https://github.com/probot/settings#github-settings) for the `probot/settings` repository. For more information about using a template repository for starter code in {% data variables.product.prodname_classroom %}, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)."
+1. _.github/settings.yml_ファイルを含むテンプレートリポジトリを作成します。 設定の完全なリストについては、`probot/settings`リポジトリの[README](https://github.com/probot/settings#github-settings)を参照してください。 {% data variables.product.prodname_classroom %}の、スターターコードにテンプレートリポジトリを用いることに関する詳細については、「[テンプレートリポジトリから課題を作成する](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)」を参照してください。
 
     {% warning %}
 
-    **Warning:** Do not define `collaborators` in the _.github/settings.yml_ file for your template repository. {% data variables.product.prodname_classroom %} automatically grants teachers and teaching assistants access to assignment repositories.
+    **警告:** テンプレートリポジトリ用の_.github/settings.yml_ファイルでは、`collaborators`を定義しないでください。 {% data variables.product.prodname_classroom %}は、教師およびティーチングアシスタントに、課題リポジトリへのアクセス権を自動的に付与します。
 
     {% endwarning %}
 
-1. Create an assignment using the template repository containing _.github/settings.yml_ as the starter code. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+1. スターターコードとして_.github/settings.yml_を含んだテンプレートリポジトリを使用し、課題を作成します。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-The Probot Settings app for your organization will now apply the settings you define in _.github/settings.yml_ within the template repository to every assignment repository that {% data reusables.classroom.you-may-want-to-predefine-repository-settings %} creates for a student or team.
+OrganizationのProbot Settingsアプリケーションは、{% data reusables.classroom.you-may-want-to-predefine-repository-settings %}が学生またはチーム用に作成したすべての課題リポジトリに対し、テンプレートリポジトリの_.github/settings.yml_で定義した設定を適用します。
 
 ### 参考リンク
 
-- [Probot apps](https://probot.github.io/apps/)
-- [Probot documentation](https://probot.github.io/docs/)
+- [Probotアプリケーション](https://probot.github.io/apps/)
+- [Probotドキュメント](https://probot.github.io/docs/)

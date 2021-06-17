@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -43,7 +45,9 @@ versions:
 * 用户不必更改其本地 SSH 设置。
 * 不需要多个令牌（每个用户一个）；每个服务器一个令牌就足够了。
 * 令牌可随时撤销，本质上变成一次性密码。
+{% if enterpriseServerVersions contains currentVersion %}
 * 可以使用 [OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization) 轻松编写生成新令牌的脚本。
+{% endif %}
 
 ##### 缺点
 
@@ -107,6 +111,36 @@ Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE
 ```bash
 $ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
+
+### 服务器到服务器令牌
+
+如果您的服务器需要访问一个或多个组织的仓库，您可以使用 GitHub 应用程序来定义您需要的访问权限，然后从该 GitHub 应用程序生成 _tightly-scoped_、_server-to-server_ 令牌。 服务器到服务器令牌可以扩展到单个或多个仓库，并且可以拥有细致的权限。 例如，您可以生成对仓库内容具有只读权限的令牌。
+
+由于 GitHub 应用程序是 {% data variables.product.product_name %} 上的一类角色，因此服务器到服务器令牌不限于任何 GitHub 用户，这使它们堪比“服务令牌”。 此外，服务器到服务器令牌有专门的速率限制，与它们所依据的组织规模相当。 更多信息请参阅“[GitHub 应用程序的速率限制](/developers/apps/rate-limits-for-github-apps)”。
+
+##### 优点
+
+- 具有明确定义的权限集和到期时间的严格范围令牌（如果使用 API 手动撤销，则为 1 小时或更短时间）。
+- 随组织而增长的专用速率限制。
+- 与 GitHub 用户身份脱钩，因此他们不消耗任何许可席位。
+- 从未授予密码，因此无法直接登录。
+
+##### 缺点
+
+- 创建 GitHub 应用程序需要其他设置。
+- 服务器到服务器令牌 1 小时后过期，因此需要重新生成，通常是按需使用代码。
+
+##### 设置
+
+1. 确定您的 GitHub 应用程序是公开的还是私有的。 如果您的 GitHub 应用程序将仅在您组织内的仓库上操作，您可能希望它是私有的。
+1. 确定 GitHub 应用程序所需的权限，例如对仓库内容的只读访问权限。
+1. 通过组织的设置页面创建您的 GitHub 应用程序。 更多信息请参阅[创建 GitHub 应用程序](/developers/apps/creating-a-github-app)。
+1. 记下您的 GitHub 应用程序 `id`。
+1. 生成并下载 GitHub 应用程序的私钥，并妥善保管。 更多信息请参阅[生成私钥](/developers/apps/authenticating-with-github-apps#generating-a-private-key)。
+1. 将 GitHub 应用程序安装到需要执行它的仓库中，您可以在组织中的所有仓库上选择性地安装 GitHub 应用程序。
+1. 识别代表 GitHub 应用程序与它可以访问的组织仓库之间连接的 `installation_id`。  每个 GitHub 应用程序和组织对最多只有一个 `installation_id`。 您可以通过[为经过验证的应用程序获取组织安装](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app)来识别此 `installation_id`。 这需要使用 JWT 作为 GitHub 应用程序进行身份验证，更多信息请参阅[作为 GitHub 应用程序进行身份验证](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app)。
+1. 使用相应的 REST API 端点 [为应用创建安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)生成服务器到服务器令牌。 这需要使用 JWT 作为 GitHub 应用程序进行身份验证，更多信息请参阅[作为 GitHub 应用程序进行身份验证](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app)以及[作为安装进行身份验证](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)。
+1. 使用此服务器到服务器令牌，通过 REST 或 GraphQL API 或者通过 Git 客户端与您的仓库进行交互。
 
 ### 机器用户
 

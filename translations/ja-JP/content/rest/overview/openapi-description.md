@@ -1,27 +1,29 @@
 ---
-title: OpenAPI description
-intro: The {% data variables.product.product_name %} REST API is fully described in an OpenAPI 3.0 compliant document.
+title: OpenAPI の記述
+intro: '{% data variables.product.product_name %} の REST API は、OpenAPI 3.0 準拠のドキュメントで詳細に記述されています。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - API
 ---
 
-### About OpenAPI descriptions
+### OpenAPI の記述について
 
-[OpenAPI](https://swagger.io/docs/specification/about/) is a standard specification for describing REST APIs. OpenAPI descriptions allow both humans and machines to discover the capabilities of an API without needing to first read documentation or understand the implementation. {% data variables.product.company_short %} has made its REST API publicly available as an OpenAPI 3.0 compliant document.
+[OpenAPI](https://swagger.io/docs/specification/about/) は、REST API を記述するための標準仕様です。 OpenAPI の記述は、人間にとっても機械にとっても判読しやすくなっており、 あらかじめドキュメントを読んだり実装を理解したりする必要がありません。 {% data variables.product.company_short %} は、REST API を OpenAPI 3.0 準拠のドキュメントとして公開しています。
 
-### Getting the {% data variables.product.company_short %} OpenAPI description
+### {% data variables.product.company_short %} OpenAPI の記述を取得する
 
-You can find the description in the open source [REST API OpenAPI Description](https://github.com/github/rest-api-description) repository.
+OpenAPI の記述は、オープンソースの [REST API OpenAPI Description](https://github.com/github/rest-api-description) リポジトリにあります。
 
-We provide the description in two formats. The bundled version works for most cases, as it includes OpenAPI components for reuse and readability. If your tooling does not support inline references to components, we also provide a fully dereferenced version.
+OpenAPI の記述には 2 つの形式があります。 バンドルバージョンは、再利用と判読に適した OpenAPI コンポーネントを含んでいるため、たいていの場合に有効です。 完全逆参照バージョンは、ツール環境でコンポーネントへのインライン参照がサポートされていない場合のために用意されています。
 
-### Using the {% data variables.product.company_short %} OpenAPI description
+### {% data variables.product.company_short %} OpenAPI 記述を使用する
 
-There are many uses for an OpenAPI description. たとえば、次のような方法を使用します。
+OpenAPI の記述にはいろいろな使い方があります。 たとえば、次のような方法を使用します。
 
-* Generate your own API client.
-* Validate and test a {% data variables.product.company_short %} REST API integration.
-* Explore and interact with the {% data variables.product.product_name %} REST API using third-party tools, such as Insomnia or Postman.
+* 独自の API クライアントを生成する。
+* {% data variables.product.company_short %} REST API の記述を検証してテストする。
+* Insomnia や Postman といったサードパーティツールを使用して、{% data variables.product.product_name %} REST API を調べ、操作する。
 
-For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest/reference).
+たとえば、{% data variables.product.company_short %} は REST OpenAPI の記述を使用して {% data variables.product.product_name %} [REST API リファレンスドキュメント](/rest/reference)を生成します。

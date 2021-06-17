@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -17,7 +19,7 @@ versions:
   <div class="octokit-links"><br/>
      <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
 
@@ -25,7 +27,7 @@ versions:
 
 ### Clojure
 
-Library name | Repository 
+Library name | Repository
 |---|---|
 **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
 
@@ -80,7 +82,7 @@ Library name | Repository |
 
 Library name | Repository |
 |---|---|
-**Github.jl**|[WestleyArgentum/Github.jl](https://github.com/WestleyArgentum/GitHub.jl)
+**GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
@@ -93,25 +95,28 @@ Library name | Repository |
 Library name | Repository | metacpan Website for the Library
 |---|---|---|
 **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub)
-**Net::Github**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:Github CPAN](https://metacpan.org/pod/Net::GitHub)
+**Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
 
 ### PHP
 
 Library name | Repository
 |---|---|
-**GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client)
 **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)
 **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api)
 **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api)
-**GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github)
-**GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)
-**GitHub bridge for Laravel**|[GrahamCampbell/Laravel-Github](https://github.com/GrahamCampbell/Laravel-GitHub)
-**PHP7 Client & WebHook wrapper**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
+**GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
+
+### PowerShell
+
+Library name | Repository
+|---|---|
+**PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 
 Library name | Repository
 |---|---|
+**gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub)
 **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi)
 **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
 **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas)
@@ -119,7 +124,7 @@ Library name | Repository
 **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction)
 **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub)
 **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)
-**github-flask**|[github-flask (Oficial Website)](http://github-flask.readthedocs.org)
+**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)
 **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby
@@ -128,6 +133,12 @@ Library name | Repository
 |---|---|
 **GitHub API Gem**|[peter-murach/github](https://github.com/peter-murach/github)
 **Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)
+
+### Rust
+
+Library name | Repository
+|---|---|
+**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
 
 ### Scala
 
