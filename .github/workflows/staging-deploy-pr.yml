@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 10
     concurrency:
       group: staging_${{ github.head_ref }}
-      cancel-in-progress: false
+      cancel-in-progress: true
     steps:
       - name: Check out repo
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
