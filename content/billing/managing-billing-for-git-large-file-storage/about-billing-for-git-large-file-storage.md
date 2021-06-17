@@ -4,7 +4,6 @@ intro: 'If you purchase additional storage and bandwidth for {% data variables.l
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /articles/about-billing-for-git-large-file-storage
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
 versions:
   free-pro-team: '*'

@@ -8,7 +8,6 @@ redirect_from:
   - /articles/removing-a-credit-card-associated-with-your-organization/
   - /articles/removing-a-payment-method-associated-with-your-organization/
   - /articles/removing-a-payment-method
-  - /github/setting-up-and-managing-billing-and-payments-on-github/removing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/removing-a-payment-method
 versions:
   free-pro-team: '*'

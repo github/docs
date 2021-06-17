@@ -4,7 +4,6 @@ intro: You can downgrade your sponsorship to a lower tier or cancel your sponsor
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /articles/downgrading-a-sponsorship
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
   free-pro-team: '*'

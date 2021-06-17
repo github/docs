@@ -7,8 +7,6 @@ versions:
   enterprise-server: '2.22'
 topics:
   - Security
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
 ---
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 

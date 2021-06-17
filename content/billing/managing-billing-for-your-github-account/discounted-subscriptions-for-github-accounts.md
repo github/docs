@@ -7,7 +7,6 @@ redirect_from:
   - /articles/discounted-organization-accounts/
   - /articles/discounted-billing-plans/
   - /articles/discounted-subscriptions-for-github-accounts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:
   free-pro-team: '*'

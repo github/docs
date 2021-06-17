@@ -5,8 +5,6 @@ versions:
   enterprise-server: <=2.22
 topics:
   - Repositories
-redirect_from:
-  - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository
 ---
 <!--See /content/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository for the latest version of this article -->
 
