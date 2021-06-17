@@ -60,7 +60,7 @@
     "mdast-util-to-string": "^2.0.0",
     "mdast-util-from-markdown": "^0.8.5",
     "morgan": "^1.10.0",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "node-fetch": "^2.6.1",
     "parse5": "^6.0.1",
     "path-to-regexp": "^0.1.7",
