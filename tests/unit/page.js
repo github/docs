@@ -534,6 +534,30 @@ describe('Page class', () => {
       expect(nonEnterpriseDefaultPlan in page.versions).toBe(false)
       expect(page.versions['enterprise-server']).toBe('*')
     })
+
+    test('feature versions frontmatter', async () => {
+      // The fixture file only supports FPT in its frontmatter,
+      // but it also specifies feature: 'placeholder', so we should
+      // get the versions affiliated with the placeholder feature.
+      const page = await Page.init({
+        relativePath: 'feature-versions-frontmatter.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+  
+      // Raw page data
+      expect(page.versions['free-pro-team']).toBe('*')
+      expect(page.versions['enterprise-server']).toBeUndefined()
+      expect(page.versions['github-ae']).toBeUndefined()
+      expect(page.versions.feature).toBe('placeholder')
+  
+      // Resolved versioning
+      expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
+      expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
+      expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)
+      expect(page.applicableVersions.includes('feature')).toBe(false)
+      expect(page.applicableVersions.includes('placeholder')).toBe(false)
+    })
   })
 
   describe('platform specific content', () => {
