@@ -355,6 +355,8 @@ The top of every page has an intro that provides context and sets expectations, 
 #### How to write an intro
 - Article intros are one to two sentences long.
 - Map topic and category intros are one sentence long.
+- API reference intros are one sentence long.
+  - The intro for an API page should define the feature so that a user knows whether the feature meets their needs without reading the entire article.
 - Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail. 
   - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible. 
 - Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.

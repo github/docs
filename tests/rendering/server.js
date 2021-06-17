@@ -3,7 +3,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head, post } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
-const { loadPages } = require('../../lib/pages')
+const { loadPages } = require('../../lib/page-data')
 const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 

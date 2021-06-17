@@ -6,8 +6,6 @@ product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   enterprise-server: '2.22'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 ---
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
