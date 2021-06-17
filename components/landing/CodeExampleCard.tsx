@@ -9,6 +9,7 @@ export const CodeExampleCard = ({ example }: Props) => {
   return (
     <a
       className="Box d-flex flex-column flex-justify-between height-full color-shadow-medium hover-shadow-large no-underline color-text-primary"
+      data-testid="code-example-card"
       href={`https://github.com/${example.href}`}
     >
       <div className="p-4">

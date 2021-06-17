@@ -37,7 +37,11 @@ export const ProductLanding = () => {
       </LandingSection>
 
       {productCodeExamples.length > 0 && (
-        <LandingSection title={t('code_examples')} sectionLink="code-examples" className="my-6 pb-6">
+        <LandingSection
+          title={t('code_examples')}
+          sectionLink="code-examples"
+          className="my-6 pb-6"
+        >
           <CodeExamples />
         </LandingSection>
       )}
@@ -68,7 +72,7 @@ export const ProductLanding = () => {
         </div>
       )}
 
-      <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs"  className="pt-9">
+      <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
         <ProductArticlesList />
       </LandingSection>
     </DefaultLayout>
