@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const previewsJson = require('../../lib/graphql/static/previews')
 const upcomingChangesJson = require('../../lib/graphql/static/upcoming-changes')
 const prerenderedObjectsJson = require('../../lib/graphql/static/prerendered-objects')
@@ -20,7 +22,7 @@ describe('graphql json files', () => {
 
   test('schemas object validation', () => {
     graphqlVersions.forEach(version => {
-      const schemaJsonPerVersion = require(`../../lib/graphql/static/schema-${version}`)
+      const schemaJsonPerVersion = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/lib/graphql/static/schema-' + version + '.json')))
       // all graphql types are arrays except for queries
       graphqlTypes
         .filter(type => type !== 'queries')
