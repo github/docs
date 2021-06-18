@@ -76,7 +76,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
-| <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
+| <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}
+| <kbd>control e</kbd> or <kbd>command e</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
 | <kbd>control shift p</kbd> or <kbd>command shift p</kbd>| Toggles between the **Write** and **Preview** comment tabs
 | <kbd>control enter</kbd> | Submits a comment
