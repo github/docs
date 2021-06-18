@@ -10,7 +10,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 children:
-  - /getting-started-with-github
   - /setting-up-and-managing-your-github-user-account
   - /setting-up-and-managing-your-github-profile
   - /authenticating-to-github
@@ -35,3 +34,4 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
+
