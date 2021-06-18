@@ -14,6 +14,7 @@ featuredLinks:
     - /github/working-with-github-pages
 versions: '*'
 children:
+  - get-started
   - github
   - admin
   - billing
@@ -52,7 +53,8 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: 'CodeQL'
+    name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
 ---
+
