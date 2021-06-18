@@ -60,7 +60,6 @@ You can organize and track your scoped work by creating issues.
   ![Link to open a regular issue](/assets/images/help/issues/regular_issue_link.png)
 {% endif %}
 {% data reusables.repositories.type-issue-title-and-description %}
-{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
 A task list in {% data variables.product.prodname_dotcom %} is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. They can be added using Markdown in any comment in {% data variables.product.prodname_dotcom %}.
