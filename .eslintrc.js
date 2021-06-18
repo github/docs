@@ -16,7 +16,8 @@ module.exports = {
   },
   rules: {
     'import/no-extraneous-dependencies': ['error'],
-    'node/global-require': ['error']
+    'node/global-require': ['error'],
+    'import/no-dynamic-require': ['error']
   },
   overrides: [
     {

@@ -1,6 +1,5 @@
-const path = require('path')
 const { defaults } = require('lodash')
-const webhookPayloads = require(path.join(process.cwd(), 'lib/webhooks'))
+const webhookPayloads = require('../../lib/webhooks')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const allVersions = require('../../lib/all-versions')
 
