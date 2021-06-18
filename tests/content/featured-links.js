@@ -30,8 +30,8 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('.featured-links a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
-      expect(japaneseCharacters.presentIn($featuredLinks.eq(0).children('h4').text())).toBe(true)
-      expect(japaneseCharacters.presentIn($featuredLinks.eq(0).children('p').text())).toBe(true)
+      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('h4').text())).toBe(true)
+      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('p').text())).toBe(true)
     })
 
     test('Enterprise user intro links have expected values', async () => {
