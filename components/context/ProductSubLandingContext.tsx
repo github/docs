@@ -60,7 +60,10 @@ export const getProductSubLandingContextFromRequest = (req: any): ProductSubLand
       }),
     })),
     includeGuides: (page.includeGuides || []).map((guide: any) => {
-      return pick(guide, ['href', 'title', 'intro', 'type', 'topics'])
+      return {
+        ...pick(guide, ['href', 'title', 'intro', 'topics']),
+        type: guide.type || ''
+      }
     }),
   }
 }
