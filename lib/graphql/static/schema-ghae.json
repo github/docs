@@ -5081,6 +5081,40 @@
       ]
     },
     {
+      "name": "updateIpAllowListForInstalledAppsEnabledSetting",
+      "kind": "mutations",
+      "id": "updateipallowlistforinstalledappsenabledsetting",
+      "href": "/graphql/reference/mutations#updateipallowlistforinstalledappsenabledsetting",
+      "description": "<p>Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIpAllowListForInstalledAppsEnabledSettingInput!",
+          "id": "updateipallowlistforinstalledappsenabledsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateipallowlistforinstalledappsenabledsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "IpAllowListOwner",
+          "id": "ipallowlistowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#ipallowlistowner",
+          "description": "<p>The IP allow list owner on which the setting was updated.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateIssue",
       "kind": "mutations",
       "id": "updateissue",
@@ -7152,6 +7186,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -16490,6 +16532,14 @@
           ]
         },
         {
+          "name": "ipAllowListForInstalledAppsEnabledSetting",
+          "description": "<p>The setting value for whether the enterprise has IP allow list configuration for installed GitHub Apps enabled.</p>",
+          "type": "IpAllowListForInstalledAppsEnabledSettingValue!",
+          "id": "ipallowlistforinstalledappsenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
+        },
+        {
           "name": "isUpdatingDefaultRepositoryPermission",
           "description": "<p>Whether or not the default repository permission is currently being updated.</p>",
           "type": "Boolean!",
@@ -21687,6 +21737,14 @@
         {
           "name": "title",
           "description": "<p>Identifies the issue title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "titleHTML",
+          "description": "<p>Identifies the issue title rendered to HTML.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -30127,6 +30185,14 @@
           ]
         },
         {
+          "name": "ipAllowListForInstalledAppsEnabledSetting",
+          "description": "<p>The setting value for whether the organization has IP allow list configuration for installed GitHub Apps enabled.</p>",
+          "type": "IpAllowListForInstalledAppsEnabledSettingValue!",
+          "id": "ipallowlistforinstalledappsenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
+        },
+        {
           "name": "itemShowcase",
           "description": "<p>Showcases a selection of repositories and gists that the profile owner has\neither curated or that have been selected automatically based on popularity.</p>",
           "type": "ProfileItemShowcase!",
@@ -35302,6 +35368,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "titleHTML",
+          "description": "<p>Identifies the pull request title rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -38474,6 +38548,14 @@
         {
           "name": "requiresCodeOwnerReviews",
           "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -59275,6 +59357,23 @@
       ]
     },
     {
+      "name": "IpAllowListForInstalledAppsEnabledSettingValue",
+      "kind": "enums",
+      "id": "ipallowlistforinstalledappsenabledsettingvalue",
+      "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue",
+      "description": "<p>The possible values for the IP allow list configuration for installed GitHub Apps setting.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The setting is disabled for the owner.</p>"
+        },
+        {
+          "name": "ENABLED",
+          "description": "<p>The setting is enabled for the owner.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueCommentOrderField",
       "kind": "enums",
       "id": "issuecommentorderfield",
@@ -64613,6 +64712,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
@@ -68734,6 +68841,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
@@ -69698,6 +69813,40 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateIpAllowListForInstalledAppsEnabledSettingInput",
+      "kind": "inputObjects",
+      "id": "updateipallowlistforinstalledappsenabledsettinginput",
+      "href": "/graphql/reference/input-objects#updateipallowlistforinstalledappsenabledsettinginput",
+      "description": "<p>Autogenerated input type of UpdateIpAllowListForInstalledAppsEnabledSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the IP allow list configuration for installed GitHub Apps setting.</p>",
+          "type": "IpAllowListForInstalledAppsEnabledSettingValue!",
+          "id": "ipallowlistforinstalledappsenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
         }
       ]
     },
