@@ -34,7 +34,7 @@ You can use issues and discussions to communicate and make decisions as a team o
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each of them can add updates with their status or open questions in that issue. 
 ## Creating issue forms and templates
 
-You can use issues to track the different types of work that your team or project covers, as well as gather information from those outside of your project. The following are a few common use cases that issues are used for: 
+You can use issues to track the different types of work that your team or project covers, as well as gather information from those outside of your project. The following are a few common use cases that issues are used for.
 
 - Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch
 - Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues. 
@@ -82,8 +82,7 @@ You can create labels for a repository to categorize issues, pull requests and d
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label. For more information, see "[Filtering issues and pull requests by labels
-](https://docs.github.com/en/github/administering-a-repository/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-labels)".
+Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label. For more information, see "[Filtering issues and pull requests by labels](/github/administering-a-repository/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-labels)".
 ## Adding issues to a project board
 {% if currentVersion == "free-pro-team@latest" %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)".
 
