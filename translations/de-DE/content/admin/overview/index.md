@@ -13,7 +13,6 @@ children:
   - /about-enterprise-accounts
   - /managing-your-github-enterprise-license
   - /managing-billing-for-your-enterprise
-  - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
 ---
