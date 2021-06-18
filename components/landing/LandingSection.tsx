@@ -12,7 +12,13 @@ export const LandingSection = ({ title, children, className, sectionLink, descri
     <div className={cx('container-xl px-3 px-md-6', className)} id={sectionLink}>
       {title && (
         <h2 className={cx('font-mktg h1 color-text-primary', !description ? 'mb-3' : 'mb-4')}>
-          {sectionLink ? <a className="color-unset" href={`#${sectionLink}`}>{title}</a> : title}
+          {sectionLink ? (
+            <a className="color-unset" href={`#${sectionLink}`}>
+              {title}
+            </a>
+          ) : (
+            title
+          )}
         </h2>
       )}
       {description && (
