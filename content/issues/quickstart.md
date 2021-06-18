@@ -10,14 +10,14 @@ versions:
 ## Introduction
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or large initiative.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a team, create issue forms and templates, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a team, create issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
 ## Creating a repository
 When starting a new project, initiative or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)".
 
 You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
-- **Product repositories**: Larger organization that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product. 
+- **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product. 
 - **Project repositories**: For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
 - **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
 
@@ -32,7 +32,7 @@ You can also create a CONTRIBUTING.md file specifically to contain guidelines on
 You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)".
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue. 
-## Creating issue forms and templates
+## Creating issue templates
 
 You can use issues to track the different types of work that your team or project covers, as well as gather information from those outside of your project. The following are a few common use cases that issues are used for.
 
@@ -41,9 +41,8 @@ You can use issues to track the different types of work that your team or projec
 - Requests for improvement: Your team or users can create issues to request an improvement to your product or project.
 - Bugs: Your team or users can create issues to report a bug. 
 
-Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue forms and templates for your repository. Issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)".
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue forms and templates for your repository. Issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)".
 ## Opening issues and using task lists to track scoped work
-
 You can organize and track your scoped work by creating issues. 
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -87,19 +86,19 @@ Once you have created a label in a repository, you can apply it on any issue, pu
 
 ![Project table](/assets/images/help/issues/projects_table.png)
 
-{% else %}
+{% endif %}
 
 You can use project boards on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)".
 
 ![Project board with basic kanban template](/assets/images/help/projects/project-board-basic-kanban-template.png)
-
-{% endif %}
-
 ## Next steps
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
 - "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" for learning more about creating repositories
 - "[Tracking your work with issues](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues.
+- "[About issues and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
 - "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
-- "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)" for learning how to set milestones for your repository
-- {% if currentVersion == "free-pro-team@latest" %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" for learning more about the new projects experience, currently in limited public beta{% else %}"[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}
+- "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" for learning more about task lists
+{% if currentVersion == "free-pro-team@latest" %} - "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" for learning more about the new projects experience, currently in limited public beta 
+- "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" for learning how to customize views for projects, currently in limited public beta{% endif %}
+- "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards
