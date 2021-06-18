@@ -1,4 +1,5 @@
 const { head } = require('../helpers/supertest')
+const topOldDeveloperSitePaths = require('../fixtures/top-old-developer-site-paths.json')
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(30 * 60 * 1000)
@@ -16,7 +17,7 @@ describe('developer.github.com redirects', () => {
 
     // test a subset of the top paths
     const pathsToCheck = 50
-    const paths = require('../fixtures/top-old-developer-site-paths.json')
+    const paths = topOldDeveloperSitePaths
       .filter(path => !ignoredPatterns.some(pattern => path.match(pattern)))
       .slice(0, pathsToCheck)
 

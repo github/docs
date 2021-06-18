@@ -1,6 +1,7 @@
 const { get, flatten, isPlainObject } = require('lodash')
 const { sentenceCase } = require('change-case')
-const slugger = new (require('github-slugger'))()
+const GitHubSlugger = require('github-slugger')
+const slugger = new GitHubSlugger()
 const httpStatusCodes = require('http-status-code')
 const renderContent = require('../../../lib/render-content')
 const createCodeSamples = require('./create-code-samples')

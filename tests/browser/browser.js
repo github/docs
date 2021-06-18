@@ -2,6 +2,7 @@
 const sleep = require('await-sleep')
 const { latest } = require('../../lib/enterprise-server-releases')
 const languages = require('../../lib/languages')
+const featureFlags = require('../../feature-flags.json')
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -325,7 +326,7 @@ describe('nextjs query param', () => {
   jest.setTimeout(60 * 1000)
 
   it('landing page renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
-    const flagVal = require('../../feature-flags.json').FEATURE_NEXTJS
+    const flagVal = featureFlags.FEATURE_NEXTJS
     await page.goto('http://localhost:4001/en/actions?nextjs=')
     const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
     const nextWrapper = await page.$('#__next')
