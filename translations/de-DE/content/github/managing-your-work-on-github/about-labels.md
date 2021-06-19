@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Kennzeichnungen sind an das Repository gebunden, in dem sie erstellt werden. Sobald eine Kennzeichnung existiert, kannst Du sie für alle Issues oder Pull Requests innerhalb dieses Repositorys verwenden. Weitere Informationen findest Du unter „[Eine Kennzeichnung erstellen](/articles/creating-a-label/).“
@@ -30,7 +31,7 @@ Alle Benutzer mit Lesezugriff auf ein Repository können die Kennzeichnungen des
 
 Standardkennzeichnungen sind in jedem neuen Repository beinhaltet, wenn das Repository erstellt wird, aber Du kannst die Kennzeichnungen später bearbeiten oder löschen. Weitere Informationen findest Du unter „[Eine Kennzeichnung löschen](/articles/deleting-a-label/).“
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 Organisationsinhaber können die Standardkennzeichnungen für Repositories in ihrer Organisation anpassen. Weitere Informationen findest Du unter „[Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 

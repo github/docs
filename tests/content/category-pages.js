@@ -1,18 +1,19 @@
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('@github-docs/frontmatter')
+const matter = require('../../lib/read-frontmatter')
 const { zip, difference } = require('lodash')
 const GithubSlugger = require('github-slugger')
 const { XmlEntities } = require('html-entities')
+const readFileAsync = require('../../lib/readfile-async')
 const loadSiteData = require('../../lib/site-data')
 const renderContent = require('../../lib/render-content')
+const getApplicableVersions = require('../../lib/get-applicable-versions')
 
 const slugger = new GithubSlugger()
 const entities = new XmlEntities()
 
 const contentDir = path.join(__dirname, '../../content')
-const linkRegex = /{% (?:(?:topic_)?link_in_list|link_with_intro) ?\/(.*?) ?%}/g
 
 describe('category pages', () => {
   let siteData
@@ -25,7 +26,7 @@ describe('category pages', () => {
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
-    ignore: ['{rest,graphql,developers}/**', 'enterprise/index.md', '**/articles/**'],
+    ignore: ['{rest,graphql}/**', 'enterprise/index.md', '**/articles/**', 'early-access/**'],
     directories: false,
     includeBasePath: true
   }
@@ -42,15 +43,17 @@ describe('category pages', () => {
       // Get links included in product index page.
       // Each link corresponds to a product subdirectory (category).
       // Example: "getting-started-with-github"
-      const contents = fs.readFileSync(productIndex, 'utf8')
-      const { content } = matter(contents)
+      const contents = fs.readFileSync(productIndex, 'utf8') // TODO move to async
+      const { data } = matter(contents)
 
-      const categoryLinks = getLinks(content)
-        // HACK: I'm not really sure why this file is a one-off but it is...
-        .filter(link => !(productName === 'actions' && link === 'quickstart'))
+      const productDir = path.dirname(productIndex)
+
+      const categoryLinks = data.children
+        // Only include category directories, not standalone category files like content/actions/quickstart.md
+        .filter(link => fs.existsSync(getPath(productDir, link, 'index')))
+      // TODO this should move to async, but you can't asynchronously define tests with Jest...
 
       // Map those to the Markdown file paths that represent that category page index
-      const productDir = path.dirname(productIndex)
       const categoryPaths = categoryLinks.map(link => getPath(productDir, link, 'index'))
 
       // Make them relative for nicer display in test names
@@ -59,18 +62,25 @@ describe('category pages', () => {
       // Combine those to fit Jest's `.each` usage
       const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks)
 
+      if (!categoryTuples.length) return
+
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {
-          let publishedArticlePaths, availableArticlePaths, indexTitle
+          let publishedArticlePaths, availableArticlePaths, indexTitle, categoryVersions
+          const articleVersions = {}
 
           beforeAll(async () => {
             const categoryDir = path.dirname(indexAbsPath)
 
             // Get child article links included in each subdir's index page
-            const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
-            const { data, content } = matter(indexContents)
-            const articleLinks = getLinks(content)
+            const indexContents = await readFileAsync(indexAbsPath, 'utf8')
+            const { data } = matter(indexContents)
+            categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
+            const articleLinks = data.children.filter(child => {
+              const mdPath = getPath(productDir, indexLink, child)
+              return fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()
+            })
 
             // Save the index title for later testing
             indexTitle = await renderContent(data.title, { site: siteData }, { textOnly: true })
@@ -78,7 +88,7 @@ describe('category pages', () => {
             publishedArticlePaths = (await Promise.all(
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics in list of published articles
@@ -96,7 +106,7 @@ describe('category pages', () => {
 
             availableArticlePaths = (await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics nor hidden pages in list of available articles
@@ -106,6 +116,15 @@ describe('category pages', () => {
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
               })
             )).filter(Boolean)
+
+            await Promise.all(
+              childFilePaths.map(async (articlePath) => {
+                const articleContents = await readFileAsync(articlePath, 'utf8')
+                const { data } = matter(articleContents)
+
+                articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)
+              })
+            )
           })
 
           test('contains all expected articles', () => {
@@ -114,10 +133,18 @@ describe('category pages', () => {
             expect(missingArticlePaths.length, errorMessage).toBe(0)
           })
 
-          test('does not any unexpected articles', () => {
+          test('does not have any unexpected articles', () => {
             const unexpectedArticles = difference(publishedArticlePaths, availableArticlePaths)
             const errorMessage = formatArticleError('Unexpected article links:', unexpectedArticles)
             expect(unexpectedArticles.length, errorMessage).toBe(0)
+          })
+
+          test('contains only articles and map topics with versions that are also available in the parent category', () => {
+            Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
+              const unexpectedVersions = difference(articleVersions, categoryVersions)
+              const errorMessage = `${articleName} has versions that are not available in parent category`
+              expect(unexpectedVersions.length, errorMessage).toBe(0)
+            })
           })
 
           // TODO: Unskip this test once the related script has been executed
@@ -139,11 +166,6 @@ describe('category pages', () => {
     }
   )
 })
-
-function getLinks (contents) {
-  return contents.match(linkRegex)
-    .map(link => link.match(linkRegex.source)[1])
-}
 
 function getPath (productDir, link, filename) {
   return path.join(productDir, link, `${filename}.md`)

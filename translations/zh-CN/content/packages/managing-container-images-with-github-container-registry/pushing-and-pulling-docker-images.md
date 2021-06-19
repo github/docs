@@ -8,7 +8,7 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-要推送和拉取组织拥有的容器映像，组织管理员必须为组织启用 {% data variables.product.prodname_github_container_registry %}。 更多信息请参阅“[为组织启用 GitHub Container Registry](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)”。
+要推送和拉取组织拥有的容器映像，组织管理员必须为组织启用 {% data variables.product.prodname_github_container_registry %}。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 ### 向 {% data variables.product.prodname_github_container_registry %} 验证
 

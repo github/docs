@@ -10,14 +10,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Action development
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu Aktionen
 
-Zum Erstellen von Aktionen können Sie benutzerdefinierten Code schreiben, der mit Ihrem Repository auf die gewünschte Weise interagiert und sich dabei beispielsweise in die APIs von {% data variables.product.prodname_dotcom %} und in öffentlich zugängliche Drittanbieter-APIs integriert. Mit einer Aktion können Sie beispielsweise npm-Module veröffentlichen, SMS-Nachrichten bei dringenden Problemen senden oder produktionsreifen Code bereitstellen.
+Zum Erstellen von Aktionen Kannst Du benutzerdefinierten Code schreiben, der mit Deinem Repository auf die gewünschte Weise interagiert und sich dabei beispielsweise in die APIs von {% data variables.product.prodname_dotcom %} und in öffentlich zugängliche Drittanbieter-APIs integriert. Mit einer Aktion können Sie beispielsweise npm-Module veröffentlichen, SMS-Nachrichten bei dringenden Problemen senden oder produktionsreifen Code bereitstellen.
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can write your own actions to use in your workflow or share the actions you build with the
@@ -33,12 +39,12 @@ Sie können Docker-Container- und JavaScript-Aktionen erstellen. Für Aktionen w
 | Typ                                  | Betriebssystem        |
 | ------------------------------------ | --------------------- |
 | Docker-Container                     | Linux                 |
-| JavaScript                           | Linux, MacOS, Windows |
-| Zusammengesetzte Ausführungsschritte | Linux, MacOS, Windows |
+| JavaScript                           | Linux, macOS, Windows |
+| Zusammengesetzte Ausführungsschritte | Linux, macOS, Windows |
 
 #### Docker-Containeraktionen
 
-Docker-Container packen die Umgebung mit dem {% data variables.product.prodname_actions %}-Code. So entsteht eine konsistentere, zuverlässigere Arbeitseinheit, da der Aktionsbenutzer sich nicht um Tools oder Abhängigkeiten kümmern muss.
+Docker-Container paketieren die Umgebung mit dem {% data variables.product.prodname_actions %}-Code. So entsteht eine konsistentere, zuverlässigere Arbeitseinheit, da der Aktionsbenutzer sich nicht um Tools oder Abhängigkeiten kümmern muss.
 
 Mit einem Docker-Container können Sie bestimmte Versionen eines Betriebssystems sowie bestimmte Abhängigkeiten, Tools und Code verwenden. Bei Aktionen, die in einer bestimmten Umgebungskonfiguration ausgeführt werden müssen, ist Docker eine ideale Option, da Sie das Betriebssystem und die Tools anpassen können. Wegen der Latenz für das Erstellen und Abrufen des Containers sind Docker-Container-Aktionen langsamer als JavaScript-Aktionen.
 
@@ -123,7 +129,7 @@ Schritte:
 
 #### Verwenden des SHA eines Commits für die Releaseverwaltung
 
-Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.
+Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}You must use a commit's full SHA value, and not an abbreviated value.{% else %}Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.{% endif %}
 
 ```yaml
 Schritte:

@@ -5,30 +5,16 @@ redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-updates
+shortTitle: Configuring Dependabot security updates
 versions:
   free-pro-team: '*'
 ---
 
-### 关于 {% data variables.product.prodname_dependabot_security_updates %}
+### About configuring {% data variables.product.prodname_dependabot_security_updates %}
 
-{% data variables.product.prodname_dependabot_short %} 监控安全通告，如 {% data variables.product.prodname_advisory_database %} 和 [WhiteSource](https://www.whitesourcesoftware.com/vulnerability-database)，并在仓库的依赖关系图中检测到新的有漏洞依赖项时自动触发拉取请求。 有关 {% data variables.product.prodname_advisory_database %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_advisory_database %}](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database#about-the-github-advisory-database)”。
+您可以为任何使用 {% data variables.product.prodname_dependabot_short %} 警报和依赖关系图的仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)”。
 
-{% data reusables.dependabot.upgrade-dependency-to-minimum-secure-version %}
-
-{% data variables.product.prodname_dependabot_short %} 在有漏洞依赖项的警报中包含拉取请求的链接。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
-
-每个安全更新都包含快速、安全地查看提议的修复程序并将其合并到项目中所需的全部内容。 这包括漏洞的相关信息，如发行说明、变更日志条目和提交详细信息。 无法访问仓库的 {% data variables.product.prodname_dependabot_short %} 警报的任何人都看不到拉取请求所解决的漏洞详细信息。
-
-当您合并包含安全更新的拉取请求时，仓库的相应警报将被标记为已解决。
-
-{% note %}
-
-**注**
-{% data variables.product.prodname_dependabot_security_updates %} only resolve security vulnerabilities in the dependencies tracked by your dependency graph. 安全更新创建的目标不是解决托管在私有仓库中的私有注册表或包中的漏洞。 但是，如果间接或过渡的依赖项已在锁定文件或类似文件中明确定义，则会包含在内。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。 此外，对于被检测出漏洞的依赖项，必须强调 {% data variables.product.prodname_dependabot_security_updates %} 自动使用建议用于锁定文件的修复程序创建拉取请求。
-
-{% endnote %}
-
-您可以为任何使用 {% data variables.product.prodname_dependabot_short %} 警报和依赖关系图的仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。 您可以对个别仓库或所有由您的用户帐户或组织拥有的仓库禁用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅下面的“[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-github-dependabot-security-updates-for-your-repositories)”。
+您可以对个别仓库或所有由您的用户帐户或组织拥有的仓库禁用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅下面的“[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-github-dependabot-security-updates-for-your-repositories)”。
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -52,10 +38,6 @@ versions:
 | 仓库尚未使用集成进行依赖项管理                                                                           | “[关于集成](/github/customizing-your-github-workflow/about-integrations)”                                                                             |
 
 如果未为存储库启用安全更新，并且您不知道原因么，请先尝试使用以下程序部分的说明启用它们。 如果安全更新还是不工作，您可以[联系支持](https://support.github.com/contact)。
-
-### 关于兼容性分数
-
-{% data variables.product.prodname_dependabot_security_updates %} 还包括兼容性分数，以便您了解更新漏洞是否可能导致对项目的重大更改。 我们从已生成特定安全更新的公共仓库中查看此前通过的 CI 测试，以了解更新是否会导致测试失败。 更新的兼容性分数是在依赖项的相关版本之间进行更新时，CI 运行被视为通过的百分比。
 
 ### 管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}
 

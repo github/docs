@@ -1,9 +1,12 @@
 ---
 title: 检查 API 入门指南
-intro: '检查运行 API 使您能够构建 GitHub 应用程序，以针对仓库中的代码更改运行强大的检查。 您可以创建应用程序以执行持续集成 、代码分析或代码扫描服务，并提供有关提交的详细反馈。'
+intro: 检查运行 API 使您能够构建 GitHub 应用程序，以针对仓库中的代码更改运行强大的检查。 您可以创建应用程序以执行持续集成 、代码分析或代码扫描服务，并提供有关提交的详细反馈。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 ### 概览
@@ -36,7 +39,7 @@ GitHub 应用程序可以报告丰富的状态信息、提供详细的代码行�
 
 ![检查运行工作流程](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 如果检查运行处于未完成状态超过 14 天，则检查运行的 `conclusion` 将变成 `stale`，并且通过
 {% octicon "issue-reopened" aria-label="The issue-reopened icon" %} 在 {% data variables.product.prodname_dotcom %} 上显示为 stale（过时）。 只有 {% data variables.product.prodname_dotcom %} 可以将检查运行标记为 `stale`。 有关检查运行之可能结论的更多信息，请参阅 [`conclusion` 参数](/rest/reference/checks#create-a-check-run--parameters)。
 {% endif %}

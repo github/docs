@@ -7,6 +7,7 @@ intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 In this example, we will cover all of the `git rebase` commands available, except for `exec`.
@@ -123,6 +124,10 @@ As before, Git is showing the commit message for you to edit. You can change the
 Since you've altered Git history, the usual `git push origin` **will not** work. You'll need to modify the command by "force-pushing" your latest changes:
 
 ```shell
+# Don't override changes
+$ git push origin main --force-with-lease
+
+# Override changes
 $ git push origin main --force
 ```
 

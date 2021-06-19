@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu erforderlichen Statuschecks
@@ -35,7 +36,7 @@ Du kannst entweder lose oder strenge Statuschecks einrichten, je nachdem, ob Du 
 
 ### Fehlerbehebung von erforderlichen Statuschecks
 
-Wenn Du eine Prüfung und einen Status mit dem gleichen Namen hast, und Du selektierst diesen Namen als erforderlichen Statuscheck, dann sind sowohl die Prüfung wie auch der Status erforderlich. For more information, see "[Checks](/v3/checks/)."
+Wenn Du eine Prüfung und einen Status mit dem gleichen Namen hast, und Du selektierst diesen Namen als erforderlichen Statuscheck, dann sind sowohl die Prüfung wie auch der Status erforderlich. For more information, see "[Checks](/rest/reference/checks)."
 
 Nachdem Du die erforderlichen Statuschecks eingerichtet hast, muss Dein Branch vor dem Zusammenführen auf dem neuesten Stand des Basisbranches sein. Dadurch wird sichergestellt, dass Dein Branch mit dem neuesten Code aus dem Basisbranch getestet wurde. Wenn Dein Branch veraltet ist, musst Du den Basisbranch in Deinen Branch zusammenführen.
 
@@ -59,9 +60,9 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-Manchmal werden sich die Ergebnisse der Statuschecks für den Test-Merge-Commit und Head-Commit widersprechen. Wenn der Test-Merge-Commit einen Status hat, muss dieser bestanden werden. Anderenfalls muss der Status des Head-Commit bestanden sein, bevor Du den Branch zusammenführen kannst. For more information about test merge commits, see "[Pull Requests](/v3/pulls/#response-1)."
+Manchmal werden sich die Ergebnisse der Statuschecks für den Test-Merge-Commit und Head-Commit widersprechen. Wenn der Test-Merge-Commit einen Status hat, muss dieser bestanden werden. Anderenfalls muss der Status des Head-Commit bestanden sein, bevor Du den Branch zusammenführen kannst. For more information about test merge commits, see "[Pull Requests](/rest/reference/pulls#response-1)."
 
 ![Branch mit widersprüchlichen Merge-Commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

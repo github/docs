@@ -8,6 +8,14 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Errors
+  - Infrastructure
+  - Networking
+  - Security
+  - Troubleshooting
 ---
 
 ### Removing the passphrase from your key file
@@ -39,7 +47,7 @@ Otherwise, you can use the SSL Converter tool to convert your certificate into t
 
 ### Unresponsive installation after uploading a key
 
-If {% data variables.product.product_location_enterprise %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
 
 ### Certificate validity errors
 

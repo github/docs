@@ -10,10 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre integração contínua
 
@@ -25,7 +31,9 @@ Para compilar e testar seu código, é necessário usar um servidor. Você pode 
 
 ### Sobre integração contínua usando {% data variables.product.prodname_actions %}
 
-A CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no seu repositório e executar os seus testes. Fluxos de trabalho podem ser executados em máquinas virtuais hospedadas em {% data variables.product.prodname_dotcom %} ou em máquinas que você mesmo hospeda. Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)," e "[Sobre executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+{% if currentVersion == "github-ae@latest" %}CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no repositório e executar os seus testes. Os fluxos de trabalho podem ser executados em máquinas virtuais hospedadas por {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
+{% else %} CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no seu repositório e executar seus testes. Fluxos de trabalho podem ser executados em máquinas virtuais hospedadas em {% data variables.product.prodname_dotcom %} ou em máquinas que você mesmo hospeda. Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" e "[Sobre executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+{% endif %}
 
 Você pode configurar seu fluxo de trabalho de CI para ser executado quando ocorre um evento de {% data variables.product.product_name %} (por exemplo, quando um novo código é enviado para o repositório), em uma programação definida, ou quando um evento externo ocorre usando o webhook de envio do repositório.
 
@@ -40,10 +48,33 @@ Além de ajudá-lo a configurar fluxos de trabalho de CI para seu projeto, você
 Para obter uma definição de termos comuns, consulte "[Conceitos básicos de {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)".
 
 ### Linguagens compatíveis
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} oferece modelos de fluxo de trabalho de CI para uma variedade de linguagens e estruturas.
 
 Pesquise a lista completa dos modelos de fluxo de trabalho de CI oferecidos por {% data variables.product.product_name %} no repositório {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) {% else %} e no repositório `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### Ignorar execuções de fluxo de trabalho
+
+Se você deseja impedir temporariamente que um fluxo de trabalho seja acionado, pode adicionar uma instrução para ignorar a mensagem de commit. Os fluxos de trabalho que seriam acionados `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push, ou o commit HEAD de um pull request:
+
+* `[skip ci]`
+* `[ci skip]`
+* `[no ci]`
+* `[skip actions]`
+* `[actions skip]`
+
+Como alternativa, você pode terminar a mensagem de commit com duas linhas vazias seguidas de `skip-checks: true` ou `skip-checks:true`.
+
+Você não conseguirá fazer o merge do pull request se o repositório estiver configurado para exigir verificações específicas para passar primeiro. Para permitir que o merge do pull request, você pode fazer o push de um novo commit no pull request sem que a instrução seja ignorada na mensagem do commit.
+
+{% note %}
+
+**Observação:** Ignorar instruções só se aplica aos eventos `push` e `pull_request`. Por exemplo, adicionar `[skip ci]` a uma mensagem de commit não impedirá que um fluxo de trabalho que acionou `on : pull_request_target` seja executado.
+
+{% endnote %}
+{% endif %}
 
 ### Notificações para execução de fluxo de trabalho
 
@@ -59,5 +90,5 @@ Para obter mais informações, consulte "[Configurar fluxo de trabalho](/article
 
 - "[Configurar a integração contínua usando {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Gerenciar a cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

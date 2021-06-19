@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+layout: graphql-explorer
+topics:
+  - API
 ---
 
-GitHubのGraphQL Explorerには、https://developer.github.com/v4/explorerからアクセスできます。

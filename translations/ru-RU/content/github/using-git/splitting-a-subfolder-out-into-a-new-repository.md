@@ -7,6 +7,7 @@ intro: You can turn a folder within a Git repository into a brand new repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
@@ -35,7 +36,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     {% endwindows %}
     - `BRANCH-NAME`: The default branch for your current project, for example, `main` or `gh-pages`.
     ```shell
-    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
+    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME BRANCH-NAME</em>
     # Filter the specified branch in your directory and remove empty commits
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten

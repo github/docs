@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du in Deinem Repository Schutzmaßnahmen für Branches erzwungen hast, kannst Du die erforderlichen Reviews einrichten. Weitere Informationen zum Erzwingen von Schutzmaßnahmen für Branches findest Du unter „[Geschützte Branches konfigurieren ](/articles/configuring-protected-branches/).“ For more information about setting up required reviews, see "[Enabling required reviews for pull requests](/articles/enabling-required-reviews-for-pull-requests)."

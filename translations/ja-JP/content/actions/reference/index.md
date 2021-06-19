@@ -1,49 +1,45 @@
 ---
 title: リファレンス
-intro: 'Reference documentation for creating workflows, using GitHub-hosted runners, and authentication.'
+intro: ワークフローの作成、GitHub ホストランナーの使用、および認証に関するリファレンスドキュメント。
 redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+children:
+  - /workflow-syntax-for-github-actions
+  - /context-and-expression-syntax-for-github-actions
+  - /workflow-commands-for-github-actions
+  - /events-that-trigger-workflows
+  - /authentication-in-a-workflow
+  - /encrypted-secrets
+  - /environments
+  - /environment-variables
+  - /usage-limits-billing-and-administration
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
-
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 ### ワークフロー構文
-
-The workflow file is written in YAML. In the YAML workflow file, you can use expression syntax to evaluate contextual information, literals, operators, and functions. Contextual information includes workflow, environment variables, secrets, and the events that triggered the workflow. When you use [`run`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun) in a workflow step to run shell commands, you can use specific workflow command syntax to set environment variables, set output parameters for subsequent steps, and set error or debug messages.
-
-{% link_in_list /workflow-syntax-for-github-actions %}
-{% link_in_list /context-and-expression-syntax-for-github-actions %}
-{% link_in_list /workflow-commands-for-github-actions %}
-
+ワークフローファイルは YAML で記述されています。 YAML ワークフローファイルでは、式の構文を使用して、コンテキスト情報、リテラル、演算子、および関数を評価できます。 コンテキスト情報には、ワークフロー、環境変数、シークレット、およびワークフローをトリガーしたイベントが含まれます。 ワークフローステップで [`run`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun) を使用してシェルコマンドを実行する場合、特定のワークフローコマンド構文を使用して環境変数を設定し、後続のステップの出力パラメーターを設定して、エラーメッセージまたはデバッグメッセージを設定できます。
 ### イベント
 
-You can configure workflows to run when specific GitHub events occur, at a scheduled time, manually, or when events outside of GitHub occur.
+特定の GitHub イベントが発生したとき、スケジュールされた時間で実行、手動で実行、または GitHub 外のイベントが発生したときに実行するようにワークフローを設定できます。
 
-{% link_in_list /events-that-trigger-workflows %}
+### 認証とシークレット
 
-### Authentication and secrets
+{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。 機密情報を Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}、リポジトリ、環境{% else %}あるいはリポジトリ{% endif %}のシークレットとして保存することもできます。 {% data variables.product.prodname_dotcom %} はすべてのシークレットを暗号化します。
 
-{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。 You can also store sensitive information as a secret in your organization or repository. {% data variables.product.prodname_dotcom %} encrypts all secrets.
-
-{% link_in_list /authentication-in-a-workflow %}
-{% link_in_list /encrypted-secrets %}
-
-### {% data variables.product.prodname_dotcom %}ホストランナー
-
-GitHub offers hosted virtual machines to run workflows. The virtual machine contains an environment with tools, packages, and environment variables for GitHub Actions to use.
-
-{% link_in_list /environment-variables %}
-{% link_in_list /specifications-for-github-hosted-runners %}
-
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+### 環境
+ワークフロージョブは、保護ルールあるいは環境固有のシークレットを持つ環境を参照できます。
+{% endif %}
+### 環境変数
+{% data variables.product.prodname_dotcom %}はそれぞれの{% data variables.product.prodname_actions %}ワークフローの実行に対してデフォルトの環境変数を設定します。 ワークフローファイル中でカスタムの環境変数を設定することもできます。
 {% if currentVersion == "free-pro-team@latest" %}
 ### 管理
-
-When you run workflows on {% data variables.product.prodname_dotcom %}-hosted runners, there are usage limits and potential usage charges. You can also disable or restrict the usage of {% data variables.product.prodname_actions %} in a repository and organization.
-
-{% link_in_list /usage-limits-billing-and-administration %}
-
+ー
+{% data variables.product.prodname_dotcom %} ホストランナーでワークフローを実行する場合、使用制限が適用されたり使用料がかかったりする場合があります。 リポジトリおよび Organization での {% data variables.product.prodname_actions %} の使用を無効化または制限することもできます。
 {% endif %}

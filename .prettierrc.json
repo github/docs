@@ -1,0 +1,20 @@
+{
+  "overrides": [
+    {
+      "files": ["**/*.{yml,yaml}"],
+      "options": {
+        "singleQuote": true
+      }
+    },
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "options": {
+        "semi": false,
+        "singleQuote": true,
+        "printWidth": 100,
+        "jsxBracketSameLine": false,
+        "arrowParens": "always"
+      }
+    }
+  ]
+}

@@ -8,7 +8,7 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 ### Bei {% data variables.product.prodname_github_container_registry %} authentifizieren
 

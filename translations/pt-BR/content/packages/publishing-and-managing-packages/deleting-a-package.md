@@ -31,13 +31,9 @@ Em circunstâncias especiais, como por razões legais ou para estar de acordo co
 
 {% else %}
 
-You cannot delete an entire package, but if you delete every version of a package, the package will no longer show on {% data variables.product.prodname_dotcom %}.
+No momento, {% data variables.product.prodname_registry %} em {% data variables.product.product_location %} não é compatível com a exclusão de pacotes públicos.
 
 {% endif %}
-
-### Versões e nomes de pacotes reservados
-
-{% data reusables.package_registry.package-immutability %}
 
 ### Excluir uma versão de um pacote privado no {% data variables.product.product_name %}
 

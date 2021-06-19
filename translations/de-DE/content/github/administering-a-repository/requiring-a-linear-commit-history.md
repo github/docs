@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Personen mit Administratorberechtigungen auf ein Repository können einen linearen Commit-Verlauf verlangen.

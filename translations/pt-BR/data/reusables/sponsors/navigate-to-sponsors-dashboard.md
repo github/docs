@@ -1,0 +1,2 @@
+1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**. ![Botão {% data variables.product.prodname_sponsors %}](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
+2. Se uma lista das suas contas patrocinadas e elegíveis for exibida, à direita da conta que você deseja gerenciar, clique no **Painel**. ![Botão do painel de patrocinadores de desenvolvedor](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)

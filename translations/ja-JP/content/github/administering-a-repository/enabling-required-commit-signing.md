@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 必須コミット署名をブランチで有効にする前に、まずブランチを保護されたブランチとして設定する必要があります。 詳しい情報については[保護されたブランチの設定](/github/administering-a-repository/configuring-protected-branches)を参照してください。

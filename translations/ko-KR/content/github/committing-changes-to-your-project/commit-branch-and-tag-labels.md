@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If your commit is not on the default branch, an indicator will show the branches which contain the commit. If the commit is part of an unmerged pull request, it will show a link.

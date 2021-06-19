@@ -1,9 +1,9 @@
 const path = require('path')
-const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('@github-docs/frontmatter')
+const matter = require('../../lib/read-frontmatter')
 const { zip } = require('lodash')
 const yaml = require('js-yaml')
+const readFileAsync = require('../../lib/readfile-async')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -52,7 +52,7 @@ describe('Liquid references', () => {
     test.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
       'in "%s"',
       async (markdownRelPath, markdownAbsPath) => {
-        const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
+        const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
         const { content } = matter(fileContents)
 
         const matches = (content.match(liquidRefsWithLinkBreaksRegex) || [])
@@ -75,12 +75,13 @@ describe('Liquid references', () => {
     test.each(variableYamlTuples)(
       'in "%s"',
       async (yamlRelPath, yamlAbsPath) => {
-        const fileContents = await fs.promises.readFile(yamlAbsPath, 'utf8')
-        const dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+        const dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(liquidRefsWithLinkBreaksRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))

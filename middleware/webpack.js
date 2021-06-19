@@ -4,7 +4,9 @@ const config = require('../webpack.config')
 
 const webpackCompiler = webpack({
   ...config,
-  mode: 'development'
+  plugins: [
+    ...config.plugins
+  ]
 })
 
 module.exports = middleware(webpackCompiler, {

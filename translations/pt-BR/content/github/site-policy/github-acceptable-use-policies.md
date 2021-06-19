@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **Versão curta:** _hospedamos uma ampla variedade de projetos colaborativos de todo o mundo, e essa colaboração só funciona quando todos os nossos usuários conseguem trabalhar juntos de boa fé. Ao usar o Serviço, você deve estar de acordo com nossas Políticas de Uso Aceitável, que inclui algumas restrições sobre o conteúdo que você pode publicar, conduta no serviço e outras limitações. Em resumo, sejam excelentes uns com os outros._
@@ -14,7 +17,7 @@ Termos com iniciais em letras maiúsculas, mas não definidos nestas Políticas 
 Você é responsável por usar o Serviço em conformidade com as leis aplicáveis, regulamentos e todas as nossas Políticas de Uso Aceitável. Essas políticas podem ser atualizadas periodicamente e estão dispostas abaixo, assim como em nossos [Termos de serviço](/articles/github-terms-of-service) e [Termos de serviço corporativos](/articles/github-corporate-terms-of-service).
 
 ### 2. Restrições de conteúdo
-Em nenhuma circunstância, os Usuários farão upload, publicarão, hospedarão, executarão ou transmitirão qualquer Conteúdo para quaisquer repositórios que:
+Under no circumstances will Users upload, post, host, execute, or transmit any Content that:
 
 - seja ilegal ou promova atividades ilegais;
 
@@ -28,14 +31,20 @@ Em nenhuma circunstância, os Usuários farão upload, publicarão, hospedarão,
 
 - seja ou contenha informações falsas, imprecisas ou intencionalmente enganosas que provavelmente afetarão negativamente o interesse público (incluindo saúde, segurança, integridade eleitoral e participação cívica);
 
-- contenha ou instale qualquer vírus de computador, ou explore ou use nossa plataforma para explorar a entrega (como uma parte de um comando ou sistema de controle); ou
+- directly supports [unlawful active attack or malware campaigns](/github/site-policy/github-community-guidelines#active-malware-or-exploits) that are causing technical harms — such as using our platform to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers — with no implicit or explicit dual-use purpose prior to the abuse occurring; or
+
+- compartilha chaves de licenciamento de produtos não autorizadas, software para gerar chaves de licenciamento de produtos não autorizadas ou software para ignorar as verificações de chaves de licenciamento de produtos, incluindo a extensão de uma licença grátis além do seu período de teste; ou
 
 - infrinja qualquer direito de propriedade de qualquer parte, incluindo patentes, marcas comerciais, segredos comerciais, direitos autorais, direito de publicidade ou outros direitos.
+
+Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
 
 ### 3. Restrições de conduta
 Ao usar o Serviço, em nenhuma circunstância você irá:
 
 - assediar, abusar, ameaçar ou incitar a violência contra qualquer indivíduo ou grupo, incluindo nossos funcionários, dirigentes e agentes ou outros usuários;
+
+- postar conteúdo que fuja ao tópico ou interagir com os recursos da plataforma de forma que interrompe de forma significativa ou repetidamente a experiência de outros usuários;
 
 - usar nossos servidores para qualquer forma de atividade em massa automatizada excessiva (por exemplo, envio de spams ou mineração de criptomoeda), sobrecarregar indevidamente nossos servidores por meios automatizados, ou transmitir qualquer outra forma de publicidade ou demanda não solicitada por meio de nossos servidores, como esquemas do tipo enriqueça rápido;
 
@@ -48,15 +57,17 @@ Ao usar o Serviço, em nenhuma circunstância você irá:
 ### 4. Limites de uso dos serviços
 Você não reproduzirá, duplicará, copiará, venderá, revenderá ou explorará qualquer parte do Serviço, uso do Serviço ou acesso ao Serviço sem nossa permissão expressa por escrito.
 
-### 5. Restrições de scraping (raspagem) e uso da API
-Scraping refere-se à extração de dados de nosso Serviço por meio de um processo automatizado, como um bot ou rastreador web (webcrawler). Não se refere à coleta de informações por meio de nossa API. Por favor, consulte a Seção H de nossos [Termos de Serviço](/articles/github-terms-of-service#h-api-terms) para nossos Termos da API. Você pode raspar o site pelos seguintes motivos:
+### 5. Restrições de uso de informações
+Você pode usar as informações do nosso Serviço pelos motivos a seguir, independentemente de as informações terem sido processadas, coletadas pela nossa API ou obtidas de outra forma:
 
-- Pesquisadores podem raspar informações públicas e não pessoais do Serviço para fins de pesquisa, somente se quaisquer publicações resultantes da pesquisa forem de acesso aberto.
-- Arquivistas podem raspar o Serviço para dados públicos com fins de arquivo.
+-  Os pesquisadores podem utilizar informações públicas e não pessoais do Serviço para fins de pesquisa, se todas as publicações resultantes dessa pesquisa forem de [acesso público](https://en.wikipedia.org/wiki/Open_access).
+-  Os Arquivadores podem utilizar informações públicas do Serviço para fins de arquivamento.
 
-Você não poderá raspar o Serviço para fins de envio de spams, inclusive com propósito de vender Informações Pessoais do Usuário (como definido na [Declaração de privacidade do GitHub](/articles/github-privacy-statement)) para, por exemplo, recrutadores, headhunters e anúncios de empregos.
+Scraping refere-se à extração de informações do nosso Serviço por meio de um processo automatizado, como um bot ou webcrawler. Scraping não se refere à coleta de informações por meio de nossa API. Por favor, consulte a Seção H de nossos [Termos de Serviço](/articles/github-terms-of-service#h-api-terms) para nossos Termos da API.
 
-Todo uso de dados coletados por meio de scraping (raspagem) devem estar de acordo com a [Declaração de privacidade do GitHub](/articles/github-privacy-statement).
+Você não pode usar as informações do Serviço (quer seja por meio de raspagem, coletadas através da nossa API ou obtidas de outra forma) para spam, incluindo para fins de envio de e-mails não solicitados a usuários ou venda de Informações Pessoais do Usuário (conforme definido na [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement)), tais como recrutadores, headhunters e quadros de emprego.
+
+Seu uso de informações do Serviço deve estar em conformidade com a [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 
 ### 6. Privacidade
 Uso indevido de Informações Pessoais é proibido.
@@ -69,7 +80,7 @@ As limitações de largura de banda do Serviço variam com base nos recursos que
 ### 8. Publicidade no GitHub
 **Versão reduzida:***Geralmente não proibimos o uso do GitHub para publicidade. No entanto, esperamos que nossos usuários sigam certas limitações, de forma que o GitHub não se torne um paraíso do spam. Ninguém quer isso.*
 
-Embora entendamos que você pode querer promover seu Conteúdo publicando nomes de patrocinadores ou logotipos em sua Conta, o foco principal do Conteúdo postado em ou através de sua Conta para o Serviço não deve ser a publicidade ou o marketing promocional. Isto inclui Conteúdo publicado em ou através de Pages, pacotes, repositórios e todas as outras partes do Serviço. Você pode incluir imagens estáticas, links e texto promocional nos documentos LEIAME ou seções de descrição do projeto associadas à sua Conta, mas eles devem estar relacionados ao projeto que você está hospedando no GitHub. Você não pode fazer propaganda em Contas de outros Usuários, por exemplo, postando conteúdo em massa excessivo ou monetizado em "problemas".
+Embora entendamos que você pode querer promover seu Conteúdo publicando nomes de patrocinadores ou logotipos em sua Conta, o foco principal do Conteúdo postado em ou através de sua Conta para o Serviço não deve ser a publicidade ou o marketing promocional. Isto inclui Conteúdo publicado em ou através de Pages, pacotes, repositórios e todas as outras partes do Serviço. Você pode incluir imagens estáticas, links e texto promocional nos documentos README ou seções de descrição do projeto associadas à sua Conta, mas eles devem estar relacionados ao projeto que você está hospedando no GitHub. Você não pode fazer propaganda em Contas de outros Usuários, por exemplo, postando conteúdo em massa excessivo ou monetizado em "problemas".
 
 Você não pode promover ou distribuir conteúdo ou atividade ilegal ou proibida por nossos [Termos de Serviço](/github/site-policy/github-terms-of-service/), [Diretrizes da Comunidade](/github/site-policy/github-community-guidelines/), ou [Política de Uso Aceitável](/github/site-policy/github-acceptable-use-policies/), incluindo a atividade em massa excessiva automatizada (por exemplo, spamming), esquemas do tipo fique rico rápido e erros de representação ou armadilhas relacionados com sua promoção.
 

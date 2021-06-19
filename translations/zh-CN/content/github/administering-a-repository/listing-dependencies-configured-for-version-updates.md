@@ -9,7 +9,7 @@ versions:
 
 ### 查看由 {% data variables.product.prodname_dependabot %} 监视的依赖项
 
-启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot_short %}** 选项卡确认配置是否正确。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
+启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot %}** 选项卡确认配置是否正确。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -21,5 +21,5 @@ versions:
 
 ### 查看 {% data variables.product.prodname_dependabot %} 日志文件
 
-1. 在 **{% data variables.product.prodname_dependabot_short %}** 选项卡上，单击 **Last checked *TIME* ago**（上次检查时间以前），查看 {% data variables.product.prodname_dependabot %} 在上次检查版本更新时生成的日志文件。 ![查看日志文件](/assets/images/help/dependabot/last-checked-link.png)
+1. 在 **{% data variables.product.prodname_dependabot %}** 选项卡上，单击 **Last checked *TIME* ago**（上次检查时间以前），查看 {% data variables.product.prodname_dependabot %} 在上次检查版本更新时生成的日志文件。 ![查看日志文件](/assets/images/help/dependabot/last-checked-link.png)
 2. 或者，要返回版本检查，请单击 **Check for updates（检查更新）**。 ![检查更新](/assets/images/help/dependabot/check-for-updates.png)

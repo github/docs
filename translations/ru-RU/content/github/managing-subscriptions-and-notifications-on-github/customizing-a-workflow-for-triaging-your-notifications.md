@@ -4,6 +4,9 @@ intro: 'To create an ideal workflow for triaging your notifications, you can ada
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - Notifications
 ---
 
 ### Starting your inbox triage

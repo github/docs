@@ -1,1 +1,1 @@
-- **Job matrix** - A job matrix can generate a maximum of 256 jobs per workflow run. この制限は、セルフホストランナーにも適用されます。
+ジョブマトリックスは、ワークフローの実行ごとに最大で256のジョブを生成できます。 この制限は、セルフホストランナーにも適用されます。

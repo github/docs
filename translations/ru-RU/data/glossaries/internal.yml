@@ -44,7 +44,7 @@
   term: активы
   description: 'Отдельные файлы, например изображения, фотографии, видео и текстовые файлы.'
 - 
-  term: канал Atom
+  term: веб-канал Atom
   description: Легкий XML-формат, упрощающий синдикацию веб-контента.
 - 
   term: журнал аудита
@@ -60,6 +60,10 @@
 - 
   term: Azure
   description: Платформа Microsoft облачных вычислений.
+- 
+  term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
 - 
   term: чистый репозиторий
   description: >-
@@ -110,7 +114,7 @@
   description: Центральный процессор.
 - 
   term: вспомогательное приложение для управления учетными данными
-  description: Программа, которая хранит и оценивает учетные данные Git.
+  description: A program that stores and fetches Git credentials.
 - 
   term: creole
   description: >-
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    Продукт Microsoft для управления исходным кодом и другими службами команды.
+    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
 - 
   term: Textile
   description: >-
@@ -739,7 +743,7 @@
 - 
   term: WYSIWYG
   description: >-
-    Отображение редактируемого текста максимально похожим на конечный результат образом. Аббревиатура означает, что текст на экране выглядит таким же, каким его будет видеть пользователь.
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
 - 
   term: XenServer
   description: Платформа виртуализации.

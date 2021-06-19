@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 ### About username changes
@@ -30,7 +32,7 @@ After you change your username, {% data variables.product.product_name %} will a
 - Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
 - Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
 
-If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[Changing a remote's URL](/articles/changing-a-remote-s-url)."
+If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Links to your previous profile page
 
@@ -52,6 +54,5 @@ After changing your username, links to your previous profile page, such as `http
 
 ### 더 읽을거리
 
-- "[Changing a remote's URL](/articles/changing-a-remote-s-url)"
 - "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
 - "[{% data variables.product.prodname_dotcom %} Username Policy](/articles/github-username-policy)"{% endif %}

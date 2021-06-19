@@ -1,0 +1,1 @@
+1. あるいは、Organizationの代わりにスポンサーシップを管理するために、左上の**Personal settings（個人設定）**ドロップダウンメニューを使い、Organizationをクリックしてください。 ![設定のアカウントを切り替えるためのドロップダウンメニュー](/assets/images/help/sponsors/billing-account-switcher.png)

@@ -7,10 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -24,7 +32,7 @@ MavenでのJavaプロジェクトのためのCIワークフローの作成に関
 
 また、以下の基本的な理解があれば役立ちます。
 
-- [{% data variables.product.prodname_registry %} で利用するために npm を設定する](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+- 「[npm レジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)」
 - 「[環境変数](/actions/reference/environment-variables)」
 - 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
 - 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
@@ -41,12 +49,12 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすればMaven Central Repositoryにパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールしますが、パッケージの公開のためのMavenの_settings.xml_も設定します。 デフォルトでは、設定ファイルは{% data variables.product.prodname_registry %}に対して設定されますが、Maven Central Repositoryなどの他のパッケージレジストリにデプロイするようにも設定できます。 _pom.xml_に設定済みの配布管理リポジトリが酢デイあるなら、`setup-java`アクションの呼び出しの際にその`id`を指定できます。
+このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールしますが、パッケージの公開のためのMavenの_settings.xml_も設定します。 デフォルトでは、設定ファイルは{% data variables.product.prodname_registry %}に対して設定されますが、Maven Central Repositoryなどの他のパッケージレジストリにデプロイするようにも設定できます。 _pom.xml_に設定済みの配布管理リポジトリがすでにあるなら、`setup-java`アクションの呼び出しの際にその`id`を指定できます。
 
 たとえば、OSSRHホスティングプロジェクトを通じてMaven Central Repositoryにデプロイしていたなら、_pom.xml_ は`ossrh`の`id`で配布管理リポジトリを指定できます。
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -66,7 +74,7 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -77,14 +85,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -103,16 +112,16 @@ jobs:
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{% data variables.product.prodname_registry %}にパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{% data variables.product.prodname_registry %}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。
+このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{% data variables.product.prodname_registry %}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。 `GITHUB_TOKEN` 環境変数には、特別な `GITHUB_TOKEN` シークレットの値が割り当てられます。
 
-`GITHUB_TOKEN`は、デフォルトでリポジトリ中に存在し、ワークフローが実行されるリポジトリ中のパッケージには読み書きの権限があります。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+{% data reusables.github-actions.github-token-permissions %}
 
 Mavenベースのプロジェクトでは、{% data variables.product.prodname_registry %}のエンドポイントを指す`github`の`id`で_pom.xml_ファイル中に配布リポジトリを作成することによって、これらの設定を利用できます。
 
 たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_pom.xml_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -128,26 +137,28 @@ Mavenベースのプロジェクトでは、{% data variables.product.prodname_r
 
 この設定で、自動的に生成された_settings.xml_を利用して{% data variables.product.prodname_registry %}にパッケージを公開するワークフローを作成できます。
 
-{% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 このワークフローは以下のステップを実行します。
 
@@ -163,39 +174,42 @@ jobs:
 
 _pom.xml_ファイルに、{% data variables.product.prodname_dotcom %}リポジトリとMaven Central Repositoryプロバイダの双方に対する配布管理リポジトリを確実に含めてください。 たとえば、OSSRHホスティングプロジェクトを通じてCentral Repositoryへデプロイするなら、それを`id`を`ossrh`に設定して配布管理リポジトリ内で指定し、`id`を`github`に設定して配布管理リポジトリ内で{% data variables.product.prodname_registry %}を指定することになるかもしれません。
 
-{% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mvn -B deploy
-        env:
+        run: mvn --batch-mode deploy
+        env:{% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish to GitHub Packages
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 このワークフローは、`setup-java`アクションを2回呼びます。  実行される度に、`setup-java`アクションはMavenの_settings.xml_をパッケージの公開のために上書きします。  リポジトリの認証については、_settings.xml_ファイルは配布管理リポジトリの`id`、及びユーザ名とパスワードを参照します。
 

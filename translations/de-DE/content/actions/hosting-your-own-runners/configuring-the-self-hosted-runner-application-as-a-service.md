@@ -1,15 +1,20 @@
 ---
 title: Die Anwendung für selbst-gehostete Runner als Dienst konfigurieren
-intro: Du kannst die Anwendung für selbst-gehostete Runner als Dienst konfigurieren, um die Runner-Anwendung automatisch zu starten, wenn der Rechner hochfährt.
+intro: 'Du kannst die Anwendung für selbst-gehostete Runner als Dienst konfigurieren, um die Runner-Anwendung automatisch zu starten, wenn der Rechner hochfährt.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+defaultPlatform: linux
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% capture service_first_step %}1. Beende die Anwendung für selbst-gehostete Runner, falls sie gerade läuft.{% endcapture %}
 {% capture service_non_windows_intro_shell %}Öffne auf der Runner-Maschine eine Shell in dem Verzeichnis, in dem Du die Anwendung für selbst-gehostete Runner installiert hast. Verwende die folgenden Befehle, um den Dienst für selbst-gehosteten Runner zu installieren und zu verwalten.{% endcapture %}

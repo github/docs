@@ -5,6 +5,10 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Enterprise
+  - Support
 ---
 
 {% note %}
@@ -44,7 +48,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
-| U.S. holiday                | Date observed in 2018       |
+| U.S. holiday                | Date observed               |
 | --------------------------- | --------------------------- |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |
@@ -57,7 +61,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 ### Installing {% data variables.product.prodname_advanced_security %} updates

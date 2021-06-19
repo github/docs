@@ -348,7 +348,7 @@ module.exports = async function processSchemas (idl, previewsPerVersion) {
   // add non-schema scalars and sort all scalars alphabetically
   data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
 
-  // sort all the types alphebatically
+  // sort all the types alphabetically
   data.queries.connections = sortBy(data.queries.connections, 'name')
   data.queries.fields = sortBy(data.queries.fields, 'name')
   data.mutations = sortBy(data.mutations, 'name')

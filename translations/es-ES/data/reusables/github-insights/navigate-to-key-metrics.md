@@ -1,0 +1,1 @@
+1. En {% data variables.product.prodname_insights %}, haz clic en **{% octicon "graph" aria-label="The graph icon" %} Métricas clave**. ![Pestaña Key Metrics (Métricas clave)](/assets/images/help/insights/key-metrics-tab.png)

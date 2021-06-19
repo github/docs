@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Antes de habilitar revisões obrigatórias em um branch, é preciso primeiro configurá-lo como um branch protegido. Para obter mais informações, consulte "[Configurar branches protegidos](/github/administering-a-repository/configuring-protected-branches)".

@@ -1,0 +1,2 @@
+If someone checks a secret with a known pattern into a {% if currentVersion == "free-pro-team@latest" %}public or private{% endif %} repository on {% data variables.product.product_name %}, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. 
+Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the Security tab for the repository.

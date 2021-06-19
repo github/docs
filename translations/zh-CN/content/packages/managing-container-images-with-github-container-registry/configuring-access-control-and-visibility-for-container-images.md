@@ -24,7 +24,7 @@ versions:
 
 如果您的软件包由组织和私人拥有，则您只能向其他组织成员或团队授予访问。
 
-对于组织映像容器，组织管理员必须先启用包，然后才能将可见性设置为公共。 更多信息请参阅“[为组织启用 GitHub Container Registry](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)”。
+对于组织映像容器，组织管理员必须先启用包，然后才能将可见性设置为公共。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 您还可以从组织输入团队名称，以允许所有团队成员访问。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
@@ -54,7 +54,7 @@ versions:
 
 公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
 
-对于组织映像容器，组织管理员必须先启用公共包，然后才能将可见性设置为公共。 更多信息请参阅“[为组织启用 GitHub Container Registry](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)”。
+对于组织映像容器，组织管理员必须先启用公共包，然后才能将可见性设置为公共。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 5. 在“Danger Zone（危险区域）”下，选择可见性设置：

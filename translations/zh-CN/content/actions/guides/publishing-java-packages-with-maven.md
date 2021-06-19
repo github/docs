@@ -7,10 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -24,7 +32,7 @@ versions:
 
 您可能还发现基本了解以下内容是有帮助的：
 
-- "[配置 npm 用于 {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
+- “[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)”
 - "[环境变量](/actions/reference/environment-variables)"
 - [加密的密码](/actions/reference/encrypted-secrets)"
 - "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"
@@ -46,7 +54,7 @@ _pom.xml_ 文件还包含 Maven 将在其中部署包的分配管理仓库的配
 例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，则 _pom.xml_ 可以指定 `id` 为 `ossrh` 的分发管理仓库。
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -66,7 +74,7 @@ _pom.xml_ 文件还包含 Maven 将在其中部署包的分配管理仓库的配
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -77,14 +85,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -103,16 +112,16 @@ jobs:
 
 每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-在此工作流程中，您可以使用 `setup-java` 操作。 此操作将给定版本的 JDK 安装到 `PATH`，并且设置 Maven _settings.xml_ 以将包发布到 {% data variables.product.prodname_registry %}。 生成的 _settings.xml_ 定义使用 `github` 的 `id` 向服务器验证，使用 `GITHUB_ACTOR` 环境变量作为用户名，`GITHUB_TOKEN` 环境变量作为密码。
+在此工作流程中，您可以使用 `setup-java` 操作。 此操作将给定版本的 JDK 安装到 `PATH`，并且设置 Maven _settings.xml_ 以将包发布到 {% data variables.product.prodname_registry %}。 生成的 _settings.xml_ 定义使用 `github` 的 `id` 向服务器验证，使用 `GITHUB_ACTOR` 环境变量作为用户名，`GITHUB_TOKEN` 环境变量作为密码。 `GITHUB_TOKEN` 环境变量将获分配特殊 `GITHUB_TOKEN` 密钥的值。
 
-`GITHUB_TOKEN` 默认存在于您的仓库中，并且对工作流程运行的仓库中的包具有读取和写入权限。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+{% data reusables.github-actions.github-token-permissions %}
 
 对于基于 Maven的项目，您可以通过在 _pom.xml_ 文件中创建分发仓库来使用这些设置，该文件以 `github` 的 `id` 指向 {% data variables.product.prodname_registry %} 端点。
 
 例如，如果组织名为“octocat”且仓库名为“hello-world”，则 _pom.xml_ 中的 {% data variables.product.prodname_registry %} 配置看起来类似于以下示例。
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -128,26 +137,28 @@ jobs:
 
 通过此配置，您可以创建一个工作流程，以使用自动生成的 _settings.xml_ 将包发布到 {% data variables.product.prodname_registry %}。
 
-{% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 此工作流程执行以下步骤：
 
@@ -163,39 +174,42 @@ jobs:
 
 确保 _pom.xml_ 文件包含用于 {% data variables.product.prodname_dotcom %} 仓库和 Maven 中心仓库提供商的分发管理仓库。 例如，如果您通过 OSSRH 托管项目部署到中心仓库，您可能想通过将 `id` 设置为 `ossrh` 在分发管理仓库中指定它，并且想通过将 `id` 设置为 `github` 在分发管理仓库中指定 {% data variables.product.prodname_registry %}。
 
-{% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mvn -B deploy
-        env:
+        run: mvn --batch-mode deploy
+        env:{% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish to GitHub Packages
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 此工作流程将调用 `setup-java` 操作两次。  每次运行 `setup-java` 操作时，都会覆盖 Maven _settings.xml_ 文件以发布包。  为向仓库验证，_settings.xml_ 文件引用分发管理仓库 `id` 以及用户名和密码。
 

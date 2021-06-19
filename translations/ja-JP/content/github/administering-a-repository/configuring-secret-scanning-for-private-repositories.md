@@ -1,6 +1,7 @@
 ---
 title: プライベートリポジトリのシークレットスキャンの設定
 intro: '{% data variables.product.product_name %} のプライベートリポジトリでのシークレットのスキャン方法を設定できます。'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'プライベートリポジトリの管理者権限を持つユーザは、リポジトリの {% data variables.product.prodname_secret_scanning %} を有効にできます。'
 versions:
   free-pro-team: '*'

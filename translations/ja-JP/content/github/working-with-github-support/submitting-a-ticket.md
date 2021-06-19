@@ -5,11 +5,16 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
-自分のアカウントで有料の {% data variables.product.prodname_dotcom %} 製品を使用している場合は、{% data variables.contact.github_support %} に直接問い合わせることができます。 ユーザアカウントまたは Organization の {% data variables.product.prodname_free_user %} を使用している場合は、{% data variables.contact.contact_support %} に連絡してアカウント、セキュリティ、悪用の問題を報告できます。 詳しい情報については、「[GitHub Supportについて](/github/working-with-github-support/about-github-support)」を参照してください。
+### About ticket submission
+自分のアカウントで有料の {% data variables.product.prodname_dotcom %} 製品を使用している場合は、{% data variables.contact.github_support %} に直接問い合わせることができます。 If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. 詳しい情報については、「[GitHub Supportについて](/github/working-with-github-support/about-github-support)」を参照してください。
 
-{% data variables.product.prodname_ghe_server %}、{% data variables.product.prodname_ghe_cloud %}、または {% data variables.product.premium_support_plan %} を使っている場合、{% data variables.contact.enterprise_portal %} でチケットをサブミットする必要があります。
+{% data reusables.enterprise-accounts.support-entitlements %}
+
+Enterprise アカウントをお持ちでない場合は、{% data variables.contact.enterprise_portal %} を使用してチケットを送信してください。 Enterprise アカウントの詳細については、「[Enterprise アカウントについて](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)」を参照してください。
 
 ### {% data variables.contact.support_portal %} を使ってチケットをサブミットする
 

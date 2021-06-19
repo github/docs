@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - сообщество
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

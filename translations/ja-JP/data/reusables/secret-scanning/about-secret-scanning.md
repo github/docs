@@ -1,0 +1,1 @@
+{% data variables.product.product_name %}上の{% if currentVersion == "free-pro-team@latest" %}パブリックもしくはプライベート{% endif %}リポジトリに既知のパターンを持つシークレットを誰かがチェックインすると、{% data variables.product.prodname_secret_scanning %}はチェックインの時点でそのシークレットを捕捉し、漏洩のインパクトを緩和する手助けをします。 リポジトリ管理者は、シークレットを含むコミットについて通知され、リポジトリのセキュリティタブですべての検出されたシークレットを素早く見ることができます。

@@ -8,10 +8,9 @@ versions:
 
 {% note %}
 
-**注：**{% data variables.product.prodname_github_container_registry %} 目前处于公测阶段，可能会更改。 目前，{% data variables.product.prodname_github_container_registry %} 只支持 Docker 映像格式。 在测试阶段，存储和带宽是免费的。
+**注：**{% data variables.product.prodname_github_container_registry %} 目前处于公测阶段，可能会更改。 在测试阶段，存储和带宽是免费的。 To use {% data variables.product.prodname_github_container_registry %}, you must enable the feature for your account. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% endnote %}
-
 
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
@@ -19,8 +18,14 @@ versions:
 
 ### 支持的格式
 
-{% data variables.product.prodname_container_registry %} 目前只支持 Docker 映像。
+{% data variables.product.prodname_container_registry %} 目前支持以下容器映像格式：
 
+* [Docker 映像清单 V2，架构 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Open Container Initiative (OCI) 规格](https://github.com/opencontainers/image-spec)
+
+#### 清单列表/映像索引
+
+{% data variables.product.prodname_github_container_registry %} 也支持 Docker V2、Schema 2 和 OCI 映像规格中定义的 [Docker 清单列表](https://docs.docker.com/registry/spec/manifest-v2-2/#manifest-list)/[OCI 映像索引](https://github.com/opencontainers/image-spec/blob/79b036d80240ae530a8de15e1d21c7ab9292c693/image-index.md)格式。
 
 ### 容器映像的可见性和访问权限
 

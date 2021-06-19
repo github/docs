@@ -1,7 +1,7 @@
 ---
 title: 缓存依赖项以加快工作流程
 shortTitle: 缓存依赖项
-intro: '为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。'
+intro: 为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -9,7 +9,12 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
+type: tutorial
+topics:
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### 关于缓存工作流程依赖项
 
@@ -17,7 +22,7 @@ versions:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 为帮助加快重新创建这些文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的依赖项。
 
-要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
+要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。 如果您缓存 Ruby Gems，则考虑使用 Ruby 维护的操作，可在启动时缓存捆绑安装。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)。
 
 {% warning %}
 
@@ -36,9 +41,9 @@ versions:
 
 使用 `cache` 操作的 `v2`，可以访问具有 `GITHUB_REF` 的任何事件所触发的工作流程中的缓存。 如果使用 `cache` 操作的 `v1`，您只能访问由 `push` 和 `pull_request` 事件触发的工作流程中的缓存，`pull_request` `closed` 事件除外。 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
 
-A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
+工作流程可以访问和还原当前分支、基础分支（包括复刻的仓库的基本分支）或默认分支（通常是 `main`）中创建的缓存 例如，在默认分支上创建的缓存可从任何拉取请求访问。 另外，如果分支 `feature-b` 具有基础分支 `feature-a`，则触发于 `feature-b` 的工作流程可以访问默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
 
-访问限制通过在不同工作流程和分支之间创建逻辑边界来提供缓存隔离和安全。 For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
+访问限制通过在不同工作流程和分支之间创建逻辑边界来提供缓存隔离和安全。 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-b`（具有基础分支 `main`）的拉取请求。
 
 ### 使用 `cache` 操作
 
@@ -54,7 +59,16 @@ A workflow can access and restore a cache created in the current branch, the bas
 
 - `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
 - `path`：**必要** 运行器上缓存或还原的文件路径。 路径可以是绝对路径或相对于工作目录的路径。
-  - 使用 `cache` 操作的 `v2`，可以指定单个路径，或将多个路径指定为列表。 路径可以是目录或单个文件，并且支持 glob 模式。
+  - 路径可以是目录或单个文件，并且支持 glob 模式。
+  - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - 对于 `cache` 操作的 `v1`，仅支持单个路径，它必须是一个目录。 您不能缓存单个文件。
 - `restore-keys`：**可选** `key` 没有发生缓存命中时用于查找缓存的其他密钥顺序列表。
 
@@ -67,7 +81,7 @@ A workflow can access and restore a cache created in the current branch, the bas
 此示例在 `package-lock.json` 文件中的包更改时，或运行器的操作系统更改时，创建一个新的缓存。 缓存键使用上下文和表达式生成一个键值，其中包括运行器的操作系统和 `package-lock.json` 文件的 SHA-256 哈希。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching with npm
 
 on: push
@@ -77,30 +91,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build
-      run: npm build
+      - name: Build
+        run: npm build
 
-    - name: Test
-      run: npm test
-
+      - name: Test
+        run: npm test
 ```
 {% endraw %}
 
@@ -123,14 +136,14 @@ jobs:
 使用表达式创建 `key` 允许您在依赖项更改时自动创建新缓存。 例如，您可以使用计算 npm `package-lock.json` 文件哈希的表达式创建 `key`。
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} 评估表达式 `hash "package-lock.json"` 以派生最终 `key`。
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -143,7 +156,7 @@ npm-d5ea0750
 #### 使用多个恢复键值的示例
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -154,7 +167,7 @@ restore-keys: |
 运行器将评估表达式，解析为以下 `restore-keys`：
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-
@@ -178,14 +191,14 @@ restore-keys: |
   npm-
 ```
 
-For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
+例如，如果拉取请求包含 `feature` 分支（当前范围）并针对默认分支 (`main`)，操作将按以下顺序搜索 `key` 和 `restore-keys`：
 
 1. `feature` 分支范围中的键值 `npm-feature-d5ea0750`
 1. `feature` 分支范围中的键值 `npm-feature-`
 2. `feature` 分支范围中的键值 `npm-`
-1. Key `npm-feature-d5ea0750` in the `main` branch scope
-3. Key `npm-feature-` in the `main` branch scope
-4. Key `npm-` in the `main` branch scope
+1. `main` 分支范围中的键值 `npm-feature-d5ea0750`
+3. `main` 分支范围中的键值 `npm-feature-`
+4. `main` 分支范围中的键值 `npm`
 
 ### 使用限制和收回政策
 

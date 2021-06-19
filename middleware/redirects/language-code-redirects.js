@@ -5,7 +5,7 @@ const languages = require('../../lib/languages')
 // Examples:
 // /jp*    -> /ja*
 // /zh-TW* -> /cn*
-module.exports = async function languageCodeRedirects (req, res, next) {
+module.exports = function languageCodeRedirects (req, res, next) {
   for (const code in languages) {
     const language = languages[code]
     const redirectPatterns = language.redirectPatterns || []

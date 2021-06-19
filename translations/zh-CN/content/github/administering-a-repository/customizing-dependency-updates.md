@@ -20,7 +20,7 @@ versions:
 
 有关配置选项的详细信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
 
-更新仓库中的 *dependabot.yml* 文件时，{% data variables.product.prodname_dependabot %} 使用新配置即刻进行检查。 几分钟内，您将在 **{% data variables.product.prodname_dependabot_short %}** 选项卡上看到更新的依赖项列表，如果仓库有很多依赖项，可能需要更长时间。 您可能还会看到针对版本更新的新拉取请求。 更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)”。
+更新仓库中的 *dependabot.yml* 文件时，{% data variables.product.prodname_dependabot %} 使用新配置即刻进行检查。 几分钟内，您将在 **{% data variables.product.prodname_dependabot %}** 选项卡上看到更新的依赖项列表，如果仓库有很多依赖项，可能需要更长时间。 您可能还会看到针对版本更新的新拉取请求。 更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)”。
 
 ### 配置更改对安全更新的影响
 

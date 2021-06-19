@@ -1,6 +1,6 @@
 ---
 title: Docker コンテナのアクションを作成する
-intro: 'このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。'
+intro: このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -10,10 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
+  - Docker
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -23,14 +29,20 @@ versions:
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 必要な環境
 
 {% data variables.product.prodname_actions %}の環境変数及びDockerコンテナのファイルシステムに関する基本的な理解があれば役立つでしょう。
 
 - [環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)
+{% if currentVersion == "github-ae@latest" %}
+- 「[Docker コンテナファイルシステム](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)」
+{% else %}
 - [{% data variables.product.prodname_dotcom %}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)
+{% endif %}
 
-開始する前に、GitHub リポジトリを作成する必要があります。
+始める前に、{% data variables.product.prodname_dotcom %} リポジトリを作成する必要があります。
 
 1. {% data variables.product.product_location %} に新しいリポジトリを作成します。 リポジトリ名は任意です。この例のように "hello-world-docker-action" を使ってもいいでしょう。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
@@ -38,21 +50,20 @@ versions:
 
 1. ターミナルから、ディレクトリを新しいリポジトリに変更します。
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
 ### Dockerfileの作成
 
-新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 詳しい情報については「[{% data variables.product.prodname_actions %}のためのDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
+新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
 
 **Dockerfile**
-```dockerfile
+```dockerfile{:copy}
 # コードを実行するコンテナイメージ
 FROM alpine:3.10
 
-# アクションのリポジトリからコードファイルをファイルシステムパスへコピー
-`/` of the container
+# アクションのリポジトリからコードファイルをコンテナのファイルシステムパス `/`にコピー
 COPY entrypoint.sh /entrypoint.sh
 
 # dockerコンテナが起動する際に実行されるコードファイル (`entrypoint.sh`)
@@ -64,8 +75,8 @@ ENTRYPOINT ["/entrypoint.sh"]
 新しい `action.yml` ファイルを、上で作成した `hello-world-docker-action` ディレクトリの中に作成します。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
-**アクション.yml**
-```yaml
+**action.yml**
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -97,24 +108,23 @@ runs:
 
 1. `hello-world-docker-action` ディレクトリに、新しい `entrypoint.sh` を作成します。
 
-1. `entrypoint.sh`ファイルを実行可能にしてください。
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
-
 1. `entrypoint.sh`ファイルに次のコードを追加します。
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
 
   echo "Hello $1"
   time=$(date)
   echo "::set-output name=time::$time"
   ```
-
   `entrypoint.sh`がエラーなく実行できたら、アクションのステータスは`success`に設定されます。 アクションのコード中で明示的に終了コードを設定して、アクションのステータスを提供することもできます。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
+
+1. 以下のコマンドをシステムで実行して、`entrypoint.sh`ファイルを実行可能にしてください。
+
+  ```shell{:copy}
+  $ chmod +x entrypoint.sh
+  ```
 
 ### READMEの作成
 
@@ -130,7 +140,7 @@ runs:
 - ワークフローでアクションを使う使用方法の例
 
 **README.md**
-```markdown
+```markdown{:copy}
 # Hello world docker action
 
 このアクションは"Hello World"もしくは"Hello" + ログに挨拶する人物名を出力します。
@@ -154,20 +164,20 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### アクションの GitHub へのコミットとタグ、プッシュ
+### アクションの{% data variables.product.product_name %}へのコミットとタグ、プッシュ
 
 ターミナルから、`action.yml`、`entrypoint.sh`、`Dockerfile`、および `README.md` ファイルをコミットします。
 
 アクションのリリースにはバージョンタグを加えることもベストプラクティスです。 アクションのバージョン管理の詳細については、「[アクションについて](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)」を参照してください。
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-### ワークフローでアクションを試す
+### ワークフローでアクションをテストする
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
@@ -175,11 +185,11 @@ git push --follow-tags
 
 #### パブリックアクションを使用する例
 
-次のワークフローコードでは、[`actions/hello-world-docker-container-action`](https://github.com/actions/hello-world-docker-action)というパブリックリポジトリにある完成した hello world アクションを使っています。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+以下のワークフローのコードは、パブリックの[`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action)リポジトリ内の完成した_hello world_アクションを使います。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% if currentVersion == "free-pro-team@latest" %}パブリックなアクションは、{% data variables.product.prodname_marketplace %}に公開されていなくても使うことができます。 詳しい情報については「[アクションの公開](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)」を参照してください。 {% endif %}
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
-```yaml
+**.github/workflows/main.yml**
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -187,24 +197,24 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # `hello` ステップからの出力を使用する
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
 #### プライベートアクションを使用する例
 
-次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet` 入力を自分の名前に置き換えることもできます。
+次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% if currentVersion == "free-pro-team@latest" %}このプライベートのアクションは{% data variables.product.prodname_marketplace %}に公開する事はできず、このリポジトリ内でのみ利用できます。{% endif %}
 
 {% raw %}
-**.github/ワークフロー/メイン.yml**
-```yaml
+**.github/workflows/main.yml**
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -227,6 +237,10 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+{% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run.png)
+{% endif %}

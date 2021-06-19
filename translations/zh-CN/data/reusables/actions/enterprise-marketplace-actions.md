@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 

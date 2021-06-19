@@ -1,14 +1,15 @@
 ---
 title: 对代码扫描的 SARIF 支持
 shortTitle: SARIF 支持
-intro: 'To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you''ll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. 如果使用默认 {% data variables.product.prodname_codeql %} 静态分析引擎，结果将自动显示于您在 {% data variables.product.prodname_dotcom %} 上的仓库中。'
+intro: '要在 {% data variables.product.prodname_dotcom %} 上的仓库中显示第三方静态分析工具的结果，您需要将结果存储在 SARIF 文件中，以支持用于 {% data variables.product.prodname_code_scanning %} 的 SARIF 2.1.0 JSON 架构的特定子集。 如果使用默认 {% data variables.product.prodname_codeql %} 静态分析引擎，结果将自动显示于您在 {% data variables.product.prodname_dotcom %} 上的仓库中。'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
@@ -16,27 +17,31 @@ versions:
 
 SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS 标准](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)。 SARIF 标准用于简化静态分析工具分享其结果的方式。 {% data variables.product.prodname_code_scanning_capc %} 支持 SARIF 2.1.0 JSON 架构的子集。
 
-要从第三方静态代码分析引擎上传 SARIF 文件，需确保上传的文件使用 SARIF 2.1.0 版本。 {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. 更多信息请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)”。 有关 SARIF 2.1.0 JSON 架构的更多信息，请参阅 [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json)。
+要从第三方静态代码分析引擎上传 SARIF 文件，需确保上传的文件使用 SARIF 2.1.0 版本。 {% data variables.product.prodname_dotcom %} 将剖析 SARIF 文件，并在 {% data variables.product.prodname_code_scanning %} 过程中使用仓库中的结果显示警报。 更多信息请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)”。 有关 SARIF 2.1.0 JSON 架构的更多信息，请参阅 [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json)。
 
-如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 For more information, see "[Enabling {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)" or "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
+如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)”或“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”。
 
-{% data variables.product.prodname_dotcom %} 使用 SARIF 文件中的属性来显示警报。 例如，`shortDescription` 和 `fullDescription` 出现在 {% data variables.product.prodname_code_scanning %} 警报的顶部。 `location` 允许 {% data variables.product.prodname_dotcom %} 在代码文件中显示注释。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} 使用 SARIF 文件中的属性来显示警报。 例如，`shortDescription` 和 `fullDescription` 出现在 {% data variables.product.prodname_code_scanning %} 警报的顶部。 `location` 允许 {% data variables.product.prodname_dotcom %} 在代码文件中显示注释。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
 如果您是 SARIF 的新用户，想了解更多信息，请参阅 Microsoft 的[`SARIF 教程`](https://github.com/microsoft/sarif-tutorials)库。
 
 ### 使用指纹防止重复警报
 
-每次上传新的代码扫描结果时，都会处理结果并将警报添加到仓库中。 为防止出现针对同一问题的重复警报，{% data variables.product.prodname_code_scanning %} 使用指纹匹配各个运行的结果，使它们只会出现在所选分支的最新运行中出现一次。 This makes it possible to match alerts to the right line of code when files are edited.
+每次上传新的代码扫描结果时，都会处理结果并将警报添加到仓库中。 为防止出现针对同一问题的重复警报，{% data variables.product.prodname_code_scanning %} 使用指纹匹配各个运行的结果，使它们只会出现在所选分支的最新运行中出现一次。 这样可以在编辑文件时将警报与正确的代码行匹配。
 
 {% data variables.product.prodname_dotcom %} 使用 OASIS 标准中的 `partialFingerprints` 属性来检测两个结果在逻辑上是否相同。 更多信息请参阅 OASIS 文档中的 "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" 条目。
 
-通过 {% data variables.product.prodname_codeql_workflow %} 或 {% data variables.product.prodname_codeql_runner %} 创建的 SARIF 文件包含指纹数据。 If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+通过 {% data variables.product.prodname_codeql_workflow %} 或 {% data variables.product.prodname_codeql_runner %} 创建的 SARIF 文件包含指纹数据。 如果使用 `upload-sarif` 操作上传 SARIF 文件且此数据缺少，则 {% data variables.product.prodname_dotcom %} 会尝试从源文件填充 `partialFingerprints` 字段。 有关上传结果的更多信息，请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)”。
 
-If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload a SARIF file](/rest/reference/code-scanning#upload-a-sarif-file)."
+如果您使用 `/code-scaning/sarifs` API 端点上传无指纹数据的 SARIF 文件，{% data variables.product.prodname_code_scanning %} 警报将被处理并显示，但用户可能会看到重复的警报。 为了避免看到重复的警报，您应该在上传 SARIF 文件之前计算指纹数据并填充 `partialFingerprints` 属性。 您可能发现 `upload-sarif` 操作的脚本使用一个有用的起点：https://github.com/github/codeql-action/blob/main/src/fingprints。 有关 API 的更多信息，请参阅“[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”。
 
-### Validating your SARIF file
+### 验证 SARIF 文件
 
-You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
+<!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
+
+您可以根据 {% data variables.product.prodname_dotcom %} 引入规则测试 SARIF 文件是否兼容 {% data variables.product.prodname_code_scanning %}。 有关更多信息，请访问 [Microsoft SARIF 验证程序](https://sarifweb.azurewebsites.net/)。
+
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 ### 支持的 SARIF 输出文件属性
 
@@ -80,6 +85,8 @@ You can check a SARIF file is compatible with {% data variables.product.prodname
 
 #### `result` 对象
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 | 名称                                      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ruleId`                                | **可选。**规则的唯一标识符 (`reportingDescriptor.id`)。 更多信息请参阅 [`reportingDescriptor` 对象](#reportingdescriptor-object)。 {% data variables.product.prodname_code_scanning_capc %} 使用规则标识符在 {% data variables.product.prodname_dotcom %} 上按规则过滤结果。                                                                                                                                                                                                                                                         |
@@ -87,11 +94,10 @@ You can check a SARIF file is compatible with {% data variables.product.prodname
 | `rule`                                  | **可选。**用于定位此结果的规则 (reportingdescriptor) 的引用。 更多信息请参阅 [`reportingDescriptor` 对象](#reportingdescriptor-object)。                                                                                                                                                                                                                                                                                                                                                                                     |
 | `level`                                 | **可选。**结果的严重程度。 此级别覆盖规则定义的默认严重程度。 {% data variables.product.prodname_code_scanning_capc %} 使用级别在 {% data variables.product.prodname_dotcom %} 上按严重程度过滤结果。                                                                                                                                                                                                                                                                                                                                     |
 | `message.text`                          | **必选。**描述结果的消息。 {% data variables.product.prodname_code_scanning_capc %} 显示消息文本作为结果的标题。 当可见空间有限时，仅显示消息的第一句。                                                                                                                                                                                                                                                                                                                                                                                     |
-| `locations[]`                           | **必选。**检测到结果的位置集。 应只包含一个位置，除非只能通过在每个指定位置进行更改来更正问题。 **注：**{% data variables.product.prodname_code_scanning %} 至少需要一个位置才能显示结果。 {% data variables.product.prodname_code_scanning_capc %} 将使用此属性来决定要用结果注释哪个文件。 仅使用此数组的第一个值。 所有其他值都被忽略。                                                                                                                                                                                                                                                            |
+| `locations[]`                           | **必填。**>最多可以检测到 10 个结果的位置集。 应只包含一个位置，除非只能通过在每个指定位置进行更改来更正问题。 **注：**{% data variables.product.prodname_code_scanning %} 至少需要一个位置才能显示结果。 {% data variables.product.prodname_code_scanning_capc %} 将使用此属性来决定要用结果注释哪个文件。 仅使用此数组的第一个值。 所有其他值都被忽略。                                                                                                                                                                                                                                                  |
 | `partialFingerprints`                   | **必选。**用于跟踪结果的唯一标识的一组字符串。 {% data variables.product.prodname_code_scanning_capc %} 使用 `partialFingerprints` 准确地识别在提交和分支之间相同的结果。 {% data variables.product.prodname_code_scanning_capc %} 将尝试使用 `partialFingerprints`（如果存在）。 如果您使用 `upload-action` 上传第三方 SARIF 文件，该操作将为您创建 `partialFingerprints`（如果它们未包含在 SARIF 文件中）。 更多信息请参阅“[使用指纹防止重复警报](#preventing-duplicate-alerts-using-fingerprints)”。  **注：**{% data variables.product.prodname_code_scanning_capc %} 只使用 `primaryLocationLineHash`。 |
 | `codeFlows[].threadFlows[].locations[]` | **可选。**`threadFlow` 对象的 `location` 对象数组，它描述程序通过执行线程的进度。 `codeFlow` 对象描述用于检测结果的代码执行模式。 如果提供了代码流，{% data variables.product.prodname_code_scanning %} 将在 {% data variables.product.prodname_dotcom %} 上扩展代码流以获取相关结果。 更多信息请参阅 [`location` 对象](#location-object)。                                                                                                                                                                                                                                    |
 | `relatedLocations[]`                    | 与此结果相关的一组位置。 当相关位置嵌入在结果消息中时，{% data variables.product.prodname_code_scanning_capc %} 将链接到这些位置。 更多信息请参阅 [`location` 对象](#location-object)。                                                                                                                                                                                                                                                                                                                                                       |
-| `suppressions[].state`                  | **可选。**当 `state` 设置为 `accepted` 时，{% data variables.product.prodname_code_scanning %} 将在 {% data variables.product.prodname_dotcom %} 上将结果的状态更新为 `Closed`。                                                                                                                                                                                                                                                                                                                                      |
 
 #### `location` 对象
 
@@ -105,13 +111,13 @@ You can check a SARIF file is compatible with {% data variables.product.prodname
 
 #### `physicalLocation` 对象
 
-| 名称                     | 描述                                                                                                                                                                                                                                                                                                                     |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `artifactLocation.uri` | **必选。**表示构件位置的 URI，通常是仓库中或在构建期间生成的文件。 如果 URI 是相对的，它应相对于正在分析的 {% data variables.product.prodname_dotcom %} 仓库的根目录。 例如，main.js 或 src/script.js 相对于仓库的根目录。 如果 URI 是绝对的，则 {% data variables.product.prodname_code_scanning %} 可使用 URI 检出构件并匹配仓库中的文件。 例如，`https://github.com/github/example/blob/00/src/promiseUtils.js`。 |
-| `region.startLine`     | **必选。**区域中第一个字符的行号。                                                                                                                                                                                                                                                                                                    |
-| `region.startColumn`   | **必选。**区域中第一个字符的列编号。                                                                                                                                                                                                                                                                                                   |
-| `region.endLine`       | **必选。**区域中最后一个字符的行号。                                                                                                                                                                                                                                                                                                   |
-| `region.endColumn`     | **必选。**区域结束后字符的列编号。                                                                                                                                                                                                                                                                                                    |
+| 名称                     | 描述                                                                                                                                                                                                                                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `artifactLocation.uri` | **必选。**表示构件位置的 URI，通常是仓库中或在构建期间生成的文件。 如果 URI 是相对的，它应相对于正在分析的 {% data variables.product.prodname_dotcom %} 仓库的根目录。 例如，main.js 或 src/script.js 相对于仓库的根目录。 如果 URI 是绝对的，则 {% data variables.product.prodname_code_scanning %} 可使用 URI 检出构件并匹配仓库中的文件。 例如，`https://github.com/ghost/example/blob/00/src/promiseUtils.js`。 |
+| `region.startLine`     | **必选。**区域中第一个字符的行号。                                                                                                                                                                                                                                                                                                   |
+| `region.startColumn`   | **必选。**区域中第一个字符的列编号。                                                                                                                                                                                                                                                                                                  |
+| `region.endLine`       | **必选。**区域中最后一个字符的行号。                                                                                                                                                                                                                                                                                                  |
+| `region.endColumn`     | **必选。**区域结束后字符的列编号。                                                                                                                                                                                                                                                                                                   |
 
 ### SARIF 输出文件示例
 

@@ -1,7 +1,6 @@
 ---
 title: Managing contributors and teams
 intro: You can manage the people and teams included in metrics and reports.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
@@ -90,7 +89,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. Under "Contributors", use the drop-down menu and select a contributor. ![Contibutors drop-down](/assets/images/help/insights/contributors-drop-down.png)
+3. Under "Contributors", use the drop-down menu and select a contributor. ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
 4. Click **Done**.
 
 #### Removing a contributor from a custom team
@@ -98,7 +97,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. To the right of the contributor you'd like to remove, click {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Trashcan button](/assets/images/help/insights/contributor-trashcan.png)
+3. To the right of the contributor you'd like to remove, click {% octicon "trash" aria-label="The trash icon" %}. ![trash button](/assets/images/help/insights/contributor-trashcan.png)
 
 #### Renaming a custom team
 

@@ -1,0 +1,7 @@
+---
+user_migrations_intro: >-
+  Puedes utilizar esta API para revisar, respaldar, o migrar tus datos de usuario que se almacenan en {% data variables.product.product_name %},com.
+organization_migrations_intro: >-
+  La API de migraciones de organización te permite migrar un repositorio de GitHub a {% data variables.product.prodname_ghe_server %}.
+source_imports_intro: >-
+  La API de Importaciones de Código Fuente te permite iniciar una importación desde un repositorio origen en Git, Subversion, Mercurial o Team Foundation Version Control. Esta es la misma funcionalidad que tiene el importador de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Importar un repositorio con el importador de {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)".

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} 詳細は「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
@@ -16,7 +17,7 @@ versions:
 {% data reusables.organizations.team-discussions-tab %}
 6. Team ディスカッションのタイトルとコメントを入力して会話を開始します。 ![新しい Team ディスカッション コメント](/assets/images/help/projects/team-discussions-comment.png)
 7. 任意で、自分のポストをプライベートにするかパブリックにするかをドロップダウンメニューから選択します。 ![Team ディスカッションのプライバシー設定メニュー](/assets/images/help/projects/team-discussions-privacy-menu.png)
-8. Click **Comment**. ![新しい Team ディスカッションの [Comment] ボタン](/assets/images/help/projects/team-discussions-comment-button.png)
+8. [**Comment**] をクリックします。 ![新しい Team ディスカッションの [Comment] ボタン](/assets/images/help/projects/team-discussions-comment-button.png)
 
 ### 参考リンク
 

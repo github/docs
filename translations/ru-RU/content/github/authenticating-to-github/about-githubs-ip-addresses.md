@@ -10,9 +10,12 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
-You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[Meta](/v3/meta/)."
+You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[Meta](/rest/reference/meta)."
 
 These ranges are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You can use an online conversion tool such as this  [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php) to convert from CIDR notation to IP address ranges.
 
