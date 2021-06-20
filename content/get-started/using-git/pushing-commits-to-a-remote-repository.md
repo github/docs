@@ -1,5 +1,5 @@
 ---
-title: Pushing commits to a remote repository
+title: About git push
 intro: Use `git push` to push commits made on your local branch to a remote repository.
 redirect_from:
   - /articles/pushing-to-a-remote/

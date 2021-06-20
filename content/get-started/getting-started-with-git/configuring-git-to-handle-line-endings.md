@@ -1,5 +1,5 @@
 ---
-title: Configuring Git to handle line endings
+title: About line endings
 intro: 'To avoid problems in your diffs, you can configure Git to properly handle line endings.'
 redirect_from:
   - /dealing-with-lineendings/
