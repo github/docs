@@ -409,7 +409,7 @@ For more information on the difference between enums and strings, see the [offic
 
 There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-* [Pagination](https://graphql.github.io/learn/pagination/)
+* [Pagination](https://graphql.org/learn/pagination/)
 * [Fragments](https://graphql.github.io/learn/queries/#fragments)
-* [Inline fragments](https://graphql.github.io/learn/queries/#inline-fragments)
-* [Directives](https://graphql.github.io/learn/queries/#directives)
+* [Inline fragments](https://graphql.org/learn/queries/)
+* [Directives](https://graphql.org/learn/queries/)
