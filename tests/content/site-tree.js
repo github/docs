@@ -20,8 +20,8 @@ describe('siteTree', () => {
   })
 
   test('object order and structure', () => {
-    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].href).toBe('/en/github')
-    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].childPages[0].href).toBe('/en/github/getting-started-with-github')
+    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].href).toBe('/en/get-started')
+    expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].childPages[0].href).toBe('/en/get-started/quickstart')
   })
 
   describe('localized titles', () => {

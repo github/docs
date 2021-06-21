@@ -148,7 +148,7 @@ product_landing:
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Sorry, there is no guide that match your filter.
+  no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
   communities_using_discussions: Communities using discussions
   add_your_community: Add your community
@@ -165,6 +165,7 @@ product_sublanding:
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
+  no_result: Sorry, there are no guides that match your filter.
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
   filters:

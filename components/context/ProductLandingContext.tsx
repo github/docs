@@ -39,7 +39,7 @@ export type ProductLandingContextT = {
     overview?: string
   } | null
   product_video?: string
-  guideCards: Array<FeaturedLink>
+  featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
@@ -51,6 +51,7 @@ export type ProductLandingContextT = {
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
+  hasGuidesPage: boolean
   releases: Array<{
     version: string
     firstPreviousRelease: string
@@ -73,9 +74,26 @@ export const useProductLandingContext = (): ProductLandingContextT => {
   return context
 }
 
+export const getFeaturedLinksFromReq = (req: any): Record<string, Array<FeaturedLink>> => {
+  return Object.fromEntries(
+    Object.entries(req.context.featuredLinks || {}).map(([key, entries]) => {
+      return [
+        key,
+        ((entries as Array<any>) || []).map((entry: any) => ({
+          href: entry.href,
+          title: entry.title,
+          intro: entry.intro,
+          authors: entry.page.authors || [],
+        })),
+      ]
+    })
+  )
+}
+
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
+  const hasGuidesPage = (page.children || []).includes('/guides')
   return {
     ...pick(page, [
       'title',
@@ -85,6 +103,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'intro',
       'product_video',
     ]),
+    hasGuidesPage,
     product: {
       href: productTree.href,
       title: productTree.renderedShortTitle || productTree.renderedFullTitle,
@@ -110,16 +129,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
         }
       : null,
 
-    guideCards: (req.context.featuredLinks ? req.context.featuredLinks.guideCards || [] : []).map(
-      (link: any) => {
-        return {
-          href: link.href,
-          title: link.title,
-          intro: link.intro,
-          authors: link.page.authors || [],
-        }
-      }
-    ),
+    featuredLinks: getFeaturedLinksFromReq(req),
 
     tocItems: req.context.tocItems || [],
 
@@ -129,10 +139,13 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
       .map(([key, links]: any) => {
         return {
-          label: req.context.site.data.ui.toc[key],
+          label:
+            key === 'popular'
+              ? req.context.page.featuredLinks.popularHeading || req.context.site.data.ui.toc[key]
+              : req.context.site.data.ui.toc[key],
           viewAllHref:
-            key === 'guides' && !req.context.currentCategory
-              ? `${req.context.currentPath}/${key}`
+            key === 'guides' && !req.context.currentCategory && hasGuidesPage
+              ? `${req.context.currentPath}/guides`
               : '',
           articles: links.map((link: any) => {
             return {

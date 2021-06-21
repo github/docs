@@ -43,7 +43,7 @@ If your organization belongs to an enterprise account, you are automatically a m
 
 You can leave an organization at any time. For more information, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization)."
 
-### Further reading
+## Further reading
 
 - "[About organizations](/articles/about-organizations)"
 - "[Managing your membership in organizations](/articles/managing-your-membership-in-organizations)"

@@ -48,7 +48,7 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 5. To view more detailed information about the verified signature, click Verified.
 ![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
-### Further reading
+## Further reading
 
 * "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 * "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"

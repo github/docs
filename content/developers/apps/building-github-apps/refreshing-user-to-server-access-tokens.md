@@ -14,13 +14,13 @@ topics:
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
-### About expiring user access tokens
+## About expiring user access tokens
 
 To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens. For more information on making user-to-server requests, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
 
 Expiring user tokens expire after 8 hours. When you receive a new user-to-server access token, the response will also contain a refresh token, which can be exchanged for a new user token and refresh token. Refresh tokens are valid for 6 months. 
 
-### Renewing a user token with a refresh token
+## Renewing a user token with a refresh token
 
 To renew an expiring user-to-server access token, you can exchange the `refresh_token` for a new access token and `refresh_token`.
 
@@ -28,7 +28,7 @@ To renew an expiring user-to-server access token, you can exchange the `refresh_
 
 This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
 
-#### Parameters
+### Parameters
 
 Name | Type | Description
 -----|------|------------
@@ -37,7 +37,7 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.
 `client_secret` | `string`   | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.
 
-#### Response
+### Response
 
 ```json
 {
@@ -49,7 +49,7 @@ Name | Type | Description
   "token_type": "bearer"
 }
 ```
-### Configuring expiring user tokens for an existing GitHub App
+## Configuring expiring user tokens for an existing GitHub App
 
 You can enable or disable expiring user-to-server authorization tokens from your {% data variables.product.prodname_github_app %} settings.
 
@@ -62,7 +62,7 @@ You can enable or disable expiring user-to-server authorization tokens from your
   {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
 6. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.
 
-### Opting out of expiring tokens for new GitHub Apps
+## Opting out of expiring tokens for new GitHub Apps
 
 When you create a new {% data variables.product.prodname_github_app %}, by default your app will use expiring user-to-server access tokens.
 
@@ -76,7 +76,7 @@ Enabling expiring user tokens for existing {% data variables.product.prodname_gi
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 
-### Further reading
+## Further reading
 
 - "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 

@@ -21,6 +21,6 @@ When {% data variables.product.prodname_oauth_app %} access restrictions are ena
 6. After you review the information about the requested application, click **Grant access**.
 ![Grant access button](/assets/images/help/settings/settings-third-party-approve-grant.png)
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

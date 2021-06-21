@@ -20,7 +20,7 @@ topics:
 5. Click {% octicon "pin" aria-label="The pin icon" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon.
   ![Pin a discussion](/assets/images/help/projects/pin-discussion-button.png)
 
-### Further reading
+## Further reading
 
   - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"

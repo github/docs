@@ -14,7 +14,7 @@ versions:
 topics:
   - Pull requests
 ---
-### Marking a pull request as ready for review
+## Marking a pull request as ready for review
 
 {% data reusables.pull_requests.mark-ready-review %} 
 
@@ -33,7 +33,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-### Converting a pull request to a draft
+## Converting a pull request to a draft
 
 You can convert a pull request to a draft at any time. For example, if you accidentally opened a pull request instead of a draft, or if you've received feedback on your pull request that needs to be addressed, you can convert the pull request to a draft to indicate further changes are needed. No one can merge the pull request until you mark the pull request as ready for review again. People who are already subscribed to notifications for the pull request will not be unsubscribed when you convert the pull request to a draft.
 
@@ -46,6 +46,6 @@ You can convert a pull request to a draft at any time. For example, if you accid
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)"

@@ -19,7 +19,7 @@ You can only search code using these code search qualifiers. Search qualifiers s
 
 {% data reusables.search.syntax_tips %}
 
-### Considerations for code search
+## Considerations for code search
 
 Due to the complexity of searching code, there are some restrictions on how searches are performed:
 
@@ -35,7 +35,7 @@ Due to the complexity of searching code, there are some restrictions on how sear
 - At most, search results can show two fragments from the same file, but there may be more results within the file.
 - You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.
 
-### Search by the file contents or file path
+## Search by the file contents or file path
 
 With the `in` qualifier you can restrict your search to the contents of the source code file, the file path, or both. When you omit this qualifier, only the file contents are searched.
 
@@ -45,7 +45,7 @@ With the `in` qualifier you can restrict your search to the contents of the sour
 | `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) matches code where "octocat" appears in the file path.
 | | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) matches code where "octocat" appears in the file contents or the file path.
 
-### Search within a user's or organization's repositories
+## Search within a user's or organization's repositories
 
 To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
 
@@ -55,7 +55,7 @@ To search the code in all repositories owned by a certain user or organization, 
 | <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) matches code from GitHub that ends in <em>.js</em>.
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) matches code from @mozilla's shumway project that ends in <em>.as</em>.
 
-### Search by file location
+## Search by file location
 
 You can use the `path` qualifier to search for source code that appears at a specific location in a repository. Use `path:/` to search for files that are located at the root level of a repository. Or specify a directory name or the path to a directory to search for files that are located within that directory or any of its subdirectories.
 
@@ -65,7 +65,7 @@ You can use the `path` qualifier to search for source code that appears at a spe
 | <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in a <em>cgi-bin</em> directory, or in any of its subdirectories.
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in an <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>).
 
-### Search by language
+## Search by language
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
 You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
@@ -76,7 +76,7 @@ You can search for code based on what language it's written in. The `language` q
 | | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
 | | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
 
-### Search by file size
+## Search by file size
 
 You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
 
@@ -84,7 +84,7 @@ You can use the `size` qualifier to search for source code based on the size of 
 | ------------- | -------------
 | <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) matches code with the word "function," written in Python, in files that are larger than 10 KB.
 
-### Search by filename
+## Search by filename
 
 The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/articles/finding-files-on-github)."
 
@@ -94,7 +94,7 @@ The `filename` qualifier matches code files with a certain filename. You can als
 | | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
 | | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
 
-### Search by file extension
+## Search by file extension
 
 The `extension` qualifier matches code files with a certain file extension.
 
@@ -103,7 +103,7 @@ The `extension` qualifier matches code files with a certain file extension.
 | <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) matches code with the word "form," under <em>cgi-bin</em>, with the <em>.pm</em> file extension.
 | | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) matches files larger than 200 KB that end in .css and have the word "icon."
 
-### Further reading
+## Further reading
 
 - "[Sorting search results](/articles/sorting-search-results/)"
 - "[Searching in forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}

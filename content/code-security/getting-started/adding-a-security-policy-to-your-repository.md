@@ -17,7 +17,7 @@ topics:
   - Health
 ---
 
-### About security policies
+## About security policies
 
 To give people instructions for reporting security vulnerabilities in your project,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a _SECURITY.md_ file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
 
@@ -42,7 +42,7 @@ After someone reports a security vulnerability in your project, you can use {% d
 By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
 {% endif %}
 
-### Adding a security policy to your repository
+## Adding a security policy to your repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -56,7 +56,7 @@ By making security reporting instructions clearly available, you make it easy fo
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Further reading
+## Further reading
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}

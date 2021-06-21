@@ -13,14 +13,14 @@ topics:
   - Open Source
 ---
 
-### About sponsor profiles
+## About sponsor profiles
 
 Your {% data variables.product.prodname_sponsors %} profile tells potential sponsors why they should support you. People see your sponsor profile when they click the **Sponsor** button on your profile. We recommend including the following information.
 
 - Open source work that you contribute to
 - Why you are committed to open source development
 
-### Editing your profile details
+## Editing your profile details
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}

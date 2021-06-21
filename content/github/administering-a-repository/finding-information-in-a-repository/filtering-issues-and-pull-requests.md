@@ -27,7 +27,7 @@ You can filter issues and pull requests to find:
 3. Click **Filters** to choose the type of filter you're interested in.
   ![Using the Filters drop-down](/assets/images/help/issues/issues_filter_dropdown.png)
 
-### Further reading
+## Further reading
 
 - "[Filtering issues and pull requests by assignees](/articles/filtering-issues-and-pull-requests-by-assignees)"
 - "[Filtering issues and pull requests by milestones](/articles/filtering-issues-and-pull-requests-by-milestone)"

@@ -18,7 +18,7 @@ topics:
 
 As more users join {% data variables.product.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
 
-### Requirements and recommendations
+## Requirements and recommendations
 
 {% note %}
 
@@ -26,11 +26,11 @@ As more users join {% data variables.product.product_location %}, you may need t
 
 {% endnote %}
 
-#### Minimum requirements
+### Minimum requirements
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-### Increasing the data partition size
+## Increasing the data partition size
 
 1. Resize the existing user volume disk using your virtualization platform's tools.
 {% data reusables.enterprise_installation.ssh-into-instance %}
@@ -44,7 +44,7 @@ As more users join {% data variables.product.product_location %}, you may need t
   $ ghe-storage-extend
   ```
 
-### Increasing the root partition size using a new appliance
+## Increasing the root partition size using a new appliance
 
 1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 2. Shut down the current appliance:
@@ -54,7 +54,7 @@ As more users join {% data variables.product.product_location %}, you may need t
 3. Detach the data disk from the current appliance using your virtualization platform's tools.
 4. Attach the data disk to the new appliance with the larger root disk.
 
-### Increasing the root partition size using an existing appliance
+## Increasing the root partition size using an existing appliance
 
 {% warning %}
 

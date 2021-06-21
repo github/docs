@@ -2,9 +2,10 @@ import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import debounce from 'lodash/debounce'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { sendEvent } from '../javascripts/events'
+import { sendEvent, EventType } from '../javascripts/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
+import cx from 'classnames'
 
 type SearchResult = {
   url: string
@@ -126,7 +127,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
     // Analytics tracking
     if (xquery) {
       sendEvent({
-        type: 'search',
+        type: EventType.search,
         search_query: xquery,
         // search_context
       })
@@ -193,8 +194,9 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
       <div className="ais-SearchBox">
         <form role="search" className="ais-SearchBox-form" noValidate onSubmit={preventRefresh}>
           <input
+            data-testid="site-search-input"
             ref={inputRef}
-            className={'ais-SearchBox-input' + (isStandalone || query ? ' js-open' : '')}
+            className={cx('ais-SearchBox-input', isStandalone || query ? 'js-open' : '')}
             type="search"
             placeholder={t`placeholder`}
             /* eslint-disable-next-line jsx-a11y/no-autofocus */

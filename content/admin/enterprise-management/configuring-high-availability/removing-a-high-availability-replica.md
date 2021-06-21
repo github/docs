@@ -14,7 +14,7 @@ topics:
   - Enterprise
   - Infrastructure
 ---
-### Stopping replication temporarily
+## Stopping replication temporarily
 
 1. If necessary, stop a geo-replication replica from serving user traffic by removing the Geo DNS entries for the replica.
 2. On the replica where you wish to temporarily stop replication, run ghe-repl-stop.
@@ -26,7 +26,7 @@ topics:
   $ ghe-repl-start
   ```
 
-### Removing replication permanently
+## Removing replication permanently
 
 1. If necessary, stop a geo-replication replica from serving user traffic by removing the Geo DNS entries for the replica.
 2. On the replica you wish to remove replication from, run `ghe-repl-stop`.

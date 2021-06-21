@@ -13,7 +13,7 @@ redirect_from:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### About {% data variables.product.prodname_actions %} permissions for your repository
+## About {% data variables.product.prodname_actions %} permissions for your repository
 
 {% data reusables.github-actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
 
@@ -23,7 +23,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
-### Managing {% data variables.product.prodname_actions %} permissions for your repository
+## Managing {% data variables.product.prodname_actions %} permissions for your repository
 
 {% note %}
 
@@ -41,7 +41,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-### Managing {% data variables.product.prodname_actions %} permissions for your repository
+## Managing {% data variables.product.prodname_actions %} permissions for your repository
 
 You can disable all workflows for a repository or set a policy that configures which actions can be used in a repository.
 
@@ -62,7 +62,7 @@ You can disable all workflows for a repository or set a policy that configures w
   ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
 1. Click **Save**.
 
-### Allowing specific actions to run
+## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
@@ -75,11 +75,11 @@ You can disable all workflows for a repository or set a policy that configures w
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Enabling workflows for private repository forks
+## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configuring the private fork policy for a repository
+### Configuring the private fork policy for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -88,7 +88,7 @@ You can disable all workflows for a repository or set a policy that configures w
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-### Setting the permissions of the `GITHUB_TOKEN` for your repository
+## Setting the permissions of the `GITHUB_TOKEN` for your repository
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
@@ -96,7 +96,7 @@ The default permissions can also be configured in the organization settings. If 
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configuring the default `GITHUB_TOKEN` permissions
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

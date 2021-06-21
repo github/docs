@@ -8,7 +8,7 @@ export const LearningTracks = () => {
     <div>
       <div className="d-flex flex-wrap flex-items-start my-5 gutter">
         {(learningTracks || []).map((track) => {
-          return <LearningTrack key={track.title} track={track} />
+          return <LearningTrack key={track?.title} track={track} />
         })}
       </div>
     </div>

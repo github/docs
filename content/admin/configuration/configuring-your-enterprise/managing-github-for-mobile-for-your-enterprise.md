@@ -15,13 +15,13 @@ redirect_from:
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-### About {% data variables.product.prodname_mobile %}
+## About {% data variables.product.prodname_mobile %}
 
 {% data reusables.mobile.about-mobile %} For more information, see "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 
 Members of your enterprise can use {% data variables.product.prodname_mobile %} to triage, collaborate, and manage work on {% data variables.product.product_location %} from a mobile device. By default, {% data variables.product.prodname_mobile %} is enabled for {% data variables.product.product_location %}. You can allow or disallow enterprise members from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.product.product_location %} and access your enterprise's data.
 
-### Enabling or disabling {% data variables.product.prodname_mobile %}
+## Enabling or disabling {% data variables.product.prodname_mobile %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

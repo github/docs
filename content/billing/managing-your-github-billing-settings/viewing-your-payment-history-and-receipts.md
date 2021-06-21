@@ -7,7 +7,6 @@ redirect_from:
   - /articles/downloading-receipts-for-personal-accounts/
   - /articles/downloading-receipts-for-organizations/
   - /articles/viewing-your-payment-history-and-receipts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:
   free-pro-team: '*'
@@ -18,14 +17,14 @@ topics:
   - Receipts
   - User account
 ---
-### Viewing receipts for your personal account
+## Viewing receipts for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}
 
-### Viewing receipts for your organization
+## Viewing receipts for your organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-### Prerequisites
+## Prerequisites
 
 Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
 
@@ -24,7 +24,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-### Creating a repository for your site
+## Creating a repository for your site
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -33,7 +33,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 
-### Creating your site
+## Creating your site
 
 {% data reusables.pages.must-have-repo-first %}
 
@@ -120,7 +120,7 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 
 {% data reusables.pages.admin-must-push %}
 
-### Next steps
+## Next steps
 
 To add a new page or post to your site, see "[Adding content to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll)."
 

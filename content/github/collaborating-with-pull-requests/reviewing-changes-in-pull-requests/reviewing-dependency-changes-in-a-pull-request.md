@@ -22,13 +22,13 @@ redirect_from:
 
 {% endnote %}
 
-### About dependency review
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %} 
 
 Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
-### Reviewing dependencies in a pull request
+## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
