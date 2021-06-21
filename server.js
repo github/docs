@@ -49,7 +49,7 @@ async function checkPortAvailability () {
 }
 
 async function startServer () {
-  const app = libApp()
+  const app = libApp
   const warmServer = libWarmServer
 
   // If in a deployed environment...
