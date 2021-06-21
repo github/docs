@@ -3,6 +3,7 @@ const { productMap } = require('../../lib/all-products')
 const schema = require('../helpers/schemas/products-schema')
 const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+jest.useFakeTimers()
 
 describe('products module', () => {
   test('is an object with product ids as keys', () => {

@@ -4,6 +4,7 @@ const { latest } = require('../../lib/enterprise-server-releases')
 const schema = require('../helpers/schemas/versions-schema')
 const { getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+jest.useFakeTimers()
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {
