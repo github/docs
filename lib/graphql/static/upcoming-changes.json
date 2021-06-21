@@ -1,5 +1,15 @@
 {
   "dotcom": {
+    "2021-10-01": [
+      {
+        "location": "ReactionGroup.users",
+        "description": "<p><code>users</code> will be removed. Use the <code>reactors</code> field instead.</p>",
+        "reason": "<p>Reactors can now be mannequins, bots, and organizations.</p>",
+        "date": "2021-10-01",
+        "criticality": "breaking",
+        "owner": "synthead"
+      }
+    ],
     "2021-06-21": [
       {
         "location": "PackageType.DOCKER",
@@ -1262,6 +1272,16 @@
     ]
   },
   "ghae": {
+    "2021-10-01": [
+      {
+        "location": "ReactionGroup.users",
+        "description": "<p><code>users</code> will be removed. Use the <code>reactors</code> field instead.</p>",
+        "reason": "<p>Reactors can now be mannequins, bots, and organizations.</p>",
+        "date": "2021-10-01",
+        "criticality": "breaking",
+        "owner": "synthead"
+      }
+    ],
     "2021-06-21": [
       {
         "location": "PackageType.DOCKER",

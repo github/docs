@@ -120,3 +120,9 @@ upcoming_changes:
     date: '2021-06-21'
     criticality: breaking
     owner: reybard
+  - location: ReactionGroup.users
+    description: '`users` will be removed. Use the `reactors` field instead.'
+    reason: Reactors can now be mannequins, bots, and organizations.
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: synthead
