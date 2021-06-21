@@ -23,8 +23,6 @@ You can set up repositories for different purposes based on your needs. The foll
 - **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others. 
 
 You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[Creating an issues-only repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)."
-
-ADD NOTE ABOUT ADDING PEOPLE and link to doc on it
 ### Repository example 
 Below is an example of a repository created for a new project, called Project Octocat.  
 
@@ -35,7 +33,7 @@ You can create a README.md file for your repository to introduce your team or pr
 You can also create a CONTRIBUTING.md file specifically to contain guidelines on how users or contributors can contribute and interact with the team or project, such as how to open a bug fix issue or request an improvement. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 ### README example
-Here is an example of a README.md created for our newly created project. 
+Here is an example of a README.md created for our newly created project, Project Octocat. 
 
 ![Creating README example](/assets/images/help/issues/quickstart-creating-readme.png)
 ## Creating issue templates
@@ -50,14 +48,14 @@ You can use issues to track the different types of work that your team or projec
 Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue forms and templates for your repository. Issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
 ### Issue template example for large initiative
-Below is an example of an issue template for a large initiative, in our previously created project repository.
+Below is an example of an issue template for a large initiative, for our previously created Project Octocat.
 
 ![Creating issue template example](/assets/images/help/issues/quickstart-creating-issue-template.png)
 
 ## Opening issues and using task lists to track work
 You can organize and track your work by creating issues. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
 ### Issue example for large initiative
-Below is an example of an issue created for a large initiative.
+Here is an example of an issue created for a large initiative, in this case front-end work for Project Octocat.
 
 ![Creating large initiative issue example](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 
@@ -67,7 +65,7 @@ For more information, see "[Creating task lists](/issues/tracking-your-work-with
 
 Tasks lists have added functionality when added to the body of an issue. If you are working on a big initiative made up of multiple smaller tasks, you can create a main issue and then smaller issues for each of the tasks that make up the feature. You can then add a task list to the main issue, listing each of the smaller issues. You can then see the progress of tasks completed at the top of the issue, and if someone closes an issue in the list, the checkbox will automatically be marked as complete.
 ### Task list example in large initiative issue
-Below we have added a task list to our large initiative issue created previously, breaking it down into smaller issues. 
+Below we have added a task list to our front-end work issue created previously, breaking it down into smaller issues.
 
 ![Adding task list to issue example](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
@@ -76,7 +74,7 @@ You can use issues and discussions to communicate and make decisions as a team o
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue. 
 ### Issue example with project collaborators participating
-Below is an example of project collaborators giving status on their work on the large initiative issue.
+Below is an example of project collaborators giving status on their work on the large initiative issue for Project Octocat. 
 
 ![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-large-initiative.png)
 ## Using labels to highlight project goals and status
@@ -101,7 +99,7 @@ TBD
 You can use project boards on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
 ### Project board example
-Below is an example project board with our large initiative issue, and smaller issues, added to it. 
+Below is a project board for our example Project Octocat with our large initiative issue, and smaller issues, added to it. 
 
 ![Project board example](/assets/images/help/issues/quickstart-project-board.png)
 ## Next steps
