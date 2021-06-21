@@ -13,7 +13,7 @@ You can use {% data variables.product.prodname_dotcom %} repositories, issues, p
 In this guide, you will learn how to create and set up a repository for collaborating with a team, create issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
 ## Creating a repository
-When starting a new project, initiative or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)".
+When starting a new project, initiative, or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)".
 
 You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
@@ -29,14 +29,14 @@ You can create a README.md file for your repository to introduce your team or pr
 You can also create a CONTRIBUTING.md file specifically to contain guidelines on how users or contributors can contribute and interact with the team or project, such as how to open a bug fix issue or request an improvement. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
 ## Making decisions as a team
-You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)".
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)"
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue. 
 ## Creating issue templates
 
-You can use issues to track the different types of work that your team or project covers, as well as gather information from those outside of your project. The following are a few common use cases that issues are used for.
+You can use issues to track the different types of work that your team or project covers, as well as gather information from those outside of your project. The following are a few common use cases for issues.
 
-- Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch
+- Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
 - Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues. 
 - Requests for improvement: Your team or users can create issues to request an improvement to your product or project.
 - Bugs: Your team or users can create issues to report a bug. 
@@ -69,7 +69,7 @@ Tasks lists have added functionality when added to the body of an issue. If you 
 
 ![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
 ## Using labels to highlight project goals and status
-You can create labels for a repository to categorize issues, pull requests and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue.
+You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -82,7 +82,7 @@ You can create labels for a repository to categorize issues, pull requests and d
 
 Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label. For more information, see "[Filtering issues and pull requests by labels](/github/administering-a-repository/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-labels)".
 ## Adding issues to a project board
-{% if currentVersion == "free-pro-team@latest" %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)".
+{% if currentVersion == "free-pro-team@latest" %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and pull requests. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)".
 
 ![Project table](/assets/images/help/issues/projects_table.png)
 
@@ -95,7 +95,7 @@ You can use project boards on {% data variables.product.prodname_dotcom %} to pl
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
 - "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" for learning more about creating repositories
-- "[Tracking your work with issues](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues.
+- "[Tracking your work with issues](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
 - "[About issues and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
 - "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
 - "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" for learning more about task lists
