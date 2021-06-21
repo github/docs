@@ -28983,6 +28983,31 @@ type ReactionGroup {
   createdAt: DateTime
 
   """
+  Reactors to the reaction subject with the emotion represented by this reaction group.
+  """
+  reactors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ReactorConnection!
+
+  """
   The subject that was reacted to.
   """
   subject: Reactable!
@@ -29011,6 +29036,9 @@ type ReactionGroup {
     """
     last: Int
   ): ReactingUserConnection!
+    @deprecated(
+      reason: "Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC."
+    )
 
   """
   Whether or not the authenticated user has left a reaction on the subject.
@@ -29041,6 +29069,56 @@ enum ReactionOrderField {
   Allows ordering a list of reactions by when they were created.
   """
   CREATED_AT
+}
+
+"""
+Types that can be assigned to reactions.
+"""
+union Reactor = Bot | Mannequin | Organization | User
+
+"""
+The connection type for Reactor.
+"""
+type ReactorConnection {
+  """
+  A list of edges.
+  """
+  edges: [ReactorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Reactor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+Represents an author of a reaction.
+"""
+type ReactorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The author of the reaction.
+  """
+  node: Reactor!
+
+  """
+  The moment when the user made the reaction.
+  """
+  reactedAt: DateTime!
 }
 
 """
