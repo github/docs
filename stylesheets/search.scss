@@ -86,7 +86,7 @@ header {
     margin-bottom: 0;
   }
 
-  @include breakpoint(md) {
+  @include breakpoint(lg) {
     #search-results-container {
       display: none;
       position: absolute;
