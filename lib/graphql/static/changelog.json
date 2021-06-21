@@ -4,6 +4,29 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `Reactor` was added",
+          "Type `ReactorConnection` was added",
+          "Type `ReactorEdge` was added",
+          "Field `reactors` was added to object type `ReactionGroup`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `ReactionGroup.users`:`users` will be removed. Use the `reactors` field instead. **Effective 2021-10-01**."
+        ]
+      }
+    ],
+    "date": "2021-06-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `IpAllowListForInstalledAppsEnabledSettingValue` was added",
           "Type `UpdateIpAllowListForInstalledAppsEnabledSettingInput` was added",
           "Type `UpdateIpAllowListForInstalledAppsEnabledSettingPayload` was added",

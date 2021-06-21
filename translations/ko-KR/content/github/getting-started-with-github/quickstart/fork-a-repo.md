@@ -66,7 +66,9 @@ Forking a repository is a simple two-step process. We've created a repository fo
 
 ### Keep your fork synced
 
-You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
+You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. If you check out the project locally to work on the project on your computer, you can use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}If you're not working on the project locally, you can also sync a fork directly on {% data variables.product.product_name %}. For more information, see "[Syncing a fork](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."{% endif %}
 
 #### Step 1: Set up Git
 
@@ -129,7 +131,7 @@ When you fork a project in order to propose changes to the original repository, 
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/articles/syncing-a-fork)."
+Now, you can keep your fork synced with the upstream repository either in the web UI or locally on your computer. For more information, see "[Syncing a fork](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-in-the-web-ui)."
 
 #### 다음 단계
 
