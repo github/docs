@@ -116,7 +116,7 @@ To filter notifications for specific activity on {% data variables.product.produ
 - `is:repository-vulnerability-alert`
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% if currentVersion == "free-pro-team@latest" %}
-- `is:discussions`{% endif %}
+- `is:discussion`{% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
 For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
