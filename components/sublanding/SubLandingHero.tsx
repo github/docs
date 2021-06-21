@@ -26,7 +26,7 @@ export const SubLandingHero = () => {
             )}
           </div>
           <div className="color-text-tertiary h6 text-uppercase">
-            {t('guide_types')[guide.page.type]}
+            {t('guide_types')[guide.page?.type || '']}
           </div>
         </div>
         <h3 className="font-mktg h3-mktg my-4 color-text-primary">{guide.title}</h3>

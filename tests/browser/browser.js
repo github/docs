@@ -44,7 +44,7 @@ describe('browser search', () => {
     await page.waitForSelector('.ais-Hits')
     const hits = await page.$$('.ais-Hits-item')
     expect(hits.length).toBeGreaterThan(5)
-    page.setViewport(initialViewport)
+    await page.setViewport(initialViewport)
   })
 
   it('works on 404 error page', async () => {
@@ -72,8 +72,10 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
   })
 
@@ -93,8 +95,10 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
   })
 })
@@ -118,20 +122,20 @@ describe('survey', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('.js-survey [for=survey-yes]')
+    await page.click('[data-testid=survey-form] [for=survey-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('.js-survey [type="email"]')
+    await page.waitForSelector('[data-testid=survey-form] [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('.js-survey [type="email"]', 'test@example.com')
+    await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('.js-survey [type="submit"]')
+    await page.click('[data-testid=survey-form] [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('.js-survey [data-help-end]')
+    await page.waitForSelector('[data-testid=survey-end]')
   })
 })
 
@@ -258,23 +262,23 @@ describe('code examples', () => {
 describe('filter cards', () => {
   it('works with select input', async () => {
     await page.goto('http://localhost:4001/en/actions/guides')
-    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
-      cards.map(card => card.dataset.type)
+    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    const shownCards = await page.$$('[data-testid=article-card]')
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
+      cardTypes.map(cardType => cardType.textContent)
     )
-    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    shownCardTypes.map(type => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 
   it('works with select input on an Enterprise version', async () => {
     await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
-    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
-      cards.map(card => card.dataset.type)
+    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    const shownCards = await page.$$('[data-testid=article-card]')
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
+      cardTypes.map(cardType => cardType.textContent)
     )
-    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    shownCardTypes.map(type => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 })

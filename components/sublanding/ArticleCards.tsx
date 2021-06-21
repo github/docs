@@ -50,6 +50,7 @@ export const ArticleCards = () => {
             className="form-select f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0"
             name="type"
             aria-label="guide types"
+            data-testid="card-filter-dropdown"
             onChange={onChangeTypeFilter}
           >
             <option value="">{t('filters.all')}</option>
@@ -70,6 +71,7 @@ export const ArticleCards = () => {
             value={topicFilter}
             className="form-select f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0"
             name="topics"
+            data-testid="card-filter-dropdown"
             aria-label="guide topics"
             onChange={onChangeTopicFilter}
           >
