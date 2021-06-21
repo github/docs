@@ -1,6 +1,5 @@
 import murmur from 'imurmurhash'
 import { getUserEventsId, sendEvent, EventType } from './events'
-// import h from './hyperscript'
 
 const TREATMENT = 'TREATMENT'
 const CONTROL = 'CONTROL'
