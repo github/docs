@@ -57,7 +57,7 @@ describe('featuredLinks', () => {
 
       // Confirm that the following Dotcom-only links are NOT included on this Enterprise page.
       msg = `Dotcom-only article link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
-      expect($productArticlesLinks.text().includes('Enabling improved container support with the Container registry')).toBe(false)
+      expect($productArticlesLinks.text().includes('Working with the Container registry')).toBe(false)
       expect($productArticlesLinks.text().includes('Migrating to the Container registry from the Docker registry'), msg).toBe(false)
     })
   })

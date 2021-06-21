@@ -129,7 +129,7 @@ describe('pages module', () => {
       expect(liquidErrors.length, failureMessage).toBe(0)
     })
 
-    test('every non-English page has a matching English page', async () => {
+    test.skip('every non-English page has a matching English page', async () => {
       const englishPaths = chain(pages)
         .filter(page => page.languageCode === 'en')
         .map(page => page.relativePath)
