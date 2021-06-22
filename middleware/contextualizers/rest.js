@@ -15,10 +15,10 @@ module.exports = function restContext (req, res, next) {
   ))
 
   // ignore requests to non-REST reference paths
-  if (!req.path.includes('rest/reference')) return next()
+  if (!req.pagePath.includes('rest/reference')) return next()
 
   // e.g. the `activity` from `/en/rest/reference/activity#events`
-  const category = req.path
+  const category = req.pagePath
     .split('rest/reference')[1]
     .replace(/^\//, '') // remove leading slash
     .split('/')[0]

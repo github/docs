@@ -13,7 +13,7 @@ module.exports = function graphqlContext (req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-GraphQL reference paths
   // and to versions that don't exist
-  if (!req.path.includes('/graphql/') || !currentVersionObj) {
+  if (!req.pagePath.includes('/graphql/') || !currentVersionObj) {
     return next()
   }
   // Get the relevant name of the GraphQL schema files for the current version

@@ -337,3 +337,25 @@ describe('nextjs query param', () => {
     flagVal === true ? expect(IS_NEXTJS_PAGE).toBe(true) : expect(IS_NEXTJS_PAGE).toBe(false)
   })
 })
+
+describe('next/link client-side navigation', () => {
+  jest.setTimeout(60 * 1000)
+
+  it('should have 200 response to /_next/data when link is clicked', async () => {
+    const initialViewport = page.viewport()
+    await page.setViewport({ width: 1024, height: 768 })
+    await page.goto('http://localhost:4001/en/actions')
+
+    const [response] = await Promise.all([
+      page.waitForResponse(
+        (response) =>
+          response.url().startsWith('http://localhost:4001/_next/data') 
+      ),
+      page.waitForNavigation({ waitUntil: 'networkidle2' }),
+      page.click('.sidebar-categories .sidebar-category:nth-child(2) a'),
+    ])
+
+    expect(response.status()).toBe(200)
+    await page.setViewport(initialViewport)
+  })
+})
