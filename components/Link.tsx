@@ -4,7 +4,7 @@ import { useMainContext } from 'components/context/MainContext'
 
 const { NODE_ENV } = process.env
 
-const enableNextLinks = false
+const enableNextLinks = true
 
 type Props = { locale?: string } & ComponentProps<'a'>
 export function Link(props: Props) {
