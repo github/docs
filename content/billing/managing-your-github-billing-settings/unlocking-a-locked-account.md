@@ -10,7 +10,6 @@ redirect_from:
   - /articles/unlocking-a-locked-personal-account/
   - /articles/unlocking-a-locked-organization-account/
   - /articles/unlocking-a-locked-account
-  - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:
   free-pro-team: '*'

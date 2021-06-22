@@ -50,7 +50,7 @@ module.exports = async function genericToc (req, res, next) {
 async function getTocItems (pagesArray, context, isRecursive, renderIntros) {
   return (await Promise.all(pagesArray.map(async (child) => {
     // Do not include hidden child items on a TOC page
-    if (child.page.hidden) return
+    if (child.page.hidden && !context.currentPath.includes('/early-access/')) return
 
     return {
       title: child.renderedFullTitle,

@@ -79,7 +79,7 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
     Object.entries(req.context.featuredLinks || {}).map(([key, entries]) => {
       return [
         key,
-        (entries as Array<any> || []).map((entry: any) => ({
+        ((entries as Array<any>) || []).map((entry: any) => ({
           href: entry.href,
           title: entry.title,
           intro: entry.intro,
@@ -144,7 +144,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
               ? req.context.page.featuredLinks.popularHeading || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:
-            key === 'guides' && !req.context.currentCategory && hasGuidesPage 
+            key === 'guides' && !req.context.currentCategory && hasGuidesPage
               ? `${req.context.currentPath}/guides`
               : '',
           articles: links.map((link: any) => {

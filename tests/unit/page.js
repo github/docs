@@ -274,11 +274,11 @@ describe('Page class', () => {
 
     test('permalinks for dotcom-only pages', async () => {
       const page = await Page.init({
-        relativePath: 'github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account.md',
+        relativePath: 'github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      const expectedPath = '/en/github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account'
+      const expectedPath = '/en/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
       expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(expectedPath)
       expect(page.permalinks.length).toBe(1)
     })

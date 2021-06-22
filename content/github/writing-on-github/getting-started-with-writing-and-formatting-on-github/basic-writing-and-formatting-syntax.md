@@ -53,7 +53,7 @@ In the words of Abraham Lincoln:
 
 ## Quoting code
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.
+You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
 
 ```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
@@ -78,7 +78,7 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 ## Links
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut `command + k` to create a link.
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% if currentVersion == "free-pro-team@latest" or if currentVersion == "github-ae@next" or if currentVersion ver_gt "enterprise-server@3.1" %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
