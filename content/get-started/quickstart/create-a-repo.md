@@ -87,4 +87,4 @@ You can find interesting projects and repositories on {% data variables.product.
 
 Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
 
-{% data reusables.support.connect-in-the-forum-bootcamp %} to ask your queries and discuss with the community.
+{% data reusables.support.connect-in-the-forum-bootcamp %}.
