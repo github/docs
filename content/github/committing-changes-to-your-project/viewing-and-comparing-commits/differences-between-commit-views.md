@@ -1,6 +1,6 @@
 ---
 title: Differences between commit views
-intro: You can sometimes observe differences in commit history depending on the chosen viewing method.
+intro: You might observe differences in commit history depending on the chosen viewing method.
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
