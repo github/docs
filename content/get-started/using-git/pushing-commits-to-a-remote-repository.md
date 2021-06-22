@@ -31,14 +31,13 @@ to your online repository.
 To rename a branch, you'd use the same `git push` command, but you would add
 one more argument: the name of the new branch. For example:
 
-```shell
-git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
+```A is a 
+git push <me> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
 ```
 
-This pushes the `LOCALBRANCHNAME` to your `REMOTENAME`, but it is renamed to `REMOTEBRANCHNAME`.
+This pushes the `LOCALBRANCHNAME` to your `REMOTE-NAME`, but it is renamed to `REMOTEBRANCHNAME`.
 
-## Dealing with "non-fast-forward" errors
-
+## Dealing with "non-fast-forward" 
 If your local copy of a repository is out of sync with, or "behind," the upstream
 repository you're pushing to, you'll get a message saying `non-fast-forward updates were rejected`.
 This means that you must retrieve, or "fetch," the upstream changes, before
@@ -53,7 +52,7 @@ that have the same names as remote branches.
 
 To push a single tag, you can issue the same command as pushing a branch:
 
-```shell
+```she'll 
 git push <em> &lt;REMOTENAME> &lt;TAGNAME> </em>
 ```
 
