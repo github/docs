@@ -30,7 +30,6 @@
     "connect-datadog": "0.0.9",
     "connect-slashes": "^1.4.0",
     "cookie-parser": "^1.4.5",
-    "copy-webpack-plugin": "^8.1.1",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dayjs": "^1.10.4",
@@ -92,9 +91,7 @@
     "unified": "^8.4.2",
     "unist-util-visit": "^2.0.3",
     "uuid": "^8.3.2",
-    "walk-sync": "^2.2.0",
-    "webpack": "^5.37.0",
-    "webpack-dev-middleware": "^4.2.0"
+    "walk-sync": "^2.2.0"
   },
   "devDependencies": {
     "@actions/core": "^1.2.7",
@@ -122,6 +119,7 @@
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
+    "copy-webpack-plugin": "^8.1.1",
     "count-array-values": "^1.2.1",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
@@ -174,6 +172,7 @@
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.2",
     "url-template": "^2.0.8",
+    "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0",
     "website-scraper": "^4.2.3"
   },
