@@ -1,6 +1,6 @@
 ---
 title: 关于服务容器
-intro: '您可以使用服务容器将数据库、网络服务、内存缓存及其他工具连接到您的工作流程。'
+intro: 您可以使用服务容器将数据库、网络服务、内存缓存及其他工具连接到您的工作流程。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
@@ -8,14 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+  github-ae: '*'
+type: overview
 topics:
-  - 'Containers'
-  - 'Docker'
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于服务容器
 

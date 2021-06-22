@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### About pull request comments
@@ -34,7 +36,7 @@ To reply to an existing line comment, you'll need to navigate to the comment on 
 
 **Советы:**
 - Pull request comments support the same [formatting](/categories/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
-- You can [add reactions](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) to comments in pull requests in the **Files changed** tab.
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 
@@ -55,5 +57,5 @@ Anyone watching the pull request or repository will receive a notification of yo
 ### Дополнительная литература
 
 - "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

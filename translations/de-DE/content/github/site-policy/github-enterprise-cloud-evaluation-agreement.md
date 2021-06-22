@@ -10,7 +10,7 @@ VIELEN DANK, DASS SIE SICH FÜR GITHUB ENTSCHIEDEN HABEN, UM DIE ANFORDERUNGEN I
 
 ### 1. Unternehmensnutzungsbedingungen
 
-Der Kunde benötigt ein Unternehmenskonto bei GitHub.com, um Auswertungszugriff zu haben. Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). Alle zusätzlichen Bedingungen, die mit dem [Enterprise Cloud-Nachtrag](https://help.github.com/articles/github-enterprise-cloud-addendum) verbunden sind, gelten **nicht**, bis der Kunde sein Produkt auf ein kostenpflichtiges Abonnement von Enterprise Cloud heraufstuft.Alle großgeschriebenen Begriffe, die in dieser Auswertungsvereinbarung nicht definiert werden, sind in den Unternehmensnutzungsbedingungen definiert.
+Der Kunde benötigt ein Unternehmenskonto bei GitHub.com, um Auswertungszugriff zu haben. Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). Alle zusätzlichen Bedingungen, die mit dem [Enterprise Cloud-Nachtrag](https://docs.github.com/articles/github-enterprise-cloud-addendum) verbunden sind, gelten **nicht**, bis der Kunde sein Produkt auf ein kostenpflichtiges Abonnement von Enterprise Cloud heraufstuft.Alle großgeschriebenen Begriffe, die in dieser Auswertungsvereinbarung nicht definiert werden, sind in den Unternehmensnutzungsbedingungen definiert.
 
 ### 2. Laufzeit und Kündigung
 

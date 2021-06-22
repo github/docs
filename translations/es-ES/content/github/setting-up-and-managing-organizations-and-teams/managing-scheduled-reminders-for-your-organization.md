@@ -3,6 +3,9 @@ title: Administrar los recordatorios programados para tu organización
 intro: Puedes obtener recordatorios en Slack para todas las solicitudes de extracción de las cuales se haya solicitado revisión por parte de los equipos en tu organización.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 ### Acerca de los recordatorios programados para las solicitudes de extracción
@@ -10,6 +13,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Los propietarios de la organización pueden programar un recordatorio para uno mas equipos en ella que contemple todas las solicitudes de extracción que han solicitado la revisión de uno o más equipos de ésta.
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Crear un recordatorio programado para una organización
 {% data reusables.profile.access_profile %}

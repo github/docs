@@ -15,7 +15,7 @@ describe('developer.github.com redirects', () => {
     ]
 
     // test a subset of the top paths
-    const pathsToCheck = 300
+    const pathsToCheck = 50
     const paths = require('../fixtures/top-old-developer-site-paths.json')
       .filter(path => !ignoredPatterns.some(pattern => path.match(pattern)))
       .slice(0, pathsToCheck)

@@ -1,12 +1,15 @@
 ---
 title: Configurar una dirección de correo electrónico de respaldo
-intro: Utiliza una dirección de correo electrónico de respaldo como un destino adicional para las notificaciones de seguridad relevantes para tu cuenta{% if currentVersion != "github-ae@latest" %} y para restablecer de forma segura tu contraseña si ya no puedes acceder a tu dirección de correo electrónico primaria{% endif %}.
+intro: 'Utiliza una dirección de correo electrónico de respaldo como un destino adicional para las notificaciones de seguridad relevantes para tu cuenta{% if currentVersion != "github-ae@latest" %} y para restablecer de forma segura tu contraseña si ya no puedes acceder a tu dirección de correo electrónico primaria{% endif %}.'
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% data reusables.user_settings.access_settings %}

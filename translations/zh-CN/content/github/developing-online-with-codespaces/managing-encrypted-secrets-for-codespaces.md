@@ -1,9 +1,11 @@
 ---
 title: 管理代码空间的加密密码
-intro: 您可以在代码空间中存储要通过环境变量访问的敏感信息（如令牌）。
+intro: '您可以在代码空间中存储要通过环境变量访问的敏感信息（如令牌）。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -11,6 +13,7 @@ versions:
 **注意：**{% data variables.product.prodname_codespaces %} 加密密码目前处于测试阶段，可能会更改。
 
 {% endnote %}
+
 
 ### 关于 {% data variables.product.prodname_codespaces %} 的加密密码
 
@@ -23,6 +26,12 @@ versions:
 您可以选择哪些仓库应有权访问每个密码。 然后，您可以在为有权访问密码的仓库创建的任何代码空间中使用该密码。
 
 ### 添加密码
+
+{% note %}
+
+**注意：**以 GITHUB_ 开头的令牌是预留的
+
+{% endnote %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}

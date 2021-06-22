@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const XlsxPopulate = require('xlsx-populate')
+const XlsxPopulate = require('xlsx-populate') // this is an optional dependency, install with `npm i --include=optional`
 const readFrontmatter = require('../../lib/read-frontmatter')
 
 const START_ROW = 2
@@ -48,6 +48,7 @@ function updateFrontmatter (filePath, newTopics) {
   } else if (Array.isArray(data.topics)) {
     topics = topics.concat(data.topics)
   }
+
   newTopics.forEach(topic => {
     topics.push(topic)
   })

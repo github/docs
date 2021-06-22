@@ -1,5 +1,9 @@
 name: Remove card from FR board
 
+# **What it does**: Removes the triggering issue or PR from the docs-content first responder board. This workflow is expected to trigger from a slash command.
+# **Why we have it**: To help with first responder duties
+# **Who does it impact**: Docs-content team first responders
+
 on:
   repository_dispatch:
     types: remove_from_docs_FR_board
@@ -9,56 +13,15 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - id: find_project_cards
-        uses: octokit/graphql-action@5b3e01d42dee4509b0ac6b1cb2cf7778cdce85c2
-        with:
-          query: |
-            query($issue_node_id:ID!) {
-              node(id:$issue_node_id) {
-                ... on Issue {
-                  projectCards(first: 10) {
-                    nodes {
-                      id
-                      project {
-                        name
-                        id
-                      }
-                    }
-                  }
-                }
-                ... on PullRequest {
-                  projectCards(first: 10) {
-                    nodes {
-                      id
-                      project {
-                        name
-                        id
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          issue_node_id: ${{ github.event.client_payload.command.resource.id }}
+      - name: Remove issue from board
+        if: ${{ github.event.client_payload.command.resource.type == 'Issue' }}
+        run: gh issue edit "$ISSUE_URL" --remove-project "Docs content first responder"
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
-
-      - run: "echo 'Project cards found: ${{ steps.find_project_cards.outputs.data }}'"
-
-      - name: Get FR card
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          ISSUE_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/issues/${{ github.event.client_payload.command.resource.number }}
+      - name: Remove PR from board
+        if: ${{ github.event.client_payload.command.resource.type == 'PullRequest' }}
+        run: gh pr edit "$PR_URL" --remove-project "Docs content first responder"
         env:
-          QUERY_DATA: ${{ steps.find_project_cards.outputs.data }}
-        run: |
-          echo 'FR_CARDS='$(jq '.node.projectCards.nodes | .[] | select(.project.id == "MDc6UHJvamVjdDQ1NzI0ODI=") | .id' <<< "$QUERY_DATA") >> $GITHUB_ENV
-
-      - name: Delete card
-        id: delete_project_card
-        if: ${{ env.FR_CARDS }}
-        uses: octokit/graphql-action@5b3e01d42dee4509b0ac6b1cb2cf7778cdce85c2
-        with:
-          query: |
-            mutation DeleteCard {
-              deleteProjectCard(input:{cardId:${{ env.FR_CARDS }}}) {deletedCardId}
-            }
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          PR_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/pull/${{ github.event.client_payload.command.resource.number }}

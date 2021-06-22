@@ -4,6 +4,8 @@ intro: 'Puedes agregar un README a tu perfil de {% data variables.product.prodna
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+topics:
+  - Profiles
 ---
 
 ### Acerca del README de tu perfil

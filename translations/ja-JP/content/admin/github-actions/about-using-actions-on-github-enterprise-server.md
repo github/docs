@@ -6,6 +6,8 @@ redirect_from:
   - /admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,13 +21,13 @@ versions:
 
 ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.prodname_ghe_server %} にバンドルされ、{% data variables.product.prodname_marketplace %} からある時点でキャプチャされます。 {% data variables.product.prodname_ghe_server %} インスタンスが更新されると、バンドルされている公式アクションも更新されます。
 
-The bundled official actions include `actions/checkout`, `actions/upload-artifact`, `actions/download-artifact`, `actions/labeler`, and various `actions/setup-` actions, among others. Enterprise インスタンスに含まれるすべての公式アクションを確認するには、インスタンスの `Actions` Organization である (<code>https://<em>HOSTNAME</em>/actions</code>) を参照します。
+バンドルされている公式アクションには、`actions/checkout`, `actions/upload-artifact`、`actions/download-artifact`、`actions/labeler`、さまざまな `actions/setup-` などが含まれます。 Enterprise インスタンスに含まれるすべての公式アクションを確認するには、インスタンスの `Actions` Organization である (<code>https://<em>HOSTNAME</em>/actions</code>) を参照します。
 
-Each action is a repository in the `actions` organization, and each action repository includes the necessary tags, branches, and commit SHAs that your workflows can use to reference the action.
+各アクションは`actions` Organization 内のリポジトリであり、各アクションリポジトリには、ワークフローがアクションを参照するために使用できる必要なタグ、ブランチ、およびコミット SHA が含まれています。
 
 {% note %}
 
-**注釈:** セルフホストランナーを使用して {% data variables.product.prodname_ghe_server %} でセットアップアクション（`actions/setup-LANGUAGE` など）を使用する場合、インターネットにアクセスできないランナーでツールキャッシュをセットアップする必要がある場合があります。 For more information, see "[Setting up the tool cache on self-hosted runners without internet access](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
+**注釈:** セルフホストランナーを使用して {% data variables.product.prodname_ghe_server %} でセットアップアクション（`actions/setup-LANGUAGE` など）を使用する場合、インターネットにアクセスできないランナーでツールキャッシュをセットアップする必要がある場合があります。 詳しい情報については、「[インターネットアクセスを持たないセルフホストランナー上へのツールキャッシュのセットアップ](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)」を参照してください。
 
 {% endnote %}
 

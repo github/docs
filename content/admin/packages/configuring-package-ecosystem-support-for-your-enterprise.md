@@ -6,11 +6,15 @@ redirect_from:
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+type: how_to
+topics:
+  - Enterprise
+  - Packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### Enabling or disabling individual package ecosystems
+## Enabling or disabling individual package ecosystems
 
 To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
 
@@ -26,7 +30,7 @@ To use {% data variables.product.prodname_registry %} with Docker, you must have
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Connecting to the official npm registry
+## Connecting to the official npm registry
 
 If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
 
@@ -42,6 +46,6 @@ Note that connections to `registry.npmjs.com` traverse through the Cloudflare ne
 
 {% endif %}
 
-### Next steps
+## Next steps
 
 As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."

@@ -1,4 +1,4 @@
-1. Click **Choose...** and navigate to a local path where you want to clone the repository.
+1. Haz clic en **Elegir...** y navega a la ruta local en donde quieres clonar el repositorio.
 
   {% mac %}
 

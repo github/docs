@@ -6,6 +6,9 @@ redirect_from:
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Dieser Leitfaden beschreibt die Informationen, die GitHub benötigt, um eine Counter Notice zu einem DMCA Takedown Request zu verarbeiten. Zu allgemeineren Fragen über die DMCA ist oder wie GitHub DMCA Takedown Requests verarbeitet, lesen Sie bitte unsere [DMCA Takedown-Richtlinie](/articles/dmca-takedown-policy).

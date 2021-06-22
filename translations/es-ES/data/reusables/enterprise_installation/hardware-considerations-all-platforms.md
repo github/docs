@@ -1,5 +1,5 @@
 - [Requisitos mínimos](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
-- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
+- [Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
 - [Almacenamiento](#storage)
 - [CPU y memoria](#cpu-and-memory)
 
@@ -17,7 +17,7 @@ Tu instancia requiere un disco de datos persistentes independiente del disco ra�
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-To configure{% if currentVersion == "enterprise-server@2.22" %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you must provide external blob storage. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
+Para configurar{% if currentVersion == "enterprise-server@2.22" %} el beta de {% endif %} {% data variables.product.prodname_actions %}, debes proporcionar un almacenamiento externo de blobs. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
 
 {% endif %}
 
@@ -25,7 +25,13 @@ Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva
 
 #### CPU y memoria
 
-The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations. {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data reusables.actions.enterprise-hardware-considerations %}{% endif %}
+Los recursos de memoria y CPU que {% data variables.product.prodname_ghe_server %} requiere dependen de los niveles de actividad para los usuarios, automatizaciones e integraciones.
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+Si {% if currentVersion == "enterprise-server@2.22" %}habilitaste el beta de{% else %}planeas habilitar{% endif %} {% data variables.product.prodname_actions %} para los usuarios de tu instancia de {% data variables.product.prodname_ghe_server %}, podrías necesitar aprovisionar recursos adicionales de memoria y CPU para tu instancia. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+
+{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
@@ -34,5 +40,7 @@ The CPU and memory resources that {% data variables.product.prodname_ghe_server 
 **Advertencia:** te recomendamos que los usuarios configuren eventos de webhooks para notificar a los sistemas externos sobre la actividad en {% data variables.product.prodname_ghe_server %}. Las verificaciones automatizadas para los cambios, o el _sondeo_, impactará negativamente el rendimiento y la escalabilidad de tu instancia. Para obtener más información, consulta la sección "[Acerca de los webhooks](/github/extending-github/about-webhooks)".
 
 {% endwarning %}
+
+Para obtener más información acerca de cómo monitorear la capacidad y rendimiento de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Monitorear tu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
 Puedes incrementar los recursos de memoria o de CPU para tu instancia. Para obtener más información, consulta "[Aumentar los recursos de memoria o la CPU](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."

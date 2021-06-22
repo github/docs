@@ -1,0 +1,55 @@
+name: Transfer REST API issue to rest-api-description
+
+# **What it does**: Transfers an issue in the open source repo to the open source rest-api-description repo
+# **Why we have it**: Requests to change the OpenAPI schema (unless the schema is just a description update) should be made in github/rest-api-description
+# **Who does it impact**: Open source and docs-content maintainers
+
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  transfer-issue:
+    name: Transfer issue
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'rest-schema' && github.repository == 'github/docs'
+    steps:
+      - name: Check if this run was triggered by a member of the docs team
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        id: triggered-by-member
+        with:
+          github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          result-encoding: string
+          script: |
+            const triggerer_login = context.payload.sender.login
+            const teamMembers = await github.request(
+              `/orgs/github/teams/docs/members?per_page=100`
+            )
+            const logins = teamMembers.data.map(member => member.login)
+            if (logins.includes(triggerer_login)) {
+              console.log(`This workflow was triggered by ${triggerer_login} (on the docs team).`)
+              return 'true'
+            }
+            console.log(`This workflow was triggered by ${triggerer_login} (not on the docs team), so no action will be taken.`)
+            return 'false'
+
+      - name: Exit if not triggered by a docs team member
+        if: steps.triggered-by-member.outputs.result == 'false'
+        run: |
+          echo Aborting. This workflow must be triggered by a member of the docs team.
+          exit 1
+
+      - name: Comment on the old issue
+        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Changes to the REST API schema can be requested in [github/rest-api-description](https://github.com/github/rest-api-description). I will transfer your issue over to that open source repo."
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}
+
+      - name: Transfer the issue to the rest-api-description repo
+        run: |
+          new_issue_url="$(gh issue transfer $OLD_ISSUE github/rest-api-description)"
+          echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}

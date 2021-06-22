@@ -1,4 +1,9 @@
 name: automerge
+
+# **What it does**: Pull requests with label "automerge" or "autosquash" will automatically merge.
+# **Why we have it**: While now this is a feature built into GitHub, we still use it as part of other automation.
+# **Who does it impact**: Any workflows that depend on automerge or autosquash labels.
+
 on:
   pull_request:
     types:

@@ -5,19 +5,21 @@ intro: Los artefactos te permiten compartir datos entre puestos en un flujo de t
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
-  - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
+  - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
+  - /actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
   - /actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de los artefactos de flujo de trabajo
 
@@ -34,7 +36,7 @@ Estos son algunos de los artefactos comunes que puedes subir:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% else %}
 
@@ -111,7 +113,7 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Configurar un periodo de retención de artefactos personalizado
 
 Puedes definir un periodo de retención personalizado para los artefactos indivudales que crea un flujo de trabajo. Cuando utilices un flujo de trabajo para crear un artefacto nuevo, puedes utilizar `retention-days` con la acción `upload-artifact`. Este ejemplo ilustra cómo configurar un periodo de retención personalizado de 5 días para el artefacto que se llama `my-artifact`:
@@ -240,7 +242,7 @@ jobs:
 ```
 
 La ejecución de flujo de trabajo archivará cualquier artefacto que haya generado. Para obtener más información sobre cómo descargar los artefactos archivados, consulta la sección "[Descargar artefactos de flujo de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![Flujo de trabajo que pasa datos entre jobs para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![Flujo de trabajo que pasa datos entre jobs para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
@@ -250,6 +252,6 @@ La ejecución de flujo de trabajo archivará cualquier artefacto que haya genera
 
 ### Leer más
 
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

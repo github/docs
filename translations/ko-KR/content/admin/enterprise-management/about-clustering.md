@@ -8,6 +8,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Clustering
+  - Enterprise
 ---
 
 ### Clustering architecture

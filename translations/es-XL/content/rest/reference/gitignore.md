@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 Cuando creas un repositorio de {% data variables.product.product_name %} nuevo a través de la API, puedes especificar una [plantilla de .gitignore](/github/using-git/ignoring-files) para que aplique al repositorio cuando éste se cree. La API de plantillas de .gitignore lista y recupera plantillas del [repositorio de .gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.

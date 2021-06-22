@@ -61,6 +61,10 @@
   term: Azure
   description: 一个 Microsoft 云计算平台。
 - 
+  term: Azure DevOps
+  description: >-
+    提供源代码托管、议题、CI/CD 管道和其他开发者服务的 Microsoft 产品。本地版本以前称为 Team Foundation Server。云托管版本以前称为 Visual Studio Team Services。
+- 
   term: 裸仓库
   description: >-
     裸仓库通常是带 .git 后缀的适当命名的目录，不含版本控制下任何文件的本地检出副本。 也就是说，通常存在于隐藏 .git 子目录中的所有 Git 管理和控制文件将直接显示在 repository.git 目录中，并且没有其他文件存在和检出。 通常，公共仓库的发布者会提供裸仓库。
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    一种 Microsoft 产品，提供源代码管理和其他团队服务。
+    提供源代码管理和其他团队服务的 Microsoft 产品的前名称。现在称为 Azure DevOps Server。
 - 
   term: Textile
   description: >-

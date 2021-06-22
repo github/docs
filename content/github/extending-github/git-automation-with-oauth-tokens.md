@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-### Step 1: Get an OAuth token
+## Step 1: Get an OAuth token
 
 Create a personal access token on your application settings page. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
@@ -29,11 +29,11 @@ Create a personal access token on your application settings page. For more infor
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-### Step 2: Clone a repository
+## Step 2: Clone a repository
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/using-git/caching-your-github-credentials-in-git)."
+To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
 {% warning %}
 
@@ -41,6 +41,6 @@ To avoid these prompts, you can use Git password caching. For information, see "
 
 {% endwarning %}
 
-### Further reading
+## Further reading
 
 - "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

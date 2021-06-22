@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 ![Listado de equipos en una organización](/assets/images/help/teams/org-list-of-teams.png)
@@ -36,7 +39,7 @@ También puedes usar la sincronización LDAP para sincronizar los roles del equi
 
 Cada equipo tiene su propia página dentro de una organización. En la página de un equipo, puedes ver los miembros del equipo, los equipos hijo y los repositorios del equipo. Los propietarios de la organización y los mantenedores del equipo pueden acceder a los parámetros del equipo y actualizar la foto de perfil y la descripción del equipo desde la página del equipo.
 
-Los miembros de la organización pueden crear y participar en debates con el equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/articles/about-team-discussions)".
+Los miembros de la organización pueden crear y participar en debates con el equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
 
 ![Página del equipo que enumera los miembros del equipo y los debates](/assets/images/help/organizations/team-page-discussions-tab.png)
 

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ¿Eres un agente de la policía que lleva a cabo una investigación que pueda implicar contenido de usuario alojado en GitHub? O quizá seas una persona consciente de la privacidad y te gustaría saber qué información compartimos con las fuerzas policiales y bajo qué circunstancias. Cualquiera que sea la razón, estás en la página correcta.
@@ -146,14 +149,14 @@ Tenga en cuenta que la información disponible variará de un caso a otro. Parte
 
 ### Reembolso de costes
 
-Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
+Bajo la ley federal y estatal, GitHub podrá buscar el reembolso de los costos asociados con el cumplimiento con una demanda legal válida, tal como una citación, orden judicial o orden de búsqueda. Solo cobramos la cantidad de los cargos de recuperación y dichos reembolsos solo cubren una parte de los costos que realmente incurrimos para cumplir con las órdenes legales.
 
-While we do not charge in emergency situations or in other exigent circumstances, we seek reimbursement for all other legal requests in accordance with the following schedule, unless otherwise required by law:
+Si bien no hacemos cargos en situaciones de emergencia o en otras circunstancias exigentes, buscamos el reembolso por todo el resto de las solicitudes legales de acuerdo con la siguiente programación, a menos de que se requiera legalmente de otra forma:
 
-- Initial search of up to 25 identifiers: Free
-- Production of subscriber information/data for up to 5 accounts: Free
-- Production of subscriber information/data for more than 5 accounts: $20 per account
-- Secondary searches: $10 per search
+- Búsqueda inicial de hasta 25 identificadores: Gratuita
+- Información/datos de suscripción o producción hasta 5 cuentas: Gratuito
+- Información/datos de suscripción o producción en más de 5 cuentas: $20 por cuenta
+- Búsquedas secundarias: $10 por búsqueda
 
 ### Conservación de datos
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-per-user-pricing
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Las organizaciones nuevas pueden crear proyectos de código abierto y públicos con {% data variables.product.prodname_free_team %} o [actualizarse]({% data variables.product.pricing_url %}) a un producto pago con el precio por usuario.

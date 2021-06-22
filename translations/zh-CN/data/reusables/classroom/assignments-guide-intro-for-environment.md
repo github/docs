@@ -1,1 +1,1 @@
-Optionally, decide whether to provide empty repositories or starter code, and preconfigure a development environment for your students.
+（可选）决定是提供空仓库还是启动代码，并为您的学生预配置开发环境。

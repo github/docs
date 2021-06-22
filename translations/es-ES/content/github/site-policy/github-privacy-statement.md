@@ -1,7 +1,7 @@
 ---
 title: Declaración de Privacidad de GitHub
 redirect_from:
-  - /privacidad/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Fecha de entrada en vigor: 19 de diciembre de 2020
@@ -61,7 +64,7 @@ Necesitamos cierta información básica al momento de creación de la cuenta. Cu
 ##### Información de Pago
 Si te registras para una Cuenta paga, envías fondos a través del Programa de patrocinadores de GitHub o compras una aplicación en el Mercado GitHub, recopilamos tu nombre completo y la información de la tarjeta de crédito o la información de PayPal. Ten en cuenta que GitHub no procesa ni almacena tu información de tarjeta de crédito o información de PayPal, pero sí lo hace nuestro procesador de pago subcontratado.
 
-Si detallas y vendes una aplicación en el [Mercado GitHub](https://github.com/marketplace), te solicitamos la información de tu banco. Si recabas fondos a través del [Programa de Patrocinadores de GitHub](https://github.com/sponsors), necesitamos algo de [información adicional](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information) mediante el proceso de registro para que participes y recibas los fondos a través de estos servicios y para propósitos de cumplimiento.
+Si detallas y vendes una aplicación en el [Mercado GitHub](https://github.com/marketplace), te solicitamos la información de tu banco. Si recabas fondos a través del [Programa de Patrocinadores de GitHub](https://github.com/sponsors), necesitamos algo de [información adicional](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) mediante el proceso de registro para que participes y recibas los fondos a través de estos servicios y para propósitos de cumplimiento.
 
 ##### Información de perfil
 Puedes decidir proporcionarnos más información para tu Perfil de cuenta, como tu nombre completo, un avatar que puede incluir una fotografía, tu biografía, tu ubicación, tu empresa y una URL a un sitio web de terceros. Esta información puede incluir Información personal del usuario. Ten en cuenta que tu información de perfil puede ser visible para otros Usuarios de nuestro Servicio.
@@ -94,7 +97,7 @@ No recopilamos de manera intencional la Información personal del usuario que es
 
 ### Cómo utiliza GitHub tu información
 
-- Podemos utilizar tu información con los siguientes fines:
+Podemos utilizar tu información con los siguientes fines:
 - Utilizamos tu [Información de registro](#registration-information) para crear tu cuenta y para proporcionarte el Servicio.
 - Utilizamos tu [Información de pago](#payment-information) para proporcionarte el servicio de Cuenta paga, el servicio de Mercado, el Programa de patrocinadores o cualquier otro servicio pago de GitHub que solicites.
 - Utilizamos tu Información personal del usuario, específicamente tu nombre de usuario, para identificarte en GitHub.
@@ -189,7 +192,7 @@ Del mismo modo, los proyectos en GitHub pueden incluir Información Personal de 
 
 #### Organizaciones
 
-Puedes indicar, a través de tus acciones en GitHub, que estás dispuesto a compartir tu Información Personal de Usuario. Si colaboras o te conviertes en miembro de una Organización, los propietarios de su cuenta podrán recibir tu Información personal del usuario. Cuando aceptas una invitación a una Organización, se te notificará de los tipos de información que los propietarios pueden ver (para obtener más información, consulta la sección [Acerca de la Membrecía de Organización](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Si aceptas una invitación a una organización con un [dominio verificado](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain), entonces los propietarios de dicha organización podrán ver tu(s) dirección(es) de correo electrónico completa(s) dentro de l(los) dominio(s) verificado(s) de la organización.
+Puedes indicar, a través de tus acciones en GitHub, que estás dispuesto a compartir tu Información Personal de Usuario. Si colaboras o te conviertes en miembro de una Organización, los propietarios de su cuenta podrán recibir tu Información personal del usuario. Cuando aceptas una invitación a una Organización, se te notificará de los tipos de información que los propietarios pueden ver (para obtener más información, consulta la sección [Acerca de la Membrecía de Organización](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Si aceptas una invitación a una organización con un [dominio verificado](/organizations/managing-organization-settings/verifying-your-organizations-domain), entonces los propietarios de dicha organización podrán ver tu(s) dirección(es) de correo electrónico completa(s) dentro de l(los) dominio(s) verificado(s) de la organización.
 
 Por favor, nota que GitHub podría compartir tu nombre de usuario, [información de uso](#usage-information). e [Información de Dispositivo](#device-information) con el(los) propietario(s) de la organización a la cual perteneces, en medida en que tu Información Personal de Usuario se proporcione únicamente para investigar o responder a incidentes de seguridad que afecten o pongan en riesgo la seguridad de esta organización en particular.
 
@@ -318,7 +321,7 @@ En el improbable caso de que surja una disputa entre tú y GitHub con respecto a
 
 ### Cambios en tu Declaración de privacidad
 
-Aunque es probable que la mayoría de los cambios sean mínimos, GitHub puede cambiar nuestra Declaración de privacidad de manera ocasional. Les notificaremos a los Usuarios acerca de los cambios materiales a esta Declaración de privacidad por medio de nuestro Sitio web, al menos, 30 días antes de que el cambio entre en vigencia a través de la publicación de un aviso en nuestra página de inicio o enviando un correo electrónico a la dirección principal de correo electrónico que se especifica en tu cuenta de GitHub. También actualizaremos nuestro [Repositorio de políticas del sitio](https://github.com/github/site-policy/), que realiza un seguimiento de todos los cambios de esta política. Para otros cambios en esta declaración de privacidad, invitamos a los usuarios a [consultar](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) o a revisar el repositorio de nuestra política del sitio con frecuencia.
+Aunque es probable que la mayoría de los cambios sean mínimos, GitHub puede cambiar nuestra Declaración de privacidad de manera ocasional. Les notificaremos a los Usuarios acerca de los cambios materiales a esta Declaración de privacidad por medio de nuestro Sitio web, al menos, 30 días antes de que el cambio entre en vigencia a través de la publicación de un aviso en nuestra página de inicio o enviando un correo electrónico a la dirección principal de correo electrónico que se especifica en tu cuenta de GitHub. También actualizaremos nuestro [Repositorio de políticas del sitio](https://github.com/github/site-policy/), que realiza un seguimiento de todos los cambios de esta política. Para otros cambios en esta declaración de privacidad, invitamos a los usuarios a [consultar](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) o a revisar el repositorio de nuestra política del sitio con frecuencia.
 
 ### Licencia
 

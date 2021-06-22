@@ -1,1 +1,1 @@
-Rate limits for GitHub Apps help control the rate of traffic.
+GitHub Appのレート制限は、トラフィックのレートを制御するための役に立ちます。

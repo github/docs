@@ -1,5 +1,6 @@
 ---
 title: Managing subscriptions and notifications on GitHub
+intro: 'You can specify how to receive notifications, the repositories you are interested in, and the types of activity you want to hear about.'
 redirect_from:
   - /categories/76/articles/
   - /categories/notifications/
@@ -8,19 +9,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
+children:
+  - /setting-up-notifications
+  - /viewing-and-triaging-notifications
+  - /managing-subscriptions-for-activity-on-github
 ---
-
-### Table of Contents
-
-{% topic_link_in_list /setting-up-notifications %}
-    {% link_in_list /about-notifications %}
-    {% link_in_list /configuring-notifications %}
-
-{% topic_link_in_list /viewing-and-triaging-notifications %}
-    {% link_in_list /managing-notifications-from-your-inbox %}
-    {% link_in_list /triaging-a-single-notification %}
-    {% link_in_list /customizing-a-workflow-for-triaging-your-notifications %}
-
-{% topic_link_in_list /managing-subscriptions-for-activity-on-github %}
-    {% link_in_list /viewing-your-subscriptions %}
-    {% link_in_list /managing-your-subscriptions %}

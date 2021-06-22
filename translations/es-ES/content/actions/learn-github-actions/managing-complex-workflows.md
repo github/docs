@@ -1,17 +1,19 @@
 ---
 title: Administrar flujos de trabajo complejos
 shortTitle: Administrar flujos de trabajo complejos
-intro: 'Esta guía te muestra cómo utilizar las características avanzadas de {% data variables.product.prodname_actions %} con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ambientes,{% endif %}y etiquetas.'
+intro: 'Esta guía te muestra cómo utilizar las características avanzadas de las {% data variables.product.prodname_actions %} con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} ambientes, {% endif %} y etiquetas.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 topics:
-  - 'Flujos de trabajo'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Resumen
 
@@ -86,6 +88,7 @@ jobs:
 
 Para obtener más información, consulta la parte de [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
+{% if currentVersion == "free-pro-team@latest" %}
 ### Almacenar dependencias en caché
 
 Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se inician como ambientes nuevos para cada job, así que, si tus jobs utilizan dependencias a menudo, puedes considerar almacenar estos archivos en caché para ayudarles a mejorar el rendimiento. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
@@ -110,6 +113,7 @@ jobs:
 {% endraw %}
 
 Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+{% endif %}
 
 ### Usar bases de datos y contenedores de servicio
 
@@ -139,10 +143,19 @@ Para obtener más información, consulta la sección "[Utilizar bases de datos y
 
 ### Utilizar etiquetas para enrutar los flujos de trabajo
 
-Esta característica te ayuda a asignar jobs a un ejecutor auto-hospedado específico. Si quieres asegurarte de que un tipo específico de ejecutor procesará tu job, puedes utilizar etiquetas para controlar donde se ejecutan los jobs. Puedes asignar etiquetas a un ejecutor auto-hospedado y luego referirte a estas etiquetas en tu flujo de trabajo de YAML, garantizado que el job se enrute de una forma predecible.
+Esta característica te ayuda a asignar jobs a un ejecutor hospedado específico. Si quieres asegurarte de que un tipo específico de ejecutor procesará tu job, puedes utilizar etiquetas para controlar donde se ejecutan los jobs. Puedes asignar etiquetas a un ejecutor hospedado y luego referirte a ellas en tu flujo de trabajo de YAML, lo cual te asegurará que el job se enrute de una forma predecible.
 
+{% if currentVersion == "github-ae@latest" %}
 Este ejemplo muestra como un flujo de trabajo puede utilizar etiquetas para especificar el ejecutor requerido:
 
+```yaml
+jobs:
+  example-job:
+    runs-on: [AE-runner-for-CI]
+```
+
+Para obtener más información, consulta la sección "[Utilizar etiquetas con un {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)".
+{% else %}
 ```yaml
 jobs:
   example-job:
@@ -150,6 +163,7 @@ jobs:
 ```
 
 Para obtener más información, consulta la sección ["Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 ### Utilizar ambientes

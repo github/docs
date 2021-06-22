@@ -4,11 +4,11 @@ const isBrowser = process.env.BROWSER
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
 const testTranslation = Boolean(process.env.TEST_TRANSLATION)
 
-const reporters = ['default']
+let reporters = ['default']
 
 if (testTranslation) {
   // only use custom reporter if we are linting translations
-  reporters.push('<rootDir>/tests/helpers/lint-translation-reporter.js')
+  reporters = ['<rootDir>/tests/helpers/lint-translation-reporter.js']
 } else if (isActions) {
   reporters.push('jest-github-actions-reporter')
 }

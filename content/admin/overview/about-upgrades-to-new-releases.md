@@ -5,6 +5,10 @@ intro: '{% if currentVersion == "github-ae@latest" %}Your {% data variables.prod
 versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Upgrades
 ---
 
 {% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through major and minor releases. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
@@ -37,9 +41,9 @@ To upgrade your enterprise to a new release, see "[Release notes](/enterprise-se
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
 {% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/release-notes)
 {% endif %}

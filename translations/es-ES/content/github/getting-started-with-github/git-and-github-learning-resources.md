@@ -15,7 +15,7 @@ authors:
 
 ### Utilizar GitHub
 
-Para familiarizarte con Git, visita el [sitio oficial del proyecto Git](https://git-scm.com) y lee el [libro electrónico Progit](http://git-scm.com/book). Puedes revisar la [lista de comandos de Git](https://git-scm.com/docs) o la [referencia para buscar comandos de Git](http://gitref.org) mientras usas el simulador [Try Git](https://try.github.com).
+Para familiarizarte con Git, visita el [sitio oficial del proyecto Git](https://git-scm.com) y lee el [libro de ProGit](http://git-scm.com/book). Puedes revisar la [lista de comandos de Git](https://git-scm.com/docs) o la [referencia para buscar comandos de Git](http://gitref.org) mientras usas el simulador [Try Git](https://try.github.com).
 
 ### Uso de {% data variables.product.product_name %}
 
@@ -25,13 +25,13 @@ Para familiarizarte con Git, visita el [sitio oficial del proyecto Git](https://
 
 {% endif %}
 
-Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. Consulta nuestro [ flujo de {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow) para acceder a una introducción del proceso. Consulta nuestras [guías de descripción general](https://guides.github.com) para conocer nuestros conceptos básicos.
+Adquiere más conocimientos con {% data variables.product.product_name %} a través de nuestros artículos de [guías de inicio](/categories/getting-started-with-github/). Consulta nuestro [ flujo de {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow) para acceder a una introducción del proceso. Consulta nuestras [guías de descripción general](https://guides.github.com) para conocer nuestros conceptos básicos.
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### Ramas, bifurcaciones y solicitudes de extracción
 
-Conoce más sobre las [ramas de Git](http://learngitbranching.js.org/) usando una herramienta interactiva. Lee más acerca de [bifrucaciones](/articles/about-forks) y [solicitudes de extracción](/articles/using-pull-requests), además de [cómo usar las solicitudes de extracción](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) en {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+Conoce más sobre las [ramas de Git](http://learngitbranching.js.org/) usando una herramienta interactiva. Lee más acerca de [bifrucaciones](/articles/about-forks) y [solicitudes de extracción](/articles/using-pull-requests), además de [cómo usar las solicitudes de extracción](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) en {% data variables.product.prodname_dotcom %}. Accede a las referencias sobre cómo utilizar {% data variables.product.prodname_dotcom %} desde la [línea de comandos](https://cli.github.com/).
 
 #### Ponte al día
 
@@ -39,9 +39,9 @@ Nuestro {% data variables.product.prodname_dotcom %} [canal con guías y capacit
 
 ### Capacitación
 
-#### Free courses
+#### Cursos gratuitos
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} ofrece una serie de [cursos interactivos de capacitación bajo pedido](https://lab.github.com/), incluyendo aquellos de [introducción a {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); cursos de lenguajes de programación y herramientas tales como HTML, Python y NodeJS; y cursos sobre las herramientas específicas de {% data variables.product.product_name %}, tales como {% data variables.product.prodname_actions %}.
 
 #### Programas educativos basados en la web de {% data variables.product.prodname_dotcom %}
 

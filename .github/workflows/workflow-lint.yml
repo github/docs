@@ -1,5 +1,9 @@
 name: Lint workflows
 
+# **What it does**: This lints our workflow files.
+# **Why we have it**: We want some level of consistency in our workflow files.
+# **Who does it impact**: Docs engineering.
+
 on:
   workflow_dispatch:
   push:
@@ -22,4 +26,4 @@ jobs:
       - name: Run linter
         uses: cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be
         with:
-          workflows: '[".github/workflows/*.yml"]'
+          workflows: '[".github/workflows/*.yml", "!.github/workflows/staging-deploy-pr.yml", "!.github/workflows/staging-undeploy-pr.yml"]'

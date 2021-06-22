@@ -1,1 +1,1 @@
-1. Dentro de "Resumen de facturación", revisa cuándo vence tu próximo pago. ![Próxima fecha de facturación](/assets/images/help/billing/settings_billing_next_payment.png)
+1. En la parte superior de la página, debajo de "Siguiente pago vencido", revisa cuándo vence tu siguiente pago. ![Próxima fecha de facturación](/assets/images/help/billing/settings_billing_next_payment.png)

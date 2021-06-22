@@ -13,6 +13,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - páginas
 ---
 
 Las personas con permisos de administración para un repositorio pueden configurar un dominio personalizado para un sitio de {% data variables.product.prodname_pages %}.
@@ -35,11 +37,11 @@ El comando `dig`, que se puede usar para verificar la correcta configuración de
 
 ### Configurar un subdominio
 
-Para configurar un `www` o un subdominio personalizado, como `www.example.com` o `blog.example.com`, debes crear un archivo _CNAME_ en el repositorio de tu sitio y configurar un registro `CNAME` con tu proveedor DNS.
+Para configurar un subdominio personalizado o de `www` tal como `www.example.com` o `blog.example.com`, debes agregar tu dominio en la configuración de repositorio, el cual creará un archivo de CNAME en el repositorio de tu sitio. Después de esto, configura un registro de CNAME con tu proveedor de DNS.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.save-custom-domain %}
+4. Debajo de "Dominio personalizado", teclea tu dominio personalizado y luego da clic en **Guardar**. Esto creará una confirmación que agregará un archivo _CNAME_ en la raíz de tu fuente de publicación. ![Botón de guardar dominio personalizado](/assets/images/help/pages/save-custom-subdomain.png)
 5. Desplázate hasta tu proveedor DNS y crea un registro `CNAME` que apunte tu subdominio al dominio predeterminado de tu sitio. Por ejemplo, si quieres usar el subdominio `www.example.com` para tu sitio de usuario, crea un registro `CNAME` que apunte `www.example.com` a `<user>.github.io`. Si quieres utilizar el subdominio `www.anotherexample.com` para el sitio de tu organización, crea un registro de `CNAME` que apunte a `www.anotherexample.com` hacia `<organization>.github.io`. El registro `CNAME` siempre deberá apuntar hacia `<user>.github.io` o `<organization>.github.io`, excluyendo el nombre del repositorio. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 {% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
@@ -63,7 +65,7 @@ Para configurar un dominio apex, como `example.com`, debes configurar un archivo
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.save-custom-domain %}
+4. Debajo de "Dominio personalizado", teclea tu dominio personalizado y luego da clic en **Guardar**. Esto creará una confirmación que agregará un archivo _CNAME_ en la raíz de tu fuente de publicación. ![Botón de guardar dominio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
 5. Desplázate hasta tu proveedor DNS y crea un registro `ALIAS`, `ANAME` o `A`. {% data reusables.pages.contact-dns-provider %}
     - Para crear un registro `ALIAS` o `ANAME`, apunta tu dominio apex al dominio predeterminado de tu sitio. {% data reusables.pages.default-domain-information %}
     - Para crear un registro `A`, apunta tu dominio apex a las direcciones IP para {% data variables.product.prodname_pages %}.

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-archiving-content-and-data-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Persistence of public repositories

@@ -1,7 +1,7 @@
 const timeout = require('express-timeout-handler')
 
 // Heroku router requests timeout after 30 seconds. We should stop them earlier!
-const maxRequestTimeout = parseInt(process.env.REQUEST_TIMEOUT, 10) || 25000
+const maxRequestTimeout = parseInt(process.env.REQUEST_TIMEOUT, 10) || 10000
 
 module.exports = timeout.handler({
   // Default timeout for all endpoints

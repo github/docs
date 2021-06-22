@@ -16,4 +16,4 @@ You should consider creating a tutorial when:
 - The user may have implemented a similar solution in the past using a different product.
 - The user wants to validate whether the solution is appropriate for their needs.
 
-Get started with this template [here](tutorial.md).
+Get started with the tutorial template [here](/contributing/content-templates.md#tutorial).

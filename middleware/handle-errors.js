@@ -2,6 +2,7 @@ const { liquid } = require('../lib/render-content')
 const layouts = require('../lib/layouts')
 const FailBot = require('../lib/failbot')
 const loadSiteData = require('../lib/site-data')
+const builtAssets = require('../lib/built-asset-urls')
 
 function shouldLogException (error) {
   const IGNORED_ERRORS = [
@@ -42,7 +43,7 @@ module.exports = async function handleError (error, req, res, next) {
     // set req.context.site here so we can pass data/ui.yml text to the 500 layout
     if (!req.context) {
       const site = await loadSiteData()
-      req.context = { site: site[req.language || 'en'].site }
+      req.context = { site: site[req.language || 'en'].site, builtAssets }
     }
 
     // display error on the page in development, but not in production
