@@ -63,7 +63,7 @@ If you need to denote content that is only available (or not available) in **cer
 When **all** operands must be true for the condition to be true, use the operator `and`:
 
 ```
-{% ifversion fpt and ghes > 2.21 %}
+{% ifversion ghes > 2.21 and ghes < 3.1 %}
 ```
 
 When **at least one** operand must be true for the condition to be true, use the operator `or`:
