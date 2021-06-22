@@ -63,7 +63,7 @@ async function main () {
   fs.writeFileSync(newDereferencedFile, newDereferenceContent)
   console.log(`Created ${newDereferencedFile}.`)
 
-  const dereferencedSchema = require(path.join(process.cwd(), newDereferencedFile))
+  const dereferencedSchema = JSON.parse(fs.readFileSync(path.join(process.cwd(), newDereferencedFile)))
 
   // Store all operations in an array of operation objects
   const operations = await getOperations(dereferencedSchema)
