@@ -85,6 +85,6 @@ You can now clone a {% data variables.product.product_name %} repository to crea
 
 You can find intersting projects and repositories on {% data variables.product.product_name %} and make changes into it by creating a fork of the repository. For more information see, "[Fork a repository](/articles/fork-a-repo)"
 
-Each repository on {% data variables.product.product_name %} is associated with some people, or an organization. You can connect by following them on {% data variables.product.product_name %}. for more information see, "[Be social](/articles/be-social)".
+Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
 
 {% data reusables.support.connect-in-the-forum-bootcamp %} to ask your queries and discuss with the community.
