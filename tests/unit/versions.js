@@ -5,6 +5,8 @@ const schema = require('../helpers/schemas/versions-schema')
 const { getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
+jest.useFakeTimers()
+
 describe('versions module', () => {
   test('is an object with versions as keys', () => {
     expect(nonEnterpriseDefaultVersion in allVersions).toBe(true)
@@ -21,7 +23,6 @@ describe('versions module', () => {
 })
 
 describe('versions middleware', () => {
-  jest.useFakeTimers()
   jest.setTimeout(5 * 60 * 1000)
   
   test('adds res.context.allVersions object', async () => {
@@ -39,5 +40,4 @@ describe('versions middleware', () => {
     currentVersion = await getJSON(`/en/enterprise-server@${latest}?json=currentVersion`)
     expect(currentVersion).toBe(`enterprise-server@${latest}`)
   })
-  jest.advanceTimersByTime(5 * 60 * 1000);
 })

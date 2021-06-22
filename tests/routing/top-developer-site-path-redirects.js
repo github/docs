@@ -3,6 +3,8 @@ const path = require('path')
 const { head } = require('../helpers/supertest')
 const topOldDeveloperSitePaths = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'tests/fixtures/top-old-developer-site-paths.json')))
 
+jest.useFakeTimers()
+
 describe('developer.github.com redirects', () => {
   jest.setTimeout(30 * 60 * 1000)
 
