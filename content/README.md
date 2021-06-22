@@ -74,7 +74,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for GitHub Enterprise Server 2.22 and 3.0 only:
+You can also version a page for a range of releases. This would version the page for GitHub.com, and GitHub Enterprise Server versions 2.22 and 3.0 only:
 
 ```yaml
 versions:
