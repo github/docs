@@ -39,7 +39,7 @@ You can use issues to track the different types of work that your team or projec
 
 - Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
 - Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues. 
-- Requests for improvement: Your team or users can create issues to request an improvement to your product or project.
+- Feature requests: Your team or users can create issues to request an improvement to your product or project.
 - Bugs: Your team or users can create issues to report a bug. 
 
 Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} for your repository. Issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
@@ -61,7 +61,7 @@ Here is an example of an issue created for a large initiative in Project Octocat
 ![Creating large initiative issue example](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 ### Task list example
 
-You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% if currentVersion == "free-pro-team@latest" %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[Creating task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists#creating-task-lists)."
+You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% if currentVersion == "free-pro-team@latest" %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 
 Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
