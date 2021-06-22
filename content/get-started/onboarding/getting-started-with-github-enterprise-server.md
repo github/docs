@@ -41,7 +41,7 @@ Alternatively, if you have an existing organization account that you would like 
 
 #### Billing for GHES
 
-When you choose to use an organization account with GitHub Enterprise Cloud, you'll first have access to a [14-day trial](/github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase GitHub Enterprise or GitHub Team before your trial ends, your organization will be downgraded to GitHub Free and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
+When you choose to use an organization account with GitHub Enterprise Cloud, you'll first have access to a [14-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase GitHub Enterprise or GitHub Team before your trial ends, your organization will be downgraded to GitHub Free and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
 If you do decide to purchase GHEC, you'll need to set up your billing account. 
 

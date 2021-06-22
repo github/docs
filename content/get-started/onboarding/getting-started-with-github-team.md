@@ -8,7 +8,7 @@ versions:
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing. 
 
 ### Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a user account or log in to your existing {% data variables.product.prodname_dotcom %} account. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account)". 
+Before creating an organization, you will need to create a user account or log in to your existing {% data variables.product.prodname_dotcom %} account. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)". 
 
 Once your user account is set up, you can create an organization. When you choose to create a new organization, you will be asked to pick a plan for your organization. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
