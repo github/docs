@@ -11,9 +11,9 @@ export default function () {
   const codeTerms = document.querySelectorAll('#article-contents table code')
   if (!codeTerms) return
 
-  codeTerms.forEach(node => {
+  codeTerms.forEach((node) => {
     // Return early if a child node is an anchor element
-    const hasChildAnchor = Array.from(node.childNodes).some(child => child.nodeName === 'A')
+    const hasChildAnchor = Array.from(node.childNodes).some((child) => child.nodeName === 'A')
     if (hasChildAnchor) return
 
     // Do the wrapping on the inner text only

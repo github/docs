@@ -33,6 +33,7 @@ module.exports = function (app) {
   app.set('trust proxy', 1)
   app.use(require('./rate-limit'))
   app.use(instrument('./handle-invalid-paths'))
+  app.use(instrument('./handle-next-data-path'))
 
   // *** Security ***
   app.use(require('./cors'))
