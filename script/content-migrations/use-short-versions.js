@@ -59,7 +59,11 @@ async function main () {
           .replace(/>=?2\.19/, '*')
 
         // Find the relevant version from the master list so we can access the short name.
-        const versionObj = allVersions.find(version => version.plan === plan)
+        const versionObj = allVersions.find(version => version.plan === plan || version.shortName === plan)
+        if (!versionObj) {
+          console.error(`can't find supported version for ${plan}`)
+          process.exit(1)
+        }
         delete data.versions[plan]
         data.versions[versionObj.shortName] = valueToUse
       })
