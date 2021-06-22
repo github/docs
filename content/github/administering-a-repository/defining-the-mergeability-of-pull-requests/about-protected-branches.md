@@ -29,7 +29,7 @@ You can enforce certain workflows or requirements before a collaborator can push
 
 By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.
+By default, the restrictions of a branch protection rule apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.
 
 {% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
@@ -154,8 +154,8 @@ Enabling force pushes will not override any other branch protection rules. For e
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
-If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
+If a site administrator has unblocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 
-### Allow deletions
+### Delete deletions
 
 By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.
