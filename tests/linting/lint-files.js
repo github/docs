@@ -959,6 +959,9 @@ function validateIfversionConditionals (conds) {
           if (!allowedVersionOperators.includes(operator)) {
             errors.push(`Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`)
           }
+          // NOTE: The following will throw errors when we deprecate a version until we run the script to remove the
+          // deprecated versioning. If we deprecate a version before we have a working version of that script,
+          // we can comment out this part of the test temporarily and re-enable it once the script is ready.
           if (!(supported.includes(release) || release === next)) {
             errors.push(`Found ${release} inside "${cond}", but ${release} is not a supported GHES release`)
           }
