@@ -411,5 +411,5 @@ There is a _lot_ more you can do when forming GraphQL calls. Here are some place
 
 * [Pagination](https://graphql.org/learn/pagination/)
 * [Fragments](https://graphql.github.io/learn/queries/#fragments)
-* [Inline fragments](https://graphql.org/learn/queries/)
+* [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
 * [Directives](https://graphql.org/learn/queries/)
