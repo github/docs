@@ -158,13 +158,13 @@ We (usually the docs team, but sometimes GitHub product managers, engineers, or 
 You should always review your own PR first.
 
 For content changes, make sure that you:
-- [ ] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
-- [ ] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
-- [ ] Review the content for technical accuracy.
-- [ ] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
-- [ ] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
-- [ ] Check new or updated Liquid statements to confirm that versioning is correct.
-- [ ] If there are any failing checks in your PR, troubleshoot them until they're all passing.
+- [x] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
+- [x] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
+- [x] Review the content for technical accuracy.
+- [x] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
+- [x] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
+- [x] Check new or updated Liquid statements to confirm that versioning is correct.
+- [x] If there are any failing checks in your PR, troubleshoot them until they're all passing.
 
 ### Pull request template
 When you open a pull request, you must fill out the "Ready for review" template before we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request.
