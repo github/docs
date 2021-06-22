@@ -51,10 +51,17 @@ async function main () {
     const { data } = frontmatter(newContent)
     if (data.versions && typeof data.versions !== 'string') {
       Object.entries(data.versions).forEach(([plan, value]) => {
+        // Update legacy versioning while we're here
+        const valueToUse = value
+          .replace('2.23', '3.0')
+          .replace(`>=${oldestSupported}`, '*')
+          .replace(/>=?2\.20/, '*')
+          .replace(/>=?2\.19/, '*')
+
         // Find the relevant version from the master list so we can access the short name.
         const versionObj = allVersions.find(version => version.plan === plan)
         delete data.versions[plan]
-        data.versions[versionObj.shortName] = value
+        data.versions[versionObj.shortName] = valueToUse
       })
     }
 
