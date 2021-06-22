@@ -75,7 +75,9 @@ The following are not hard and fast rules, merely aids to the human judgment of 
 
 - **Prurient/Sexually explicit content.** Basically, don't post pornography. This does not mean that all nudity or sexual content is prohibited. We recognize that sexuality is a part of life and non-pornographic sexual content may be a part of your project, or may be presented for educational or artistic purposes. If you have any questions or concerns about something you want to post, [feel free to reach out and ask](https://support.github.com/contact) beforehand.
 
-- **Spam.** Respect the GitHub Community Forum. Don’t post advertisements, link to spammy websites, or otherwise vandalize the Community. This Community is meant for GitHub users to discuss projects, learn, and share ideas with one another - not for advertising or other spam-like content. Content that we deem spammy will be removed.
+- **Spam.** Respect the GitHub Community Forum. Don’t post advertisements, link to spammy websites, ping or mention long lists of usernames inappropriately or otherwise vandalize the Community. This Community is meant for GitHub users to discuss projects, learn, and share ideas with one another - not for advertising or other spam-like content. Content that we deem spammy will be removed.
+
+- **Violation of Terms of Service** If your Github.com account is identified in violation of [Terms of Service](https://help.github.com/articles/github-terms-of-service/) we will have to close your GitHub Community Forum as well.  [Terms of Service](https://help.github.com/articles/github-terms-of-service/) also indicates that "One person or legal entity may maintain no more than one free Account" therefore additional free accounts created to inquire about flagged or suspended accounts in the community forum will also be removed.
 
 - **Copyrighted or illegal content.** Only post your own stuff. You are responsible for what you post. If you post something you didn’t create yourself, you must have the right to post it. You may not post illegal content, including content illegal under copyright and trademark laws, links to illegal content, or methods for circumventing the law.
 
@@ -109,7 +111,7 @@ Community Forum moderators who do not follow or enforce the Code of Conduct in g
 
 ## Contacting GitHub Staff
 
-If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact?tags=community-support). Contacting any member of GitHub Staff via channels other than the forum itself or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
+If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact). Contacting any member of GitHub Staff via unsolicited mentions or pings, or via channels other than the forum itself, or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
 
 Let's work together to keep the forum a place where people feel safe to participate by being respectful of them and their time.
 
@@ -118,3 +120,8 @@ Let's work together to keep the forum a place where people feel safe to particip
 Yes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have a [Terms of Service](/articles/github-terms-of-service/) and [Privacy Statement](/articles/github-privacy-statement/) describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our [Terms of Service](/articles/github-terms-of-service/) and the [Privacy Statement](/articles/github-privacy-statement/).
 
 This Code of Conduct does not modify our [Terms of Service](/articles/github-terms-of-service/) and is not intended to be a complete list. GitHub retains full discretion under the [Terms of Service](/articles/github-terms-of-service/) to remove any content or terminate any accounts for activity that is "unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party's intellectual property or these Terms of Service." This Code of Conduct describes when we will exercise that discretion.
+
+### Data Retention and Deletion of Data
+
+You may contact [GitHub Support](https://support.github.com/contact) to request the deletion of your community forum profile. We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements, but barring legal requirements, will delete your full profile (within reason) within 90 days of your request. For more information please see the [GitHub Privacy Statement
+](https://docs.github.com/en/github/site-policy/github-privacy-statement)
