@@ -22,7 +22,7 @@ describe('graphql json files', () => {
 
   test('schemas object validation', () => {
     graphqlVersions.forEach(version => {
-      const schemaJsonPerVersion = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/lib/graphql/static/schema-' + version + '.json')))
+      const schemaJsonPerVersion = JSON.parse(fs.readFileSync(path.join(process.cwd(), `lib/graphql/static/schema-${version}.json`)))
       // all graphql types are arrays except for queries
       graphqlTypes
         .filter(type => type !== 'queries')

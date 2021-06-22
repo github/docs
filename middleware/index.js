@@ -4,7 +4,6 @@ const haltOnDroppedConnection = require('./halt-on-dropped-connection')
 const abort = require('./abort')
 const timeout = require('./timeout')
 const morgan = require('morgan')
-const webpack = require('./webpack')
 const datadog = require('./connect-datadog')
 const rateLimit = require('./rate-limit')
 const cors = require('./cors')
@@ -23,6 +22,7 @@ const recordRedirect = require('./record-redirect')
 const connectSlashes = require('connect-slashes')
 const handleErrors = require('./handle-errors')
 const handleInvalidPaths = require('./handle-invalid-paths')
+const handleNextDataPath = require('./handle-next-data-path')
 const detectLanguage = require('./detect-language')
 const context = require('./context')
 const shortVersions = require('./contextualizers/short-versions')
@@ -77,7 +77,6 @@ module.exports = function (app) {
 
   // *** Development tools ***
   app.use(morgan('dev', { skip: (req, res) => !isDevelopment }))
-  if (isDevelopment) app.use(webpack)
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
@@ -90,6 +89,7 @@ module.exports = function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
+  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
   app.use(cors)

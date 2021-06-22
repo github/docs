@@ -79,11 +79,12 @@ Let's commit a change to the *README* file.
 
 ## Celebrate
 
-Congratulations! You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}. What do you want to do next?
+Congratulations! You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}.
 
-- "[Set up Git](/articles/set-up-git)"
-- **Create a repository**
-- "[Clone a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
-- "[Fork a repository](/articles/fork-a-repo)"
-- "[Be social](/articles/be-social)"
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+You can now clone a {% data variables.product.product_name %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" and "[Set up Git](/articles/set-up-git)."
+
+You can find interesting projects and repositories on {% data variables.product.product_name %} and make changes to them by creating a fork of the repository. For more information see, "[Fork a repository](/articles/fork-a-repo)."
+
+Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+
+{% data reusables.support.connect-in-the-forum-bootcamp %}

@@ -29,7 +29,6 @@ if (filesToCheck.length) {
 
 async function check (files) {
   console.log('Verifying OpenAPI files are valid with decorator')
-  // Check this one to make sure it's reading the right files
   const documents = files.map(filename => [filename, JSON.parse(fs.readFileSync(path.join(process.cwd(), filename)))])
 
   for (const [filename, schema] of documents) {
