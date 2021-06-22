@@ -2,10 +2,10 @@
 title: GitHub's products
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
-  - /articles/github-s-products
-  - /articles/githubs-products
-  - /github/getting-started-with-github/githubs-products
-  - /github/getting-started-with-github/learning-about-github/githubs-products
+  - All/articles/github-s-products
+  - All/articles/githubs-products
+  - All/github/getting-started-with-github/githubs-products
+  - All/github/getting-started-with-github/learning-about-github/githubs-products
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
