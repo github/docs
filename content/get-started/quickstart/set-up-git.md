@@ -62,4 +62,4 @@ You can create a copy of a repository by forking it and propose the changes that
 
 Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
 
-{% data variables.product.product_name %} has a great community support where you can ask your queries to the people and communicate with them around the world. Join the conversation on Github Support Community and {% data reusables.support.connect-in-the-forum-bootcamp %}.
+{% data reusables.support.connect-in-the-forum-bootcamp %}.
