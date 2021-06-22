@@ -23,10 +23,8 @@ You can set up repositories for different purposes based on your needs. The foll
 - **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others. 
 
 You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[Creating an issues-only repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)."
-### Repository example 
-Below is an example of a repository created for a new project, called Project Octocat.  
 
-![Creating a repository example](/assets/images/help/issues/quickstart-creating-repo.png)
+For the following examples in this guide, we will be using an example repository called Project Octocat.
 ## Communicating repository information
 You can create a README.md file for your repository to introduce your team or project and communicate important information about it. A README is often the first item a visitor to your repository will see, so you can also provide information on how users or contributors can get started with the project and how to contact the team. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)."
 
@@ -45,27 +43,24 @@ You can use issues to track the different types of work that your team or projec
 - Requests for improvement: Your team or users can create issues to request an improvement to your product or project.
 - Bugs: Your team or users can create issues to report a bug. 
 
-Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue forms and templates for your repository. Issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} for your repository. Issue templates {% if currentVersion == "free-pro-team@latest" %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
-### Issue template example for large initiative
-Below is an example of an issue template for a large initiative, for our previously created Project Octocat.
+### Issue template example
+Below is an example of an issue template for reporting a bug in Project Octocat.
 
 ![Creating issue template example](/assets/images/help/issues/quickstart-creating-issue-template.png)
 
 ## Opening issues and using task lists to track work
-You can organize and track your work by creating issues. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
-### Issue example for large initiative
-Here is an example of an issue created for a large initiative, in this case front-end work for Project Octocat.
+You can organize and track your work by creating issues. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+### Issue example
+Here is an example of an issue created for a large initiative in Project Octocat.
 
 ![Creating large initiative issue example](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
+### Task list example
 
-A task list in {% data variables.product.prodname_dotcom %} is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. They can be added using Markdown in any comment in {% data variables.product.prodname_dotcom %}.
+You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% if currentVersion == "free-pro-team@latest" %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[Creating task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists#creating-task-lists)."
 
-For more information, see "[Creating task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists#creating-task-lists)."
-
-Tasks lists have added functionality when added to the body of an issue. If you are working on a big initiative made up of multiple smaller tasks, you can create a main issue and then smaller issues for each of the tasks that make up the feature. You can then add a task list to the main issue, listing each of the smaller issues. You can then see the progress of tasks completed at the top of the issue, and if someone closes an issue in the list, the checkbox will automatically be marked as complete.
-### Task list example in large initiative issue
-Below we have added a task list to our front-end work issue created previously, breaking it down into smaller issues.
+Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
 ![Adding task list to issue example](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
@@ -73,10 +68,10 @@ Below we have added a task list to our front-end work issue created previously, 
 You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue. 
-### Issue example with project collaborators participating
-Below is an example of project collaborators giving status on their work on the large initiative issue for Project Octocat. 
+### Issue example with project collaborators
+Below is an example of project collaborators giving status on their work on the Project Octocat issue.
 
-![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-large-initiative.png)
+![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
 ## Using labels to highlight project goals and status
 You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue.
 
@@ -90,16 +85,20 @@ Below is an example of a `front-end` label being created and added to our large 
 ## Adding issues to a project board
 {% if currentVersion == "free-pro-team@latest" %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)."
 ### Project (beta) example
-Below is an example project with our large initiative issue added to it. 
+Below is the table view of an example project, populated with the Project Octocat issues we have created. 
 
-TBD
+![Projects (beta) table view example](/assets/images/help/issues/quickstart-projects-table-view.png)
+
+We can also view the same project as a board. 
+
+![Projects (beta) board view example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 
-You can use project boards on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can {% if currentVersion == "free-pro-team@latest" %} also use the existing{% else %} use{% endif %} project boards on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
 ### Project board example
-Below is a project board for our example Project Octocat with our large initiative issue, and smaller issues, added to it. 
+Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
 ![Project board example](/assets/images/help/issues/quickstart-project-board.png)
 ## Next steps
