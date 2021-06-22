@@ -11,7 +11,7 @@ if (FEATURE_NEXTJS) {
 }
 
 module.exports = function renderPageWithNext (req, res, next) {
-  if (req.path.startsWith('/_next/')) {
+  if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {
     return nextHandleRequest(req, res)
   }
 

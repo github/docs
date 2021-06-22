@@ -128,7 +128,9 @@ export const Survey = () => {
         </>
       )}
 
-      {state === ViewState.END && <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>}
+      {state === ViewState.END && (
+        <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>
+      )}
     </form>
   )
 }

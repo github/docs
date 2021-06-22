@@ -1,5 +1,7 @@
+const dotenv = require('dotenv')
+
 if (!process.env.GITHUB_TOKEN) {
-  require('dotenv').config()
+  dotenv.config()
 }
 
 // this module needs to work in development, production, and GitHub Actions
