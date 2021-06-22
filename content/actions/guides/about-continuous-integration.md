@@ -84,11 +84,11 @@ You won't be able to merge the pull request if your repository is configured to 
 
 {% data reusables.repositories.actions-workflow-status-badge-into %}
 
-For more information, see "[Configuring a workflow](/articles/configuring-a-workflow)."
+For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
 ## Further reading
 
-- "[Setting up continuous integration using {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
+- "[Setting up continuous integration using workflow templates](/actions/guides/setting-up-continuous-integration-using-workflow-templates)"
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}
