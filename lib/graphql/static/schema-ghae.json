@@ -5988,6 +5988,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "ipAllowListEntries",
+          "description": "<p>The IP addresses of the app.</p>",
+          "type": "IpAllowListEntryConnection!",
+          "id": "ipallowlistentryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ipallowlistentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for IP allow list entries returned.</p>",
+              "type": {
+                "name": "IpAllowListEntryOrder",
+                "id": "ipallowlistentryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#ipallowlistentryorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "logoBackgroundColor",
           "description": "<p>The hex color code, without the leading '#', for the logo background.</p>",
           "type": "String!",
@@ -62000,6 +62060,11 @@
       "href": "/graphql/reference/unions#ipallowlistowner",
       "description": "<p>Types that can own an IP allow list.</p>",
       "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
         {
           "name": "Enterprise",
           "id": "enterprise",
