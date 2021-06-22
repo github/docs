@@ -56,7 +56,7 @@ If you [clone with SSH](/github/getting-started-with-github/about-remote-reposit
 
 ## Celebrate
 
-Congratulations, you now have Git and {% data variables.product.product_name %} all set up! You may now choose to create a repository where you can put your projects and share the code around the world . For more information see "[Create a repository](/articles/create-a-repo)".
+Congratulations, you now have Git and {% data variables.product.product_name %} all set up! You may now choose to create a repository where you can put your projects. This is a great way to back up your code and makes it easy to share the code around the world. For more information see "[Create a repository](/articles/create-a-repo)".
 
 You can create a copy of a repository by forking it and propose the changes that you want to see without affecting the upstream repository. For more inforation see "[Fork a repository](/articles/fork-a-repo)".
 
