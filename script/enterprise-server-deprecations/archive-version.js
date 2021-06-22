@@ -13,7 +13,7 @@ const version = require('../../lib/enterprise-server-releases').oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
 const loadRedirects = require('../../lib/redirects/precompile')
-const { loadPageMap } = require('../../lib/pages')
+const { loadPageMap } = require('../../lib/page-data')
 const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 // [start-readme]

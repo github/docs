@@ -12,13 +12,12 @@ featuredLinks:
     - /packages/learn-github-packages/installing-a-package
   popular:
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
-    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
+    - '{% if currentVersion == "free-pro-team@latest" %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
     - /packages/learn-github-packages
     - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
-    - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
-    - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
+   - '{% if currentVersion == "free-pro-team@latest" %}/packages/working-with-a-github-packages-registry/working-with-the-container-registry{% else %}/packages/working-with-a-github-packages-registry/working-with-the-docker-registry{% endif %}'
+   - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
   label: packages
   prefix: 'Packages: '

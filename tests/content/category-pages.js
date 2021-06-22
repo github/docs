@@ -64,7 +64,6 @@ describe('category pages', () => {
 
       if (!categoryTuples.length) return
 
-      // TODO rework this for the new site tree structure
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {
@@ -78,7 +77,10 @@ describe('category pages', () => {
             const indexContents = await readFileAsync(indexAbsPath, 'utf8')
             const { data } = matter(indexContents)
             categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
-            const articleLinks = data.children
+            const articleLinks = data.children.filter(child => {
+              const mdPath = getPath(productDir, indexLink, child)
+              return fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()
+            })
 
             // Save the index title for later testing
             indexTitle = await renderContent(data.title, { site: siteData }, { textOnly: true })
@@ -125,20 +127,19 @@ describe('category pages', () => {
             )
           })
 
-          // TODO get these tests passing after the new site tree code is in production
-          test.skip('contains all expected articles', () => {
+          test('contains all expected articles', () => {
             const missingArticlePaths = difference(availableArticlePaths, publishedArticlePaths)
             const errorMessage = formatArticleError('Missing article links:', missingArticlePaths)
             expect(missingArticlePaths.length, errorMessage).toBe(0)
           })
 
-          test.skip('does not any unexpected articles', () => {
+          test('does not have any unexpected articles', () => {
             const unexpectedArticles = difference(publishedArticlePaths, availableArticlePaths)
             const errorMessage = formatArticleError('Unexpected article links:', unexpectedArticles)
             expect(unexpectedArticles.length, errorMessage).toBe(0)
           })
 
-          test.skip('contains only articles and map topics with versions that are also available in the parent category', () => {
+          test('contains only articles and map topics with versions that are also available in the parent category', () => {
             Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
               const unexpectedVersions = difference(articleVersions, categoryVersions)
               const errorMessage = `${articleName} has versions that are not available in parent category`
