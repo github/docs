@@ -206,5 +206,5 @@ For more information, see "[Securing your software supply chain](/code-security/
 {% data reusables.getting-started.contact-support %}
 
 ## Further reading
-- "[Getting started with {% data variables.product.prodname_team %}](/github/getting-started-with-github/onboarding/getting-started-with-github-team)"
+- "[Getting started with {% data variables.product.prodname_team %}](/get-started/onboarding/getting-started-with-github-team)"
 {% endif %}

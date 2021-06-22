@@ -111,5 +111,5 @@ https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contr
 
 {% if currentVersion == 'free-pro-team@latest' %}
 ### Further reading
-- "[Getting started with your GitHub account](/github/getting-started-with-github/onboarding/getting-started-with-your-github-account)"
+- "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"
 {% endif %}
