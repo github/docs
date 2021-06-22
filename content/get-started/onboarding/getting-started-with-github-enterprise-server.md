@@ -2,9 +2,7 @@
 title: Getting started with GitHub Enterprise Server
 intro: 'Get started with setting up and managing your GitHub Enterprise Server instance'
 versions:
-  free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 ### Account Types
@@ -37,7 +35,6 @@ https://docs.github.com/en/organizations/collaborating-with-groups-in-organizati
 
 To use an organization account with GHEC, you will first need to create an organization. When prompted to choose a plan, select "Enterprise". For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[Upgrading your GitHub subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 #### Billing for GHES
 
@@ -53,8 +50,6 @@ If you do decide to purchase GHEC, you'll need to set up your billing account.
 ### Managing users and teams
 
 ### Security
-
-If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[Managing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization)."
 
 https://docs.github.com/en/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#next-steps-for-organizations-using-github-enterprise-cloud
 

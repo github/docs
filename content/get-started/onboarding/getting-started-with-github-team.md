@@ -78,34 +78,35 @@ https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contr
 
 {% data reusables.getting-started.customizing-and-automating %}
 
-### Using {% data variables.product.prodname_marketplace %}
+{% if currentVersion == 'free-pro-team@latest' %}
+### 1. Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-
-### Using the {% data variables.product.product_name %} APIs
+{% endif %}
+### {% if currentVersion == 'free-pro-team@latest' %}2.{% else %}1.{% endif %} Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
-### Building {% data variables.product.prodname_actions %}
+### {% if currentVersion == 'free-pro-team@latest' %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### Publishing and managing {% data variables.product.prodname_registry %} 
+### {% if currentVersion == 'free-pro-team@latest' %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
 {% data reusables.getting-started.participating-in-community %}
-### Contributing to open source projects
+### 1. Contributing to open source projects
 {% data reusables.getting-started.open-source-projects %}
 
-### Interacting with the {% data variables.product.prodname_gcf %}
+### 2. Interacting with the {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### Learning with {% data variables.product.prodname_learning %}
+### 3. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
 {% if currentVersion == 'free-pro-team@latest' %}
-### Supporting the open source community
+### 4. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### Contacting {% data variables.contact.github_support %}
+### 5. Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 {% endif %}
 
