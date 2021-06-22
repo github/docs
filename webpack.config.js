@@ -47,6 +47,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sassOptions: {
+                quietDeps: true,
                 includePaths: ['./stylesheets', './node_modules'],
                 options: {
                   sourceMap: true,

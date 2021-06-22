@@ -13,7 +13,9 @@ topics:
 ---
 
 
-Let's walk through core API concepts as we tackle some everyday use cases. 
+Let's walk through core API concepts as we tackle some everyday use cases.
+
+{% data reusables.rest-api.dotcom-only-guide-note %}
 
 ## Overview
 

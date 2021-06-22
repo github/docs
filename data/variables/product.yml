@@ -188,7 +188,7 @@ doc_url_pre: >-
   {% if currentVersion == "free-pro-team@latest" %}https://docs.github.com/rest{% elsif enterpriseServerVersions contains currentVersion %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% elsif currentVersion == "github-ae@latest" %}https://docs.github.com/github-ae@latest/rest{% endif %}
 # Use this inside command-line code blocks
 api_url_pre: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/v3{% elsif currentVersion == "github-ae@latest" %}https://api.<em>[hostname]</em>{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/v3{% elsif currentVersion == "github-ae@latest" %}https://<em>[hostname]</em>/api/v3{% endif %}
 # Use this inside command-line code blocks
 # Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
 oauth_host_code: >-
@@ -197,7 +197,7 @@ device_authorization_url: >-
   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
 # Use this all other code blocks
 api_url_code: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://[hostname]/api/v3{% elsif currentVersion == "github-ae@latest" %}https://api.[hostname]{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://[hostname]/api/v3{% elsif currentVersion == "github-ae@latest" %}https://[hostname]/api/v3{% endif %}
 # Use this inside command-line code blocks
 graphql_url_pre: >-
   {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/graphql{% elsif currentVersion == "github-ae@latest" %}https://api.<em>[hostname]</em>/graphql{% endif %}

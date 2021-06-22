@@ -160,10 +160,9 @@ The `runner` context contains information about the runner that is executing the
 
 | Property name | Type | Description |
 |---------------|------|-------------|
-| `runner.os` | `string` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
-| `runner.temp` | `string` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners. |
-| `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
-{% else %}The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}|
+| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |
+| `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
+| `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
 
 ### `needs` context
 
