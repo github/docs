@@ -13,7 +13,6 @@ const dryRun = ['-d', '--dry-run'].includes(process.argv[2])
 const walkFiles = (pathToWalk, ext) => {
   return walk(path.posix.join(process.cwd(), pathToWalk), { includeBasePath: true, directories: false })
     .filter(file => file.endsWith(ext) && !file.endsWith('README.md'))
-    .filter(file => !file.includes('/early-access/')) // ignore EA for now
 }
 
 const markdownFiles = walkFiles('content', '.md').concat(walkFiles('data', '.md'))
