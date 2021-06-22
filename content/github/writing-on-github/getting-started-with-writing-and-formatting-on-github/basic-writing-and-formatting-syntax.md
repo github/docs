@@ -78,7 +78,7 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 ## Links
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% if currentVersion == "free-pro-team@latest" or if currentVersion == "github-ae@next" or if currentVersion ver_gt "enterprise-server@3.1" %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
