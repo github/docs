@@ -826,6 +826,36 @@ type App implements Node {
   id: ID!
 
   """
+  The IP addresses of the app.
+  """
+  ipAllowListEntries(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for IP allow list entries returned.
+    """
+    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+  ): IpAllowListEntryConnection!
+
+  """
   The hex color code, without the leading '#', for the logo background.
   """
   logoBackgroundColor: String!
@@ -5754,7 +5784,7 @@ input CreateIpAllowListEntryInput {
   """
   The ID of the owner for which to create the new IP allow list entry.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 }
 
 """
@@ -7316,12 +7346,19 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
   hasDependencies: Boolean!
 
   """
+  The original name of the package, as it appears in the manifest.
+  """
+  packageLabel: String!
+
+  """
   The dependency package manager
   """
   packageManager: String
 
   """
-  The required package name
+  The name of the package in the canonical form used by the package manager.
+  This may differ from the original textual form (see packageLabel), for example
+  in a package manager that uses case-insensitive comparisons.
   """
   packageName: String!
 
@@ -13597,7 +13634,7 @@ enum IpAllowListForInstalledAppsEnabledSettingValue {
 """
 Types that can own an IP allow list.
 """
-union IpAllowListOwner = Enterprise | Organization
+union IpAllowListOwner = App | Enterprise | Organization
 
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
@@ -41950,7 +41987,7 @@ input UpdateIpAllowListEnabledSettingInput {
   """
   The ID of the owner on which to set the IP allow list enabled setting.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list enabled setting.
@@ -42030,7 +42067,7 @@ input UpdateIpAllowListForInstalledAppsEnabledSettingInput {
   """
   The ID of the owner.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list configuration for installed GitHub Apps setting.

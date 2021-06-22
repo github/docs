@@ -8,7 +8,7 @@ module.exports = function webhooksContext (req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-webhook reference paths
   // and to versions that don't exist
-  if (!req.path.includes('webhook') || !currentVersionObj) {
+  if (!req.pagePath.includes('webhook') || !currentVersionObj) {
     return next()
   }
 
