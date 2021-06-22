@@ -3,8 +3,6 @@ title: Getting started with GitHub Enterprise Cloud
 intro: 'Get started with setting up and managing your GitHub Enterprise Cloud'
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
 ---
 
 ### Account Types

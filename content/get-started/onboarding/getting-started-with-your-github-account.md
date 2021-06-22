@@ -57,7 +57,7 @@ To best use {% data variables.product.product_name %}, you'll need to set up Git
 ### Learning Git
 {% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository for other people to view, fetch, and update using Git. For more information about Git, see the “[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see “[{% data variables.product.prodname_dotcom %} flow](/get-started/quickstart/github-flow)." 
 ### Setting up Git
-If you plan to use Git locally on your computer, whether through the command line, {% data variables.product.prodname_desktop %}, an IDE or file editor, or the {% data variables.product.prodname_dotcom %} API, you will need to install and set up Git. For more information, see “[Set up Git](/get-started/set-up-git)."
+If you plan to use Git locally on your computer, whether through the command line, {% data variables.product.prodname_desktop %}, an IDE or file editor, or the {% data variables.product.prodname_dotcom %} API, you will need to install and set up Git. For more information, see “[Set up Git](/get-started/quickstart/set-up-git)."
 
  Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a {% data variables.product.product_name %} repository from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
 
