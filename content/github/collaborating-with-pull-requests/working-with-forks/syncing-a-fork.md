@@ -15,7 +15,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 
-### Syncing a fork from the web UI
+## Syncing a fork from the web UI
 
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
 1. Select the **Fetch upstream** drop-down.
@@ -25,7 +25,7 @@ topics:
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
-### Syncing a fork from the command line 
+## Syncing a fork from the command line 
 
 {% endif %}
 Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/articles/configuring-a-remote-for-a-fork) in Git.

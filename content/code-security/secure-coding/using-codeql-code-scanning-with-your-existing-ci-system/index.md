@@ -18,7 +18,8 @@ topics:
   - CodeQL
 children:
   - /about-codeql-code-scanning-in-your-ci-system
-  - /running-codeql-cli-in-your-ci-system
+  - /installing-codeql-cli-in-your-ci-system
+  - /configuring-codeql-cli-in-your-ci-system
   - /running-codeql-runner-in-your-ci-system
   - /configuring-codeql-runner-in-your-ci-system
   - /troubleshooting-codeql-runner-in-your-ci-system
