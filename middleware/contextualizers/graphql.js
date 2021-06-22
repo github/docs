@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const previews = require('../../lib/graphql/static/previews')
 const upcomingChanges = require('../../lib/graphql/static/upcoming-changes')
 const changelog = require('../../lib/graphql/static/changelog')
@@ -23,7 +25,7 @@ module.exports = function graphqlContext (req, res, next) {
   const graphqlVersion = currentVersionObj.miscVersionName
 
   req.context.graphql = {
-    schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${graphqlVersion}`),
+    schemaForCurrentVersion: JSON.parse(fs.readFileSync(path.join(process.cwd(), `lib/graphql/static/schema-${graphqlVersion}.json`))),
     previewsForCurrentVersion: previews[graphqlVersion],
     upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
     prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
