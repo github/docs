@@ -78,7 +78,7 @@ Do **not** use the operators `&&` or `||`. Liquid does not recognize them, and t
 
 If your content describes a feature that will be included in the next release of GitHub AE, you can use a placeholder version string, `ghae-next`. Before the next GitHub AE release, we will run a script to replace the placeholder with `ghae`.
 
-For example, you can use this logic before the feature is available in GitHub AE:
+For example, you can use this logic for a feature that's shipping on GitHub.com and will also be available in a future update to GitHub AE:
 ```
 {% ifversion fpt or ghae-next %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
 ```
