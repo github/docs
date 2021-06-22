@@ -93,10 +93,10 @@ By default, the response takes the following form. The response parameters `expi
 
 ```json
 {
-  "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
   "refresh_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
-  "refresh_token_expires_in": 15811200,
+  "refresh_token_expires_in": 15811200,0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
   "scope": "",
   "token_type": "bearer"
 }
@@ -607,7 +607,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 * [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
-* [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
+* [Delete a reaction to a commit com ment](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Delete a pull request comment reaction](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Delete team discussion reaction](/rest/reference/reactions#delete-team-discussion-reaction)
 * [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
