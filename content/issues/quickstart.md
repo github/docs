@@ -69,7 +69,7 @@ You can use issues and discussions to communicate and make decisions as a team o
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue. 
 ### Issue example with project collaborators
-Below is an example of project collaborators giving status on their work on the Project Octocat issue.
+Below is an example of project collaborators giving a status update on their work on the Project Octocat issue.
 
 ![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
 ## Using labels to highlight project goals and status
@@ -89,7 +89,7 @@ Below is the table view of an example project, populated with the Project Octoca
 
 ![Projects (beta) table view example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
-We can also view the same project as a board. 
+We can also view the same project as a board.
 
 ![Projects (beta) board view example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
@@ -101,7 +101,9 @@ You can {% if currentVersion == "free-pro-team@latest" %} also use the existing{
 Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
 ![Project board example](/assets/images/help/issues/quickstart-project-board.png)
+
 ## Next steps
+
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
 - "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" for learning more about creating repositories
