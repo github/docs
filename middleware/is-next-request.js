@@ -5,29 +5,6 @@ const versionIds = Object.keys(require('../lib/all-versions'))
 
 const { FEATURE_NEXTJS } = process.env;
 
-const enabledSubSections = [
-  // 'actions',
-  // 'admin',
-  "billing",
-  // "code-security",
-  // "codespaces",
-  // "communities",
-  // "desktop",
-  // "developers",
-  "discussions",
-  // 'early-access',
-  // "education",
-  // 'github',
-  // "graphql",
-  // 'insights',
-  // "issues",
-  "organizations",
-  // 'packages',
-  // "pages",
-  // "rest",
-  "sponsors",
-];
-
 const homePageExp = pathToRegexp('/:locale/:versionId?')
 const productPageExp = pathToRegexp('/:locale/:versionId?/:productId')
 const subSectionExp = pathToRegexp('/:locale/:versionId?/:productId/:subSection*')
@@ -53,8 +30,7 @@ module.exports = function isNextRequest(req, res, next) {
       } else if (productPageMatch && productIds.includes(productPageMatch[3])) {
         req.renderWithNextjs = true
       } else if (subSectionMatch) {
-        // depending on whether versionId is included the productId is in a different place
-        req.renderWithNextjs = enabledSubSections.includes(subSectionMatch[2]) || enabledSubSections.includes(subSectionMatch[3])
+        req.renderWithNextjs = true
       }
     }
   }

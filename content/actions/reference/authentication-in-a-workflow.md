@@ -79,16 +79,16 @@ jobs:
       issues: write {% endif %}
     steps:
       - name: Create issue using REST API
-        run: {% raw %}|
+        run: |
           curl --request POST \
-          --url https://api.github.com/repos/${{ github.repository }}/issues \
-          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --url {% data variables.product.api_url_code %}/repos/${% raw %}{{ github.repository }}{% endraw %}/issues \
+          --header 'authorization: Bearer ${% raw %}{{ secrets.GITHUB_TOKEN }}{% endraw %}' \
           --header 'content-type: application/json' \
           --data '{
-            "title": "Automated issue for commit: ${{ github.sha }}",
-            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            "title": "Automated issue for commit: ${% raw %}{{ github.sha }}{% endraw %}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${% raw %}{{ github.workflow }}{% endraw %}**. \n\n The commit hash was: _${% raw %}{{ github.sha }}{% endraw %}_."
             }' \
-          --fail{% endraw %}
+          --fail
 ```
 
 ## Permissions for the `GITHUB_TOKEN`
