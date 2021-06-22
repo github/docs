@@ -128,6 +128,7 @@ module.exports = function (app) {
   app.use(asyncMiddleware(instrument('./dev-toc')))
   app.use(asyncMiddleware(instrument('./featured-links')))
   app.use(asyncMiddleware(instrument('./learning-track')))
+  app.use(asyncMiddleware(instrument('./is-next-request')))
 
   // *** Headers for pages only ***
   app.use(require('./set-fastly-cache-headers'))

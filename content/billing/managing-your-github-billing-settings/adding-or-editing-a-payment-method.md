@@ -16,7 +16,6 @@ redirect_from:
   - /articles/updating-your-organization-s-payment-method/
   - /articles/switching-payment-methods-for-your-organization/
   - /articles/adding-or-editing-a-payment-method
-  - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-or-editing-a-payment-method
 versions:
   free-pro-team: '*'

@@ -4,7 +4,6 @@ intro: 'With per-user pricing, organizations pay based on team size to access ad
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-per-user-pricing
 versions:
   free-pro-team: '*'

@@ -7,7 +7,6 @@ redirect_from:
   - /articles/redeeming-a-coupon-for-your-personal-account/
   - /articles/redeeming-a-coupon-for-organizations/
   - /articles/redeeming-a-coupon
-  - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
   free-pro-team: '*'

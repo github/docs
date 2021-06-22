@@ -16,7 +16,6 @@ redirect_from:
   - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
   - /articles/downgrading-your-github-billing-plan/
   - /articles/downgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
   free-pro-team: '*'

@@ -100,7 +100,6 @@ children:
   - /deploying-to-amazon-elastic-container-service
   - /deploying-to-azure-app-service
   - /deploying-to-google-kubernetes-engine
-  - /deploying-to-google-kubernetes-engine
   - /using-github-actions-for-project-management
   - /closing-inactive-issues
   - /scheduling-issue-creation

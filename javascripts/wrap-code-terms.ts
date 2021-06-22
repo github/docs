@@ -11,8 +11,12 @@ export default function () {
   const codeTerms = document.querySelectorAll('#article-contents table code')
   if (!codeTerms) return
 
-  codeTerms.forEach((node) => {
-    // Do the wrapping on the inner text only, so we don't modify hrefs
+  codeTerms.forEach(node => {
+    // Return early if a child node is an anchor element
+    const hasChildAnchor = Array.from(node.childNodes).some(child => child.nodeName === 'A')
+    if (hasChildAnchor) return
+
+    // Do the wrapping on the inner text only
     const oldText = escape(node.textContent || '')
 
     const newText = oldText.replace(wordsLongerThan18Chars, (str) => {

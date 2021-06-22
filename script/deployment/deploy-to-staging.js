@@ -6,7 +6,13 @@ const createStagingAppName = require('./create-staging-app-name')
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
-module.exports = async function deployToStaging ({ herokuToken, octokit, pullRequest, forceRebuild = false }) {
+module.exports = async function deployToStaging ({
+  herokuToken,
+  octokit,
+  pullRequest,
+  forceRebuild = false,
+  runId = null
+}) {
   // Start a timer so we can report how long the deployment takes
   const startTime = Date.now()
 
@@ -32,8 +38,9 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
     throw new Error(`This pull request is not open. State is: '${state}'`)
   }
 
+  const workflowRunLog = runId ? `https://github.com/${owner}/${repo}/actions/runs/${runId}` : null
   let deploymentId = null
-  let logUrl = null
+  let logUrl = workflowRunLog
   let appIsNewlyCreated = false
 
   const appName = createStagingAppName({ repo, pullNumber, branch })
@@ -83,9 +90,11 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
       deployment_id: deploymentId,
       state: 'in_progress',
       description: 'Deploying the app...',
-      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'
+      // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+      // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
       mediaType: {
-        previews: ['flash']
+        previews: ['ant-man', 'flash']
       }
     })
     console.log('🚀 Deployment status: in_progress - Preparing to deploy the app...')
@@ -283,7 +292,7 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
     // This will help us catch issues with faulty startup code and/or the package manifest.
     const dynoBootStartTime = Date.now()
     console.log('Checking Heroku dynos...')
-    logUrl = null
+    logUrl = workflowRunLog
 
     console.log('🚀 Deployment status: in_progress - Monitoring the Heroku dyno start-up...')
 
@@ -409,9 +418,11 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
       description: successMessage,
       ...logUrl && { log_url: logUrl },
       environment_url: homepageUrl,
-      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'
+      // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+      // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+      // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
       mediaType: {
-        previews: ['flash']
+        previews: ['ant-man', 'flash']
       }
     })
 
@@ -432,9 +443,11 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
           description: failureMessage,
           ...logUrl && { log_url: logUrl },
           environment_url: homepageUrl,
-          // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'
+          // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+          // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+          // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
           mediaType: {
-            previews: ['flash']
+            previews: ['ant-man', 'flash']
           }
         })
 

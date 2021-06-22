@@ -1,4 +1,4 @@
-export default () => {
+export default function copyCode() {
   const buttons = Array.from(document.querySelectorAll('button.js-btn-copy'))
 
   if (!buttons) return
