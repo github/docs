@@ -73,7 +73,7 @@ You're now connected to the {% data variables.product.product_name %} community.
 ![Star a project](/assets/images/help/stars/star-a-project.png)
 
 
-- To Sync all your {% data variables.product.product_name %} project workflows locally from your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)".
+- To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."
 - You can also Create a Repository where you can put all your projects and maintain your workflows. For more information see, "[Create a repository](/articles/create-a-repo)"
 - You can Fork a repository to make changes you want to see without affecting the upstream repository. For more information, see "[Fork a repository](/articles/fork-a-repo)"
 - {% data variables.product.product_name %} has a great community support and you can {% data reusables.support.connect-in-the-forum-bootcamp %} to search for a query and find the solution.
