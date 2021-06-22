@@ -68,7 +68,6 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { js: string } }
   activeProducts: Array<ProductT>
   currentProduct?: ProductT
   currentLayoutName: string
@@ -112,13 +111,12 @@ export type MainContextT = {
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.currentVersion === 'homepage',
-    error: req.context.error || '',
+    error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {

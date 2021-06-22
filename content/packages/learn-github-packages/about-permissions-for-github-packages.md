@@ -14,11 +14,11 @@ The permissions for packages are either repository-scoped or user/organization-s
 
 ## Permissions for repository-scoped packages
 
-A repository-scoped package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page.
+A repository-scoped package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% if currentVersion == "free-pro-team@latest" %}For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
 
 The {% data variables.product.prodname_registry %} registries below use repository-scoped permissions:
 
-  - Docker registry (`docker.pkg.github.com`)
+  {% if currentVersion != "free-pro-team@latest" %}- Docker registry (`docker.pkg.github.com`){% endif %}
   - npm registry
   - RubyGems registry
   - Apache Maven registry

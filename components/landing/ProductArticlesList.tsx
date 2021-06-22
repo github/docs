@@ -16,7 +16,7 @@ export const ProductArticlesList = () => {
   }
 
   return (
-    <div className="d-flex gutter flex-wrap">
+    <div className="d-flex gutter flex-wrap" data-testid="product-articles-list">
       {currentProductTree.childPages.map((treeNode, i) => {
         if (treeNode.page.documentType === 'article') {
           return null
@@ -34,7 +34,9 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h4 className="mb-3">
-        <Link className="color-unset" href={treeNode.href}>{treeNode.renderedFullTitle}</Link>
+        <Link className="color-unset" href={treeNode.href}>
+          {treeNode.renderedFullTitle}
+        </Link>
       </h4>
 
       <ul className="list-style-none">
