@@ -7,17 +7,17 @@ type Props = {
   track: FeaturedTrack
 }
 
-const MAX_VISIBLE_GUIDES = 4
+const DEFAULT_VISIBLE_GUIDES = 4
 export const LearningTrack = ({ track }: Props) => {
-  const [visibleGuides, setVisibleGuides] = useState(track?.guides?.slice(0, 4))
+  const [numVisible, setNumVisible] = useState(DEFAULT_VISIBLE_GUIDES)
   const showAll = () => {
-    setVisibleGuides(track?.guides)
+    setNumVisible(track?.guides?.length || 0)
   }
   const { t } = useTranslation('product_sublanding')
 
   return (
     <div className="my-3 px-4 col-12 col-md-6 learning-track">
-      <div className="Box js-show-more-container d-flex flex-column">
+      <div className="Box d-flex flex-column">
         <div className="Box-header bg-gradient--blue-pink p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-8 col-md-12 col-xl-8">
             <div className="my-xl-0 mr-xl-3">
@@ -38,10 +38,11 @@ export const LearningTrack = ({ track }: Props) => {
             </span>
           </a>
         </div>
-        {visibleGuides?.map((guide) => (
-          <div>
+
+        {track?.guides?.slice(0, numVisible).map((guide) => (
+          <div key={guide.href + track?.trackName}>
             <a
-              className="Box-row d-flex flex-items-center color-text-primary no-underline js-show-more-item"
+              className="Box-row d-flex flex-items-center color-text-primary no-underline"
               href={`${guide.href}?learn=${track?.trackName}`}
             >
               <div className="circle color-bg-tertiary d-inline-flex mr-4">
@@ -53,27 +54,28 @@ export const LearningTrack = ({ track }: Props) => {
               </div>
               <h5 className="flex-auto pr-2">{guide.title}</h5>
               <div className="color-text-tertiary h6 text-uppercase flex-shrink-0">
-                {t('guide_types')[guide.page.type]}
+                {t('guide_types')[guide.page?.type || '']}
               </div>
             </a>
-            {track?.guides && track?.guides?.indexOf(guide) + 1 === MAX_VISIBLE_GUIDES ? (
-              <button
-                className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-text-link pt-1 pb-3 col-12 js-show-more-button"
-                onClick={showAll}
-              >
-                <div
-                  className="position-absolute left-0 right-0 py-5 fade-background-bottom"
-                  style={{ bottom: '50px' }}
-                ></div>
-                <span>
-                  Show {track?.guides?.length - MAX_VISIBLE_GUIDES} {t(`more_guides`)}
-                </span>
-              </button>
-            ) : (
-              <div />
-            )}
           </div>
         ))}
+
+        {(track?.guides?.length || 0) > numVisible ? (
+          <button
+            className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-text-link pt-1 pb-3 col-12"
+            onClick={showAll}
+          >
+            <div
+              className="position-absolute left-0 right-0 py-5 fade-background-bottom"
+              style={{ bottom: '50px' }}
+            ></div>
+            <span>
+              Show {(track?.guides?.length || 0) - numVisible} {t(`more_guides`)}
+            </span>
+          </button>
+        ) : (
+          <div />
+        )}
       </div>
     </div>
   )

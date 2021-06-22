@@ -5,7 +5,7 @@ export type FeaturedTrack = {
   trackName: string
   title: string
   description: string
-  guides?: Array<{ href: string; page: { type: string }; title: string; intro: string }>
+  guides?: Array<{ href: string; page?: { type: string }; title: string; intro: string }>
 } | null
 
 export type ArticleGuide = {
