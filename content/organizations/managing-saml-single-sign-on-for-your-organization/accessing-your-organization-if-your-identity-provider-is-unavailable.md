@@ -29,6 +29,6 @@ Organization administrators can use [one of their downloaded or saved recovery c
 
 After you've used a recovery code, make sure to note that it's no longer valid. You will not be able to reuse the recovery code.
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

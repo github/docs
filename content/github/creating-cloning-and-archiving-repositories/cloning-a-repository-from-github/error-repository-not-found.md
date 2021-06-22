@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-### Check your spelling
+## Check your spelling
 
 Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
 
@@ -19,7 +19,7 @@ To avoid this error, when cloning, always copy and paste the clone URL from the 
 
 To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
-### Checking your permissions
+## Checking your permissions
 
 If you are trying to clone a private repository but do not have permission to view the repository, you will receive this error.
 
@@ -29,7 +29,7 @@ Make sure that you have access to the repository in one of these ways:
 * A [collaborator](/articles/inviting-collaborators-to-a-personal-repository) on the repository
 * A [member of a team](/articles/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
 
-### Check your SSH access
+## Check your SSH access
 
 In rare circumstances, you may not have the proper SSH access to a repository.
 
@@ -47,12 +47,12 @@ If the repository belongs to an organization and you're using an SSH key generat
 For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 {% if enterpriseServerVersions contains currentVersion %}
-### Check if your instance is in private mode
+## Check if your instance is in private mode
 
 If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
 {% endif %}
 
-### Check that the repository really exists
+## Check that the repository really exists
 
 If all else fails, make sure that the repository really exists on {% data variables.product.product_location %}!
 If you're trying to push to a repository that doesn't exist, you'll get this error.

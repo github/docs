@@ -14,7 +14,7 @@ topics:
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-### Generating a GPG key
+## Generating a GPG key
 
 {% note %}
 
@@ -56,7 +56,7 @@ topics:
 11. Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
 12. [Add the GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
 
-### Further reading
+## Further reading
 
 * "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 * "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"

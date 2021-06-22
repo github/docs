@@ -20,7 +20,7 @@ Members of your organization's Owners team can give *billing manager* permission
 
 {% endnote %}
 
-### Permissions for billing managers
+## Permissions for billing managers
 
 Billing managers can:
 
@@ -29,6 +29,7 @@ Billing managers can:
 - View payment history
 - Download receipts
 - View, invite, and remove billing managers
+- Start, modify, or cancel sponsorships
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 
@@ -45,7 +46,7 @@ Billing managers **are not** able to:
 
 {% endtip %}
 
-### Inviting a billing manager
+## Inviting a billing manager
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 

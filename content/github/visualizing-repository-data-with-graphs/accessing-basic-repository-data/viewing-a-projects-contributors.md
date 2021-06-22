@@ -14,7 +14,7 @@ versions:
 topics:
   - Repositories
 ---
-### About contributors
+## About contributors
 
 You can view the top 100 contributors to a repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
@@ -22,7 +22,7 @@ You can view the top 100 contributors to a repository{% if enterpriseServerVersi
 You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
-### Accessing the contributors graph
+## Accessing the contributors graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -31,7 +31,7 @@ You can also see a list of people who have contributed to the project's Python d
 4. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday.
   ![Selected time range in the contributors graph](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
-### Troubleshooting contributors
+## Troubleshooting contributors
 
 If you don't appear in a repository's contributors graph, it may be because:
 - You aren't one of the top 100 contributors.

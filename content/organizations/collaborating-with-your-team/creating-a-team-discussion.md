@@ -26,7 +26,7 @@ topics:
 8. Click **Comment**.
   ![Create new team discussions comment button](/assets/images/help/projects/team-discussions-comment-button.png)
 
-### Further reading
+## Further reading
 
   - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

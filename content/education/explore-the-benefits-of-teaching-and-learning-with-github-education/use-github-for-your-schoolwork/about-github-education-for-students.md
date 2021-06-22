@@ -17,6 +17,6 @@ Everyone with a {% data variables.product.prodname_dotcom %} account can collabo
 
 If you're a member of a FIRST robotics club, your mentor can apply for an educator discount so your team can collaborate using {% data variables.product.prodname_team %}, which allows unlimited users and private repositories, for free. For more information, see "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)."
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_education %} for educators and researchers](/articles/about-github-education-for-educators-and-researchers)"

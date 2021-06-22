@@ -9,6 +9,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### About {% data variables.product.prodname_github_app %} permissions

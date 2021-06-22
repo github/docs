@@ -36,7 +36,7 @@ export function GHESReleaseNotes({ context }: Props) {
           {prevRelease ? (
             <Link
               className="btn btn-outline"
-              href={`/${currentLanguage}/${currentVersion.plan}@${prevRelease}/${currentProduct}/release-notes`}
+              href={`/${currentLanguage}/${currentVersion.plan}@${prevRelease}/${currentProduct?.id}/release-notes`}
             >
               <ChevronLeftIcon /> {prevRelease}
             </Link>
@@ -51,7 +51,7 @@ export function GHESReleaseNotes({ context }: Props) {
           {nextRelease ? (
             <Link
               className="btn btn-outline"
-              href={`/${currentLanguage}/${currentVersion.plan}@${nextRelease}/${currentProduct}/release-notes`}
+              href={`/${currentLanguage}/${currentVersion.plan}@${nextRelease}/${currentProduct?.id}/release-notes`}
             >
               {nextRelease} <ChevronRightIcon />
             </Link>

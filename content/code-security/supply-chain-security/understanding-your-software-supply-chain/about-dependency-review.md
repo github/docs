@@ -19,7 +19,7 @@ redirect_from:
 
 {% endnote %}
 
-### About dependency review
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}
 

@@ -31,7 +31,7 @@ Recovery codes should not be shared or distributed. We recommend saving them wit
 
 7. Once you use a recovery code to regain access to {% data variables.product.product_name %}, it cannot be reused. Access to {% data variables.product.product_name %} will only be available for 24 hours before you'll be asked to sign in using single sign-on.
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Accessing your organization if your identity provider is unavailable](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"

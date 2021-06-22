@@ -36,6 +36,6 @@ You can request a review from either a suggested or specific person. Suggested r
 7. After your pull request is reviewed and you've made the necessary changes, you can ask a reviewer to re-review your pull request. Navigate to **Reviewers** in the right sidebar and click {% octicon "sync" aria-label="The sync icon" %} next to the reviewer's name whose review you'd like.
   ![Re-review sync icon in the right sidebar](/assets/images/help/pull_requests/request-re-review.png)
 
-### Further reading
+## Further reading
 
 - "[About pull request reviews](/articles/about-pull-request-reviews)"

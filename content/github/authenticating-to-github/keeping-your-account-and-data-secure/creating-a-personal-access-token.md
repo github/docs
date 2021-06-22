@@ -21,7 +21,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-### Creating a token
+## Creating a token
 
 {% if currentVersion == "free-pro-team@latest" %}1. [Verify your email address](/github/getting-started-with-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user_settings.access_settings %}
@@ -55,7 +55,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 {% if currentVersion == "free-pro-team@latest" %}9. To use your token to authenticate to an organization that uses SAML SSO, [authorize the token for use with a SAML single-sign-on organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
 
-### Using a token on the command line
+## Using a token on the command line
 
 {% data reusables.command_line.providing-token-as-password %}
 
@@ -65,6 +65,6 @@ If you are not prompted for your username and password, your credentials may be 
 
 Instead of manually entering your PAT for every HTTPS Git operation, you can cache your PAT with a Git client. Git will temporarily store your credentials in memory until an expiry interval has passed. You can also store the token in a plain text file that Git can read before every request. For more information, see "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
-### Further reading
+## Further reading
 
 - "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"

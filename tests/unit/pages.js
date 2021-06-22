@@ -1,5 +1,5 @@
 const path = require('path')
-const { loadPages, loadPageMap } = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/page-data')
 const languageCodes = Object.keys(require('../../lib/languages'))
 const { liquid } = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
@@ -7,8 +7,9 @@ const GithubSlugger = require('github-slugger')
 const slugger = new GithubSlugger()
 const Entities = require('html-entities').XmlEntities
 const entities = new Entities()
-const { chain, difference } = require('lodash')
+const { chain, difference, pick } = require('lodash')
 const checkIfNextVersionOnly = require('../../lib/check-if-next-version-only')
+const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
 
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
@@ -41,17 +42,24 @@ describe('pages module', () => {
       expect(brokenPages.length, expectation).toBe(0)
     })
 
-    // **TODO** fix duplicate redirects after new site tree feature flag is enabled
-    // we can't put this in tests/redirects because duplicate routes have already been
-    // overwritten during context.pages.redirects object assignment and can't be searched for
-    test.skip('redirect_from routes are unique across English pages', () => {
-      const sourceRedirectFrom = chain(pages)
+    test('redirect_from routes are unique across English pages', () => {
+      const englishPages = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
-        .map('redirect_from')
-        .flatten()
+        .map(pages => pick(pages, ['redirect_from', 'applicableVersions']))
         .value()
-      const duplicates = sourceRedirectFrom.reduce((acc, el, i, arr) => {
+
+      const versionedRedirects = []
+
+      englishPages.forEach(page => {
+        page.redirect_from.forEach(redirect => {
+          page.applicableVersions.forEach(version => {
+            versionedRedirects.push(removeFPTFromPath(path.posix.join('/', version, redirect)))
+          })
+        })
+      })
+
+      const duplicates = versionedRedirects.reduce((acc, el, i, arr) => {
         if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el)
         return acc
       }, [])
@@ -121,7 +129,7 @@ describe('pages module', () => {
       expect(liquidErrors.length, failureMessage).toBe(0)
     })
 
-    test('every non-English page has a matching English page', async () => {
+    test.skip('every non-English page has a matching English page', async () => {
       const englishPaths = chain(pages)
         .filter(page => page.languageCode === 'en')
         .map(page => page.relativePath)

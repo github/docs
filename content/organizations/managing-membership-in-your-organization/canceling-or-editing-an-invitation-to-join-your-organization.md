@@ -25,7 +25,7 @@ topics:
     - To edit the user's invitation, select a different role or team, then click **Update invitation**.
     - To cancel the user's invitation to join your organization, click **Cancel invitation**.
 
-### Further reading
+## Further reading
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"

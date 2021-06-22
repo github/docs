@@ -26,7 +26,7 @@ topics:
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 - "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"

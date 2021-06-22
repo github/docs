@@ -17,7 +17,7 @@ To view your Jupyter notebook with JavaScript content rendered or to share your 
 
 To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
 
-### Troubleshooting
+## Troubleshooting
 
 If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
@@ -25,7 +25,7 @@ If you're having trouble rendering Jupyter Notebook files in static HTML, you ca
 $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ```
 
-### Further reading
+## Further reading
 
 - [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
 - [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)

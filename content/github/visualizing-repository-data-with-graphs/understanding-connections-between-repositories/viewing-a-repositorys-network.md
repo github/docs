@@ -21,7 +21,7 @@ topics:
 
 {% endtip %}
 
-### Accessing the network graph
+## Accessing the network graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

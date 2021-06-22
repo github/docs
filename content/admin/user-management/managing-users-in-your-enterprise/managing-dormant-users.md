@@ -23,7 +23,7 @@ topics:
 - Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
-### Viewing dormant users
+## Viewing dormant users
 
 You can view a list of all dormant users who have not been suspended and who are not site administrators.
 
@@ -33,7 +33,7 @@ You can view a list of all dormant users who have not been suspended and who are
 4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
-### Determining whether a user account is dormant
+## Determining whether a user account is dormant
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -42,7 +42,7 @@ You can view a list of all dormant users who have not been suspended and who are
 ![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
 ![Active user account](/assets/images/enterprise/stafftools/active-user.png)
 
-### Configuring the dormancy threshold
+## Configuring the dormancy threshold
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 

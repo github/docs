@@ -30,7 +30,7 @@ information on a repository's commits page.
 
 For more information on how Git considers commit history, see [the "History Simplification"](https://git-scm.com/docs/git-log#_history_simplification) section of the `git log` help article.
 
-### Further reading
+## Further reading
 
 - "[Signing commits](/articles/signing-commits)"
 - "[Searching commits](/articles/searching-commits)"

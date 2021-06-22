@@ -31,7 +31,7 @@ To thoroughly test a {% data variables.product.prodname_ghe_server %} appliance 
 3. Restore your backup onto your staging instance. For more information, see the "Restoring a backup" section of "[Configuring backups on your appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)."
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Further reading
+## Further reading
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

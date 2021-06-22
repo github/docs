@@ -19,7 +19,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Maven software project management tool. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
@@ -28,7 +28,7 @@ This guide shows you how to create a workflow that performs continuous integrati
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-### Prerequisites
+## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
 - "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
@@ -38,7 +38,7 @@ We recommend that you have a basic understanding of Java and the Maven framework
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-### Starting with a Maven workflow template
+## Starting with a Maven workflow template
 
 {% data variables.product.prodname_dotcom %} provides a Maven workflow template that will work for most Maven-based Java projects. For more information, see the [Maven workflow template](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
@@ -80,7 +80,7 @@ The default workflow templates are excellent starting points when creating your 
 
 {% data reusables.github-actions.java-jvm-architecture %}
 
-### Building and testing your code
+## Building and testing your code
 
 You can use the same commands that you use locally to build and test your code.
 
@@ -101,7 +101,7 @@ steps:
 ```
 {% endraw %}
 
-### Caching dependencies
+## Caching dependencies
 
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
 
@@ -127,7 +127,7 @@ steps:
 
 This workflow will save the contents of your local Maven repository, located in the `.m2` directory of the runner's home directory. The cache key will be the hashed contents of _pom.xml_, so changes to _pom.xml_ will invalidate the cache.
 
-### Packaging workflow data as artifacts
+## Packaging workflow data as artifacts
 
 After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 

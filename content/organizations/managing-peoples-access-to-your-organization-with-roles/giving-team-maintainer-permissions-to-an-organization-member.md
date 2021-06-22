@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.organizations.team_maintainers_can %}
 
-### Promoting an organization member to team maintainer
+## Promoting an organization member to team maintainer
 
 Before promoting an organization member to team maintainer, the person must already be a member of the team.
 
