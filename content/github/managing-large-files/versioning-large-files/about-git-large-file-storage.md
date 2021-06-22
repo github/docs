@@ -21,7 +21,7 @@ Using {% data variables.large_files.product_name_short %}, you can store files u
 | {% data variables.product.prodname_pro %} | 2 GB |
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
-Using {% data variables.large_files.product_name_short %}, you can store files up to in your repository.
+Using {% data variables.large_files.product_name_short %}, you can store files up to 5 GB in your repository.
 {% endif %}  
 
 You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[Cloning a repository from GitHub to GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
