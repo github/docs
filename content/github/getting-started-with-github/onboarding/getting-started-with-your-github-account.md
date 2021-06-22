@@ -15,7 +15,7 @@ There are several types of accounts on {% data variables.product.prodname_dotcom
 ### Creating an account
 To sign up for a {% data variables.product.prodname_dotcom %} account, navigate to https://github.com/ and follow the prompts. 
 
-To keep your {% data variables.product.prodname_dotcom %} account secure you should generate a strong and unique password with more than 16 characters using a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+To keep your {% data variables.product.prodname_dotcom %} account secure you should generate a strong and unique password with more than 16 characters using a password manager.
 
 {% if currentVersion == 'free-pro-team@latest' or enterpriseServerVersions contains currentVersion %}
 {% note %}
@@ -25,9 +25,9 @@ To keep your {% data variables.product.prodname_dotcom %} account secure you sho
 {% endnote %}
 {% endif %}
 ### Choosing your {% data variables.product.prodname_dotcom %} product
-{% data variables.product.prodname_dotcom %} offers both free and paid products, each with a different set of features. {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_pro %} offer features for individual users. {% data variables.product.prodname_team %} offers collaboration and management tools for teams. {% data variables.product.prodname_enterprise %} offers security, compliance, and deployment controls for organizations.
+You can choose {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} to get access to different features for your personal account.
 
-For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/learning-about-github/githubs-products)."
+For more information on all of {% data variables.product.prodname_dotcom %}'s plans, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/learning-about-github/githubs-products)."
 
 {% if currentVersion == 'free-pro-team@latest' %}
 ### Verifying your email address
@@ -49,9 +49,7 @@ Two-factor authentication, or 2FA, is an extra layer of security used when loggi
 For more information, see "[About two-factor authentication](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
 {% endif %}
 ### Viewing your {% data variables.product.product_name %} profile and contribution graph
-Your {% data variables.product.product_name %} profile tells people the story of your work through the repositories and gists you've pinned, the organizations you're part of, the contributions you've made, and the projects you've created. For more information, see “[About your profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)."
-
-Your profile also shows a graph of your public repository contributions over the past year. Additionally, you can choose to show anonymized activity from private repositories. For more information, see “[Viewing contributions on your profile](/github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile)."
+Your {% data variables.product.product_name %} profile tells people the story of your work through the repositories and gists you've pinned, the organizations you're part of, the contributions you've made, and the projects you've created. For more information, see “[About your profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)" and “[Viewing contributions on your profile](/github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile)."
 
 ## Part 2: Using {% data variables.product.product_name %}'s tools and processes
 To best use {% data variables.product.product_name %}, you'll need to set up Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer. To effectively collaborate on {% data variables.product.prodname_dotcom_the_website %}, you'll write in issues and pull requests using {% data variables.product.prodname_dotcom %} Flavored Markdown. 
