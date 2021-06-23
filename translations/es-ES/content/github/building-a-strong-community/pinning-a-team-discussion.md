@@ -15,7 +15,7 @@ versions:
 {% data reusables.organizations.team-discussions-tab %}
 5. Haz clic en {% octicon "pin" aria-label="The pin icon" %} al lado del debate de equipo que deseas anclar. También puedes desanclar un debate al hacer clic en el ícono. ![Anclar un debate](/assets/images/help/projects/pin-discussion-button.png)
 
-### Further reading
+### Leer más
 
   - "[Acerca de los debates del equipo](/articles/about-team-discussions)"
   - "[Crear un debate de equipo](/articles/creating-a-team-discussion)"

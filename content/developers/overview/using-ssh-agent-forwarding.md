@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -18,7 +20,7 @@ If you've already set up an SSH key to interact with {% data variables.product.p
 
 Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
 
-### Setting up SSH agent forwarding
+## Setting up SSH agent forwarding
 
 Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
 
@@ -46,7 +48,7 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
 
 {% endwarning %}
 
-### Testing SSH agent forwarding
+## Testing SSH agent forwarding
 
 To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
 
@@ -69,11 +71,11 @@ $ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVe
 > Permission denied (publickey).
 ```
 
-### Troubleshooting SSH agent forwarding
+## Troubleshooting SSH agent forwarding
 
 Here are some things to look out for when troubleshooting SSH agent forwarding.
 
-#### You must be using an SSH URL to check out code
+### You must be using an SSH URL to check out code
 
 SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/config* file on your server and ensure the URL is an SSH-style URL like below:
 
@@ -83,11 +85,11 @@ SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/confi
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-#### Your SSH keys must work locally
+### Your SSH keys must work locally
 
 Before you can make your keys work through agent forwarding, they must work locally first. [Our guide on generating SSH keys][generating-keys] can help you set up your SSH keys locally.
 
-#### Your system must allow SSH agent forwarding
+### Your system must allow SSH agent forwarding
 
 Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:
 
@@ -115,11 +117,11 @@ $ cat /etc/ssh_config
 
 In this example, our */etc/ssh_config* file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
 
-#### Your server must allow SSH agent forwarding on inbound connections
+### Your server must allow SSH agent forwarding on inbound connections
 
 Agent forwarding may also be blocked on your server. You can check that agent forwarding is permitted by SSHing into the server and running `sshd_config`. The output from this command should indicate that `AllowAgentForwarding` is set.
 
-#### Your local `ssh-agent` must be running
+### Your local `ssh-agent` must be running
 
 On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
 
@@ -131,7 +133,7 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/launch-kNSlgU/Listeners
 ```
 
-#### Your key must be available to `ssh-agent`
+### Your key must be available to `ssh-agent`
 
 You can check that your key is visible to `ssh-agent` by running the following command:
 
@@ -147,7 +149,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-On Mac OS X, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
 
 ```shell
 $ ssh-add -K <em>yourkey</em>

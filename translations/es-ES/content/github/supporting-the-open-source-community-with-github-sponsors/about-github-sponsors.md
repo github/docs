@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Acerca de {% data variables.product.prodname_sponsors %}
@@ -35,9 +37,9 @@ Para ser elegible para el {% data variables.product.prodname_matching_fund %}, d
 
 ### Intercambiar opiniones acerca de {% data variables.product.prodname_sponsors %}
 
-Este es sólo el inicio — nos encantaría tener tu opinión para garantizar que {% data variables.product.prodname_sponsors %} siga satisfaciendo tus necesidades. Por favor, envíanos tu retroalimentación o sugerencias contactando a [{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors).
+{% data reusables.sponsors.feedback %}
 
-### Further reading
+### Leer más
 - "[Patrocinar a contribuyentes de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"
 - "[Recibir patrocinios a través de {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-through-github-sponsors)".
 - "[Preguntas frecuentes con el equipo {% data variables.product.prodname_sponsors %} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {% data variables.product.prodname_blog %}

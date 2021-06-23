@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} puede alojar y representar archivos 3D con la extensión *.stl*.
@@ -24,7 +26,7 @@ Cuando miras una confirmación de cambios o un conjunto de cambios que incluyen 
 
 Por defecto, obtendrás una vista donde todo lo que no ha cambiado está en el esquema de página. Las adiciones aparecen en verde y las partes eliminadas aparecen en rojo.
 
-![wireframe](/assets/images/help/repository/stl_wireframe.png)
+![esquema de página](/assets/images/help/repository/stl_wireframe.png)
 
 También puedes seleccionar la opción **Control deslizante de la revisión**, que te permite usar un control deslizante en la parte superior del archivo para cambiar entre las revisiones actuales y las anteriores.
 

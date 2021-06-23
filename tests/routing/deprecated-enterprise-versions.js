@@ -1,4 +1,4 @@
-const app = require('../../server')
+const app = require('../../lib/app')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
@@ -28,6 +28,12 @@ describe('enterprise deprecation', () => {
     const res = await get('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page')
     expect(res.statusCode).toBe(301)
     expect(res.headers.location).toBe('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile')
+  })
+
+  test('can access redirects from redirects.json in deprecated enterprise content >2.17', async () => {
+    const res = await get('/enterprise/2.19/admin/categories/time')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization')
   })
 
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
@@ -94,15 +100,15 @@ describe('deprecation banner', () => {
   })
 })
 
-describe('does not render helpfulness prompt or contribution button', () => {
-  test('does not render helpfulness prompt', async () => {
+describe('does not render survey prompt or contribution button', () => {
+  test('does not render survey prompt', async () => {
     let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    expect($('.js-survey').length).toBeGreaterThan(0)
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('.js-helpfulness').length).toBe(0)
+      expect($('.js-survey').length).toBe(0)
     } else {
-      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 
@@ -113,7 +119,7 @@ describe('does not render helpfulness prompt or contribution button', () => {
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
-      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 })

@@ -1,6 +1,6 @@
 ---
 title: Sobre discussões
-intro: Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.
+intro: 'Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
 ---
@@ -19,17 +19,23 @@ Com {% data variables.product.prodname_discussions %}, a comunidade para o seu p
 
 Você não precisa fechar uma discussão como você fecha um problema ou um pull request.
 
-Se um administrador de repositório ou mantenedor do projeto permitir discussões em um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões para o repositório. Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Se um administrador de repositório ou mantenedor do projeto permitir discussões em um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões para o repositório. Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 Para obter mais informações sobre o gerenciamento de discussões para o repositório, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
-### Sobre categorias e formatos para discussões
+### Sobre a organização de discussão
+
+Você pode organizar discussões com categorias e etiquetas.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 Para discussões com um formato de pergunta/resposta, é possível marcar um comentário individual dentro da discussão como a resposta da discussão. {% data reusables.discussions.github-recognizes-members %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### Melhores práticas para discussões
 
@@ -50,5 +56,5 @@ Você pode compartilhar seus comentários sobre {% data variables.product.prodna
 - "[Sobre escrita e formatação em {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Pesquisar discussões](/github/searching-for-information-on-github/searching-discussions)"
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderar comentários e conversas](/github/building-a-strong-community/moderating-comments-and-conversations)"
-- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
+- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

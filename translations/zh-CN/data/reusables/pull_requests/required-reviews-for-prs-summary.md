@@ -1,1 +1,1 @@
-Repository administrators can require that all pull requests receive a specific number of approving reviews before someone merges the pull request into a protected branch. You can require approving reviews from people with write permissions in the repository or from a designated code owner.
+仓库管理员可以要求所有拉取请求在有人将拉取请求合并到受保护分支之前获得特定数量的批准审查。 您可以要求仓库中具有写入权限的人或指定代码所有者批准审查。

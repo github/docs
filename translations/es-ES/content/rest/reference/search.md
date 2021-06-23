@@ -1,11 +1,13 @@
 ---
-title: Search
+title: Buscar
 redirect_from:
   - /v3/search
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.
@@ -94,7 +96,7 @@ Cuando proporcionas el tipo de medios `text-match`, recibirás una clave extra e
 | `object_url`  | La URL del recurso que contiene una propiedad de secuencia que empata con uno de los términos de búsqueda.                                                                                                                                                                                    |
 | `object_type` | El nombre del tipo de recurso que existe en la `object_url` específica.                                                                                                                                                                                                                       |
 | `property`    | El nombre de la propiedad del recurso que existe en la `object_url`. Esa propiedad es una secuencia que empata con uno de los términos de la búsqueda. (En el JSON que se devuelve de la `object_url`, el contenido entero para el `fragment` se encontrará en la propiedad con este nombre.) |
-| `fragment`    | Un subconjunto del valor de `property`. Este es el fragmento de texto que empata con uno o más de los términos de búsqueda.                                                                                                                                                                   |
+| `fragmento`   | Un subconjunto del valor de `property`. Este es el fragmento de texto que empata con uno o más de los términos de búsqueda.                                                                                                                                                                   |
 | `matches`     | Una matriz de uno o más términos de búsqueda presentes en el `fragment`. Los índices (es decir, "intervalos") son relativos al fragmento. (No son relativos al contenido _completo_ de `property`.)                                                                                           |
 
 #### Ejemplo

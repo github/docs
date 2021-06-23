@@ -7,18 +7,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)“.
+{% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)“.
 {% else %}
 GitHub Actions usage is free for
-{% data variables.product.prodname_ghe_server %} that use self-hosted runners.
+{% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
 {% endif %}
 
 ### Nutzungseinschränkungen
@@ -45,6 +49,8 @@ There are some limits on
   | Team        | 60                       | 5                                |
   | Enterprise  | 180                      | 50                               |
 - **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 Usage limits apply to self-hosted runners. Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)“.
 {% endif %}
@@ -56,7 +62,7 @@ In addition to the usage limits, you must ensure that you use
 {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/articles/github-terms-of-service/). Weitere Informationen zu {% data variables.product.prodname_actions %}-spezifischen Bedingungen findest Du unter [Zusätzliche Produktbedingungen für GitHub](/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Artifact and log retention policy
 
 You can configure the artifact and log retention period for your repository, organization, or enterprise account.
@@ -66,7 +72,7 @@ You can configure the artifact and log retention period for your repository, org
 Weitere Informationen findest Du unter:
 
 - [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
 - [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your enterprise](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
@@ -76,10 +82,10 @@ Weitere Informationen findest Du unter:
 
 Weitere Informationen findest Du unter:
 - "[Disabling or limiting {% data variables.product.prodname_actions %} for a repository](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)"
-- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" for {% data variables.product.prodname_ghe_cloud %}{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Disabling and enabling workflows
 
 You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.

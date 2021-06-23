@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -26,7 +28,7 @@ To authenticate we recommend using [OAuth](/apps/building-integrations/setting-u
 
 {% endif %}
 
-### Basic Authentication
+## Basic Authentication
 
 The API supports Basic Authentication as defined in
 [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) with a few slight differences.
@@ -36,7 +38,7 @@ the existence of user data. Instead, the {% data variables.product.product_name 
 This may cause problems for HTTP libraries that assume a `401 Unauthorized`
 response. The solution is to manually craft the `Authorization` header.
 
-#### Via OAuth and personal access tokens
+### Via OAuth and personal access tokens
 
 We recommend you use OAuth tokens to authenticate to the GitHub API. OAuth tokens include [personal access tokens][personal-access-tokens] and enable the user to revoke access at any time.
 
@@ -46,7 +48,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 This approach is useful if your tools only support Basic Authentication but you want to take advantage of OAuth access token security features.
 
-#### Via username and password
+### Via username and password
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -74,7 +76,7 @@ If you have two-factor authentication enabled, make sure you understand how to [
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating for SAML SSO
+### Authenticating for SAML SSO
 
 {% note %}
 
@@ -106,7 +108,7 @@ The value `organizations` is a comma-separated list of organization IDs for orga
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-### Working with two-factor authentication
+## Working with two-factor authentication
 
 When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token{% if enterpriseServerVersions contains currentVersion %} or OAuth token instead of your username and password{% endif %}.
 
@@ -115,7 +117,7 @@ You can generate a new personal access token {% if currentVersion == "free-pro-t
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-#### Using the OAuth Authorizations API with two-factor authentication
+### Using the OAuth Authorizations API with two-factor authentication
 
 When you make calls to the OAuth Authorizations API, Basic Authentication requires that you use a one-time password (OTP) and your username and password instead of tokens. When you attempt to authenticate with the OAuth Authorizations API, the server will respond with a `401 Unauthorized` and one of these headers to let you know that you need a two-factor authentication code:
 

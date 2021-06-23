@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 PLEASE READ THIS AGREEMENT CAREFULLY AS IT GOVERNS YOUR USE OF THE PRODUCTS (AS DEFINED BELOW), UNLESS WE HAVE EXECUTED A SEPARATE WRITTEN AGREEMENT WITH YOU FOR THAT PURPOSE.
 
@@ -45,11 +45,11 @@ If Customer has purchased the Products from a GitHub Partner, the following prov
 
 "**Fees**" means the fees Customer is required to pay GitHub to use the Products during the applicable Subscription Term or Professional Services, as such fees are reflected on an Order Form or SOW.
 
-"**GitHub Insights**" or “**Insights**” means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software.  GitHub Insights does not include legacy features of GitHub including Organization insights and repository insights. 
+"**GitHub Insights**" or “**Insights**” means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software.  GitHub Insights does not include legacy features of GitHub including Organization insights and repository insights.
 
 "**GitHub Partner**" means a company authorized to resell GitHub Products under the terms and conditions of GitHub's Channel Partner Agreement.
 
-"**Learning Lab for Enterprise Server**" means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation. 
+"**Learning Lab for Enterprise Server**" means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation.
 
 "**License Effective Date**" means the effective date of each Order Form as stated therein.
 

@@ -4,6 +4,9 @@ intro: 'You can configure the retention period for {% data variables.product.pro
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

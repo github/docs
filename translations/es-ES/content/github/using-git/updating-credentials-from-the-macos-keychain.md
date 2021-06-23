@@ -32,6 +32,6 @@ protocol=https
 
 Si resulta exitoso, no se imprimirá nada. Para probar su funcionamiento, trata de clonar un repositorio desde {% data variables.product.product_location %}. Si se te pide una contraseña, la entrada de keychain se borró.
 
-### Further reading
+### Leer más
 
 - [Almacenar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/using-git/caching-your-github-credentials-in-git/)"

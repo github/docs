@@ -5,15 +5,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
-### Overview
+## Overview
 
 Rather than binary pass/fail build statuses, GitHub Apps can report rich statuses, annotate lines of code with detailed information, and re-run tests. The Checks API functionality is available exclusively to your GitHub Apps.
 
 For an example of how to use the Checks API with a {% data variables.product.prodname_github_app %}, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
 
-### About check suites
+## About check suites
 
 When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/reference/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
 
@@ -31,7 +33,7 @@ To use the check suites API, the GitHub App must have the `checks:write` permiss
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-### About check runs 
+## About check runs 
 
 A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
 
@@ -51,7 +53,7 @@ A check can also be manually re-run in the GitHub UI. See "[About status checks]
 
 To use the Check Runs API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_run](/webhooks/event-payloads#check_run) webhook.
 
-### Check runs and requested actions
+## Check runs and requested actions
 
 When you set up a check run with requested actions (not to be confused with {% data variables.product.prodname_actions %}), you can display a button in the pull request view on {% data variables.product.prodname_dotcom %} that allows people to request your {% data variables.product.prodname_github_app %} to perform additional tasks.
 

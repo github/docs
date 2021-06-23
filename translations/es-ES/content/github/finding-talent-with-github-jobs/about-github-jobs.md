@@ -6,6 +6,8 @@ redirect_from:
 intro: 'Puedes publicar un empleo en {% data variables.product.prodname_jobs %} para encontrar talentos para tu negocio.'
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 Antes de poder publicar un empleo, debes crear una cuenta de {% data variables.product.prodname_dotcom %} y verificar tu dirección de correo electrónico. Para obtener más información, consulta "[Registrarse con una nueva cuenta de {% data variables.product.prodname_dotcom %} ](/articles/signing-up-for-a-new-github-account)" y "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
@@ -30,6 +32,6 @@ Para ayudar a los candidatos a encontrar tu publicación del empleo, verifica **
 
 Puedes usar Markdown para dar formato a tu publicación del empleo. Para obtener más información, consulta "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)".
 
-### Further reading
+### Leer más
 
 - [Cómo funiona {% data variables.product.prodname_jobs %} ](https://jobs.github.com/faq) en {% data variables.product.prodname_jobs %}

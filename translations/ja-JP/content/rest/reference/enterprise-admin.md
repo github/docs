@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -16,7 +18,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% note %}
 
-**注釈:** この記事は {% data variables.product.prodname_ghe_cloud %} に適用されます。 {% data variables.product.prodname_ghe_server %} のバージョンを確認するには、**{% data ui.pages.article_version %}** ドロップダウンメニューを使用します。
+**注釈:** この記事は {% data variables.product.prodname_ghe_cloud %} に適用されます。 {% data variables.product.prodname_ghe_managed %}あるいは{% data variables.product.prodname_ghe_server %}のバージョンを見るには、**{% data ui.pages.article_version %}**ドロップダウンメニューを使ってください。
 
 {% endnote %}
 
@@ -27,7 +29,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 REST API エンドポイント{% if enterpriseServerVersions contains currentVersion %}（[管理コンソール](#management-console) API エンドポイントを除く）{% endif %}の前には、次の URL が付けられます。
 
 ```shell
-http(s)://<em>hostname</em>/api/v3/
+{% data variables.product.api_url_pre %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -76,8 +78,10 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
+
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
@@ -96,7 +100,7 @@ IdP は、SCIM エンドポイントとして `{% data variables.product.api_url
 
 {% note %}
 
-**注釈:** Enterprise SCIM API は、[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
+**注釈:** Enterprise SCIM API は、[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
 
 {% endnote %}
 
@@ -147,19 +151,6 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 {% endfor %}
 
 {% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-
-## 保管時の暗号化
-
-保管時の暗号化の API を使用すると、{% data variables.product.product_name %} でデータを暗号化するキーを管理できます。 詳しい情報については、「[Enterprise 向けのデータ暗号化を設定する](/admin/configuration/configuring-data-encryption-for-your-enterprise)」を参照してください。
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 管理統計
 

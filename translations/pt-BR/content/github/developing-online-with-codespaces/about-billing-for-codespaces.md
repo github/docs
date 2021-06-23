@@ -4,6 +4,8 @@ intro: 'Quando {% data variables.product.prodname_codespaces %} se torna geralme
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% data reusables.codespaces.release-stage %}

@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -130,7 +132,7 @@ También, ya que hay una relación jerárquica entre alcances, debes verificar q
 
 No es suficiente verificar los alcances solo antes de hacer las solicitudes, ya que es posible que los usuarios cambien los alcances entre tus solicitudes de verificación y las solicitudes reales. En caso de que esto suceda, las llamadas a la API que esperas tengan éxito podrían fallar con un estado `404` o `401`, o bien, podrían devolver un subconjunto de información diferente.
 
-Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. Adicionalmente a esto, la API de Aplicaciones de OAuth proporciona una terminal para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[verificar la validez de un token\]\[/rest/reference/apps#check-a-token\]{% else %}\[verificar la validez de un token\]\[/rest/reference/apps#check-an-authorization\]{% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios diposnibles en la funcionalidad de la aplicación.
+Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. Adicionalmente a esto, la API de Aplicaciones de OAuth proporciona una terminal para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [verificar la validez de un token](/rest/reference/apps#check-a-token){% else %}[verificar la validez de un token](/rest/reference/apps#check-an-authorization){% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios disponibles en la funcionalidad de la aplicación.
 
 #### Realizar solicitudes autenticadas
 

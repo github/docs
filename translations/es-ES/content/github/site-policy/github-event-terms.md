@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-event-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Al confirmar su asistencia o asistiendo a un evento de GitHub, incluyendo cualquiera de los eventos o actividades organizadas por GitHub en asociación con el evento de GitHub (en conjunto, el "Evento"), señalas que has leído, comprendes y aceptas los siguientes términos y condiciones del evento.
@@ -43,7 +46,7 @@ Tú (por ti mismo, tus herederos, representantes personales o cesionarios, y cua
 #### Indemnización
 De la misma forma, aceptas indemnizar y eximir de toda responsabilidad a GitHub, sus matrices, subsidiarias, afiliados, funcionarios, directores, empleados, agentes y representantes, incluyendo los costos, pasivos y honorarios legales, de cualquier reclamación o demanda hecha por cualquier tercero por causa, que esté relacionada o en conexión con tu asistencia o conducta en el evento o cualquier evento relacionado.
 
-### 4. Termination
+### 4. Terminación
 
 Si bien esperamos que no lo haga, GitHub puede prohibir tu asistencia a cualquier evento de GitHub en cualquier momento si no cumples con los presentes términos del evento y el [Código de conducta del evento](/articles/github-event-code-of-conduct), los[términos de servicio de GitHub.com](/articles/github-terms-of-service/), o por cualquier motivo o sin motivo, sin previo aviso ni responsabilidad de ningún tipo. La sección 3 (riesgo, responsabilidad e indemnización) continuará aplicándose después de cualquier terminación.
 

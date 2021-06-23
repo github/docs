@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %}
@@ -45,7 +47,7 @@ Puedes buscar la siguiente información a través de todos los repositorios a lo
 - [Debates](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Código](/articles/searching-code)
 - [Confirmaciones](/articles/searching-commits)
-- [Usuarios](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
+- [Usuarios](/articles/searching-users){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
 - [Paquetes](/github/searching-for-information-on-github/searching-for-packages){% endif %}
 - [Wikis](/articles/searching-wikis)
 
@@ -70,7 +72,7 @@ Si tu administrador de sitio habilita
 la {% data variables.product.prodname_unified_search %} en los repositorios privados, solo podrás hacer búsquedas en los repositorios privados para los cuales el administrador haya habilitado la {% data variables.product.prodname_unified_search %} y a los cuales tengas acceso en la organización de {% data variables.product.prodname_dotcom_the_website %} conectada. Los administradores de {% data variables.product.prodname_enterprise %} y los propietarios de la organización en {% data variables.product.prodname_dotcom_the_website %} no pueden buscar en repositorios privados que son propiedad de tu cuenta. Para buscar los repositorios privados aplicables, debes activar la búsqueda de repositorio privado para tus cuentas personales en {% data variables.product.prodname_dotcom_the_website %} y {% data variables.product.prodname_enterprise %}. Para obtener más información, consulta "[Activar la búsqueda de repositorio privado de {% data variables.product.prodname_dotcom_the_website %} en tu cuenta de {% data variables.product.prodname_enterprise %} account](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)".
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Comprender la sintaxis de búsqueda](/articles/understanding-the-search-syntax)"
 - "[Búsqueda en GitHub](/articles/searching-on-github)"

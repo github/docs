@@ -5,6 +5,8 @@ redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
 versions:
   free-pro-team: '*'
+topics:
+  - SSO
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -19,6 +21,6 @@ versions:
 
   {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación con SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Muchos archivos pueden [moverse directamente en {% data variables.product.product_name %}](/articles/moving-a-file-to-a-new-location), pero algunos archivos, como imágenes, necesitan que los muevas desde la línea de comando.
@@ -56,7 +58,7 @@ Muchos archivos pueden [moverse directamente en {% data variables.product.produc
   ```
 {% data reusables.git.git-push %}
 
-### Further reading
+### Leer más
 
 - "[Renombrar un archivo utilizando la línea de comando](/articles/renaming-a-file-using-the-command-line)"
 - [Agregar un archivo a un repositorio mediante la línea de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)"

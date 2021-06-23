@@ -3,7 +3,7 @@ const { groupBy } = require('lodash')
 const renderContent = require('../../../lib/render-content')
 
 module.exports = async function processUpcomingChanges (upcomingChangesYml) {
-  const upcomingChanges = yaml.safeLoad(upcomingChangesYml).upcoming_changes
+  const upcomingChanges = yaml.load(upcomingChangesYml).upcoming_changes
 
   for (const change of upcomingChanges) {
     change.date = change.date.slice(0, 10)
@@ -11,5 +11,5 @@ module.exports = async function processUpcomingChanges (upcomingChangesYml) {
     change.description = await renderContent(change.description)
   }
 
-  return groupBy(upcomingChanges, 'date')
+  return groupBy(upcomingChanges.reverse(), 'date')
 }

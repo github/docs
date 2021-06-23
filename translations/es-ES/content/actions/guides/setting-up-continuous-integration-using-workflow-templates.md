@@ -11,11 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Cualquier persona con permiso de escritura en un repositorio puede configurar la integración continua (CI) utilizando {% data variables.product.prodname_actions %}.
 
@@ -35,10 +40,10 @@ Una vez que se hace una inserción en tu repositorio, puedes seguir el estado y 
 
 Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de la integración continua](/articles/about-continuous-integration)"
 - "[Administrar una ejecución de flujo de trabajo](/articles/managing-a-workflow-run)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

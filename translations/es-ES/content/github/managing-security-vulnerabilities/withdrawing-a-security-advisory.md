@@ -7,6 +7,6 @@ versions:
 
 Si publicas una asesoría de seguridad por error, puedes retirarla contactando a {% data variables.contact.contact_support %}.
 
-### Further reading
+### Leer más
 
 - [Editar una asesoría de seguridad](/github/managing-security-vulnerabilities/editing-a-security-advisory)

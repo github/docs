@@ -6,11 +6,15 @@ redirect_from:
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+type: how_to
+topics:
+  - Enterprise
+  - Packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### Enabling or disabling individual package ecosystems
+## Enabling or disabling individual package ecosystems
 
 To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
 
@@ -26,13 +30,13 @@ To use {% data variables.product.prodname_registry %} with Docker, you must have
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Connecting to the official NPM registry
+## Connecting to the official npm registry
 
-If you've enabled npm packages on your enterprise and want to allow access to the official NPM registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official NPM registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
 
-To allow network connections to the NPM registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
 
 | Source | Destination | Port | Type |
 |---|---|---|---|
@@ -42,6 +46,6 @@ Note that connections to `registry.npmjs.com` traverse through the Cloudflare ne
 
 {% endif %}
 
-### Next steps
+## Next steps
 
 As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."

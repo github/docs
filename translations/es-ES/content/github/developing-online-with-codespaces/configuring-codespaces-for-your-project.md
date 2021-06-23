@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -58,14 +60,14 @@ Puedes utilizar claves de configuración compatibles con {% data variables.produ
 #### Ajustes generales
 
 - `name (nombre)`
-- `parámetros`
+- `settings`
 - `extensions`
 - `forwardPorts`
 - `postCreateCommand`
 
 #### Ajustes de Docker, Dockerfile o de imagen
 
-- `imagen`
+- `image`
 - `dockerFile`
 - `context`
 - `containerEnv`

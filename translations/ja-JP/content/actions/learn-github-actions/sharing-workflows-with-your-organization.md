@@ -1,31 +1,33 @@
 ---
 title: ワークフローを Organization と共有する
 shortTitle: ワークフローを Organization と共有する
-intro: 'ワークフローテンプレート、シークレット、およびセルフホストランナーを共有することで、Organization 機能を使用して Team とコラボレーションする方法を学びます。'
+intro: ワークフローテンプレート、シークレット、およびセルフホストランナーを共有することで、Organization 機能を使用して Team とコラボレーションする方法を学びます。
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概要
 
-ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
+ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 Organization を使用すると、シークレット、成果物、およびセルフホストランナーを一元的に保存および管理できます。 `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
 
 ### ワークフロー テンプレートの作成
 
-ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。 ワークフロー テンプレートを使用すると、Organizationのパブリック リポジトリに新しいワークフローを作成できます。テンプレートを使用してプライベートリポジトリにワークフローを作成するには、OrganizationがエンタープライズプランまたはGitHub Oneプランの一部である必要があります。
+ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。 ワークフロー テンプレートを使用すると、Organization のパブリック リポジトリに新しいワークフローを作成できます。テンプレートを使用してプライベートリポジトリにワークフローを作成するには、Organization が Enterprise プランの一部である必要があります。
 
 この手順では、ワークフロー テンプレートとメタデータ ファイルを作成する方法を示します。 メタデータ ファイルには、ユーザが新しいワークフローを作成するときにテンプレートがどのように表示されるかについて説明します。
 
 1. 存在しない場合は、Organization内で`.github`という名前の新しいパブリック リポジトリを作成します。
-1. `workflow-templates`という名前のディレクトリを作成します。
-1. `workflow-templates` ディレクトリ内に新しいワークフローファイルを作成します。
+2. `workflow-templates`という名前のディレクトリを作成します。
+3. `workflow-templates` ディレクトリ内に新しいワークフローファイルを作成します。
 
    リポジトリのデフォルトブランチを参照する必要がある場合は、 `$default-branch` プレースホルダを使用できます。 テンプレートを使用してワークフローを作成すると、プレースホルダはリポジトリのデフォルトブランチの名前に自動的に置き換えられます。
 
@@ -50,7 +52,7 @@ type: 'how_to'
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-1. `workflow-templates` ディレクトリ内にメタデータファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前である必要がありますが、 `.yml` 拡張子の代わりに、 `.properties.json`を付ける必要があります。 たとえば`octo-organization-ci.properties.json`という名前のこのファイルには 、`octo-organization-ci.yml`という名前のワークフローファイルのメタデータが含まれています。
+4. `workflow-templates` ディレクトリ内にメタデータファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前である必要がありますが、 `.yml` 拡張子の代わりに、 `.properties.json`を付ける必要があります。 たとえば`octo-organization-ci.properties.json`という名前のこのファイルには 、`octo-organization-ci.yml`という名前のワークフローファイルのメタデータが含まれています。
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -76,7 +78,7 @@ type: 'how_to'
 
 ![ワークフロー テンプレート ファイル](/assets/images/help/images/workflow-template-files.png)
 
-### Using a workflow template from your organization
+### Organization のワークフローテンプレートを使用する
 
 この手順では、Organizationのメンバーがワークフロー テンプレートを検索して利用し、新しいワークフローを作成する方法を示します。 Organizationのワークフロー テンプレートは、Organizationのメンバーであるすべてのユーザーが使用できます。
 

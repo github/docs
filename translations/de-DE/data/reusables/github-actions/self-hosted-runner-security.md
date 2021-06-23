@@ -1,3 +1,1 @@
-Es wird empfohlen, keine selbst-gehosteten Läufer mit öffentlichen Repositorys zu verwenden.
-
-Forks Deines öffentlichen Repository können möglicherweise gefährlichen Code auf Deiner selbst-gehosteten Läufermaschine ausführen, indem sie einen Pull Request erstellen, der den Code in einem Workflow ausführt.
+We recommend that you only use self-hosted runners with private repositories. This is because forks of your repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

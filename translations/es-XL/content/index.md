@@ -10,10 +10,50 @@ featuredLinks:
     - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
     - /github/authenticating-to-github
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
-    - /github/using-git/managing-remote-repositories
+    - /github/getting-started-with-github/managing-remote-repositories
     - /github/working-with-github-pages
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+versions: '*'
+children:
+  - github
+  - admin
+  - billing
+  - organizations
+  - code-security
+  - actions
+  - packages
+  - developers
+  - rest
+  - graphql
+  - insights
+  - issues
+  - discussions
+  - codespaces
+  - sponsors
+  - communities
+  - pages
+  - education
+  - desktop
+  - early-access
+externalProducts:
+  cli:
+    id: cli
+    name: GitHub CLI
+    href: 'https://cli.github.com/manual'
+    external: true
+  atom:
+    id: atom
+    name: Atom
+    href: 'https://atom.io/docs'
+    external: true
+  electron:
+    id: electron
+    name: Electron
+    href: 'https://electronjs.org/docs'
+    external: true
+  codeql:
+    id: codeql
+    name: CodeQL
+    href: 'https://codeql.github.com/docs'
+    external: true
 ---
 

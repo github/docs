@@ -6,11 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de los grupos de ejecutores auto-hospedados
 
@@ -38,19 +41,19 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. En la sección de **Ejecutores auto-hospedados** da clic en **Agregar nuevo** y luego en **Grupo nuevo**.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. En la sección {% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar nuevo**, y luego en **Grupo nuevo**.
 
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso al repositorio.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} Puedes configurar un grupo de ejecutores para que una lista específica de repositorios puedan acceder a éste, o para que todos los repositorios en la organización puedan hacerlo. Predeterminadamente, los repositorios no pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes utilizar la opción **Permitir repositorios públicos** para anular dicha política.{% else if currentVersion == "enterprise-server@2.22"%}Puedes configurar un grupo de ejecutores para que ya sea una lista específica de repositorios, todos los repositorios privados, o todos los repositorios de la organización puedan acceder a él.{% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} Puedes configurar un grupo de ejecutores para que sea accesible para una lista específica de repositorios o para todos los repositorios de la organización. Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes anular esto.{% elsif currentVersion == "enterprise-server@2.22"%}Puedes configurar un grupo de ejecutores para que una lista de repositorios, todos los repositorios privados, o todos los repositorios en la organización puedan acceder a él.{% endif %}
 
    {% warning %}
 
-   **Warning**
+   **Advertencia**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -70,19 +73,19 @@ Cuando creas un grupo, debes elegir la política que defina qué organizaciones 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Da clic en la pestaña de **Ejecutores auto-hospedados**.
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. Da clic en **Agregar nuevo** y luego en **Grupo nuevo**.
 
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso organizacional.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} Puedes configurar un grupo de ejecutores para que ya sea una lista específica de organizaciones o todas las organizaciones de la empresa puedan acceder a él. Predeterminadamente, los repositorios no pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes utilizar la opción **Permitir repositorios públicos** para anular dicha política.{% else if currentVersion == "enterprise-server@2.22"%}Puedes configurar un grupo de ejecutores para que todas las organizaciones de la empresa puedan acceder a él, o puedes elegir organizaciones específicas.{% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} Puedes configurar un grupo de ejecutores para que una lista específica de organizaciones o todas las organizaciones de la empresa puedan acceder a él. Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes anular esto.{% elsif currentVersion == "enterprise-server@2.22"%}Puedes configurar un grupo de ejecutores para que todas las organizaciones en la empresa puedan acceder a él, o puedes elegir organizaciones específicas para este fin.{% endif %}
 
    {% warning %}
 
-   **Warning**
+   **Advertencia**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -101,7 +104,7 @@ Puedes actualizar la política de acceso de un grupo ejecutor o renombrarlo.
 
 Los ejecutores auto-hospedados nuevos se asignan automáticamente al grupo predeterminado y entonces pueden moverse a otro grupo.
 
-1. En la sección **Ejecutores auto-hospedados** de la página de configuración, ubica el grupo actual del ejecutor que quieras mover de grupo y expande la lista de miembros de dicho grupo. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. En la sección de {% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica el grupo actual del ejecutor que quieres mover y expande la lista de miembros del grupo. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Selecciona la casilla junto al ejecutor auto-hospedado y da clic en **Mover a grupo** para ver los destinos disponibles. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. Para mover el ejecutor, da clic en el grupo de destino. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 
@@ -109,7 +112,7 @@ Los ejecutores auto-hospedados nuevos se asignan automáticamente al grupo prede
 
 Los ejecutores auto-hospedados se devuelven automáticamente al grupo predeterminado cuando su grupo se elimina.
 
-1. En la sección de **Ejecutores auto-hospedados** de la página de configuración, ubica el grupo que quieras eliminar y da clic en el botón {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+1. En la sección de {% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica el grupo que quieres borrar y haz clic en el botón de {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. Para eliminar el grupo, da clic en **Eliminar grupo**. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-remove.png)
 

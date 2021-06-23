@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Puedes agregar un ejecutor auto-hospedado a {{ site.data.variables.product.prodname_actions }}.
 
@@ -33,8 +36,9 @@ Puedes agregar ejecutores auto-hospedados a un solo repositorio. Para agregar un
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Debajo de "ejecutores auto-hospedados", da clic en **Agregar ejecutor**.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Debajo de
+{% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar ejecutor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -44,8 +48,9 @@ Puedes agregar ejecutores auto-hospedados a nivel organizacional, en donde se po
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Debajo de "Ejecutores auto-hospedados", da clic en **Agregar nuevo** y luego en **Ejecutor nuevo**.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Debajo de
+{% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar ejecutor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -57,7 +62,7 @@ Puedes agregar ejecutores auto-hospedados a una empresa, en donde pueden asignar
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para agregar un ejecutor auto-hospedado a una cuenta empresarial, debes ser un propietario de la empresa.
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 Para agregar un ejecutor auto-hospedado a nivel empresarial de
 {% data variables.product.product_location %}, debes ser un administrador de sitio.
 {% endif %}
@@ -65,7 +70,7 @@ Para agregar un ejecutor auto-hospedado a nivel empresarial de
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Da clic en la pestaña de **Ejecutores auto-hospedados**.
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. Da clic en **Agregar nuevo** y luego en **Ejecutor nuevo**. Los ejecutores nuevos se asignan al grupo predeterminado. Puedes modificar el grupo del ejecutor después de que lo hayas registrado. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)".
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}

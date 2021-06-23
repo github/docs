@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -19,7 +21,7 @@ versions:
 
 Para administrar mejor tu proyecto, puedes priorizar propuestas o solicitudes de extracción dentro de un hito. Para obtener más información, consulta "[Acerca de los hitos](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
 
-### Further reading
+### Leer más
 
 * "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"
 * "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"

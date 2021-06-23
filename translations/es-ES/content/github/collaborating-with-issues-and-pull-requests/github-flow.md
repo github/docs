@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Seguir el flujo de GitHub
@@ -20,6 +22,6 @@ versions:
 5. [Fusiona la solicitud de extracción](/articles/merging-a-pull-request) una vez que la rama esté lista para ser fusionada.
 6. [Organiza](/articles/deleting-unused-branches) tus ramas utilizando el botón de eliminación de la solicitud de extracción o en la página de ramas.
 
-### Further reading
+### Leer más
 
 - La guía ilustrada para "[Comprender el flujo de GitHub](https://guides.github.com/introduction/flow/)"

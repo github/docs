@@ -1,203 +1,203 @@
 ---
 - 
-  term: Premium Support
+  term: Soporte prémium
 - 
-  term: Standard Support
+  term: Soporte estándar
 - 
-  term: Incident
+  term: Incidente
 - 
-  term: submit
+  term: enviar
 - 
-  term: contact person
+  term: persona de contacto
 - 
-  term: Severity
+  term: Gravedad
 - 
-  term: Service Level Agreement
+  term: Acuerdo de nivel de servicio
 - 
-  term: credit
+  term: crédito
 - 
-  term: account management team
+  term: equipo de gestión de cuentas
 - 
   term: ticket
 - 
-  term: Enterprise Support
+  term: Soporte empresarial
 - 
-  term: support portal
+  term: portal de soporte
 - 
-  term: Urgent
+  term: Urgente
 - 
-  term: High
+  term: Alto
 - 
-  term: Moderate
+  term: Moderado
 - 
-  term: Low
+  term: Bajo
 - 
-  term: extended support bundle
+  term: paquete de soporte extendido
 - 
-  term: company name
+  term: nombre de la empresa
 - 
-  term: privacy mode
+  term: modo de privacidad
 - 
-  term: Authentication method
+  term: Método de autenticación
 - 
-  term: hours of operation
+  term: horas de operación
 - 
-  term: leadership
+  term: liderazgo
 - 
-  term: Escalate to Management
+  term: Escalar a la administración
 - 
-  term: missed ticket responses
+  term: respuestas de tickets perdidos
 - 
-  term: Geo-replication
+  term: Replicación geográfica
 - 
-  term: production system
+  term: sistema de producción
 - 
-  term: de-identified of sensitive data
+  term: datos confidenciales no identificados
 - 
-  term: business justification
+  term: justificación comercial
 - 
-  term: Qualifying credits
+  term: Créditos de calificación
 - 
-  term: Contacting sales
+  term: Contacto de ventas
 - 
-  term: Contacting training
+  term: Contacto de capacitación
 - 
-  term: Outbound
+  term: Saliente
 - 
-  term: alphanumeric
+  term: alfanumérico
 - 
-  term: quotation
+  term: presupuesto
 - 
-  term: pricing plan
+  term: plan de precios
 - 
-  term: unit plan
+  term: plan unitario
 - 
-  term: role
+  term: rol
 - 
-  term: redeem coupon
+  term: canjear cupón
 - 
-  term: free plan
+  term: plan gratuito
 - 
   term: gratis
 - 
-  term: discount
+  term: descuento
 - 
-  term: stale review
+  term: revisión en espera
 - 
-  term: contribution credit
+  term: crédito de contribución
 - 
-  term: conflict marker
+  term: marcador de conflicto
 - 
-  term: Work-in-progress commit
+  term: Confirmación de trabajo en curso
 - 
-  term: ancestor commit
+  term: confirmación de ancestro
 - 
-  term: contribution graph
+  term: gráfico de contribución
 - 
-  term: approve
+  term: aprobar
 - 
-  term: dismiss
+  term: descartar
 - 
-  term: stage
+  term: etapa
 - 
-  term: invitation
+  term: invitación
 - 
-  term: uptime
+  term: tiempo de actividad
 - 
-  term: discussion
+  term: debate
 - 
-  term: service and privacy policy
+  term: política de servicio y privacidad
 - 
-  term: reinstate
+  term: reinstaurar
 - 
-  term: admin center
+  term: centro de administración
 - 
-  term: academic role
+  term: rol académico
 - 
-  term: educational discount
+  term: descuento educativo
 - 
-  term: disposable domain
+  term: dominio deshechable
 - 
-  term: roll over
+  term: volver a lanzar
 - 
-  term: quota
+  term: cuota
 - 
-  term: private key
+  term: llave privada
 - 
-  term: public key
+  term: llave pública
 - 
   term: hotpaching
 - 
-  term: feature release
+  term: característica de lanzamiento
 - 
-  term: co-authored commit
+  term: confirmación conjunta
 - 
-  term: subdomain isolation
+  term: aislamiento de subdominio
 - 
-  term: built-in authentication
+  term: autenticación incorporada
 - 
-  term: abuse rate limits
+  term: límites de tasa de abuso
 - 
-  term: load average
+  term: carga promedio
 - 
-  term: ephemeral
+  term: efímero
 - 
-  term: pre-flight check
+  term: control de prevuelo
 - 
-  term: account representative
+  term: representante de cuenta
 - 
-  term: unified search
+  term: búsqueda unificada
 - 
-  term: dormant user
+  term: usuario inactivo
 - 
-  term: delivery
+  term: entrega
 - 
-  term: legal hold
+  term: titular legal
 - 
-  term: unsolicited response SSO
+  term: SSO de respuesta no solicitada
 - 
-  term: IdP initiated SSO
+  term: SSO iniciado por IdP
 - 
-  term: authenticity of messages
+  term: autenticidad de los mensajes
 - 
-  term: All rights reserved
+  term: Todos los derechos reservados
 - 
-  term: Campus Advisors
+  term: Asesores de campus
 - 
-  term: Campus Experts
+  term: Expertos en campus
 - 
-  term: collaborative development models
+  term: modelos de desarrollo colaborativo
 - 
-  term: unified view
+  term: vista unificada
 - 
-  term: three-dot diff
+  term: diferenciación de tres puntos
 - 
-  term: rich diff
+  term: diff enriquecido
 - 
-  term: conversation
+  term: conversación
 - 
-  term: public gist / secret gist
+  term: gist público/secreto
 - 
-  term: extension
+  term: extensión
 - 
-  term: procurement companies
+  term: empresas de contratación
 - 
-  term: renewal orders
+  term: pedidos de renovación
 - 
-  term: per-user pricing
+  term: precio por usuario
 - 
-  term: watcher
+  term: observador
 - 
-  term: Required commit signing
+  term: Firma de confirmación requerida
 - 
-  term: Check Suites
+  term: Conjuntos de Verificaciones
 - 
-  term: classroom discount
+  term: descuento para aulas
 - 
-  term: student developer pack
+  term: paquete de desarrollador estudiante
 - 
-  term: academic research discount
+  term: descuento de investigación académica
 - 
-  term: Stargazers
+  term: Fans
 - 
-  term: spam unflagging
+  term: dejar de marcar el spam

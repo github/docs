@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const findUnusedAssets = require('../lib/find-unused-assets')
+const findUnusedAssets = require('./helpers/find-unused-assets')
 
 // [start-readme]
 //

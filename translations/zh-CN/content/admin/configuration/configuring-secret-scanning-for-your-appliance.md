@@ -1,43 +1,45 @@
 ---
-title: Configuring secret scanning for your appliance
-shortTitle: Configuring secret scanning
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
+title: 为设备配置密码扫描
+shortTitle: 配置密码扫描
+intro: '您可以为 {% data variables.product.product_location %} 启用、配置和禁用 {% data variables.product.prodname_secret_scanning %}。 {% data variables.product.prodname_secret_scanning_caps %} 允许用户扫描代码以寻找意外泄露的密码。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.secret-scanning.beta %}
 
 ### 关于 {% data variables.product.prodname_secret_scanning %}
 
-{% data reusables.secret-scanning.about-secret-scanning %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+{% data reusables.secret-scanning.about-secret-scanning %} 更多信息请参阅“[关于密码扫描](/github/administering-a-repository/about-secret-scanning)”。
 
 ### 基本要求
 
-To use {% data variables.product.prodname_secret_scanning %} in {% data variables.product.product_location %} you need these two prerequisites.
+要在 {% data variables.product.product_location %} 中使用 {% data variables.product.prodname_secret_scanning %} ，您需要以下两个先决条件。
 
-- The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.product_location %}.
+- [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470)（补充流式传输 SIMD 扩展 3）CPU 标志需要在运行 {% data variables.product.product_location %} 的 VM/KVM 上启用。
 
-- You need an {% data variables.product.prodname_advanced_security %} license.
+- 您需要 {% data variables.product.prodname_advanced_security %} 许可。
 
-#### Checking support for the SSSE3 flag on your vCPUs
+#### 检查您的 vCPU 上的 SSSE3 标志的支持
 
-The SSSE3 set of instructions is required because {% data variables.product.prodname_secret_scanning %} leverages hardware accelerated pattern matching to find potential credentials committed to your {% data variables.product.prodname_dotcom %} repositories. SSSE3 is enabled for most modern CPUs. You can check whether SSSE3 is enabled for the vCPUs available to your {% data variables.product.prodname_ghe_server %} instance.
+SSSE3 指令集是必需的，因为 {% data variables.product.prodname_secret_scanning %} 利用硬件加速模式匹配来查找提交给 {% data variables.product.prodname_dotcom %} 仓库的潜在凭据。 大多数现代 CPU 都启用了 SSSE3。 您可以检查您的 {% data variables.product.prodname_ghe_server %} 实例的可用 vCPU 是否启用了 SSSE3。
 
-1. Connect to the administrative shell for your {% data variables.product.prodname_ghe_server %} instance. 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)。”
-2. Enter the following command:
+1. 连接到 {% data variables.product.prodname_ghe_server %} 实例的管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)。”
+2. 输入以下命令：
 
 ```shell
 grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
 ```
 
-If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.product_location %}. For more information, see "[Enabling secret scanning](#enabling-secret-scanning)" below.
+如果返回值 `0`，则意味着 SSSE3 标志可用并且已启用。 您现在可以为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_secret_scanning %}。 更多信息请参阅下面的“[启用密码扫描](#enabling-secret-scanning)”。
 
-If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
+如果不返回 `0`，则 SSSE3 未在您的 VM/KVM 上启用。 您需要参考硬件/虚拟机监控程序的文档，以了解如何启用该标志，或者如何使其可用于访客 VM。
 
-#### Checking whether you have an {% data variables.product.prodname_advanced_security %} license
+#### 检查您是否拥有 {% data variables.product.prodname_advanced_security %} 许可
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

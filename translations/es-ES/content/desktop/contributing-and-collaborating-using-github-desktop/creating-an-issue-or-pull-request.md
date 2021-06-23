@@ -1,7 +1,7 @@
 ---
 title: Crear un nuevo informe de problemas o solicitud de extracción
 intro: Puedes crear una propuesta o solicitud de extracción para proponer y colaborar en los cambios en un repositorio.
-permissions: 'Cualquiera puede crear un informe de problemas en un repositorio público que los haya habilitado. Todo usuario que tenga permisos de lectura para un repositorio puede crear una solicitud de extracción, pero tú debes tener permisos de escritura para poder crear una rama.'
+permissions: 'Anyone can create an issue in a public repository that has issues enabled. Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch.'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request
@@ -70,7 +70,7 @@ Amtes de crear una solicitud de extracción, necesitarás subir los cambios a un
 
 {% endwindows %}
 
-### Further reading
+### Leer más
 - "[Informe de problemas](/github/getting-started-with-github/github-glossary#issue)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Solicitud de extracción](/github/getting-started-with-github/github-glossary#pull-request)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Rama base](/github/getting-started-with-github/github-glossary#base-branch)" en el glosario de {% data variables.product.prodname_dotcom %}

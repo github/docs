@@ -1,0 +1,37 @@
+name: 'Link Checker: Dotcom'
+
+# **What it does**: This checks links for dotcom version of docs.
+# **Why we have it**: We want to know if links break.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ fromJson('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
+      # Even if if doesn't do anything
+      - name: Checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Setup node
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        with:
+          node-version: 16.x
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: 'Link check: Dotcom'
+        env:
+          DOCS_VERSION: 'dotcom'
+        run: npm run link-check
