@@ -4,7 +4,7 @@ const throng = require('throng')
 const os = require('os')
 const portUsed = require('port-used')
 const prefixStreamWrite = require('./lib/prefix-stream-write')
-const libApp = require('./lib/app')
+const createApp = require('./lib/app')
 const libWarmServer = require('./lib/warm-server')
 const http = require('http')
 
@@ -49,7 +49,7 @@ async function checkPortAvailability () {
 }
 
 async function startServer () {
-  const app = libApp
+  const app = createApp()
   const warmServer = libWarmServer
 
   // If in a deployed environment...
