@@ -10,7 +10,7 @@ import { useVersion } from './hooks/useVersion'
 
 export const SidebarNav = () => {
   const router = useRouter()
-  const { error, relativePath } = useMainContext()
+  const { error, relativePath, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
@@ -39,7 +39,7 @@ export const SidebarNav = () => {
       <nav>
         {error === '404' || relativePath === 'index.md' ? (
           <ul className="sidebar-products mt-4">
-            {<AllProductsLink />}
+            {!isHomepageVersion && <AllProductsLink />}
             <SidebarHomepage />
           </ul>
         ) : (
@@ -66,12 +66,12 @@ export const SidebarNav = () => {
 const SidebarHomepage = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { activeProducts } = useMainContext()
+  const { activeProducts, isHomepageVersion } = useMainContext()
 
   return (
     <>
       {activeProducts.map((product) => {
-        if (!product.versions?.includes(currentVersion) && !product.external) {
+        if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
           return null
         }
 
