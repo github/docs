@@ -214,7 +214,7 @@ _Branches_
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#remove-user-access-restrictions) (:write)
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" -%}
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/repos#rename-a-branch) (:write)
-{% endif -%}
+{% endif %}
 
 _Collaborators_
 - [`PUT /repos/:owner/:repo/collaborators/:username`](/rest/reference/repos#add-a-repository-collaborator) (:write)
@@ -362,7 +362,7 @@ _Branches_
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#remove-user-access-restrictions) (:write)
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" -%}
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/repos#rename-a-branch) (:write)
-{% endif -%}
+{% endif %}
 
 _Commit comments_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/repos#update-a-commit-comment) (:write)
@@ -411,7 +411,7 @@ _Reactions_
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-pull-request-comment-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
-{% endif -%}
+{% endif %}
 
 _Releases_
 - [`GET /repos/:owner/:repo/releases`](/rest/reference/repos/#list-releases) (:read)
@@ -540,7 +540,7 @@ _Reactions_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 {% else -%}
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
-{% endif -%}
+{% endif %}
 
 ### Permission on "keys"
 
@@ -582,7 +582,7 @@ _Keys_
 {% endif -%}
 {% if currentVersion == "free-pro-team@latest" -%}
 - [`DELETE /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#delete-a-scim-user-from-an-organization) (:write)
-{% endif -%}
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 _Invitations_
@@ -641,7 +641,7 @@ _Teams_
 {% endif -%}
 {% if currentVersion == "free-pro-team@latest" -%}
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
-{% endif -%}
+{% endif %}
 
 ### Permission on "organization events"
 
@@ -709,7 +709,7 @@ _Teams_
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/repos#get-latest-pages-build) (:read)
 {% if currentVersion == "free-pro-team@latest" -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
-{% endif -%}
+{% endif %}
 
 ### Permission on "pull requests"
 
@@ -786,7 +786,7 @@ _Reactions_
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
 {% else -%}
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
-{% endif -%}
+{% endif %}
 
 _Requested reviewers_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request) (:read)
