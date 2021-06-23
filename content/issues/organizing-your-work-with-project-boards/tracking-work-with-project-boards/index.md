@@ -19,3 +19,4 @@ redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

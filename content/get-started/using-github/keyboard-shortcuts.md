@@ -106,7 +106,10 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>m</kbd> | Set a milestone. For more information, see "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)."
 |<kbd>l</kbd> | Apply a label. For more information, see "[Applying labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests/)."
 |<kbd>a</kbd> | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)."
-|<kbd>cmd + shift + p</kbd> or <kbd>control + shift + p</kbd> | Toggles between the **Write** and **Preview** tabs
+|<kbd>cmd + shift + p</kbd> or <kbd>control + shift + p</kbd> | Toggles between the **Write** and **Preview** tabs{% if currentVersion == "free-pro-team@latest" %}
+|<kbd>alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+|<kbd>shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+|<kbd>command</kbd> or <kbd>control + shift</kbd> and click | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>command</kbd> or <kbd>control + shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
 
 ## Changes in pull requests
 

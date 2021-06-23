@@ -136,6 +136,24 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}
 
+      # Because we get far too much spam ;_;
+      - name: Lock conversations
+        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            try {
+              await github.issues.lock({
+                ...context.repo,
+                issue_number: parseInt(${{ steps.find-pull-request.outputs.number }}),
+                lock_reason: 'spam'
+              })
+              console.log('Locked the pull request to prevent spam!')
+            } catch (error) {
+              // Log the error but don't fail the workflow
+              console.error(`Failed to lock the pull request. Error: ${error}`)
+            }
+
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
         if: ${{ steps.find-pull-request.outputs.number }}

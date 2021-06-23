@@ -17,6 +17,7 @@ children:
   - /about-comparing-branches-in-pull-requests
   - /creating-a-pull-request
   - /creating-a-pull-request-from-a-fork
+  - /using-query-parameters-to-create-a-pull-request
   - /changing-the-stage-of-a-pull-request
   - /requesting-a-pull-request-review
   - /changing-the-base-branch-of-a-pull-request

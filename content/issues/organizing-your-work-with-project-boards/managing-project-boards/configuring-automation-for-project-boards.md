@@ -12,6 +12,8 @@ versions:
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}
