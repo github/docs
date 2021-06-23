@@ -40,13 +40,13 @@ Once a push is made to your repository, you can follow the status and detailed l
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
 ## Further reading
 
 - "[About continuous integration](/articles/about-continuous-integration)"
 - "[Managing a workflow run](/articles/managing-a-workflow-run)"
-- "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)"
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}
