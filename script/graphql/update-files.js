@@ -24,14 +24,6 @@ if (!process.env.GITHUB_TOKEN) {
   process.exit(1)
 }
 
-// check for required Ruby gems (see note below about why this is needed)
-try {
-  execSync('gem which graphql')
-} catch (err) {
-  console.error('\nYou need to run: bundle install')
-  process.exit(1)
-}
-
 const versionsToBuild = Object.keys(allVersions)
 
 const currentLanguage = 'en'

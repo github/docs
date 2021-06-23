@@ -6030,6 +6030,40 @@
       ]
     },
     {
+      "name": "updateIpAllowListForInstalledAppsEnabledSetting",
+      "kind": "mutations",
+      "id": "updateipallowlistforinstalledappsenabledsetting",
+      "href": "/graphql/reference/mutations#updateipallowlistforinstalledappsenabledsetting",
+      "description": "<p>Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIpAllowListForInstalledAppsEnabledSettingInput!",
+          "id": "updateipallowlistforinstalledappsenabledsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateipallowlistforinstalledappsenabledsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "IpAllowListOwner",
+          "id": "ipallowlistowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#ipallowlistowner",
+          "description": "<p>The IP allow list owner on which the setting was updated.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateIssue",
       "kind": "mutations",
       "id": "updateissue",
@@ -6969,6 +7003,66 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ipAllowListEntries",
+          "description": "<p>The IP addresses of the app.</p>",
+          "type": "IpAllowListEntryConnection!",
+          "id": "ipallowlistentryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ipallowlistentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for IP allow list entries returned.</p>",
+              "type": {
+                "name": "IpAllowListEntryOrder",
+                "id": "ipallowlistentryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#ipallowlistentryorder"
+              }
+            }
+          ]
         },
         {
           "name": "logoBackgroundColor",
@@ -8169,6 +8263,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -13499,6 +13601,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "packageLabel",
+          "description": "<p>The original name of the package, as it appears in the manifest.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "packageManager",
           "description": "<p>The dependency package manager.</p>",
           "type": "String",
@@ -13508,7 +13618,7 @@
         },
         {
           "name": "packageName",
-          "description": "<p>The required package name.</p>",
+          "description": "<p>The name of the package in the canonical form used by the package manager.\nThis may differ from the original textual form (see packageLabel), for example\nin a package manager that uses case-insensitive comparisons.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -18077,6 +18187,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "ipAllowListForInstalledAppsEnabledSetting",
+          "description": "<p>The setting value for whether the enterprise has IP allow list configuration for installed GitHub Apps enabled.</p>",
+          "type": "IpAllowListForInstalledAppsEnabledSettingValue!",
+          "id": "ipallowlistforinstalledappsenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
         },
         {
           "name": "isUpdatingDefaultRepositoryPermission",
@@ -23467,6 +23585,14 @@
         {
           "name": "title",
           "description": "<p>Identifies the issue title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "titleHTML",
+          "description": "<p>Identifies the issue title rendered to HTML.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -32623,6 +32749,14 @@
           ]
         },
         {
+          "name": "ipAllowListForInstalledAppsEnabledSetting",
+          "description": "<p>The setting value for whether the organization has IP allow list configuration for installed GitHub Apps enabled.</p>",
+          "type": "IpAllowListForInstalledAppsEnabledSettingValue!",
+          "id": "ipallowlistforinstalledappsenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
+        },
+        {
           "name": "isSponsoredBy",
           "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
           "type": "Boolean!",
@@ -38584,6 +38718,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "titleHTML",
+          "description": "<p>Identifies the pull request title rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -41348,6 +41490,56 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "reactors",
+          "description": "<p>Reactors to the reaction subject with the emotion represented by this reaction group.</p>",
+          "type": "ReactorConnection!",
+          "id": "reactorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "subject",
           "description": "<p>The subject that was reacted to.</p>",
           "type": "Reactable!",
@@ -41403,7 +41595,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Reactors can now be mannequins, bots, and organizations. Use the <code>reactors</code> field instead. Removal on 2021-10-01 UTC.</p>"
         },
         {
           "name": "viewerHasReacted",
@@ -41412,6 +41606,80 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "ReactorConnection",
+      "kind": "objects",
+      "id": "reactorconnection",
+      "href": "/graphql/reference/objects#reactorconnection",
+      "description": "<p>The connection type for Reactor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReactorEdge]",
+          "id": "reactoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Reactor]",
+          "id": "reactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#reactor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ReactorEdge",
+      "kind": "objects",
+      "id": "reactoredge",
+      "href": "/graphql/reference/objects#reactoredge",
+      "description": "<p>Represents an author of a reaction.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The author of the reaction.</p>",
+          "type": "Reactor!",
+          "id": "reactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#reactor"
+        },
+        {
+          "name": "reactedAt",
+          "description": "<p>The moment when the user made the reaction.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -41756,6 +42024,14 @@
         {
           "name": "requiresCodeOwnerReviews",
           "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -63919,6 +64195,23 @@
       ]
     },
     {
+      "name": "IpAllowListForInstalledAppsEnabledSettingValue",
+      "kind": "enums",
+      "id": "ipallowlistforinstalledappsenabledsettingvalue",
+      "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue",
+      "description": "<p>The possible values for the IP allow list configuration for installed GitHub Apps setting.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The setting is disabled for the owner.</p>"
+        },
+        {
+          "name": "ENABLED",
+          "description": "<p>The setting is enabled for the owner.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueCommentOrderField",
       "kind": "enums",
       "id": "issuecommentorderfield",
@@ -66745,6 +67038,11 @@
       "description": "<p>Types that can own an IP allow list.</p>",
       "possibleTypes": [
         {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
           "name": "Enterprise",
           "id": "enterprise",
           "href": "/graphql/reference/objects#enterprise"
@@ -67916,6 +68214,35 @@
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "Reactor",
+      "kind": "unions",
+      "id": "reactor",
+      "href": "/graphql/reference/unions#reactor",
+      "description": "<p>Types that can be assigned to reactions.</p>",
+      "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/objects#bot"
+        },
+        {
+          "name": "Mannequin",
+          "id": "mannequin",
+          "href": "/graphql/reference/objects#mannequin"
+        },
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
         },
         {
           "name": "User",
@@ -69765,6 +70092,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -74616,6 +74951,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
@@ -75622,6 +75965,40 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateIpAllowListForInstalledAppsEnabledSettingInput",
+      "kind": "inputObjects",
+      "id": "updateipallowlistforinstalledappsenabledsettinginput",
+      "href": "/graphql/reference/input-objects#updateipallowlistforinstalledappsenabledsettinginput",
+      "description": "<p>Autogenerated input type of UpdateIpAllowListForInstalledAppsEnabledSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the IP allow list configuration for installed GitHub Apps setting.</p>",
+          "type": "IpAllowListForInstalledAppsEnabledSettingValue!",
+          "id": "ipallowlistforinstalledappsenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
         }
       ]
     },

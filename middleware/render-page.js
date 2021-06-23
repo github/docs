@@ -131,7 +131,7 @@ module.exports = async function renderPage (req, res, next) {
   const context = Object.assign({}, req.context, { page })
 
   // collect URLs for variants of this page in all languages
-  context.page.languageVariants = Page.getLanguageVariants(req.path)
+  context.page.languageVariants = Page.getLanguageVariants(req.pagePath)
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
@@ -147,14 +147,14 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // handle special-case prerendered GraphQL objects page
-  if (req.path.endsWith('graphql/reference/objects')) {
+  if (req.pagePath.endsWith('graphql/reference/objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
     context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
     context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
   // handle special-case prerendered GraphQL input objects page
-  if (req.path.endsWith('graphql/reference/input-objects')) {
+  if (req.pagePath.endsWith('graphql/reference/input-objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
     context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
     context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
@@ -164,7 +164,7 @@ module.exports = async function renderPage (req, res, next) {
   context.page.fullTitle = context.page.titlePlainText
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
-  if (!patterns.homepagePath.test(req.path)) {
+  if (!patterns.homepagePath.test(req.pagePath)) {
     context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
   }
 

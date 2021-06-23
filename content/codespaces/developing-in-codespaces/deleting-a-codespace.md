@@ -18,6 +18,12 @@ topics:
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
+{% note %}
+
+**Note:** Only the person who created a codespace can delete it. There is currently no way for organization owners to delete codespaces created within their organization.
+
+{% endnote %}
+
 1. Navigate to the repository where you created the codespace. Select **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces** and then click {% octicon "gear" aria-label="The Settings gear" %}. This will display all {% data variables.product.prodname_codespaces %} that you have created in the repository.
   ![Codespaces tab](/assets/images/help/codespaces/codespaces-manage.png)
   

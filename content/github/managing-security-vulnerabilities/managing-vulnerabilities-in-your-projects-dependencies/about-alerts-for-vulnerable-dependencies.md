@@ -5,6 +5,8 @@ versions:
   enterprise-server: <=2.22
 topics:
   - Security
+redirect_from:
+  - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 ---
 <!--See /content/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies for the current version of this article -->
 

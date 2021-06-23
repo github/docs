@@ -35,7 +35,7 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5" onSubmit={submit} ref={formRef}>
+    <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
       <h2 className="mb-1 f4">
         {t`able_to_find`}
 
@@ -128,7 +128,9 @@ export const Survey = () => {
         </>
       )}
 
-      {state === ViewState.END && <p className="color-text-secondary f6">{t`feedback`}</p>}
+      {state === ViewState.END && (
+        <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>
+      )}
     </form>
   )
 }
