@@ -31,10 +31,10 @@ describe('versions middleware', () => {
 
   test('adds res.context.currentVersion string', async () => {
     let currentVersion = await getJSON('/en?json=currentVersion')
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
+    expect(currentVersion).toBe('homepage')
 
     currentVersion = await getJSON(`/en/${nonEnterpriseDefaultVersion}?json=currentVersion`)
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
+    expect(currentVersion).toBe('homepage')
 
     currentVersion = await getJSON(`/en/enterprise-server@${latest}?json=currentVersion`)
     expect(currentVersion).toBe(`enterprise-server@${latest}`)

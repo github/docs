@@ -10,7 +10,7 @@ versions:
 
 ## Introduction
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike issues. Discussions enable fluid, open conversation in a public forum.
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
 
 Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
 
