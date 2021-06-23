@@ -1,5 +1,8 @@
 require('dotenv').config()
+// Intentionally require these for both cluster primary and workers
 require('./lib/feature-flags')
+require('./lib/check-node-version')
+require('./lib/handle-exceptions')
 
 const throng = require('throng')
 const os = require('os')
@@ -8,10 +11,6 @@ const prefixStreamWrite = require('./lib/prefix-stream-write')
 const createApp = require('./lib/app')
 const warmServer = require('./lib/warm-server')
 const http = require('http')
-
-// Intentionally require these for both cluster primary and workers
-require('./lib/check-node-version')
-require('./lib/handle-exceptions')
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
