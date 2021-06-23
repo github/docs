@@ -7,6 +7,9 @@ redirect_from:
   - /articles/restricting-email-notifications-to-an-approved-domain
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 ### Acerca de las restricciones de correo electrónico

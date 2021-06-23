@@ -1,5 +1,9 @@
 name: Update GraphQL files
 
+# **What it does**: This updates our GraphQL schemas.
+# **Why we have it**: We want our GraphQL docs up to date.
+# **Who does it impact**: Docs engineering, people reading GraphQL docs.
+
 on:
   workflow_dispatch:
   schedule:
@@ -25,14 +29,6 @@ jobs:
           exit 1 # prevents further steps from running
       - name: Checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262
-        with:
-          ruby-version: '2.4'
-      - name: Install Ruby dependencies
-        run: |
-          gem install bundler
-          bundle install
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run updater scripts
@@ -75,4 +71,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last update-graphql-files run for ${{github.repository}} failed. See https://github.com/github/${{github.repository}}/actions/workflows/update-graphql-files.yml
+          text: The last update-graphql-files run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/update-graphql-files.yml

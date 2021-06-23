@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -56,4 +58,4 @@ versions:
 
 如果在使用 {% data variables.product.prodname_codespaces %} 时遇到问题，请参阅“[代码空间故障排除](/github/developing-online-with-codespaces/troubleshooting-your-codespace)”。
 
-如果您仍需帮助或有关于 {% data variables.product.prodname_codespaces %} 的反馈，请使用[社区论坛](https://github.community/c/codespaces-beta/45)。
+如果您仍需帮助或对 {% data variables.product.prodname_codespaces %} 有反馈，请使用 [Codespaces 反馈](https://github.com/github/feedback/discussions/categories/codespaces-feedback)。

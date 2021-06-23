@@ -1,14 +1,14 @@
-1. Click **Fork behavior**, then select how you want to use the fork.
+1. **Fork behavior（フォークの動作）**をクリックし、続いてこのフォークの使用方法を選択してください。
 
   {% mac %}
 
-  ![The contribute to the parent repository option in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-menu-contribute.png)
+  ![フォークの動作メニュー内の親リポジトリへのコントリビュートオプション](/assets/images/help/desktop/mac-fork-behavior-menu-contribute.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The contribute to the parent repository option in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-menu-contribute.png)
+  ![フォークの動作メニュー内の親リポジトリへのコントリビュートオプション](/assets/images/help/desktop/windows-fork-behavior-menu-contribute.png)
 
   {% endwindows %}
 
@@ -16,13 +16,13 @@
 
   {% mac %}
 
-  ![The save button in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-save.png)
+  ![フォークの動作メニューの保存ボタン](/assets/images/help/desktop/mac-fork-behavior-save.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The save button in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-save.png)
+  ![フォークの動作メニューの保存ボタン](/assets/images/help/desktop/windows-fork-behavior-save.png)
 
   {% endwindows %}
   

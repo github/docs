@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-scim
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Si usas [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) en tu organización, puedes implementar SCIM para agregar, administrar y eliminar el acceso de los miembros de la organización a {% data variables.product.product_name %}. Por ejemplo, un administrador puede desaprovisionar a un miembro de la organización usando el SCIM y eliminar automáticamente el miembro de la organización.

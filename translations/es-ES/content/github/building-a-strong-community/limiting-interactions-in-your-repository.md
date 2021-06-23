@@ -1,12 +1,14 @@
 ---
 title: Limitar las interacciones en tu repositorio
-intro: 'Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en un repositorio público.'
+intro: Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en un repositorio público.
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
 permissions: Las personas con permisos administrativos en un repositorio pueden limitar temporalmente las interacciones en el mismo.
+topics:
+  - comunidad
 ---
 
 ### Acerca de los límites de interacción temporales

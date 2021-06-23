@@ -6,6 +6,8 @@ redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### About managing access to your repository
@@ -14,7 +16,7 @@ For each repository that you administer on {% data variables.product.prodname_do
 
 This overview can help you audit access to your repository, onboard or off-board contractors or employees, and effectively respond to security incidents.
 
-For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 
 ![Access management overview](/assets/images/help/repository/manage-access-overview.png)
 
@@ -46,9 +48,9 @@ For more information about repository permission levels, see "[Permission levels
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Trashcan icon for removing access](/assets/images/help/repository/manage-access-remove.png)
+4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trash" aria-label="The trash icon" %}. ![trash icon for removing access](/assets/images/help/repository/manage-access-remove.png)
 
 ### Дополнительная литература
 
 - "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)"
-- "[Setting base permissions for an organization](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
+- "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"

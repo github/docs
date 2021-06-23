@@ -1,13 +1,15 @@
 ---
 title: Crear una propuesta
 intro: 'Las propuestas se pueden usar para hacer un seguimiento de los errores, mejoras u otras solicitudes.'
-permissions: 'Las personas con permisos de lectura pueden crear una propuesta en un repositorio en donde las propuestas se hayan habilitado.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Puedes abrir una nueva propuesta basada en el código a partir de una solicitud de extracción existente. Para obtener más información, consulta la sección "[Abrir una propuesta desde el código](/github/managing-your-work-on-github/opening-an-issue-from-code)".
@@ -27,7 +29,7 @@ Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes 
 {% tip %}
 
 **Sugerencias**: Los mantenedores del proyecto pueden elegir hacer lo siguiente:
-  - Crear una plantilla de propuesta para un repositorio. Las plantillas incluyen indicaciones para brindar información en el cuerpo de una propuesta. Para obtener más información, consulta "[Acerca de las plantillas de propuestas y solicitudes de extracción](/github/building-a-strong-community/about-issue-and-pull-request-templates)".
+  - Crear una plantilla de propuesta para un repositorio. Las plantillas incluyen indicaciones para brindar información en el cuerpo de una propuesta. Para obtener más información, consulta "[Acerca de las plantillas de propuestas y solicitudes de extracción](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)".
   - Inhabilitar las propuestas para un repositorio. Para obtener más información, consulta la sección "[Inhabilitar propuestas](/github/managing-your-work-on-github/disabling-issues)". Las solicitudes de cambios no pueden apagarse y siempre están disponibles.
 
 {% endtip %}

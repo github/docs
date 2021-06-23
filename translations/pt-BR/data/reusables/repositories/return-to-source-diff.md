@@ -1,5 +1,5 @@
-1. You may also want to review the source diff, because there could be changes to the manifest or lock file that don't change dependencies, or there could be dependencies that {% data variables.product.prodname_dotcom %} can't parse and which, as a result, don't appear in the dependency review.
+1. É possível que você também queira revisar o diff da fonte, porque pode haver alterações no manifesto ou arquivo de bloqueio que não mudam as dependências, ou pode haver dependências que {% data variables.product.prodname_dotcom %} não pode analisar e que, consequentemente, não aparecem na revisão de dependências.
 
-   To return to the source diff view, click the **{% octicon "code" aria-label="The source diff icon" %}** button.
+   Para retornar à visão do diff de origem, clique no botão **{% octicon "code" aria-label="The source diff icon" %}**.
 
    ![Botão de diff de fonte](/assets/images/help/pull_requests/dependency-review-source-diff.png)

@@ -9,10 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+children:
+  - /viewing-packages
+  - /installing-a-package
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_in_list /viewing-packages %}
-{% link_in_list /installing-a-package %}
-{% link_in_list /deleting-a-package %}  
+{% data reusables.package_registry.packages-ghae-release-stage %}

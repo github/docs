@@ -4,6 +4,8 @@ intro: Puedes administrar los repositorios a los cuales pueden acceder los codes
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}

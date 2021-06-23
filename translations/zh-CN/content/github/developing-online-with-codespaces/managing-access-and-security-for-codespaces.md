@@ -4,6 +4,8 @@ intro: 您可以管理代码空间可以访问的仓库。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}

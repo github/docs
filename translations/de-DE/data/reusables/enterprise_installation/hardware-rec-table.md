@@ -28,13 +28,13 @@
 
 {% endif %}
 
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-If you plan to configure {% data variables.product.prodname_actions %} for your instance, you should provision additional resources. You must also configure at least one self-hosted runner to execute workflows. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your instance, review the requirements for hardware, external storage, and runners in "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
 
 {% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -42,6 +42,8 @@ If you plan to configure {% data variables.product.prodname_actions %} for your 
 
 {% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
 
-If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information about minimum requirements, see "[Minimum requirements](#minimum-requirements)."
+
+For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}

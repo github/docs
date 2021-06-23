@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Tu gráfica de contribuciones muestra la actividad de los repositorios públicos. {% endif %}Puedes elegir que se muestre la actividad tanto de {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}los repositorios públicos como la de {% endif %}los privados, con detalles específicos de tu actividad anonimizada en los repositorios privados. Para obtener más información, consulte "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
@@ -25,6 +27,8 @@ En tu página de perfil, determinadas acciones cuentan como contribuciones:
 
 - Confirmar cambios en una rama por defecto de un repositorio o en la rama `gh-pages`
 - Abrir una propuesta
+- Iniciar un debate
+- Responder a un debate
 - Proponer una solicitud de extracción
 - Emitir una revisión de una solicitud de cambios{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Confirmar como coautor en la rama por defecto de un repositorio o en la rama `gh-pages`{% endif %}
@@ -54,11 +58,11 @@ Tu calendario de contribuciones muestra tu actividad de contribuciones.
 #### Ver contribuciones de momentos específicos
 
 - Haz clic en el cuadrado de un día para mostrar las contribuciones realizadas durante ese período de 24 horas.
-- Presiona *Shift* y haz clic en el cuadrado de otro día para mostrar las contribuciones realizadas durante ese período de tiempo.
+- Presiona *Shift* y haz clic en el cuadrado de otro día para mostrar las contribuciones que se hicieron durante ese rango tiempo.
 
 {% note %}
 
-**Nota:** puedes seleccionar hasta un rango de un mes en tu calendario de contribuciones. Si seleccionas un período de tiempo más extenso, únicamente se mostrarán las contribuciones de un mes.
+**Nota:** puedes seleccionar hasta un rango de un mes en tu calendario de contribuciones. Si seleccionas un rango de tiempo más amplio, solo mostraremos un mes de contribuciones.
 
 {% endnote %}
 

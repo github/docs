@@ -1,3 +1,10 @@
-Du kannst bis zu zehn Sponsoringstufen für Sponsoren einrichten. Jede Stufe hat ihren eigenen monatlichen Zahlungsbetrag in US-Dollar und Vorteile, wie zum Beispiel den frühzeitigen Zugriff auf neue Versionen oder in der README-Datei des Projekts vorgestellt zu werden.
+You can create up to 10 one-time sponsorship tiers and 10  monthly tiers for sponsors to choose from. Each tier has its own one-time or monthly payment amount in US dollars, and you can choose to enable tiers for custom amounts. In addition, you can choose to enable tiers for custom amounts (monthly and one-time).
 
-Sobald du einen Sponsor auf einer Stufe hast, kannst du den Preis dieser Ebene nicht mehr ändern. Stattdessen musst Du die Stufe zurückziehen und einen neue Stufe erstellen. Bestehende Sponsoren bleiben auf der zurückgezogenen Stufe, bis sie ihre Sponsoring-Stufe ändern oder ihr Sponsoring kündigen.
+You can customize the rewards for each tier. For example, rewards for a tier could include:
+- Early access to new versions
+- Logo or name in README
+- Access to a private repository
+- Weekly newsletter updates
+- Other rewards your sponsors would enjoy ✨
+
+Once you have published a tier, you cannot edit the price of that tier. Stattdessen musst Du die Stufe zurückziehen und einen neue Stufe erstellen. Existing sponsors will remain on the retired tier until they change their sponsorship tier, cancel their sponsorship, or their one-time sponsorship period expires.

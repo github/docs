@@ -104,21 +104,6 @@
   owning_teams:
     - '@github/feature-lifecycle'
 - 
-  title: ピン止めされたIssueのプレビュー
-  description: このプレビューは、ピン止めされたIssueのサポートを追加します。
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
-- 
   title: ラベルのプレビュー
   description: >-
     このプレビューは、ラベルの追加、更新、作成、削除のサポートを追加します。

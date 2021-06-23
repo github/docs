@@ -6,24 +6,24 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CD'
-  - 'Containers'
-  - 'Azure App Service'
+  - CD
+  - Containers
+  - Azure App Service
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy an application to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
 Azure App Service can run web apps in several languages, but this guide demonstrates deploying an existing Node.js project.
 
-### Prerequisites
+## Prerequisites
 
 Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
@@ -65,7 +65,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    In your {% data variables.product.prodname_dotcom %} repository, create a secret named `AZURE_WEBAPP_PUBLISH_PROFILE` that contains the contents of the publish profile. For more information on creating secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
-### Creating the workflow
+## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
 
@@ -113,7 +113,7 @@ jobs:
 ```
 {% endraw %}
 
-### Additional resources
+## Additional resources
 
 The following resources may also be useful:
 

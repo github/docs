@@ -7,17 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Debes elegir o generar una contraseña para tu cuenta de {% data variables.product.product_name %} que por lo menos cumpla con:
 - Ocho caracteres de largo, si incluye un número o una letra minúscula, o bien
-- 16 caracteres de largo con cualquier combinación de caracteres
+- 15 caracteres de largo con cualquier combinación de caracteres
 
 Para preservar la seguridad de tu cuenta, te recomendamos que sigas estas buenas prácticas:
-- Utiliza un administrador de contraseñas, como [LastPass](https://lastpass.com/) o[1Password](https://1password.com/), para generar una contraseña de más de 16 caracteres.
+- Utiliza un administrador de contraseñas, tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/), para generar una contraseña de por lo menos 15 caracteres.
 - Genera una contraseña que sea única para {% data variables.product.product_name %}. Si usas tu contraseña de {% data variables.product.product_name %} en algún otro lugar y ese servicio se ve comprometido, los atacantes u otros actores maliciosos pueden usar esa información para acceder a tu cuenta de {% data variables.product.product_name %}.
 - Configura la autenticación de dos factores para tu cuenta personal. Para obtener más información, consulta "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)".
-- Nunca compartas tu contraseña con nadie, aunque se trate de un potencial colaborador. Cada persona debe usar su propia cuenta personal en {% data variables.product.product_name %}. Para obtener más información acerca de cómo colaborar, consulta: "[Invitar colaboradores a un repositorio personal](/articles/inviting-collaborators-to-a-personal-repository)," "[Acerca de los modelos de desarrollo colaborativos](/articles/about-collaborative-development-models/)," o "[Colaborar con los grupos en las organizaciones](/articles/collaborating-with-groups-in-organizations/)".
+- Nunca compartas tu contraseña con nadie, aunque se trate de un potencial colaborador. Cada persona debe usar su propia cuenta personal en {% data variables.product.product_name %}. Para obtener más información acerca de cómo colaborar, consulta: "[Invitar colaboradores a un repositorio personal](/articles/inviting-collaborators-to-a-personal-repository)," "[Acerca de los modelos de desarrollo colaborativos](/articles/about-collaborative-development-models/)," o "[Colaborar con los grupos en las organizaciones](/organizations/collaborating-with-groups-in-organizations/)".
 
 {% data reusables.repositories.blocked-passwords %}
 
@@ -27,5 +30,5 @@ Solo puedes utilizar tu contraseña para ingresar en {% data variables.product.p
 
 ### Leer más
 
-- [Almacenar tus credenciales de {% data variables.product.product_name %} en la caché en Git](/github/using-git/caching-your-github-credentials-in-git/)"
+- [Almacenar tus credenciales de {% data variables.product.product_name %} en la caché en Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
 - "[Preservar la seguridad de tu cuenta y tus datos](/articles/keeping-your-account-and-data-secure/)"

@@ -5,7 +5,7 @@
     </h3>
     {{operation.descriptionHTML}}
   </div>
-  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></pre>
+  <pre><code><span class="color-bg-info-inverse color-text-inverse rounded-1 px-2 py-1" style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></pre>
   <div>
     {% if operation.parameters.size > 0 or operation.bodyParameters.size > 0 %}
       <h4 id="{{operation.slug}}--parameters">
@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- 
+          <!--
             Previews require an `accept` header. These used to be documented
             as `operation.parameters` but have moved to `operation.x-github.previews`
           -->
@@ -53,7 +53,12 @@
               <td><code>{{ param.name }}</code></td>
               <td class="opacity-70">{{ param.schema.type }}</td>
               <td class="opacity-70">{{ param.in }}</td>
-              <td class="opacity-70">{{ param.descriptionHTML }}</td>
+              <td class="opacity-70">
+                {{ param.descriptionHTML }}
+                {% if param.schema.default != nil %}
+                  Default: <code>{{ param.schema.default }}</code>
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
           {% for bodyParam in operation.bodyParameters %}
@@ -63,7 +68,7 @@
             <td class="opacity-70">{{ bodyParam.in }}</td>
             <td class="opacity-70">
               {{ bodyParam.description }}
-              {% if bodyParam.default %}
+              {% if bodyParam.default != nil %}
               Default: <code>{{ bodyParam.default }}</code>
               {% endif %}
             </td>
@@ -73,7 +78,7 @@
             <td colspan="4" class="has-nested-table">
             {% for childParamsGroup in bodyParam.childParamsGroups %}
             <details>
-            <summary class="text-gray"><h4 id="{{ childParamsGroup.id }}">Properties of the <code>{{ childParamsGroup.parentName }}</code> {{ childParamsGroup.parentType }}</h4></summary>
+            <summary class="color-text-secondary"><h4 id="{{ childParamsGroup.id }}">Properties of the <code>{{ childParamsGroup.parentName }}</code> {{ childParamsGroup.parentType }}</h4></summary>
             <table>
               <tbody>
                 {% for childParam in childParamsGroup.params %}
@@ -135,7 +140,7 @@
         {% endif %}
       </h4>
       {% for preview in operation.x-github.previews %}
-        <div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+        <div class="extended-markdown note border rounded-1 mb-4 p-3 color-border-info color-bg-info f5">
           {{ preview.html }}
           {% if preview.required %}☝️ {% data ui.products.rest.reference.preview_header_is_required %}.{% endif %}
         </div>

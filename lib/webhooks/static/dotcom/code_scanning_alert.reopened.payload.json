@@ -7,7 +7,7 @@
     "html_url": "https://github.com/Codertocat/Hello-World/security/code-scanning/10",
     "instances": [
       {
-        "ref": "refs/heads/master",
+        "ref": "refs/heads/main",
         "analysis_key": ".github/workflows/workflow.yml:upload",
         "environment": "{}",
         "state": "open"
@@ -27,7 +27,7 @@
       "version": null
     }
   },
-  "ref": "refs/heads/master",
+  "ref": "refs/heads/main",
   "commit_oid": "d6e4c75c141dbacecc279b721b8b9393d5405795",
   "repository": {
     "id": 186853002,
@@ -121,7 +121,7 @@
     "forks": 0,
     "open_issues": 2,
     "watchers": 0,
-    "default_branch": "master"
+    "default_branch": "main"
   },
   "organization": {
     "login": "Octocoders",

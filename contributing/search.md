@@ -14,9 +14,26 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 ## How to search
 
-The site search is part of every version of docs.github.com. On any page, you can use the search box to search the documents we've indexed. 
-You can also query our search endpoint directly at: https://docs.github.com/search?language=en&version=dotcom&query=jekyll
-This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable.
+The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
+You can also query our search endpoint directly at: 
+`https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
+ 
+- The VERSION can be any numbered GitHub Enterprise Server version (e.g., `2.22`, `3.0`), GitHub AE (`ghae`), or the Free pro team plan (`dotcom`).
+- The LANGUAGE CODE can be: `cn`, `de`, `en`, `es`, `ja`, or `pt`.
+- TOPIC can be any topics in [the allowed list of topics](/data/allowed-topics.js). The values in the `topics` attribute are **not** case sensitive, so filtering on `GitHub actions` or `github actions` will return the same result. **Note:** Currently, the topics filter only works for the dotcom version in the English language. We plan to expand this search query to other languages and versions in the future.
+- Any search QUERY you'd like.
+
+For example, to filter on the topic `ssh` and the query `passphrases`, you'd use this search query:
+
+https://docs.github.com/search?version=dotcom&language=en&filters=topics:ssh&query=passphrases
+
+To filter for the topics `oauth apps` and `github apps` and the query `install`, you'd use this search query:
+
+https://docs.github.com/search?version=dotcom&language=en&filters=topics:'oauth apps'+AND+topics:'github apps'&query=install
+
+### Using the topics search filter
+
+Using the attribute `topics` in your query will only return results that have the matching topic value. The `topics` attribute is configured as a [`filter only` facet in Algolia](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/). When the topic contains spaces, you must use quotes. For Algolia, [here](https://www.algolia.com/doc/api-reference/api-parameters/filters/#handle-attributes-with-spaces) is an example for filters containing spaces. Algolia also requires [boolean operators](https://www.algolia.com/doc/api-reference/api-parameters/filters) to combine more than one filter. 
 
 ## Production deploys
 
@@ -116,7 +133,7 @@ Each record represents a section of a page. Sections are derived by splitting up
 ```js
 {
   objectID: '/en/actions/creating-actions/about-actions#about-actions',
-  url: 'https://help.github.com/en/actions/creating-actions/about-actions#about-actions',
+  url: 'https://docs.github.com/en/actions/creating-actions/about-actions#about-actions',
   slug: 'about-actions',
   breadcrumbs: 'GitHub Actions / Creating actions / About actions',
   heading: 'About actions',

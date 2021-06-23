@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -22,7 +24,7 @@ You can download the complete source code for this project [from the platform-sa
 
 {% endtip %}
 
-### Registering your app
+## Registering your app
 
 First, you'll need to [register your application][new oauth app]. Every
 registered OAuth application is assigned a unique Client ID and Client Secret.
@@ -37,7 +39,7 @@ successful authentication.
 Since we're running a regular Sinatra server, the location of the local instance
 is set to `http://localhost:4567`. Let's fill in the callback URL as `http://localhost:4567/callback`.
 
-### Accepting user authorization
+## Accepting user authorization
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -99,7 +101,7 @@ Well, remember when we specified a Callback URL to be `callback`? We didn't prov
 a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
 the app. Let's fix that now!
 
-#### Providing a callback
+### Providing a callback
 
 In _server.rb_, add a route to specify what the callback should do:
 
@@ -126,7 +128,7 @@ To simplify our GET and POST HTTP requests, we're using the [rest-client][REST C
 Note that you'll probably never access the API through REST. For a more serious
 application, you should probably use [a library written in the language of your choice][libraries].
 
-#### Checking granted scopes
+### Checking granted scopes
 
 Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
 
@@ -169,7 +171,7 @@ request. In addition to that, the OAuth Applications API provides an endpoint to
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 
-#### Making authenticated requests
+### Making authenticated requests
 
 At last, with this access token, you'll be able to make authenticated requests as
 the logged in user:
@@ -208,7 +210,7 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 </p>
 ```
 
-### Implementing "persistent" authentication
+## Implementing "persistent" authentication
 
 It'd be a pretty bad model if we required users to log into the app every single
 time they needed to access the web page. For example, try navigating directly to

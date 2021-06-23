@@ -1,19 +1,19 @@
-When you choose **Allow select actions**, local actions are allowed, and there are additional options for allowing other specific actions:
+**Allow select actions（アクションの選択を許可）**を選択すると、ローカルアクションが許可され、他の特定のアクションを許可するための追加のオプションがあります。
 
-- **Allow actions created by {% data variables.product.prodname_dotcom %}:** You can allow all actions created by {% data variables.product.prodname_dotcom %} to be used by workflows. Actions created by {% data variables.product.prodname_dotcom %} are located in the `actions` and `github` organization. For more information, see the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
-- **Allow Marketplace actions by verified creators:** You can allow all {% data variables.product.prodname_marketplace %} actions created by verified creators to be used by workflows. When GitHub has verified the creator of the action as a partner organization, the {% octicon "verified" aria-label="The verified badge" %} badge is displayed next to the action in {% data variables.product.prodname_marketplace %}.
-- **Allow specified actions:** You can restrict workflows to use actions in specific organizations and repositories.
+- **Allow actions created by {% data variables.product.prodname_dotcom %}（{% data variables.product.prodname_dotcom %}が作成したアクションのを許可）:** {% data variables.product.prodname_dotcom %}が作成したすべてのアクションをワークフローから使うことを許可できます。 {% data variables.product.prodname_dotcom %}が作成したアクションは、`actions`及び`github` Organizationにあります。 詳しい情報については[`actions`](https://github.com/actions)及び[`github`](https://github.com/github) Organizationを参照してください。
+- **Allow Marketplace actions by verified creators（検証済み作者によるMarketplaceのアクションを許可）:**検証済みの作者によるすべての{% data variables.product.prodname_marketplace %}アクションをワークフローから使用することを許可できます。 GitHubがアクションの作者をパートナーOrganizationとして検証すると、{% data variables.product.prodname_marketplace %}でアクションの隣に{% octicon "verified" aria-label="The verified badge" %}バッジが表示されるようになります。
+- **Allow specified actions（指定したアクションの許可）:** ワークフローから利用できるのを特定のOrganizationやリポジトリ内のアクションに限定できます。
 
-  To restrict access to specific tags or commit SHAs of an action, use the same `<OWNER>/<REPO>@<TAG OR SHA>` syntax used in the workflow to select the action. For example, `actions/javascript-action@v1.0.1` to select a tag or `actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89` to select a SHA. For more information, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)."
+  アクションの特定のタグあるいはコミットSHAにアクセスを制限するには、アクションを選択するためにワークフローで使われる野と同じ`<OWNER>/<REPO>@<TAG OR SHA>`構文を使ってください。 たとえばタグを選択するために`actions/javascript-action@v1.0.1`、あるいはSHAを選択するために`actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89`というようにします。 詳しい情報については「[アクションの発見とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)」を参照してください。
 
-  You can use the `*` wildcard character to match patterns. For example, to allow all actions in organizations that start with `space-org`, you can specify `space-org*/*`. To add all actions in repositories that start with octocat, you can use `*/octocat*@*`. For more information about using the `*` wildcard, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+  パターンのマッチには、ワイルドカードキャラクタの`*`が使えます。 たとえば、`space-org`で始まるOrganization内のすべてのアクションを許可したいなら、`space-org*/*`と指定できます。 octocatで始まるリポジトリ内のすべてのアクションを許可したいなら、`*/octocat*@*`が使えます。 ワイルドカードの`*`の利用に関する詳しい情報については「[GitHub Actionsのためのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
   {% if currentVersion == "free-pro-team@latest" %}
   {% note %}
 
-  **Note:** The **Allow specified actions** option is only available in public repositories with the {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plan.
+  **ノート:****Allow specified actions**オプションが使えるのは、{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、Organizationの{% data variables.product.prodname_free_team %}、{% data variables.product.prodname_team %}プランのパブリックリポジトリでのみです。
 
   {% endnote %}
   {% endif %}
 
-This procedure demonstrates how to add specific actions to the allow list.
+この手順は、特定のアクションを許可リストに追加する方法を示しています。

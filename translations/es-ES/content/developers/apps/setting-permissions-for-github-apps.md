@@ -9,12 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
-Cuando creas una GitHub App, puedes seleccionar los permisos a los que necesita para acceder a los datos del usuario final. Los permisos también se pueden agregar y eliminar. Para obtener más información, consulta la sección "[Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".
-
-### Permisos de metadatos
-
-Predeterminadamente, las GitHub Apps tienen acceso de `Read-only` a las terminales de metadatos. Los metadatos son un conjunto de terminales de solo lectura que proporcionan información general acerca de los recursos a los que puede acceder la instalación autorizada.
-
-{% data reusables.apps.metadata-permissions %}Para encontrar una lista de terminales de metadatos, consulta la sección "[Permisos de metadatos](/rest/reference/permissions-required-for-github-apps#metadata-permissions)".
+Las GitHub Apps no tienen permisos predeterminados. Cuando creas una GitHub App, puedes seleccionar los permisos a los que necesita para acceder a los datos del usuario final. Los permisos también se pueden agregar y eliminar. Para obtener más información, consulta la sección "[Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".

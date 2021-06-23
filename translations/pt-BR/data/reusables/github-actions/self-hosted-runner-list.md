@@ -1,1 +1,1 @@
- 1. Localize a lista de runners em "Runners auto-hospedados".
+ 1. Locate the list of runners under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}.

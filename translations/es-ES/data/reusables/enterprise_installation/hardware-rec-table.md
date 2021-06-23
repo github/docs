@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: If you joined the beta for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} and enabled the features, your instance requires additional hardware resources. Los requisitos mínimos para una instancia con características beta habilitadas se muestran en **negritas** en la siguiente tabla. Para obtener más informaci´n, consulta la sección "[Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)".
+**Nota**: Si te uniste al beta para las {% data variables.product.prodname_actions %} o el {% data variables.product.prodname_registry %} y habilitaste las características, tu instancia requiere recursos adicionales de hardware. Los requisitos mínimos para una instancia con características beta habilitadas se muestran en **negritas** en la siguiente tabla. Para obtener más informaci´n, consulta la sección "[Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)".
 
 {% endnote %}
 {% endif %}
@@ -28,20 +28,22 @@
 
 {% endif %}
 
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-If you plan to configure {% data variables.product.prodname_actions %} for your instance, you should provision additional resources. You must also configure at least one self-hosted runner to execute workflows. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
+Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia, revisa los requisitos de hardware, almacenamiento externo y ejecutores que se encuentran en "[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
 
 {% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
 #### Características beta en {% data variables.product.prodname_ghe_server %} 2.22
 
-{% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
+{% data variables.product.prodname_ghe_server %} 2.22 ofreció cracterísticas beta, tales como las {% data variables.product.prodname_actions %}, el {% data variables.product.prodname_registry %}, y el {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta las [notas de lanzamiento de {% data variables.product.prodname_ghe_server %} 2.22](/enterprise-server@2.22/admin/release-notes#2.22.0).
 
-If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. Para obtener más información, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+Si habilitas las características beta de {% data variables.product.prodname_ghe_server %} 2.22, tu instancia requiere recursos de hardware adicionales. Para obtener más información sobre los requisitos mínimos, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+
+Para obtener más información acerca de los requisitos de hardware para las {% data variables.product.prodname_actions %}, consulta la sección "[Comenzar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
 
 {% endif %}

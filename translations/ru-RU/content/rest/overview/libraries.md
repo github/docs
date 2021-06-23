@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -17,7 +19,7 @@ versions:
   <div class="octokit-links"><br/>
      <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
 
@@ -57,7 +59,7 @@ Library name | Repository | |---|---| **NodeJS GitHub library**| [pksunkara/octo
 
 ### Julia
 
-Library name | Repository | |---|---| **GitHub.jl**|[WestleyArgentum/GitHub.jl](https://github.com/WestleyArgentum/GitHub.jl)
+Library name | Repository | |---|---| **GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
@@ -69,7 +71,11 @@ Library name | Repository | metacpan Website for the Library |---|---|---| **Pit
 
 ### PHP
 
-Library name | Repository |---|---| **GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github) **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
+Library name | Repository |---|---| **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
+
+### PowerShell
+
+Library name | Repository |---|---| **PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 

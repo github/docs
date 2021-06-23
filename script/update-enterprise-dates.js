@@ -23,7 +23,13 @@ main()
 
 async function main () {
   // send owner, repo, ref, path
-  const rawDates = JSON.parse(await getContents('github', 'enterprise-releases', 'master', 'releases.json'))
+  let rawDates = []
+  try {
+    rawDates = JSON.parse(await getContents('github', 'enterprise-releases', 'master', 'releases.json'))
+  } catch {
+    console.log('Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.')
+    process.exit(1)
+  }
 
   const formattedDates = {}
   Object.entries(rawDates).forEach(([releaseNumber, releaseObject]) => {

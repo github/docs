@@ -1,4 +1,9 @@
 name: First responder docs-content
+
+# **What it does**: New pull requests automatically add to the content first responder board.
+# **Why we have it**: So we don't lose track of new pull reuqests for docs-content to review.
+# **Who does it impact**: Docs content.
+
 on:
   pull_request:
     types:
@@ -16,7 +21,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: set-result
         with:
           github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
@@ -31,7 +36,7 @@ jobs:
               issue_number: issueNumber
             })
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members`
+              `/orgs/github/teams/docs/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             // ignore PRs opened by docs bot accounts
@@ -63,7 +68,7 @@ jobs:
 
     steps:
       - name: Remove card from project
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
           result-encoding: string

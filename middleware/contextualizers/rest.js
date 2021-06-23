@@ -2,7 +2,7 @@ const path = require('path')
 const rest = require('../../lib/rest')
 const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
 
-module.exports = async function (req, res, next) {
+module.exports = function restContext (req, res, next) {
   req.context.rest = rest
 
   // link to include in `Works with GitHub Apps` notes
@@ -15,10 +15,10 @@ module.exports = async function (req, res, next) {
   ))
 
   // ignore requests to non-REST reference paths
-  if (!req.path.includes('rest/reference')) return next()
+  if (!req.pagePath.includes('rest/reference')) return next()
 
   // e.g. the `activity` from `/en/rest/reference/activity#events`
-  const category = req.path
+  const category = req.pagePath
     .split('rest/reference')[1]
     .replace(/^\//, '') // remove leading slash
     .split('/')[0]

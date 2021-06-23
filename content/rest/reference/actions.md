@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.ae-beta %}

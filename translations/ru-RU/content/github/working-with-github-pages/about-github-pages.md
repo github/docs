@@ -14,6 +14,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 ### About {% data variables.product.prodname_pages %}
@@ -134,19 +136,9 @@ If your site exceeds these usage quotas, we may not be able to serve your site, 
 #### Prohibited uses
 
 {% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS).
+In addition,
 
-Additionally, {% data variables.product.prodname_pages %} sites must refrain from:
-
-  - Content or activity that is illegal or otherwise prohibited by our [Terms of Service](/articles/github-terms-of-service/) or [Community Guidelines](/articles/github-community-guidelines/)
-  - Violent or threatening content or activity
-  - Excessive automated bulk activity (for example, spamming)
-  - Activity that compromises GitHub users or GitHub services
-  - Get-rich-quick schemes
-  - Sexually obscene content
-  - Content that misrepresents your identity or site purpose
-If you have questions about whether your use or intended use falls into these categories, please contact
-
-{% data variables.contact.contact_support %}.
+{% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. For a list of prohibited uses, see "[{% data variables.product.prodname_dotcom %}'s Additional Product Terms for {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)."
 {% endif %}
 
 ### MIME types on {% data variables.product.prodname_pages %}

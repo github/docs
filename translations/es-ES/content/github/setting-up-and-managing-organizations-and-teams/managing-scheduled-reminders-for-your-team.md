@@ -5,6 +5,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 ### Acerca de los recordatorios programados para equipos
@@ -12,6 +15,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Los mantenedores de equipo y propietarios de organización pueden configurar recordatorios programados para cualquier solicitud de extracción que tenga una solicitud de revisión por parte de sus equipos. Antes de que puedas crear un recordatorio programado para tu equipo, un propietario de la organización debe autorizar tu espacio de trabajo de Slack. Para obtener más información, consulta la sección "[Administrar recordatorios programados para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)".
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Crear un recordatorio programado para un equipo
 {% data reusables.profile.access_profile %}

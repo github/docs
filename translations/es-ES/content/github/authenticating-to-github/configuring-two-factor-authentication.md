@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 Puedes configurar la autenticación bifactorial utilizando una app móvil{% if currentVersion == "free-pro-team@latest" %} o a través de un mensaje de texto{% endif %}. También puedes agregar una clave de seguridad.

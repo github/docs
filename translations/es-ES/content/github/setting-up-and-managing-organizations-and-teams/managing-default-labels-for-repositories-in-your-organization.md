@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Los propietarios de la organización pueden administrar las etiquetas predeterminadas para los repositorios de la organización.

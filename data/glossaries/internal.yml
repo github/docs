@@ -53,6 +53,12 @@
   description: Amazon Web Services. A secure cloud services platform.
 - term: Azure
   description: A Microsoft cloud-computing platform.
+- term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD
+    pipelines, and other developer services. The on-premises version
+    was formerly known as Team Foundation Server. The cloud-hosted
+    version was formerly known as Visual Studio Team Services.
 - term: bare repository
   description: >-
     A bare repository is normally an appropriately named directory with a .git
@@ -600,8 +606,8 @@
     which case it is called a "signed tag object".
 - term: Team Foundation Server
   description: >-
-    A Microsoft product that provides source code management and other team
-    services.
+    The former name of a Microsoft product that provides source code management and other team
+    services. Now known as Azure DevOps Server.
 - term: Textile
   description: >-
     A lightweight markup language that uses a text formatting syntax to convert

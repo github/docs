@@ -4,6 +4,10 @@ intro: You can restrict access to your organization's assets by configuring a li
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 versions:
   free-pro-team: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization owners can manage allowed IP addresses for an organization.
@@ -16,7 +20,7 @@ You can restrict access to organization assets by configuring an allow list for 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-You can also configure allowed IP addresses for the organizations in an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
+You can also configure allowed IP addresses for the organizations in an enterprise account. For more information, see {% if currentVersion == "github-ae@latest" %}"[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
 
 ### Adding an allowed IP address
 
@@ -59,4 +63,12 @@ You can also configure allowed IP addresses for the organizations in an enterpri
 
 ### Using {% data variables.product.prodname_actions %} with an IP allow list
 
+{% if currentVersion == "github-ae@latest" %}
+
+{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+
+{% else %}
+
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+
+{% endif %}

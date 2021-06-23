@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -35,10 +37,10 @@ versions:
 ### {% data variables.product.prodname_vscode %} で codespace を開く
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. [Codespaces] で、開発する codespace をクリックします。
+2. Under "Codespaces", click the codespace you want to develop in.
 3. [Connect to Codespace] アイコンをクリックします。 ![{% data variables.product.prodname_vscode %} の [Connect to Codespace] アイコン](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ### {% data variables.product.prodname_vscode %} で Codespaces を削除する
 
-1. [Codespaces] で、削除する Codespaces を右クリックします。
+1. Under "Codespaces", right-click the codespace you want to delete.
 2. ドロップダウンメニューで、[**Delete Codespace**] をクリックします。 ![{% data variables.product.prodname_dotcom %} で Codespaces を削除する](/assets/images/help/codespaces/delete-codespace-vscode.png)

@@ -1,6 +1,6 @@
 const rateLimit = require('express-rate-limit')
 const RedisStore = require('rate-limit-redis')
-const Redis = require('ioredis')
+const createRedisClient = require('../lib/redis/create-client')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const { REDIS_URL } = process.env
@@ -15,21 +15,16 @@ module.exports = rateLimit({
   // Don't rate limit requests for 200s and redirects
   // Or anything with a status code less than 400
   skipSuccessfulRequests: true,
-  // When available, use Redis
+  // When available, use Redis; if not, defaults to an in-memory store
   store: REDIS_URL && new RedisStore({
-    client: new Redis(REDIS_URL, {
+    client: createRedisClient({
+      url: REDIS_URL,
       db: rateLimitDatabaseNumber,
-
-      // Only add this configuration for TLS-enabled REDIS_URL values.
-      // Otherwise, it breaks for local Redis instances without TLS enabled.
-      ...REDIS_URL.startsWith('rediss://') && {
-        tls: {
-          // Required for production Heroku Redis
-          rejectUnauthorized: false
-        }
-      }
+      name: 'rate-limit'
     }),
     // 1 minute (or practically unlimited outside of production)
-    expiry: isProduction ? EXPIRES_IN_AS_SECONDS : 1 // Redis configuration in `s`
+    expiry: isProduction ? EXPIRES_IN_AS_SECONDS : 1, // Redis configuration in `s`
+    // If Redis is not connected, let the request succeed as failover
+    passIfNotConnected: true
   })
 })

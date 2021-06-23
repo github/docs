@@ -7,6 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+type: reference
+topics:
+  - API
+  - Code scanning
+  - REST
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.code-scanning.beta %}

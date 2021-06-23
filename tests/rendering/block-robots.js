@@ -1,6 +1,6 @@
 const { blockIndex } = require('../../middleware/block-robots')
 const languages = require('../../lib/languages')
-const products = require('../../lib/all-products')
+const { productMap } = require('../../lib/all-products')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 
 function allowIndex (path) {
@@ -33,12 +33,12 @@ describe('block robots', () => {
   })
 
   it('disallows crawling of WIP products', async () => {
-    const wipProductIds = Object.values(products)
+    const wipProductIds = Object.values(productMap)
       .filter(product => product.wip)
       .map(product => product.id)
 
     wipProductIds.forEach(id => {
-      const { href } = products[id]
+      const { href } = productMap[id]
       const blockedPaths = [
         // English
         `/en${href}`,
@@ -62,12 +62,12 @@ describe('block robots', () => {
   })
 
   it('disallows crawling of early access "hidden" products', async () => {
-    const hiddenProductIds = Object.values(products)
+    const hiddenProductIds = Object.values(productMap)
       .filter(product => product.hidden)
       .map(product => product.id)
 
     hiddenProductIds.forEach(id => {
-      const { versions } = products[id]
+      const { versions } = productMap[id]
       const blockedPaths = versions.map(version => {
         return [
           // English
@@ -86,7 +86,7 @@ describe('block robots', () => {
   })
 
   it('allows crawling of non-WIP products', async () => {
-    expect('actions' in products).toBe(true)
+    expect('actions' in productMap).toBe(true)
     expect(allowIndex('/en/actions')).toBe(true)
     expect(allowIndex('/en/actions/overview')).toBe(true)
     expect(allowIndex('/en/actions/overview/intro')).toBe(true)

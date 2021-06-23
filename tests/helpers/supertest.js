@@ -3,15 +3,14 @@
 
 const cheerio = require('cheerio')
 const supertest = require('supertest')
-const app = require('../../server')
+const app = require('../../lib/app')
 
 const helpers = {}
 
 const request = (method, route) => supertest(app)[method](route)
 
-helpers.get = async function (route, opts = { followRedirects: false, followAllRedirects: false }) {
-  let res = await request('get', route)
-
+helpers.get = async function (route, opts = { followRedirects: false, followAllRedirects: false, headers: {} }) {
+  let res = (opts.headers) ? await request('get', route).set(opts.headers) : await request('get', route)
   // follow all redirects, or just follow one
   if (opts.followAllRedirects && [301, 302].includes(res.status)) {
     res = await helpers.get(res.headers.location, opts)
@@ -29,9 +28,8 @@ helpers.head = async function (route, opts = { followRedirects: false }) {
 
 helpers.post = route => request('post', route)
 
-helpers.getDOM = async function (route) {
-  const res = await helpers.get(route, { followRedirects: true })
-
+helpers.getDOM = async function (route, headers) {
+  const res = await helpers.get(route, { followRedirects: true, headers })
   const $ = cheerio.load((res.text || ''), { xmlMode: true })
   $.res = Object.assign({}, res)
   return $

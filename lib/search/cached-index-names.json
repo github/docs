@@ -41,6 +41,12 @@
   "github-docs-3.0-es",
   "github-docs-3.0-ja",
   "github-docs-3.0-pt",
+  "github-docs-3.1-cn",
+  "github-docs-3.1-de",
+  "github-docs-3.1-en",
+  "github-docs-3.1-es",
+  "github-docs-3.1-ja",
+  "github-docs-3.1-pt",
   "github-docs-custom-rankings-2.18-cn",
   "github-docs-custom-rankings-2.18-de",
   "github-docs-custom-rankings-2.18-en",
@@ -78,6 +84,9 @@
   "github-docs-dotcom-ja",
   "github-docs-dotcom-pt",
   "github-docs-ghae-cn",
+  "github-docs-ghae-de",
   "github-docs-ghae-en",
-  "github-docs-ghae-ja"
+  "github-docs-ghae-es",
+  "github-docs-ghae-ja",
+  "github-docs-ghae-pt"
 ]

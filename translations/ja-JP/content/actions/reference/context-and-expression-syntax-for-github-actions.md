@@ -5,16 +5,19 @@ intro: ワークフローおよびアクションにおいて、コンテキス�
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
-  - /articles/contexts-and-expression-syntax-for-github-actions
+  - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/reference/contexts-and-expression-syntax-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### コンテキストと式について
 
@@ -30,7 +33,9 @@ versions:
 
 {% data reusables.github-actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 
-#### `if` 条件内の式の例
+{% data reusables.github-actions.context-injection-warning %}
+
+##### `if` 条件内の式の例
 
 ```yaml
 steps:
@@ -38,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### 環境変数の設定例
+##### 環境変数の設定例
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -58,7 +63,7 @@ env:
 | コンテキスト名    | 種類       | 説明                                                                                                                                                                     |
 | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `github`   | `オブジェクト` | ワークフロー実行に関する情報。 詳しい情報については、「[`github` コンテキスト](#github-context)」を参照してください。                                                                                              |
-| `env`      | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 詳しい情報については[`env`コンテキスト](#env-context)を参照してください。                                                                                       |
+| `env`      | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 詳しい情報については、[`env` コンテキスト](#env-context)を参照してください。                                                                                     |
 | `job`      | `オブジェクト` | 現在実行中のジョブに関する情報。 詳しい情報については、「[`job` コンテキスト](#job-context)」を参照してください。                                                                                                   |
 | `steps`    | `オブジェクト` | このジョブで実行されているステップに関する情報。 詳しい情報については、「[`steps` コンテキスト](#steps-context)」を参照してください。                                                                                       |
 | `runner`   | `オブジェクト` | 現在のジョブを実行しているランナーに関する情報。 詳しい情報については[`runner`コンテキスト](#runner-context)を参照してください。                                                                                         |
@@ -84,6 +89,7 @@ env:
 `github` コンテキストは、ワークフローの実行および、その実行をトリガーしたイベントの情報を含みます。 ほとんどの `github` コンテキストデータは、環境変数で読み取ることができます。 環境変数に関する詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | プロパティ名                    | 種類       | 説明                                                                                                                                                                                                                                                                                   |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -91,13 +97,13 @@ env:
 | `github.action`           | `string` | 現在実行中のアクションの名前。 {% data variables.product.prodname_dotcom %}は、現在のステップがスクリプトを実行する際に、特殊なキャラクターを削除するか、`run`という名前を使います。  同じジョブの中で同じアクションを複数回使う場合、名前には順番に番号が加えられます。  たとえば、実行する最初のスクリプトの名前は`run1`で、2番目のスクリプトの名前は`run2`というようになります。 同様に、`actions/checkout`の2回目の呼び出しは`actionscheckout2`となります。 |
 | `github.action_path`      | `string` | アクションが置かれているパス。 このパスを使用して、アクションと同じリポジトリにあるファイルに簡単にアクセスできます。 この属性は、複合実行ステップアクションでのみサポートされています。                                                                                                                                                                                        |
 | `github.actor`            | `string` | ワークフローの実行を開始したユーザのログイン。                                                                                                                                                                                                                                                              |
-| `github.base_ref`         | `string` | ワークフローの実行における `base_ref` またはPull Requestのターゲットブランチ。 このプロパティは、ワークフローの実行をトリガーしたイベントが `pull_request` の場合のみ使用できます。                                                                                                                                                                       |
+| `github.base_ref`         | `string` | ワークフローの実行における `base_ref` またはPull Requestのターゲットブランチ。 このプロパティは、ワークフローの実行をトリガーするイベントが `pull_request` または `pull_request_target` のいずれかである場合にのみ使用できます。                                                                                                                                     |
 | `github.event`            | `オブジェクト` | webhook ペイロードの完全なイベント。 詳しい情報については、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows/)」を参照してください。 このコンテキストを使用して、イベントの個々のプロパティにアクセスできます。                                                                                                                                    |
 | `github.event_name`       | `string` | ワークフローの実行をトリガーしたイベントの名前。                                                                                                                                                                                                                                                             |
 | `github.event_path`       | `string` | ランナー上の完全なイベントwebhookペイロードへのパス。                                                                                                                                                                                                                                                       |
-| `github.head_ref`         | `string` | ワークフローの実行における `head_ref` またはPull Requestのソースブランチ。 このプロパティは、ワークフローの実行をトリガーしたイベントが `pull_request` の場合のみ使用できます。                                                                                                                                                                         |
+| `github.head_ref`         | `string` | ワークフローの実行における `head_ref` またはPull Requestのソースブランチ。 このプロパティは、ワークフローの実行をトリガーするイベントが `pull_request` または `pull_request_target` のいずれかである場合にのみ使用できます。                                                                                                                                       |
 | `github.job`              | `string` | 現在のジョブの[`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                 |
-| `github.ref`              | `string` | ワークフローの実行をトリガーしたブランチまたはタグ ref。 ブランチの場合、これは `refs/heads/<branch_name>` の形式で、タグの場合は `refs/tags/<tag_name>` です。                                                                                                                                                             |
+| `github.ref`              | `string` | ワークフローの実行をトリガーしたブランチまたはタグ ref。 ブランチの場合は `refs/heads/<branch_name>` の形式で、タグの場合は `refs/tags/<tag_name>` です。                                                                                                                                                                |
 | `github.repository`       | `string` | 所有者およびリポジトリの名前。 `Codertocat/Hello-World`などです。                                                                                                                                                                                                                                        |
 | `github.repository_owner` | `string` | リポジトリのオーナーの名前。 たとえば`Codertocat`。                                                                                                                                                                                                                                                     |
 | `github.run_id`           | `string` | {% data reusables.github-actions.run_id_description %}
@@ -152,11 +158,12 @@ env:
 
 `runner`コンテキストには、現在のジョブを実行しているランナーに関する情報が含まれています。
 
-| プロパティ名              | 種類       | 説明                                                                                                                                                                                                                                                       |
-| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `string` | ジョブを実行しているランナーのオペレーティングシステム。 取り得る値は`Linux`、`Windows`、`macOS`のいずれか。                                                                                                                                                                                       |
-| `runner.temp`       | `string` | ランナー用のテンポラリディレクトリのパス。 このディレクトリは、セルフホストランナーの場合であっても、各ジョブの開始時点では空であることが保証されています。                                                                                                                                                                           |
-| `runner.tool_cache` | `string` | {% data variables.product.prodname_dotcom %}ホストランナーにプレインストールされているいくつかのツールを含むディレクトリのパス。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。 |
+| プロパティ名              | 種類       | 説明                                                                                                                                                                                                                  |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `string` | ジョブを実行しているランナーのオペレーティングシステム。 取り得る値は`Linux`、`Windows`、`macOS`のいずれか。                                                                                                                                                  |
+| `runner.temp`       | `string` | ランナー用のテンポラリディレクトリのパス。 このディレクトリは、セルフホストランナーの場合であっても、各ジョブの開始時点では空であることが保証されています。                                                                                                                                      |
+| `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。 |
+{% else %}{% data variables.product.prodname_dotcom %}ホストランナーにプレインストールされているいくつかのツールを含むディレクトリのパス。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。 {% endif %}
 
 #### `needs`コンテキスト
 
@@ -169,9 +176,9 @@ env:
 | `needs.<job id>.outputs.<output name>` | `string` | 現在のジョブが依存しているジョブの特定の出力の値。                                                   |
 | `needs.<job id>.result`                      | `string` | 現在のジョブが依存しているジョブの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 |
 
-#### コンテキスト情報をログに出力するサンプル
+##### コンテキスト情報をログに出力するサンプル
 
-各コンテキストでアクセスできる情報を調べるには、次のワークフローファイルの例が利用できます。
+各コンテキストでアクセスできる情報を調べるには、次の例のようにワークフローファイルを使用します。
 
 {% data reusables.github-actions.github-context-warning %}
 
@@ -222,7 +229,7 @@ jobs:
 | `number`  | JSONでサポートされている任意の数値書式。                               |
 | `string`  | 一重引用符で囲む必要があります。 一重引用符そのものを使用するには、一重引用符でエスケープしてください。 |
 
-#### サンプル
+##### サンプル
 
 {% raw %}
 ```yaml
@@ -278,7 +285,7 @@ env:
 | ------ | -------------------- |
 | ヌル     | `''`                 |
 | 論理値    | `'true'`または`'false'` |
-| Number | 10進数、大きい場合は指数        |
+| 数値     | 10進数、大きい場合は指数        |
 | 配列     | 配列は文字列型に変換されません      |
 | オブジェクト | オブジェクトは文字列型に変換されません  |
 
@@ -356,7 +363,7 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 
 ##### サンプル
 
-`toJSON(job)` は、`{ "status": "Success" }` を返す可能性があります。
+`toJSON(job)` は、`{ "status": "Success" }` といった結果を返します。
 
 #### fromJSON
 
@@ -378,15 +385,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
 ```
 {% endraw %}
 
@@ -405,9 +412,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - continue-on-error: ${{ fromJSON(env.continue) }}
-      timeout-minutes: ${{ fromJSON(env.time) }}
-      run: echo ...
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 
@@ -433,7 +440,7 @@ jobs:
 
 ### ジョブステータスのチェック関数
 
-`if` 条件では、次のステータスチェック関数を式として使用できます。 `if`式にステータス関数が含まれていない場合、結果は自動的に `success()` になります。 `if` 条件に関する詳しい情報については、「[GitHub Actions のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
+`if` 条件では、次のステータスチェック関数を式として使用できます。 `if` 条件ステータス関数が含まれていない場合、結果は自動的に `success()` になります。 `if` 条件に関する詳しい情報については、「[GitHub Actions のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 
 #### success
 

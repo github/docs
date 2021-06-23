@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Solo puedes eliminar una propuesta en un repositorio que sea propiedad de tu cuenta de usuario. No puedes eliminar una propuesta en un repositorio que sea propiedad de otra cuenta de usuario, aun si eres una colaborador de esa cuenta.

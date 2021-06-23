@@ -6,24 +6,24 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CD'
-  - 'Containers'
-  - 'Amazon ECS'
+  - CD
+  - Containers
+  - Amazon ECS
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
 
 On every new release in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
-### Prerequisites
+## Prerequisites
 
 Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps for Amazon ECR and ECS:
 
@@ -65,7 +65,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 
-### Creating the workflow
+## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
 
@@ -73,7 +73,6 @@ The following example workflow demonstrates how to build a container image and p
 
 Ensure that you provide your own values for all the variables in the `env` key of the workflow.
 
-{% raw %}
 ```yaml{:copy}
 name: Deploy to Amazon ECS
 
@@ -98,9 +97,12 @@ defaults:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
+    {% raw %}steps:
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -142,11 +144,11 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
-          wait-for-service-stability: true
+          wait-for-service-stability: true{% endraw %}
 ```
-{% endraw %}
 
-### Additional resources
+
+## Additional resources
 
 For more information on the services used in these examples, see the following documentation:
 
