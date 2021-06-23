@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
 const port = '4001'
 const host = `http://localhost:${port}`
 const scrape = require('website-scraper')
@@ -155,7 +155,7 @@ async function main () {
     plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)]
   }
 
-  app.listen(port, async () => {
+  createApp().listen(port, async () => {
     console.log(`started server on ${host}`)
 
     await scrape(scraperOptions).catch(err => {
