@@ -38,7 +38,7 @@ After you set up CI, you can customize the workflow to meet your needs.
 
 Once a push is made to your repository, you can follow the status and detailed logs of your continuous integration workflow run on {% data variables.product.prodname_dotcom %} and receive customized notifications. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)" and "[Managing a workflow run](/articles/managing-a-workflow-run)."
 
-{% data reusables.repositories.actions-workflow-status-badge-into %}
+{% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
@@ -46,6 +46,7 @@ For more information, see "[Learn {% data variables.product.prodname_actions %}]
 
 - "[About continuous integration](/articles/about-continuous-integration)"
 - "[Managing a workflow run](/articles/managing-a-workflow-run)"
+- "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)"
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

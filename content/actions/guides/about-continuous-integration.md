@@ -82,7 +82,7 @@ You won't be able to merge the pull request if your repository is configured to 
 
 ## Status badges for workflow runs
 
-{% data reusables.repositories.actions-workflow-status-badge-into %}
+{% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
