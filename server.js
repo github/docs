@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('./lib/feature-flags')
 
 const throng = require('throng')
 const os = require('os')
@@ -11,7 +12,6 @@ const http = require('http')
 // Intentionally require these for both cluster primary and workers
 require('./lib/check-node-version')
 require('./lib/handle-exceptions')
-require('./lib/feature-flags')
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
