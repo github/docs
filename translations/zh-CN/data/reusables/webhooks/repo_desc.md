@@ -1,1 +1,1 @@
-`repository` | `object` | The [`repository`](/v3/repos/#get-a-repository) where the event occured.
+`repository` | `object` | 事件发生所在的 [`repository`](/rest/reference/repos#get-a-repository)。

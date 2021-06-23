@@ -12,38 +12,39 @@ versions:
 
 {% data variables.product.prodname_dependabot %} の設定ファイルである *dependabot.yml* では YAML 構文を使用します。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
-このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのプルリクエストをトリガーするときにも使用されます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」および「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」を参照してください。
+このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」および「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 
 ### *dependabot.yml* の設定オプション
 
 *dependabot.yml* ファイルは、`version: 2` で始まり、その後に `updates` の配列が続く形である必要があります。
 
-| Option                                                                     |  必須   | 説明                          |
-|:-------------------------------------------------------------------------- |:-----:|:--------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー             |
-| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所              |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                   |
-| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする             |
-| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者             |
-| [`commit-message`](#commit-message)                                        |       | コミットメッセージの環境設定              |
-| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する        |
-| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル             |
-| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン         |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する     |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                |
-| [`reviewers`](#reviewers)                                                  |       | プルリクエストのレビュー担当者             |
-| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                   |
-| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)           |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）           |
-| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ            |
-| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法         |
+| Option                                                                     |  必須   | 説明                                     |
+|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                        |
+| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                         |
+| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                              |
+| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                        |
+| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                        |
+| [`commit-message`](#commit-message)                                        |       | コミットメッセージの環境設定                         |
+| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                   |
+| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                        |
+| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                    |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する            |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                |
+| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                           |
+| [`reviewers`](#reviewers)                                                  |       | プルリクエストのレビュー担当者                        |
+| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                              |
+| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                      |
+| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                      |
+| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                       |
+| [`vendor`](#vendor)                                                        |       | Update vendored or cached dependencies |
+| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                    |
 
 これらのオプションは、次のようなカテゴリに幅広く適合しています。
 
 - すべての設定に含める必要がある必須のセットアップオプション: [`package-ecosystem`](#package-ecosystem)、 [`directory`](#directory)、[`schedule.interval`](#scheduleinterval)
 - 更新スケジュールをカスタマイズするためのオプション: [`schedule.time`](#scheduletime)、[`schedule.timezone`](#scheduletimezone)、 [`schedule.day`](#scheduleday)
-- 更新する依存関係を制御するオプション: [`allow`](#allow)、[`ignore`](#ignore)
+- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - プルリクエストにメタデータを追加するオプション: [`reviewers`](#reviewers)、[`assignees`](#assignees)、[`labels`](#labels)、 [`milestone`](#milestone)
 - プルリクエストの動作を変更するオプション: [`target-branch`](#target-branch)、[`versioning-strategy`](#versioning-strategy)、[`commit-message`](#commit-message)、[`rebase-strategy`](#rebase-strategy)、[`pull-request-branch-name.separator`](#pull-request-branch-nameseparator)
 
@@ -55,13 +56,13 @@ versions:
 
 脆弱性のあるパッケージマニフェストのセキュリティアップデートは、デフォルトブランチでのみ発生します。 設定オプションが同じブランチに設定され（`target-branch` を使用しない場合は true）、脆弱性のあるマニフェストの `package-ecosystem` と `directory` を指定している場合、セキュリティアップデートのプルリクエストで関連オプションが使用されます。
 
-一般に、セキュリティアップデートでは、メタデータの追加や動作の変更など、プルリクエストに影響する設定オプションが使用されます。 セキュリティアップデートに関する詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」を参照してください。
+一般に、セキュリティアップデートでは、メタデータの追加や動作の変更など、プルリクエストに影響する設定オプションが使用されます。 セキュリティアップデートに関する詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**必須** {% data variables.product.prodname_dependabot %} で新しいバージョンを監視するパッケージマネージャーごとに、`package-ecosystem` 要素を1つ追加してください。 リポジトリには、これらの各パッケージマネージャーの依存関係マニフェストまたはロックファイルも含まれている必要があります。
+**Required** You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. リポジトリには、これらの各パッケージマネージャーの依存関係マニフェストまたはロックファイルも含まれている必要があります。 If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -289,7 +290,7 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# 「ignore」で維持する依存関係をカスタマイズする
+# Customizing the dependencies to maintain with `ignore`
 
 version: 2
 updates:
@@ -299,15 +300,16 @@ updates:
       interval: "daily"
     ignore:
       - dependency-name: "express"
-        # Express の場合、バージョン 4 と 5 のすべての更新を無視する
+        # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # Loadash の場合、すべての更新を無視する
-      - dependency-name: "loadash"
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-構成ファイルの `ignore` オプションにプライベート依存関係を追加しても、{% data variables.product.prodname_dependabot_version_updates %} はプライベート Git 依存関係またはプライベート Git レジストリを含むマニフェストの依存関係のバージョン更新を実行できません。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)」を参照してください。
+**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+
 
 {% endnote %}
 
@@ -538,6 +540,31 @@ updates:
     labels:
       - "npm dependencies"
 ```
+
+### `vendor`
+
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot %} only updates the vendored dependencies located in specific directories in a repository.
+
+| パッケージマネージャー | Required file path for vendored dependencies                                                      | 詳細情報                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `bundler`   | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`     | No path requirement (dependencies are usually located in the _vendor_ directory)                  | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

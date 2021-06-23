@@ -1,4 +1,4 @@
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 
 describe('language code redirects', () => {
   jest.setTimeout(5 * 60 * 1000)

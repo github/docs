@@ -6,10 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### セルフホストランナーのグループについて
 
@@ -33,17 +37,29 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 ランナーはデフォルトグループから作成した任意のグループに移動できます。
 
-グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。 ランナーグループを設定して、リポジトリの特定のリスト、すべてのプライベートリポジトリ、または Organization 内のすべてのリポジトリにアクセスできます。
+グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. [**Self-hosted runners**] セクションで、[**Add new**] をクリックし、次に [**New group**] をクリックします。
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. {% if currentVersion == "free-pro-team@latest" %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、[**Add new**]、[**New group**] の順にクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. ランナーグループの名前を入力し、[**Repository access**] ドロップダウンリストからアクセスポリシーを選択します。
+1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
 
-    ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} リポジトリの特定のリスト、または Organization 内のすべてのリポジトリにアクセスできるようにランナーグループを設定できます。 デフォルトでは、プライベートリポジトリのみがランナーグループ内のランナーにアクセスできますが、これをオーバーライドできます。{% elsif currentVersion == "enterprise-server@2.22"%} リポジトリの特定のリスト、すべてのプライベートリポジトリ、または Organization 内のすべてのリポジトリにアクセスできるようにランナーグループを設定できます。{% endif %}
+
+   {% warning %}
+
+   **Warning**
+
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
+
+   {% endwarning %}
+
+   ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。
 
 ### Enterprise のセルフホストランナーグループを作成する
@@ -52,21 +68,28 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 登録処理中にランナーを特定のグループに割り当てることも、後でランナーをデフォルトグループからカスタムグループに移動することもできます。
 
-グループを作成するときは、Enterprise 内のすべての Organization にアクセスを付与するポリシーを選択するか、特定の Organization を選択する必要があります。
+グループを作成するときは、ランナーグループにアクセスできる Organization を定義するポリシーを選択する必要があります。
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Self-hosted runners**] タブをクリックします。
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. [**Add new**] をクリックしてから、[**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. ランナーグループの名前を入力し、[**Organization access**] ドロップダウンリストからアクセスポリシーを選択します。
+1. ランナーグループの名前を入力し、Organization アクセスのポリシーを割り当てます。
+
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} ランナーグループを設定して、特定の Organization のリスト、または Enterprise 内のすべての Organization にアクセスできるようにすることができます。 デフォルトでは、プライベートリポジトリのみがランナーグループ内のランナーにアクセスできますが、これをオーバーライドできます。{% elsif currentVersion == "enterprise-server@2.22"%} Enterprise 内のすべての Organization がアクセスできるようにランナーグループを設定することも、特定の Organization を選択することもできます。{% endif %}
+
+   {% warning %}
+
+   **Warning**
+
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
+
+   {% endwarning %}
 
     ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。
@@ -81,7 +104,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 新しいセルフホストランナーは自動的にデフォルトグループに割り当てられ、その後、別のグループに移動できます。
 
-1. 設定ページの [**Self-hosted runners**] セクションで、グループを移動するランナーの現在のグループを見つけ、グループメンバーのリストを展開します。 ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. {% if currentVersion == "free-pro-team@latest" %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、移動するランナーの現在のグループを見つけて、グループメンバーのリストを展開します。 ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. セルフホストランナーの横にあるチェックボックスを選択し、[**Move to group**] をクリックして、利用可能な移動先を確認します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. 移動先のグループをクリックして、ランナーを移動します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 
@@ -89,7 +112,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 セルフホストランナーは、グループが削除されると自動的にデフォルトグループに戻ります。
 
-1. 設定ページの [**Self-hosted runners**] セクションで、削除するグループを見つけて、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ボタンをクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+1. 設定ページの {% if currentVersion == "free-pro-team@latest" %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、削除するグループを見つけて、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ボタンをクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. グループを削除するには、[**Remove group**] をクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-remove.png)
 

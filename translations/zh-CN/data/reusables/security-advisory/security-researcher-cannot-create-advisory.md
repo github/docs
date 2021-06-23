@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If you are a security researcher, you should directly contact maintainers to ask them to create security advisories or issue CVEs on your behalf in repositories that you don't administer.
+**注：**如果您是安全研究人员，应直接联系维护人员，要求他们创建安全通告，或在您不管理的仓库中代表您发布 CVE。
 
 {% endnote %}

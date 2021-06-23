@@ -12,7 +12,7 @@ versions:
 
 The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request with for security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 ### Configuration options for *dependabot.yml*
 
@@ -37,13 +37,14 @@ The *dependabot.yml* file must start with `version: 2` followed by an array of `
 | [`schedule.time`](#scheduletime)                                           |          | Time of day to check for updates (hh:mm)               |
 | [`schedule.timezone`](#scheduletimezone)                                   |          | Timezone for time of day (zone identifier)             |
 | [`target-branch`](#target-branch)                                          |          | Branch to create pull requests against                 |
+| [`vendor`](#vendor)                                                        |          | Update vendored or cached dependencies                 |
 | [`versioning-strategy`](#versioning-strategy)                              |          | How to update manifest version requirements            |
 
 These options fit broadly into the following categories.
 
 - Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
 - Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore).
+- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
@@ -55,13 +56,13 @@ In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option 
 
 Security updates are raised for vulnerable package manifests only on the default branch. When configuration options are set for the same branch (true unless you use `target-branch`), and specify a `package-ecosystem` and `directory` for the vulnerable manifest, then pull requests for security updates use relevant options.
 
-In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Required** You add one `package-ecosystem` element for each one package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file each of these package managers.
+**Required** You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -301,13 +302,14 @@ updates:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # For Loadash, ignore all updates
-      - dependency-name: "loadash"
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-{% data variables.product.prodname_dependabot_version_updates %} can't run version updates for any dependencies in manifests containing private git dependencies or private git registries, even if you add the private dependencies to the `ignore` option of your configuration file. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)."
+**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+
 
 {% endnote %}
 
@@ -539,6 +541,31 @@ updates:
     labels:
       - "npm dependencies"
 ```
+
+### `vendor`
+
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot %} only updates the vendored dependencies located in specific directories in a repository.
+
+| Package manager | Required file path for vendored dependencies                                                      | More information                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `bundler`       | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`         | No path requirement (dependencies are usually located in the _vendor_ directory)                  | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

@@ -1,3 +1,3 @@
 {% if currentVersion == "free-pro-team@latest" %}
-You can also copy a project board to reuse its customizations for similar projects. For more information, see "[Copying a project board](/articles/copying-a-project-board)."
+Você também pode copiar um quadro de projeto para reutilizar suas personalizações para projetos similares. Para obter mais informações, consulte "[Copiar um quadro de projeto](/articles/copying-a-project-board)".
 {% endif %}

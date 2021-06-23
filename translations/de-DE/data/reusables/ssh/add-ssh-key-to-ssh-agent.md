@@ -1,1 +1,1 @@
-Wenn Du Deinen Schlüssel mit einem anderen Namen erstellt hast, oder wenn Du einen vorhandenen Schlüssel mit einem anderen Namen hinzufügst, ersetze *id_rsa* im Befehl durch den Namen Deiner Privatschlüssel-Datei.
+If you created your key with a different name, or if you are adding an existing key that has a different name, replace *id_ed25519* in the command with the name of your private key file.

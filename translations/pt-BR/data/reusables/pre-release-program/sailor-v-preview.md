@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** You can now use the REST API to add a reason when you lock an issue, and you will see lock reasons in responses that include issues or pull requests. You will also see lock reasons in `locked` events. This feature is currently available for developers to preview. See the [blog post](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview) for full details. To access this feature, you must provide a custom [media type](/v3/media) in the `Accept` header:
+**Observação:** Agora você pode usar a API REST para adicionar um motivo ao bloquear um problema e você verá as razões de bloqueio nas respostas que incluem problemas ou pull requests. Você também verá razões de bloqueio em eventos `bloqueados`. Esse recurso está atualmente disponível para pré-visualização dos desenvolvedores. Consulte o [post do blogue](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview) para obter informações completas. Para acessar este recurso, você deve fornecer um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Aceitar`:
 
 ```
 application/vnd.github.sailor-v-preview+json

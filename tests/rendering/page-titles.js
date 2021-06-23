@@ -1,5 +1,5 @@
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { getDOM } = require('../helpers')
+const { getDOM } = require('../helpers/supertest')
 
 describe('page titles', () => {
   jest.setTimeout(300 * 1000)
@@ -31,13 +31,13 @@ describe('page titles', () => {
 
   test('dynamically parses liquid in page titles (even on subsequent requests)', async () => {
     let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-    expect($('title').text()).toBe('GitHub Enterprise Help Documentation - GitHub Docs')
+    expect($('title').text()).toBe('GitHub Enterprise Server Help Documentation - GitHub Docs')
 
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('title').text()).toBe('GitHub Enterprise Help Documentation - GitHub Docs')
+    expect($('title').text()).toBe('GitHub Enterprise Server Help Documentation - GitHub Docs')
 
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-    expect($('title').text()).toBe('GitHub Enterprise Help Documentation - GitHub Docs')
+    expect($('title').text()).toBe('GitHub Enterprise Server Help Documentation - GitHub Docs')
   })
 
   // TODO enable this once translated content has synced with the versioning changes

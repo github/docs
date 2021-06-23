@@ -1,1 +1,0 @@
-4. En la barra lateral izquierda, da clic en **Roles del repositorio**. ![La pestaña de roles del repositorio en la configuración de la organización](/assets/images/help/organizations/org-settings-repository-roles.png)

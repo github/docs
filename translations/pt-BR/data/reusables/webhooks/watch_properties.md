@@ -1,3 +1,3 @@
-| Tecla  | Tipo     | Descrição                                                   |
-| ------ | -------- | ----------------------------------------------------------- |
-| `Ação` | `string` | A ação que foi executada. Currently, can only be `started`. |
+| Tecla  | Tipo     | Descrição                                                       |
+| ------ | -------- | --------------------------------------------------------------- |
+| `Ação` | `string` | A ação que foi executada. Atualmente, só pode ser `favoritada`. |

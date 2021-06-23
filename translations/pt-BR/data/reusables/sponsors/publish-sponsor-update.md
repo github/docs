@@ -1,1 +1,1 @@
-7. Click **Publish**.
+7. Clique em **Publicar**.

@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Joining {% data variables.product.prodname_sponsors %}
@@ -25,7 +27,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 ### Completing your sponsored organization profile
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,21 +42,22 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Submitting your bank information
 
-As a sponsored organization, you must receive payouts to a dedicated bank account for your organization in a supported region. You can get a business bank account through services like [Open Collective](https://opencollective.com/) and [Stripe Atlas](https://stripe.com/atlas). {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you must receive payouts to a dedicated bank account for your organization in a supported region. You can get a business bank account through services like [Open Collective](https://opencollective.com/) and [Stripe Atlas](https://stripe.com/atlas). The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 For more information about setting up Stripe Connect using Open Collective, see [Setting up {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) in the Open Collective Docs.
@@ -63,7 +66,7 @@ For more information about setting up Stripe Connect using Open Collective, see 
 
 {% data reusables.sponsors.tax-form-information-org %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +78,7 @@ Before your organization can become a sponsored organization, you must enable 2F
 
 ### Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}

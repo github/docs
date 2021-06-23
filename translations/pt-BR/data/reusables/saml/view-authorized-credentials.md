@@ -1,1 +1,1 @@
-1. Under "Authorized credentials", view the authorized credentials for the member.
+1. Em "Credenciais autorizadas", veja as credenciais autorizadas para o integrante.

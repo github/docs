@@ -1,1 +1,1 @@
-Any {% data variables.product.product_name %} user can create an issue in a public repository where [issues have not been disabled](/articles/disabling-issues).
+Qualquer usuário do {% data variables.product.product_name %} pode criar um problema em um repositório público em que [problemas não foram desativados](/articles/disabling-issues).

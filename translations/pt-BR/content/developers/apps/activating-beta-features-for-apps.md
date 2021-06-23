@@ -3,6 +3,8 @@ title: Ativar recursos beta para os aplicativos
 intro: 'Você pode testar novos recursos dos aplicativos lançados em beta público para seus {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_app %}s.'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -15,7 +17,8 @@ versions:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Selecione o {% data variables.product.prodname_github_app %} para o qual você deseja habilitar um recurso do beta.
+3. Selecione o
+{% data variables.product.prodname_github_app %} para o qual você deseja habilitar um recurso beta.
 {% data reusables.apps.beta_feature_activation %}
 
 ### Ativar recursos do beta para {% data variables.product.prodname_oauth_app %}s

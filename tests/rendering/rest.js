@@ -1,8 +1,9 @@
-const fs = require('fs')
+const fs = require('fs').promises
 const path = require('path')
 const { difference, isPlainObject } = require('lodash')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+const rest = require('../../lib/rest')
 // list of REST markdown files that do not correspond to REST API resources
 // TODO could we get this list dynamically, say via page frontmatter?
 const excludeFromResourceNameCheck = [
@@ -15,9 +16,9 @@ describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   test('markdown file exists for every operationId prefix in the api.github.com schema', async () => {
-    const { categories } = require('../../lib/rest')
+    const { categories } = rest
     const referenceDir = path.join(__dirname, '../../content/rest/reference')
-    const filenames = fs.readdirSync(referenceDir)
+    const filenames = (await fs.readdir(referenceDir))
       .filter(filename => !excludeFromResourceNameCheck.find(excludedFile => filename.endsWith(excludedFile)))
       .map(filename => filename.replace('.md', ''))
 
@@ -40,8 +41,14 @@ describe('REST references docs', () => {
     expect(operation.description).toContain('GitHub Enterprise')
   })
 
+  test('loads operations enabled for GitHub Apps', async () => {
+    const operations = await getJSON('/en/free-pro-team@latest/rest/overview/endpoints-available-for-github-apps?json=rest.operationsEnabledForGitHubApps')
+    expect(operations['free-pro-team@latest'].actions.length).toBeGreaterThan(0)
+    expect(operations['enterprise-server@2.22'].actions.length).toBeGreaterThan(0)
+  })
+
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {
-    const { operations } = require('../../lib/rest')
+    const { operations } = rest
     expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
   })
 })

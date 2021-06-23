@@ -1,1 +1,1 @@
-`changes[body][from]` |`string` | The previous version of the body if the action was `edited`. `changes[name][from]` |`string` | The previous version of the name if the action was `edited`. `release`|`object` | The [release](/v3/repos/releases/#get-a-release) object.
+`changes[body][from]` |`string` | 正文的前版本，如果操作为 `edited`。 `changes[name][from]` |`string` | 名称的前版本，如果操作为 `edited`。 `release`|`object` | [发行版](/rest/reference/repos/#get-a-release)对象。

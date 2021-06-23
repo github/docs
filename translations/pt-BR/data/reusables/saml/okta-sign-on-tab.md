@@ -1,1 +1,1 @@
-1. Under the name of the application, click **Sign on**. !["Sign on" tab for Okta application](/assets/images/help/saml/okta-sign-on-tab.png)
+1. No nome do aplicativo, clique em **Iniciar sessão**. ![Aba "Fazer login" para o aplicativo do Okta](/assets/images/help/saml/okta-sign-on-tab.png)

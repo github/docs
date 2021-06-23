@@ -1,1 +1,1 @@
-Workflows automate your software development life cycle with a wide range of tools and services.
+工作流程通过广泛的各种工具和服务自动化软件开发生命周期。

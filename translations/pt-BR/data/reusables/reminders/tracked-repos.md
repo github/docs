@@ -1,5 +1,5 @@
-1. Under "Tracked repositories," choose which repositories you'd like the team to receive pull request review reminders for.
-   - To receive reminders for all repositories that the chosen team has access to, click **All repositories**.
-   - To receive reminders for a subset of repositories, click **Only select repositories**, then select one or more repositories that the chosen team has access to.
+1. Em "Repositórios rastreados", escolha para quais repositórios você deseja que a equipe receba lembretes de revisão de pull request.
+   - Para receber lembretes para todos os repositórios aos quais a equipe escolhida tem acesso, clique em **Todos os repositórios**.
+   - Para receber lembretes de um subconjunto de repositórios, clique em **Apenas repositórios selecionados** e, em seguida, selecione um ou mais repositórios aos quais a equipe escolhida tem acesso.
 
-  ![Choose tracked repositories](/assets/images/help/settings/scheduled-reminders-tracked-repos.png)
+  ![Escolha repositórios rastreados](/assets/images/help/settings/scheduled-reminders-tracked-repos.png)

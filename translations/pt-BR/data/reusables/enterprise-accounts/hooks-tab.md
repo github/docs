@@ -1,1 +1,1 @@
-1. Under "{% octicon "gear" aria-label="The Settings gear" %} Settings", click **Hooks**. ![Hooks tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-hooks-tab.png)
+1. Em "Configurações de {% octicon "gear" aria-label="The Settings gear" %}", clique em **Hooks**. ![Aba Hooks na barra lateral de configurações da conta corporativa](/assets/images/help/business-accounts/settings-hooks-tab.png)

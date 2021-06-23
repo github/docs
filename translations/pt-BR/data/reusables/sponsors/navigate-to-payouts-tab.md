@@ -1,1 +1,1 @@
-1. On the left sidebar, click **Payouts**. ![Sponsor tiers tab](/assets/images/help/sponsors/payouts-tab.png)
+1. Na barra lateral esquerda, clique em **Pagamentos**. ![Aba de camadas do patrocínio](/assets/images/help/sponsors/payouts-tab.png)

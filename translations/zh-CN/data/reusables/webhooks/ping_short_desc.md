@@ -1,1 +1,1 @@
-When you create a new webhook, we'll send you a simple `ping` event to let you know you've set up the webhook correctly. This event isnt stored so it isn't retrievable via the [Events API](/v3/activity/events/). You can trigger a `ping` again by calling the [Ping a repository webhook](/v3/repos/hooks/#ping-a-repository-webhook) endpoint.
+当您创建新的 web 挂钩时，我们将向您发送一个简单的 `ping` 事件，让您知道您已正确设置 web 挂钩。 此事件不会存储，因此无法通过[事件 API](/rest/reference/activity#ping-a-repository-webhook) 端点检索它。

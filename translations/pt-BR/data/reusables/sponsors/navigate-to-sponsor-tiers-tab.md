@@ -1,1 +1,1 @@
-1. On the left sidebar, click **Sponsor tiers**. ![Sponsor tiers tab](/assets/images/help/sponsors/sponsor-tiers-tab.png)
+1. Na barra lateral esquerda, clique em **Camadas de patrocínio**. ![Aba de camadas do patrocínio](/assets/images/help/sponsors/sponsor-tiers-tab.png)

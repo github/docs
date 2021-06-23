@@ -5,9 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.notifications.auto-watch %} For more information, see "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)."
-{% endif %}
 
 You can also watch and unwatch releases in a repository. For more information, see "[Watching and unwatching releases for a repository](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)."
 
@@ -35,7 +33,7 @@ You can also watch and unwatch releases in a repository. For more information, s
 
 {% note %}
 
-**Note:** You can also choose to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {% data reusables.policies.abuse %}{% endif %}
+**Note:** You can also choose to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

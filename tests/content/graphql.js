@@ -1,16 +1,19 @@
+const fs = require('fs')
+const path = require('path')
 const previewsJson = require('../../lib/graphql/static/previews')
 const upcomingChangesJson = require('../../lib/graphql/static/upcoming-changes')
 const prerenderedObjectsJson = require('../../lib/graphql/static/prerendered-objects')
 const { schemaValidator, previewsValidator, upcomingChangesValidator } = require('../../lib/graphql/validator')
 const revalidator = require('revalidator')
-const { oldVersions } = require('../../lib/old-versions-utils')
+const allVersions = Object.values(require('../../lib/all-versions'))
+const graphqlVersions = allVersions.map(v => v.miscVersionName)
 const graphqlTypes = require('../../lib/graphql/types').map(t => t.kind)
 
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   test('static files have versions as top-level keys', () => {
-    oldVersions.forEach(version => {
+    graphqlVersions.forEach(version => {
       expect(version in previewsJson).toBe(true)
       expect(version in upcomingChangesJson).toBe(true)
       expect(version in prerenderedObjectsJson).toBe(true)
@@ -18,8 +21,8 @@ describe('graphql json files', () => {
   })
 
   test('schemas object validation', () => {
-    oldVersions.forEach(version => {
-      const schemaJsonPerVersion = require(`../../lib/graphql/static/schema-${version}`)
+    graphqlVersions.forEach(version => {
+      const schemaJsonPerVersion = JSON.parse(fs.readFileSync(path.join(process.cwd(), `lib/graphql/static/schema-${version}.json`)))
       // all graphql types are arrays except for queries
       graphqlTypes
         .filter(type => type !== 'queries')
@@ -48,7 +51,7 @@ describe('graphql json files', () => {
   })
 
   test('previews object validation', () => {
-    oldVersions.forEach(version => {
+    graphqlVersions.forEach(version => {
       previewsJson[version].forEach(previewObj => {
         const { valid, errors } = revalidator.validate(previewObj, previewsValidator)
         const errorMessage = JSON.stringify(errors, null, 2)
@@ -58,7 +61,7 @@ describe('graphql json files', () => {
   })
 
   test('upcoming changes object validation', () => {
-    oldVersions.forEach(version => {
+    graphqlVersions.forEach(version => {
       Object.values(upcomingChangesJson[version]).forEach(changes => {
         // each object value is an array of changes
         changes.forEach(changeObj => {
@@ -71,7 +74,7 @@ describe('graphql json files', () => {
   })
 
   test('prerendered objects validation', () => {
-    oldVersions.forEach(version => {
+    graphqlVersions.forEach(version => {
       // shape of prerenderedObject: {
       //   html: <div>foo</div>,
       //   miniToc: {contents: '<a>bar</a>', headingLevel: N, indentationLevel: N}

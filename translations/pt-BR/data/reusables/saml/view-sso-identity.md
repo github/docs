@@ -1,1 +1,1 @@
-1. Under "Linked SSO identity", view the linked SSO identity for the member.
+1. Na "Identidade SSO vinculada", veja a identidade SSO vinculada para o integrante.

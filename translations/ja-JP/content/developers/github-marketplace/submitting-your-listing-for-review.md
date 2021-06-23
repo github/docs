@@ -1,6 +1,6 @@
 ---
-title: Submitting your listing for review
-intro: 'You can submit your listing as a verified or unverified app for the {% data variables.product.prodname_dotcom %} community to use.'
+title: レビューのためのリストのサブミット
+intro: '{% data variables.product.prodname_dotcom %}コミュニティに利用してもらうための検証済みあるいは未検証のアプリケーションとして、リストをサブミットできます。'
 redirect_from:
   - /marketplace/listing-on-github-marketplace/submitting-your-listing-for-review
 versions:
@@ -9,14 +9,14 @@ versions:
 
 
 
-Once you've completed your app listing, you'll see two buttons that allow you to submit an unverified and verified app. The Publish without Verification **Request** button will not be available if you have published any paid pricing plans.
+アプリケーションのリストが完成すると、未検証あるいは検証済みのアプリケーションとしてサブミットするための2つのボタンが表示されます。 検証**リクエスト**なしでの公開ボタンは、有料の価格プランを公開していなければ使用できません。
 
-![Unverified and verified request button](/assets/images/marketplace/marketplace-request-button.png)
+![未検証及び検証済みリクエストボタン](/assets/images/marketplace/marketplace-request-button.png)
 
 {% data reusables.marketplace.launch-with-free %}
 
-Before you can submit a verified app, you'll need to integrate the {% data variables.product.prodname_marketplace %} billing flows and webhook into your existing app. See [Verified apps](/marketplace/#verified-apps) for the steps required to submit your app.
+検証済みのアプリケーションをサブミットする前に、既存のアプリケーションに{% data variables.product.prodname_marketplace %}の支払いフローとwebhookを統合する必要があります。 アプリケーションをサブミットするのに必要なステップについては[検証済みのアプリケーション](/marketplace/#verified-apps)を参照してください。
 
-If you've met the [requirements](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/) for a verified {% data variables.product.prodname_marketplace %} listing and you've integrated with the {% data variables.product.prodname_marketplace %} API, go ahead and submit your listing!
+検証済みの{% data variables.product.prodname_marketplace %}リストの[要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)を満たし、{% data variables.product.prodname_marketplace %} APIを統合したなら、先へ進んでリストをサブミットしてください！
 
-After you submit your listing for review, the {% data variables.product.prodname_marketplace %} onboarding team will reach out to you with additional information.
+リストをレビューのためにサブミットすると、{% data variables.product.prodname_marketplace %}のオンボーディングチームから追加情報と併せて連絡が来ます。

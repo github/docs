@@ -13,7 +13,7 @@ versions:
 <!-- This guide is here for longevity for support purposes. Please do not delete or add to index.md file-->
 
 
-{% data variables.product.prodname_ghe_server %} 2.14 includes an upgrade to Elasticsearch 5.6. Before upgrading to {% data variables.product.prodname_ghe_server %} 2.14 or later from 2.12 or 2.13, we recommend you download, install, and run the Elasticsearch migration tools, so your largest indices are migrated online while your appliance still has online access.
+{% data variables.product.prodname_ghe_server %} 2.14 包括到 Elasticsearch 5.6 的升级。 从 2.12 或 2.13 升级到 {% data variables.product.prodname_ghe_server %} 2.14 或更高版本之前，我们建议您建议下载、安装并运行 Elasticsearch 迁移工具，以便在设备仍具有在线访问权限时在线迁移最大的索引。
 
 ### 搜索索引
 

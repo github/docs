@@ -8,6 +8,10 @@ redirect_from:
   - /articles/managing-git-access-to-your-organizations-repositories
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 

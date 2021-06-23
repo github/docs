@@ -4,9 +4,12 @@ intro: '*Nodes* are {% data variables.product.prodname_ghe_server %} instances t
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
   - /enterprise/admin/enterprise-management/about-cluster-nodes
-  - /enterprise/admin/enterprise-management/about-cluster-nodes
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Clustering
+  - Enterprise
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}

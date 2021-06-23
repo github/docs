@@ -6,6 +6,6 @@ Ein relativer Link ist ein Verknüpfung, die relativ zur aktuellen Datei ist. We
 [Beitragsrichtlinien für dieses Projekt](docs/CONTRIBUTING.md)
 ```
 
-{% data variables.product.product_name %} wandelt Deinen relativen Link oder den Bildpfad automatisch anhand dem Branch um, auf dem Du Dich gerade befindest, damit der Link oder der Pfad immer funktioniert. Du kannst alle relativen Link-Operanden verwenden, beispielsweise `./` und `../`.
+{% data variables.product.product_name %} wandelt Ihren relativen Link oder den Bildpfad automatisch anhand dessen um, auf welchem Branch Sie sich gerade befinden, damit der Link oder der Pfad immer funktioniert. Du kannst alle relativen Link-Operanden verwenden, beispielsweise `./` und `../`.
 
 Relative Links sind für Benutzer, die Dein Repository klonen, einfacher zu verwenden. Absolute Links funktionieren möglicherweise nicht in Klons Deines Repositorys - wir empfehlen relative Links zu verwenden, um auf andere Dateien in Deinem Repository zu verweisen.

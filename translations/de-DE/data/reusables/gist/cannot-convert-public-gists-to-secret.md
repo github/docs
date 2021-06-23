@@ -1,1 +1,1 @@
-Nachdem Du einen Gist erstellt hast, kannst Du ihn nicht von öffentlich in geheim umwandeln.
+After creating a gist, you cannot convert it from {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} to secret.

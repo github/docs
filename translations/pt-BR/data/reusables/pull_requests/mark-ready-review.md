@@ -1,1 +1,1 @@
-When you're ready to get feedback on your pull request, you can mark your draft pull request as ready for review. Marking a pull request as ready for review will request reviews from any code owners.
+Quando você estiver pronto para receber feedback sobre seu pull request, você poderá marcar seu rascunho de pull request como pronto para revisão. Marcar um pull request como pronto para revisão irá solicitar revisões de qualquer proprietário de código.

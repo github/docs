@@ -33,9 +33,8 @@ The notifications you receive will either be *participating* notifications or *w
 
 #### Watching notifications
 
-{% data variables.product.product_name %} sends *watching* notifications for updates in repositories or team discussions that you're watching. {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
-
-{% endif %}You'll receive a notification when:
+{% data variables.product.product_name %} sends *watching* notifications for updates in repositories or team discussions that you're watching.  {% data reusables.notifications.auto-watch %}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
+You'll receive a notification when:
   - An issue is opened.
   - A comment is added to an open issue.
   - A pull request is opened.

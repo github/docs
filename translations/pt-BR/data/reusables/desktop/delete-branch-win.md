@@ -1,1 +1,1 @@
-1. In your menu bar, click **Branch**, then click **Delete...**. You can also press <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd>.
+1. Na sua barra de menu, clique em **Branch** e, em seguida, clique em **Excluir...**. Você também pode pressionar <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd>.

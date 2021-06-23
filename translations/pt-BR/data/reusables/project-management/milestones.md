@@ -1,1 +1,1 @@
-1. Next to the search field, click **Milestones**. ![Botão Milestones (Marcos) de problemas](/assets/images/help/issues/issues_milestone_button.png)
+1. Ao lado do campo de pesquisa, clique em **Marcos**. ![Botão Milestones (Marcos) de problemas](/assets/images/help/issues/issues_milestone_button.png)

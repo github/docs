@@ -9,8 +9,9 @@ redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
   - /enterprise/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
-  - /enterprise/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

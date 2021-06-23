@@ -1,0 +1,23 @@
+---
+date: '2020-11-03'
+sections:
+  security_fixes:
+    - |
+      **BAJO:** El uso alto de CPU puede desencadenarse debido a una solicitud hecha específicamente al puente de SVN, lo cual resulta en una negación del servicio (Dos) en el servicio del puente SVN. (actualizado 2020-11-16) {% comment %} https://github.com/github/slumlord/pull/1005, https://github.com/github/slumlord/pull/1000 {% endcomment %}
+    - |
+      **BAJO:** La validación de un token incorrecto resultó en una entropía reducida para los tokens coincidentes durante la autenticación. El análisis muestra que, en la práctica, aquí no hay riesgos de seguridad significativos. {% comment %} https://github.com/github/github/pull/159457, https://github.com/github/github/pull/159193 {% endcomment %}
+    - |
+      Los paquetes se actualizaron a las últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/23540, https://github.com/github/enterprise2/pull/23171, https://github.com/github/enterprise2/pull/23693, https://github.com/github/enterprise2/pull/23677 {% endcomment %}
+  bugs:
+    - Las GitHub Actions pueden fallar para iniciar exitosamente si se habilitaron previamente en una instancia que ejecutara la versión 2.22.0 y se actualizó a la 2.22.1 o 2.22.2. {% comment %} https://github.com/github/enterprise2/pull/23622, https://github.com/github/enterprise2/pull/23490, https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
+    - Los archivos de configuración para las GitHub Actions no se copiaron a la replica cuando se configuraron las réplicas de disponibilidad alta, lo cual produjo errores durante `ghe-repl-promote`. {% comment %} https://github.com/github/enterprise2/pull/23703, https://github.com/github/enterprise2/pull/23683 {% endcomment %}
+    - En una instancia 2.22.1 recién configurada o después de actualizar 2.22.1, no se pudo actualizar la fuente de actividad en el tablero de una organización. {% comment %} https://github.com/github/github/pull/159376, https://github.com/github/github/pull/159235, https://github.com/github/enterprise2/issues/23050 {% endcomment %}
+    - El editar las plantillas de las propuestas con los nombres de archivo que contienen caracteres que no son de ASCII fallará con un mensaje de "500 Internal Server Error".{% comment %} https://github.com/github/github/pull/160588, https://github.com/github/github/pull/159747 {% endcomment %}
+    - Un método de recolección métrica para los jobs en segundo plano incrementó el uso del CPU. (actualizado 2020-11-03) {% comment %} https://github.com/github/github/pull/160109 {% endcomment %}
+  known_issues:
+    - En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
+    - Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
+    - Las propuestas no pueden cerrarse si contienen un enlace permanente a un blob en el mismo repositorio en donde la ruta es mayor a 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
+    - Las bitácoras de auditoría pueden atribuirse a la 127.0.0.1 en vez de a la dirección IP de origen real. {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}

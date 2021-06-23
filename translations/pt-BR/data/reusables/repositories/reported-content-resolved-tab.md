@@ -1,1 +1,1 @@
-1. Under "Abuse reports", click **Resolved**. !["Resolved" tab under "Abuse reports"](/assets/images/help/repository/reported-content-resolved-tab.png)
+1. Em "Relatórios de abuso", clique em **Resolvido**. ![Aba "Resolvido" em "Relatórios de abuso"](/assets/images/help/repository/reported-content-resolved-tab.png)

@@ -1,1 +1,1 @@
-Activity related to a repository being starred. {% data reusables.webhooks.action_type_desc %} For more information, see the "[starring](/v3/activity/starring/)" REST API.
+与标星仓库相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[星标](/rest/reference/activity#starring)”REST API。

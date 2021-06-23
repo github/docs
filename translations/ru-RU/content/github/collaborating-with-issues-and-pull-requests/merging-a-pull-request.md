@@ -6,12 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
-
 
 ### About pull request merges
 
-In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. {% data reusables.pull_requests.about-protected-branches %} However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. By default, any pull request can be merged at any time, unless the head branch is in conflict with the base branch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/articles/checking-out-pull-requests-locally) and merge it using the command line.
 
@@ -20,6 +24,14 @@ You can't merge a draft pull request. For more information about draft pull requ
 {% data reusables.pull_requests.automatically-delete-branches %}
 
 If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/articles/closing-a-pull-request) without merging.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
 
 ### Merging a pull request on {% data variables.product.prodname_dotcom %}
 
@@ -42,16 +54,22 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+
+   {% endnote %}
+
 6. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
 6. Optionally, [delete the branch](/articles/deleting-unused-branches). This keeps the list of branches in your repository tidy.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."{% endif %}
+The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
    **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
+   For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
    {% endnote %}
    {% endif %}

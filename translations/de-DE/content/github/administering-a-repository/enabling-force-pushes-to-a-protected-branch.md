@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Jeder Benutzer mit Administratorberechtigungen in einem Repository kann erzwungene Pushes aktivieren.
@@ -15,7 +16,7 @@ Standardmäßig sind erzwungene Pushes auf allen geschützten Branches blockiert
 
 Das Aktivieren erzwungener Pushes wird keine anderen Branch-Schutzregeln überschreiben. Wenn ein Branch beispielsweise einen linearen Commit-Verlauf verlangt, kannst Du keine Merge-Commit-Pushes zu diesem Branch erzwingen.
 
-{% if currentVersion != "free-pro-team@latest" %}Du kannst keine erzwungenen Pushes für einen geschützten Branch aktivieren, wenn ein Websiteadministrator erzwungene Pushes auf alle Branches in Deinem Repository blockiert hat. Weitere Informationen findest Du unter „[Blockieren von erzwungenen Pushes zu Repositorys, die einem Benutzerkonto oder einer Organisation gehören](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. Weitere Informationen findest Du unter „[Blockieren von erzwungenen Pushes zu Repositorys, die einem Benutzerkonto oder einer Organisation gehören](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 Wenn ein Websiteadministrator erzwungene Pushes nur auf den Standardbranch blockiert hat, kannst Du erzwungene Pushes trotzdem für jeden anderen geschützten Branch aktivieren.{% endif %}
 

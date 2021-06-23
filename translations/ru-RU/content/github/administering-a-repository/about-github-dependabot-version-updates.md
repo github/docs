@@ -13,9 +13,11 @@ versions:
 
 {% data variables.product.prodname_dependabot %} takes the effort out of maintaining your dependencies. You can use it to ensure that your repository automatically keeps up with the latest releases of the packages and applications it depends on.
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a configuration file in to your repository. The configuration file specifies the location of the manifest, or other package definition files, stored in your repository. {% data variables.product.prodname_dependabot_short %} uses this information to check for outdated packages and applications. {% data variables.product.prodname_dependabot_short %} determines if there is a new version of a dependency by looking at the semantic versioning ([semver](https://semver.org/)) of the dependency to decide whether it should update to that version. When {% data variables.product.prodname_dependabot_short %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a configuration file in to your repository. The configuration file specifies the location of the manifest, or other package definition files, stored in your repository. {% data variables.product.prodname_dependabot_short %} uses this information to check for outdated packages and applications. {% data variables.product.prodname_dependabot_short %} determines if there is a new version of a dependency by looking at the semantic versioning ([semver](https://semver.org/)) of the dependency to decide whether it should update to that version. For certain package managers, {% data variables.product.prodname_dependabot_version_updates %} also supports vendoring. Vendored (or cached) dependencies are dependencies that are checked in to a specific directory in a repository, rather than referenced in a manifest. Vendored dependencies are available at build time even if package servers are unavailable. {% data variables.product.prodname_dependabot_version_updates %} can be configured to check vendored dependencies for new versions and update them if necessary.
 
-If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+When {% data variables.product.prodname_dependabot_short %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. For vendored dependencies, {% data variables.product.prodname_dependabot_short %} raises a pull request to directly replace the outdated dependency with the new version. You check that your tests pass, review the changelog and release notes included in the pull request summary, and then merge it. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+
+If you enable security updates, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)."
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -35,7 +37,7 @@ If you've enabled security updates, you'll sometimes see extra pull requests for
 
 {% endnote %}
 
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers.
+You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)."
 
 {% data reusables.dependabot.supported-package-managers %}
 

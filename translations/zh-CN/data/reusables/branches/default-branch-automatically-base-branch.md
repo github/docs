@@ -1,1 +1,2 @@
-The default branch is the base branch in your repository, against which all pull requests and code commits are automatically made, unless you specify a different branch.
+除非指定不同的分支，否则仓库中的默认分支是新拉取请求和代码提交的基础分支。
+

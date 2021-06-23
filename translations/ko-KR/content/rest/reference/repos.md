@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -28,7 +31,7 @@ versions:
 
 ### Custom media types for commit comments
 
-These are the supported media types for commit comments. You can read more about the use of media types in the API [here](/v3/media/).
+These are the supported media types for commit comments. You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -49,11 +52,14 @@ The Repo Commits API supports listing, viewing, and comparing commits in a repos
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## 커뮤니티
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## Contents
 
@@ -61,7 +67,7 @@ These API endpoints let you create, modify, and delete Base64 encoded content in
 
 ### Custom media types for repository contents
 
-[READMEs](/v3/repos/contents/#get-a-repository-readme), [files](/v3/repos/contents/#get-repository-content), and [symlinks](/v3/repos/contents/#get-repository-content) support the following custom media types:
+[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -70,13 +76,13 @@ Use the `.raw` media type to retrieve the contents of the file.
 
 For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-[All objects](/v3/repos/contents/#get-repository-content) support the following custom media type:
+[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
 Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
-You can read more about the use of media types in the API [here](/v3/media/).
+You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -133,17 +139,28 @@ Below is a simple sequence diagram for how these interactions would work.
 
 Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the `public_repo` and `repo` scopes grant permission to code as well.
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% if currentVersion != "github-ae@latest" %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+
 
 ### Inactive deployments
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
 
 You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+## Environments
+
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Forks
 
@@ -177,7 +194,7 @@ The authenticated user will be the author of any merges done through this endpoi
 
 ## Pages
 
-The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners, even though the websites are public. For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)."
+The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
 In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
 * `null`: The site has yet to be built.
@@ -186,10 +203,10 @@ In {% data variables.product.prodname_pages %} API endpoints with a `status` key
 * `built`: The site has been built.
 * `errored`: Indicates an error occurred during the build.
 
-In {% data variables.product.prodname_pages %} API endpoints that {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}support the `mister-fantastic-preview` and{% endif %} return GitHub Pages site information, the JSON responses include these fields:
+In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. 여기에는 다음이 포함됩니다.
-   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _master_ or _gh-pages_.
+   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}
@@ -216,7 +233,7 @@ The Repository Statistics API allows you to fetch the data that {% data variable
 
 Computing repository statistics is an expensive operation, so we try to return cached data whenever possible.  If the data hasn't been cached when you query a repository's statistics, you'll receive a `202` response; a background job is also fired to start compiling these statistics. Give the job a few moments to complete, and then submit the request again. If the job has completed, that request will receive a `200` response with the statistics in the response body.
 
-Repository statistics are cached by the SHA of the repository's default branch, which is usually master; pushing to the default branch resets the statistics cache.
+Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
 
 ### Statistics exclude some types of commits
 
@@ -248,6 +265,7 @@ If you are developing a GitHub App and want to provide more detailed information
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## Traffic
 
 For repositories that you have push access to, the traffic API provides access to the information provided in your repository graph. For more information, see "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
@@ -255,6 +273,7 @@ For repositories that you have push access to, the traffic API provides access t
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## Webhooks
 
@@ -263,7 +282,7 @@ The Repository Webhooks API allows repository admins to manage the post-receive 
 If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 ### Receiving Webhooks
@@ -292,14 +311,14 @@ The default format is what [existing post-receive hooks should expect](/post-rec
 #### Callback URLs
 Callback URLs can use the `http://` protocol.
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}
 
@@ -319,9 +338,9 @@ PubSubHubbub requests can be sent multiple times. If the hook already exists, it
 
 ##### 매개변수
 
-| 이름             | 유형    | 설명                                                                                                                                                                                                                                                                                                                                                            |
-| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `문자열` | **Required**. Either `subscribe` or `unsubscribe`.                                                                                                                                                                                                                                                                                                            |
-| `hub.topic`    | `문자열` | **Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                         |
-| `hub.callback` | `문자열` | The URI to receive the updates to the topic.                                                                                                                                                                                                                                                                                                                  |
-| `hub.secret`   | `문자열` | A shared secret key that generates a SHA1 HMAC of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the `X-Hub-Signature` header. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details. |
+| 이름             | 유형    | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hub.mode`     | `문자열` | **Required**. Either `subscribe` or `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `hub.topic`    | `문자열` | **Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `hub.callback` | `문자열` | The URI to receive the updates to the topic.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `hub.secret`   | `문자열` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` header{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details. |

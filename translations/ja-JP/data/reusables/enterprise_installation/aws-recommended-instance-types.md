@@ -1,5 +1,5 @@
 ユーザライセンス数に応じて、以下のインスタンスタイプをおすすめします。 |
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 | ユーザライセンス               |      推奨タイプ |
 |:---------------------- | ----------:|
 | トライアル、デモ、あるいは10人の軽量ユーザ |   r4.large |

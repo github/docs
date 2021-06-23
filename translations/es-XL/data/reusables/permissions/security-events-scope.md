@@ -1,1 +1,0 @@
-Debes utilizar un token de acceso con el alcance `security_events` para utilizar esta terminal.

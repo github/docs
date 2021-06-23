@@ -1,1 +1,1 @@
-When you increase CPU resources, we recommend adding at least 6.5 GB of memory for each vCPU (up to 16 vCPUs) that you provision for the instance. When you use more than 16 vCPUs, you don't need to add 6.5 GB of memory for each vCPU, but you should monitor your instance to ensure it has enough memory.
+增加 CPU 资源时，我们建议为实例预配的每个 vCPU（最多 16 个 vCPU）增加至少 6.5 GB 的内存。 如果您使用的 vCPU 超过 16 个，则无需为每个 vCPU 添加 6.5 GB 内存，但应监控您的实例以确保其有足够的内存。

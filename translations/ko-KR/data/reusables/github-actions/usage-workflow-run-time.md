@@ -1,0 +1,1 @@
+- **Workflow run time** - Each workflow run is limited to 72 hours. If a workflow run reaches this limit, the workflow run is cancelled.

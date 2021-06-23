@@ -1,8 +1,8 @@
-| Tecla                | Tipo     | Descrição                                                                |
-| -------------------- | -------- | ------------------------------------------------------------------------ |
-| `Páginas`            | `array`  | The pages that were updated.                                             |
-| `pages[][page_name]` | `string` | The name of the page.                                                    |
-| `pages[][title]`     | `string` | The current page title.                                                  |
-| `pages[][action]`    | `string` | The action that was performed on the page. Can be `created` or `edited`. |
-| `pages[][sha]`       | `string` | The latest commit SHA of the page.                                       |
-| `pages[][html_url]`  | `string` | Points to the HTML wiki page.                                            |
+| Tecla                | Tipo     | Descrição                                                           |
+| -------------------- | -------- | ------------------------------------------------------------------- |
+| `Páginas`            | `array`  | As páginas que foram atualizadas.                                   |
+| `pages[][page_name]` | `string` | O nome da página.                                                   |
+| `pages[][title]`     | `string` | O título da página atual.                                           |
+| `pages[][action]`    | `string` | A ação que foi realizada na página. Pode ser `criado` ou `editado`. |
+| `pages[][sha]`       | `string` | O SHA de commit mais recente da página.                             |
+| `pages[][html_url]`  | `string` | Aponta para a página wiki de HTML.                                  |

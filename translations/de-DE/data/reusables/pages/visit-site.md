@@ -2,6 +2,6 @@
 
   {% note %}
 
-  **Hinweis:** Es kann bis zu 20 Minuten dauern, bis die Änderungen auf Deiner Website veröffentlicht werden, nachdem Du die Änderungen zu {% data variables.product.product_name %} hinzugefügt hast. Wenn Deine Änderungen nach einer Stunde in Deinem Browser nicht angezeigt werden, findest Du weitere Informationen unter „[Über Jekyll-Build-Fehler für {% data variables.product.prodname_pages %}-Websites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+  {% data reusables.pages.twenty-minutes-to-publish %}
 
   {% endnote %}

@@ -8,17 +8,19 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 ### Bei {% data variables.product.prodname_github_container_registry %} authentifizieren
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Pushing container images
 
 This example pushes the latest version of `IMAGE-NAME`.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 This example pushes the `2.5` version of the image.

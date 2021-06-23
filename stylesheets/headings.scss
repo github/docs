@@ -1,0 +1,49 @@
+h1,
+h2,
+h3 {
+  a {
+    color: var(--color-auto-gray-9);
+  }
+}
+
+// all h2 headers that are links should be blue-500
+h2 a {
+  color: var(--color-auto-blue-5);
+}
+
+// ... except those on each product's toc
+.product-landing h2 a {
+  color: var(--color-auto-gray-9);
+}
+
+.markdown-body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $font-mktg;
+    font-weight: $font-weight-semibold;
+    padding-top: $spacer-3;
+  }
+  h2 {
+    font-size: 1.25em;
+  }
+  #article-contents h2:not(.link-with-intro-title) {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  h3 {
+    font-size: 1em;
+  }
+}
+
+// needs specificity to override
+.markdown-body .lead-mktg p {
+  color: var(--color-auto-gray-9);
+}
+
+.product-callout p,
+.contributor-callout p {
+  margin: 0;
+}

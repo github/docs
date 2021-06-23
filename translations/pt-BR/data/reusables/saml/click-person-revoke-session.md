@@ -1,1 +1,1 @@
-1. Click on the name of the member whose SAML session you'd like to view or revoke.
+1. Clique no nome do integrante cuja sessão SAML você gostaria de visualizar ou revogar.

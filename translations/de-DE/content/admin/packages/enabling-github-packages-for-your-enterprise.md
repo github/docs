@@ -3,7 +3,6 @@ title: Enabling GitHub Packages for your enterprise
 intro: 'You can start using {% data variables.product.prodname_registry %} on your instance by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
-  - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
 ---

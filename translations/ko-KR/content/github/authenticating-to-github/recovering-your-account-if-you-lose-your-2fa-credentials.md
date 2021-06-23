@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -58,7 +60,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 5. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent. ![One-time password field](/assets/images/help/2fa/one-time-password-field.png)
 6. Click **Verify email address**.
 7. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify this device**.
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
     - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**. ![Alternative verification buttons](/assets/images/help/2fa/alt-verifications.png)
 8. A member of {% data variables.contact.github_support %} will review your request and email you within 3-5 business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
@@ -81,7 +83,8 @@ If you're unable to regain access to your account, generate a one-time password 
 1. On Facebook, navigate to your [Security Settings](https://www.facebook.com/settings?tab=security), then click **Recover Accounts Elsewhere**. ![Facebook security settings page with Recover Accounts Elsewhere link](/assets/images/help/settings/security-facebook-security-settings-page.png)
 2. Click the recovery token associated with your {% data variables.product.product_name %} account. ![List of recovery tokens stored on Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. To redeem your account recovery token, click **Recover This Account**. A new window will open, returning you to {% data variables.product.product_name %}. ![Modal box with information about your recovery token and Recover This Account button](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Contact {% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
+4. 연락처
+{% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
 {% endif %}
 
 ### 더 읽을거리

@@ -3,9 +3,6 @@ title: About using GitHub.com actions on GitHub Enterprise Server
 intro: '{% data variables.product.prodname_ghe_server %} includes most {% data variables.product.prodname_dotcom %}-authored actions, and has options for enabling access to other actions from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server
-  - /enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server
-  - /enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server
-  - /enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server
 versions:
   enterprise-server: '>=2.22'
 ---

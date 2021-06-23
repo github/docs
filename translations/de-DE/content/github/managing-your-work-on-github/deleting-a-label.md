@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Durch den Löschvorgang wird die Kennzeichnung von allen Issues und Pull Requests entfernt, auf die sie angewendet wurde.
@@ -18,6 +19,6 @@ Durch den Löschvorgang wird die Kennzeichnung von allen Issues und Pull Request
 ### Weiterführende Informationen
 
 - „[Kennzeichnungen auf Issues und Pull Requests anwenden](/articles/applying-labels-to-issues-and-pull-requests)“
-- „[Issues und Pull Requests nach Kennzeichnungen filtern](/articles/filtering-issues-and-pull-requests-by-labels)“{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 - „[Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten](/articles/managing-default-labels-for-repositories-in-your-organization)"
 {% endif %}

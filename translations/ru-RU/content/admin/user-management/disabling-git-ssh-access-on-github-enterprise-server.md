@@ -12,7 +12,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/disabling-git-ssh-access-on-github-enterprise/
   - /enterprise/admin/installation/disabling-git-ssh-access-on-github-enterprise-server
   - /enterprise/admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
-  - /enterprise/admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
 intro: 'You can prevent people from using Git over SSH for certain or all repositories on {% data variables.product.product_location_enterprise %}.'
 versions:
   enterprise-server: '*'

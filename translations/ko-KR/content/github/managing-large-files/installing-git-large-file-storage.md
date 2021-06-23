@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}
@@ -57,7 +58,8 @@ versions:
 
   {% endtip %}
 2. On your computer, locate the downloaded file.
-3. Double click on the file called *git-lfs-windows-1.X.X.exe*, where 1.X.X is replaced with the Git LFS version you downloaded. When you open this file Windows will run a setup wizard to install {% data variables.large_files.product_name_short %}.
+3. Double click on the file called *git-lfs-windows-1.X.X.exe*, where 1.X.X is replaced with the Git LFS version you downloaded. When you open this file Windows will run a setup wizard to install
+{% data variables.large_files.product_name_short %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Verify that the installation was successful:
   ```shell

@@ -1,1 +1,1 @@
-1. Selecione o branch atual ou o branch padrão (normalmente, o mestre) no qual basear o novo branch.
+1. Use o menu suspenso para escolher um branch de base para seu novo branch.

@@ -1,3 +1,4 @@
 {% if currentVersion == "free-pro-team@latest" %}
-These instructions work best with themes that are officially supported by {% data variables.product.prodname_pages %}. For a complete list of supported themes, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site.
+Essas instruções funcionam melhor com temas que são oficialmente suportados por
+{% data variables.product.prodname_pages %}. Para obter uma lista completa dos temas compatíveis, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %}.
 {% endif %}

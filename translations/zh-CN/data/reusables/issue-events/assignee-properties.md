@@ -1,1 +1,1 @@
-`assignee` | `object` | The person unassigned from this issue. `assigner` | `object` | The person who performed the unassignment for this issue.
+`assignee` | `object` | 从此议题取消分配的人。 `assigner` | `object` | 执行此议题取消分配的人。

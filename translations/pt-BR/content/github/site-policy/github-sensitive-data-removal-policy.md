@@ -76,7 +76,7 @@ Essas diretrizes destinam-se a tornar o processamento de solicitação de remoç
 
 ### Como enviar sua solicitação
 
-Você pode enviar sua solicitação para remover dados confidenciais através do nosso [formulário de contato](https://support.github.com/contact). Por favor, inclua uma versão simples de texto da sua solicitação no corpo da mensagem. Enviar sua solicitação em um anexo pode resultar em atrasos.
+Você pode enviar sua solicitação para remover dados confidenciais através do nosso [formulário de contato](https://support.github.com/contact?tags=docs-sensitive-data). Por favor, inclua uma versão simples de texto da sua solicitação no corpo da mensagem. Enviar sua solicitação em um anexo pode resultar em atrasos.
 
 ### Disputas
 

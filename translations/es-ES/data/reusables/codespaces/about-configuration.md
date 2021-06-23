@@ -1,0 +1,1 @@
+Puedes crear una configuración predeterminada de codespaces para tu repositorio, la cual determine el ambiente de cada codespace nuevo que alguien cree para este repositorio. La configuración define un contenedor de desarrollo que puede incluir marcos de trabajo, herramientas, extensiones y redireccionamiento de puertos. 

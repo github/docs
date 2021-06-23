@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,9 +23,9 @@ Organization owners and team maintainers can give teams admin, read, or write ac
 
 ![Image of a team mention](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-You can also use LDAP Sync to synchronize {% data variables.product.product_location_enterprise %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location_enterprise %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+You can also use LDAP Sync to synchronize {% data variables.product.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
 {% endif %}
 
@@ -35,7 +39,7 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
 
-Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/articles/about-team-discussions)."
+Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
 
 ![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -55,11 +59,7 @@ To easily understand who shares a parent team's permissions and mentions, you ca
 
 You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
-
-{% endif %}
 
 ### Preparing to nest teams in your organization
 

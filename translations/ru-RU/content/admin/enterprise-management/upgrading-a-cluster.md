@@ -4,9 +4,13 @@ intro: 'Use the administrative shell (SSH) to upgrade a {% data variables.produc
 redirect_from:
   - /enterprise/admin/clustering/upgrading-a-cluster
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
-  - /enterprise/admin/enterprise-management/upgrading-a-cluster
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Clustering
+  - Enterprise
+  - Upgrades
 ---
 
 ### Upgrading with a hotpatch

@@ -1,1 +1,1 @@
-1. Click **Create column**.
+1. Clique em **Criar coluna**.

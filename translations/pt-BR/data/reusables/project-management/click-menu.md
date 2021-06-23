@@ -1,1 +1,1 @@
-1. On the top-right side of the project board, click {% octicon "three-bars" aria-label="The three-bars octicon" %} **Menu**.
+1. No lado superior direito do quadro de projeto, clique em {% octicon "three-bars" aria-label="The three-bars octicon" %} **Menu**.

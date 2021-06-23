@@ -1,1 +1,1 @@
-1. Under "Your goals", click **Set a goal**. ![Set a goal button ](/assets/images/help/sponsors/set-a-goal-button.png)
+1. Em "Suas metas", clique em **Definir uma meta**. ![Definir um botão de metas ](/assets/images/help/sponsors/set-a-goal-button.png)

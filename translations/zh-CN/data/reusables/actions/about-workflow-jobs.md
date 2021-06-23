@@ -1,1 +1,1 @@
-A workflow job is a set of steps that execute on the same runner.
+工作流程作业是在同一运行服务器上执行的一组步骤。

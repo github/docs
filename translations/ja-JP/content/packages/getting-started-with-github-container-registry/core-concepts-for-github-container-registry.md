@@ -1,6 +1,6 @@
 ---
-title: Core concepts for GitHub Container Registry
-intro: 'Below is a list of common {% data variables.product.prodname_github_container_registry %} terms we use across our sites and documentation.'
+title: GitHub Container Registry の中核的概念
+intro: '弊社のサイトおよびドキュメンテーションで使用する、一般的な {% data variables.product.prodname_github_container_registry %} 用語を以下に挙げます。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -10,20 +10,20 @@ versions:
 
 ### {% data variables.product.prodname_github_container_registry %}
 
-The {% data variables.product.prodname_github_container_registry %} is a registry for containers with support for Docker images. 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/getting-started-with-github-container-registry/about-github-container-registry)」を参照してください。
+{% data variables.product.prodname_github_container_registry %} とは、Docker イメージをサポートする、コンテナのレジストリです。 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/getting-started-with-github-container-registry/about-github-container-registry)」を参照してください。
 
 ### Package
 
-A package is a self-contained and reusable piece of software that includes code and metadata that a developer bundles together in a common place for others to use. A package's metadata may include the version number, name, and the code's dependencies. Packages simplify using and distributing solutions to common problems such as needing frameworks for developing or testing a project, linters to improve code quality, or industry-standard machine learning tools to power your application. Packages exist in many ecosystems. For example, you can package Node.js and Java code or container images.
+パッケージは自己完結している再利用可能なソフトウェアで、開発者がコードやメタデータといったものを共通の場所にまとめて、他の人が利用できるようにしたものです。 パッケージのメタデータには、バージョン番号、名前、コードの依存関係を含めることができます。 パッケージは、プロジェクトの開発やテストに必要なフレームワーク、コードの品質を高めるための文法チェッカー、アプリケーションを強化するための業界標準の機械学習ツールといった、一般的な問題に対するソリューションの利用および配布を容易にします。 パッケージは多くのエコシステムで存在します。 たとえば、Node.js と Java のコードやコンテナイメージをパッケージ化できます。
 
-### Container
+### コンテナ
 
-A container is a unit of software designed to reliably deploy software in a standardized way on any platform. A container operates as an isolated virtual environment or instance that can run various software packages and components on the same host kernel as your operating system. Containers use fewer resources than virtual machines because they don't need to include their own virtual hardware to run. Containers are created using a container image file, such as a Dockerfile, and a container client or runtime program.
+コンテナとは、あらゆるプラットフォームに標準化された方法でソフトウェアを確実にデプロイするために設計されたソフトウェアのユニットです。 コンテナは、お使いのオペレーティングシステムで、同じホストカーネル上のさまざまなソフトウェアパッケージとコンポーネントを実行できる独立した仮想環境またはインスタンスとして動作します。 コンテナは、実行するために独自の仮想ハードウェアを含める必要がないため、仮想マシンよりも使用するリソースか少なくなります。 コンテナは、Dockerfile などのコンテナイメージと、コンテナクライアントまたはランタイムプログラムを使用して作成されます。
 
-### Container image
+### コンテナイメージ
 
-A container image is a type of package archive that specifies the software requirements to run an app from a container. A container image typically includes the app's code, libraries, and runtime instructions. To ensure that the same image details are used wherever an image is deployed and run, a container image is automatically versioned and cannot be changed once a container image is built in a container.
+コンテナイメージとは、コンテナからアプリケーションを実行するためのソフトウェア要件を指定するパッケージアーカイブの一種です。 コンテナイメージには通常、アプリケーションのコード、ライブラリ、およびランタイム命令が含まれます。 どこでイメージがデプロイ、実行されても詳細にわたるまで確実に同じイメージが使用されるようにするため、コンテナイメージは自動的にバージョン管理され、コンテナ内にいったんコンテナイメージが構築されると変更できません。
 
 ### Dockerコンテナ
 
-A Docker container is a type of open source container built on the Docker platform. Docker's original image format has become the OCI (Open Container Initiative) Image Specification. For more information, see the "[Docker documentation](https://docs.docker.com/get-started/overview/)."
+Docker コンテナは、Docker プラットフォーム上に構築されたオープンソースコンテナの一種です。 Docker のオリジナルイメージフォーマットは OCI (Open Container Initiative) イメージ仕様となっています。 詳しい情報については、「[Docker のドキュメンテーション](https://docs.docker.com/get-started/overview/)」を参照してください。

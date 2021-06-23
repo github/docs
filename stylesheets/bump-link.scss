@@ -1,0 +1,24 @@
+@use "sass:math";
+
+// Arrow links
+.Bump-link-symbol {
+  display: inline-block;
+  transition: math.div($transition-time, 2);
+  transform: translateX(0);
+}
+
+.Bump-link:hover .Bump-link-symbol {
+  transform: translateX(3px);
+}
+
+.Bump-link--hover .Bump-link-symbol {
+  color: inherit;
+  opacity: 0;
+  transition: math.div($transition-time, 2);
+  transform: translateX(0);
+}
+
+.Bump-link--hover:hover .Bump-link-symbol {
+  opacity: 1;
+  transform: translateX(3px);
+}

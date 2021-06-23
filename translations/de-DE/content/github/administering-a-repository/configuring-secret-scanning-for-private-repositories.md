@@ -1,6 +1,7 @@
 ---
-title: „Secret scanning" (Durchsuchung nach Geheimnissen) für private Repositorys konfigurieren
+title: '„Secret scanning" (Durchsuchung nach Geheimnissen) für private Repositorys konfigurieren'
 intro: 'Du kannst konfigurieren, wie {% data variables.product.product_name %} Deine privaten Repositories nach Geheimnissen durchsucht.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'Personen mit Administratorberechtigungen für ein privates Repository können {% data variables.product.prodname_secret_scanning %} für das Repository aktivieren.'
 versions:
   free-pro-team: '*'

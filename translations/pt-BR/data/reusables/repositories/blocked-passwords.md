@@ -1,5 +1,6 @@
 {% if currentVersion == "free-pro-team@latest" %}
-When you type a password to sign in, create an account, or change your password, {% data variables.product.product_name %} will check if the password you entered is considered weak according to datasets like HaveIBeenPwned. The password may be identified as weak even if you have never used that password before.
+Ao digitar uma senha para efetuar o login, criar uma conta ou mudar sua senha
+{% data variables.product.product_name %} irá verificar se a senha inserida é considerada fraca de acordo com os conjuntos de dados como o HaveIBeenPwted. A senha pode ser identificada como fraca, mesmo que você nunca tenha usado essa senha antes.
 
-{% data variables.product.product_name %} only inspects the password at the time you type it, and never stores the password you entered in plaintext. For more information, see [HaveIBeenPwned](https://haveibeenpwned.com/).
+O {% data variables.product.product_name %} inspeciona a senha apenas no momento em que você a digita e nunca armazena a senha que você digitou em um texto simples. Para obter mais informações, consulte [HaveIBeenPwned](https://haveibeenpwned.com/).
 {% endif %}

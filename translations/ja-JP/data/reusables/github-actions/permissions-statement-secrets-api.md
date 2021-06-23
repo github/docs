@@ -1,1 +1,1 @@
-REST APIを使ってシークレットを作成するには、リポジトリに対する書き込みアクセス権を持っていなければなりません。 For more information, see "[{% data variables.product.prodname_actions %} secrets API](/v3/actions/secrets/)."
+REST APIを使ってシークレットを作成するには、リポジトリへの書き込みアクセス権もしくはOrganizationへの管理アクセス権を持っていなければなりません。 詳しい情報については「[{% data variables.product.prodname_actions %}シークレットAPI](/rest/reference/actions#secrets)」を参照してください。

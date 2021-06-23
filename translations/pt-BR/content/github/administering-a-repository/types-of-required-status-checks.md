@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 | Tipo de verificação de status obrigatória | Configuração                                                                                                                                                  | Requisitos de merge                                                    | Considerações                                                                                                                                                                                                                                                                                |

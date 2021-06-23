@@ -3,6 +3,8 @@ title: Activating beta features for apps
 intro: 'You can test new app features released in public beta for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s.'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -15,7 +17,8 @@ versions:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Select the {% data variables.product.prodname_github_app %} you want to enable a beta feature for.
+3. Select the
+{% data variables.product.prodname_github_app %} you want to enable a beta feature for.
 {% data reusables.apps.beta_feature_activation %}
 
 ### Activating beta features for {% data variables.product.prodname_oauth_app %}s

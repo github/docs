@@ -1,0 +1,1 @@
+1. Wenn Du dazu aufgefordert wirst, gib eine Commit-Mitteilung ein oder akzeptiere die Standardmitteilung. ![Feld für Commit-Mitteilung](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)

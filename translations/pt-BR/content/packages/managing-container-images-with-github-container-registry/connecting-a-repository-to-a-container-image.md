@@ -62,7 +62,9 @@ https://github.com/monalisa/hello_docker
   $ docker tag 38f737a91f39 ghcr.io/monalisa/hello_docker:latest
   ```
 
-5. Se você ainda não o fez, efetue a autenticação no {% data variables.product.prodname_github_container_registry %}. Para obter mais informações, consulte "[Efetuar a autenticação no GitHub Container Registry](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-github-container-registry)".
+5. Se você ainda não o fez, efetue a autenticação em
+
+{% data variables.product.prodname_github_container_registry %}. Para obter mais informações, consulte "[Efetuar a autenticação no GitHub Container Registry](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-github-container-registry)".
     {% raw %}
     ```shell
     $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

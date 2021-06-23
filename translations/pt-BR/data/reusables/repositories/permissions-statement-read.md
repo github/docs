@@ -1,1 +1,1 @@
-People with read access to the repository can perform these steps.
+É necessário o acesso de leitura ao repositório é para executar essas etapas.

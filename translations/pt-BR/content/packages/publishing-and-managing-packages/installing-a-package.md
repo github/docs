@@ -20,7 +20,7 @@ Depois de encontrar um pacote, você pode ler a descrição e as instruções de
 
 ### Instalar um pacote
 
-You can install a package from {% data variables.product.prodname_registry %} using any supported package client by following the same general guidelines.
+Você pode instalar um pacote de {% data variables.product.prodname_registry %} usando qualquer {% if currentVersion == "free-pro-team@latest" %}tipo de pacote cliente compatível{% else %}pacote habilitado para sua instância{% endif %}, seguindo as mesmas diretrizes gerais.
 
 1. Efetue a autenticação com {% data variables.product.prodname_registry %} usando as instruções para seu cliente de pacote. Para obter mais informações, consulte "[Sobre tokens](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)".
 2. Instale o pacote usando as instruções para seu cliente de pacote.

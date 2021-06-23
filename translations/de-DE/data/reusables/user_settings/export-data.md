@@ -1,3 +1,4 @@
 {% if currentVersion == "free-pro-team@latest" %}
-Du kannst die Metadaten, die {% data variables.product.product_name %} über Dein persönliches Konto speichert, exportieren und überprüfen.
+You can export and review the metadata that
+{% data variables.product.product_name %} stores about your personal account.
 {% endif %}

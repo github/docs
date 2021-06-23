@@ -1,6 +1,6 @@
-| Tecla                  | Tipo     | Descrição                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------- |
-| `Ação`                 | `string` | A ação que foi executada. Can be either `added` or `removed`.                         |
-| `repository_selection` | `string` | The choice of repositories the installation is on. Can be either `selected` or `all`. |
-| `repositories_added`   | `array`  | An array of repository objects, which were added to the installation.                 |
-| `repositories_removed` | `array`  | An array of repository objects, which were removed from the installation.             |
+| Tecla                  | Tipo     | Descrição                                                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `Ação`                 | `string` | A ação que foi executada. Pode ser `adicionado` ou `removido`.                                 |
+| `repository_selection` | `string` | A escolha dos repositórios em que a instalação se encontra. Pode ser `selecionado` ou `todos`. |
+| `repositories_added`   | `array`  | Uma matriz de objetos do repositório adicionados à instalação.                                 |
+| `repositories_removed` | `array`  | Um array de objetos do repositório removidos da instalação.                                    |

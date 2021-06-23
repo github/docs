@@ -1,1 +1,0 @@
-<ul><li>Fehler oder Ausfälle bei {% data variables.product.prodname_dotcom_the_website %}, welche die Kernfunktionen von Git- oder Web-Anwendungen für alle Mitglieder Deiner Organisation oder Deines Unternehmens betreffen</li></ul>

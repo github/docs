@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
+  {% include head %}
+
+  <body class="d-lg-flex">
+    {% include sidebar %}
+
+    <main class="flex-1 min-width-0">
+      {% include header %}
+      {% include deprecation-banner %}
+
+      {% if allVersions[currentVersion].plan == 'enterprise-server' %}
+      {% include enterprise-server-release-notes %}
+      {% endif %}
+
+      {% if allVersions[currentVersion].plan == 'github-ae' %}
+      {% include github-ae-release-notes %}
+      {% endif %}
+
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
+    </main>
+  </body>
+</html>

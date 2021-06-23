@@ -1,1 +1,1 @@
-Activity related to repository collaborators. {% data reusables.webhooks.action_type_desc %} For more information, see the "[collaborators](/v3/repos/collaborators/)" REST API.
+与仓库协作者相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[协作者](/rest/reference/repos#collaborators)”REST API。

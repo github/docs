@@ -1,24 +1,27 @@
 ---
-title: Activating beta features for apps
-intro: 'You can test new app features released in public beta for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s.'
+title: 激活应用程序的测试版功能
+intro: '您可以在 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_app %} 的公开测试版中测试所发布的新应用程序功能。'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% warning %}
 
-**Warning:** Features available in public beta are subject to change.
+**警告：**公开测试版中的功能可能会有变化。
 
 {% endwarning %}
 
-### Activating beta features for {% data variables.product.prodname_github_apps %}
+### 激活 {% data variables.product.prodname_github_apps %} 的测试版功能
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Select the {% data variables.product.prodname_github_app %} you want to enable a beta feature for.
+3. 选择
+您要为其启用测试版功能的 {% data variables.product.prodname_github_app %}。
 {% data reusables.apps.beta_feature_activation %}
 
-### Activating beta features for {% data variables.product.prodname_oauth_app %}s
+### 激活 {% data variables.product.prodname_oauth_app %} 的测试版功能
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

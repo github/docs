@@ -1,6 +1,7 @@
 ---
 title: Configurando escaneamento secreto de repositórios privados
 intro: 'Você pode configurar como o {% data variables.product.product_name %} verifica seus repositórios privados em busca de segredos.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'Pessoas com permissões de administrador em um repositório privado podem habilitar o {% data variables.product.prodname_secret_scanning %} para o repositório.'
 versions:
   free-pro-team: '*'

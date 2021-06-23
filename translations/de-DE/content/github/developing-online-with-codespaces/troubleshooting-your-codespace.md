@@ -1,11 +1,13 @@
 ---
 title: Fehlerbehebung Deines Codespace
-intro: 'Du kannst die Fehler in einem Codespace suchen und beheben, indem Du nach bekannten Issues im `microsoft/vscode`-Repository suchst.'
+intro: Du kannst die Fehler in einem Codespace suchen und beheben, indem Du nach bekannten Issues im `microsoft/vscode`-Repository suchst.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

@@ -9,7 +9,7 @@ const { getPathWithoutLanguage } = require('../lib/path-utils')
 
 // [start-readme]
 //
-// Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn)
+// Run this script to manually purge the Fastly cache
 // for all language variants of a single URL or for a batch of URLs in a file. This script does
 // not require authentication.
 //
@@ -25,9 +25,9 @@ program
   .option('-d, --dry-run', 'print URLs to be purged without actually purging')
   .parse(process.argv)
 
-const singleUrl = program.single
-const batchFile = program.batch
-const dryRun = program.dryRun
+const singleUrl = program.opts().single
+const batchFile = program.opts().batch
+const dryRun = program.opts().dryRun
 
 // verify CLI options
 if (!singleUrl && !batchFile) {

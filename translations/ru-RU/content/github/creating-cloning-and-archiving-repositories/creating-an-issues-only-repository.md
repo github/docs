@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 1. Create a **private** repository to host the source code from your project.

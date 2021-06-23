@@ -1,74 +1,89 @@
 ---
-title: Quickstart for GitHub Actions
-intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
+title: GitHub Actions のクイックスタート
+intro: '{% data variables.product.prodname_actions %} の機能を 5 分またはそれ以下で試すことができます。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: quick_start
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
-You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
+{% data variables.product.prodname_actions %} ワークフローを作成して実行するには、{% data variables.product.prodname_dotcom %} リポジトリのみが必要になります。 このガイドでは、{% data variables.product.prodname_actions %} の重要な機能のいくつかを示すワークフローを追加します。
 
-### Creating your first workflow
+次の例は、{% data variables.product.prodname_actions %} ジョブを自動的にトリガーする方法、実行する場所、およびリポジトリ内のコードとやり取りする方法を示しています。
 
-1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. 詳細は「[新しいファイルを作成する](/github/managing-files-in-a-repository/creating-new-files)」を参照してください。
-2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
+### 最初のワークフローを作成する
+
+1. {% data variables.product.prodname_dotcom %} のリポジトリから、`github-actions-demo.yml` という名前の新しいファイルを `.github/workflows` ディレクトリに作成します。 詳細は「[新しいファイルを作成する](/github/managing-files-in-a-repository/creating-new-files)」を参照してください。
+2. 次の YAML コンテンツを `github-actions-demo.yml` ファイルにコピーします。
     {% raw %}
-    ```yaml
-    name: Super-Linter
-
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
-
+    ```yaml{:copy}
+    name: GitHub Actions Demo
+    on: [push]
     jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
+      Explore-GitHub-Actions:
         runs-on: ubuntu-latest
-
         steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - name: Check out repository code
             uses: actions/checkout@v2
+          - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+          - name: List files in the repository
+            run: |
+              ls ${{ github.workspace }}
+          - run: echo "🍏 This job's status is ${{ job.status }}."
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
     {% endraw %}
-3. To run your workflow, scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**. ![Commit workflow file](/assets/images/commit-workflow-file.png)
+3. ページの一番下までスクロールし、[**Create a new branch for this commit and start a pull request**] を選択します。 次に、[**Propose new file**] をクリックしてPull Requestを作成します。 ![ワークフローファイルのコミット](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-Committing the workflow file in your repository triggers the `push` event and runs your workflow.
+リポジトリ内のワークフローファイルをブランチにコミットすると、`push` イベントがトリガーされ、ワークフローが実行されます。
 
-### Viewing your workflow results
+### ワークフローの結果を表示する
 
+{% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. 左のサイドバーで、表示させたいワークフローをクリックしてください。 ![左サイドバーのワークフローのリスト](/assets/images/help/repository/superlinter-workflow-sidebar.png)
-1. From the list of workflow runs, click the name of the run you want to see. ![ワークフローの実行の名前](/assets/images/help/repository/superlinter-run-name.png)
-1. In the left sidebar, click the **Lint code base** job. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-2. Expand the **Run Super-Linter** step to view the results. ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results.png)
+1. 左のサイドバーで、表示させたいワークフローをクリックしてください。
 
-### More starter workflows
+   ![左サイドバーのワークフローのリスト](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. ワークフローの実行リストから、表示させたい実行の名前をクリックしてください。
 
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+   ![ワークフローの実行の名前](/assets/images/help/repository/actions-quickstart-run-name.png)
+1. [**Jobs**] で [**Explore-GitHub-Actions**] ジョブをクリックします。
+
+   ![ジョブを探す](/assets/images/help/repository/actions-quickstart-job.png)
+1. ログには、各ステップの処理方法が表示されます。 いずれかのステップを展開して、詳細を表示します。
+
+   ![ワークフロー結果の例](/assets/images/help/repository/actions-quickstart-logs.png)
+
+   たとえば、リポジトリ内のファイルのリストを確認できます。 ![アクションの詳細の例](/assets/images/help/repository/actions-quickstart-log-detail.png)
+
+### さらなるワークフローテンプレート
+
+{% data reusables.actions.workflow-template-overview %}
 
 ### 次のステップ
 
-The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+追加したワークフロー例では、コードがブランチにプッシュされるたびに実行され、{% data variables.product.prodname_actions %} がリポジトリのコンテンツを処理できる方法が示されます。 ただし、これは {% data variables.product.prodname_actions %} で可能なことの一部にすぎません。
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
-- "[Guides](/actions/guides)" for specific uses cases and examples
-- [github/super-linter](https://github.com/github/super-linter) for more details about configuring the Super-Linter action
+- リポジトリには、さまざまなイベントに基づいてさまざまなジョブをトリガーする複数のワークフローを含めることができます。
+- ワークフローを使用してソフトウェアテストアプリをインストールし、{% data variables.product.prodname_dotcom %} のランナーでコードを自動的にテストすることができます。
+
+{% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 始める準備はできましたか？ {% data variables.product.prodname_actions %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
+
+- 詳細なチュートリアルは、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」をご覧ください。
+- 特定の使用例とサンプルについては「[ガイド](/actions/guides)」をご覧ください。

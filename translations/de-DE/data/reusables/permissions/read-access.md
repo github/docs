@@ -1,1 +1,0 @@
-Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope.

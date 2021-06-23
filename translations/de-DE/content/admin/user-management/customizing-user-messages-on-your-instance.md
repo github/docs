@@ -3,7 +3,7 @@ title: Benutzermeldungen auf Ihrer Instanz anpassen
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
-intro: 'Sie können {% if currentVersion ver_gt "enterprise-server@2.15" %}benutzerdefinierte Meldungen erstellen, die Benutzern auf An- und Abmeldeseiten angezeigt werden{% else %}eine benutzerdefinierte Meldung erstellen, die Benutzern auf der Anmeldeseite angezeigt wird{% endif %}.'
+intro: 'You can create custom messages that users will see on the sign in and sign out pages{% if currentVersion ver_gt "enterprise-server@2.21" %} or in an announcement banner at the top of every page{% endif %}.'
 versions:
   enterprise-server: '*'
 ---

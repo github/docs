@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}Only installed {% data variables.product.prodname_github_app %}s with `write` access to the `contents` permission can be added as authorized actors on a protected branch.{% endif %}

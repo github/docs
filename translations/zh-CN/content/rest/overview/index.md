@@ -5,14 +5,17 @@ intro: '了解 {% data variables.product.prodname_dotcom %} REST API 的资源�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
+children:
+  - /resources-in-the-rest-api
+  - /media-types
+  - /other-authentication-methods
+  - /troubleshooting
+  - /api-previews
+  - /libraries
+  - /openapi-description
+  - /endpoints-available-for-github-apps
 ---
 
-### 目录
-
-{% link_in_list /resources-in-the-rest-api %}
-{% link_in_list /media-types %}
-{% link_in_list /other-authentication-methods %}
-{% link_in_list /troubleshooting %}
-{% link_in_list /api-previews %}
-{% link_in_list /libraries %}
-{% link_in_list /endpoints-available-for-github-apps %}

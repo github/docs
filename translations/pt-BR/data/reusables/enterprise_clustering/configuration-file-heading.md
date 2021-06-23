@@ -1,1 +1,1 @@
-The cluster configuration file lists each node under a <code>[cluster "<em>HOSTNAME</em>"]</code> heading.
+O arquivo de configuração do cluster lista cada nó em um cabeçalho de <code>[cluster "<em>HOSTNAME</em>"]</code>.

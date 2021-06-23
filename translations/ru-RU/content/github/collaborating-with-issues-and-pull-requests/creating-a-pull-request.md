@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch. If you want to create a new branch for your pull request and don't have write permissions to the repository, you can fork the repository first. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)" and "[About forks](/articles/about-forks)."
@@ -16,9 +19,17 @@ You can specify which branch you'd like to merge your changes into when you crea
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### Changing the branch range and destination repository
 
-By default, pull requests are based on the parent repository's [default branch](/articles/setting-the-default-branch).
+By default, pull requests are based on the parent repository's [default branch](/articles/setting-the-default-branch). For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
 If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
 

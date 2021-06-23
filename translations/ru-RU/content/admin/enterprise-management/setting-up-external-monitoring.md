@@ -4,10 +4,14 @@ intro: 'You can monitor basic system resources on your {% data variables.product
 redirect_from:
   - /enterprise/admin/installation/setting-up-external-monitoring
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
-  - /enterprise/admin/enterprise-management/setting-up-external-monitoring
-  - /enterprise/admin/enterprise-management/setting-up-external-monitoring
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### About SNMP

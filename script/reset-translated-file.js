@@ -6,37 +6,63 @@
 // files with the English content from their corresponding source file.
 //
 // It's intended to be a workaround to temporarily bypass Crowdin parser bugs
-// while we wait for Crowdin to fix them.
+// while we wait for translators to fix them.
 //
 // Usage:
-// script/reset-translated-File.js <relative-filename> [<two-letter-language-code>]
+// script/reset-translated-file.js <filename>
 //
-// script/reset-translated-File.js content/desktop/foo.md
-// -> resets all translations of foo.md
+// Examples:
 //
-// script/reset-translated-File.js content/desktop/foo.md de
-// -> resets german translation of foo.md
-//
+// $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
 //
 // [end-readme]
 
+const program = require('commander')
+const { execSync } = require('child_process')
 const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
-const languages = require('../lib/languages')
+const chalk = require('chalk')
 
-const [relativePath, languageCode] = process.argv.slice(2)
-assert(relativePath, 'first arg must be a target filename')
+program
+  .description('reset translated files')
+  .option('-m, --prefer-main', 'Reset file to the translated file, try using the file from `main` branch first, if not found (usually due to renaming), fall back to English source.')
+  .parse(process.argv)
 
-const englishFile = path.join(process.cwd(), relativePath)
-assert(fs.existsSync(englishFile), `file does not exist: ${englishFile}`)
-const englishContent = fs.readFileSync(englishFile, 'utf8')
+const resetToEnglishSource = (translationFilePath) => {
+  assert(translationFilePath.startsWith('translations/'), 'path argument must be in the format `translations/<lang>/path/to/file`')
+  assert(fs.existsSync(translationFilePath), `file does not exist: ${translationFilePath}`)
 
-Object.values(languages).forEach(({ code }) => {
-  if (code === 'en') return
-  if (languageCode && languageCode !== code) return
+  const relativePath = translationFilePath.split(path.sep).slice(2).join(path.sep)
+  const englishFile = path.join(process.cwd(), relativePath)
+  assert(fs.existsSync(englishFile), `file does not exist: ${englishFile}`)
 
-  const translatedFile = path.join(process.cwd(), languages[code].dir, relativePath)
-  fs.writeFileSync(translatedFile, englishContent)
-  console.log('reverted to English: %s', path.relative(process.cwd(), translatedFile))
-})
+  // replace file with English source
+  const englishContent = fs.readFileSync(englishFile, 'utf8')
+  fs.writeFileSync(translationFilePath, englishContent)
+  console.log('-> reverted to English: %s', path.relative(process.cwd(), translationFilePath))
+}
+
+const [pathArg] = program.args
+assert(pathArg, 'first arg must be a target filename')
+
+// Is the arg a fully-qualified path?
+const relativePath = fs.existsSync(pathArg)
+  ? path.relative(process.cwd(), pathArg)
+  : pathArg
+
+if (program.opts().preferMain) {
+  try {
+    execSync(`git checkout main -- ${relativePath}`, { stdio: 'pipe' })
+    console.log('-> reverted to file from main branch: %s', relativePath)
+  } catch (e) {
+    if (e.message.includes('pathspec')) {
+      console.warn(chalk.red(`cannot find ${relativePath} in main branch (likely because it was renamed); falling back to English source file.`))
+      resetToEnglishSource(relativePath)
+    } else {
+      console.warn(e.message)
+    }
+  }
+} else {
+  resetToEnglishSource(relativePath)
+}

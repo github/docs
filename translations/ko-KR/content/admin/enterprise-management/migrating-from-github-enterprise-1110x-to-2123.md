@@ -12,6 +12,11 @@ redirect_from:
 intro: 'To migrate from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23, you''ll need to set up a new appliance instance and migrate data from the previous instance.'
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Migration
+  - Upgrades
 ---
 
 Migrations from {% data variables.product.prodname_enterprise %} 11.10.348 and later are supported. Migrating from {% data variables.product.prodname_enterprise %} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
@@ -77,7 +82,7 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
   Visit https://169.254.1.1/setup/settings to review appliance configuration.
   ```
 
-12. Return to the new instance's restore status screen to see that the restore completed. ![Restore complete screen](/assets/images/enterprise/migration/restore-complete-screen.png)
+12. Return to the new instance's restore status screen to see that the restore completed. ![Restore complete screen](/assets/images/enterprise/migration/migration-status-complete.png)
 13. Click **Continue to settings** to review and adjust the configuration information and settings that were imported from the previous instance. ![Review imported settings](/assets/images/enterprise/migration/migration-status-complete.png)
 14. Click **Save settings**.
 

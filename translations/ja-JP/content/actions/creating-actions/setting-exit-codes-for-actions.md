@@ -8,23 +8,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 終了コードについて
 
 {% data variables.product.prodname_dotcom %} は、終了コードを使用して、アクションのチェック実行ステータスを設定します。これは、`success` または`failure` のいずれかです。
 
-| 終了ステータス | チェック実行ステータス | 説明                                                                                                                            |
-| ------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `0`     | `success`   | アクションが正常に完了し、それに依存する他のタスクを開始できます。                                                                                             |
-| 0 以外の値  | `failure`   | その他の終了コードは、アクションの失敗を表します。 アクションが失敗すると、同時に実行されていたアクションはすべてキャンセルされ、今後のアクションはスキップされます。 チェック実行とチェックスイートはどちらも、`failure`ステータスになります。 |
+| 終了ステータス             | チェック実行ステータス | 説明                                                                                                                            |
+| ------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `0`                 | `success`   | アクションが正常に完了し、それに依存する他のタスクを開始できます。                                                                                             |
+| ゼロ以外の値 (0 以外の任意の整数) | `failure`   | その他の終了コードは、アクションの失敗を表します。 アクションが失敗すると、同時に実行されていたアクションはすべてキャンセルされ、今後のアクションはスキップされます。 チェック実行とチェックスイートはどちらも、`failure`ステータスになります。 |
 
 ### JavaScript アクションで失敗終了を設定する
 
-JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
+JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
 
 ```javascript
 try {

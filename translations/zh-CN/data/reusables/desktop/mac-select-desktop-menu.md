@@ -1,1 +1,1 @@
-1. In the menu bar, use the **{% data variables.product.prodname_desktop %}** drop-down menu, then click **Preferences**. ![{% data variables.product.prodname_desktop %} 下拉菜单中的首选项值](/assets/images/help/desktop/mac-choose-preferences.png)
+1. 在菜单栏中，使用 **{% data variables.product.prodname_desktop %}** 下拉菜单，然后单击 **Preferences（首选项）**。 ![{% data variables.product.prodname_desktop %} 下拉菜单中的首选项值](/assets/images/help/desktop/mac-choose-preferences.png)

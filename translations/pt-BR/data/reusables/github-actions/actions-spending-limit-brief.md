@@ -1,0 +1,1 @@
+Se você é um cliente que realiza cobrança mensal, a sua conta terá um limite de gastos padrão de $ 0, o que impede o uso adicional de minutos ou armazenamento para repositórios privados além dos valores incluídos na sua conta. Se você pagar a sua conta por fatura, sua conta terá um limite de gastos padrão ilimitado.

@@ -1,1 +1,1 @@
-You can also add optional time information `THH:MM:SS+00:00` after the date, to search by the hour, minute, and second. That's `T`, followed by `HH:MM:SS` (hour-minutes-seconds), and a UTC offset (`+00:00`). 
+Você também pode adicionar informações de tempo opcionais `THH:MM:SS+00:00` após a data, para pesquisar por hora, minuto e segundo. Isso se faz adicionando `T`, seguido de `HH:MM:SS` (hora-minutos-segundos) e um intervalo de UTC (`+00:00`). 

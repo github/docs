@@ -3,7 +3,7 @@ title: インスタンス上でのユーザメッセージをカスタマイズ�
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
-intro: '{% if currentVersion ver_gt "enterprise-server@2.15" %}サインインページおよびサインアウトページでユーザに見せるカスタムメッセージ{% else %}サインインページでユーザに見せるカスタムメッセージ{% endif %}を作成できます。'
+intro: 'サインインおよびサインアウトページ {% if currentVersion ver_gt "enterprise-server@2.21" %}、またはすべてのページの上部にあるアナウンスバナーでユーザに表示されるカスタムメッセージを作成できます{% endif %}。'
 versions:
   enterprise-server: '*'
 ---

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Before enabling required commit signing on a branch, you must first set the branch up as a protected branch. For more information, see "[Configuring protected branches](/github/administering-a-repository/configuring-protected-branches)."

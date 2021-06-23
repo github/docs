@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_app %} Manifests are currently available for developers to preview. To access this API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:
+**注：**{% data variables.product.prodname_github_app %} 清单目前可供开发者预览。 要在预览期间访问此 API，必须在 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)：
 
 ```
 application/vnd.github.fury-preview+json

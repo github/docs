@@ -1,4 +1,4 @@
-To create a task list, preface list items with a regular space character followed by `[ ]`. To mark a task as complete, use `[x]`.
+Para criar uma lista de tarefas, introduza os itens da lista com um caractere de espaço normal seguido de `[ ]`. Para marcar uma tarefa como concluída, use `[x]`.
 
 ```
 - [x] Finish my changes
@@ -6,4 +6,4 @@ To create a task list, preface list items with a regular space character followe
 - [ ] Open a pull request
 ```
 
-![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
+![Lista de tarefas gerada](/assets/images/help/writing/task-list-rendered.png)

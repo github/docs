@@ -1,7 +1,7 @@
-| Tecla                 | Tipo      | Descrição                                                                                                                    |
-| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`                | `string`  | The action performed on the project card. Can be `created`, `edited`, `moved`, `converted`, or `deleted`.                    |
-| `alterações`          | `objeto`  | The changes to the project card if the action was `edited` or `converted`.                                                   |
-| `changes[note][from]` | `string`  | The previous version of the note if the action was `edited` or `converted`.                                                  |
-| `after_id`            | `inteiro` | The id of the card that this card now follows if the action was "moved". Will be `null` if it is the first card in a column. |
-| `project_card`        | `objeto`  | The [project card](/v3/projects/cards) itself.                                                                               |
+| Tecla                 | Tipo      | Descrição                                                                                                              |
+| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `Ação`                | `string`  | A ação realizada no cartão do projeto. Pode ser `created`, `edited`, `moved`, `converted` ou `deleted`.                |
+| `alterações`          | `objeto`  | As alterações no cartão do projeto se a ação foi `editada` ou `convertida`.                                            |
+| `changes[note][from]` | `string`  | A versão anterior da nota se a ação foi `editada` ou `convertida`.                                                     |
+| `after_id`            | `inteiro` | O ID do cartão que este cartão agora segue se a ação foi "movida". Será `nulo` se for o primeiro cartão em uma coluna. |
+| `project_card`        | `objeto`  | O próprio [cartão do projeto](/rest/reference/projects#cards).                                                         |

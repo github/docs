@@ -1,1 +1,1 @@
-1. In Okta, in the upper-right corner, click **Admin**. ![Admin button in Okta](/assets/images/help/saml/okta-admin-button.png)
+1. No Okta, no canto superior direito, clique em **Admin**. ![Botão de administração no Okta](/assets/images/help/saml/okta-admin-button.png)

@@ -44,7 +44,7 @@ versions:
 1. インスタンスのポート25がSMTPサーバにアクセスできることを確認してください。
 2. `reply.[hostname]`を指すAレコードを作成してください。 DNSプロバイダとインスタンスのホスト設定によっては、 `*.[hostname]`を指す単一のAレコードを作成できる場合があります。
 3. `reply.[hostname]`を指すMXレコードを作成して、このドメインへのメールがインスタンスにルーティングされるようにしてください。
-4. `noreply.[hostname]` が `[hostname]` を指すようにする MX レコードを作成し、 通知メールの `cc` アドレスへの返信がインスタンスにルーティングされるようにしてください。 For more information, see {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
+4. `noreply.[hostname]` が `[hostname]` を指すようにする MX レコードを作成し、 通知メールの `cc` アドレスへの返信がインスタンスにルーティングされるようにしてください。 詳しい情報については、{% if currentVersion ver_gt "enterprise-server@2.20" %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください{% endif %}。
 
 DNSの設定ができたら、うまく動作するかをテストできます。
 

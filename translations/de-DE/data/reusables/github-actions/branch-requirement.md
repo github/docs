@@ -1,5 +1,5 @@
 {% note %}
 
-**Hinweis:** Dieses Ereignis löst nur dann eine Workflow-Ausführung aus, wenn sich die Workflowdatei auf dem `master` oder Standardbranch befindet.
+**Note:** This event will only trigger a workflow run if the workflow file is on the default branch.
 
 {% endnote %}

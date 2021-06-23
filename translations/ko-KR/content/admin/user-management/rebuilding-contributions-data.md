@@ -6,6 +6,11 @@ redirect_from:
   - /enterprise/admin/user-management/rebuilding-contributions-data
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Repositories
+  - User account
 ---
 
 Whenever a commit is pushed to {% data variables.product.prodname_enterprise %}, it is linked to a user account if they are both associated with the same email address. However, existing commits are *not* retroactively linked when a user registers a new email address or creates a new account.
@@ -15,4 +20,5 @@ Whenever a commit is pushed to {% data variables.product.prodname_enterprise %},
 3. On the left side of the page, click **Admin**. ![Admin tab](/assets/images/enterprise/site-admin-settings/admin-tab.png)
 4. Under **Contributions data**, click **Rebuild**. ![Rebuild button](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
-{% data variables.product.prodname_enterprise %} will now start background jobs to re-link commits with that user's account. ![Queued rebuild jobs](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+{% data variables.product.prodname_enterprise %} will now start background jobs to re-link commits with that user's account.
+  ![Queued rebuild jobs](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
