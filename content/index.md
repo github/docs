@@ -20,13 +20,13 @@ children:
   - billing
   - organizations
   - code-security
+  - issues
   - actions
   - packages
   - developers
   - rest
   - graphql
   - insights
-  - issues
   - discussions
   - codespaces
   - sponsors

@@ -99,6 +99,9 @@ prodname_debug: 'GitHub Debug'
 # GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
 
+# GitHub Issues
+prodname_github_issues: 'GitHub Issues'
+
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
 prodname_container_registry: 'Container registry'

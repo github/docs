@@ -29,7 +29,7 @@ You can create and participate in issues, pull requests, {% data variables.produ
 You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
-### Issues
+### {% data variables.product.prodname_github_issues %}
 - are useful for discussing specific details of a project such as bug reports, planned improvements and feedback. 
 - are specific to a repository, and usually have a clear owner. 
 - are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
