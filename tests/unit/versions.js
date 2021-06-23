@@ -24,6 +24,7 @@ describe('versions module', () => {
 
 describe('versions middleware', () => {
   jest.setTimeout(5 * 60 * 1000)
+
   test('adds res.context.allVersions object', async () => {
     const allVersionsFromMiddleware = await getJSON('/en?json=allVersions')
     expect(allVersionsFromMiddleware).toEqual(allVersions)
