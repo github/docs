@@ -1,4 +1,5 @@
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
+const app = createApp()
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
@@ -126,7 +127,7 @@ describe('does not render survey prompt or contribution button', () => {
 
 describe('JS and CSS assets', () => {
   it('returns the expected CSS file > 2.18', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/enterprise/2.18/dist/index.css')
       .set('Referrer', '/en/enterprise/2.18')
 
@@ -136,7 +137,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected CSS file', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/stylesheets/index.css')
       .set('Referrer', '/en/enterprise/2.13')
 
@@ -146,7 +147,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected JS file > 2.18', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/enterprise/2.18/dist/index.js')
       .set('Referrer', '/en/enterprise/2.18')
 
@@ -156,7 +157,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected JS file', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/javascripts/index.js')
       .set('Referrer', '/en/enterprise/2.13')
 
@@ -166,7 +167,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected image', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/assets/images/octicons/hamburger.svg')
       .set('Referrer', '/en/enterprise/2.17')
 
@@ -176,7 +177,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected node_modules', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
       .set('Referrer', '/en/enterprise/2.17')
 
@@ -186,7 +187,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected favicon', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/assets/images/site/favicon.svg')
       .set('Referrer', '/en/enterprise/2.18')
 
@@ -196,7 +197,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('returns the expected CSS file ( <2.13 )', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/assets/stylesheets/application.css')
       .set('Referrer', '/en/enterprise/2.12')
 
@@ -206,7 +207,7 @@ describe('JS and CSS assets', () => {
   })
 
   it('ignores invalid paths', async () => {
-    const result = await supertest(app())
+    const result = await supertest(app)
       .get('/pizza/index.css')
       .set('Referrer', '/en/enterprise/2.13')
 

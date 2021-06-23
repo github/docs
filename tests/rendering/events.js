@@ -1,11 +1,12 @@
 const request = require('supertest')
 const nock = require('nock')
 const cheerio = require('cheerio')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
 
+  const app = createApp()
   let csrfToken = ''
   let agent
 
@@ -14,7 +15,7 @@ describe('POST /events', () => {
     process.env.AIRTABLE_BASE_KEY = '$AIRTABLE_BASE_KEY$'
     process.env.HYDRO_SECRET = '$HYDRO_SECRET$'
     process.env.HYDRO_ENDPOINT = 'http://example.com/hydro'
-    agent = request.agent(app())
+    agent = request.agent(app)
     const csrfRes = await agent.get('/en')
     const $ = cheerio.load(csrfRes.text || '', { xmlMode: true })
     csrfToken = $('meta[name="csrf-token"]').attr('content')

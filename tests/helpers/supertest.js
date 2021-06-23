@@ -3,11 +3,12 @@
 
 const cheerio = require('cheerio')
 const supertest = require('supertest')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
+const app = createApp()
 
 const helpers = {}
 
-const request = (method, route) => supertest(app())[method](route)
+const request = (method, route) => supertest(app)[method](route)
 
 helpers.get = async function (route, opts = { followRedirects: false, followAllRedirects: false, headers: {} }) {
   let res = (opts.headers) ? await request('get', route).set(opts.headers) : await request('get', route)
