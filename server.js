@@ -4,6 +4,9 @@ const throng = require('throng')
 const os = require('os')
 const portUsed = require('port-used')
 const prefixStreamWrite = require('./lib/prefix-stream-write')
+const createApp = require('./lib/app')
+const warmServer = require('./lib/warm-server')
+const http = require('http')
 
 // Intentionally require these for both cluster primary and workers
 require('./lib/check-node-version')
@@ -46,8 +49,7 @@ async function checkPortAvailability () {
 }
 
 async function startServer () {
-  const app = require('./lib/app')
-  const warmServer = require('./lib/warm-server')
+  const app = createApp()
 
   // If in a deployed environment...
   if (NODE_ENV === 'production') {
@@ -58,7 +60,7 @@ async function startServer () {
   }
 
   // Workaround for https://github.com/expressjs/express/issues/1101
-  const server = require('http').createServer(app)
+  const server = http.createServer(app)
   server
     .listen(port, () => console.log(`app running on http://localhost:${port}`))
     .on('error', () => server.close())

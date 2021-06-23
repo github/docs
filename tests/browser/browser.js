@@ -1,7 +1,10 @@
 /* global page, browser */
+const fs = require('fs')
+const path = require('path')
 const sleep = require('await-sleep')
 const { latest } = require('../../lib/enterprise-server-releases')
 const languages = require('../../lib/languages')
+const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/feature-flags.json')))
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -43,7 +46,7 @@ describe('browser search', () => {
     await page.waitForSelector('.ais-Hits')
     const hits = await page.$$('.ais-Hits-item')
     expect(hits.length).toBeGreaterThan(5)
-    page.setViewport(initialViewport)
+    await page.setViewport(initialViewport)
   })
 
   it('works on 404 error page', async () => {
@@ -71,8 +74,10 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
   })
 
@@ -92,8 +97,10 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
   })
 })
@@ -117,20 +124,20 @@ describe('survey', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('.js-survey [for=survey-yes]')
+    await page.click('[data-testid=survey-form] [for=survey-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('.js-survey [type="email"]')
+    await page.waitForSelector('[data-testid=survey-form] [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('.js-survey [type="email"]', 'test@example.com')
+    await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('.js-survey [type="submit"]')
+    await page.click('[data-testid=survey-form] [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('.js-survey [data-help-end]')
+    await page.waitForSelector('[data-testid=survey-end]')
   })
 })
 
@@ -257,23 +264,23 @@ describe('code examples', () => {
 describe('filter cards', () => {
   it('works with select input', async () => {
     await page.goto('http://localhost:4001/en/actions/guides')
-    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
-      cards.map(card => card.dataset.type)
+    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    const shownCards = await page.$$('[data-testid=article-card]')
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
+      cardTypes.map(cardType => cardType.textContent)
     )
-    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    shownCardTypes.map(type => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 
   it('works with select input on an Enterprise version', async () => {
     await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
-    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
-      cards.map(card => card.dataset.type)
+    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    const shownCards = await page.$$('[data-testid=article-card]')
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
+      cardTypes.map(cardType => cardType.textContent)
     )
-    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    shownCardTypes.map(type => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 })
@@ -325,11 +332,33 @@ describe('nextjs query param', () => {
   jest.setTimeout(60 * 1000)
 
   it('landing page renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
-    const flagVal = require('../../feature-flags.json').FEATURE_NEXTJS
+    const flagVal = featureFlags.FEATURE_NEXTJS
     await page.goto('http://localhost:4001/en/actions?nextjs=')
     const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
     const nextWrapper = await page.$('#__next')
     flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
     flagVal === true ? expect(IS_NEXTJS_PAGE).toBe(true) : expect(IS_NEXTJS_PAGE).toBe(false)
+  })
+})
+
+describe('next/link client-side navigation', () => {
+  jest.setTimeout(60 * 1000)
+
+  it('should have 200 response to /_next/data when link is clicked', async () => {
+    const initialViewport = page.viewport()
+    await page.setViewport({ width: 1024, height: 768 })
+    await page.goto('http://localhost:4001/en/actions')
+
+    const [response] = await Promise.all([
+      page.waitForResponse(
+        (response) =>
+          response.url().startsWith('http://localhost:4001/_next/data') 
+      ),
+      page.waitForNavigation({ waitUntil: 'networkidle2' }),
+      page.click('.sidebar-categories .sidebar-category:nth-child(2) a'),
+    ])
+
+    expect(response.status()).toBe(200)
+    await page.setViewport(initialViewport)
   })
 })

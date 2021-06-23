@@ -1,5 +1,6 @@
 ---
 title: Committing changes to your project
+intro: 'You can manage code changes in a repository by grouping work into commits.'
 redirect_from:
   - /categories/21/articles/
   - /categories/commits/
@@ -13,4 +14,3 @@ children:
   - /viewing-and-comparing-commits
   - /troubleshooting-commits
 ---
-

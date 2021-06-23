@@ -13,6 +13,9 @@ versions:
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
+
 Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can drag and drop or use keyboard shortcuts to reorder cards within a column, move cards from column to column, and change the order of columns.
 
 Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}

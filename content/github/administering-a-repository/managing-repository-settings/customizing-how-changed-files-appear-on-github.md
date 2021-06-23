@@ -23,5 +23,5 @@ search/index.json linguist-generated=true
   ```
 
 ## Further reading
-- "[Generated code](https://github.com/github/linguist/#generated-code)" in the Linguist documentation
+- "[Generated code](https://github.com/github/linguist/blob/master/docs/overrides.md#generated-code)" in the Linguist documentation
 - "[Creating new files](/articles/creating-new-files/)"

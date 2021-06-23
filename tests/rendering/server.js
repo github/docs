@@ -6,6 +6,9 @@ const path = require('path')
 const { loadPages } = require('../../lib/page-data')
 const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
+const CspParse = require('csp-parse')
+
+jest.useFakeTimers()
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -39,7 +42,7 @@ describe('server', () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
 
-    const csp = new (require('csp-parse'))(res.headers['content-security-policy'])
+    const csp = new CspParse(res.headers['content-security-policy'])
     expect(csp.get('default-src')).toBe("'none'")
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)

@@ -8,7 +8,6 @@ versions:
   github-ae: '*'
 ---
 
-{% data reusables.actions.environments-beta %}
 {% data reusables.actions.ae-beta %}
 
 ## About required reviews in workflows

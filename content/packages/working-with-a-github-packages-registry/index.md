@@ -13,14 +13,13 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 children:
-  - /working-with-the-npm-registry
+  - /working-with-the-container-registry
+  - /working-with-the-docker-registry
   - /working-with-the-rubygems-registry
+  - /working-with-the-npm-registry
   - /working-with-the-apache-maven-registry
   - /working-with-the-gradle-registry
   - /working-with-the-nuget-registry
-  - /working-with-the-docker-registry
-  - /working-with-the-container-registry
-  - /enabling-improved-container-support-with-the-container-registry
   - /migrating-to-the-container-registry-from-the-docker-registry
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}

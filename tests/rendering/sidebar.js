@@ -34,12 +34,12 @@ describe('sidebar', () => {
   test('adds an `is-current-page` class to the sidebar link to the current page', async () => {
     const url = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
     const $ = await getDOM(url)
-    expect($('.sidebar .is-current-page').length).toBe(1)
-    expect($('.sidebar .is-current-page a').attr('href')).toContain(url)
+    expect($('.sidebar-products .is-current-page').length).toBe(1)
+    expect($('.sidebar-products .is-current-page a').attr('href')).toContain(url)
   })
 
   test('does not display Early Access as a product', async () => {
-    expect($homePage('.sidebar li.sidebar-product[title*="Early"]').length).toBe(0)
-    expect($homePage('.sidebar li.sidebar-product[title*="early"]').length).toBe(0)
+    expect($homePage('.sidebar-products li.sidebar-product[title*="Early"]').length).toBe(0)
+    expect($homePage('.sidebar-products li.sidebar-product[title*="early"]').length).toBe(0)
   })
 })
