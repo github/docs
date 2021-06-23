@@ -8,6 +8,8 @@ const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 const CspParse = require('csp-parse')
 
+jest.useFakeTimers()
+
 describe('server', () => {
   jest.setTimeout(60 * 1000)
 
