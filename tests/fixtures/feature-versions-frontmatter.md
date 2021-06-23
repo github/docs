@@ -1,6 +1,7 @@
 ---
 title: Some article only versioned for FPT
 versions: 
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>2.21'
   feature: 'placeholder'
 ---

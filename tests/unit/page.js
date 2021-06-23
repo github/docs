@@ -536,22 +536,40 @@ describe('Page class', () => {
     })
 
     test('feature versions frontmatter', async () => {
-      // The fixture file only supports FPT in its frontmatter,
-      // but it also specifies feature: 'placeholder', so we should
-      // get the versions affiliated with the placeholder feature.
+      // This fixture file has the frontmatter:
+      //
+      // versions:
+      //   fpt: '*'
+      //   ghes: '*'
+      //   feature: 'placeholder'
+      //
+      // and placeholder.yml has:
+      //
+      // versions:
+      //   ghes: '<2.22'
+      //   ghae: '*'
+      //
+      // So we expect to get the versioning from both.
       const page = await Page.init({
         relativePath: 'feature-versions-frontmatter.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
   
-      // Raw page data
-      expect(page.versions['free-pro-team']).toBe('*')
-      expect(page.versions['enterprise-server']).toBeUndefined()
-      expect(page.versions['github-ae']).toBeUndefined()
-      expect(page.versions.feature).toBe('placeholder')
+      // Test the raw page data.
+      expect(page.versions['fpt']).toBe('*')
+      expect(page.versions['ghes']).toBe('>2.21')
+      expect(page.versions['ghae']).toBeUndefined()
+      // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
+      expect(page.versions.feature).toBeUndefined()
   
-      // Resolved versioning
+      // Test the resolved versioning, where GHES releases specified in frontmatter and in 
+      // feature versions are combined (i.e., one doesn't overwrite the other).
+      // We can't test that GHES 2.21 is _not_ included here (which it shouldn't be), 
+      // because lib/get-applicable-versions only returns currently supported versions,
+      // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
+      // But by testing that the _latest_ GHES version is returned, we can ensure that the 
+      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<2.22`.
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
       expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)
