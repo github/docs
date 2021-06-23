@@ -112,7 +112,7 @@ linux_job:
 {% raw %}
 ```yaml
 windows_job:
-  runs-on : windows-latest
+  runs-on: windows-latest
   steps:
     - run: echo Hello, %USERNAME%!
 
