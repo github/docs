@@ -1,7 +1,6 @@
-const fs = require('fs')
-const path = require('path')
 const { head } = require('../helpers/supertest')
-const topOldDeveloperSitePaths = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'tests/fixtures/top-old-developer-site-paths.json')))
+const readJsonFile = require('../../lib/read-json-file')
+const topOldDeveloperSitePaths = readJsonFile('tests/fixtures/top-old-developer-site-paths.json')
 
 jest.useFakeTimers()
 
