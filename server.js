@@ -50,7 +50,6 @@ async function checkPortAvailability () {
 
 async function startServer () {
   const app = createApp()
-  const warmServer = libWarmServer
 
   // If in a deployed environment...
   if (NODE_ENV === 'production') {
