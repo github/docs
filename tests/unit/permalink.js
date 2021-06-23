@@ -7,6 +7,7 @@ const getApplicableVersions = require('../../lib/get-applicable-versions')
 // Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)
 
 describe('Permalink class', () => {
+  // We can only use Permalink.derive to get the special 'homepage' permalink
   test('derives info for unversioned homepage', () => {
     const versions = {
       'free-pro-team': '*',
@@ -14,7 +15,7 @@ describe('Permalink class', () => {
     }
     const permalinks = Permalink.derive('en', 'index.md', 'Hello World', getApplicableVersions(versions))
     expect(permalinks.length).toBeGreaterThan(1)
-    const homepagePermalink = permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion)
+    const homepagePermalink = permalinks.find(permalink => permalink.pageVersion === 'homepage')
     expect(homepagePermalink.href).toBe('/en')
   })
 
