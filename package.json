@@ -124,6 +124,7 @@
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
     "css-loader": "^4.3.0",
+    "csv-parse": "^4.16.0",
     "dedent": "^0.7.0",
     "domwaiter": "^1.3.0",
     "eslint": "^7.28.0",

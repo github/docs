@@ -115,7 +115,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
-    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    isHomepageVersion: req.context.currentVersion === 'homepage',
     error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,

@@ -25,3 +25,4 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

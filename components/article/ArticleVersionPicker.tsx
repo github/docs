@@ -31,6 +31,10 @@ export const ArticleVersionPicker = () => {
       </summary>
       <Dropdown.Menu direction="sw">
         {(page.permalinks || []).map((permalink) => {
+          if (permalink.pageVersion === 'homepage') {
+            return null
+          }
+
           return (
             <Dropdown.Item key={permalink.href}>
               <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>
