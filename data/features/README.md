@@ -2,6 +2,8 @@
 
 Feature-based versioning allows us to define and control the versions of an arbitrarily named "feature" in one place.
 
+**Note**: Do not delete `data/features/placeholder.yml` because it is used by tests.
+
 ## How it works
 
 Add a new YAML file with the feature name you want to use in this directory. For a feature named `meow`, that would be `data/features/meow.yml`.

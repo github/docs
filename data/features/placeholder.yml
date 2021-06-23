@@ -1,3 +1,4 @@
+# Do not delete! Used by tests.
 versions:
-  enterprise-server: '>=2.23'
-  github-ae: '*'
+  ghes: '>3.0'
+  ghae: '*'
