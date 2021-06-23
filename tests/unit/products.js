@@ -4,6 +4,8 @@ const schema = require('../helpers/schemas/products-schema')
 const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
+jest.useFakeTimers()
+
 describe('products module', () => {
   test('is an object with product ids as keys', () => {
     expect('github' in productMap).toBe(true)
@@ -20,8 +22,6 @@ describe('products module', () => {
 })
 
 describe('mobile-only products nav', () => {
-  jest.setTimeout(5 * 60 * 1000)
-
   test('renders current product on various product pages for each product', async () => {
     // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
     expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub.com')

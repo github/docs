@@ -10,6 +10,8 @@ const CspParse = require('csp-parse')
 const { productMap } = require('../../lib/all-products')
 const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
 
+jest.useFakeTimers()
+
 describe('server', () => {
   jest.setTimeout(60 * 1000)
 

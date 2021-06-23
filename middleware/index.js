@@ -21,6 +21,44 @@ const reqUtils = require('./req-utils')
 const recordRedirect = require('./record-redirect')
 const connectSlashes = require('connect-slashes')
 const handleErrors = require('./handle-errors')
+const handleInvalidPaths = require('./handle-invalid-paths')
+const handleNextDataPath = require('./handle-next-data-path')
+const detectLanguage = require('./detect-language')
+const context = require('./context')
+const shortVersions = require('./contextualizers/short-versions')
+const redirectsExternal = require('./redirects/external')
+const helpToDocs = require('./redirects/help-to-docs')
+const languageCodeRedirects = require('./redirects/language-code-redirects')
+const handleRedirects = require('./redirects/handle-redirects')
+const findPage = require('./find-page')
+const blockRobots = require('./block-robots')
+const archivedEnterpriseVersionsAssets = require('./archived-enterprise-versions-assets')
+const events = require('./events')
+const search = require('./search')
+const archivedEnterpriseVersions = require('./archived-enterprise-versions')
+const robots = require('./robots')
+const earlyAccessLinks = require('./contextualizers/early-access-links')
+const categoriesForSupport = require('./categories-for-support')
+const loaderio = require('./loaderio-verification')
+const triggerError = require('./trigger-error')
+const releaseNotes = require('./contextualizers/release-notes')
+const whatsNewChangelog = require('./contextualizers/whats-new-changelog')
+const graphQL = require('./contextualizers/graphql')
+const rest = require('./contextualizers/rest')
+const webhooks = require('./contextualizers/webhooks')
+const layout = require('./contextualizers/layout')
+const currentProductTree = require('./contextualizers/current-product-tree')
+const genericToc = require('./contextualizers/generic-toc')
+const breadcrumbs = require('./contextualizers/breadcrumbs')
+const earlyAccessBreadcrumbs = require('./contextualizers/early-access-breadcrumbs')
+const features = require('./contextualizers/features')
+const productExamples = require('./contextualizers/product-examples')
+const devToc = require('./dev-toc')
+const featuredLinks = require('./featured-links')
+const learningTrack = require('./learning-track')
+const isNextRequest = require('./is-next-request')
+const next = require('./next')
+const renderPage = require('./render-page')
 
 const { NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -51,8 +89,8 @@ module.exports = function (app) {
   // See https://expressjs.com/en/guide/behind-proxies.html
   app.set('trust proxy', 1)
   app.use(rateLimit)
-  app.use(instrument('./handle-invalid-paths'))
-  app.use(instrument('./handle-next-data-path'))
+  app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
+  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
   app.use(cors)
@@ -79,28 +117,28 @@ module.exports = function (app) {
   // *** Config and context for redirects ***
   app.use(reqUtils) // Must come before record-redirect and events
   app.use(recordRedirect)
-  app.use(instrument('./detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
-  app.use(asyncMiddleware(instrument('./context'))) // Must come before early-access-*, handle-redirects
-  app.use(asyncMiddleware(instrument('./contextualizers/short-versions'))) // Support version shorthands
+  app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
+  app.use(asyncMiddleware(instrument(shortVersions, './contextualizers/short-versions'))) // Support version shorthands
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
   app.use(connectSlashes(false))
-  app.use(instrument('./redirects/external'))
-  app.use(instrument('./redirects/help-to-docs'))
-  app.use(instrument('./redirects/language-code-redirects')) // Must come before contextualizers
-  app.use(instrument('./redirects/handle-redirects')) // Must come before contextualizers
+  app.use(instrument(redirectsExternal, './redirects/external'))
+  app.use(instrument(helpToDocs, './redirects/help-to-docs'))
+  app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
+  app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
   // *** Config and context for rendering ***
-  app.use(asyncMiddleware(instrument('./find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
-  app.use(instrument('./block-robots'))
+  app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
-  app.use(asyncMiddleware(instrument('./archived-enterprise-versions-assets'))) // Must come before static/assets
+  app.use(asyncMiddleware(instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets'))) // Must come before static/assets
   app.use('/dist', express.static('dist', {
     index: false,
     etag: false,
@@ -120,49 +158,50 @@ module.exports = function (app) {
     lastModified: false,
     maxAge: '7 days' // A bit longer since releases are more sparse
   }))
-  app.use('/events', asyncMiddleware(instrument('./events')))
-  app.use('/search', asyncMiddleware(instrument('./search')))
-  app.use(asyncMiddleware(instrument('./archived-enterprise-versions')))
-  app.use(instrument('./robots'))
-  app.use(/(\/.*)?\/early-access$/, instrument('./contextualizers/early-access-links'))
-  app.use('/categories.json', asyncMiddleware(instrument('./categories-for-support')))
-  app.use(instrument('./loaderio-verification'))
-  app.get('/_500', asyncMiddleware(instrument('./trigger-error')))
+  app.use('/events', asyncMiddleware(instrument(events, './events')))
+  app.use('/search', asyncMiddleware(instrument(search, './search')))
+  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
+  app.use(instrument(robots, './robots'))
+  app.use(/(\/.*)?\/early-access$/, instrument(earlyAccessLinks, './contextualizers/early-access-links'))
+  app.use('/categories.json', asyncMiddleware(instrument(categoriesForSupport, './categories-for-support')))
+  app.use(instrument(loaderio, './loaderio-verification'))
+  app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
   // *** Preparation for render-page: contextualizers ***
-  app.use(asyncMiddleware(instrument('./contextualizers/release-notes')))
-  app.use(instrument('./contextualizers/graphql'))
-  app.use(instrument('./contextualizers/rest'))
-  app.use(instrument('./contextualizers/webhooks'))
-  app.use(asyncMiddleware(instrument('./contextualizers/whats-new-changelog')))
-  app.use(instrument('./contextualizers/layout'))
-  app.use(instrument('./contextualizers/current-product-tree'))
-  app.use(asyncMiddleware(instrument('./contextualizers/generic-toc')))
-  app.use(asyncMiddleware(instrument('./contextualizers/breadcrumbs')))
-  app.use(asyncMiddleware(instrument('./contextualizers/early-access-breadcrumbs')))
-  app.use(asyncMiddleware(instrument('./contextualizers/product-examples')))
+  app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
+  app.use(instrument(graphQL, './contextualizers/graphql'))
+  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(instrument(webhooks, './contextualizers/webhooks'))
+  app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
+  app.use(instrument(layout, './contextualizers/layout'))
+  app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
+  app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
+  app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
+  app.use(asyncMiddleware(instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')))
+  app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
+  app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 
-  app.use(asyncMiddleware(instrument('./dev-toc')))
-  app.use(asyncMiddleware(instrument('./featured-links')))
-  app.use(asyncMiddleware(instrument('./learning-track')))
-  app.use(asyncMiddleware(instrument('./is-next-request')))
+  app.use(asyncMiddleware(instrument(devToc, './dev-toc')))
+  app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
+  app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
+  app.use(asyncMiddleware(instrument(isNextRequest, './is-next-request')))
 
   // *** Headers for pages only ***
   app.use(setFastlyCacheHeaders)
 
   // handle serving NextJS bundled code (/_next/*)
   if (process.env.FEATURE_NEXTJS) {
-    app.use(instrument('./next'))
+    app.use(instrument(next, './next'))
   }
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, must go almost last ***
-  app.get('/*', asyncMiddleware(instrument('./render-page')))
+  app.get('/*', asyncMiddleware(instrument(renderPage, './render-page')))
 
   // *** Error handling, must go last ***
   app.use(handleErrors)
