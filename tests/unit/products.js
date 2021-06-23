@@ -41,6 +41,7 @@ describe('mobile-only products nav', () => {
 
 describe('products middleware', () => {
   jest.setTimeout(5 * 60 * 1000)
+
   test('adds res.context.activeProducts array', async () => {
     const products = await getJSON('/en?json=activeProducts')
     expect(Array.isArray(products)).toBe(true)
