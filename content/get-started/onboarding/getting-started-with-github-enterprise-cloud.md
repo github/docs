@@ -66,6 +66,9 @@ https://docs.github.com/en/billing/managing-billing-for-your-github-account/upgr
 
 ### Security
 
+### Allowed IP addresses, approved domains for email addresses
+
+
 ### Integration, customization, and automation
 
 ### Community
