@@ -103,7 +103,7 @@ describe('redirects', () => {
     })
 
     test('are redirected for HEAD requests (not just GET requests)', async () => {
-      const res = await supertest(app).head('/articles/closing-issues-via-commit-messages/')
+      const res = await supertest(app()).head('/articles/closing-issues-via-commit-messages/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/articles/closing-issues-via-commit-messages')
     })

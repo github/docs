@@ -155,7 +155,7 @@ async function main () {
     plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)]
   }
 
-  app.listen(port, async () => {
+  app().listen(port, async () => {
     console.log(`started server on ${host}`)
 
     await scrape(scraperOptions).catch(err => {
