@@ -70,11 +70,10 @@ Discover interesting projects using {% data variables.explore.explore_github %},
 ## Celebrate
 
 You're now connected to the {% data variables.product.product_name %} community. What do you want to do next?
-
 ![Star a project](/assets/images/help/stars/star-a-project.png)
 
-- "[Set up Git](/articles/set-up-git)"
-- "[Create a repository](/articles/create-a-repo)"
-- "[Fork a repository](/articles/fork-a-repo)"
-- **Be social**
+
+- To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."
+- You can also create a repository, where you can put all your projects and maintain your workflows. For more information see, "[Create a repository](/articles/create-a-repo)."
+- You can fork a repository to make changes you want to see without affecting the original repository. For more information, see "[Fork a repository](/articles/fork-a-repo)."
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
