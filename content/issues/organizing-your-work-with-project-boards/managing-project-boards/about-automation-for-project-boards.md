@@ -12,6 +12,8 @@ versions:
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.project-management.automate-project-board-permissions %}  For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 You can automate actions based on triggering events for project board columns. This eliminates some of the manual tasks in managing a project board. For example, you can configure a "To do" column, where any new issues or pull requests you add to a project board are automatically moved to the configured column. For more information, see "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)."  
