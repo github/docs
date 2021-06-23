@@ -263,11 +263,13 @@ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-re
 
 ## Troubleshooting the {% data variables.product.prodname_codeql_cli %} in your CI system
 
-### Diagnostic data and summary metrics
+### Viewing log and diagnostic information
 
 When you analyze a {% data variables.product.prodname_codeql %} database using a {% data variables.product.prodname_code_scanning %} query suite, in addition to generating detailed information about alerts, the CLI reports diagnostic data from the database generation step and summary metrics. For repositories with few alerts, you may find this information useful for determining if there are genuinely few problems in the code, or if there were errors generating the {% data variables.product.prodname_codeql %} database. For more detailed output from `codeql database analyze`, use the `--verbose` option.
 
-### {% data variables.product.prodname_code_scanning %} only shows analysis results from one of the analized languages
+For more information about the type of diagnostic information available, see "[Viewing {% data variables.product.prodname_code_scanning %} logs](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#about-analysis-and-diagnostic-information)".
+
+### {% data variables.product.prodname_code_scanning_capc %} only shows analysis results from one of the analyzed languages
 
 By default, {% data variables.product.prodname_code_scanning %} expects one SARIF results file per analysis for a repository. Consequently, when you upload a second SARIF results file for a commit, it is treated as a replacement for the original set of data.
 
