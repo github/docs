@@ -12,7 +12,7 @@ const supported = all.filter(release => {
 
 module.exports = async function releaseNotesContext (req, res, next) {
   // The `/release-notes` sub-path
-  if (!(req.path.endsWith('/release-notes') || req.path.endsWith('/admin'))) return next()
+  if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
 
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   const releaseNotesPerPlan = req.context.site.data['release-notes'][requestedPlan]
@@ -28,7 +28,7 @@ module.exports = async function releaseNotesContext (req, res, next) {
   if (hasNumberedReleases) {
     const currentReleaseNotes = releaseNotesPerPlan[`${requestedRelease.replace(/\./g, '-')}`]
 
-    if (!currentReleaseNotes && req.path.endsWith('/release-notes')) {
+    if (!currentReleaseNotes && req.pagePath.endsWith('/release-notes')) {
       // If the GHES version doesn't have any release notes, let's be helpful and redirect to `enterprise.github.com`
       return requestedPlan === 'enterprise-server'
         ? res.redirect(`https://enterprise.github.com/releases/${requestedRelease}.0/notes`)
