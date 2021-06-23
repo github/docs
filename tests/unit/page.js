@@ -557,9 +557,9 @@ describe('Page class', () => {
       })
   
       // Test the raw page data.
-      expect(page.versions['fpt']).toBe('*')
-      expect(page.versions['ghes']).toBe('>2.21')
-      expect(page.versions['ghae']).toBeUndefined()
+      expect(page.versions.fpt).toBe('*')
+      expect(page.versions.ghes).toBe('>2.21')
+      expect(page.versions.ghae).toBeUndefined()
       // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
       expect(page.versions.feature).toBeUndefined()
   
