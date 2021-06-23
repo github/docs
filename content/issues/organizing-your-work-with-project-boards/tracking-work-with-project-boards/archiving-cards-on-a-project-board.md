@@ -12,6 +12,8 @@ versions:
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 Automation in your project board does not apply to archived project board cards. For example, if you close an issue in a project board's archive, the archived card does not automatically move to the "Done" column. When you restore a card from the project board archive, the card will return to the column where it was archived.
 
 ## Archiving cards on a project board

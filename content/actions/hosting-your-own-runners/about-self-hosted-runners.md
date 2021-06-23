@@ -42,7 +42,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
 **Self-hosted runners:**
-- Receive automatic updates for the self-hosted runner application only. You are responsible updating the operating system and all other software. 
+- Receive automatic updates for the self-hosted runner application only. You are responsible for updating the operating system and all other software. 
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.

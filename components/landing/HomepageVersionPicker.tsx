@@ -6,6 +6,7 @@ import { ChevronDownIcon } from '@primer/octicons-react'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
   variant?: 'inline'
@@ -14,13 +15,14 @@ export const HomepageVersionPicker = ({ variant }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { getDetailsProps } = useDetails({})
-  const { allVersions, page, enterpriseServerVersions } = useMainContext()
+  const { allVersions, page, enterpriseServerVersions, isHomepageVersion } = useMainContext()
+  const { t } = useTranslation('homepage')
 
   if (page.permalinks && page.permalinks.length <= 1) {
     return null
   }
 
-  const label = allVersions[currentVersion].versionTitle
+  const label = isHomepageVersion ? t('version_picker') : allVersions[currentVersion].versionTitle
 
   if (variant === 'inline') {
     return (
@@ -33,6 +35,9 @@ export const HomepageVersionPicker = ({ variant }: Props) => {
         </summary>
         <div>
           {(page.permalinks || []).map((permalink) => {
+            if (permalink.pageVersion === 'homepage') {
+              return null
+            }
             return (
               <Link
                 key={permalink.href}
@@ -73,6 +78,10 @@ export const HomepageVersionPicker = ({ variant }: Props) => {
       </summary>
       <Dropdown.Menu direction="sw">
         {(page.permalinks || []).map((permalink) => {
+          if (permalink.pageVersion === 'homepage') {
+            return null
+          }
+
           return (
             <Dropdown.Item key={permalink.href}>
               <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>
