@@ -20,3 +20,4 @@ redirect_from:
   - /archiving-cards-on-a-project-board
 ---
 
+{% data reusables.projects.project_boards_old %}
