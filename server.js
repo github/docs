@@ -5,7 +5,7 @@ const os = require('os')
 const portUsed = require('port-used')
 const prefixStreamWrite = require('./lib/prefix-stream-write')
 const createApp = require('./lib/app')
-const libWarmServer = require('./lib/warm-server')
+const warmServer = require('./lib/warm-server')
 const http = require('http')
 
 // Intentionally require these for both cluster primary and workers
