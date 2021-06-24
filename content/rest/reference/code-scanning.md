@@ -30,7 +30,7 @@ For more information, see "[Media types](/rest/overview/media-types)."
 
 #### Response using the custom media type
 
-This example response is from a `GET` request to the `/analyses/{analysis_id}` endpoint, using `application/sarif+json` as the `Accept` header value. The example has had indendation and line breaks added for readability. For more information about this endpoint, see "[Get a {% data variables.product.prodname_code_scanning %} analysis for a repository](#get-a-code-scanning-analysis-for-a-repository)." 
+This example response is from a `GET` request to the `/analyses/{analysis_id}` endpoint, using `application/sarif+json` as the `Accept` header value. The example has had indentation and line breaks added for readability. For more information about this endpoint, see "[Get a {% data variables.product.prodname_code_scanning %} analysis for a repository](#get-a-code-scanning-analysis-for-a-repository)."
 
 ```
 {

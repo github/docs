@@ -3,7 +3,8 @@
 
 const cheerio = require('cheerio')
 const supertest = require('supertest')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
+const app = createApp()
 
 const helpers = {}
 

@@ -132,7 +132,7 @@ You can use the Dockerfile to add additional container layers to specify OS pack
 
 With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install npm when your codespace launches and make a list of ports inside the container available locally.
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to exand the `.devcontainer` folder to see it. 
+1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to expand the `.devcontainer` folder to see it.
 
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)  
 

@@ -39,7 +39,7 @@ We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML
 - "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
 - "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 
-## Bulding Xamarin.iOS apps
+## Building Xamarin.iOS apps
 
 The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
 
@@ -79,7 +79,7 @@ jobs:
 ```
 {% endraw %}
 
-## Bulding Xamarin.Android apps
+## Building Xamarin.Android apps
 
 The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
 

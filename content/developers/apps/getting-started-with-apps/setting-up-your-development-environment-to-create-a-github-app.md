@@ -169,7 +169,7 @@ Open up the `template_server.rb` file in your favorite text editor. You'll see c
 
 At the top of the file you'll see `set :port 3000`, which sets the port used when starting the web server to match the port you redirected your webhook payloads to in "[Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)."
 
-The next code you'll see is the `class GHApp < Sintra::Application` declaration. You'll write all of the code for your GitHub App inside this class.
+The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your GitHub App inside this class.
 
 Out of the box, the class in the template does the following things:
 * [Read the environment variables](#read-the-environment-variables)

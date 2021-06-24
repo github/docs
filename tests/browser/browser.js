@@ -4,7 +4,7 @@ const path = require('path')
 const sleep = require('await-sleep')
 const { latest } = require('../../lib/enterprise-server-releases')
 const languages = require('../../lib/languages')
-const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/feature-flags.json')))
+const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), './feature-flags.json')))
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
