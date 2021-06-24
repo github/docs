@@ -3,14 +3,22 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { useTheme, ThemeProvider } from '@primer/components'
-import { getThemeProps } from 'components/lib/getThemeProps'
+import { defaultThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
-import '@primer/css/index.scss'
+import '../stylesheets/index.scss'
 
-import { defaultThemeProps } from 'components/lib/getThemeProps'
+import events from 'javascripts/events'
+import experiment from 'javascripts/experiment'
+import setNextEnv from 'javascripts/set-next-env'
 
-type MyAppProps = AppProps & { csrfToken: string, themeProps: typeof defaultThemeProps }
+type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
+  useEffect(() => {
+    events()
+    experiment()
+    setNextEnv()
+  }, [])
+
   return (
     <>
       <Head>
@@ -43,9 +51,10 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
+  const appProps = await App.getInitialProps(appContext)
+  const req: any = ctx.req
 
-  return { ...appProps, themeProps: getThemeProps(ctx.req), csrfToken: (ctx.req as any).csrfToken() }
+  return { ...appProps, themeProps: getThemeProps(req), csrfToken: req?.csrfToken?.() || '' }
 }
 
 const SetTheme = ({ themeProps }: { themeProps: typeof defaultThemeProps }) => {

@@ -1,6 +1,6 @@
 ---
 title: Organization のフォークポリシーを管理する
-intro: 'Organization が所有するプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} および内部{% endif %} リポジトリのフォークを許可または禁止できます。'
+intro: 'Organizationが所有する任意のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}及びインターナル{% endif %}リオジトリのフォークを許可あるいは禁止できます。'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization

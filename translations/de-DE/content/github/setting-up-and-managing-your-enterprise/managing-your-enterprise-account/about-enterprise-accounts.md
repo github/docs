@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Informationen zu „Enterprise“ (Unternehmens)-Konten
 
 Mit einem Unternehmens-Konto kannst Du mehrere {% data variables.product.prodname_dotcom %}-Organisationen und {% data variables.product.prodname_ghe_server %}-Instanzen verwalten. Ihr Enterprise-Konto benötigt einen Handle, beispielsweise eine Organisation oder ein persönliches Konto auf {% data variables.product.prodname_dotcom %}. Enterprise-Administratoren können Einstellungen und Voreinstellungen verwalten, darunter folgende:

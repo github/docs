@@ -14,6 +14,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 {% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件は、提供するのが無料なのか有料アプリケーションなのかによって変わります。

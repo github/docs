@@ -5,9 +5,9 @@ redirect_from:
   - /categories/managing-email-preferences/
   - /articles/managing-email-preferences
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Notifications

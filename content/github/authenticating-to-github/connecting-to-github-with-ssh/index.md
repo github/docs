@@ -11,9 +11,9 @@ redirect_from:
   - /articles/generating-an-ssh-key/
   - /articles/connecting-to-github-with-ssh
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 children:

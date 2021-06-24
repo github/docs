@@ -9,9 +9,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: overview
 topics:
-  - Security
+  - Dependabot
+  - Alerts
+  - Vulnerabilities
+  - Repositories
+  - Dependencies
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 

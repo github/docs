@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Quando você usa `git show` para exibir um commit específico na linha de comando, é possível que veja um erro fatal.
 
 Por exemplo, talvez você receba um erro de `bad object` no local:

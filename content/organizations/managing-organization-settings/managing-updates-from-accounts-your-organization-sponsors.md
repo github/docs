@@ -4,7 +4,7 @@ intro: You can manage the email address that receives updates from accounts your
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
   - Organizations
@@ -24,6 +24,6 @@ You can also disable updates from accounts your organization sponsors. For more 
 1. Click **Update profile**.
     ![Update profile button](/assets/images/help/organizations/update-profile-button.png)
 
-### Further reading
+## Further reading
 
 - "[{% data variables.product.prodname_sponsors %}](/sponsors)"

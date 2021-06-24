@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. Em média, o procedimento leva de dois a dez minutos.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}

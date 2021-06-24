@@ -82,6 +82,7 @@ versions:
 
 - 观看一些关于 {% data variables.product.prodname_classroom %} 的视频。 更多信息请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 - 管理您的教室和教室管理员，并为您的教室创建学生名册。 更多信息请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)”。
+- 使用 Git 和 {% data variables.product.company_short %} 起始作业，让学生全面了解 Git 和 {% data variables.product.product_name %} 基础知识。 更多信息请参阅“[使用 Git 和 {% data variables.product.company_short %} 起始作业](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)”。
 - 为个别学生或团队创建作业。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 - 编写并实施自动化测试，直接在作业仓库中为学生提供即时反馈。 更多信息请参阅“[使用自动分级](/education/manage-coursework-with-github-classroom/use-autograding)”。
 - 参加 {% data variables.product.prodname_education_community_with_url %}。

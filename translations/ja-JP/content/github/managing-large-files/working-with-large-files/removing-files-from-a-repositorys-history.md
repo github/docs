@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% warning %}
 
 **警告**: この手順では、ファイルをコンピュータのリポジトリと {% data variables.product.product_location %} から恒久的に削除します。 ファイルが重要なものである場合は、ローカルバックアップコピーをリポジトリ外にあるディレクトリに作成してください。

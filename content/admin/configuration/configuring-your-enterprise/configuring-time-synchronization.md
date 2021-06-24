@@ -10,7 +10,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -18,7 +18,7 @@ topics:
   - Infrastructure
   - Networking
 ---
-### Changing the default NTP servers
+## Changing the default NTP servers
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -30,7 +30,7 @@ topics:
     ![The Save settings button in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/save-settings.png)
 5. Wait for the configuration run to complete.
 
-### Correcting a large time drift
+## Correcting a large time drift
 
 The NTP protocol continuously corrects small time synchronization discrepancies. You can use the administrative shell to synchronize time immediately.
 

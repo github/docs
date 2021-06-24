@@ -4,9 +4,9 @@ intro: 'To improve the relevance of your notifications and simplify your triagin
 redirect_from:
   - /articles/getting-started-with-notifications
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 children:

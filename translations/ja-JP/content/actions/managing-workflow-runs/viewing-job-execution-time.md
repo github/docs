@@ -20,6 +20,6 @@ versions:
 
    {% note %}
 
-   **ノート:** 表示される請求可能な時間には、丸めや分数の乗数は含まれません。 四捨五入や分乗数を含む {% data variables.product.prodname_actions %} の使用状況の合計を表示するには、「[{% data variables.product.prodname_actions %} の使用状況を表示する](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage)」を参照してください。
+   **ノート:** 表示される請求可能な時間には、丸めや分数の乗数は含まれません。 四捨五入や分乗数を含む {% data variables.product.prodname_actions %} の使用状況の合計を表示するには、「[{% data variables.product.prodname_actions %} の使用状況を表示する](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)」を参照してください。
 
    {% endnote %}

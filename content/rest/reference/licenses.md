@@ -3,11 +3,12 @@ title: Licenses
 redirect_from:
   - /v3/licenses
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The Licenses API returns metadata about popular open source licenses and information about a particular project's license file.

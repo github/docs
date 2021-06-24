@@ -6,10 +6,10 @@ redirect_from:
   - /categories/two-factor-authentication-2fa/
   - /articles/securing-your-account-with-two-factor-authentication-2fa
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
-  - 2fa
+  - 2FA
 children:
   - /about-two-factor-authentication
   - /configuring-two-factor-authentication

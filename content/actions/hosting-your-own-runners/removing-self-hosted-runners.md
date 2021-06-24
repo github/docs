@@ -5,10 +5,10 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -16,7 +16,7 @@ type: 'tutorial'
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Removing a runner from a repository
+## Removing a runner from a repository
 
 {% note %}
 
@@ -35,7 +35,7 @@ To remove a self-hosted runner from a user repository you must be the repository
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
-### Removing a runner from an organization
+## Removing a runner from an organization
 
 {% note %}
 
@@ -54,7 +54,7 @@ To remove a self-hosted runner from an organization, you must be an organization
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
-### Removing a runner from an enterprise
+## Removing a runner from an enterprise
 
 {% note %}
 
@@ -64,9 +64,9 @@ To remove a self-hosted runner from an organization, you must be an organization
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% elsif ghes > 2.21 or ghae %}
 To remove a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
 {% endif %}
 

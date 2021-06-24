@@ -7,9 +7,9 @@ redirect_from:
   - /articles/managing-access-to-your-personal-repositories
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Repositories

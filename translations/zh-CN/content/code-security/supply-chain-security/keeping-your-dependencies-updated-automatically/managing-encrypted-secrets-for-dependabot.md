@@ -6,7 +6,15 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
+topics:
+  - Dependabot
+  - Version updates
+  - Secret store
+  - Repositories
+  - Dependencies
 ---
+
 ### 关于 {% data variables.product.prodname_dependabot %} 的加密密码
 
 {% data variables.product.prodname_dependabot %} 密码是您在组织级别或仓库级别创建的加密凭据。

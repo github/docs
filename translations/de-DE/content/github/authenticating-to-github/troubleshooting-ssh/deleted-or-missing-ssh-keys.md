@@ -9,6 +9,7 @@ versions:
 topics:
   - SSH
 ---
+
 {% data variables.product.prodname_dotcom %} löscht automatisch inaktive SSH-Schlüssel, um Konten zu schützen, beispielsweise, wenn jemand seine Arbeitsstelle wechselt oder seinen Computer verliert.
 
 Ob Du einen SSH-Schlüssel seit einem Jahr nicht mehr verwendet hast, kannst Du anhand des Sicherheitsprotokolls Deines Kontos überprüfen. Weitere Informationen findest Du unter „[Sicherheitsprotokoll überprüfen](/articles/reviewing-your-security-log/).“

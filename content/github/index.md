@@ -6,22 +6,19 @@ redirect_from:
   - /troubleshooting-common-issues/
 intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
-  - /getting-started-with-github
   - /setting-up-and-managing-your-github-user-account
   - /setting-up-and-managing-your-github-profile
   - /authenticating-to-github
   - /managing-subscriptions-and-notifications-on-github
   - /setting-up-and-managing-your-enterprise
-  - /setting-up-and-managing-billing-and-payments-on-github
   - /writing-on-github
   - /creating-cloning-and-archiving-repositories
   - /committing-changes-to-your-project
-  - /collaborating-with-issues-and-pull-requests
-  - /managing-your-work-on-github
+  - /collaborating-with-pull-requests
   - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /administering-a-repository
@@ -32,13 +29,9 @@ children:
   - /managing-large-files
   - /customizing-your-github-workflow
   - /extending-github
-  - /finding-talent-with-github-jobs
   - /working-with-github-support
   - /understanding-how-github-uses-and-protects-your-data
   - /site-policy
   - /site-policy-deprecated
 ---
-<!-- Notifications v2 beta -->
-<!-- Notifications v1 -->
-{% if currentVersion == "enterprise-server@2.22" %}
-{% endif %}
+

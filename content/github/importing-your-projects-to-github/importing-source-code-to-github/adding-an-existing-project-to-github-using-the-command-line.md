@@ -6,9 +6,9 @@ redirect_from:
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% data reusables.repositories.migrating-from-codeplex %}
 
@@ -131,6 +131,6 @@ versions:
 
 {% endlinux %}
 
-### Further reading
+## Further reading
 
 - "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)"

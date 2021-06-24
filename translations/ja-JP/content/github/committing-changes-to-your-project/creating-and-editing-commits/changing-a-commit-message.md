@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### 直近のコミットメッセージの書き換え
 
 `git commit --amend` コマンドで、直近のコミットメッセージを変更できます。
@@ -49,9 +50,9 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 **直近でプッシュされたコミットのメッセージを変更する**
 
 1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
-2. `push --force` コマンドにより、古いコミットをフォースプッシュで上書きします。
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **古いまたは複数のコミットメッセージを変更する**

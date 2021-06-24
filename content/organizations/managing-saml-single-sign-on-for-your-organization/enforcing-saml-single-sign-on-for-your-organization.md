@@ -6,7 +6,7 @@ redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enforcing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -26,6 +26,6 @@ If your organization is owned by an enterprise account, enabling SAML for the en
 2. After you select **Require SAML SSO authentication for all members of the SAML SSO Org organization**, organization members who haven't authenticated via your IdP will be shown. If you enforce SAML SSO, these members will be removed from the organization.
 3. Click **Enforce SAML SSO** to enforce SAML SSO and remove the listed organization members.
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

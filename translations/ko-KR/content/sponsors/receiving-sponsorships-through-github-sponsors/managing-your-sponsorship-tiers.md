@@ -23,6 +23,10 @@ topics:
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
+   - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
+   - To create tiers without using with any of the draft suggestions, click **Skip this step**. !["Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
+1. Optionally, to edit a draft tier, find the draft tier and click **Edit**. ![Edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
@@ -33,6 +37,11 @@ topics:
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
+  {% note %}
+
+  **Note:** To see ideas of tier descriptions, scroll down.
+
+  {% endnote %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}

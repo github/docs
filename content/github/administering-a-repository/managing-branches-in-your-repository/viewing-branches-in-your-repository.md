@@ -5,9 +5,9 @@ redirect_from:
   - /articles/viewing-branches-in-your-repository
   - /github/administering-a-repository/viewing-branches-in-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
@@ -23,7 +23,7 @@ topics:
 
 ![The branches page for the Atom repository](/assets/images/help/branches/branches-overview-atom.png)
 
-### Further reading
+## Further reading
 
 - "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
 - "[Deleting unused branches](/articles/deleting-unused-branches)"

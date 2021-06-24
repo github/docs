@@ -6,16 +6,16 @@ redirect_from:
   - /articles/telling-git-about-your-signing-key
   - /github/authenticating-to-github/telling-git-about-your-signing-key
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
 ---
 {% mac %}
 
-### Telling Git about your GPG key
+## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.
 
@@ -48,7 +48,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% windows %}
 
-### Telling Git about your GPG key
+## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.
 
@@ -77,7 +77,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% endnote %}
 
-### Telling Git about your GPG key
+## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.
 
@@ -106,7 +106,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% endlinux %}
 
-### Further reading
+## Further reading
 
 - "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 - "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"

@@ -1,6 +1,6 @@
 ---
-title: About GitHub Packages and GitHub Actions
-intro: Learn the fundamentals of managing packages through your {% data variables.product.prodname_actions %} workflows.
+title: 关于 GitHub Packages 和 GitHub Actions
+intro: '通过 {% data variables.product.prodname_actions %} 工作流程了解管理包的基础知识。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

@@ -14,8 +14,8 @@ permissions: Organization owners can add people to an organization.
 If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

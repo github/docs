@@ -6,9 +6,9 @@ redirect_from:
   - /articles/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/error-agent-admitted-failure-to-sign
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 ---
@@ -24,7 +24,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
 
-### Resolution
+## Resolution
 
 You should be able to fix this error by loading your keys into your SSH agent with `ssh-add`:
 

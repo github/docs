@@ -16,13 +16,14 @@ versions:
 topics:
   - Marketplace
 ---
+
 ドラフトリストの [**リストの説明**] セクションに入力する必要があるフィールドについてのガイドラインは以下のとおりです。
 
 ### 名前のリンク
 
 #### リスト名
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing {% data variables.product.product_name %} user, unless the name is your own user or organization name.
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing {% data variables.product.product_name %} account, unless the name is your own user or organization name.
 
 #### ごく簡単な説明
 

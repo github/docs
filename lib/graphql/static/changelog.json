@@ -4,6 +4,212 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `ipAllowListEntries` was added to object type `App`",
+          "Member `App` was added to Union type `IpAllowListOwner`"
+        ]
+      }
+    ],
+    "previewChanges": [
+      {
+        "title": "The [Access to a repositories dependency graph preview](/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview) includes these changes:",
+        "changes": [
+          "Field `packageLabel` was added to object type `DependencyGraphDependency`"
+        ]
+      }
+    ],
+    "upcomingChanges": [],
+    "date": "2021-06-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `Reactor` was added",
+          "Type `ReactorConnection` was added",
+          "Type `ReactorEdge` was added",
+          "Field `reactors` was added to object type `ReactionGroup`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `ReactionGroup.users`:`users` will be removed. Use the `reactors` field instead. **Effective 2021-10-01**."
+        ]
+      }
+    ],
+    "date": "2021-06-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `IpAllowListForInstalledAppsEnabledSettingValue` was added",
+          "Type `UpdateIpAllowListForInstalledAppsEnabledSettingInput` was added",
+          "Type `UpdateIpAllowListForInstalledAppsEnabledSettingPayload` was added",
+          "Field `requiresConversationResolution` was added to object type `BranchProtectionRule`",
+          "Input field `requiresConversationResolution` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `ipAllowListForInstalledAppsEnabledSetting` was added to object type `EnterpriseOwnerInfo`",
+          "Field `titleHTML` was added to object type `Issue`",
+          "Field `updateIpAllowListForInstalledAppsEnabledSetting` was added to object type `Mutation`",
+          "Field `ipAllowListForInstalledAppsEnabledSetting` was added to object type `Organization`",
+          "Field `titleHTML` was added to object type `PullRequest`",
+          "Field `requiresConversationResolution` was added to object type `RefUpdateRule`",
+          "Input field `requiresConversationResolution` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-06-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AddDiscussionCommentInput` was added",
+          "Type `AddDiscussionCommentPayload` was added",
+          "Type `AddUpvoteInput` was added",
+          "Type `AddUpvotePayload` was added",
+          "Type `ApproveDeploymentsInput` was added",
+          "Type `ApproveDeploymentsPayload` was added",
+          "Type `CheckStep` was added",
+          "Type `CheckStepConnection` was added",
+          "Type `CheckStepEdge` was added",
+          "Type `CreateDiscussionInput` was added",
+          "Type `CreateDiscussionPayload` was added",
+          "Type `CreateEnvironmentInput` was added",
+          "Type `CreateEnvironmentPayload` was added",
+          "Type `DeleteDiscussionCommentInput` was added",
+          "Type `DeleteDiscussionCommentPayload` was added",
+          "Type `DeleteDiscussionInput` was added",
+          "Type `DeleteDiscussionPayload` was added",
+          "Type `DeleteEnvironmentInput` was added",
+          "Type `DeleteEnvironmentPayload` was added",
+          "Type `DeploymentProtectionRule` was added",
+          "Type `DeploymentProtectionRuleConnection` was added",
+          "Type `DeploymentProtectionRuleEdge` was added",
+          "Type `DeploymentProtectionRuleType` was added",
+          "Type `DeploymentRequest` was added",
+          "Type `DeploymentRequestConnection` was added",
+          "Type `DeploymentRequestEdge` was added",
+          "Type `DeploymentReview` was added",
+          "Type `DeploymentReviewConnection` was added",
+          "Type `DeploymentReviewEdge` was added",
+          "Type `DeploymentReviewState` was added",
+          "Type `DeploymentReviewer` was added",
+          "Type `DeploymentReviewerConnection` was added",
+          "Type `DeploymentReviewerEdge` was added",
+          "Type `Discussion` was added",
+          "Type `DiscussionCategory` was added",
+          "Type `DiscussionCategoryConnection` was added",
+          "Type `DiscussionCategoryEdge` was added",
+          "Type `DiscussionComment` was added",
+          "Type `DiscussionCommentConnection` was added",
+          "Type `DiscussionCommentEdge` was added",
+          "Type `DiscussionConnection` was added",
+          "Type `DiscussionEdge` was added",
+          "Type `DiscussionOrder` was added",
+          "Type `DiscussionOrderField` was added",
+          "Type `Environment` was added",
+          "Type `EnvironmentConnection` was added",
+          "Type `EnvironmentEdge` was added",
+          "Type `MarkDiscussionCommentAsAnswerInput` was added",
+          "Type `MarkDiscussionCommentAsAnswerPayload` was added",
+          "Type `PinnedDiscussion` was added",
+          "Type `PinnedDiscussionConnection` was added",
+          "Type `PinnedDiscussionEdge` was added",
+          "Type `PinnedDiscussionGradient` was added",
+          "Type `PinnedDiscussionPattern` was added",
+          "Type `RejectDeploymentsInput` was added",
+          "Type `RejectDeploymentsPayload` was added",
+          "Type `RemoveUpvoteInput` was added",
+          "Type `RemoveUpvotePayload` was added",
+          "Type `RepositoryDiscussionAuthor` was added",
+          "Type `RepositoryDiscussionCommentAuthor` was added",
+          "Type `UnmarkDiscussionCommentAsAnswerInput` was added",
+          "Type `UnmarkDiscussionCommentAsAnswerPayload` was added",
+          "Type `UpdateDiscussionCommentInput` was added",
+          "Type `UpdateDiscussionCommentPayload` was added",
+          "Type `UpdateDiscussionInput` was added",
+          "Type `UpdateDiscussionPayload` was added",
+          "Type `UpdateEnvironmentInput` was added",
+          "Type `UpdateEnvironmentPayload` was added",
+          "Type `Votable` was added",
+          "Type `Workflow` was added",
+          "Type `WorkflowRun` was added",
+          "Field `deployment` was added to object type `CheckRun`",
+          "Field `pendingDeploymentRequest` was added to object type `CheckRun`",
+          "Field `steps` was added to object type `CheckRun`",
+          "Enum value `PENDING` was added to enum `CheckStatusState`",
+          "Field `creator` was added to object type `CheckSuite`",
+          "Field `workflowRun` was added to object type `CheckSuite`",
+          "Field `addDiscussionComment` was added to object type `Mutation`",
+          "Field `addUpvote` was added to object type `Mutation`",
+          "Field `approveDeployments` was added to object type `Mutation`",
+          "Field `createDiscussion` was added to object type `Mutation`",
+          "Field `createEnvironment` was added to object type `Mutation`",
+          "Field `deleteDiscussion` was added to object type `Mutation`",
+          "Field `deleteDiscussionComment` was added to object type `Mutation`",
+          "Field `deleteEnvironment` was added to object type `Mutation`",
+          "Field `markDiscussionCommentAsAnswer` was added to object type `Mutation`",
+          "Field `rejectDeployments` was added to object type `Mutation`",
+          "Field `removeUpvote` was added to object type `Mutation`",
+          "Field `unmarkDiscussionCommentAsAnswer` was added to object type `Mutation`",
+          "Field `updateDiscussion` was added to object type `Mutation`",
+          "Field `updateDiscussionComment` was added to object type `Mutation`",
+          "Field `updateEnvironment` was added to object type `Mutation`",
+          "`Organization` object implements `RepositoryDiscussionAuthor` interface",
+          "`Organization` object implements `RepositoryDiscussionCommentAuthor` interface",
+          "Field `repositoryDiscussionComments` was added to object type `Organization`",
+          "Field `repositoryDiscussions` was added to object type `Organization`",
+          "Field `closingIssuesReferences` was added to object type `PullRequest`",
+          "`Release` object implements `Reactable` interface",
+          "Field `databaseId` was added to object type `Release`",
+          "Field `reactionGroups` was added to object type `Release`",
+          "Field `reactions` was added to object type `Release`",
+          "Field `viewerCanReact` was added to object type `Release`",
+          "Field `discussion` was added to object type `Repository`",
+          "Field `discussionCategories` was added to object type `Repository`",
+          "Field `discussions` was added to object type `Repository`",
+          "Field `environment` was added to object type `Repository`",
+          "Field `environments` was added to object type `Repository`",
+          "Field `pinnedDiscussions` was added to object type `Repository`",
+          "Enum value `PENDING` was added to enum `RequestableCheckStatusState`",
+          "Member `Discussion` was added to Union type `SearchResultItem`",
+          "Field `discussionCount` was added to object type `SearchResultItemConnection`",
+          "Enum value `DISCUSSION` was added to enum `SearchType`",
+          "Enum value `GO` was added to enum `SecurityAdvisoryEcosystem`",
+          "Field `totalRecurringMonthlyPriceInCents` was added to object type `SponsorshipConnection`",
+          "Field `totalRecurringMonthlyPriceInDollars` was added to object type `SponsorshipConnection`",
+          "`User` object implements `RepositoryDiscussionAuthor` interface",
+          "`User` object implements `RepositoryDiscussionCommentAuthor` interface",
+          "Field `repositoryDiscussionComments` was added to object type `User`",
+          "Field `repositoryDiscussions` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `PackageType.DOCKER`:`DOCKER` will be removed. **Effective 2021-06-21**."
+        ]
+      }
+    ],
+    "date": "2021-06-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Argument `isApproved: Boolean` added to field `Organization.domains`",
           "Field `canReceiveOrganizationEmailsWhenNotificationsRestricted` was added to object type `User`",
           "Field `isApproved` was added to object type `VerifiableDomain`",

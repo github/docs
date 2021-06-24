@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Project management
 ---
+
 ### 将 Jira 连接到 {% data variables.product.prodname_enterprise %} 组织
 
 1. 在 http[s]://[hostname]/login 上登录您的 {% data variables.product.prodname_enterprise %} 帐户。 如果已登录，请单击左上角的 {% data variables.product.prodname_dotcom %} 徽标。

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/updating-an-expired-gpg-key
   - /github/authenticating-to-github/updating-an-expired-gpg-key
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
@@ -16,6 +16,6 @@ If your key is expired, you must [update the expiration](https://www.gnupg.org/g
 
 If your key is invalid and you don't use another valid key in your key set, but instead generate a new GPG key with a new set of credentials, then your commits made with the revoked or expired key will continue to show as unverified. Also, your new credentials will not be able to resign or verify your old commits and tags.
 
-### Further reading
+## Further reading
 
 - "[About commit signature verification](/articles/about-commit-signature-verification)"

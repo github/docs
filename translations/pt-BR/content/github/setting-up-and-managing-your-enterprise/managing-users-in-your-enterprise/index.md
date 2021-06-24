@@ -15,6 +15,7 @@ topics:
 children:
   - /roles-in-an-enterprise
   - /inviting-people-to-manage-your-enterprise
+  - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
 ---

@@ -5,6 +5,7 @@ const flat = require('flat')
 const loadSiteData = require('../../lib/site-data')
 const patterns = require('../../lib/patterns')
 const { liquid } = require('../../lib/render-content')
+const walkSync = require('walk-sync')
 
 describe('siteData module (English)', () => {
   let data
@@ -13,7 +14,7 @@ describe('siteData module (English)', () => {
     done()
   })
 
-  test('exports an object', async () => {
+  test('makes an object', async () => {
     expect(isPlainObject(data)).toBe(true)
   })
 
@@ -82,7 +83,7 @@ describe('siteData module (English)', () => {
   })
 
   test('warn if any YAML reusables are found', async () => {
-    const reusables = require('walk-sync')(path.join(__dirname, '../../data/reusables'))
+    const reusables = walkSync(path.join(__dirname, '../../data/reusables'))
     expect(reusables.length).toBeGreaterThan(100)
     const yamlReusables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
     const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlReusables.join('\n')}`

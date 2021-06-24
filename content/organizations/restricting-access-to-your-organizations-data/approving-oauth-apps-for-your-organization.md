@@ -6,7 +6,7 @@ redirect_from:
   - /articles/approving-oauth-apps-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -21,6 +21,6 @@ When {% data variables.product.prodname_oauth_app %} access restrictions are ena
 6. After you review the information about the requested application, click **Grant access**.
 ![Grant access button](/assets/images/help/settings/settings-third-party-approve-grant.png)
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

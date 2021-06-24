@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Wenn durch die Neuanordnung und Bearbeitung der Commits durch ein `git rebase` ein Mergekonflikt entsteht, gibt Git die folgende Meldung im Terminal aus:
 
 ```shell

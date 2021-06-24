@@ -2,12 +2,12 @@
 title: Creating custom images
 intro: 'You can create custom images for {% data variables.actions.hosted_runner %}s.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
 {% data reusables.actions.ae-beta %}
 
-### Creating an {% data variables.actions.hosted_runner %} with a custom image
+## Creating an {% data variables.actions.hosted_runner %} with a custom image
 
 {% data variables.actions.hosted_runner %}s can use operating system images that you've customized to suit your needs. This article includes the high level steps for creating the image in Azure and preparing it for {% data variables.product.prodname_ghe_managed %}. For more information, refer to [the Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/).
 

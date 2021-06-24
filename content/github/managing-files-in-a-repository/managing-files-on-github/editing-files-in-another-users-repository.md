@@ -7,9 +7,9 @@ redirect_from:
   - /articles/editing-files-in-another-users-repository
   - /github/managing-files-in-a-repository/editing-files-in-another-users-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
@@ -27,6 +27,6 @@ topics:
 8. Click **Create pull request**.
 ![Pull Request button](/assets/images/help/pull_requests/pullrequest-send.png)
 
-### Further reading
+## Further reading
 
 * "[Editing files in your repository](/articles/editing-files-in-your-repository)"

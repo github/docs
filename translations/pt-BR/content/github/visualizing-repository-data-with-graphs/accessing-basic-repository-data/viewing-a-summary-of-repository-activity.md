@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Os coautores de commit serão incluídos no resumo da atividade de commit caso tenha sido feito merge dos commits deles no branch padrão do repositório e eles estejam entre os 15 principais usuários que contribuíram com a maioria dos commits.
 
 ### Acessar o Pulse

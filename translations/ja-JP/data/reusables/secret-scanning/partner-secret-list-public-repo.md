@@ -77,3 +77,4 @@
 | Tencent Cloud             | Tencent Cloud Secret ID                             |
 | Twilio                    | Twilio Account String Identifier                    |
 | Twilio                    | Twilio API Key                                      |
+| Valour                    | Valour Access Token                                 |

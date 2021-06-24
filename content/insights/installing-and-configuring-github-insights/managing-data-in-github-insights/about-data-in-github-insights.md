@@ -3,7 +3,7 @@ title: About data in GitHub Insights
 intro: 'The data included in {% data variables.product.prodname_insights %} metrics is highly customizable.'
 permissions: ''
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 redirect_from:
   - /insights/installing-and-configuring-github-insights/about-data-in-github-insights
 ---
@@ -17,6 +17,6 @@ You can choose which contributors are included in metrics and create teams of co
 
 {% data reusables.github-insights.events %} For more information, see "[Managing events](/insights/installing-and-configuring-github-insights/managing-events)."
 
-### Further reading
+## Further reading
 - "[Metrics available with {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)"
 - "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} and data protection for your organization</a>"

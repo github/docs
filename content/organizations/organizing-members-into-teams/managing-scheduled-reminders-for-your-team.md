@@ -5,13 +5,13 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
 ---
 
-### About scheduled reminders for teams
+## About scheduled reminders for teams
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -19,7 +19,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Creating a scheduled reminder for a team
+## Creating a scheduled reminder for a team
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -43,7 +43,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-### Managing a scheduled reminder for a team
+## Managing a scheduled reminder for a team
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -54,7 +54,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Deleting a scheduled reminder for a team
+## Deleting a scheduled reminder for a team
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -63,7 +63,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 ![Scheduled reminders button](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
-### Further reading
+## Further reading
 
 - "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
 - "[Managing your scheduled reminders](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"

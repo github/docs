@@ -7,9 +7,9 @@ redirect_from:
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -40,6 +40,6 @@ Organization owners can change the parent of any team. Team maintainers can chan
 9. Click **Confirm new parent team**.
   ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"

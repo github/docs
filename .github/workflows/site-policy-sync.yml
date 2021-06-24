@@ -22,7 +22,9 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   copy-file:
-    if: github.repository == 'github/docs-internal'
+    if: |
+      github.event.pull_request.merged == true &&
+      github.repository == 'github/docs-internal'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 

@@ -1,7 +1,7 @@
 ---
 title: Managing security vulnerabilities
 versions:
-  enterprise-server: <=2.22
+  ghes: <=2.22
 topics:
   - Security
 children:

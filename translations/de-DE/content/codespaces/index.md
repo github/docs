@@ -39,5 +39,6 @@ children:
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
+  - /guides
 ---
 

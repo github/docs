@@ -6,8 +6,8 @@ redirect_from:
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Profiles
 ---
@@ -31,6 +31,6 @@ You can reorder the items in the "Pinned" section. In the upper-right corner of 
 6. Click **Save pins**.
 	![Save pins button](/assets/images/help/profile/save-pinned-repositories.png)
 
-### Further reading
+## Further reading
 
 - "[About your profile](/articles/about-your-profile)"

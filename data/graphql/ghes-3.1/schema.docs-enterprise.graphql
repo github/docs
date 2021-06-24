@@ -1,4 +1,14 @@
 """
+Marks an element of a GraphQL schema as only available via a preview header
+"""
+directive @preview(
+  """
+  The identifier of the API preview that toggles this field.
+  """
+  toggledBy: String!
+) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
+
+"""
 Defines what type of global IDs are accepted for a mutation argument of type ID.
 """
 directive @possibleTypes(
@@ -12,16 +22,6 @@ directive @possibleTypes(
   """
   concreteTypes: [String!]!
 ) on INPUT_FIELD_DEFINITION
-
-"""
-Marks an element of a GraphQL schema as only available via a preview header
-"""
-directive @preview(
-  """
-  The identifier of the API preview that toggles this field.
-  """
-  toggledBy: String!
-) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
 
 """
 Represents an object which can take actions on GitHub. Typically a User or Bot.
@@ -540,7 +540,20 @@ input AddReactionInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "Issue", "IssueComment", "PullRequest", "PullRequestReview", "PullRequestReviewComment", "TeamDiscussion", "TeamDiscussionComment"], abstractType: "Reactable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: [
+        "CommitComment"
+        "Issue"
+        "IssueComment"
+        "PullRequest"
+        "PullRequestReview"
+        "PullRequestReviewComment"
+        "TeamDiscussion"
+        "TeamDiscussionComment"
+      ]
+      abstractType: "Reactable"
+    )
 }
 
 """
@@ -773,7 +786,8 @@ type AssignedEvent implements Node {
   """
   Identifies the user who was assigned.
   """
-  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+  user: User
+    @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
 }
 
 """
@@ -7707,7 +7721,10 @@ type EnterpriseBillingInfo {
   """
   The number of available seats across all owned organizations based on the unique number of billable users.
   """
-  availableSeats: Int! @deprecated(reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.")
+  availableSeats: Int!
+    @deprecated(
+      reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC."
+    )
 
   """
   The bandwidth quota in GB for all organizations owned by the enterprise.
@@ -7727,7 +7744,10 @@ type EnterpriseBillingInfo {
   """
   The total seats across all organizations owned by the enterprise.
   """
-  seats: Int! @deprecated(reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.")
+  seats: Int!
+    @deprecated(
+      reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC."
+    )
 
   """
   The storage quota in GB for all organizations owned by the enterprise.
@@ -8824,7 +8844,10 @@ type EnterpriseOwnerInfo {
     The search string to look for.
     """
     query: String
-  ): EnterprisePendingCollaboratorConnection! @deprecated(reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC.")
+  ): EnterprisePendingCollaboratorConnection!
+    @deprecated(
+      reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of pending member invitations for organizations in the enterprise.
@@ -11547,7 +11570,8 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): IssueTimelineConnection! @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC.")
+  ): IssueTimelineConnection!
+    @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC.")
 
   """
   A list of events, comments, commits, etc. associated with the issue.
@@ -12163,7 +12187,26 @@ type IssueTimelineConnection {
 """
 An item in an issue timeline
 """
-union IssueTimelineItem = AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItem =
+    AssignedEvent
+  | ClosedEvent
+  | Commit
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MilestonedEvent
+  | ReferencedEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 An edge in a connection.
@@ -12183,7 +12226,37 @@ type IssueTimelineItemEdge {
 """
 An item in an issue timeline
 """
-union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItems =
+    AddedToProjectEvent
+  | AssignedEvent
+  | ClosedEvent
+  | CommentDeletedEvent
+  | ConnectedEvent
+  | ConvertedNoteToIssueEvent
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DisconnectedEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MarkedAsDuplicateEvent
+  | MentionedEvent
+  | MilestonedEvent
+  | MovedColumnsInProjectEvent
+  | PinnedEvent
+  | ReferencedEvent
+  | RemovedFromProjectEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnmarkedAsDuplicateEvent
+  | UnpinnedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 The connection type for IssueTimelineItems.
@@ -13683,7 +13756,10 @@ enum MergeStateStatus {
   """
   The merge is blocked due to the pull request being a draft.
   """
-  DRAFT @deprecated(reason: "DRAFT state will be removed from this enum and `isDraft` should be used instead Use PullRequest.isDraft instead. Removal on 2021-01-01 UTC.")
+  DRAFT
+    @deprecated(
+      reason: "DRAFT state will be removed from this enum and `isDraft` should be used instead Use PullRequest.isDraft instead. Removal on 2021-01-01 UTC."
+    )
 
   """
   Mergeable with passing commit status and pre-receive hooks.
@@ -14101,7 +14177,11 @@ input MinimizeCommentInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "GistComment", "IssueComment", "PullRequestReviewComment"], abstractType: "Minimizable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["CommitComment", "GistComment", "IssueComment", "PullRequestReviewComment"]
+      abstractType: "Minimizable"
+    )
 }
 
 """
@@ -18016,7 +18096,10 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
 """
 Types of memberships that can be restored for an Organization member.
 """
-union OrgRestoreMemberAuditEntryMembership = OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgRestoreMemberMembershipRepositoryAuditEntryData | OrgRestoreMemberMembershipTeamAuditEntryData
+union OrgRestoreMemberAuditEntryMembership =
+    OrgRestoreMemberMembershipOrganizationAuditEntryData
+  | OrgRestoreMemberMembershipRepositoryAuditEntryData
+  | OrgRestoreMemberMembershipTeamAuditEntryData
 
 """
 Metadata for an organization membership for org.restore_member actions
@@ -19385,7 +19468,65 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
 """
 An audit entry in an organization audit log.
 """
-union OrganizationAuditEntry = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+union OrganizationAuditEntry =
+    MembersCanDeleteReposClearAuditEntry
+  | MembersCanDeleteReposDisableAuditEntry
+  | MembersCanDeleteReposEnableAuditEntry
+  | OauthApplicationCreateAuditEntry
+  | OrgAddBillingManagerAuditEntry
+  | OrgAddMemberAuditEntry
+  | OrgBlockUserAuditEntry
+  | OrgConfigDisableCollaboratorsOnlyAuditEntry
+  | OrgConfigEnableCollaboratorsOnlyAuditEntry
+  | OrgCreateAuditEntry
+  | OrgDisableOauthAppRestrictionsAuditEntry
+  | OrgDisableSamlAuditEntry
+  | OrgDisableTwoFactorRequirementAuditEntry
+  | OrgEnableOauthAppRestrictionsAuditEntry
+  | OrgEnableSamlAuditEntry
+  | OrgEnableTwoFactorRequirementAuditEntry
+  | OrgInviteMemberAuditEntry
+  | OrgInviteToBusinessAuditEntry
+  | OrgOauthAppAccessApprovedAuditEntry
+  | OrgOauthAppAccessDeniedAuditEntry
+  | OrgOauthAppAccessRequestedAuditEntry
+  | OrgRemoveBillingManagerAuditEntry
+  | OrgRemoveMemberAuditEntry
+  | OrgRemoveOutsideCollaboratorAuditEntry
+  | OrgRestoreMemberAuditEntry
+  | OrgUnblockUserAuditEntry
+  | OrgUpdateDefaultRepositoryPermissionAuditEntry
+  | OrgUpdateMemberAuditEntry
+  | OrgUpdateMemberRepositoryCreationPermissionAuditEntry
+  | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry
+  | PrivateRepositoryForkingDisableAuditEntry
+  | PrivateRepositoryForkingEnableAuditEntry
+  | RepoAccessAuditEntry
+  | RepoAddMemberAuditEntry
+  | RepoAddTopicAuditEntry
+  | RepoArchivedAuditEntry
+  | RepoChangeMergeSettingAuditEntry
+  | RepoConfigDisableAnonymousGitAccessAuditEntry
+  | RepoConfigDisableCollaboratorsOnlyAuditEntry
+  | RepoConfigDisableContributorsOnlyAuditEntry
+  | RepoConfigDisableSockpuppetDisallowedAuditEntry
+  | RepoConfigEnableAnonymousGitAccessAuditEntry
+  | RepoConfigEnableCollaboratorsOnlyAuditEntry
+  | RepoConfigEnableContributorsOnlyAuditEntry
+  | RepoConfigEnableSockpuppetDisallowedAuditEntry
+  | RepoConfigLockAnonymousGitAccessAuditEntry
+  | RepoConfigUnlockAnonymousGitAccessAuditEntry
+  | RepoCreateAuditEntry
+  | RepoDestroyAuditEntry
+  | RepoRemoveMemberAuditEntry
+  | RepoRemoveTopicAuditEntry
+  | RepositoryVisibilityChangeDisableAuditEntry
+  | RepositoryVisibilityChangeEnableAuditEntry
+  | TeamAddMemberAuditEntry
+  | TeamAddRepositoryAuditEntry
+  | TeamChangeParentTeamAuditEntry
+  | TeamRemoveMemberAuditEntry
+  | TeamRemoveRepositoryAuditEntry
 
 """
 The connection type for OrganizationAuditEntry.
@@ -21964,6 +22105,36 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   closedAt: DateTime
 
   """
+  List of issues that were may be closed by this pull request
+  """
+  closingIssuesReferences(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for issues returned from the connection
+    """
+    orderBy: IssueOrder
+  ): IssueConnection
+
+  """
   A list of comments associated with the pull request.
   """
   comments(
@@ -22525,7 +22696,8 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): PullRequestTimelineConnection! @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC.")
+  ): PullRequestTimelineConnection!
+    @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC.")
 
   """
   A list of events, comments, commits, etc. associated with the pull request.
@@ -23931,7 +24103,40 @@ type PullRequestTimelineConnection {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItem = AssignedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItem =
+    AssignedEvent
+  | BaseRefDeletedEvent
+  | BaseRefForcePushedEvent
+  | ClosedEvent
+  | Commit
+  | CommitCommentThread
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DeployedEvent
+  | DeploymentEnvironmentChangedEvent
+  | HeadRefDeletedEvent
+  | HeadRefForcePushedEvent
+  | HeadRefRestoredEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MergedEvent
+  | MilestonedEvent
+  | PullRequestReview
+  | PullRequestReviewComment
+  | PullRequestReviewThread
+  | ReferencedEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | ReviewDismissedEvent
+  | ReviewRequestRemovedEvent
+  | ReviewRequestedEvent
+  | SubscribedEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 An edge in a connection.
@@ -23951,7 +24156,62 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems =
+    AddedToProjectEvent
+  | AssignedEvent
+  | AutoMergeDisabledEvent
+  | AutoMergeEnabledEvent
+  | AutoRebaseEnabledEvent
+  | AutoSquashEnabledEvent
+  | AutomaticBaseChangeFailedEvent
+  | AutomaticBaseChangeSucceededEvent
+  | BaseRefChangedEvent
+  | BaseRefDeletedEvent
+  | BaseRefForcePushedEvent
+  | ClosedEvent
+  | CommentDeletedEvent
+  | ConnectedEvent
+  | ConvertToDraftEvent
+  | ConvertedNoteToIssueEvent
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DeployedEvent
+  | DeploymentEnvironmentChangedEvent
+  | DisconnectedEvent
+  | HeadRefDeletedEvent
+  | HeadRefForcePushedEvent
+  | HeadRefRestoredEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MarkedAsDuplicateEvent
+  | MentionedEvent
+  | MergedEvent
+  | MilestonedEvent
+  | MovedColumnsInProjectEvent
+  | PinnedEvent
+  | PullRequestCommit
+  | PullRequestCommitCommentThread
+  | PullRequestReview
+  | PullRequestReviewThread
+  | PullRequestRevisionMarker
+  | ReadyForReviewEvent
+  | ReferencedEvent
+  | RemovedFromProjectEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | ReviewDismissedEvent
+  | ReviewRequestRemovedEvent
+  | ReviewRequestedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnmarkedAsDuplicateEvent
+  | UnpinnedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -25821,7 +26081,20 @@ input RemoveReactionInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "Issue", "IssueComment", "PullRequest", "PullRequestReview", "PullRequestReviewComment", "TeamDiscussion", "TeamDiscussionComment"], abstractType: "Reactable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: [
+        "CommitComment"
+        "Issue"
+        "IssueComment"
+        "PullRequest"
+        "PullRequestReview"
+        "PullRequestReviewComment"
+        "TeamDiscussion"
+        "TeamDiscussionComment"
+      ]
+      abstractType: "Reactable"
+    )
 }
 
 """
@@ -30013,7 +30286,10 @@ enum RepositoryInvitationOrderField {
   """
   Order repository invitations by invitee login
   """
-  INVITEE_LOGIN @deprecated(reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC.")
+  INVITEE_LOGIN
+    @deprecated(
+      reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC."
+    )
 }
 
 """
@@ -31814,7 +32090,10 @@ type Sponsorship implements Node {
   """
   The entity that is being sponsored
   """
-  maintainer: User! @deprecated(reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.")
+  maintainer: User!
+    @deprecated(
+      reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC."
+    )
 
   """
   The privacy level for this sponsorship.
@@ -31824,7 +32103,10 @@ type Sponsorship implements Node {
   """
   The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.
   """
-  sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
+  sponsor: User
+    @deprecated(
+      reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   The user or organization that is sponsoring, if you have permission to view them.
@@ -34856,7 +35138,8 @@ type UnassignedEvent implements Node {
   """
   Identifies the subject (user) who was unassigned.
   """
-  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+  user: User
+    @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
 }
 
 """
@@ -35180,7 +35463,11 @@ input UnminimizeCommentInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "GistComment", "IssueComment", "PullRequestReviewComment"], abstractType: "Minimizable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["CommitComment", "GistComment", "IssueComment", "PullRequestReviewComment"]
+      abstractType: "Minimizable"
+    )
 }
 
 """
@@ -36840,7 +37127,11 @@ input UpdateSubscriptionInput {
   """
   The Node ID of the subscribable object to modify.
   """
-  subscribableId: ID! @possibleTypes(concreteTypes: ["Commit", "Issue", "PullRequest", "Repository", "Team", "TeamDiscussion"], abstractType: "Subscribable")
+  subscribableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Commit", "Issue", "PullRequest", "Repository", "Team", "TeamDiscussion"]
+      abstractType: "Subscribable"
+    )
 }
 
 """

@@ -9,7 +9,7 @@ const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
 const nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
 
 describe('OpenAPI schema validation', () => {
-  test('exports an object', () => {
+  test('makes an object', () => {
     expect(isPlainObject(operations)).toBe(true)
   })
 

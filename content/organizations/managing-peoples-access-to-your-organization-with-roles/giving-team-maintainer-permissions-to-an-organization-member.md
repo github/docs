@@ -6,9 +6,9 @@ redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.organizations.team_maintainers_can %}
 
-### Promoting an organization member to team maintainer
+## Promoting an organization member to team maintainer
 
 Before promoting an organization member to team maintainer, the person must already be a member of the team.
 

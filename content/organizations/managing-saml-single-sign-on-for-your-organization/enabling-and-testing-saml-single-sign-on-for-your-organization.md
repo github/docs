@@ -6,7 +6,7 @@ redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -52,6 +52,6 @@ Prior to enforcing SAML SSO in your organization, ensure that you've set up your
 12. Click **Save**.
 ![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

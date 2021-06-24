@@ -6,7 +6,7 @@ redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -21,6 +21,6 @@ If both 2FA and SAML SSO are enabled, organization members must do the following
 - Use single sign-on to access the organization
 - Use an authorized token for API or Git access and use single sign-on to authorize the token
 
-### Further reading
+## Further reading
 
 - "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"
