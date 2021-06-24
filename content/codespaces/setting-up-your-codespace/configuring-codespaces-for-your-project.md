@@ -12,6 +12,7 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
+shortTitle: Configure your project
 ---
 
 {% data reusables.codespaces.release-stage %}

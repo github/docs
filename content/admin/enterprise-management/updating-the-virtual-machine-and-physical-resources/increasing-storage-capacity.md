@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Performance
   - Storage
+shortTitle: Increase storage capacity
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 

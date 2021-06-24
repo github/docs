@@ -16,5 +16,6 @@ children:
   - /about-protected-branches
   - /managing-a-branch-protection-rule
   - /troubleshooting-required-status-checks
+shortTitle: Mergeability of PRs
 ---
 

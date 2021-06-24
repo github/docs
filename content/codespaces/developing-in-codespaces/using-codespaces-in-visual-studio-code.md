@@ -12,6 +12,7 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+shortTitle: Visual Studio Code
 ---
 
 {% data reusables.codespaces.release-stage %}

@@ -13,6 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Set collaborator policy
 ---
 
 Organization owners, and members with admin privileges for a repository, can invite outside collaborators to work on the repository. You can also restrict outside collaborator invite permissions to only organization owners.

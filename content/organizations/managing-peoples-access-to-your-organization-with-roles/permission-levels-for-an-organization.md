@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Permissions for organization
 ---
 
 ## Permission levels for an organization

@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Accounts
+shortTitle: Your personal dashboard
 ---
 ## Accessing your personal dashboard
 

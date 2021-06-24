@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Manage a team discussion
 ---
 
 {% data reusables.profile.access_org %}

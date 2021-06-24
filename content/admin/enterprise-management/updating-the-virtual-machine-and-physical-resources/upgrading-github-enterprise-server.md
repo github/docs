@@ -20,6 +20,7 @@ type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Upgrading GHES
 ---
 ## Preparing to upgrade
 

@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+shortTitle: Configure Actions retention
 ---
 {% data reusables.actions.about-artifact-log-retention %}
 

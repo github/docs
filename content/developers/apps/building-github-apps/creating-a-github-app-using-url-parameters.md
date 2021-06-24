@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: App creation query parameters
 ---
 ## About {% data variables.product.prodname_github_app %} URL parameters
 

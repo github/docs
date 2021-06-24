@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Test your SSH connection
 ---
 Before testing your SSH connection, you should have:
 - [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)

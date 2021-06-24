@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Sort issues & PRs
 ---
 You can sort any filtered view by:
 

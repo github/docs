@@ -10,5 +10,6 @@ children:
   - /managing-access-and-security-for-your-organizations-codespaces
   - /managing-user-permissions-for-your-organization
   - /reviewing-your-organizations-audit-logs-for-codespaces
+shortTitle: Manage your organization
 ---
 {% data reusables.codespaces.release-stage %}

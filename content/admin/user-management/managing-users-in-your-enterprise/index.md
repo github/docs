@@ -22,5 +22,6 @@ children:
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
   - /managing-global-webhooks
+shortTitle: Manage users
 ---
 

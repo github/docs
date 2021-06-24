@@ -11,6 +11,7 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
+shortTitle: Deploy to Kubernetes (GKE)
 ---
 
 {% data reusables.actions.enterprise-beta %}

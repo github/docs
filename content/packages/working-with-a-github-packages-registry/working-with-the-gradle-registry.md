@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Gradle registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Suspend app installation
 ---
 ## Suspending a GitHub App
 

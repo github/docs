@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Profiles
+shortTitle: Organization's profile
 ---
 You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories to the top of the page.
 

@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Associate email with GPG key
 ---
 {% note %}
 

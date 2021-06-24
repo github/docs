@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 authors:
   - GitHub
+shortTitle: Learning resources
 ---
 ## Using Git
 

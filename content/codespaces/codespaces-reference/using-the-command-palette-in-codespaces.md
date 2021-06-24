@@ -7,6 +7,7 @@ type: reference
 topics:
   - Codespaces
   - Visual Studio Code
+shortTitle: Command Palette
 ---
 
 {% data reusables.codespaces.release-stage %}

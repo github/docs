@@ -10,6 +10,7 @@ versions:
 type: overview
 topics:
   - Marketplace
+shortTitle: Billing for GitHub Marketplace
 ---
 {% data variables.product.prodname_marketplace %} includes apps with free and paid pricing plans. After you purchase and install an app, you can upgrade, downgrade, or cancel at any time.
 

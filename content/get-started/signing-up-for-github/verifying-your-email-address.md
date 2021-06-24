@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Accounts
+shortTitle: Verify your email address
 ---
 ## About email verification
 

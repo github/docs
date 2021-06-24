@@ -10,6 +10,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Unauthorized access
 ---
 {% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
 

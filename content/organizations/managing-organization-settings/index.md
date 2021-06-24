@@ -37,6 +37,7 @@ children:
   - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-corporate-terms-of-service
   - /disabling-project-boards-in-your-organization
+shortTitle: Manage organization settings
 ---
 {% ifversion fpt %}
 {% endif %}

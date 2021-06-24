@@ -13,6 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Repository permissions
 ---
 
 People with admin permissions can manage individual and team access to an organization-owned repository.

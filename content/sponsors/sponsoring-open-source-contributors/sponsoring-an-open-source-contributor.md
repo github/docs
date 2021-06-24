@@ -13,6 +13,7 @@ type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Sponsor a contributor
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

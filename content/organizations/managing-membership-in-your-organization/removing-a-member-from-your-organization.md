@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Remove a member
 ---
 
 Only organization owners can remove members from an organization.

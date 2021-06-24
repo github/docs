@@ -17,6 +17,7 @@ topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export data from GitHub.com
 ---
 ## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 

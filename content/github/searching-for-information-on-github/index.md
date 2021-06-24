@@ -14,5 +14,6 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
+shortTitle: Search on GitHub
 ---
 

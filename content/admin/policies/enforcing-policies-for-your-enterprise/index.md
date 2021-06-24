@@ -11,5 +11,6 @@ children:
   - /enforcing-repository-management-policies-in-your-enterprise
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-advanced-security-in-your-enterprise
+shortTitle: Enforce policies
 ---
 

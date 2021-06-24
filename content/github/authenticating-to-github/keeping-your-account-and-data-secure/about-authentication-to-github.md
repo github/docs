@@ -10,6 +10,7 @@ topics:
   - Access management
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
+shortTitle: Authentication to GitHub
 ---
 ## About authentication to {% data variables.product.prodname_dotcom %}
 

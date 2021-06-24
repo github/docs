@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
   - /github/getting-started-with-github/learning-about-github/faq-about-changes-to-githubs-plans
+shortTitle: Changes to GitHub plans
 ---
 ## What plans and pricing changes did GitHub announce on April 14?
 

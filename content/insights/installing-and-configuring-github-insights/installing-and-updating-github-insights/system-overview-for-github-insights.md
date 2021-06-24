@@ -6,6 +6,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/system-overview-for-github-insights
 versions:
   ghes: '*'
+shortTitle: System overview
 ---
 ## Requirements for running {% data variables.product.prodname_insights %}
 

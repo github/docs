@@ -10,6 +10,7 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+shortTitle: Move assigned issues
 ---
 
 {% data reusables.actions.enterprise-beta %}

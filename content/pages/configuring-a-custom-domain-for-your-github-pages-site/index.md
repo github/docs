@@ -20,5 +20,6 @@ children:
   - /about-custom-domains-and-github-pages
   - /managing-a-custom-domain-for-your-github-pages-site
   - /troubleshooting-custom-domains-and-github-pages
+shortTitle: Configure a custom domain
 ---
 

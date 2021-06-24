@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Remove members
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}  

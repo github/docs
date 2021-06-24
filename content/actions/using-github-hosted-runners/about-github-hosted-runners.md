@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=2.22'
+shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.enterprise-beta %}

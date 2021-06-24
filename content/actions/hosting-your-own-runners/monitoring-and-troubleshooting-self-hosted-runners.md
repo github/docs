@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Monitor & troubleshoot
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

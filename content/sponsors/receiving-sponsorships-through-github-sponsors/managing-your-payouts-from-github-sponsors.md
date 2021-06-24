@@ -10,6 +10,7 @@ type: how_to
 topics:
   - Sponsors payments
   - Open Source
+shortTitle: Manage payouts
 ---
 
 ## About payouts from {% data variables.product.prodname_sponsors %}

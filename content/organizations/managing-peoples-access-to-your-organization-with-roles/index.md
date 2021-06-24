@@ -18,5 +18,6 @@ children:
   - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
+shortTitle: Manage access with roles
 ---
 

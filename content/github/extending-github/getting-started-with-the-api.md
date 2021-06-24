@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Get started API
 ---
 
 To automate common tasks, back up your data, or create integrations that extend {% data variables.product.product_name %}, you can use the {% data variables.product.product_name %} API.

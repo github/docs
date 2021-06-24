@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Identify & authorize users
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 

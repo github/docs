@@ -13,6 +13,7 @@ topics:
   - Actions
   - Enterprise
   - GitHub Connect
+shortTitle: Use GitHub Connect for actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -11,6 +11,7 @@ topics:
   - CD
   - Containers
   - Azure App Service
+shortTitle: Deploy to Azure App Service
 ---
 
 {% data reusables.actions.enterprise-beta %}

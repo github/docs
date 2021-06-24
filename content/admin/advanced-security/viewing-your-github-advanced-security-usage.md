@@ -7,6 +7,7 @@ versions:
   ghes: '>=3.1'
 topics:
   - Enterprise
+shortTitle: View Advanced Security usage
 ---
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."

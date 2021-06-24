@@ -10,5 +10,6 @@ children:
   - /adding-an-existing-project-to-github-using-github-desktop
   - /cloning-and-forking-repositories-from-github-desktop
   - /cloning-a-repository-from-github-to-github-desktop
+shortTitle: Add & clone repos
 ---
 

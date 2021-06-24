@@ -6,6 +6,7 @@ versions:
   ghes: '*'
 redirect_from:
   - /insights/installing-and-configuring-github-insights/configuring-the-connection-between-github-insights-and-github-enterprise
+shortTitle: Connect Insights to Enterprise
 ---
 {% data reusables.github-insights.settings-tab %}
 2. Under {% octicon "gear" aria-label="The gear icon" %} Settings, click **Enterprise**.

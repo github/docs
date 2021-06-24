@@ -12,6 +12,7 @@ topics:
   - Accounts
   - Enterprise
   - Teams
+shortTitle: Remove user membership
 ---
 Only owners or team admins can remove organization members. When a user is removed from a team or organization, their issues, pull requests, and comments in the organization's repositories remain intact and are still attributed to the user.
 

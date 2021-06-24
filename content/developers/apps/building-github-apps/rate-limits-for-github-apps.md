@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Rate limits
 ---
 ## Server-to-server requests
 

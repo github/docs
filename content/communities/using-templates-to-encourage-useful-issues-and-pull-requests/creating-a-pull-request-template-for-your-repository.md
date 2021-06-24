@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Create a PR template
 ---
 
 For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."

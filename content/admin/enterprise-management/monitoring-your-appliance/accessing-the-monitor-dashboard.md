@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Access the monitor dashboard
 ---
 ## Accessing the monitor dashboard
 

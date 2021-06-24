@@ -20,5 +20,6 @@ children:
   - /remembering-your-github-username-or-email
   - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
+shortTitle: Manage email preferences
 ---
 

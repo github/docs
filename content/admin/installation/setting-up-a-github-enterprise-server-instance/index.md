@@ -20,5 +20,6 @@ children:
   - /installing-github-enterprise-server-on-vmware
   - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
+shortTitle: Set up an instance
 ---
 

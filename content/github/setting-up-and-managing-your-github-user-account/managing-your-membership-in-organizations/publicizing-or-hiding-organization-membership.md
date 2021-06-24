@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Accounts
+shortTitle: Show or hide membership
 ---
 ![Profile organizations box](/assets/images/help/profile/profile_orgs_box.png)
 

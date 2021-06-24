@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage display of member names
 ---
 
 Organization owners can manage the display of member names in an organization.

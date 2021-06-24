@@ -4,6 +4,7 @@ intro: 'These guides for {% data variables.product.prodname_education %} help yo
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+shortTitle: Guides
 ---
 
 ## Get started with {% data variables.product.product_name %}

@@ -14,6 +14,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Enforce security settings
 ---
 ## Requiring two-factor authentication for organizations in your enterprise account
 

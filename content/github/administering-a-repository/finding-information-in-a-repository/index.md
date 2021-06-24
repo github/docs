@@ -18,5 +18,6 @@ children:
   - /sorting-issues-and-pull-requests
   - /using-search-to-filter-issues-and-pull-requests
   - /sharing-filters
+shortTitle: Find information in a repo
 ---
 

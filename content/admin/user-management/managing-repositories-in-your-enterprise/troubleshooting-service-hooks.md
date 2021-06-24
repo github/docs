@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+shortTitle: Troubleshoot service hooks
 ---
 ## Getting information on deliveries
 

@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Prepare to enforce SAML SSO
 ---
 
 When you [enforce SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in your organization, members that haven't authenticated via your identity provider (IdP) will be removed from the organization and will receive an email notifying them about the removal.

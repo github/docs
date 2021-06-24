@@ -18,5 +18,6 @@ children:
   - /importing-a-git-repository-using-the-command-line
   - /adding-an-existing-project-to-github-using-the-command-line
   - /source-code-migration-tools
+shortTitle: Import code to GitHub
 ---
 

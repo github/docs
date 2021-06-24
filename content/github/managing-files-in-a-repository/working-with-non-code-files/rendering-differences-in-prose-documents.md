@@ -9,6 +9,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Differences in prose
 ---
 Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
 

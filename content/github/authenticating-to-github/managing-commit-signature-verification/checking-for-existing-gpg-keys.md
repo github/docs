@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Existing GPG keys
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 

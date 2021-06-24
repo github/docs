@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Notifications
   - Policy
+shortTitle: Restrict email notifications
 ---
 ## About email restrictions for your enterprise account
 

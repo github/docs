@@ -23,5 +23,6 @@ children:
   - /adding-a-new-ssh-key-to-your-github-account
   - /testing-your-ssh-connection
   - /working-with-ssh-key-passphrases
+shortTitle: Connect with SSH
 ---
 

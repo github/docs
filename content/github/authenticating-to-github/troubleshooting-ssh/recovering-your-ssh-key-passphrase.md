@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Recover SSH key passphrase
 ---
 {% mac %}
 

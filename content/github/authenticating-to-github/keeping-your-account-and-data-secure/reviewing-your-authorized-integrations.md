@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Authorized integrations
 ---
 ## Reviewing your authorized {% data variables.product.prodname_oauth_app %}s
 

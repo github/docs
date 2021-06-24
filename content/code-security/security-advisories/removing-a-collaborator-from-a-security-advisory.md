@@ -10,6 +10,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
+shortTitle: Remove collaborators
 ---
 
 People with admin permissions to a security advisory can remove collaborators from the security advisory.

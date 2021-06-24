@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Jekyll build errors for Pages
 ---
 
 ## About Jekyll build errors

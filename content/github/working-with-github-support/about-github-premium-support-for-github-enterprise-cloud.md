@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Jobs
+shortTitle: GitHub Premium Support
 ---
 
 {% note %}

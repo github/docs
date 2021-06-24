@@ -5,6 +5,7 @@ versions:
   ghae: '*'
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
+shortTitle: Use actions
 ---
 {% data reusables.actions.ae-beta %}
 

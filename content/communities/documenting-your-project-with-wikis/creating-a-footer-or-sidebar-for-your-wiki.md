@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Create footer or sidebar
 ---
 
 ## Creating a footer

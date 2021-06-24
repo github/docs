@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: View listing transactions
 ---
 {% note %}
 

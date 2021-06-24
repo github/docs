@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Check for existing SSH key
 ---
 {% data reusables.ssh.dsa-support %}
 

@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage default branch name
 ---
 
 ## About management of the default branch name

@@ -4,6 +4,7 @@ intro: 'In about 15 minutes, teachers can get started with discounts, training, 
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+shortTitle: Quickstart
 ---
 
 ## Introduction

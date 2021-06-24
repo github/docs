@@ -6,6 +6,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
 versions:
   ghes: '*'
+shortTitle: Metrics in GitHub Insights
 ---
 
 ## About metrics in {% data variables.product.prodname_insights %}

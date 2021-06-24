@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: View people with access
 ---
 
 Administrators can use this information to help off-board people, gather data for compliance, and other general security checkups.

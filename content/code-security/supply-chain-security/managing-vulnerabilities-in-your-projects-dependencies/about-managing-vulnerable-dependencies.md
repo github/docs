@@ -13,6 +13,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Vulnerable dependencies
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Managing vulnerabilities in your project’s dependencies ".-->
 

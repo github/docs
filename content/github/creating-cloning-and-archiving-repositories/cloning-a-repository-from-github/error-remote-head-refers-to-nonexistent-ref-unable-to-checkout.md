@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Unable to checkout
 ---
 Detecting this error is simple; Git will warn you when you try to clone the repository:
 

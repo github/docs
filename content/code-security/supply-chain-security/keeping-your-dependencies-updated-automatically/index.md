@@ -21,5 +21,6 @@ children:
   - /customizing-dependency-updates
   - /configuration-options-for-dependency-updates
   - /keeping-your-actions-up-to-date-with-dependabot
+shortTitle: Auto-update dependencies
 ---
 

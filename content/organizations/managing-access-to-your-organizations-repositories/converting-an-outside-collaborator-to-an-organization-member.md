@@ -12,6 +12,7 @@ permissions: 'Organization owners can {% ifversion fpt %}invite users to join{% 
 topics:
   - Organizations
   - Teams
+shortTitle: Convert collaborator to member
 ---
 {% ifversion fpt %}
 If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}

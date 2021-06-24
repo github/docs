@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Create custom 404 page
 ---
 
 {% data reusables.pages.navigate-site-repo %}

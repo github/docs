@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Profiles
+shortTitle: Troubleshoot commits
 ---
 ## Expected behavior to view commit details
 

@@ -19,7 +19,7 @@ describe('breadcrumbs', () => {
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
       expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
       expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Troubleshooting SSH')
-      expect($breadcrumbs[3].attribs.title).toBe('article: Using SSH over the HTTPS port')
+      expect($breadcrumbs[3].attribs.title).toBe('article: Use SSH over HTTPS port')
     })
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
@@ -29,7 +29,7 @@ describe('breadcrumbs', () => {
       expect($breadcrumbs).toHaveLength(3)
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
       expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Keeping your account and data secure')
+      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Account security')
       expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
     })
 
@@ -45,7 +45,7 @@ describe('breadcrumbs', () => {
       const $ = await getDOM('/en/enterprise/admin/enterprise-support')
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs).toHaveLength(2)
-      expect($breadcrumbs[1].attribs.title).toBe('category: Working with GitHub Support')
+      expect($breadcrumbs[1].attribs.title).toBe('category: Working with support')
     })
 
     test('English breadcrumbs link to English pages', async () => {
@@ -128,7 +128,7 @@ describe('breadcrumbs', () => {
         {
           documentType: 'mapTopic',
           href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Keeping your account and data secure'
+          title: 'Account security'
         }
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -150,12 +150,12 @@ describe('breadcrumbs', () => {
         {
           documentType: 'mapTopic',
           href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Keeping your account and data secure'
+          title: 'Account security'
         },
         {
           documentType: 'article',
           href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password',
-          title: 'Creating a strong password'
+          title: 'Create a strong password'
         }
       ]
       expect(breadcrumbs).toEqual(expected)

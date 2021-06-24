@@ -11,6 +11,7 @@ type: overview
 topics:
   - LFS
   - Upgrades
+shortTitle: About Git LFS billing
 ---
 ## About billing for {% data variables.large_files.product_name_long %}
 

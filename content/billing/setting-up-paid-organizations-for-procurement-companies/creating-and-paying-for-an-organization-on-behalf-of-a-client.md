@@ -12,6 +12,7 @@ topics:
   - User account
   - Organizations
   - Upgrades
+shortTitle: On behalf of a client
 ---
 ## Requirements
 

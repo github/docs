@@ -13,6 +13,7 @@ topics:
   - CI
   - Java
   - Gradle
+shortTitle: Build & test Java & Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -9,6 +9,7 @@ permissions: Organization owners can manage updates from accounts the organizati
 topics:
   - Organizations
   - Teams
+shortTitle: Manage sponsorship updates
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

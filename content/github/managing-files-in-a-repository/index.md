@@ -14,5 +14,6 @@ children:
   - /managing-files-on-github
   - /managing-files-using-the-command-line
   - /working-with-non-code-files
+shortTitle: Manage files in a repository
 ---
 

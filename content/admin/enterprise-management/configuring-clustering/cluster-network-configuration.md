@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Infrastructure
   - Networking
+shortTitle: Configure a cluster network
 ---
 ## Network considerations
 

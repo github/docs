@@ -8,6 +8,7 @@ permissions: 'People with admin permissions in {% data variables.product.prodnam
 miniTocMaxHeadingLevel: 3
 versions:
   ghes: '*'
+shortTitle: Manage contributors & teams
 ---
 ## About contributors and teams in {% data variables.product.prodname_insights %}
 

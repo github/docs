@@ -8,6 +8,7 @@ topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
+shortTitle: Use the latest bundled actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

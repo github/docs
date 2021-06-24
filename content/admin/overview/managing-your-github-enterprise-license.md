@@ -16,6 +16,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: Manage your license
 ---
 
 ## About {% data variables.product.prodname_enterprise %} licenses

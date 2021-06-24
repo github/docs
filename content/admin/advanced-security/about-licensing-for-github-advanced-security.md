@@ -10,6 +10,7 @@ topics:
   - Enterprise
   - Licensing
   - Security
+shortTitle: Licensing
 ---
 
 ## About licensing for {% data variables.product.prodname_GH_advanced_security %}

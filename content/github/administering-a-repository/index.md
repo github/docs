@@ -15,5 +15,6 @@ children:
   - /defining-the-mergeability-of-pull-requests
   - /releasing-projects-on-github
   - /finding-information-in-a-repository
+shortTitle: Administer a repo
 ---
 

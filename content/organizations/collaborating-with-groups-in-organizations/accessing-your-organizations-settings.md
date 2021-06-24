@@ -17,6 +17,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Access organization settings
 ---
 {% ifversion fpt %}
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - SSH
+shortTitle: SSL certificate problem
 ---
 The error you receive may look like the following:
 

@@ -8,6 +8,7 @@ redirect_from:
   - /github/managing-large-files/about-storage-and-bandwidth-usage
 versions:
   fpt: '*'
+shortTitle: Storage & bandwidth
 ---
 {% data variables.large_files.product_name_short %} is available for every repository on {% data variables.product.product_name %}, whether or not your account or organization has a paid subscription.
 

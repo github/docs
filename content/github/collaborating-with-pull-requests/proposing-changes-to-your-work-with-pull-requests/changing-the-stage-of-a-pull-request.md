@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Change the state
 ---
 ## Marking a pull request as ready for review
 

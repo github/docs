@@ -15,5 +15,6 @@ children:
   - /setting-up-notifications
   - /viewing-and-triaging-notifications
   - /managing-subscriptions-for-activity-on-github
+shortTitle: Subscriptions & notifications
 ---
 

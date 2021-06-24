@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: About PR reviews
 ---
 ## About pull request reviews
 

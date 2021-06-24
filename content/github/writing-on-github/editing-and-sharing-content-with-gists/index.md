@@ -12,5 +12,6 @@ versions:
 children:
   - /creating-gists
   - /forking-and-cloning-gists
+shortTitle: Share content with gists
 ---
 

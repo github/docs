@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
+shortTitle: GitHub Advanced Security
 ---
 ## About {% data variables.product.prodname_GH_advanced_security %}
 

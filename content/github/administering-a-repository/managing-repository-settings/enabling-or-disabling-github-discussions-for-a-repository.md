@@ -9,6 +9,7 @@ topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
+shortTitle: Discussions
 ---
 {% data reusables.discussions.beta %}
 

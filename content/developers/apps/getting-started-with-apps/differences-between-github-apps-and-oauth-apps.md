@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub Apps
   - OAuth Apps
+shortTitle: GitHub Apps & OAuth Apps
 ---
 ## Who can install GitHub Apps and authorize OAuth Apps?
 

@@ -9,6 +9,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage discussion creation
 ---
 
 {% data reusables.discussions.beta %}

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Configure autolinks
 ---
 Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests,{% ifversion fpt or ghae or ghes > 2.21 %} commit messages, and release descriptions{% else %} and commit messages{% endif %} to external third-party services.
 

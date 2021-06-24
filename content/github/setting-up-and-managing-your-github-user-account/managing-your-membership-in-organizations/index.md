@@ -17,5 +17,6 @@ children:
   - /publicizing-or-hiding-organization-membership
   - /managing-your-scheduled-reminders
   - /removing-yourself-from-an-organization
+shortTitle: Manage organization membership
 ---
 

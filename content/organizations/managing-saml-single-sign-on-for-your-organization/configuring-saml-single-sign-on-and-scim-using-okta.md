@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Configure SAML & SCIM with Okta
 ---
 
 ## About SAML and SCIM with Okta

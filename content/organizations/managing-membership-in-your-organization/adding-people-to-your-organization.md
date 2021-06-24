@@ -8,6 +8,7 @@ versions:
   ghes: '*'
   ghae: '*'
 permissions: Organization owners can add people to an organization.
+shortTitle: Add people to organization
 ---
 
 {% ifversion not ghae %}

@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Set repo management policy
 ---
 
 Owners can set permissions for deleting or transferring repositories in an organization.

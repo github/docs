@@ -11,5 +11,6 @@ topics:
 children:
   - /overview
   - /receiving-help-from-github-support
+shortTitle: Working with support
 ---
 

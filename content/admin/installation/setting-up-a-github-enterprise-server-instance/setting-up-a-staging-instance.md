@@ -11,6 +11,7 @@ topics:
   - Enterprise
   - Infrastructure
   - Upgrades
+shortTitle: Set up a staging instance
 ---
 {% tip %}
 

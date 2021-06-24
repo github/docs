@@ -15,6 +15,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Create a GitHub Pages site
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}

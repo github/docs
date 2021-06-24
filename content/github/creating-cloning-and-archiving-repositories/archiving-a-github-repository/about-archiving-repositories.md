@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Repositories
 ---
 {% ifversion fpt %}
 {% note %}

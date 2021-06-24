@@ -15,6 +15,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: Write listing descriptions
 ---
 Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
 

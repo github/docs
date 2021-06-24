@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Set up external monitoring
 ---
 ## About SNMP
 

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Get changes from a remote
 ---
 ## Options for getting changes
 

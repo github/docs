@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Repositories
+shortTitle: Display a sponsor button
 ---
 ## About FUNDING files
 

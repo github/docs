@@ -21,5 +21,6 @@ children:
   - /restricting-email-notifications-for-your-organization
   - /reviewing-the-audit-log-for-your-organization
   - /reviewing-your-organizations-installed-integrations
+shortTitle: Organization security
 ---
 

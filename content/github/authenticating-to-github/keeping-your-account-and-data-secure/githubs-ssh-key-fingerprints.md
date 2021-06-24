@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: SSH key fingerprints
 ---
 These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
 

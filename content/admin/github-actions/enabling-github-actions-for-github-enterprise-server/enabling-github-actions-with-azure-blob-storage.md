@@ -8,6 +8,7 @@ topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
+shortTitle: Azure Blob storage
 ---
 ## Prerequisites
 

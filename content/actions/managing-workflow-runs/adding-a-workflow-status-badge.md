@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Add a status badge
 ---
 
 {% data reusables.actions.enterprise-beta %}

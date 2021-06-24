@@ -6,5 +6,6 @@ versions:
 children:
   - /configuring-webhooks-for-events-in-your-sponsored-account
   - /getting-started-with-the-sponsors-graphql-api
+shortTitle: Integrate with GitHub Sponsors
 ---
 

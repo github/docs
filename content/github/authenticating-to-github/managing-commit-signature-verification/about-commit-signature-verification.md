@@ -13,6 +13,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Commit signature verification
 ---
 ## About commit signature verification
 

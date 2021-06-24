@@ -14,6 +14,7 @@ versions:
   ghes: '*'
 topics:
   - 2FA
+shortTitle: Configure 2FA recovery
 ---
 In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
 

@@ -14,6 +14,7 @@ topics:
   - Accounts
   - User account
   - Enterprise
+shortTitle: Manage administrators
 ---
 {% tip %}
 

@@ -13,6 +13,7 @@ topics:
   - CI
   - Java
   - Ant
+shortTitle: Build & test Java & Ant
 ---
 
 {% data reusables.actions.enterprise-beta %}

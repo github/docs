@@ -12,6 +12,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on VMware
 ---
 ## Prerequisites
 

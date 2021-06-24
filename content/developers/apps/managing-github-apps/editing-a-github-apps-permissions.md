@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Edit permissions
 ---
 {% note %}
 

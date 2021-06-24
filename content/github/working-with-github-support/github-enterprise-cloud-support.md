@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Jobs
+shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}

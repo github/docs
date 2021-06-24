@@ -15,6 +15,7 @@ type: overview
 topics:
   - CI
   - CD
+shortTitle: Continuous integration
 ---
 
 {% data reusables.actions.enterprise-beta %}

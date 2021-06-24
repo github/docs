@@ -12,6 +12,7 @@ versions:
   fpt: '*'
 topics:
   - Pages
+shortTitle: Custom domains in GitHub Pages
 ---
 
 ## Supported custom domains

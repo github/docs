@@ -8,6 +8,7 @@ versions:
   ghes: '>=2.22'
   ghae: '*'
 type: tutorial
+shortTitle: Manage access groups
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

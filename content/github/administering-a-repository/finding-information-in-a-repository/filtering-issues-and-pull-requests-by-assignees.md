@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter by assignee
 ---
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 

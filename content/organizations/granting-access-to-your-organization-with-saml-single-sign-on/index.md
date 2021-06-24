@@ -13,5 +13,6 @@ children:
   - /managing-bots-and-service-accounts-with-saml-single-sign-on
   - /viewing-and-managing-a-members-saml-access-to-your-organization
   - /about-two-factor-authentication-and-saml-single-sign-on
+shortTitle: Grant access with SAML
 ---
 

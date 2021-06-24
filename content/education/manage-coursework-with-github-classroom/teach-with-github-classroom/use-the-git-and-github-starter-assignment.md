@@ -5,6 +5,7 @@ versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
+shortTitle: Starter assignment
 ---
 
 {% note %}

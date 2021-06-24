@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Assign issues & PRs
 ---
 Anyone with write permissions to a repository can assign issues and pull requests.
 

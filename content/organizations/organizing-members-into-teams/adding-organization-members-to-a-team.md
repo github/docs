@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Add members to a team
 ---
 
 {% data reusables.organizations.team-synchronization %}

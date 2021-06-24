@@ -7,6 +7,7 @@ topics:
   - Repositories
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository
+shortTitle: Explore dependencies
 ---
 <!--See /content/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository for the latest version of this article -->
 

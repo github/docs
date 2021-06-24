@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Organizations
   - User account
+shortTitle: Set membership visibility
 ---
 {% ifversion ghes %}
 You can also enforce your default setting on all current organization members in your instance using a command-line utility. For example, if you'd like to require every organization member's visibility to be public, you can set the default to public and enforce the default for all new members in the admin settings, and then use the command-line utility to enforce the public setting on existing members.

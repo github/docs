@@ -14,6 +14,7 @@ topics:
   - Publishing
   - Java
   - Maven
+shortTitle: Java packages with Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

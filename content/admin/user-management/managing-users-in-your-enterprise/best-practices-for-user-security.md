@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Security
   - User account
+shortTitle: User security best practices
 ---
 {% ifversion ghes %}
 ## Enabling two-factor authentication

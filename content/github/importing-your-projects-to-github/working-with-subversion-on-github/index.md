@@ -10,5 +10,6 @@ children:
   - /what-are-the-differences-between-subversion-and-git
   - /support-for-subversion-clients
   - /subversion-properties-supported-by-github
+shortTitle: Work with Subversion on GitHub
 ---
 

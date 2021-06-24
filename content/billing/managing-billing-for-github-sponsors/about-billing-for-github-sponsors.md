@@ -10,6 +10,7 @@ versions:
 type: overview
 topics:
   - Sponsors
+shortTitle: About billing
 ---
 {% data reusables.sponsors.sponsorship-details %}
 

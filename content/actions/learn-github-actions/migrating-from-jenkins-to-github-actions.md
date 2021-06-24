@@ -13,6 +13,7 @@ topics:
   - Migration
   - CI
   - CD
+shortTitle: Migrate from Jenkins
 ---
 
 {% data reusables.actions.enterprise-beta %}

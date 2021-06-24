@@ -11,6 +11,7 @@ type: how_to
 topics:
   - Enterprise
   - Support
+shortTitle: Prepare a ticket
 ---
 Before submitting a ticket, you should:
 

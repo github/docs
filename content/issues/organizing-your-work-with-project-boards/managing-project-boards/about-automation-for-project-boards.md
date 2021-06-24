@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Automation for project boards
 ---
 {% data reusables.projects.project_boards_old %}
 

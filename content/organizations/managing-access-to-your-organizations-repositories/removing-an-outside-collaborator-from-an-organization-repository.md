@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Remove collaborator
 ---
 
 {% ifversion fpt %}

@@ -16,5 +16,6 @@ children:
   - /accessing-basic-repository-data
   - /analyzing-changes-to-a-repositorys-content
   - /understanding-connections-between-repositories
+shortTitle: View repository graphs
 ---
 

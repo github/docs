@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Repository visibility
 ---
 ## About repository visibility changes
 
