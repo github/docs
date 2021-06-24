@@ -12,7 +12,7 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-{% data reusables.repositories.actions-workflow-status-badge-into %}
+{% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 You reference the workflow by the name of your workflow file.
 
