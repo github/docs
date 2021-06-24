@@ -9,7 +9,6 @@ topics:
   - API
 ---
 
-{% data reusables.actions.environments-beta %}
 
 You can deliver deployments through {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_actions %} and environments or with {% endif %}the REST API and third party apps. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)." {% endif %}For more information about deployments with the REST API, see "[Repositories](/rest/reference/repos#deployments)."
 

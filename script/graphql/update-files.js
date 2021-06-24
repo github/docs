@@ -8,7 +8,7 @@ const { execSync } = require('child_process')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const { getContents, listMatchingRefs } = require('../helpers/git-utils')
-const dataFilenames = require('./utils/data-filenames')
+const dataFilenames = JSON.parse(fs.readFileSync('./utils/data-filenames.json'))
 const allVersions = require('../../lib/all-versions')
 const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
@@ -21,14 +21,6 @@ const loadData = require('../../lib/site-data')
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
   console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
-  process.exit(1)
-}
-
-// check for required Ruby gems (see note below about why this is needed)
-try {
-  execSync('gem which graphql')
-} catch (err) {
-  console.error('\nYou need to run: bundle install')
   process.exit(1)
 }
 

@@ -7,6 +7,8 @@ versions:
   enterprise-server: '2.22'
 topics:
   - Security
+redirect_from:
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-integration-with-code-scanning
 ---
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 

@@ -10,6 +10,7 @@ topics:
 children:
   - /about-projects
   - /quickstart
+  - /creating-a-project
   - /customizing-your-project-views
   - /using-the-api-to-manage-projects
   - /automating-projects

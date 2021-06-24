@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Projects (beta) is currently in limited public beta and subject to change. For more information about joining the beta, see TODO--signup link
+**Note:** Projects (beta) is currently in limited public beta. For more information, see [{% data variables.product.prodname_github_issues %}](https://github.com/features/issues).
 
 {% endnote %}

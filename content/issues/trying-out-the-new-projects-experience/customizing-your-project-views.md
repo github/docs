@@ -34,15 +34,15 @@ In table layout, you can show or hide a specific field.
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing the action you want to take ("show" or "hide") or the name of the field.
 3. Select the desired command (for example: "Show: Milestone").
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} in the rightmost column header. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
+4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} to the right of the table. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
 5. Alternatively, select the drop-down menu next to the field name and click **Hide field**.
 
-## Reorder columns
+## Reorder fields
 
-You can change the order of columns.
+You can change the order of fields.
 
-1. Click the column header.
-2. While clicking, drag the column to the desired location.
+1. Click the field header.
+2. While clicking, drag the field to the desired location.
 
 ## Reorder rows
 
@@ -115,7 +115,7 @@ The following steps demonstrate how to add a new view:
 4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
 5. Alternatively, select the drop-down menu next to a view name and click **Duplicate view**.
 
-When you make changes to a view, a dot appears next to the view name to indicate that the view has been modified. To save the view:
+When you make changes to a view, a dot appears next to the view name to indicate that the view has been modified. If you don't want to save the changes, you can ignore this indicator. To save the view for all project members:
 
 1. {% data reusables.projects.open-command-palette %}
 1. Start typing "Save view" or "Save changes to new view".
@@ -134,4 +134,4 @@ To delete a view:
 ## Further reading
 
 - "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)
-- "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)
+- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)

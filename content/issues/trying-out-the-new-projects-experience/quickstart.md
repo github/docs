@@ -1,6 +1,6 @@
 ---
 title: Quickstart for projects (beta)
-intro: 'Learn how to make a project, populate it, and add custom fields.'
+intro: 'Experience the speed, flexibility, and customization of projects (beta) by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,88 +10,128 @@ topics:
   - Projects
 ---
 
-Projects are a customizable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you jot down. You can add custom fields and create views for specific purposes.
-
 {% data reusables.projects.projects-beta %}
+
+## Introduction
+
+This guide demonstrates how to use projects (beta) to plan and track work. In this guide, you will create a new project and add a custom field to track priorities for your tasks. You'll also learn how to create saved views that help you communicate priorities and progress with your collaborators.
+
+## Prerequisites
+
+To create a project, you need a {% data variables.product.prodname_dotcom %} organization that is a part of the projects beta. For more information about creating an organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." For more information about the beta, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+
+In this guide, you will add existing issues from repositories in your organization to your new project. For more information about creating issues, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 ## Creating a project
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization.
-2. Click {% octicon "project" aria-label="The project board icon" %} **Projects**.
-3. Select the **New project** drop-down menu and click **New project (Beta)**.
+First, create a project from your organization’s project page.
 
-   ![New project](/assets/images/help/issues/new_project_beta.png)
+{% data reusables.projects.create-project %}
 
-## Adding items to your project
+## Adding issues to your project
 
-Your project can track draft issues, issues, and pull requests.
+Next, add a few issues to your project.
 
-### Creating draft issues
+When your new project initializes, it prompts you to add items to your project. If you lose this view or want to add more issues later, place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
 
-Draft issues are useful to quickly capture ideas.
+1. Type `#`.
+2. Select the repository where your issue is located. To narrow down the options, you can start typing a part of the repository name.
+3. Select your issue. To narrow down the options, you can start typing a part of the issue title.
 
-1. Enter `ctrl + space` or click {% octicon "plus" aria-label="the plus icon" %} at the bottom of the project.
-1. Type your idea, then press **Enter**.
+Repeat the above steps a few times to add multiple issues to your project.
 
-### Issues and pull requests
+For more information about other ways to add issues to your project, or about other items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
 
-#### Paste the URL of an issue or pull request
+## Creating a field to track priority
 
-1. Enter `ctrl + space` or click {% octicon "plus" aria-label="the plus icon" %} at the bottom of the project.
-1. Paste the URL of the issue or pull request.
-
-#### Searching for an issue or pull request
-
-1. Enter `ctrl + space` or click {% octicon "plus" aria-label="the plus icon" %} at the bottom of the project.
-2. Enter `#`.
-3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
-4. Select the issue or pull request. You can type part of the title to narrow down your options.
-
-#### Assigning a project from within an issue or pull request
-
-1. Navigate to the issue or pull request that you want to add to a project.
-2. In the side bar, click **Projects**.
-3. Select the project that you want to add the issue or pull request to.
-4. Optionally, populate the custom fields.
-
-   ![Project sidebar](/assets/images/help/issues/project_side_bar.png)
-
-## Adding fields
-
-As field values change, they are automatically synced so that your project and the items that it tracks are up-to-date.
-
-{% note %}
-
-**Note:** You cannot edit or add fields until you add at least one item to your project.
-
-{% endnote %}
-
-### Showing existing fields
-
-Your project tracks up-to-date information about  issues and pull requests, including any changes to the title, assignees, labels, milestones, and repository. When your project initializes, "title" and "assignees" are displayed; the other fields are hidden. You can change the visibility of these fields in your project.
+Now, create a custom field called `Priority` to contain the values: `High`, `Medium`, or `Low`.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "show".
-3. Select the desired command (for example: "Show: Repository").
+2. Start typing any part of "Create new field".
+3. Select **Create new field**.
+4. In the resulting pop-up, enter `Priority` in the text box.
+5. In the drop-down, select **Single select**.
+6. Add options for `High`, `Medium`, and `Low`. You can also include emojis in your options.
+   ![New single select field example](/assets/images/help/projects/new-single-select-field.png)
+7. Click **Save**.
 
-Alternatively, you can do this in the UI:
+Specify a priority for all issues in your project.
 
-1. Click {% octicon "plus" aria-label="the plus icon" %} in the rightmost column header. A drop-down menu with the project fields will appear.
-   ![Show or hide fields](/assets/images/help/issues/projects_fields_menu.png)
-2. Select the field(s) that you want to display or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
+![Example priorities](/assets/images/help/projects/priority_example.png)
 
-### Adding custom fields
+## Grouping issues by priority
 
-You can add custom fields to your project. Custom fields can be text, number, date, or single select. Custom fields will display on the side bar of issues and pull requests in the project.
+Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 
-1. {% data reusables.projects.open-command-palette %} Start typing any part of "Create new field". When "Create new field" displays in the command palette, select it.
-2. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} in the rightmost column header. A drop-down menu with the project fields will appear. Click **New field**.
-3. A popup will appear for you to enter information about the new field.
-   ![New field](/assets/images/help/issues/projects_new_field.png)
-4. In the text box, enter a name for the new field.
-5. Select the dropdown menu and click the desired type.
-6. If you specified "single select" as the type, enter the options.
+1. {% data reusables.projects.open-command-palette %}
+2. Start typing any part of "Group by".
+3. Select **Group by: Priority**.
 
-## Customize your views
+Now, move issues between groups to change their priority.
 
-You can view your project as a spreadsheet or Kanban board, group items by field, filter item, and more. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
+1. Choose an issue.
+2. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
+
+![Move issue between groups](/assets/images/help/projects/move_between_group.gif)
+
+## Saving the priority view
+
+When you grouped your issues by priority in the previous step, your project displayed an indicator to show that the view was modified. Save these changes so that your collaborators will also see the tasks grouped by priority.
+
+1. Select the drop-down menu next to the view name.
+2. Click **Save changes**.
+
+To indicate the purpose of the view, give it a descriptive name.
+
+1. Place your cursor in the current view name, **View 1**.
+2. Replace the existing text with the new name, `Priorities`.
+
+You can share the URL with your team to keep everyone aligned on the project priorities.
+
+When a view is saved, anyone who opens the project will see the saved view. Here, you grouped by priority, but you can also add other modifiers such as sort, filter, or layout. Next, you will create a new view with the layout modified.
+
+## Adding a board view
+
+To view the progress of your project's issues, you can switch to board layout.
+
+The board view is based on the status field, so specify a status for each issue in your project.
+
+![Example status](/assets/images/help/projects/status_example.png)
+
+Then, create a new view.
+
+1. Click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
+
+Next, switch to board layout.
+
+1. {% data reusables.projects.open-command-palette %}
+2. Start typing any part of "Switch layout: Board".
+3. Select **Switch layout: Board**.
+   ![Example priorities](/assets/images/help/projects/example_board.png)
+
+When you changed the layout, your project displayed an indicator to show that the view was modified. Save this view so that you and your collaborators can easily access it in the future.
+
+1. Select the drop-down menu next to the view name.
+2. Click **Save changes**.
+
+To indicate the purpose of the view, give it a descriptive name.
+
+1. Place your cursor in the current view name, **View 2**.
+2. Replace the existing text with the new name, `Progress`.
+
+![Example priorities](/assets/images/help/projects/project-view-switch.gif)
+
+## Next steps
+
+You can use projects for a wide range of purposes. For example:
+
+- Track work for a release
+- Plan a sprint
+- Prioritize a backlog
+
+Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
+
+- To provide feedback about the projects (beta) experience, go to the [GitHub feedback repository](https://github.com/github/feedback/discussions/categories/issues-feedback).
+- To learn more about how projects can help you with planning and tracking, see "[About projects](/issues/trying-out-the-new-projects-experience/about-projects)."
+- To learn more about the fields and items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."
+- To learn about more ways to display the information you need, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."

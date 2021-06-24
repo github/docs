@@ -10,6 +10,9 @@ module.exports = {
   typescript: {
     ignoreBuildErrors: true
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   i18n: {
     locales: Object.values(languages).map(({ code }) => code),
     defaultLocale: 'en'

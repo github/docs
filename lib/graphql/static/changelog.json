@@ -4,6 +4,74 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `ipAllowListEntries` was added to object type `App`",
+          "Member `App` was added to Union type `IpAllowListOwner`"
+        ]
+      }
+    ],
+    "previewChanges": [
+      {
+        "title": "The [Access to a repositories dependency graph preview](/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview) includes these changes:",
+        "changes": [
+          "Field `packageLabel` was added to object type `DependencyGraphDependency`"
+        ]
+      }
+    ],
+    "upcomingChanges": [],
+    "date": "2021-06-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `Reactor` was added",
+          "Type `ReactorConnection` was added",
+          "Type `ReactorEdge` was added",
+          "Field `reactors` was added to object type `ReactionGroup`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `ReactionGroup.users`:`users` will be removed. Use the `reactors` field instead. **Effective 2021-10-01**."
+        ]
+      }
+    ],
+    "date": "2021-06-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `IpAllowListForInstalledAppsEnabledSettingValue` was added",
+          "Type `UpdateIpAllowListForInstalledAppsEnabledSettingInput` was added",
+          "Type `UpdateIpAllowListForInstalledAppsEnabledSettingPayload` was added",
+          "Field `requiresConversationResolution` was added to object type `BranchProtectionRule`",
+          "Input field `requiresConversationResolution` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `ipAllowListForInstalledAppsEnabledSetting` was added to object type `EnterpriseOwnerInfo`",
+          "Field `titleHTML` was added to object type `Issue`",
+          "Field `updateIpAllowListForInstalledAppsEnabledSetting` was added to object type `Mutation`",
+          "Field `ipAllowListForInstalledAppsEnabledSetting` was added to object type `Organization`",
+          "Field `titleHTML` was added to object type `PullRequest`",
+          "Field `requiresConversationResolution` was added to object type `RefUpdateRule`",
+          "Input field `requiresConversationResolution` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-06-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `AddDiscussionCommentInput` was added",
           "Type `AddDiscussionCommentPayload` was added",
           "Type `AddUpvoteInput` was added",

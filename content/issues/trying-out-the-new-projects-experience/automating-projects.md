@@ -16,7 +16,7 @@ topics:
 
 This article demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to a project. When the pull request is marked as "ready for review", a new task is added to the project with a  "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
 
-This article assumes that you have a basic understanding of {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)".
+This article assumes that you have a basic understanding of {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
 
 {% data reusables.projects.projects-beta %}
 
@@ -30,7 +30,7 @@ This article assumes that you have a basic understanding of {% data variables.pr
 
 ## Example workflow
 
-You can copy this workflow and modify it as described in the table below to meet your needs. A project can span multiple repositories, but a workflow is specific to a repository. Add this workflow to each repository that you want your project to track. For more information about creating workflow files, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)".
+You can copy this workflow and modify it as described in the table below to meet your needs. A project can span multiple repositories, but a workflow is specific to a repository. Add this workflow to each repository that you want your project to track. For more information about creating workflow files, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)."
 
 ```yaml{:copy}
 name: Add PR to project
@@ -341,4 +341,4 @@ Sets the value of the <code>Status</code> field to <code>Todo</code>. Sets the v
 
 ## Next steps
 
-For more information about other changes you can make to your project through the API, see "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)". For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)".
+For more information about other changes you can make to your project through the API, see "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
