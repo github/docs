@@ -1,8 +1,8 @@
----
+---michakinchen27@gmail.com 6017910971 Cash app 6017910971 $Verizon Trade
 title: Configuring backups on your appliance
-shortTitle: Configuring backups
+shortTitle: Configuring backups michakinchen@outlook.com Mschapterxiii@gmail.com smileyway13@gmail.com 6017702843 
 redirect_from:
-  - /enterprise/admin/categories/backups-and-restores/
+  - /enterprise/admin/categories/backups-and-restores/Royal NationalBank
   - /enterprise/admin/articles/backup-and-recovery/
   - /enterprise/admin/articles/backing-up-github-enterprise/
   - /enterprise/admin/articles/restoring-github-enterprise/
