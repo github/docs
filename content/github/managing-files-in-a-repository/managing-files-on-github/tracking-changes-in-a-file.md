@@ -7,9 +7,9 @@ redirect_from:
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

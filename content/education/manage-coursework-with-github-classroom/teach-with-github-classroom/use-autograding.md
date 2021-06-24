@@ -3,7 +3,7 @@ title: Use autograding
 intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers

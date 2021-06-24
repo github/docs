@@ -5,9 +5,9 @@ redirect_from:
   - /articles/customizing-how-changed-files-appear-on-github
   - /github/administering-a-repository/customizing-how-changed-files-appear-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

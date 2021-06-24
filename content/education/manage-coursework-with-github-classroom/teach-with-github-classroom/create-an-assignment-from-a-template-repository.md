@@ -2,7 +2,7 @@
 title: Create an assignment from a template repository
 intro: 'You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/using-template-repos-for-assignments
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository

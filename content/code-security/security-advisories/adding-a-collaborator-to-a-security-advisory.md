@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Security advisories

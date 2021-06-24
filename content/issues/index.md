@@ -1,7 +1,7 @@
 ---
 title: GitHub Issues
 shortTitle: GitHub Issues
-intro: Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.
+intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
@@ -28,9 +28,9 @@ changelog:
 layout: product-landing
 beta_product: false
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /tracking-your-work-with-issues
   - /trying-out-the-new-projects-experience
@@ -62,3 +62,4 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
+

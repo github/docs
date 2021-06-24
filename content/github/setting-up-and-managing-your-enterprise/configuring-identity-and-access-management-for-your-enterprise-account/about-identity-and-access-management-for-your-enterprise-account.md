@@ -3,7 +3,7 @@ title: About identity and access management for your enterprise account
 intro: 'You can centrally manage access to your enterprise''s resources, organization membership, and team membership using your identity provider (IdP).'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:

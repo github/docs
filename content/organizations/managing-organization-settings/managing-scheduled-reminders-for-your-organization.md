@@ -4,7 +4,7 @@ intro: You can get reminders in Slack for all pull requests that teams in your o
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams

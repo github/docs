@@ -5,7 +5,7 @@ redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
   - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Open Source

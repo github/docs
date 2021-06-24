@@ -5,9 +5,9 @@ redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-default-labels-for-repositories-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -21,7 +21,7 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -37,7 +37,7 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -52,7 +52,7 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}

@@ -6,9 +6,9 @@ redirect_from:
   - /articles/filtering-pull-requests-by-review-status
   - /github/managing-your-work-on-github/filtering-pull-requests-by-review-status
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

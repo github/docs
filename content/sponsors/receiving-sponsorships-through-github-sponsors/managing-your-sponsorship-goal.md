@@ -5,7 +5,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/manage-your-sponsorship-goal
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-goal
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Open Source

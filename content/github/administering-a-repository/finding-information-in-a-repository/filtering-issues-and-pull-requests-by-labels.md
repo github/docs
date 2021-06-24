@@ -6,9 +6,9 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-labels
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-labels
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

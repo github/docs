@@ -5,9 +5,9 @@ redirect_from:
   - /articles/disabling-team-discussions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/disabling-team-discussions-for-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

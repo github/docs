@@ -5,7 +5,7 @@ redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
   - /github/authenticating-to-github/countries-where-sms-authentication-is-supported
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - 2FA
 ---

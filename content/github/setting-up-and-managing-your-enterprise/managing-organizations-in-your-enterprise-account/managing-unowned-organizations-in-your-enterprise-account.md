@@ -7,7 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 ---

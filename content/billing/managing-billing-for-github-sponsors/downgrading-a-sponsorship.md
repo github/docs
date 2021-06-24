@@ -6,7 +6,7 @@ redirect_from:
   - /articles/downgrading-a-sponsorship
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Cancellation

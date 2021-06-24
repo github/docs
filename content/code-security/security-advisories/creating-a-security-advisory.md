@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Security advisories

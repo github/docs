@@ -7,9 +7,9 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

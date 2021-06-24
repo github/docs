@@ -1,8 +1,8 @@
 ---
 title: Managing access and security for your codespaces
-intro: You can manage the repositories that {% data variables.product.prodname_codespaces %} can access.
+intro: 'You can manage the repositories that {% data variables.product.prodname_codespaces %} can access.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 ---

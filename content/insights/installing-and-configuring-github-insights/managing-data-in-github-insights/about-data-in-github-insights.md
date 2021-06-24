@@ -3,7 +3,7 @@ title: About data in GitHub Insights
 intro: 'The data included in {% data variables.product.prodname_insights %} metrics is highly customizable.'
 permissions: ''
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 redirect_from:
   - /insights/installing-and-configuring-github-insights/about-data-in-github-insights
 ---

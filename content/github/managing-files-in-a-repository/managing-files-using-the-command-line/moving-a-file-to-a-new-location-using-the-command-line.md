@@ -5,9 +5,9 @@ redirect_from:
   - /articles/moving-a-file-to-a-new-location-using-the-command-line
   - /github/managing-files-in-a-repository/moving-a-file-to-a-new-location-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

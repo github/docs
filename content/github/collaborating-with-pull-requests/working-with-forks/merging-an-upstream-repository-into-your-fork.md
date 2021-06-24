@@ -6,9 +6,9 @@ redirect_from:
   - /articles/merging-an-upstream-repository-into-your-fork
   - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

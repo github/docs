@@ -9,9 +9,8 @@ redirect_from:
   - /articles/finding-your-organization-s-next-billing-date/
   - /articles/viewing-your-plans-and-billing-date/
   - /articles/viewing-your-subscriptions-and-billing-date
-
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts

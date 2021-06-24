@@ -4,7 +4,7 @@ intro: '{% data variables.contact.github_support %} can help you troubleshoot is
 redirect_from:
   - /articles/about-github-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---

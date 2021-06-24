@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-archiving-content-and-data-on-github
   - /github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
 ---
