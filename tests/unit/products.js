@@ -27,7 +27,7 @@ describe('mobile-only products nav', () => {
     expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub.com')
 
     // Enterprise server
-    expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe('GitHub Enterprise')
+    expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe('Enterprise administrators')
     expect((await getDOM('/en/enterprise/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address'))('#current-product').text().trim()).toBe('GitHub.com')
 
     expect((await getDOM('/desktop'))('#current-product').text().trim()).toBe('GitHub Desktop')
