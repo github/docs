@@ -1,4 +1,4 @@
-// This file exports an object with utility functions for re-use in
+// This file makes an object with utility functions for re-use in
 // multiple test files
 
 const cheerio = require('cheerio')
