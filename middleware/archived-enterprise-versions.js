@@ -5,8 +5,9 @@ const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
-const archvivedRedirects = require('../lib/redirects/static/archived-redirects-from-213-to-217')
-const archivedFrontmatterFallbacks = require('../lib/redirects/static/archived-frontmatter-fallbacks')
+const readJsonFile = require('../lib/read-json-file')
+const archvivedRedirects = readJsonFile('./lib/redirects/static/archived-redirects-from-213-to-217.json')
+const archivedFrontmatterFallbacks = readJsonFile('./lib/redirects/static/archived-frontmatter-fallbacks.json')
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions

@@ -14,6 +14,8 @@ versions:
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% tip %}
 
 **Tip:** For details on adding, removing, or editing columns in your project board, see "[Creating a project board](/articles/creating-a-project-board)."
