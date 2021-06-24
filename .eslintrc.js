@@ -15,7 +15,9 @@ module.exports = {
     ecmaVersion: 11
   },
   rules: {
-    'import/no-extraneous-dependencies': ['error']
+    'import/no-extraneous-dependencies': ['error'],
+    'node/global-require': ['error'],
+    'import/no-dynamic-require': ['error']
   },
   overrides: [
     {

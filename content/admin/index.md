@@ -1,6 +1,6 @@
 ---
-title: GitHub Enterprise Documentation
-shortTitle: GitHub Enterprise
+title: Enterprise administrator documentation
+shortTitle: Enterprise administrators
 intro: 'Documentation and guides for enterprise administrators, system administrators, and security specialists who {% if enterpriseServerVersions contains currentVersion %}deploy, {% endif %}configure{% if enterpriseServerVersions contains currentVersion %},{% endif %} and manage {% data variables.product.product_name %}.'
 introLinks:
   overview: '{% if enterpriseServerVersions contains currentVersion %}/admin/overview/system-overview{% elsif currentVersion == "github-ae@latest" %}/admin/overview/about-github-ae{% endif %}'

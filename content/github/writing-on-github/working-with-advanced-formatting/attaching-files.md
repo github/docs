@@ -45,6 +45,13 @@ We support these files:
 * Text files (*.txt*)
 * PDFs (*.pdf*)
 * ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-* Video (*.mp4*, *.mov*){% endif %}
+* Video (*.mp4*, *.mov*)
+
+{% note %}
+
+**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+
+{% endnote %}
+{% endif %}
 
 ![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)

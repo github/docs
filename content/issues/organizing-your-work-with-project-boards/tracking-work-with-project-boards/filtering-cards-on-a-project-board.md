@@ -12,6 +12,8 @@ versions:
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 On a card, you can click any assignee, milestone, or label to filter the project board by that qualifier. To clear the search, you can click the same assignee, milestone, or label again.
 
 You can also use the "Filter cards" search bar at the top of each project board to search for cards. You can filter cards using the following search qualifiers in any combination, or by simply typing some text you'd like to search for.

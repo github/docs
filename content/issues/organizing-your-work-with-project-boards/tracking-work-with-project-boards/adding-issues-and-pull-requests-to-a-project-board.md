@@ -13,6 +13,8 @@ versions:
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 You can add issue or pull request cards to your project board by:
 - Dragging cards from the **Triage** section in the sidebar.
 - Typing the issue or pull request URL in a card.
