@@ -94,7 +94,7 @@ You can set a status to display information about your current availability on {
 
 When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
 
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availibilty-text.png)
+![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
 
 ![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
