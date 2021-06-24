@@ -53,13 +53,6 @@ module.exports = async function contextualize (req, res, next) {
   req.context.siteTree = siteTree
   req.context.pages = pageMap
 
-  // TODO we should create new data directories for these example files instead of using variable files
-  if (productMap[req.context.currentProduct]) {
-    req.context.productCodeExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_code_examples`]
-    req.context.productCommunityExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_community_examples`]
-    req.context.productUserExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_user_examples`]
-  }
-
   // JS + CSS asset paths
   req.context.builtAssets = builtAssets
 
