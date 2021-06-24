@@ -11,6 +11,7 @@ topics:
   - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot
+shortTitle: Dependabot.com upgrades
 ---
 {% warning %}
 

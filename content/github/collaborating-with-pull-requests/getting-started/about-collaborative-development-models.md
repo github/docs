@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Collaborative development
 ---
 ## Fork and pull model
 

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Jupyter Notebook files
 ---
 The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.product.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 

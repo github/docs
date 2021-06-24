@@ -10,6 +10,7 @@ type: overview
 topics:
   - Open Source
   - Fundamentals
+shortTitle: Open source contributors
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

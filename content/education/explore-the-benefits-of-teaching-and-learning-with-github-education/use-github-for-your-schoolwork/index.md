@@ -11,5 +11,6 @@ children:
   - /about-github-education-for-students
   - /apply-for-a-student-developer-pack
   - /why-wasnt-my-application-for-a-student-developer-pack-approved
+shortTitle: For your schoolwork
 ---
 

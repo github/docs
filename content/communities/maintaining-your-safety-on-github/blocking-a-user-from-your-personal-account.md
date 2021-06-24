@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: Block from your account
 ---
 
 ## About blocking users

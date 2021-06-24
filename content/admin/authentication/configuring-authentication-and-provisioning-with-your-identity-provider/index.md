@@ -5,5 +5,6 @@ versions:
   ghae: '*'
 children:
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
+shortTitle: Use an IdP for SSO & SCIM
 ---
 

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Traverse with pagination
 ---
 
 The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.

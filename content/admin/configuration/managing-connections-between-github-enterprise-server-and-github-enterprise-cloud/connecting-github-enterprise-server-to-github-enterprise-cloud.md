@@ -17,6 +17,7 @@ topics:
   - GitHub Connect
   - Infrastructure
   - Networking
+shortTitle: Connect to GHEC
 ---
 ## About {% data variables.product.prodname_github_connect %}
 

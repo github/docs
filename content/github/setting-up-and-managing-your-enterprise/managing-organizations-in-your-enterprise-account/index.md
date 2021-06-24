@@ -13,5 +13,6 @@ children:
   - /managing-unowned-organizations-in-your-enterprise-account
   - /viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /configuring-webhooks-for-organization-events-in-your-enterprise-account
+shortTitle: Manage organizations
 ---
 

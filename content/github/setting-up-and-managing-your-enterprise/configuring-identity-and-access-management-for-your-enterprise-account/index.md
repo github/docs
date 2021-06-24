@@ -12,5 +12,6 @@ children:
   - /about-user-provisioning-for-organizations-in-your-enterprise-account
   - /configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
   - /managing-team-synchronization-for-organizations-in-your-enterprise-account
+shortTitle: Configure IAM
 ---
 

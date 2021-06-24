@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Issues-only repository
 ---
 1. Create a **private** repository to host the source code from your project.
 2. Create a second repository with the permissions you desire to host the issue tracker.

@@ -14,6 +14,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Manage app visibility
 ---
 For authentication information, see "[Authenticating with GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 

@@ -10,5 +10,6 @@ children:
   - /backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
   - /using-a-staging-environment
   - /troubleshooting-github-actions-for-your-enterprise
+shortTitle: HA & troubleshooting
 ---
 

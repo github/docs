@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Synchronize with an IdP
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

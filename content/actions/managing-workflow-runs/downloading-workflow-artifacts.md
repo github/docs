@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Download workflow artifacts
 ---
 
 {% data reusables.actions.enterprise-beta %}

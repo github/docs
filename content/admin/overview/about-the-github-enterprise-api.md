@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+shortTitle: GitHub Enterprise API
 ---
 
 With the APIs, you can automate many administrative tasks. Some examples include:

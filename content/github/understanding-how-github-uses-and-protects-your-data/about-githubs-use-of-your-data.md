@@ -9,6 +9,7 @@ versions:
 topics:
   - Policy
   - Legal
+shortTitle: GitHub's use of your data
 ---
  
 ## About {% data variables.product.product_name %}'s use of your data

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: REST API
 ---
 Here are some useful endpoints available for Marketplace listings:
 

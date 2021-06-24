@@ -5,6 +5,7 @@ versions:
   fpt: '*'
 topics:
   - Codespaces
+shortTitle: Access & security
 ---
 
 {% data reusables.codespaces.release-stage %}

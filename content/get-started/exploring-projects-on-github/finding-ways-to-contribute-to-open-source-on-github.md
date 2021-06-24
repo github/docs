@@ -14,6 +14,7 @@ versions:
   fpt: '*'
 topics:
   - Open Source
+shortTitle: Contribute to open source
 ---
 ## Discovering relevant projects
 

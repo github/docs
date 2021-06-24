@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Early access
+shortTitle: Feature preview
 ---
 ## {% data variables.product.prodname_dotcom %}'s release cycle
 

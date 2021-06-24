@@ -14,6 +14,7 @@ topics:
   - Packages
   - Spending limits
   - User account
+shortTitle: Your spending limit
 ---
 ## About spending limits for {% data variables.product.prodname_registry %}
 

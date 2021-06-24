@@ -16,6 +16,7 @@ versions:
 topics:
   - Accounts
   - Repositories
+shortTitle: Remove yourself
 ---
 {% data reusables.user_settings.access_settings %}
 2. In the left sidebar, click **Repositories**.

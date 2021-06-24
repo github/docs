@@ -15,6 +15,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Link PR to issue
 ---
 {% note %}
 

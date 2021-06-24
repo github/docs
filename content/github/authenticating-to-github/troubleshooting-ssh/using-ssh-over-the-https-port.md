@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - SSH
+shortTitle: Use SSH over HTTPS port
 ---
 {% tip %}
 

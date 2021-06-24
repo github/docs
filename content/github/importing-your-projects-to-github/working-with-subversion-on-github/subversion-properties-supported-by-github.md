@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+shortTitle: Properties supported by GitHub
 ---
 ## Executable files (svn:executable)
 

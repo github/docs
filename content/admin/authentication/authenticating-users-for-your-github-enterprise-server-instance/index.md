@@ -20,5 +20,6 @@ children:
   - /using-ldap
   - /allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /changing-authentication-methods
+shortTitle: Authenticate users
 ---
 

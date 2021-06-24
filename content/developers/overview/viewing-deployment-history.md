@@ -7,6 +7,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: View deployment history
 ---
 
 

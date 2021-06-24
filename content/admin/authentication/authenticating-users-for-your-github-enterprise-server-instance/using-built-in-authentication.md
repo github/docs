@@ -13,6 +13,7 @@ topics:
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Use built-in authentication
 ---
 You can create custom messages that users will see on the sign in and sign out pages. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)."
 

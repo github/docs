@@ -14,6 +14,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
+shortTitle: Manage secret alerts
 ---
 
 {% data reusables.secret-scanning.beta %}

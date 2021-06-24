@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Manage pre-receive hooks
 ---
 ## Creating pre-receive hooks
 

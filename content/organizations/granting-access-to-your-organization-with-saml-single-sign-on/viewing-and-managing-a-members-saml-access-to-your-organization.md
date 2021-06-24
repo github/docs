@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage SAML access
 ---
 
 ## About SAML access to your organization

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Automate with OAuth tokens
 ---
 
 ## Step 1: Get an OAuth token

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Permission denied other-repo
 ---
 To fix this, remove the deploy key from the repository, and [add the key to your user account](/articles/adding-a-new-ssh-key-to-your-github-account) instead.
 

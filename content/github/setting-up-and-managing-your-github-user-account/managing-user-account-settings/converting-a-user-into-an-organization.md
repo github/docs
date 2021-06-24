@@ -11,6 +11,7 @@ versions:
   ghes: '*'
 topics:
   - Accounts
+shortTitle: User into an organization
 ---
 {% warning %}
 

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Repository not found
 ---
 ## Check your spelling
 

@@ -14,6 +14,7 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure firewall rules
 ---
 ## About {% data variables.product.product_location %}'s firewall
 

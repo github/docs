@@ -12,6 +12,7 @@ redirect_from:
   - /github/administering-a-repository/changing-the-default-branch
 topics:
   - Repositories
+shortTitle: Change the default branch
 ---
 ## About changing the default branch
 

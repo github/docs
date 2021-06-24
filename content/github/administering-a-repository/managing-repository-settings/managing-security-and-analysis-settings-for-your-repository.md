@@ -20,6 +20,7 @@ topics:
   - Dependency graph
   - Secret scanning
   - Repositories
+shortTitle: Security & analysis
 ---
 {% ifversion fpt %}
 ## Enabling or disabling security and analysis features for public repositories

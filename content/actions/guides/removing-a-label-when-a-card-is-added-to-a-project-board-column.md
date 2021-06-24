@@ -10,6 +10,7 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+shortTitle: Remove label when adding card
 ---
 
 {% data reusables.actions.enterprise-beta %}

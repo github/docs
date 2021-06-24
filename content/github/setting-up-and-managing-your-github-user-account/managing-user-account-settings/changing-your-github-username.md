@@ -13,6 +13,7 @@ versions:
   ghes: '*'
 topics:
   - Accounts
+shortTitle: Change your username
 ---
 ## About username changes
 

@@ -7,5 +7,6 @@ versions:
 children:
   - /exploring-integrations
   - /purchasing-and-installing-apps-in-github-marketplace
+shortTitle: Customize your workflow
 ---
 

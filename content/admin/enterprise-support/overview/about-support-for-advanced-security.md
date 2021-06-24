@@ -10,6 +10,7 @@ type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Support for Advanced Security
 ---
 {% note %}
 

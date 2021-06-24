@@ -11,6 +11,7 @@ versions:
 type: how_to
 topics:
   - Organizations
+shortTitle: Renewing paid organization
 ---
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 

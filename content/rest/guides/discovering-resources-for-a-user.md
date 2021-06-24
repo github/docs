@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Discover resources for a user
 ---
 
  

@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Add an email address
 ---
 {% ifversion fpt %}
 

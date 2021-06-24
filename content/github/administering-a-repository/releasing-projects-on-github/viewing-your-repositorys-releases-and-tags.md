@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: View releases & tags
 ---
 {% ifversion fpt or ghae or ghes %}
 {% tip %}

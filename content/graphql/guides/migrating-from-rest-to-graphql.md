@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Migrate from REST to GraphQL
 ---
 
 ## Differences in API logic

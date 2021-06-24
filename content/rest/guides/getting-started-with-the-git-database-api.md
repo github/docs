@@ -7,6 +7,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Get started - Git Database API
 ---
 
 ## Overview 

@@ -19,5 +19,6 @@ children:
   - /changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
+shortTitle: Secure your account with 2FA
 ---
 

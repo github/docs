@@ -16,6 +16,7 @@ topics:
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verify or approve a domain
 ---
 
 ## About domain verification

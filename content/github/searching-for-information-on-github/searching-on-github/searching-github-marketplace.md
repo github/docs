@@ -7,6 +7,7 @@ topics:
   - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
+shortTitle: Search GitHub Marketplace
 ---
 ## About searching {% data variables.product.prodname_marketplace %}
 

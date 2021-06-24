@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Accounts
+shortTitle: Permission user project boards
 ---
 ## Permissions overview
 

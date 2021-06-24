@@ -12,6 +12,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Check verification status
 ---
 ## Checking your commit signature verification status
 

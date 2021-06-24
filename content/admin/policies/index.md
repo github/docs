@@ -12,5 +12,6 @@ topics:
 children:
   - /enforcing-policies-for-your-enterprise
   - /enforcing-policy-with-pre-receive-hooks
+shortTitle: Set policies
 ---
 

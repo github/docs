@@ -14,5 +14,6 @@ children:
   - /manually-syncing-actions-from-githubcom
   - /using-the-latest-version-of-the-official-bundled-actions
   - /setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
+shortTitle: Manage access to actions
 ---
 

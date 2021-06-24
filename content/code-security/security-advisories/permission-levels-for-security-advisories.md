@@ -12,6 +12,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
+shortTitle: Permission levels
 ---
 
 ## Permissions overview

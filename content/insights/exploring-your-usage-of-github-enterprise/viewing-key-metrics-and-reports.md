@@ -6,6 +6,7 @@ redirect_from:
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'
 versions:
   ghes: '*'
+shortTitle: View metrics & reports
 ---
 
 ## About metrics and reports

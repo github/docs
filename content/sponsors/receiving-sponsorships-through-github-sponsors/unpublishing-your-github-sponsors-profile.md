@@ -7,6 +7,7 @@ type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Unpublish your profile
 ---
 
 If you have sponsors, you'll need to contact GitHub Support to help you unpublish your {% data variables.product.prodname_sponsors %} account.

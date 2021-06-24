@@ -10,6 +10,7 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
   fpt: '*'
+shortTitle: Application not approved
 ---
 {% tip %}
 

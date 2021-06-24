@@ -8,6 +8,7 @@ topics:
   - Repositories
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
+shortTitle: Ownership continuity
 ---
 ## About successors
 

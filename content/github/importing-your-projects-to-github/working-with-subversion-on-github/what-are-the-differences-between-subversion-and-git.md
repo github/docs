@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+shortTitle: Subversion & Git differences
 ---
 ## Directory structure
 

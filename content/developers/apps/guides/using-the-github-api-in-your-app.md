@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Build an app with the REST API
 ---
 ## Introduction
 

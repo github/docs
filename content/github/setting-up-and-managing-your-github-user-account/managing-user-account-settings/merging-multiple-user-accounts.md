@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Accounts
+shortTitle: Merge multiple user accounts
 ---
 {% tip %}
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Repositories
+shortTitle: Restore deleted repository
 ---
 Anyone can restore deleted repositories that were owned by their own user account. Organization owners can restore deleted repositories that were owned by the organization.
 

@@ -11,6 +11,7 @@ versions:
   ghes: '*'
 topics:
   - 2FA
+shortTitle: Recover an account with 2FA
 ---
 {% ifversion fpt %}
 

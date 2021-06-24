@@ -13,6 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage individual access
 ---
 
 People with admin permissions can manage the access of organization members and outside collaborators to an organization repository.

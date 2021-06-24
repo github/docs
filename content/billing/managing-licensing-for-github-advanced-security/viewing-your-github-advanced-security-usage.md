@@ -13,6 +13,7 @@ type: how_to
 topics:
   - Advanced Security
   - Enterprise
+shortTitle: View your usage
 ---
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."

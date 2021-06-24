@@ -15,6 +15,7 @@ versions:
 topics:
   - Permissions
   - Accounts
+shortTitle: Access permissions
 ---
 ## Personal user accounts
 

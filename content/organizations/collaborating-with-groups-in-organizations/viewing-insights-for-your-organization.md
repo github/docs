@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: View organization insights
 ---
 
 All members of an organization can view organization insights. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."

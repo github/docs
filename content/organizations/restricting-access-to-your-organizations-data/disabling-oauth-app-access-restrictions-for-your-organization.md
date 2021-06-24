@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Disable OAuth App
 ---
 
 {% danger %}

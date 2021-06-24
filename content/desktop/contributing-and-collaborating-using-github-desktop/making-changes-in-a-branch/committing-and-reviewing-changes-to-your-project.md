@@ -6,6 +6,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
   fpt: '*'
+shortTitle: Commit & review changes
 ---
 ## About commits
 

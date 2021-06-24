@@ -13,5 +13,6 @@ children:
   - /editing-a-saved-reply
   - /deleting-a-saved-reply
   - /using-saved-replies
+shortTitle: Work with saved replies
 ---
 

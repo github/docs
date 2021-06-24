@@ -17,6 +17,7 @@ type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Access the management console
 ---
 ## About the {% data variables.enterprise.management_console %}
 

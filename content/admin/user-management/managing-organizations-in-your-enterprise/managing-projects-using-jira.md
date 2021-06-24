@@ -14,6 +14,7 @@ type: how_to
 topics:
   - Enterprise
   - Project management
+shortTitle: Project management with Jira
 ---
 ## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 

@@ -14,6 +14,7 @@ children:
   - /enabling-github-packages-with-minio
   - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /configuring-package-ecosystem-support-for-your-enterprise
+shortTitle: Manage GitHub Packages
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
   {% ifversion ghes > 2.22 %}

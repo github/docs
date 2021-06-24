@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Authentication
 ---
 {% ifversion ghes < 2.22 %}
 {% data reusables.pre-release-program.machine-man-preview %}

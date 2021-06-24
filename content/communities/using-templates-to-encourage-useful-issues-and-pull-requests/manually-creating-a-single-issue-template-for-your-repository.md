@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Create an issue template
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}

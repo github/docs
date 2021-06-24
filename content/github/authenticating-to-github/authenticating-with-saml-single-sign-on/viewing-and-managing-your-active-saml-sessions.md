@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - SSO
+shortTitle: Active SAML sessions
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}

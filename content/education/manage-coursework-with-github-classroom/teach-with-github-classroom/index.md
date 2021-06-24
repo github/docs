@@ -15,5 +15,6 @@ children:
   - /leave-feedback-with-pull-requests
   - /use-autograding
   - /connect-a-learning-management-system-to-github-classroom
+shortTitle: Teach
 ---
 

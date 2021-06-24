@@ -13,6 +13,7 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Set the IP using the console
 ---
 {% note %}
 

@@ -10,6 +10,7 @@ versions:
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community
+shortTitle: Limit interactions in org
 ---
 
 ## About temporary interaction limits

@@ -9,6 +9,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Withdraw advisories
 ---
 
 If you publish a security advisory in error, you can withdraw the security advisory by contacting {% data variables.contact.contact_support %}.

@@ -17,6 +17,7 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
+shortTitle: Explore dependencies
 ---
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 

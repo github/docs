@@ -11,6 +11,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
+shortTitle: Set up for user account
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

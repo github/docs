@@ -6,6 +6,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Manage allowed IP addresses
 ---
 
 ## About IP address allow lists for {% data variables.product.prodname_github_apps %}

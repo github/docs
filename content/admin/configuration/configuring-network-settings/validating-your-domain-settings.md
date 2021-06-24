@@ -13,6 +13,7 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Validate domain settings
 ---
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

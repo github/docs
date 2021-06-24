@@ -13,6 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage forking policy
 ---
 
 By default, new organizations are configured to disallow the forking of private{% ifversion fpt or ghes or ghae %} and internal{% endif %} repositories.

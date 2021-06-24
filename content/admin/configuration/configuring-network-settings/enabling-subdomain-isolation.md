@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
   - Security
+shortTitle: Enable subdomain isolation
 ---
 ## About subdomain isolation
 

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Configure
 ---
 
 {% ifversion fpt or ghes %}

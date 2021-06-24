@@ -12,6 +12,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for projects
 ---
 For more information about types of project boards, see "[About project boards](/articles/about-project-boards)."
 

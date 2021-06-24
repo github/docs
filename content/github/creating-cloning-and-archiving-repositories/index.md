@@ -15,5 +15,6 @@ children:
   - /creating-a-repository-on-github
   - /cloning-a-repository-from-github
   - /archiving-a-github-repository
+shortTitle: 'Create, clone & archive'
 ---
 

@@ -9,6 +9,7 @@ versions:
 type: tutorial
 topics:
   - Action development
+shortTitle: Composite run steps action
 ---
 
 {% data reusables.actions.enterprise-beta %}

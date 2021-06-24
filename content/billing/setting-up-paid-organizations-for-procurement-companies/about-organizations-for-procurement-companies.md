@@ -11,6 +11,7 @@ versions:
 type: overview
 topics:
   - Organizations
+shortTitle: About organizations
 ---
 To access an organization, each member must sign into their own personal user account.
 

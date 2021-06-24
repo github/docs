@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Accounts
+shortTitle: Leaving your company
 ---
 Before you leave your company, make sure you update the following information in your user account:
 

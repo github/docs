@@ -14,6 +14,7 @@ redirect_from:
   - /packages/guides/enabling-improved-container-support
 versions:
   fpt: '*'
+shortTitle: Container registry
 ---
 
 ## About {% data variables.product.prodname_container_registry %} support

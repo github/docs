@@ -12,6 +12,7 @@ permissions: Organization owners can reinstate a former member of an organizatio
 topics:
   - Organizations
   - Teams
+shortTitle: Reinstate a member
 ---
 
 ## About member reinstatement

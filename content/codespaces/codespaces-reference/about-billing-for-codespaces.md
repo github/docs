@@ -9,6 +9,7 @@ redirect_from:
 type: reference
 topics:
   - Codespaces
+shortTitle: Billing
 ---
 
 {% data reusables.codespaces.release-stage %}

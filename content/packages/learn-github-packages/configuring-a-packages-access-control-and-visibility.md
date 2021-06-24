@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/configuring-access-control-and-visibility-for-container-images
 versions:
   fpt: '*'
+shortTitle: Access control & visibility
 ---
 
 Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.

@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Code review assignment
 ---
 
 Team maintainers and organization owners can configure code review assignments.

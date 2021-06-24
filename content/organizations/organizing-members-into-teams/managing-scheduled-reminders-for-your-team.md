@@ -9,6 +9,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Scheduled reminders
 ---
 
 ## About scheduled reminders for teams

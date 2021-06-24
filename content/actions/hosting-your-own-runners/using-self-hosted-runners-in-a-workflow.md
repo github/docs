@@ -9,6 +9,7 @@ versions:
   ghes: '>=2.22'
   ghae: '*'
 type: tutorial
+shortTitle: Use runners in a workflow
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

@@ -11,5 +11,6 @@ children:
   - /stashing-changes
   - /viewing-the-branch-history
   - /pushing-changes-to-github
+shortTitle: Make changes in a branch
 ---
 

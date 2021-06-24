@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Accounts
+shortTitle: Request OAuth App approval
 ---
 ## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
 

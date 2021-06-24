@@ -13,6 +13,7 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
+shortTitle: Publish advisories
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 

@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+shortTitle: Delete & restore a package
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

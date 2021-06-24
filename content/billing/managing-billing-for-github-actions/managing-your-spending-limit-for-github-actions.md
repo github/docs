@@ -14,6 +14,7 @@ topics:
   - Organizations
   - Spending limits
   - User account
+shortTitle: Spending limits for Actions
 ---
 ## About spending limits for {% data variables.product.prodname_actions %}
 

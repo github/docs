@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - SSO
+shortTitle: PAT with SAML
 ---
 You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
 

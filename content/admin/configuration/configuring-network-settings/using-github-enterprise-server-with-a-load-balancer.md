@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Use a load balancer
 ---
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 

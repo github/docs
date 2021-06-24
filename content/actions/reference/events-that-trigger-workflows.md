@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Events that trigger workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}

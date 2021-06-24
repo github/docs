@@ -12,6 +12,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: Invite people to manage
 ---
 ## About inviting people to manage your enterprise account
 

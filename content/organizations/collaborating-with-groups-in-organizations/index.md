@@ -19,5 +19,6 @@ children:
   - /accessing-your-organizations-settings
   - /about-your-organizations-news-feed
   - /viewing-insights-for-your-organization
+shortTitle: Collaborate with groups
 ---
 

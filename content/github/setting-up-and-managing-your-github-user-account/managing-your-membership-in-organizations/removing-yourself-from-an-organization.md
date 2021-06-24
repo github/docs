@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Accounts
+shortTitle: Leave an organization
 ---
 {% ifversion fpt %}
 

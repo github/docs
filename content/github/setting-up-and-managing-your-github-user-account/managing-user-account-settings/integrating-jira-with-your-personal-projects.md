@@ -7,6 +7,7 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: '*'
+shortTitle: Integrate Jira with projects
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}

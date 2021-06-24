@@ -10,6 +10,7 @@ versions:
 type: reference
 topics:
   - Codespaces
+shortTitle: Troubleshoot a codespace
 ---
 
 {% data reusables.codespaces.release-stage %}

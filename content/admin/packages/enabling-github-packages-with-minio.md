@@ -5,6 +5,7 @@ versions:
   ghes: '>=2.22'
 topics:
   - Enterprise
+shortTitle: Enable Packages with MinIO
 ---
 
 {% warning %}

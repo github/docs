@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Agent failure to sign
 ---
 When trying to SSH into {% data variables.product.product_location %} on a Linux computer, you may see the following message in your terminal:
 

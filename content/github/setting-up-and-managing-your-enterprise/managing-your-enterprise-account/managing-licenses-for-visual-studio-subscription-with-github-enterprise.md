@@ -12,6 +12,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Visual Studio bundle
 ---
 ## About {% data variables.product.prodname_vss_ghe %}
 

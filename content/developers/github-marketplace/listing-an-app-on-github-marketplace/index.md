@@ -20,5 +20,6 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
+shortTitle: List an app on the Marketplace
 ---
 

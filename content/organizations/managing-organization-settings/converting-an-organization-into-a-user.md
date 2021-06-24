@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Convert organization to user
 ---
 
 {% ifversion fpt %}

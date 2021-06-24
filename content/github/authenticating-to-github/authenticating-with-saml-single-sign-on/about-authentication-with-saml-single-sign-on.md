@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - SSO
+shortTitle: SAML single sign-on
 ---
 ## About authentication with SAML SSO
 

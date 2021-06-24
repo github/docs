@@ -9,6 +9,7 @@ versions:
   ghes: '*'
 topics:
   - 2FA
+shortTitle: Disable 2FA
 ---
 We strongly recommend using two-factor authentication to secure your account. If you need to disable 2FA, we recommend re-enabling it as soon as possible.
 

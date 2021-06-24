@@ -12,6 +12,7 @@ versions:
   ghes: '*'
 topics:
   - 2FA
+shortTitle: Configure 2FA
 ---
 You can configure two-factor authentication using a mobile app{% ifversion fpt %} or via text message{% endif %}. You can also add a security key.
 

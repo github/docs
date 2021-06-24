@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Convert member to collaborator
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} convert organization members into outside collaborators.

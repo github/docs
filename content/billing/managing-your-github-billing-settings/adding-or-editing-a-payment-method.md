@@ -23,6 +23,7 @@ type: how_to
 topics:
   - Organizations
   - User account
+shortTitle: Manage a payment method
 ---
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 

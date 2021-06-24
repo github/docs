@@ -12,6 +12,7 @@ type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: Upgrade or downgrade
 ---
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 

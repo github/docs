@@ -18,5 +18,6 @@ children:
   - /recovering-a-high-availability-configuration
   - /removing-a-high-availability-replica
   - /about-geo-replication
+shortTitle: Configure high availability
 ---
 

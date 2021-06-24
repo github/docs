@@ -6,6 +6,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-the-branch-history
 versions:
   fpt: '*'
+shortTitle: View branch history
 ---
 Each commit shows:
 

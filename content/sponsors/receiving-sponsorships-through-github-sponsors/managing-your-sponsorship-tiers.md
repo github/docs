@@ -11,6 +11,7 @@ type: how_to
 topics:
   - Open Source
   - Sponsors profile
+shortTitle: Manage payment tiers
 ---
 
 ## About sponsorship tiers

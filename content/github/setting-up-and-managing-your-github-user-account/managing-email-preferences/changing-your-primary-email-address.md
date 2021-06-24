@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Primary email address
 ---
 {% note %}
 

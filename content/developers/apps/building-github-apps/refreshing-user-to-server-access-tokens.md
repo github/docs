@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Refresh user-to-server access
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 

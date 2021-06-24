@@ -10,6 +10,7 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+shortTitle: GitHub App permissions
 ---
 
 ### About {% data variables.product.prodname_github_app %} permissions

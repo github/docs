@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: Access community profiles
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

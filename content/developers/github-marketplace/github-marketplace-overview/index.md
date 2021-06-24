@@ -7,5 +7,5 @@ children:
   - /about-github-marketplace
   - /about-marketplace-badges
   - /applying-for-publisher-verification-for-your-organization
+shortTitle: Overview
 ---
-

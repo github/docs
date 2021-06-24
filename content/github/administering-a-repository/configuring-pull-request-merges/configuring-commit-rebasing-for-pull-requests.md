@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Configure commit rebasing
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}
 

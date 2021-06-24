@@ -16,5 +16,6 @@ children:
   - /handling-new-purchases-and-free-trials
   - /handling-plan-changes
   - /handling-plan-cancellations
+shortTitle: Marketplace API usage
 ---
 

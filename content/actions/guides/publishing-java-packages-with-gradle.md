@@ -14,6 +14,7 @@ topics:
   - Publishing
   - Java
   - Gradle
+shortTitle: Java packages with Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -14,5 +14,6 @@ children:
   - /https-cloning-errors
   - /error-repository-not-found
   - /error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
+shortTitle: Clone a repository
 ---
 

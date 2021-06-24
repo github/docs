@@ -14,5 +14,6 @@ topics:
 children:
   - /about-status-checks
   - /working-with-pre-receive-hooks
+shortTitle: Code quality features
 ---
 

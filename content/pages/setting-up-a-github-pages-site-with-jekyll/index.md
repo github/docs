@@ -22,5 +22,6 @@ children:
   - /adding-a-theme-to-your-github-pages-site-using-jekyll
   - /about-jekyll-build-errors-for-github-pages-sites
   - /troubleshooting-jekyll-build-errors-for-github-pages-sites
+shortTitle: Set up site with Jekyll
 ---
 

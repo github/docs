@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Create site with Jekyll
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}

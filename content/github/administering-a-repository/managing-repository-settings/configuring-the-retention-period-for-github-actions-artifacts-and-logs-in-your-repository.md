@@ -9,6 +9,7 @@ topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
+shortTitle: Set log retention for Actions
 ---
 {% data reusables.actions.about-artifact-log-retention %}
 

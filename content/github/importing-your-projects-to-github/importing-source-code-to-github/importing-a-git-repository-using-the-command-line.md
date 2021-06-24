@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Import repo locally
 ---
 Before you start, make sure you know:
 

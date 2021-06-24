@@ -14,6 +14,7 @@ topics:
   - Xamarin.Android
   - Android
   - iOS
+shortTitle: Build & test Xamarin apps
 ---
 
 {% data reusables.actions.enterprise-beta %}

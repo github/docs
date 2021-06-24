@@ -11,6 +11,7 @@ versions:
   ghes: '*'
 topics:
   - Profiles
+shortTitle: Send your contributions
 ---
 {% note %}
 

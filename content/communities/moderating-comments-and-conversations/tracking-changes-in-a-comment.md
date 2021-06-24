@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Track comment changes
 ---
 
 ## Viewing a comment's edit history details

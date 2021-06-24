@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: Unblock from your account
 ---
 
 When you unblock a user, they'll be able to invite you to be a collaborator to their repositories. If they [@mention you](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) anywhere on GitHub, you'll receive notifications.

@@ -16,6 +16,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Manage releases
 ---
 {% ifversion fpt or ghes > 3.0 or ghae %}
 

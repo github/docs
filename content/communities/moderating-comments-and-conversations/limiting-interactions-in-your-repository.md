@@ -10,6 +10,7 @@ versions:
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community
+shortTitle: Limit interactions in repo
 ---
 
 ## About temporary interaction limits

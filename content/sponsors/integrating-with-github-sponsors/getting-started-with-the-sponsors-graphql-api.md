@@ -7,6 +7,7 @@ type: overview
 topics:
   - GraphQL
   - API
+shortTitle: Sponsors GraphQL API
 ---
 
 To get started with the GraphQL API, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."

@@ -13,6 +13,7 @@ topics:
   - Organizations
   - Sponsors profile
   - Open Source
+shortTitle: Set up for organization
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
   - Community
+shortTitle: Management & moderation
 ---
 
 ## About community management and moderation

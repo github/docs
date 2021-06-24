@@ -19,5 +19,6 @@ children:
   - /removing-a-member-from-your-organization
   - /reinstating-a-former-member-of-your-organization
   - /can-i-create-accounts-for-people-in-my-organization
+shortTitle: Manage membership
 ---
 <!-- else -->

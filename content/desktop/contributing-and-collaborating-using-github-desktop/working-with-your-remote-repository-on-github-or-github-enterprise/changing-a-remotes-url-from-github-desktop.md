@@ -7,6 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
   fpt: '*'
+shortTitle: Change a remote's URL
 ---
 {% mac %}
 

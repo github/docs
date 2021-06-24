@@ -12,6 +12,7 @@ versions:
   fpt: '*'
 topics:
   - Pages
+shortTitle: Troubleshoot a custom domain
 ---
 
 ## _CNAME_ errors

@@ -9,6 +9,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Edit advisories
 ---
 
 People with admin permissions to a security advisory can edit the security advisory.

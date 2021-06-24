@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Remove workflow artifacts
 ---
 
 {% data reusables.actions.enterprise-beta %}

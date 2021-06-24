@@ -9,6 +9,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Cancel collaborator invitation
 ---
 
 You can view a list of all people with pending invitations to become an outside collaborator on any repository owned by your organization.

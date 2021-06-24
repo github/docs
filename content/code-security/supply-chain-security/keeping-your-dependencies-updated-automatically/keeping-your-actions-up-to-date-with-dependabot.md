@@ -13,6 +13,7 @@ topics:
   - Dependabot
   - Version updates
   - Actions
+shortTitle: Auto-update actions
 ---
 ## About {% data variables.product.prodname_dependabot_version_updates %} for actions
 

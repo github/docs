@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
   - Community
+shortTitle: Manage abuse in your org
 ---
 
 Anyone with admin permissions to a repository can manage how contributors report abuse in the repository.

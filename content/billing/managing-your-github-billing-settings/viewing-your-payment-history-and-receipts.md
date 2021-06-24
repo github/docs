@@ -16,6 +16,7 @@ topics:
   - Organizations
   - Receipts
   - User account
+shortTitle: View history & receipts
 ---
 ## Viewing receipts for your personal account
 

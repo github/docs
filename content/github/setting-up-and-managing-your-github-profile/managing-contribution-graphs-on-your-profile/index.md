@@ -16,5 +16,6 @@ children:
   - /sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /why-are-my-contributions-not-showing-up-on-my-profile
   - /troubleshooting-commits-on-your-timeline
+shortTitle: Manage contribution graph
 ---
 

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+shortTitle: Disable & enable a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}

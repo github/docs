@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: New purchases & free trials
 ---
 {% warning %}
 

@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Generate new SSH key
 ---
 ## About SSH key generation
 

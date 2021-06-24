@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Review proposed changes
 ---
 ## About reviewing pull requests
 

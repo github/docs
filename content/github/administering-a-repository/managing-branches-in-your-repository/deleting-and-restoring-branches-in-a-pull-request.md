@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Delete & restore
 ---
 ## Deleting a branch used for a pull request
 

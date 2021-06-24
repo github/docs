@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Accounts
+shortTitle: Available for hire checkbox
 ---
 
 {% warning %}

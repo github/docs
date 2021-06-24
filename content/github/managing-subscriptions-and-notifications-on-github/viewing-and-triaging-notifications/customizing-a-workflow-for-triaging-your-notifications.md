@@ -9,6 +9,7 @@ topics:
   - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
+shortTitle: Triage your notifications
 ---
 ## Starting your inbox triage
 

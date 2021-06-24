@@ -8,5 +8,6 @@ versions:
 children:
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
+shortTitle: Install Marketplace apps
 ---
 

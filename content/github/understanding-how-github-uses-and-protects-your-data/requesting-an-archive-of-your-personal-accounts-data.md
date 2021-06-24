@@ -9,6 +9,7 @@ versions:
 topics:
   - Policy
   - Legal
+shortTitle: Request account archive
 ---
 
 {% data variables.product.product_name %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through settings on {% data variables.product.prodname_dotcom_the_website %} or with the User Migration API.

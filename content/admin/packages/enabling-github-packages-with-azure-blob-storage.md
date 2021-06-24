@@ -5,6 +5,7 @@ versions:
   ghes: '>=3.0'
 topics:
   - Enterprise
+shortTitle: Enable Packages with Azure
 ---
 
 {% warning %}

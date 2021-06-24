@@ -24,6 +24,7 @@ versions:
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
+shortTitle: Branch protection rule
 ---
 ## About branch protection rules
 

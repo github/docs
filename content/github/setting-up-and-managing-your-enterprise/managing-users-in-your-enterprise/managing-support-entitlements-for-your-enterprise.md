@@ -7,6 +7,7 @@ versions:
 topics:
   - Enterprise
   - Support
+shortTitle: Manage support entitlements
 ---
 ## About support entitlements
 

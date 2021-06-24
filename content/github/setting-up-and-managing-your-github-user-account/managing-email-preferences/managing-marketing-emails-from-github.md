@@ -9,6 +9,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Marketing emails
 ---
 ## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
 

@@ -33,5 +33,6 @@ children:
   - /command-line-utilities
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
+shortTitle: Configure your enterprise
 ---
 

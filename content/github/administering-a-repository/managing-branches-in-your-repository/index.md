@@ -14,5 +14,6 @@ children:
   - /renaming-a-branch
   - /changing-the-default-branch
   - /deleting-and-restoring-branches-in-a-pull-request
+shortTitle: Manage branches
 ---
 

@@ -14,5 +14,6 @@ children:
   - /troubleshooting-search-queries
   - /sorting-search-results
   - /enabling-githubcom-repository-search-in-github-enterprise-server
+shortTitle: Start with search on GitHub
 ---
 

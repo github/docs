@@ -20,5 +20,6 @@ children:
   - /removing-users-from-teams-and-organizations
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
+shortTitle: Manage organizations
 ---
 

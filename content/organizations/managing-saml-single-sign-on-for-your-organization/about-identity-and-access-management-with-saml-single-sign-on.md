@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: IAM with SAML SSO
 ---
 
 ## About SAML SSO

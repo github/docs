@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Change access permissions
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
