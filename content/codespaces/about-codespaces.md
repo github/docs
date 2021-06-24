@@ -6,7 +6,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/about-codespaces
   - /codespaces/getting-started-with-codespaces/about-codespaces
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Codespaces

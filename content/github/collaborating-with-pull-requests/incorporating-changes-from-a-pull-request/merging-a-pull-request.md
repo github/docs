@@ -6,9 +6,9 @@ redirect_from:
   - /articles/merging-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/merging-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -26,7 +26,7 @@ You can't merge a draft pull request. For more information about draft pull requ
 
 If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/articles/closing-a-pull-request) without merging.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 {% tip %}
 
 **Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
@@ -69,7 +69,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
 The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% ifversion fpt or ghae or ghes > 2.21 %}
    {% note %}
 
    **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}

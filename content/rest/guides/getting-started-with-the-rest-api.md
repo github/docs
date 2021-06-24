@@ -5,11 +5,12 @@ redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Get started - REST API
 ---
 
 
@@ -23,7 +24,7 @@ Most applications will use an existing [wrapper library][wrappers] in the langua
 of your choice, but it's important to familiarize yourself with the underlying API
 HTTP methods first.
 
-There's no easier way to kick the tires than through [cURL][curl].{% if currentVersion == "free-pro-team@latest" %} If you are using
+There's no easier way to kick the tires than through [cURL][curl].{% ifversion fpt %} If you are using
 an alternative client, note that you are required to send a valid
 [User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
 
@@ -128,11 +129,11 @@ When authenticating, you should see your rate limit bumped to 5,000 requests an 
 
 You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 ![Personal Token selection](/assets/images/personal_token.png)
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 ![Personal Token selection](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
@@ -198,7 +199,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 In the same way, we can [view repositories for the authenticated user][user repos api]:
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -216,9 +217,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 The information returned from these calls will depend on which scopes our token has when we authenticate:
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 * A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on github.com.{% endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
 
 As the [docs][repos-api] indicate, these methods take a `type` parameter that
 can filter the repositories returned based on what type of access the user has
@@ -241,7 +242,7 @@ Fetching information for existing repositories is a common use case, but the
 we need to `POST` some JSON containing the details and configuration options.
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -252,7 +253,7 @@ $ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest
 ```
 
 In this minimal example, we create a new private repository for our blog (to be served
-on [GitHub Pages][pages], perhaps). Though the blog {% if currentVersion != "github-ae@latest" %}will be public{% else %}is accessible to all enterprise members{% endif %}, we've made the repository private. In this single step, we'll also initialize it with a README and a [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
+on [GitHub Pages][pages], perhaps). Though the blog {% ifversion not ghae %}will be public{% else %}is accessible to all enterprise members{% endif %}, we've made the repository private. In this single step, we'll also initialize it with a README and a [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
 
 The resulting repository will be found at `https://github.com/<your_username>/blog`.
 To create a repository under an organization for which you're
@@ -287,7 +288,7 @@ Just like github.com, the API provides a few methods to view issues for the
 authenticated user. To [see all your issues][get issues api], call `GET /issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -295,7 +296,7 @@ To get only the [issues under one of your {% data variables.product.product_name
 /orgs/<org>/issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -337,7 +338,7 @@ body to the `/issues` path underneath the repository in which we want to create
 the issue:
 
 ```shell
-$ curl -i -H 'Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \

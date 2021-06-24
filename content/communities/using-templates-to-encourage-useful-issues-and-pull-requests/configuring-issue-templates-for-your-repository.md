@@ -6,20 +6,21 @@ redirect_from:
   - /articles/configuring-issue-templates-for-your-repository
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Configure
 ---
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 
 ## Creating issue templates
 
@@ -45,7 +46,7 @@ topics:
 ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Creating issue forms
 
@@ -69,7 +70,7 @@ Here is the rendered version of the issue form.
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 ## Configuring the template chooser
 
 {% data reusables.repositories.issue-template-config %}

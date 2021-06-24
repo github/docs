@@ -9,9 +9,9 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
   - /code-security/secure-coding/sarif-support-for-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: reference
 topics:
   - Advanced Security
@@ -31,10 +31,10 @@ To upload a SARIF file from a third-party static code analysis engine, you'll ne
 
 If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %} or using the {% data variables.product.prodname_codeql_runner %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
 If you're using the {% data variables.product.prodname_codeql_cli %}, then you can specify the version of SARIF to use. For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can upload multiple SARIF files for the same tool and commit, and analyze each file using {% data variables.product.prodname_code_scanning %}. You can indicate a "category" for each analysis by specifying a `runAutomationDetails.id` in each file. Only SARIF files with the same category will overwrite each other. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
 
 {% endif %}
@@ -137,7 +137,7 @@ A location within a programming artifact, such as a file in the repository or a 
 | `region.endLine` | **Required.** The line number of the last character in the region.
 | `region.endColumn` | **Required.** The column number of the character following the end of the region.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ### `runAutomationDetails` object
 
 The `runAutomationDetails` object contains information that specifies the identity of a run.
@@ -234,7 +234,7 @@ This SARIF output file has example values to show the minimum required propertie
 
 This SARIF output file has example values to show all supported SARIF properties for {% data variables.product.prodname_code_scanning %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",

@@ -2,7 +2,7 @@
 title: GitHub AE Data Protection Agreement
 hidden: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/site-policy/ghem-data-protection-addendum
   - /github/site-policy/github-ae-data-protection-agreement

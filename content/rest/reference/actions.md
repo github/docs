@@ -4,9 +4,9 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /v3/actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -32,7 +32,7 @@ The Artifacts API allows you to download, delete, and retrieve information about
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Permissions
 
 {% data reusables.actions.ae-beta %}

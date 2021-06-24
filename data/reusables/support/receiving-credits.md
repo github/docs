@@ -14,6 +14,6 @@ The following information **must be included** in your credit request:
 - **Date** (The date must be within 30 days after the quarter based on {% data variables.product.company_short %}’s fiscal year end in which the claims occurred [January 31, April 30, July 31, or October 31].)
 - **Customer contact** (You must specify both name and email address.)
 - **Customer address**
-- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% if currentVersion == "free-pro-team@latest" %}
+- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% ifversion fpt %}
 - **Name of {% data variables.product.prodname_ghe_cloud %} organization**{% endif %}
 - **Ticket numbers**

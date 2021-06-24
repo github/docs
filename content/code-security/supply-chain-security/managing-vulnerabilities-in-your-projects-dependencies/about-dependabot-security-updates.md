@@ -7,7 +7,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Dependabot

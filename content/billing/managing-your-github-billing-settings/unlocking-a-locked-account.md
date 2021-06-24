@@ -12,13 +12,14 @@ redirect_from:
   - /articles/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - User account
+shortTitle: Locked account
 ---
 You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 

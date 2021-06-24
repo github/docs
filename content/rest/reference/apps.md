@@ -3,9 +3,9 @@ title: Apps
 redirect_from:
   - /v3/apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -45,7 +45,7 @@ To list all GitHub App installations for an organization, see "[List app install
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Marketplace
 
 For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
@@ -66,7 +66,7 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Webhooks
 
 {% for operation in currentRestOperations %}

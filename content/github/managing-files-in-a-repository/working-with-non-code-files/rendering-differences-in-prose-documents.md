@@ -4,11 +4,12 @@ redirect_from:
   - /articles/rendering-differences-in-prose-documents
   - /github/managing-files-in-a-repository/rendering-differences-in-prose-documents
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Differences in prose
 ---
 Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
 

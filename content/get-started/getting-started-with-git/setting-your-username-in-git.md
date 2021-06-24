@@ -7,9 +7,10 @@ redirect_from:
   - /github/getting-started-with-github/setting-your-username-in-git
   - /github/getting-started-with-github/getting-started-with-git/setting-your-username-in-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Set your username
 ---
 You can change the name that is associated with your Git commits using the `git config` command. The new name you set will be visible in any future commits you push to {% data variables.product.product_name %} from the command line. If you'd like to keep your real name private, you can use any text as your Git username.
 

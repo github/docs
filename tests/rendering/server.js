@@ -7,6 +7,8 @@ const { loadPages } = require('../../lib/page-data')
 const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 const CspParse = require('csp-parse')
+const { productMap } = require('../../lib/all-products')
+const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
 
 jest.useFakeTimers()
 
@@ -31,6 +33,57 @@ describe('server', () => {
     const res = await get('/en')
     expect(res.statusCode).toBe(200)
   })
+
+  test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
+    const $ = await getDOM('/en')
+    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarTitles = sidebarItems.map(el => $(el).text().trim())
+    const sidebarHrefs = sidebarItems.map(el => $(el).attr('href'))
+
+    const productTitles = activeProducts.map(prod => prod.name)
+    const productHrefs = activeProducts.map(prod => prod.external ? prod.href : `/en${prod.href}`)
+
+    const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, productTitles)
+    const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
+
+    const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, productHrefs)
+    const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
+
+    expect(titlesInSidebarButNotProducts.length, `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(titlesInProductsButNotSidebar.length, `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`).toBe(0)
+    expect(hrefsInSidebarButNotProducts.length, `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(hrefsInProductsButNotSidebar.length, `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`).toBe(0)
+  })
+
+  test('renders the Enterprise homepage with links to exptected products in both the sidebar and page body', async () => {
+    const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}`)
+    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarTitles = sidebarItems.map(el => $(el).text().trim())
+    const sidebarHrefs = sidebarItems.map(el => $(el).attr('href'))
+
+    const ghesProducts = activeProducts
+      .filter(prod => prod.versions && prod.versions.includes(`enterprise-server@${enterpriseServerReleases.latest}`) || prod.external)
+
+    const ghesProductTitles = ghesProducts.map(prod => prod.name)
+    const ghesProductHrefs = ghesProducts.map(prod => prod.external ? prod.href : `/en${prod.href.includes('enterprise-server') ? prod.href : `/enterprise-server@${enterpriseServerReleases.latest}${prod.href}`}`)
+
+    const firstSidebarTitle = sidebarTitles.shift()
+    const firstSidebarHref = sidebarHrefs.shift()
+
+    const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, ghesProductTitles)
+    const titlesInProductsButNotSidebar = lodash.difference(ghesProductTitles, sidebarTitles)
+
+    const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, ghesProductHrefs)
+    const hrefsInProductsButNotSidebar = lodash.difference(ghesProductHrefs, sidebarHrefs)
+
+    expect(firstSidebarTitle).toBe('All products')
+    expect(firstSidebarHref).toBe('/en')
+    expect(titlesInSidebarButNotProducts.length, `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(titlesInProductsButNotSidebar.length, `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`).toBe(0)
+    expect(hrefsInSidebarButNotProducts.length, `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(hrefsInProductsButNotSidebar.length, `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`).toBe(0)
+  })
+
 
   test('uses gzip compression', async () => {
     const res = await get('/en')

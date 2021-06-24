@@ -6,13 +6,15 @@ redirect_from:
   - /categories/notifications/
   - /categories/receiving-notifications-about-activity-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 children:
   - /setting-up-notifications
   - /viewing-and-triaging-notifications
   - /managing-subscriptions-for-activity-on-github
+shortTitle: Subscriptions & notifications
 ---
+

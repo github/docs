@@ -7,13 +7,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure DNS servers
 ---
 The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.
 

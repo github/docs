@@ -8,9 +8,10 @@ redirect_from:
   - /github/getting-started-with-github/getting-changes-from-a-remote-repository
   - /github/getting-started-with-github/using-git/getting-changes-from-a-remote-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Get changes from a remote
 ---
 ## Options for getting changes
 
@@ -81,5 +82,5 @@ to take the branch back to where it was in before you pulled.
 
 ## Further reading
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt %}
 - "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"{% endif %}

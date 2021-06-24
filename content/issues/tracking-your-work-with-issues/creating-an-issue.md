@@ -19,13 +19,14 @@ redirect_from:
   - /github/managing-your-work-on-github/about-automation-for-issues-and-pull-requests-with-query-parameters
   - /issues/tracking-your-work-with-issues/creating-issues/creating-an-issue
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
+shortTitle: Automate with query parameters
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
@@ -34,7 +35,7 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
 ## Creating an issue from a repository
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 {% tip %}
 
 **Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
@@ -92,7 +93,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 
 If you're using a project board to track and prioritize your work, you can convert project board notes to issues. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a project board](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Creating an issue from a task list item
 

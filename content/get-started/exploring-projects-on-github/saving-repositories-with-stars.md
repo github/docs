@@ -1,6 +1,6 @@
 ---
 title: Saving repositories with stars
-intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% ifversion fpt %} and discover related content in your news feed{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -10,11 +10,12 @@ redirect_from:
   - /github/getting-started-with-github/saving-repositories-with-stars
   - /github/getting-started-with-github/exploring-projects-on-github/saving-repositories-with-stars
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Save repos with stars
 ---
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 
@@ -22,7 +23,7 @@ You can search, sort, and filter your starred repositories and topics on your {%
 
 Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {% data variables.explore.your_stars_page %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content in the discovery view of your news feed. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 

@@ -4,11 +4,12 @@ intro: 'You can use discussions in a repository as a place for your community to
 product: '{% data reusables.gated-features.discussions %}'
 permissions: People with admin permissions to a repository can enable discussions for the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
+shortTitle: Discussions
 ---
 {% data reusables.discussions.beta %}
 

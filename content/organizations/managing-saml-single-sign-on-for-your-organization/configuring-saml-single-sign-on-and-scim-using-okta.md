@@ -6,10 +6,11 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Configure SAML & SCIM with Okta
 ---
 
 ## About SAML and SCIM with Okta

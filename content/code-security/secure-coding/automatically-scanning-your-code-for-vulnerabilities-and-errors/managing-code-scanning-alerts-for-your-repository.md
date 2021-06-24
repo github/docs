@@ -5,9 +5,9 @@ intro: 'From the security view, you can view, fix, dismiss, or delete alerts for
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-from-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
@@ -51,11 +51,11 @@ You need write permission to view a summary of all the alerts for a repository o
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-1. Optionally, use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %} the free text search box or{% endif %} the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+{% ifversion fpt or ghes > 3.1 %}
+1. Optionally, use{% ifversion fpt or ghes > 3.1 %} the free text search box or{% endif %} the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
   ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+{% ifversion fpt or ghes > 3.1 %}
   ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
   ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
@@ -65,7 +65,7 @@ You need write permission to view a summary of all the alerts for a repository o
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.1 %}
 {% note %}
 
 **Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository. 
@@ -76,7 +76,7 @@ For example, you can see when the last scan ran, the number of lines of code ana
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.1 %}
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
@@ -117,11 +117,11 @@ Anyone with write permission for a repository can fix an alert by committing a c
 
 If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
-You can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
+You can use{% ifversion fpt or ghes > 3.1 %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+{% ifversion fpt or ghes > 3.1 %}
 ![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
 {% else %}
 ![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
@@ -157,9 +157,9 @@ To dismiss or delete alerts:
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Optionally, you can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
+   Optionally, you can use{% ifversion fpt or ghes > 3.1 %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+{% ifversion fpt or ghes > 3.1 %}
   ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
 {% else %}
   ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
@@ -167,7 +167,7 @@ To dismiss or delete alerts:
 
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+{% ifversion fpt or ghes > 3.1 %}
    ![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
   ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)

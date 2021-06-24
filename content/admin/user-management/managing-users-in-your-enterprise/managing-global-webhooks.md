@@ -6,8 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-global-webhooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise

@@ -9,9 +9,10 @@ redirect_from:
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Troubleshoot a custom domain
 ---
 
 ## _CNAME_ errors

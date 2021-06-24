@@ -269,7 +269,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === 'homepage').href).toBe('/en')
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en')
       expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
     })
 
@@ -491,15 +491,8 @@ describe('Page class', () => {
     // There are none of these in the content at this time!
     })
 
-    // Note this test will go out of date when we deprecate 2.20
-    test('pages that apply to newer enterprise versions', async () => {
-      const page = await Page.init({
-        relativePath: 'github/administering-a-repository/releasing-projects-on-github/comparing-releases.md',
-        basePath: path.join(__dirname, '../../content'),
-        languageCode: 'en'
-      })
-      expect(nonEnterpriseDefaultPlan in page.versions).toBe(true)
-      expect(page.versions['enterprise-server']).toBe('>=2.21')
+    test.skip('pages that apply to newer enterprise versions', async () => {
+    // There are none of these in the content at this time!
     })
 
     test('pages that use short names in versions frontmatter', async () => {
@@ -533,7 +526,7 @@ describe('Page class', () => {
       })
 
       expect(nonEnterpriseDefaultPlan in page.versions).toBe(false)
-      expect(page.versions['enterprise-server']).toBe('*')
+      expect(page.versions.ghes).toBe('*')
     })
 
     test('feature versions frontmatter', async () => {

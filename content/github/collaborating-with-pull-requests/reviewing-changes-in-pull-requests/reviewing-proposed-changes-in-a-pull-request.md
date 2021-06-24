@@ -6,11 +6,12 @@ redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Review proposed changes
 ---
 ## About reviewing pull requests
 
@@ -33,7 +34,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Reviewing dependency changes
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."

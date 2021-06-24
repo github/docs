@@ -6,11 +6,12 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-assignees
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-assignees
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter by assignee
 ---
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 

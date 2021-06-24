@@ -8,9 +8,10 @@ redirect_from:
   - /github/getting-started-with-github/using-git/using-git-rebase-on-the-command-line
 intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Git rebase
 ---
 ## Using Git rebase
 
