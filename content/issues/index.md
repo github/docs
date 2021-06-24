@@ -14,6 +14,7 @@ featuredLinks:
   guideCards:
     - /issues/trying-out-the-new-projects-experience/automating-projects
     - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
+    - /issues/tracking-your-work-with-issues/managing-a-cross-functional-team-or-project-on-github
     - /issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards
   popular:
     - /issues/tracking-your-work-with-issues/creating-issues/about-issues
