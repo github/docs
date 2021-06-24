@@ -3,7 +3,7 @@
 {% endif %}
 
 {% for product in activeProducts %}
-{% if currentVersion == 'free-pro-team@latest' or product.external or product.versions contains currentVersion and currentVersion !== 'free-pro-team@latest' %}
+{% if currentVersion == 'free-pro-team@latest' or product.external or product.versions contains currentVersion %}
 <li
   title="{{product.name}}{% if product.external %} (External Site){% endif %}"
   class="sidebar-product"
