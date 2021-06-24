@@ -4,8 +4,6 @@ intro: "The essentials for using {% data variables.product.prodname_dotcom %}'s 
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
 ---
 ## Introduction
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
