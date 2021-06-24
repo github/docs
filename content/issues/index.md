@@ -33,7 +33,6 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
-  - /quickstart
   - /tracking-your-work-with-issues
   - /trying-out-the-new-projects-experience
   - /organizing-your-work-with-project-boards
