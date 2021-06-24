@@ -15,5 +15,6 @@ children:
   - /authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /viewing-and-managing-your-active-saml-sessions
+shortTitle: Authenticate with SAML
 ---
 

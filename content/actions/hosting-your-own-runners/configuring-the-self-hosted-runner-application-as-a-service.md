@@ -9,6 +9,7 @@ versions:
   ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Run runner app on startup
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

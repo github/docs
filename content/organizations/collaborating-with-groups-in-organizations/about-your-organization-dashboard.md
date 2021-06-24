@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Organization dashboard
 ---
 
 ## Accessing your organization dashboard

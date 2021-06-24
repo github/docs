@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Organized data with tables
 ---
 ## Creating a table
 

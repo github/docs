@@ -14,6 +14,7 @@ topics:
   - LFS
   - Organizations
   - User account
+shortTitle: View Git LFS usage
 ---
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 

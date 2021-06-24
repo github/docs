@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: Encourage contributions
 ---
 
 You can apply the `good first issue` label to issues in your public repository so that people can find them when searching by labels. For more information about searching by labels, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests/#search-by-label)."

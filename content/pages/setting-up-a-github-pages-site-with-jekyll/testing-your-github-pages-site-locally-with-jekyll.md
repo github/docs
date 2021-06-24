@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Test site locally with Jekyll
 ---
 
 Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.

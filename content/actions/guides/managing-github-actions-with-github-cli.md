@@ -9,6 +9,7 @@ versions:
 type: overview
 topics:
   - Workflows
+shortTitle: GitHub CLI & GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}

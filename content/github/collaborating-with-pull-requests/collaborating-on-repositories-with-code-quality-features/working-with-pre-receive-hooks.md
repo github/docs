@@ -7,6 +7,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-pre-receive-hooks
 versions:
   ghes: '*'
+shortTitle: Pre-receive hooks
 ---
 Pre-receive hooks run tests on code pushed to a repository to ensure contributions meet repository or organization policy. If the commit contents pass the tests, the push will be accepted into the repository. If the commit contents do not pass the tests, the push will not be accepted.
 

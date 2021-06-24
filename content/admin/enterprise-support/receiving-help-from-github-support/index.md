@@ -14,5 +14,6 @@ children:
   - /preparing-to-submit-a-ticket
   - /submitting-a-ticket
   - /providing-data-to-github-support
+shortTitle: Receive help from Support
 ---
 

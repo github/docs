@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Permanent links to files
 ---
 {% tip %}
 

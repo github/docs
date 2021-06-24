@@ -10,6 +10,7 @@ versions:
   ghes: '>=2.22'
 topics:
   - GitHub Apps
+shortTitle: Activate optional features
 ---
 {% warning %}
 

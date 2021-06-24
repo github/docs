@@ -14,5 +14,6 @@ children:
   - /viewing-the-subscription-and-usage-for-your-enterprise-account
   - /managing-licenses-for-visual-studio-subscription-with-github-enterprise
   - /connecting-an-azure-subscription-to-your-enterprise
+shortTitle: Manage your enterprise
 ---
 

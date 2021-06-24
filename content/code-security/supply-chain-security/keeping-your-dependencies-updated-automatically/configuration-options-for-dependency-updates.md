@@ -15,6 +15,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Configuration options
 ---
 ## About the *dependabot.yml* file
 

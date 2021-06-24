@@ -8,6 +8,7 @@ topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
+shortTitle: Troubleshoot GitHub Actions
 ---
 ## Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
 

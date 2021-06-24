@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
   - /education/manage-coursework-with-github-classroom/run-student-code-in-an-online-ide
+shortTitle: Online IDE
 ---
 ## About student code and online IDEs
 

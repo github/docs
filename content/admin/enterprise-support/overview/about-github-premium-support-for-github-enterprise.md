@@ -10,6 +10,7 @@ type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for Enterprise
 ---
 {% note %}
 

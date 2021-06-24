@@ -13,6 +13,7 @@ topics:
   - Secret store
   - Repositories
   - Dependencies
+shortTitle: Manage encrypted secrets
 ---
 ## About encrypted secrets for {% data variables.product.prodname_dependabot %}
 

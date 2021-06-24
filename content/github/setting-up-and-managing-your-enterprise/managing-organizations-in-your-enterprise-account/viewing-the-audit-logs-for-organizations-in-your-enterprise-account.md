@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: View organization audit logs
 ---
 Each audit log entry shows applicable information about an event, such as:
 

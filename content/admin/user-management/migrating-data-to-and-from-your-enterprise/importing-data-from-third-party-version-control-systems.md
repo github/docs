@@ -11,6 +11,7 @@ type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import from another VCS
 ---
 ## Importing projects from Mercurial
 

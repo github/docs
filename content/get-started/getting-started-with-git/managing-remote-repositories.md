@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Manage remote repositories
 ---
 ## Adding a remote repository
 

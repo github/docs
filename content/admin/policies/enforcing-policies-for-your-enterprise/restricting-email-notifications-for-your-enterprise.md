@@ -13,6 +13,7 @@ topics:
   - Policy
 redirect_from:
   - /admin/policies/restricting-email-notifications-for-your-enterprise
+shortTitle: Restrict email notifications
 ---
 ## About email restrictions for your enterprise account
 

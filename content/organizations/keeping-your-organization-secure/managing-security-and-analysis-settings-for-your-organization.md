@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage security & analysis
 ---
 
 ## About management of security and analysis settings

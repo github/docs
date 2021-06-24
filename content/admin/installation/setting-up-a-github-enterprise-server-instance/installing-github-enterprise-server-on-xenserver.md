@@ -9,6 +9,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on XenServer
 ---
 
 {% note %}

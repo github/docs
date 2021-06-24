@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Code migration tools
 ---
 {% ifversion fpt %}
 

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Pages
+shortTitle: Add theme to a Pages site
 ---
 
 People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.

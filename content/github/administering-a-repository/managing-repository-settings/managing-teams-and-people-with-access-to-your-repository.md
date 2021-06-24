@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Repositories
+shortTitle: Teams & people
 ---
 ## About managing access to your repository
 

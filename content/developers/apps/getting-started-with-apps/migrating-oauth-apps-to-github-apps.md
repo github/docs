@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Migrate to OAuth Apps
 ---
 This article provides guidelines for existing integrators who are considering migrating from an OAuth App to a GitHub App.
 

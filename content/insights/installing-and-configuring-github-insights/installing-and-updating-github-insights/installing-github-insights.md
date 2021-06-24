@@ -7,6 +7,7 @@ redirect_from:
 permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
   ghes: '*'
+shortTitle: Install GitHub Insights
 ---
 ## Prerequisites
 

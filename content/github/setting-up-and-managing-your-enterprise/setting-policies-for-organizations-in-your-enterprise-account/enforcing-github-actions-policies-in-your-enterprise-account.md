@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for GitHub Actions
 ---
 ## About {% data variables.product.prodname_actions %} permissions for your enterprise account
 

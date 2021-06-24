@@ -11,6 +11,7 @@ type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: About billing
 ---
 ## About billing for {% data variables.product.prodname_registry %}
 

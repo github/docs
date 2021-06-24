@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Convert Owners team
 ---
 
 You have a few options to convert your legacy Owners team:

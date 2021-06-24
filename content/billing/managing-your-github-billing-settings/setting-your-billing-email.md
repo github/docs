@@ -15,6 +15,7 @@ type: how_to
 topics:
   - Organizations
   - User account
+shortTitle: Billing email
 ---
 ## Setting your personal account's billing email
 

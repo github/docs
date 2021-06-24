@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Repositories
+shortTitle: View traffic to a repository
 ---
 You can navigate to referring sites, excluding search engines and {% data variables.product.product_name %} itself, from the links the specific paths were referred from. The popular content links to the specific content that generated traffic.
 

@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Review installed integrations
 ---
 
 {% data reusables.profile.access_org %}

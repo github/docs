@@ -15,6 +15,7 @@ topics:
   - Publishing
   - Node
   - JavaScript
+shortTitle: Node.js packages
 ---
 
 {% data reusables.actions.enterprise-beta %}

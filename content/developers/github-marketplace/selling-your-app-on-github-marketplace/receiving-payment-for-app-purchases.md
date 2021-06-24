@@ -12,6 +12,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: Receive payment
 ---
 After your {% data variables.product.prodname_marketplace %} listing for an app with a paid plan is created and approved, you'll provide payment details to {% data variables.product.product_name %} as part of the financial onboarding process.
 

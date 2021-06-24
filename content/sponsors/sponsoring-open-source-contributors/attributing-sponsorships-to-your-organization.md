@@ -11,6 +11,7 @@ topics:
   - Open Source
   - Organizations
   - Sponsors profile
+shortTitle: Attribute sponsorships
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.

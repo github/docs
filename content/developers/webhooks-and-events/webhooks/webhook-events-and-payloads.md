@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Webhooks
+shortTitle: Webhook events & payloads
 ---
 {% ifversion fpt %}
 

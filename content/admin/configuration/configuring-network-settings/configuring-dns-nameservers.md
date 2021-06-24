@@ -14,6 +14,7 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure DNS servers
 ---
 The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.
 

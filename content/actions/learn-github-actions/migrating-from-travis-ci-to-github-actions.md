@@ -13,6 +13,7 @@ topics:
   - Migration
   - CI
   - CD
+shortTitle: Migrate from Travis CI
 ---
 
 {% data reusables.actions.enterprise-beta %}

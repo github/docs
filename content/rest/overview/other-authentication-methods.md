@@ -9,6 +9,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Other authentication methods
 ---
 
 

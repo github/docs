@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Large file conditions
 ---
 {% data reusables.large_files.use_lfs_tip %}
 

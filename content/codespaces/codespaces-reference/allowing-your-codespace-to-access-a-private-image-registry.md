@@ -5,6 +5,7 @@ versions:
   fpt: '*'
 topics:
   - Codespaces
+shortTitle: Private image registry
 ---
 
 {% data reusables.codespaces.release-stage %}

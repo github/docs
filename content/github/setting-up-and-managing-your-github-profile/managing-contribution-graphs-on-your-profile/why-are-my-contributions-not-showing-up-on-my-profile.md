@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Profiles
+shortTitle: Contributions not on profile
 ---
 ## Contributions that are counted
 

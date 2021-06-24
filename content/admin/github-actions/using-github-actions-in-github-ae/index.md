@@ -6,5 +6,6 @@ versions:
 children:
   - /getting-started-with-github-actions-for-github-ae
   - /using-actions-in-github-ae
+shortTitle: Use Actions in GitHub AE
 ---
 

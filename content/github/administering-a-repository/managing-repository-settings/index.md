@@ -32,5 +32,6 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
+shortTitle: Manage repository settings
 ---
 

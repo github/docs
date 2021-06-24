@@ -11,6 +11,7 @@ topics:
   - CD
   - Containers
   - Amazon ECS
+shortTitle: Deploy to Amazon ECS
 ---
 
 {% data reusables.actions.enterprise-beta %}

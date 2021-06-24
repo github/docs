@@ -9,6 +9,7 @@ topics:
   - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
+shortTitle: Manage your subscriptions
 ---
 To help you understand your subscriptions and decide whether to unsubscribe, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 

@@ -11,5 +11,6 @@ children:
   - /about-github-education-for-educators-and-researchers
   - /apply-for-an-educator-or-researcher-discount
   - /why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+shortTitle: Classroom & research
 ---
 

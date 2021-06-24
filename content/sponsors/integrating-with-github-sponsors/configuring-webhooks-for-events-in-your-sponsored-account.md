@@ -10,6 +10,7 @@ topics:
   - Webhooks
   - Events
   - Open Source
+shortTitle: Webhooks for events
 ---
 
 ## About webhooks for events in your sponsored account

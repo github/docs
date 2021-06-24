@@ -8,6 +8,7 @@ type: overview
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Coordinated disclosure
 ---
 
 ## About disclosing vulnerabilities in the industry

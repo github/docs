@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces
   - /codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces
+shortTitle: GPG verification
 ---
 
 {% data reusables.codespaces.release-stage %}

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter cards on board
 ---
 {% data reusables.projects.project_boards_old %}
 

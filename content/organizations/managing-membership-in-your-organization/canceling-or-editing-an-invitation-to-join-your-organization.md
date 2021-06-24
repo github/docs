@@ -9,6 +9,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Cancel or edit invitation
 ---
 
 {% data reusables.profile.access_org %}

@@ -14,5 +14,6 @@ topics:
 children:
   - /visualizing-commits-in-a-repository
   - /visualizing-additions-and-deletions-to-content-in-a-repository
+shortTitle: Analyze changes to repository
 ---
 

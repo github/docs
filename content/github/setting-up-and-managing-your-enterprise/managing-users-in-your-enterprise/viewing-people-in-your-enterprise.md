@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+shortTitle: View people in your enterprise
 ---
 ## Viewing enterprise owners{% ifversion fpt %} and billing managers{% endif %}
 

@@ -15,6 +15,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Manage wiki pages
 ---
 
 ## Adding wiki pages

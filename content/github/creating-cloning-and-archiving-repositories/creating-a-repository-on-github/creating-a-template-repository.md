@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Create a template repo
 ---
 {% note %}
 

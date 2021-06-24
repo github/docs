@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Pin an issue
 ---
 ![Pinned issues](/assets/images/help/issues/pinned-issues.png)
 

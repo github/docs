@@ -17,6 +17,7 @@ topics:
   - Fundamentals
   - Infrastructure
   - Notifications
+shortTitle: Configure email notifications
 ---
 {% ifversion ghae %}
 Enterprise owners can configure email for notifications.

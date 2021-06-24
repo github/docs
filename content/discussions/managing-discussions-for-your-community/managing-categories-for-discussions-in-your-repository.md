@@ -4,6 +4,7 @@ intro: 'You can categorize the discussions in your repository to organize conver
 permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   fpt: '*'
+shortTitle: Manage categories
 ---
 
 {% data reusables.discussions.beta %}

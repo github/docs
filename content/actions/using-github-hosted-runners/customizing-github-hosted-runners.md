@@ -8,6 +8,7 @@ versions:
 type: tutorial
 topics:
   - Workflows
+shortTitle: Customize runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

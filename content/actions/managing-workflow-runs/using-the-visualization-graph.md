@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+shortTitle: Use the visualization graph
 ---
 
 {% data reusables.actions.enterprise-beta %}

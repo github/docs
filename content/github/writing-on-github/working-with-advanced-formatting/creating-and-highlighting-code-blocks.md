@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Create code blocks
 ---
 
 ## Fenced code blocks

@@ -11,5 +11,6 @@ children:
   - /customer-experience-best-practices-for-apps
   - /viewing-metrics-for-your-listing
   - /viewing-transactions-for-your-listing
+shortTitle: Create Marketplace apps
 ---
 

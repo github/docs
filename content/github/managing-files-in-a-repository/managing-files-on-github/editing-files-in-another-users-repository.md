@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Edit another user's files
 ---
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.
 2. Above the file content, click {% octicon "pencil" aria-label="The edit icon" %}. At this point, GitHub forks the repository for you.

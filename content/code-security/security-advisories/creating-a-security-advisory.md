@@ -11,6 +11,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Create advisories
 ---
 
 Anyone with admin permissions to a repository can create a security advisory.

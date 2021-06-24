@@ -10,6 +10,7 @@ topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/troubleshooting-required-status-checks
+shortTitle: Required status checks
 ---
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
 

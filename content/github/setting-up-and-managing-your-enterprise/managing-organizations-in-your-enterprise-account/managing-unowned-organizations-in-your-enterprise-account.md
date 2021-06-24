@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Manage unowned organizations
 ---
 If you enable user deprovisioning to manage organization membership in your enterprise account, you could end up with an organization that has no organization owners. For more information, see "[About user provisioning for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)."
 

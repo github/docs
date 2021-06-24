@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: View branches
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}

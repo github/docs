@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Infrastructure
   - Performance
+shortTitle: Increase CPU or memory
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 

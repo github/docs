@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Billing
+shortTitle: Workflow billing & limits
 ---
 
 {% data reusables.actions.enterprise-beta %}

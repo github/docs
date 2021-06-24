@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: View blocked users in account
 ---
 
 {% data reusables.user_settings.access_settings %}

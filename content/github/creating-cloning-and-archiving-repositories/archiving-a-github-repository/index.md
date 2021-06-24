@@ -17,5 +17,6 @@ children:
   - /about-archiving-content-and-data-on-github
   - /referencing-and-citing-content
   - /backing-up-a-repository
+shortTitle: Archive a repository
 ---
 

@@ -11,6 +11,7 @@ type: how_to
 topics:
   - Sponsors profile
   - Open Source
+shortTitle: Edit profile details
 ---
 
 ## About sponsor profiles

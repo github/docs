@@ -23,5 +23,6 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
+shortTitle: Review changes
 ---
 

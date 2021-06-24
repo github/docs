@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Delete organization account
 ---
 
 {% ifversion fpt %}

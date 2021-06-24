@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Add a file locally
 ---
 {% tip %}
 

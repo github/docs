@@ -15,5 +15,6 @@ children:
   - /viewing-the-dependencies-of-a-repository
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
+shortTitle: Connections between repos
 ---
 

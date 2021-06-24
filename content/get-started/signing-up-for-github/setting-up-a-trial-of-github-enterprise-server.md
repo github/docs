@@ -11,6 +11,7 @@ versions:
   ghes: '*'
 topics:
   - Accounts
+shortTitle: Enterprise Server trial
 ---
 ## About trials of {% data variables.product.prodname_ghe_server %}
 

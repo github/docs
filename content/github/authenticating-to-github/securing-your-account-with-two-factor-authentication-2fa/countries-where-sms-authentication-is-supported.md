@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - 2FA
+shortTitle: Countries supporting SMS
 ---
 If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 

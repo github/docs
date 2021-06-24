@@ -7,6 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop
 versions:
   fpt: '*'
+shortTitle: Clone & fork from Desktop
 ---
 ## About local repositories
 Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.

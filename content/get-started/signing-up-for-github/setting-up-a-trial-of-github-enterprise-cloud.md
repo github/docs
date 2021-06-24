@@ -10,6 +10,7 @@ versions:
   ghes: '*'
 topics:
   - Accounts
+shortTitle: Enterprise Cloud trial
 ---
 ## About trials of {% data variables.product.prodname_ghe_cloud %}
 

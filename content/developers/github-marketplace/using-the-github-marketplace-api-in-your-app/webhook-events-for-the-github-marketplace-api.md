@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: Webhook events
 ---
 ## {% data variables.product.prodname_marketplace %} purchase webhook payload
 

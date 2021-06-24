@@ -14,5 +14,6 @@ children:
   - /viewing-a-summary-of-repository-activity
   - /viewing-a-projects-contributors
   - /viewing-traffic-to-a-repository
+shortTitle: Access basic repository data
 ---
 

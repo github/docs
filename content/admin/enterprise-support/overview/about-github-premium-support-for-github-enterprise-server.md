@@ -12,6 +12,7 @@ type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for GHES
 ---
 {% note %}
 

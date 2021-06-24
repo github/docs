@@ -6,6 +6,7 @@ versions:
   ghes: '*'
 redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-permissions-in-github-insights
+shortTitle: Manage permissions in Insights
 ---
 {% data reusables.github-insights.permissions-levels %}
 

@@ -12,6 +12,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
+shortTitle: Add collaborator to advisory
 ---
 
 People with admin permissions to a security advisory can add collaborators to the security advisory.

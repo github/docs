@@ -12,6 +12,7 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
+shortTitle: Personalize your account
 ---
 
 {% data reusables.codespaces.release-stage %}

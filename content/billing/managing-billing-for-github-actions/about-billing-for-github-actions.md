@@ -11,6 +11,7 @@ type: overview
 topics:
   - Actions
   - Spending limits
+shortTitle: Billing for GitHub Actions
 ---
 ## About billing for {% data variables.product.prodname_actions %}
 

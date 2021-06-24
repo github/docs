@@ -9,6 +9,7 @@ versions:
 topics:
   - Policy
   - Legal
+shortTitle: Manage data use for private repo
 ---
 
 ## About data use for your private repository

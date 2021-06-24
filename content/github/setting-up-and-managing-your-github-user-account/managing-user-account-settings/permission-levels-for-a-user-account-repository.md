@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Accounts
+shortTitle: Permission user repositories
 ---
 ## About permissions levels for a user account repository
 

@@ -6,6 +6,7 @@ versions:
   ghes: '>=3.0'
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/viewing-the-dependencies-of-a-repository
+shortTitle: View dependencies
 ---
 Almost all software relies on code developed and maintained by other developers, often known as a supply chain. For example, utilities, libraries, and frameworks. These dependencies are an integral part of your code and any bugs or vulnerabilities in them may affect your code. It's important to review and maintain these dependencies.
 

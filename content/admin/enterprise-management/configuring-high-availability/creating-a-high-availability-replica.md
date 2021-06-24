@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Create HA replica
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 

@@ -17,5 +17,6 @@ children:
   - /linking-to-releases
   - /comparing-releases
   - /automation-for-release-forms-with-query-parameters
+shortTitle: Release projects
 ---
 

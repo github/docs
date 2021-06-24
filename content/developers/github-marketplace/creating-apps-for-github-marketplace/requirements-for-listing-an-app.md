@@ -13,6 +13,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: Listing requirements
 ---
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 

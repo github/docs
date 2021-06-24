@@ -10,5 +10,6 @@ topics:
 children:
   - /viewing-your-subscriptions
   - /managing-your-subscriptions
+shortTitle: Manage subscriptions
 ---
 

@@ -13,6 +13,7 @@ topics:
   - CI
   - Java
   - Maven
+shortTitle: Build & test Java with Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

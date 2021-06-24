@@ -15,6 +15,7 @@ topics:
   - Vulnerabilities
   - Repositories
   - Health
+shortTitle: Add a security policy
 ---
 
 ## About security policies

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+shortTitle: Manage billing
 ---
 
 {% ifversion ghae %}

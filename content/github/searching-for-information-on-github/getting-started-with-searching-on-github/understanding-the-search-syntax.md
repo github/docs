@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub search
+shortTitle: Understand search syntax
 ---
 ## Query for values greater or less than another value
 

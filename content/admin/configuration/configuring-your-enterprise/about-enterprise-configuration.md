@@ -11,6 +11,7 @@ topics:
   - SSH
 redirect_from:
   - /admin/configuration/about-enterprise-configuration
+shortTitle: About configuration
 ---
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} For more information, see "[Site admin dashboard](/admin/configuration/site-admin-dashboard)."

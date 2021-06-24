@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Authentication in a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}

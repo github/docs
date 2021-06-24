@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: macOS Keychain credentials
 ---
 {% data reusables.user_settings.password-authentication-deprecation %}
 

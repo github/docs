@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Team profile picture
 ---
 Unless you set a profile picture for a team, the team profile picture will match the organization's profile picture.
 

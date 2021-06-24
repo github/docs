@@ -6,6 +6,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:
   fpt: '*'
+shortTitle: Add a repository
 ---
 {% tip %}
 

@@ -7,6 +7,7 @@ redirect_from:
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage available metrics and reports.'
 versions:
   ghes: '*'
+shortTitle: Manage metrics & reports
 ---
 When you disable a metric, the metric will not be visible for any user, anywhere on {% data variables.product.prodname_insights %}.
 

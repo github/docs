@@ -15,5 +15,6 @@ children:
   - /configuring-commit-rebasing-for-pull-requests
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
+shortTitle: Configure PR merges
 ---
 

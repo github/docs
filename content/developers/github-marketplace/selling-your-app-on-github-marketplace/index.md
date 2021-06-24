@@ -16,5 +16,6 @@ children:
   - /pricing-plans-for-github-marketplace-apps
   - /billing-customers
   - /receiving-payment-for-app-purchases
+shortTitle: Sell apps on the Marketplace
 ---
 

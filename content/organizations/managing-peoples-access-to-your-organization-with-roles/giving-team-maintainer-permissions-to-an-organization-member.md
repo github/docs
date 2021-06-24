@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Team maintainer permissions
 ---
 
 {% data reusables.organizations.team_maintainers_can %}

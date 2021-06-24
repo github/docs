@@ -18,5 +18,6 @@ children:
   - /rendering-differences-in-prose-documents
   - /mapping-geojson-files-on-github
   - /working-with-jupyter-notebook-files-on-github
+shortTitle: Work with non-code files
 ---
 

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Create from a template
 ---
 ## About repository templates
 

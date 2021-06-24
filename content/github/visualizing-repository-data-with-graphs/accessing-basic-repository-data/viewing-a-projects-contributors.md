@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: View project contributors
 ---
 ## About contributors
 

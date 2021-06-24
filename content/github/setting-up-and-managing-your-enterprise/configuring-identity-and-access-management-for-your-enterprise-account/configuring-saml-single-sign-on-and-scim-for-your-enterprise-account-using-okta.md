@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Configure SAML SSO & SCIM
 ---
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 

@@ -9,6 +9,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on Azure
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
 

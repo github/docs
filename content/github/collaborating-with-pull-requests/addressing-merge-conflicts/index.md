@@ -14,5 +14,6 @@ children:
   - /about-merge-conflicts
   - /resolving-a-merge-conflict-on-github
   - /resolving-a-merge-conflict-using-the-command-line
+shortTitle: Address merge conflicts
 ---
 

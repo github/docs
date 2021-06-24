@@ -6,6 +6,7 @@ versions:
 type: quick_start
 topics:
   - Open Source
+shortTitle: Quickstart
 ---
 
 ## Explore projects you depend on

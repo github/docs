@@ -14,5 +14,6 @@ children:
   - /attaching-files
   - /creating-a-permanent-link-to-a-code-snippet
   - /using-keywords-in-issues-and-pull-requests
+shortTitle: Work with advanced formatting
 ---
 

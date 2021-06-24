@@ -13,6 +13,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Update access credentials
 ---
 {% ifversion not ghae %}
 ## Requesting a new password

@@ -9,6 +9,7 @@ topics:
   - Repositories
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/about-repository-visibility
+shortTitle: Repository visibility
 ---
 ## About repository visibility
 

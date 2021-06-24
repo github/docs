@@ -4,6 +4,7 @@ intro: 'You can set the timezone for metrics you view in {% data variables.produ
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   ghes: '*'
+shortTitle: Set timezone GitHub Insights
 ---
 
 Your timezone setting only affects how you see data in {% data variables.product.prodname_insights %}. The setting does not apply to other users.

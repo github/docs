@@ -12,6 +12,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Find your username or email
 ---
 {% mac %}
 

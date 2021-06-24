@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Set visibility changes policy
 ---
 
 You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.

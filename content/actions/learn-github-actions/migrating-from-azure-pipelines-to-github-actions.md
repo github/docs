@@ -13,6 +13,7 @@ topics:
   - Migration
   - CI
   - CD
+shortTitle: Migrate from Azure Pipelines
 ---
 
 {% data reusables.actions.enterprise-beta %}

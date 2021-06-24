@@ -22,5 +22,6 @@ children:
   - /requesting-a-pull-request-review
   - /changing-the-base-branch-of-a-pull-request
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
+shortTitle: Propose changes
 ---
 

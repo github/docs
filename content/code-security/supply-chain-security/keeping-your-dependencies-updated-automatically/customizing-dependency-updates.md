@@ -16,6 +16,7 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
+shortTitle: Customize updates
 ---
 ## About customizing dependency updates
 

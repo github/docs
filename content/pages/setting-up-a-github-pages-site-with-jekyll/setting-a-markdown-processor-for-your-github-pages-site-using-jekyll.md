@@ -13,6 +13,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Set Markdown processor
 ---
 
 People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.

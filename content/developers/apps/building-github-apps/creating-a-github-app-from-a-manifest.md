@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: App creation manifest flow
 ---
 ## About GitHub App Manifests
 

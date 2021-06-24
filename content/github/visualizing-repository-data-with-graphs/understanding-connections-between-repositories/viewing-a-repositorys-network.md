@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: View repository network
 ---
 ![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 

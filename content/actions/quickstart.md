@@ -11,6 +11,7 @@ versions:
 type: quick_start
 topics:
   - Fundamentals
+shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-beta %}

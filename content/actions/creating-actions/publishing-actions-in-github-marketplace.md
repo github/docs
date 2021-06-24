@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
 type: how_to
+shortTitle: Publish in GitHub Marketplace
 ---
 
 {% data reusables.actions.ae-beta %}

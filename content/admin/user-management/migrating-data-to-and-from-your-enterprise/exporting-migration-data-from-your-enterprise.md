@@ -17,6 +17,7 @@ topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export from your enterprise
 ---
 ## Preparing the {% data variables.product.prodname_ghe_server %} source instance
 

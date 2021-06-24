@@ -17,6 +17,7 @@ topics:
   - Networking
   - Security
   - Troubleshooting
+shortTitle: Troubleshoot SSL errors
 ---
 ## Removing the passphrase from your key file
 

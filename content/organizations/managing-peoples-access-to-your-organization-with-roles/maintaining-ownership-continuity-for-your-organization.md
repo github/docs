@@ -15,6 +15,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Maintain ownership continuity
 ---
 
 ## About maintaining ownership continuity for your organization

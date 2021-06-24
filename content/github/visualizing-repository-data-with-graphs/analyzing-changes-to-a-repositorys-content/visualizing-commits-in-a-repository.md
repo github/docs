@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: View commits in repository
 ---
 The top graph shows commits for the entire year by week.
 

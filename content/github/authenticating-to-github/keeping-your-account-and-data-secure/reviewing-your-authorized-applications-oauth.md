@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Review OAuth apps
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}

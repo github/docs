@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Development environment
 ---
 ## Introduction
 

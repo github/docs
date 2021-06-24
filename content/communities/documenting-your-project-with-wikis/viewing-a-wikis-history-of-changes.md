@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: View a history of changes
 ---
 
 ## Viewing wiki history

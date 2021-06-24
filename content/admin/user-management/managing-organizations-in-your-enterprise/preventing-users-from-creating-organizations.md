@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Organizations
   - Policies
+shortTitle: Prevent organization creation
 ---
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% ifversion ghes > 2.21 or ghae %}

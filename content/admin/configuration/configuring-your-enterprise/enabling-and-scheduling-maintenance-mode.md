@@ -19,6 +19,7 @@ topics:
   - Fundamentals
   - Maintenance
   - Upgrades
+shortTitle: Configure maintenance mode
 ---
 ## About maintenance mode
 

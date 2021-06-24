@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Permission denied (publickey)
 ---
 ## Should the `sudo` command be used with Git?
 

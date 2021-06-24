@@ -14,6 +14,7 @@ topics:
   - Security
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+shortTitle: Advanced Security policies
 ---
 ## About {% data variables.product.prodname_GH_advanced_security %}
 

@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
   fpt: '*'
+shortTitle: Connect an Azure subscription
 ---
 ## About Azure subscriptions and {% data variables.product.product_name %}
 

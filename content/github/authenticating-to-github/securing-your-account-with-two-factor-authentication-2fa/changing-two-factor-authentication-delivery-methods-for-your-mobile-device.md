@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - 2FA
+shortTitle: Change 2FA delivery method
 ---
 {% note %}
 

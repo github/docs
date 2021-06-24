@@ -10,6 +10,7 @@ type: tutorial
 topics:
   - CI
   - Swift
+shortTitle: Build & test Swift
 ---
 
 {% data reusables.actions.enterprise-beta %}

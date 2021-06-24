@@ -11,6 +11,7 @@ type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: GitHub Enterprise Support
 ---
 {% note %}
 

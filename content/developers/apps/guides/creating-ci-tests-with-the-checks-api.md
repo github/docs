@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: CI tests using Checks API
 ---
 ## Introduction
 

@@ -12,6 +12,7 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
   fpt: '*'
+shortTitle: Apply for a discount
 ---
 ## About educator and researcher discounts
 

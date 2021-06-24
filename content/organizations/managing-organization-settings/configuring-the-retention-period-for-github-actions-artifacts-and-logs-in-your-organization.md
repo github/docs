@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Configure retention period
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

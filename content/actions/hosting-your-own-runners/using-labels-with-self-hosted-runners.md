@@ -6,6 +6,7 @@ versions:
   ghes: '>=2.22'
   ghae: '*'
 type: tutorial
+shortTitle: Label runners
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

@@ -4,6 +4,7 @@ intro: 'You can converse with the community and maintainers in a forum within th
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   fpt: '*'
+shortTitle: Participate in discussion
 ---
 
 {% data reusables.discussions.beta %}

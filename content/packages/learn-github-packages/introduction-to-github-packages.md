@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Introduction
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -13,6 +13,7 @@ children:
   - /enabling-github-actions-for-github-enterprise-server
   - /managing-access-to-actions-from-githubcom
   - /advanced-configuration-and-troubleshooting
+shortTitle: Manage GitHub Actions
 ---
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}

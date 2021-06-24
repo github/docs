@@ -9,6 +9,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Emails from GitHub
 ---
 ## Notification emails
 

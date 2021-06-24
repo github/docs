@@ -12,6 +12,7 @@ redirect_from:
 topics:
   - Organizations
   - Teams
+shortTitle: Create new organization
 ---
 
 When you create a new organization from scratch, it doesn't have any repositories associated with it. For more information on adding repositories to your organization, see "[Creating a new repository](/articles/creating-a-new-repository)" and "[Transferring a repository](/articles/transferring-a-repository)."

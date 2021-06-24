@@ -23,5 +23,6 @@ children:
   - /configuring-built-in-firewall-rules
   - /network-ports
   - /using-github-enterprise-server-with-a-load-balancer
+shortTitle: Configure network settings
 ---
 

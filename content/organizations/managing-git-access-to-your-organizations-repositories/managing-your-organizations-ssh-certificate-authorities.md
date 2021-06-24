@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage SSH authorities
 ---
 
 Organization owners can manage an organization's SSH certificate authorities (CA).

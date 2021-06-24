@@ -16,5 +16,6 @@ children:
   - /disabling-oauth-app-access-restrictions-for-your-organization
   - /approving-oauth-apps-for-your-organization
   - /denying-access-to-a-previously-approved-oauth-app-for-your-organization
+shortTitle: Restrict access to organization data
 ---
 

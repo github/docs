@@ -5,5 +5,6 @@ versions:
   fpt: '*'
 children:
   - /syncing-your-branch
+shortTitle: Sync your local repo
 ---
 

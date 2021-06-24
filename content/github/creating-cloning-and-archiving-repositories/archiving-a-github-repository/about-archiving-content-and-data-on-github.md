@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Repositories
+shortTitle: Archive content & data
 ---
 ## Persistence of public repositories
 

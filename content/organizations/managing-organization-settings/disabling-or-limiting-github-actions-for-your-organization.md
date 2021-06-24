@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Disable or limit actions
 ---
 
 {% data reusables.actions.enterprise-beta %}

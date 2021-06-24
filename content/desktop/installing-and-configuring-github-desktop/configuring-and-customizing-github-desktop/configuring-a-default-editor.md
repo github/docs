@@ -6,6 +6,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
   fpt: '*'
+shortTitle: Configure default editor
 ---
 ## Supported editors
 

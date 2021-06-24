@@ -3,6 +3,7 @@ title: Using groups to manage access to AE hosted runners
 intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
 versions:
   ghae: '*'
+shortTitle: Manage AE runner groups
 ---
 
 {% data reusables.actions.ae-beta %}

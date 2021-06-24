@@ -10,6 +10,7 @@ type: how_to
 topics:
   - Enterprise
   - Packages
+shortTitle: Configure package ecosystems
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

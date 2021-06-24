@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Push commits to a remote
 ---
 The `git push` command takes two arguments:
 

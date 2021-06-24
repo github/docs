@@ -9,6 +9,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Manage enterprise accounts
 ---
 
 ## About managing enterprise accounts with GraphQL

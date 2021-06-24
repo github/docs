@@ -17,5 +17,6 @@ children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources
   - /migrating-from-github-enterprise-1110x-to-2123
+shortTitle: Update VM & resources
 ---
 

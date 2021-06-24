@@ -10,6 +10,7 @@ versions:
   ghes: '*'
 topics:
   - Community
+shortTitle: Community health file
 ---
 
 ## About default community health files

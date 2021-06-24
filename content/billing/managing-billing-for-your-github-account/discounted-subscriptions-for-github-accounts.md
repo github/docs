@@ -17,6 +17,7 @@ topics:
   - Discounts
   - Nonprofits
   - User account
+shortTitle: Discounted subscriptions
 ---
 {% tip %}
 
