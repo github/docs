@@ -5,7 +5,7 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
 ---

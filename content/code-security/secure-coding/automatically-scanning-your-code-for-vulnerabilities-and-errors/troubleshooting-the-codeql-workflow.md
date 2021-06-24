@@ -8,9 +8,9 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
   - /code-security/secure-coding/troubleshooting-the-codeql-workflow
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -45,7 +45,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -133,7 +133,7 @@ If you split your analysis into multiple workflows as described above, we still 
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Results differ between analysis platforms
 
 If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
@@ -149,7 +149,7 @@ If the run of a workflow for {% data variables.product.prodname_code_scanning %}
 ## Error: "Out of disk" or "Out of memory"
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
+{% ifversion fpt %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
 {% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"

@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
   - /admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '>=2.22'
+  ghae: next
 topics:
   - Enterprise
 ---

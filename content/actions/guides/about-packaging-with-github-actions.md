@@ -6,9 +6,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
   - /actions/publishing-packages-with-github-actions/about-packaging-with-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: overview
 topics:
   - Packaging

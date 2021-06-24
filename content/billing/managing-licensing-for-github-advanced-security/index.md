@@ -6,8 +6,9 @@ product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-licensing-for-github-advanced-security
   - /viewing-your-github-advanced-security-usage
 ---
+

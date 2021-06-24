@@ -7,9 +7,9 @@ redirect_from:
   - /github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users
   - /issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

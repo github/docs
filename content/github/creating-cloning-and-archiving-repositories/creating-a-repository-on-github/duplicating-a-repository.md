@@ -6,9 +6,9 @@ redirect_from:
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

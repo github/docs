@@ -9,9 +9,9 @@ redirect_from:
   - /code-security/secure-coding/troubleshooting-codeql-code-scanning-in-your-ci-system
   - /code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: how_to
 topics:
   - Advanced Security

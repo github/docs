@@ -4,10 +4,10 @@ intro: 'You can configure self-hosted runners to use a proxy server to communica
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

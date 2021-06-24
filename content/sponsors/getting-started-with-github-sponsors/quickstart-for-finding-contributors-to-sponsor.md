@@ -2,7 +2,7 @@
 title: Quickstart for finding contributors to sponsor
 intro: Learn some best practices for finding open source contributors to sponsor.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - Open Source

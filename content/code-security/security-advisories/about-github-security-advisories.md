@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Security advisories

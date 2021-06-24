@@ -7,9 +7,9 @@ redirect_from:
   - /articles/viewing-a-repositorys-network
   - /github/visualizing-repository-data-with-graphs/viewing-a-repositorys-network
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

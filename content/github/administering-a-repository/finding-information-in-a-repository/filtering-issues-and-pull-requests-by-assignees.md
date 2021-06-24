@@ -6,9 +6,9 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-assignees
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-assignees
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

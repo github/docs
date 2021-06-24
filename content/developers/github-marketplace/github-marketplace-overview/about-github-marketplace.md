@@ -6,7 +6,7 @@ redirect_from:
   - /marketplace/getting-started
   - /developers/github-marketplace/about-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---

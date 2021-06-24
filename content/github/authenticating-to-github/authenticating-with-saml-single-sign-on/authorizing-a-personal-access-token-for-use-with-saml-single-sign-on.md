@@ -6,7 +6,7 @@ redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSO
 ---

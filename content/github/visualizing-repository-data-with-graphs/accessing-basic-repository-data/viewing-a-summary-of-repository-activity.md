@@ -6,9 +6,9 @@ redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
   - /github/visualizing-repository-data-with-graphs/viewing-a-summary-of-repository-activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

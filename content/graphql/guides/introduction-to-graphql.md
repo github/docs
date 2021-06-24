@@ -5,9 +5,9 @@ redirect_from:
   - /v4/guides/intro-to-graphql
   - /graphql/guides/intro-to-graphql
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

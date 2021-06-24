@@ -3,9 +3,9 @@ title: Checks
 redirect_from:
   - /v3/checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

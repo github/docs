@@ -4,7 +4,7 @@ shortTitle: Getting started with your C# (.NET) project
 allowTitleToDifferFromFilename: true
 intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 ---

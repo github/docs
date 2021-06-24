@@ -5,9 +5,9 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/
   - /articles/addressing-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 children:

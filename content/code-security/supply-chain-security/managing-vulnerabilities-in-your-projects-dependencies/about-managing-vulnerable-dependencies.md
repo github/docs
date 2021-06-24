@@ -5,7 +5,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies
   - /code-security/supply-chain-security/about-managing-vulnerable-dependencies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Dependabot

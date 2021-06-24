@@ -4,7 +4,7 @@ intro: 'Learn how to make a project, populate it, and add custom fields.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - Projects

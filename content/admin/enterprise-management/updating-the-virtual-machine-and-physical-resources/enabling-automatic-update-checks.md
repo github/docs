@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
   - /admin/enterprise-management/enabling-automatic-update-checks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

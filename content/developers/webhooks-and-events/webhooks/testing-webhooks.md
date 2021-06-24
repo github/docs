@@ -5,9 +5,9 @@ redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
 ---
@@ -19,7 +19,7 @@ view provides some tooling for testing your deployed payloads.
 
 Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a delivery was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
 
-{% data variables.product.product_name %} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
+{% data variables.product.product_name %} keeps a log of each webhook delivery for {% ifversion fpt %} 30 {% else %} 8 {% endif %} days.
 
 ![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
 

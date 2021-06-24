@@ -4,7 +4,7 @@ intro: 'You can enable {% data variables.product.prodname_registry %} for your e
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '>=2.22'
 topics:
   - Enterprise
 children:
@@ -16,5 +16,5 @@ children:
   - /configuring-package-ecosystem-support-for-your-enterprise
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes > 2.22 %}
   {% endif %}

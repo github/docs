@@ -3,7 +3,7 @@ title: Quickstart for GitHub Discussions
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data reusables.discussions.beta %}

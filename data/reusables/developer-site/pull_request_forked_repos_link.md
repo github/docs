@@ -10,7 +10,7 @@ When you create a pull request from a forked repository to the base repository, 
 
 Workflows don't run on forked repositories by default. You must enable GitHub Actions in the **Actions** tab of the forked repository.
 
-{% if currentVersion == "free-pro-team@latest"%}
+{% ifversion fpt %}
 When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve running workflows on the pull request. For more information, see "[Approving workflow runs from public forks](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)."
 {% endif %}
 

@@ -7,17 +7,17 @@ redirect_from:
   - /articles/about-readmes
   - /github/creating-cloning-and-archiving-repositories/about-readmes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
 ## About READMEs
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
 
-For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+For more information about providing guidelines for your project, see {% ifversion fpt %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 - What the project does
@@ -30,9 +30,9 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion fpt or ghae or ghes > 2.21 %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
+{% ifversion fpt or ghes > 2.21 %}
 
 {% data reusables.profile.profile-readme %}
 

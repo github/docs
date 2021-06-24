@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -66,7 +66,7 @@ For more information on automation for project boards, see "[About automation fo
 ## Further reading
 
 - "[Creating a project board](/articles/creating-a-project-board)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"

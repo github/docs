@@ -9,7 +9,7 @@ redirect_from:
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% tip %}
 

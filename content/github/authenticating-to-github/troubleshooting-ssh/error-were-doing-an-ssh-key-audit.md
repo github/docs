@@ -6,9 +6,9 @@ redirect_from:
   - /articles/error-were-doing-an-ssh-key-audit
   - /github/authenticating-to-github/error-were-doing-an-ssh-key-audit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 ---

@@ -7,7 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams

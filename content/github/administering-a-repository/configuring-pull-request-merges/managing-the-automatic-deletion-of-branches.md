@@ -5,9 +5,9 @@ redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
   - /github/administering-a-repository/managing-the-automatic-deletion-of-branches
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

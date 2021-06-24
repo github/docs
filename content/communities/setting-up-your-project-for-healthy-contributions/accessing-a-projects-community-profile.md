@@ -6,7 +6,7 @@ redirect_from:
   - /articles/accessing-a-projects-community-profile
   - /github/building-a-strong-community/accessing-a-projects-community-profile
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
 ---

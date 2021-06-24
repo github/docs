@@ -5,9 +5,9 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

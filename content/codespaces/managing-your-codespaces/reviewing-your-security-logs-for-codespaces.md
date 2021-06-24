@@ -1,9 +1,9 @@
 ---
 title: Reviewing your security logs for Codespaces
-shortTitle: Reviewing your security logs 
-intro: You can use the security log to review all actions related to {% data variables.product.prodname_codespaces %}.
+shortTitle: Reviewing your security logs
+intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_codespaces %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
   - Developer

@@ -6,7 +6,7 @@ redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Fundamentals

@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

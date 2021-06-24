@@ -5,7 +5,7 @@ redirect_from:
   - /articles/referencing-and-citing-content
   - /github/creating-cloning-and-archiving-repositories/referencing-and-citing-content
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
 ---

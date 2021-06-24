@@ -2,7 +2,7 @@
 title: Applying for publisher verification for your organization
 intro: 'To offer paid plans for your app or to include a marketplace badge in your app listing, you must complete the publisher verification process for your organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 redirect_from:
