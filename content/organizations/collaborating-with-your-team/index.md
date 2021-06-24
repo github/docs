@@ -16,5 +16,6 @@ children:
   - /creating-a-team-discussion
   - /editing-or-deleting-a-team-discussion
   - /pinning-a-team-discussion
+shortTitle: Collaborate with your team
 ---
 

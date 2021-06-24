@@ -8,6 +8,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage scheduled reminders
 ---
 
 ## About scheduled reminders for pull requests

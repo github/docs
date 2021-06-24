@@ -12,6 +12,7 @@ versions:
 type: overview
 topics:
   - Packaging
+shortTitle: Packaging with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}

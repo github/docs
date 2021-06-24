@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Add issues & PRs to board
 ---
 {% data reusables.projects.project_boards_old %}
 

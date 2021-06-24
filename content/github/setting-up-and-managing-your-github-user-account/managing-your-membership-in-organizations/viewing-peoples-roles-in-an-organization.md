@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Accounts
+shortTitle: View people in an organization
 ---
 {% note %}
 

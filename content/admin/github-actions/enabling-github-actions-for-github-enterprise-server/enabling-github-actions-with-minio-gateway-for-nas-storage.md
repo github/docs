@@ -8,6 +8,7 @@ topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
+shortTitle: MinIO Gateway for NAS storage
 ---
 ## Prerequisites
 

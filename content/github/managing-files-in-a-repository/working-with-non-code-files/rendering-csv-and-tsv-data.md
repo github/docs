@@ -9,6 +9,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Render CSV & TSV data
 ---
 GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
 

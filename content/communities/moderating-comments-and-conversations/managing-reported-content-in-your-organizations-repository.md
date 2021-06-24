@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
   - Community
+shortTitle: Manage reported content
 ---
 
 Anyone with admin permissions to a repository can view and manage reported content for the repository.

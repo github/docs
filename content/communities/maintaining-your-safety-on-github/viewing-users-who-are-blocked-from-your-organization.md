@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: View blocked users in org
 ---
 
 

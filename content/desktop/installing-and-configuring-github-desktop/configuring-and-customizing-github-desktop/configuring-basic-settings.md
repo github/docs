@@ -6,6 +6,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/configuring-basic-settings
 versions:
   fpt: '*'
+shortTitle: Configure basic settings
 ---
 {% mac %}
 

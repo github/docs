@@ -15,6 +15,7 @@ versions:
   ghae: '*'
 topics:
   - Profiles
+shortTitle: Personalize
 ---
 ## Changing your profile picture
 

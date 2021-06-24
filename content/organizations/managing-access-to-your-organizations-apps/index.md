@@ -15,5 +15,6 @@ topics:
 children:
   - /adding-github-app-managers-in-your-organization
   - /removing-github-app-managers-from-your-organization
+shortTitle: Manage access to apps
 ---
 

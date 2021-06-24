@@ -10,6 +10,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Add organizations
 ---
 Enterprise owners can create new organizations within an enterprise account's settings.
 

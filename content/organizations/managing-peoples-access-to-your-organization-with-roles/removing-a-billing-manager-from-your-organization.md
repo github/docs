@@ -10,6 +10,7 @@ topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: Remove billing manager
 ---
 
 {% warning %}

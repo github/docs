@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Create a strong password
 ---
 You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
 - {% ifversion ghes %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or

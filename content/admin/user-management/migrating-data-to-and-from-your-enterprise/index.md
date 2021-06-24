@@ -17,5 +17,6 @@ children:
   - /preparing-to-migrate-data-to-your-enterprise
   - /migrating-data-to-your-enterprise
   - /importing-data-from-third-party-version-control-systems
+shortTitle: Migration for an enterprise
 ---
 

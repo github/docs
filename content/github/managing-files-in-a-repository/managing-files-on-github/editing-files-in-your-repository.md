@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Edit your files
 ---
 {% tip %}
 

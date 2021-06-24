@@ -17,6 +17,7 @@ versions:
 topics:
   - Accounts
   - Repositories
+shortTitle: Remove a collaborator
 ---
 ## Deleting forks of private repositories
 

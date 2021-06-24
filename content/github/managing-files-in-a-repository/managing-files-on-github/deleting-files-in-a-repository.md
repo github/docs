@@ -13,6 +13,7 @@ versions:
 permissions: 'People with write permissions can delete files{% ifversion fpt or ghes > 3.0 %} or directories{% endif %} in a repository.'
 topics:
   - Repositories
+shortTitle: Delete files
 ---
 ## About file{% ifversion fpt or ghes > 3.0 %} and directory{% endif %} deletion
 

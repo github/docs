@@ -12,6 +12,7 @@ topics:
   - Dependabot
   - Version updates
   - Dependencies
+shortTitle: List configured dependencies
 ---
 ## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
 

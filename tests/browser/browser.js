@@ -347,7 +347,7 @@ describe('next/link client-side navigation', () => {
   it('should have 200 response to /_next/data when link is clicked', async () => {
     const initialViewport = page.viewport()
     await page.setViewport({ width: 1024, height: 768 })
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4001/en/actions/guides')
 
     const [response] = await Promise.all([
       page.waitForResponse(
@@ -355,7 +355,7 @@ describe('next/link client-side navigation', () => {
           response.url().startsWith('http://localhost:4001/_next/data') 
       ),
       page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      page.click('.sidebar-categories .sidebar-category:nth-child(2) a'),
+      page.click('.sidebar-articles:nth-child(2) .sidebar-article:nth-child(1) a'),
     ])
 
     expect(response.status()).toBe(200)

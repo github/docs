@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Set base permissions
 ---
 
 ## About base permissions for an organization

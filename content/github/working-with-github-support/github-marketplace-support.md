@@ -7,6 +7,7 @@ versions:
   fpt: '*'
 topics:
   - Jobs
+shortTitle: GitHub Marketplace
 ---
 
 

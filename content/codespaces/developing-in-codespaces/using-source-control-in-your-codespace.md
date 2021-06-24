@@ -8,6 +8,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Source control
 ---
 
 {% data reusables.codespaces.release-stage %}

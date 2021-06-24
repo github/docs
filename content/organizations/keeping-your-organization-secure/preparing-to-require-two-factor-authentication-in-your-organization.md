@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Prepare to require 2FA
 ---
 We recommend that you notify {% ifversion fpt %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} at least one week before you require 2FA in your organization.
 

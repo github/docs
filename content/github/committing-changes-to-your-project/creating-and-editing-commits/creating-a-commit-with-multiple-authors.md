@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: With multiple authors
 ---
 ## Required co-author information
 

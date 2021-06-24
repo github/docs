@@ -15,6 +15,7 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript action
 ---
 
 {% data reusables.actions.enterprise-beta %}

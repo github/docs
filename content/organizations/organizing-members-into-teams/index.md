@@ -35,5 +35,6 @@ children:
   - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
+shortTitle: Organize members into teams
 ---
 

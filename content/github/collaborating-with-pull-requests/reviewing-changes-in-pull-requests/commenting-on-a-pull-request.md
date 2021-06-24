@@ -14,6 +14,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Comment on a PR
 ---
 ## About pull request comments
 

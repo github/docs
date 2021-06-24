@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
   fpt: '*'
+shortTitle: Connect a repository
 ---
 
 By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.

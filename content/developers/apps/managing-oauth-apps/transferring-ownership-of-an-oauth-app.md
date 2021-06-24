@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - OAuth Apps
+shortTitle: Transfer ownership
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

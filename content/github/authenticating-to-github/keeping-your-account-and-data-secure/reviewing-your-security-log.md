@@ -12,6 +12,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Security log
 ---
 ## Accessing your security log
 

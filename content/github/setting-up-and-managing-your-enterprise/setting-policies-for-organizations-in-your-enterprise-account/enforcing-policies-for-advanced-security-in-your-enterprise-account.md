@@ -6,6 +6,7 @@ versions:
   fpt: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
+shortTitle: Policies for Advanced Security
 ---
 ## About {% data variables.product.prodname_GH_advanced_security %}
 

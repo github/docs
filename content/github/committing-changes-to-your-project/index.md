@@ -13,5 +13,6 @@ children:
   - /creating-and-editing-commits
   - /viewing-and-comparing-commits
   - /troubleshooting-commits
+shortTitle: Commit changes to your project
 ---
 

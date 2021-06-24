@@ -13,6 +13,7 @@ type: how_to
 topics:
   - Enterprise
   - Security
+shortTitle: Enable alerts for dependencies
 ---
 ## About alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
 

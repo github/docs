@@ -17,6 +17,7 @@ topics:
   - Notifications
   - Organizations
   - Policy
+shortTitle: Restrict email notifications
 ---
 
 ## About email restrictions

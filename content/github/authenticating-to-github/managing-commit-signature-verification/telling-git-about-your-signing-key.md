@@ -12,6 +12,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Tell Git your signing key
 ---
 {% mac %}
 

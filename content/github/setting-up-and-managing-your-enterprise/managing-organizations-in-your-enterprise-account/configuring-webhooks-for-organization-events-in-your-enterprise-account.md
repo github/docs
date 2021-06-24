@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Configure webhooks
 ---
 You can configure webhooks to receive events from organizations owned by your enterprise account. For more information about webhooks, see "[Webhooks](/webhooks/)."
 

@@ -11,5 +11,6 @@ children:
   - /configuring-a-default-editor
   - /setting-a-theme-for-github-desktop
   - /about-git-large-file-storage-and-github-desktop
+shortTitle: Configure & customize
 ---
 

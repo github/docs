@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Webhooks
+shortTitle: Configure server for webhooks
 ---
 Now that our webhook is ready to deliver messages, we'll set up a basic Sinatra server
 to handle incoming payloads.

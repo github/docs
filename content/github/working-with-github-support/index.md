@@ -13,5 +13,6 @@ children:
   - /about-github-premium-support-for-github-enterprise-cloud
   - /github-marketplace-support
   - /submitting-a-ticket
+shortTitle: GitHub Support
 ---
 

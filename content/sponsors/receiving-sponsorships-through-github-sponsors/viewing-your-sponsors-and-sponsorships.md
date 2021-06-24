@@ -10,6 +10,7 @@ type: how_to
 topics:
   - Open Source
   - Analytics
+shortTitle: View sponsors & sponsorships
 ---
 
 ## About sponsors and sponsorships

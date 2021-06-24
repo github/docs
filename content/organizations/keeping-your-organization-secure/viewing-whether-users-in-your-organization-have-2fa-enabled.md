@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Usage of 2FA in organization
 ---
 
 {% note %}

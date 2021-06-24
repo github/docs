@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Add to milestones
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

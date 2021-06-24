@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Create & delete branches
 ---
 ## Creating a branch
 

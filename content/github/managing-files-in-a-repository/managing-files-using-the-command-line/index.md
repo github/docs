@@ -13,5 +13,6 @@ children:
   - /adding-a-file-to-a-repository-using-the-command-line
   - /renaming-a-file-using-the-command-line
   - /moving-a-file-to-a-new-location-using-the-command-line
+shortTitle: Manage files locally
 ---
 

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub search
+shortTitle: Troubleshoot search queries
 ---
 ## Potential timeouts
 

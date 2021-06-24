@@ -8,6 +8,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
   fpt: '*'
+shortTitle: Create an issue or PR
 ---
 ## About issues and pull requests
 

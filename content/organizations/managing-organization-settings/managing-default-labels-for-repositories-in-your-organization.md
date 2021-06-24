@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage default labels
 ---
 
 Organization owners can manage default labels for repositories in the organization.

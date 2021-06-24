@@ -17,6 +17,7 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure time settings
 ---
 ## Changing the default NTP servers
 

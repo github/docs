@@ -25,6 +25,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: GitHub Pages & Jekyll
 ---
 
 ## About Jekyll

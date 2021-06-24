@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: Form calls with GraphQL
 ---
 
 ## Authenticating with GraphQL

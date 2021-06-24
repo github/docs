@@ -10,6 +10,7 @@ type: tutorial
 topics:
   - CI
   - Xcode
+shortTitle: Sign Xcode applications
 ---
 
 {% data reusables.actions.enterprise-beta %}

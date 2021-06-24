@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: About HA configuration
 ---
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance.
 

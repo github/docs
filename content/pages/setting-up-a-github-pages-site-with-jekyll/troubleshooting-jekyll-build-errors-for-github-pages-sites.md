@@ -32,6 +32,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Troubleshoot Jekyll errors
 ---
 
 ## Troubleshooting build errors

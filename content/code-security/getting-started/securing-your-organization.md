@@ -12,6 +12,7 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Advanced Security
+shortTitle: Secure your organization
 ---
 
 ## Introduction

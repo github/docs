@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate a failover to replica
 ---
 ## About failover to your replica cluster
 

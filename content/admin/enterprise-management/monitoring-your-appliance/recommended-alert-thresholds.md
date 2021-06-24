@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
   - Storage
+shortTitle: Recommended alert thresholds
 ---
 ## Monitoring storage
 

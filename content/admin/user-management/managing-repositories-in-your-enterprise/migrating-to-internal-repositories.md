@@ -14,6 +14,7 @@ topics:
   - Privacy
   - Repositories
   - Security
+shortTitle: Internal repository migration
 ---
 ## About internal repositories
 

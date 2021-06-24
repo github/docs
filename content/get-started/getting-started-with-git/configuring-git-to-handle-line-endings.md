@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Handle line endings
 ---
 Every time you press <kbd>return</kbd> on your keyboard you insert an invisible character called a line ending. Different operating systems handle line endings differently.
 

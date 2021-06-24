@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Use verified email in GPG key
 ---
 {% ifversion fpt %}
 If you need to verify your GitHub email address, see "[Verifying your email address](/articles/verifying-your-email-address/)." {% endif %}If you need to update or add an email address to your GPG key, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)."

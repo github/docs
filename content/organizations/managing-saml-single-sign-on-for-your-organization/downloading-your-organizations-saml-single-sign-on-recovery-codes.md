@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Download SAML recovery codes
 ---
 
 Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/).

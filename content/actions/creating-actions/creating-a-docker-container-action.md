@@ -15,6 +15,7 @@ type: tutorial
 topics:
   - Action development
   - Docker
+shortTitle: Docker container action
 ---
 
 {% data reusables.actions.enterprise-beta %}

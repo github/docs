@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Add a project locally
 ---
 {% data reusables.repositories.migrating-from-codeplex %}
 

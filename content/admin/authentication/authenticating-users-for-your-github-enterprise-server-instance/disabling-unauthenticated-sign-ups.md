@@ -13,6 +13,7 @@ topics:
   - Accounts
   - Authentication
   - Enterprise
+shortTitle: Block account creation
 ---
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

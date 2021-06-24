@@ -12,6 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Community
+shortTitle: Manage comments
 ---
 
 ## Hiding a comment

@@ -13,6 +13,7 @@ topics:
   - Policy
 redirect_from:
   - /admin/configuration/verifying-or-approving-a-domain-for-your-enterprise
+shortTitle: Verify a domain
 ---
 ## About verification of domains
 

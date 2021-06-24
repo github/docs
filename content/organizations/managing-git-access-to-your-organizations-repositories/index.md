@@ -16,5 +16,6 @@ topics:
 children:
   - /about-ssh-certificate-authorities
   - /managing-your-organizations-ssh-certificate-authorities
+shortTitle: Manage Git access
 ---
 

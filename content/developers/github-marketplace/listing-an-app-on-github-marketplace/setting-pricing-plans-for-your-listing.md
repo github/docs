@@ -18,6 +18,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: Set listing pricing plans
 ---
 ## About setting pricing plans
 

@@ -11,6 +11,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: Connect an LMS
 ---
 ## About configuration of your LMS
 

@@ -16,6 +16,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Dependabot version updates
 ---
 ## About {% data variables.product.prodname_dependabot_version_updates %}
 

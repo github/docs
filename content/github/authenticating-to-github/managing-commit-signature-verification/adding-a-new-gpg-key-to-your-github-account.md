@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Add a new GPG key
 ---
 Before adding a new GPG key to your {% data variables.product.product_name %} account, you should have:
 - [Checked for existing GPG keys](/articles/checking-for-existing-gpg-keys)

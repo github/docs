@@ -9,6 +9,7 @@ topics:
   - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
+shortTitle: Manage default branch name
 ---
 ## About management of the default branch name
 

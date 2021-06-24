@@ -16,6 +16,7 @@ type: how_to
 topics:
   - Enterprise
   - Pages
+shortTitle: Configure GitHub Pages
 ---
 ## Enabling public sites for {% data variables.product.prodname_pages %}
 

@@ -11,6 +11,7 @@ topics:
   - Migration
   - CI
   - CD
+shortTitle: Migrate from GitLab CI/CD
 ---
 
 {% data reusables.actions.enterprise-beta %}

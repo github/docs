@@ -18,6 +18,7 @@ type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import to your enterprise
 ---
 ## Applying the imported data on {% data variables.product.prodname_ghe_server %}
 

@@ -11,6 +11,7 @@ topics:
   - Codespaces
   - Developer
   - Security
+shortTitle: Encrypted secrets
 ---
 
 {% data reusables.codespaces.release-stage %}

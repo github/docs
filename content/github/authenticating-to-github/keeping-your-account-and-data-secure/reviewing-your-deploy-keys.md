@@ -11,6 +11,7 @@ versions:
 topics:
   - Identity
   - Access management
+shortTitle: Deploy keys
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - SSH
+shortTitle: Add a new SSH key
 ---
 Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)

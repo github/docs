@@ -12,6 +12,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
+shortTitle: Security advisories
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}

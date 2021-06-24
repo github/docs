@@ -19,6 +19,7 @@ topics:
   - Enterprise
   - Fundamentals
   - SSH
+shortTitle: Access the admin shell (SSH)
 ---
 ## About administrative shell access
 

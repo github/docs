@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

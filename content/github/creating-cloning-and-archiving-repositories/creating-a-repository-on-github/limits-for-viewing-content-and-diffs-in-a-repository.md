@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: Content & diffs limits
 ---
 Most of the limits below affect both {% data variables.product.product_name %} and the API.
 

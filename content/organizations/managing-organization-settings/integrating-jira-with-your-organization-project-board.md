@@ -7,6 +7,7 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: '*'
+shortTitle: Integrate Jira
 ---
 {% data reusables.user_settings.access_settings %}
 2. In the left sidebar under **Organization settings**, click the name of your organization.

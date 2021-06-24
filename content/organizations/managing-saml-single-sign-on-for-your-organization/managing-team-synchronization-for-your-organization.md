@@ -14,6 +14,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage team synchronization
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

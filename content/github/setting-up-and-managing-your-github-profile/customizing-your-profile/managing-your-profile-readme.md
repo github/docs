@@ -8,6 +8,7 @@ topics:
   - Profiles
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
+shortTitle: Your profile README
 ---
 ## About your profile README
 

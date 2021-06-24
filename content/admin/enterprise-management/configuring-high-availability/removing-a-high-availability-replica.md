@@ -13,6 +13,7 @@ topics:
   - High availability
   - Enterprise
   - Infrastructure
+shortTitle: Remove a HA replica
 ---
 ## Stopping replication temporarily
 

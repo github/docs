@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: View listing metrics
 ---
 You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: View & manage SAML access
 ---
 ## About SAML access to your enterprise account
 

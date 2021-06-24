@@ -14,6 +14,7 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: Manage Dependabot PRs
 ---
 ## About {% data variables.product.prodname_dependabot %} pull requests
 

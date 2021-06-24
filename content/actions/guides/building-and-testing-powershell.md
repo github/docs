@@ -12,6 +12,7 @@ type: tutorial
 topics:
   - CI
   - Powershell
+shortTitle: Build & test PowerShell
 ---
 
 {% data reusables.actions.enterprise-beta %}

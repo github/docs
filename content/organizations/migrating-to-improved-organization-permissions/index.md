@@ -17,5 +17,6 @@ children:
   - /converting-an-owners-team-to-improved-organization-permissions
   - /converting-an-admin-team-to-improved-organization-permissions
   - /migrating-admin-teams-to-improved-organization-permissions
+shortTitle: Migrate to improved permissions
 ---
 

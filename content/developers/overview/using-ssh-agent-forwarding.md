@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - API
+shortTitle: SSH agent forwarding
 ---
 
 

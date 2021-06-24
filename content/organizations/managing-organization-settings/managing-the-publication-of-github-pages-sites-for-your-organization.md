@@ -13,6 +13,7 @@ redirect_from:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage Pages site publication
 ---
 
 {% ifversion fpt %}

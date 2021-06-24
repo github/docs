@@ -14,5 +14,6 @@ children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
   - /customizing-a-workflow-for-triaging-your-notifications
+shortTitle: Customize a workflow
 ---
 

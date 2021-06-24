@@ -27,6 +27,7 @@ topics:
   - Troubleshooting
   - Upgrades
   - User account
+shortTitle: Upgrade your subscription
 ---
 ## Upgrading your personal account's subscription
 

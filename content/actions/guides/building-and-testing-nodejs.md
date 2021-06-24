@@ -14,6 +14,7 @@ topics:
   - CI
   - Node
   - JavaScript
+shortTitle: Build & test Node.js
 ---
 
 {% data reusables.actions.enterprise-beta %}

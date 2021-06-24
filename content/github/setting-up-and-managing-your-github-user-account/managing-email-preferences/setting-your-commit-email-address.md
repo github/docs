@@ -18,6 +18,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Set commit email address
 ---
 ## About commit email addresses
 

@@ -15,6 +15,7 @@ topics:
   - Secret scanning
   - Advanced Security
   - Repositories
+shortTitle: Configure secret scans
 ---
 
 {% data reusables.secret-scanning.beta %}

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Configure a remote
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. List the current configured remote repository for your fork.

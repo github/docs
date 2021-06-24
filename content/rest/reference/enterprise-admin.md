@@ -11,6 +11,7 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+shortTitle: Enterprise administration
 ---
 
 You can use these endpoints to administer your enterprise.

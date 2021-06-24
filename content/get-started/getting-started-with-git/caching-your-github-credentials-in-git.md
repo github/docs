@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+shortTitle: Caching credentials
 ---
 If you clone {% data variables.product.product_name %} repositories using SSH, then you authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
 

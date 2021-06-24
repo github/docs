@@ -22,5 +22,6 @@ children:
   - /associating-an-email-with-your-gpg-key
   - /signing-commits
   - /signing-tags
+shortTitle: Verify commit signatures
 ---
 

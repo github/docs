@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
+shortTitle: View deployment activity
 ---
 {% note %}
 

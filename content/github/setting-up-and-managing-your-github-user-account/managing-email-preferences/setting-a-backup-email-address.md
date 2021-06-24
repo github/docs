@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
   - Notifications
+shortTitle: Set backup email address
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}

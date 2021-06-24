@@ -7,6 +7,7 @@ type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Disable your account
 ---
 
 If you are receiving sponsorship payments, you'll need to contact GitHub Support to disable your {% data variables.product.prodname_sponsors %} account.

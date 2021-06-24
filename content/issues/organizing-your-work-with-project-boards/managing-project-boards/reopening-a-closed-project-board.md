@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Reopen project board
 ---
 {% data reusables.projects.project_boards_old %}
 

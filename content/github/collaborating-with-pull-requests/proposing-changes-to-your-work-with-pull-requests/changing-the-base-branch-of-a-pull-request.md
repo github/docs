@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Change the base branch
 ---
 {% warning %}
 

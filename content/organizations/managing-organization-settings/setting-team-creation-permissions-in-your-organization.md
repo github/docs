@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Restrict team creation
 ---
 
 Organization owners can set team creation permissions.

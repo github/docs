@@ -4,6 +4,7 @@ intro: 'You can view the execution time of a job, including the billable minutes
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
+shortTitle: View job execution time
 ---
 
 {% data reusables.actions.enterprise-beta %}

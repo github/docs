@@ -8,6 +8,7 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
 topics:
   - Community
+shortTitle: Limit interactions in account
 ---
 
 ## About temporary interaction limits

@@ -7,6 +7,7 @@ redirect_from:
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+shortTitle: Extensions & integrations
 ---
 ## Editor tools
 

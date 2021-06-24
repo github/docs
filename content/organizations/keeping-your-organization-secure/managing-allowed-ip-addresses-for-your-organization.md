@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Manage allowed IP addresses
 ---
 
 Organization owners can manage allowed IP addresses for an organization.

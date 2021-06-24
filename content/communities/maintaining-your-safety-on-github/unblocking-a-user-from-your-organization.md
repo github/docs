@@ -8,6 +8,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: Unblock from your org
 ---
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.

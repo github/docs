@@ -9,6 +9,7 @@ topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
+shortTitle: Manage team synchronization
 ---
 ## About team synchronization for enterprise accounts
 

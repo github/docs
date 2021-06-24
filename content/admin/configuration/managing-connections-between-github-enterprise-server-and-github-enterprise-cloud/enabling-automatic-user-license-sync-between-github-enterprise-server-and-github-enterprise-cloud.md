@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - GitHub Connect
   - Licensing
+shortTitle: Enable user license sync
 ---
 ## About license synchronization
 

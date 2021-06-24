@@ -13,6 +13,7 @@ type: how_to
 topics:
   - Enterprise
   - Support
+shortTitle: Provide data to Support
 ---
 ## Creating and sharing diagnostic files
 

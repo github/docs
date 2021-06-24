@@ -9,6 +9,7 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-quickstart
+shortTitle: Quickstart
 ---
 
 {% data reusables.codespaces.release-stage %}

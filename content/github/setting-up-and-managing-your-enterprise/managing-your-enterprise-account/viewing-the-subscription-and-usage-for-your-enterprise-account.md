@@ -12,6 +12,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: View subscription & usage
 ---
 ## About billing for enterprise accounts
 

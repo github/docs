@@ -11,6 +11,7 @@ type: reference
 topics:
   - CI
   - Enterprise
+shortTitle: CI using Jenkins
 ---
 ## Requirements
 

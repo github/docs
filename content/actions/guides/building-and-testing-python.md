@@ -12,6 +12,7 @@ type: tutorial
 topics:
   - CI
   - Python
+shortTitle: Build & test Python
 ---
 
 {% data reusables.actions.enterprise-beta %}

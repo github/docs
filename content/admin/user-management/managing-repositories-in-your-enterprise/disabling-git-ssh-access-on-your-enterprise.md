@@ -24,6 +24,7 @@ topics:
   - Policies
   - Security
   - SSH
+shortTitle: Disable SSH for Git
 ---
 ## Disabling Git SSH access to a specific repository
 

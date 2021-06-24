@@ -16,6 +16,7 @@ topics:
   - Vulnerabilities
   - Repositories
   - Dependencies
+shortTitle: Dependabot alerts
 ---
 <!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->

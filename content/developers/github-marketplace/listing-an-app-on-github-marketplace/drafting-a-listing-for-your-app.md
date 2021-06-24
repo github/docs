@@ -17,6 +17,7 @@ versions:
   fpt: '*'
 topics:
   - Marketplace
+shortTitle: Draft an app listing
 ---
 ## Create a new draft {% data variables.product.prodname_marketplace %} listing
 

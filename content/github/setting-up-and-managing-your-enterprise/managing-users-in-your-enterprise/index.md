@@ -18,5 +18,6 @@ children:
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
+shortTitle: Manage users
 ---
 

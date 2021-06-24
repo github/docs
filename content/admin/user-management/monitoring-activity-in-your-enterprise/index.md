@@ -15,5 +15,6 @@ children:
   - /audited-actions
   - /viewing-push-logs
   - /log-forwarding
+shortTitle: Monitor your enterprise
 ---
 

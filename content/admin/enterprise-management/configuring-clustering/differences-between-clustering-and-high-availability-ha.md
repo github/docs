@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Choosing cluster or HA
 ---
 ## Failure scenarios
 

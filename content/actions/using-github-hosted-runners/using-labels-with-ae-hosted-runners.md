@@ -3,6 +3,7 @@ title: Using labels with AE hosted runners
 intro: 'You can use labels to organize your {% data variables.actions.hosted_runner %}s based on their characteristics.'
 versions:
   ghae: '*'
+shortTitle: Label AE hosted runners
 ---
 
 {% data reusables.actions.ae-beta %}

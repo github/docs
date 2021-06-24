@@ -12,6 +12,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
+shortTitle: Enforce team policies
 ---
 ## Enforcing a policy for team discussions
 

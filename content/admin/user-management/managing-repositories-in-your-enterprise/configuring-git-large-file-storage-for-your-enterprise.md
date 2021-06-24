@@ -22,6 +22,7 @@ topics:
   - Enterprise
   - LFS
   - Storage
+shortTitle: Configure Git LFS
 ---
 ## About {% data variables.large_files.product_name_long %}
 

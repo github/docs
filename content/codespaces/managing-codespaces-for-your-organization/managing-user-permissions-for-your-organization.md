@@ -9,6 +9,7 @@ topics:
   - Codespaces
   - Permissions
   - Administrator
+shortTitle: User permissions
 ---
 
 {% data reusables.codespaces.release-stage %}

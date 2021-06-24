@@ -16,6 +16,7 @@ versions:
   ghae: '*'
 topics:
   - Pages
+shortTitle: Unpublish Pages site
 ---
 
 ## Unpublishing a project site

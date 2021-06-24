@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Remove outside collaborator
 ---
 
 {% data reusables.profile.access_org %}

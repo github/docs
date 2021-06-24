@@ -5,5 +5,6 @@ versions:
   fpt: '*'
 children:
   - /view-autograding-results
+shortTitle: Learn with Classroom
 ---
 

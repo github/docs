@@ -16,5 +16,6 @@ children:
   - /automatically-merging-a-pull-request
   - /closing-a-pull-request
   - /reverting-a-pull-request
+shortTitle: Incorporate changes
 ---
 

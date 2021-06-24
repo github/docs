@@ -10,6 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Require 2FA in organization
 ---
 
 ## About two-factor authentication for organizations

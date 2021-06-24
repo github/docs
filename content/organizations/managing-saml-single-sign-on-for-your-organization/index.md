@@ -21,5 +21,6 @@ children:
   - /downloading-your-organizations-saml-single-sign-on-recovery-codes
   - /managing-team-synchronization-for-your-organization
   - /accessing-your-organization-if-your-identity-provider-is-unavailable
+shortTitle: Manage SAML single sign-on
 ---
 

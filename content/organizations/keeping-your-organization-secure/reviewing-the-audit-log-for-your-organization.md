@@ -12,6 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
+shortTitle: Review audit log
 ---
 
 ## Accessing the audit log

@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Commit to PR branch from fork
 ---
 You can only make commits on pull request branches that:
 - are opened in a repository that you have push access to and that were created from a fork of that repository

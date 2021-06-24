@@ -22,5 +22,6 @@ children:
   - /creating-an-issues-only-repository
   - /limits-for-viewing-content-and-diffs-in-a-repository
   - /duplicating-a-repository
+shortTitle: Create a repository
 ---
 

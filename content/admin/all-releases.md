@@ -6,6 +6,7 @@ versions:
   ghes: '*'
 topics:
   - Enterprise
+shortTitle: Releases
 ---
 
 ## Currently supported

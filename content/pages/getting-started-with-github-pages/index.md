@@ -23,5 +23,6 @@ children:
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
   - /unpublishing-a-github-pages-site
+shortTitle: Get started
 ---
 

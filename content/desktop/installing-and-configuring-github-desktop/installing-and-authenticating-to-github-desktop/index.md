@@ -12,5 +12,6 @@ children:
   - /about-connections-to-github
   - /updating-github-desktop
   - /uninstalling-github-desktop
+shortTitle: Install & authenticate
 ---
 

@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Configure HA replication
 ---
 ## About high availability replication for clusters
 

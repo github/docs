@@ -11,6 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter issues & PRs
 ---
 {% data reusables.search.requested_reviews_search %}
 

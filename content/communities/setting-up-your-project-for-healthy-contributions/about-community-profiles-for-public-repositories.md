@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 topics:
   - Community
+shortTitle: Community profiles
 ---
 
 The community profile checklist checks to see if a project includes recommended community health files, such as README, CODE_OF_CONDUCT, LICENSE, or CONTRIBUTING, in a supported location. For more information, see "[Accessing a project's community profile](/articles/accessing-a-project-s-community-profile)."

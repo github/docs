@@ -14,5 +14,6 @@ children:
   - /migrating-to-internal-repositories
   - /disabling-git-ssh-access-on-your-enterprise
   - /troubleshooting-service-hooks
+shortTitle: Manage repositories
 ---
 

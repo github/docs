@@ -8,6 +8,7 @@ topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
+shortTitle: IAM for your enterprise
 ---
 ## About identity and access management for your enterprise account
 

@@ -12,6 +12,7 @@ topics:
   - Actions
   - Enterprise
   - Policies
+shortTitle: Enforce enterprise policies
 ---
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}

@@ -10,6 +10,7 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+shortTitle: Add label to comment on issue
 ---
 
 {% data reusables.actions.enterprise-beta %}
