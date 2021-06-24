@@ -1187,7 +1187,7 @@ Activity related to a security advisory. A security advisory provides informatio
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action that was performed. The action can be one of `published`, `updated`, or `performed` for all new events.
+`action` |`string` | The action that was performed. The action can be one of `published`, `updated`, `performed`, or `withdrawn` for all new events.
 `security_advisory` |`object` | The details of the security advisory, including summary, description, and severity.
 
 ### Webhook payload example
