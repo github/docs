@@ -4,9 +4,9 @@ redirect_from:
   - /articles/rendering-csv-and-tsv-data
   - /github/managing-files-in-a-repository/rendering-csv-and-tsv-data
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

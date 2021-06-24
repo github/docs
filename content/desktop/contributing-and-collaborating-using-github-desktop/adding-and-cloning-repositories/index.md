@@ -4,7 +4,7 @@ intro: 'Add existing repositories from your local computer to {% data variables.
 redirect_from:
   - /desktop/contributing-to-projects/adding-and-cloning-repositories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /adding-a-repository-from-your-local-computer-to-github-desktop
   - /adding-an-existing-project-to-github-using-github-desktop

@@ -7,7 +7,7 @@ redirect_from:
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
 miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 ## About contributors and teams in {% data variables.product.prodname_insights %}
 

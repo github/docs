@@ -16,7 +16,7 @@ describe('sidebar', () => {
 
   test('highlights active product on Enterprise pages', async () => {
     expect($enterprisePage('.sidebar-products li.sidebar-product').length).toBe(1)
-    expect($enterprisePage('.sidebar-products li.sidebar-product > a').text().trim()).toBe('GitHub Enterprise')
+    expect($enterprisePage('.sidebar-products li.sidebar-product > a').text().trim()).toBe('Enterprise administrators')
   })
 
   test('highlights active product on GitHub pages', async () => {

@@ -9,9 +9,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/reference/contexts-and-expression-syntax-for-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
@@ -162,7 +162,7 @@ The `runner` context contains information about the runner that is executing the
 |---------------|------|-------------|
 | `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |
 | `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
-| `runner.tool_cache` | `string` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
+| `runner.tool_cache` | `string` | {% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
 
 ### `needs` context
 
@@ -439,7 +439,7 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 ## Job status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. If your `if` expression does not contain any of the status functions it will automatically result with `success()`. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
 ### success
 

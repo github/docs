@@ -10,7 +10,7 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
   - /github/authenticating-to-github/about-githubs-ip-addresses
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Identity
   - Access management

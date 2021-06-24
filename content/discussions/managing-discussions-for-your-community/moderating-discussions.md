@@ -3,7 +3,7 @@ title: Moderating discussions
 intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, and converting issues to discussions. and editing or deleting comments, discussions, and categories that don''t align with your community''s code of conduct to discussions.'
 permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data reusables.discussions.beta %}

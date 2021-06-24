@@ -5,7 +5,7 @@ redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSO
 ---

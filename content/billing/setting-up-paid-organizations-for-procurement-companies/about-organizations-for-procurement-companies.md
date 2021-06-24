@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-organizations-for-procurement-companies
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Organizations

@@ -30,7 +30,7 @@ redirect_from:
 layout: product-landing
 examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-codespaces
   - /quickstart
@@ -42,3 +42,4 @@ children:
   - /codespaces-reference
   - /guides
 ---
+

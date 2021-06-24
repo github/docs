@@ -1,17 +1,16 @@
 require('dotenv').config()
+// Intentionally require these for both cluster primary and workers
+require('./lib/feature-flags')
+require('./lib/check-node-version')
+require('./lib/handle-exceptions')
 
 const throng = require('throng')
 const os = require('os')
 const portUsed = require('port-used')
 const prefixStreamWrite = require('./lib/prefix-stream-write')
-const libApp = require('./lib/app')
-const libWarmServer = require('./lib/warm-server')
+const createApp = require('./lib/app')
+const warmServer = require('./lib/warm-server')
 const http = require('http')
-
-// Intentionally require these for both cluster primary and workers
-require('./lib/check-node-version')
-require('./lib/handle-exceptions')
-require('./lib/feature-flags')
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
@@ -49,8 +48,7 @@ async function checkPortAvailability () {
 }
 
 async function startServer () {
-  const app = libApp
-  const warmServer = libWarmServer
+  const app = createApp()
 
   // If in a deployed environment...
   if (NODE_ENV === 'production') {

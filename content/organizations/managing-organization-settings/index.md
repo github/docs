@@ -5,9 +5,9 @@ redirect_from:
   - /articles/managing-organization-settings
   - /github/setting-up-and-managing-organizations-and-teams/managing-organization-settings
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -38,5 +38,5 @@ children:
   - /upgrading-to-the-corporate-terms-of-service
   - /disabling-project-boards-in-your-organization
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% endif %}

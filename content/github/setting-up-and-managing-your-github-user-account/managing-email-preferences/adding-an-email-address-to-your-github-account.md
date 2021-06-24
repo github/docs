@@ -5,13 +5,13 @@ redirect_from:
   - /articles/adding-an-email-address-to-your-github-account
   - /github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Notifications
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 

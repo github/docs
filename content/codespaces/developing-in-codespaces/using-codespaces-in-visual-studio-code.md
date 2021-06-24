@@ -6,7 +6,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces

@@ -2,7 +2,7 @@
 title: View autograding results
 intro: You can see results from autograding within the repository for your assignment.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results

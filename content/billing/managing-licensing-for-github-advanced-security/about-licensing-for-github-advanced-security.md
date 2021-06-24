@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Advanced Security

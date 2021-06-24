@@ -1,8 +1,8 @@
 ---
 title: Using source control in your codespace
-intro: 'After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.'
+intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces

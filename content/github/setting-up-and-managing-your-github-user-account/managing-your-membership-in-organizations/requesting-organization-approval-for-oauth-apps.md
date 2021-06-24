@@ -7,7 +7,7 @@ redirect_from:
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
 ---

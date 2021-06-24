@@ -5,7 +5,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/system-overview-for-github-insights
   - /insights/installing-and-configuring-github-insights/system-overview-for-github-insights
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 ## Requirements for running {% data variables.product.prodname_insights %}
 

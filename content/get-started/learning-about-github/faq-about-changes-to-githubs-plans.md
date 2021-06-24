@@ -2,7 +2,7 @@
 title: FAQ about changes to GitHub’s plans
 intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub features are now free for everyone.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - GitHub
 redirect_from:

@@ -7,8 +7,8 @@ redirect_from:
   - /articles/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/remembering-your-github-username-or-email
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Notifications
@@ -65,7 +65,7 @@ origin	https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em
 
 Your user name is what immediately follows the `https://{% data variables.command_line.backticks %}/`.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Further reading
 
 - "[Verifying your email address](/articles/verifying-your-email-address)"
