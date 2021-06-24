@@ -15,5 +15,6 @@ children:
   - /using-the-api-to-manage-projects
   - /automating-projects
   - /best-practices-for-managing-projects
+  - /managing-a-cross-functional-team-or-project-on-github
 ---
 
