@@ -4,9 +4,9 @@ intro: 'If you''re a member of an organization, you can publicize or hide your m
 redirect_from:
   - /articles/managing-your-membership-in-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
 children:

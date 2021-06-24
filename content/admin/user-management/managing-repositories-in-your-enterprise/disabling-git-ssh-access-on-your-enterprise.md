@@ -16,8 +16,8 @@ redirect_from:
   - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
 intro: You can prevent people from using Git over SSH for certain or all repositories on your enterprise.
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -52,7 +52,7 @@ topics:
 ## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

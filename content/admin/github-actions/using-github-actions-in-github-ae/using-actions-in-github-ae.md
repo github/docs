@@ -2,7 +2,7 @@
 title: Using actions in GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} includes most of the {% data variables.product.prodname_dotcom %}-authored actions.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
 ---

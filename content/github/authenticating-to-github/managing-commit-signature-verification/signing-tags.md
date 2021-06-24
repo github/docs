@@ -6,9 +6,9 @@ redirect_from:
   - /articles/signing-tags
   - /github/authenticating-to-github/signing-tags
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management

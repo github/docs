@@ -5,9 +5,9 @@ redirect_from:
   - /articles/updating-an-expired-gpg-key
   - /github/authenticating-to-github/updating-an-expired-gpg-key
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management

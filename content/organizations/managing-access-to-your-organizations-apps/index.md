@@ -6,9 +6,9 @@ redirect_from:
   - /articles/managing-access-to-your-organizations-apps
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

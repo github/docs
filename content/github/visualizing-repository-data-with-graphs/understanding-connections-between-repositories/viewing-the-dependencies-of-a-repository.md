@@ -2,8 +2,8 @@
 title: Viewing the dependencies of a repository
 intro: You can use the dependency graph to explore the code your repository depends on.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '>=3.0'
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/viewing-the-dependencies-of-a-repository
 ---

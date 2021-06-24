@@ -5,9 +5,9 @@ redirect_from:
   - /articles/renaming-a-file-using-the-command-line
   - /github/managing-files-in-a-repository/renaming-a-file-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/configuring-commit-rebasing-for-pull-requests
   - /github/administering-a-repository/configuring-commit-rebasing-for-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

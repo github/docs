@@ -3,8 +3,8 @@ title: Exploring security alerts
 intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in one place.'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  free-pro-team: '*'
-  github-ae: 'next'
+  fpt: '*'
+  ghae: next
 type: how_to
 topics:
   - Security overview

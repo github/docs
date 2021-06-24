@@ -3,7 +3,7 @@ title: GitHub Sponsors Additional Terms
 redirect_from:
   - /articles/github-sponsors-additional-terms
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

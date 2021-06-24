@@ -6,9 +6,9 @@ redirect_from:
   - /articles/sharing-filters
   - /github/managing-your-work-on-github/sharing-filters
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

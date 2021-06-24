@@ -7,9 +7,9 @@ redirect_from:
   - /github/managing-your-work-on-github/pinning-an-issue-to-your-repository
   - /issues/tracking-your-work-with-issues/managing-issues/pinning-an-issue-to-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

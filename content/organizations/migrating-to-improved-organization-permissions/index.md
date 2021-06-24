@@ -8,8 +8,8 @@ redirect_from:
   - /articles/migrating-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams

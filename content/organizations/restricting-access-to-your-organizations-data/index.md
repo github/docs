@@ -6,7 +6,7 @@ redirect_from:
   - /articles/restricting-access-to-your-organizations-data
   - /github/setting-up-and-managing-organizations-and-teams/restricting-access-to-your-organizations-data
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams

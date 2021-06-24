@@ -6,7 +6,7 @@ redirect_from:
   - /articles/helping-new-contributors-find-your-project-with-labels
   - /github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
 ---
