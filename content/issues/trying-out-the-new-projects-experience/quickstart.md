@@ -4,7 +4,7 @@ intro: 'Experience the speed, flexibility, and customization of projects (beta) 
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - Projects

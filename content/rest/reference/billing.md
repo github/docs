@@ -1,7 +1,7 @@
 ---
 title: Billing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

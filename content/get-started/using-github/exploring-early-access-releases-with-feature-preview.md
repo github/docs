@@ -6,7 +6,7 @@ redirect_from:
   - /github/getting-started-with-github/exploring-early-access-releases-with-feature-preview
   - /github/getting-started-with-github/using-github/exploring-early-access-releases-with-feature-preview
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Early access
 ---

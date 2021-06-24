@@ -5,9 +5,9 @@ redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +17,7 @@ topics:
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 If your organization [requires members and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), they must enable two-factor authentication before they can accept your invitation to collaborate on an organization repository.
 {% endif %}
 
@@ -25,7 +25,7 @@ If your organization [requires members and outside collaborators to use two-fact
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.

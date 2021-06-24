@@ -7,9 +7,9 @@ redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code
   - /github/finding-security-vulnerabilities-and-errors-in-your-code
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning

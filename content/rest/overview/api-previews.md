@@ -4,9 +4,9 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -18,7 +18,7 @@ During the preview period, we may change some features based on developer feedba
 
 To access an API preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Migrations
 
 Allows you to download repositories from your GitHub user or organization account to review, backup, and [migrate](/rest/reference/migrations) data to {% data variables.product.prodname_ghe_server %}.
@@ -49,7 +49,7 @@ Get a [list of events](/rest/reference/issues#timeline) for an issue or pull req
 **Custom media type:** `mockingbird-preview`
 **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Pre-receive environments
 
 Create, list, update, and delete environments for pre-receive hooks.
@@ -58,7 +58,7 @@ Create, list, update, and delete environments for pre-receive hooks.
 **Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 ## Integrations
 
 Manage [integrations](/v3/integrations) through the API.
@@ -95,7 +95,7 @@ View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code 
 
 **Custom media type:** `scarlet-witch-preview`
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
 ## Global webhooks
 
@@ -106,7 +106,7 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 ## Add lock reason
 
 You can now add a reason when you [lock an issue](/rest/reference/issues#lock-an-issue).
@@ -129,7 +129,7 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
+{% ifversion ghes < 3.0 %}
 ## Check runs and check suites API
 
 Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/rest/reference/checks#runs) and [Check suites](/rest/reference/checks#suites) APIs for more details.
@@ -138,7 +138,7 @@ Allows a GitHub App to run external checks on a repository's code. See the [Chec
 **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion == enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Anonymous Git access to repositories
 
@@ -156,7 +156,7 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Custom media type:** `starfox-preview`
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## GitHub App Manifests
 
@@ -215,7 +215,7 @@ You can use a new endpoint to [update a pull request branch](/rest/reference/pul
 **Custom media types:** `lydian-preview`
 **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Enable or disable automated security fixes
 
 You can use a new set of endpoints to [enable and disable automated security fixes](/rest/reference/repos#enable-automated-security-fixes).
@@ -231,7 +231,7 @@ You can use a new endpoint to [Create a repository using a template](/rest/refer
 **Custom media types:** `baptiste-preview`
 **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 ## New visibility parameter for the Repositories API
 
 You can set and retrieve the visibility of a repository in the [Repositories API](/rest/reference/repos).

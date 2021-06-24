@@ -1,10 +1,10 @@
 ---
 title: Managing access and security for your organization's codespaces
 shortTitle: Managing access and security for your organization
-intro: You can manage the repositories in your organization that {% data variables.product.prodname_codespaces %} can access.
-permissions: To manage access and security for Codespaces for an organization, you must be an organization owner.
+intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_codespaces %} can access.'
+permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces

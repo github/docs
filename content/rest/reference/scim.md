@@ -3,7 +3,7 @@ title: SCIM
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

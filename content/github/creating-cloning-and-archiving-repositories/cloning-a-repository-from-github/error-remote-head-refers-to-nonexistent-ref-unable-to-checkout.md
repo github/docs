@@ -5,9 +5,9 @@ redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
   - /github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

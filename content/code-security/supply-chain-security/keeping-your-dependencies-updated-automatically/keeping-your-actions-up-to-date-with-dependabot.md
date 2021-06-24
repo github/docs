@@ -6,7 +6,7 @@ redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories

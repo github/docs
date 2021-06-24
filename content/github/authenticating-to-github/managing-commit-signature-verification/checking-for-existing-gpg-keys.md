@@ -5,9 +5,9 @@ redirect_from:
   - /articles/checking-for-existing-gpg-keys
   - /github/authenticating-to-github/checking-for-existing-gpg-keys
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/creating-new-files
   - /github/managing-files-in-a-repository/creating-new-files
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

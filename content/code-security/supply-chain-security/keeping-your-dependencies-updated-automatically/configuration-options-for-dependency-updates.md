@@ -7,7 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: reference
 topics:
   - Dependabot

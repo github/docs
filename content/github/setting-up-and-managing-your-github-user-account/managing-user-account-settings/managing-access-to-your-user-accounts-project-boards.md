@@ -7,9 +7,9 @@ redirect_from:
   - /articles/managing-access-to-your-user-accounts-project-boards
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-user-accounts-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
 ---

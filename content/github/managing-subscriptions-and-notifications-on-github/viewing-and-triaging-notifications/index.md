@@ -5,9 +5,9 @@ redirect_from:
   - /articles/managing-notifications/
   - /articles/managing-your-notifications
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 children:

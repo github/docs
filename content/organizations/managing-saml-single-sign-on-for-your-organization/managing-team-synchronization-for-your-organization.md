@@ -10,7 +10,7 @@ redirect_from:
 permissions: Organization owners can manage team synchronization for an organization.
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams

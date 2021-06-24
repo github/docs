@@ -6,9 +6,9 @@ redirect_from:
   - /articles/closing-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/closing-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

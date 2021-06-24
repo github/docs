@@ -6,13 +6,13 @@ redirect_from:
   - /articles/about-git-large-file-storage
   - /github/managing-large-files/about-git-large-file-storage
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% data variables.large_files.product_name_short %} handles large files by storing references to the file in the repository, but not the actual file itself. To work around Git's architecture, {% data variables.large_files.product_name_short %} creates a pointer file which acts as a reference to the actual file (which is stored somewhere else). {% data variables.product.product_name %} manages this pointer file in your repository. When you clone the repository down, {% data variables.product.product_name %} uses the pointer file as a map to go and find the large file for you.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Using {% data variables.large_files.product_name_short %}, you can store files up to:
 
 | Product | Maximum file size |

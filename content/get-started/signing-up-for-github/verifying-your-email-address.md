@@ -8,7 +8,7 @@ redirect_from:
   - /github/getting-started-with-github/verifying-your-email-address
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
 ---

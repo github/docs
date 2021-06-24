@@ -4,7 +4,7 @@ intro: You can manage the email address that receives updates from accounts your
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
   - Organizations

@@ -3,7 +3,7 @@ title: About licensing for GitHub Advanced Security
 intro: 'You need a license to use {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
+  ghes: '>=3.1'
 type: overview
 topics:
   - Advanced Security

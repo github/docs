@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
   - /admin/enterprise-management/about-geo-replication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise

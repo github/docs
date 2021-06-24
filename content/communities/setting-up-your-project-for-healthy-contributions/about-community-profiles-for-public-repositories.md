@@ -6,7 +6,7 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
 ---
