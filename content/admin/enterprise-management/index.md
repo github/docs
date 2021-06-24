@@ -4,7 +4,7 @@ intro: 'You can monitor your appliance, upgrade to a newer version, and configur
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:

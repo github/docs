@@ -4,7 +4,7 @@ shortTitle: Getting started with your C# (.NET) project
 allowTitleToDifferFromFilename: true
 intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 ---
@@ -166,7 +166,7 @@ You can use the Dockerfile to add additional container layers to specify OS pack
 
 ## Step 3: Modify your devcontainer.json file 
 
-With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and restore your project dependancies when your codespace launches.
+With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and restore your project dependencies when your codespace launches.
 
 1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it. 
 

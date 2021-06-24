@@ -7,9 +7,9 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-results-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning

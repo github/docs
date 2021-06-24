@@ -10,9 +10,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Repositories

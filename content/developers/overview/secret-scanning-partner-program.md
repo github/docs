@@ -7,7 +7,7 @@ redirect_from:
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 ---

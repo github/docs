@@ -5,10 +5,11 @@ import { LandingSection } from 'components/landing/LandingSection'
 import { SubLandingHero } from 'components/sublanding/SubLandingHero'
 import { LearningTracks } from 'components/sublanding/LearningTracks'
 import { ArticleCards } from 'components/sublanding/ArticleCards'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 export const ProductSubLanding = () => {
   const { title, learningTracks, includeGuides } = useProductSubLandingContext()
-
+  const { t } = useTranslation('sub_landing')
   return (
     <DefaultLayout>
       <LandingSection className="pt-3">
@@ -20,7 +21,7 @@ export const ProductSubLanding = () => {
           title={`${title} learning paths`}
           className="border-top py-6"
           sectionLink="learning-paths"
-          description="learning_paths_desc"
+          description={t('learning_paths_desc')}
         >
           <LearningTracks />
         </LandingSection>

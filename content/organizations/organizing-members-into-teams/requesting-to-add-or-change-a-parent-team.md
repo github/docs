@@ -5,9 +5,9 @@ redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-or-change-a-parent-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

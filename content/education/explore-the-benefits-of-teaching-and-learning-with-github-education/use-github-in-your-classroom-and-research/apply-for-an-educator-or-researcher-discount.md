@@ -11,7 +11,7 @@ redirect_from:
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About educator and researcher discounts
 

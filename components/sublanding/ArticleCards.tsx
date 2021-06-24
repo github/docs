@@ -1,12 +1,42 @@
-import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
+import { useEffect, useState } from 'react'
+
+import {
+  ArticleGuide,
+  useProductSubLandingContext,
+} from 'components/context/ProductSubLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleCard } from './ArticleCard'
 
-const MAX_ARTICLES = 9
+const PAGE_SIZE = 9
 export const ArticleCards = () => {
   const { t } = useTranslation('product_sublanding')
   const guideTypes: Record<string, string> = t('guide_types')
   const { allTopics, includeGuides } = useProductSubLandingContext()
+  const [numVisible, setNumVisible] = useState(PAGE_SIZE)
+  const [typeFilter, setTypeFilter] = useState('')
+  const [topicFilter, setTopicFilter] = useState('')
+  const [filteredResults, setFilteredResults] = useState<Array<ArticleGuide>>([])
+
+  useEffect(() => {
+    setNumVisible(PAGE_SIZE)
+    setFilteredResults(
+      (includeGuides || []).filter((card) => {
+        const matchesType = card.type === typeFilter
+        const matchesTopic = card.topics.some((key) => key === topicFilter)
+        return (typeFilter ? matchesType : true) && (topicFilter ? matchesTopic : true)
+      })
+    )
+  }, [typeFilter, topicFilter])
+
+  const isUserFiltering = typeFilter !== '' || topicFilter !== ''
+  const onChangeTypeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTypeFilter(e.target.value)
+  }
+  const onChangeTopicFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTopicFilter(e.target.value)
+  }
+
+  const guides = isUserFiltering ? filteredResults : includeGuides || []
 
   return (
     <div>
@@ -16,13 +46,20 @@ export const ArticleCards = () => {
             {t('filters.type')}
           </label>
           <select
-            className="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown"
+            value={typeFilter}
+            className="form-select f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0"
             name="type"
             aria-label="guide types"
+            data-testid="card-filter-dropdown"
+            onChange={onChangeTypeFilter}
           >
             <option value="">{t('filters.all')}</option>
             {Object.entries(guideTypes).map(([key, val]) => {
-              return <option key={key} value={key}>{val}</option>
+              return (
+                <option key={key} value={key}>
+                  {val}
+                </option>
+              )
             })}
           </select>
         </div>
@@ -31,37 +68,45 @@ export const ArticleCards = () => {
             {t('filters.topic')}
           </label>
           <select
-            className="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown"
+            value={topicFilter}
+            className="form-select f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0"
             name="topics"
+            data-testid="card-filter-dropdown"
             aria-label="guide topics"
+            onChange={onChangeTopicFilter}
           >
             <option value="">{t('filters.all')}</option>
             {allTopics?.map((topic) => {
-              return <option key={topic} value={topic}>{topic}</option>
+              return (
+                <option key={topic} value={topic}>
+                  {topic}
+                </option>
+              )
             })}
           </select>
         </div>
       </form>
+
       <div className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
-        {(includeGuides || []).map((card, index) => {
-          return index + 1 > MAX_ARTICLES ? (
-            <ArticleCard key={card.title} card={card} type={guideTypes[card.type]} display={'d-none'} />
-          ) : (
-            <ArticleCard key={card.title} card={card} type={guideTypes[card.type]} />
-          )
+        {guides.slice(0, numVisible).map((card) => {
+          return <ArticleCard key={card.href} card={card} typeLabel={guideTypes[card.type]} />
         })}
       </div>
-      {includeGuides && includeGuides.length > MAX_ARTICLES && (
+
+      {guides.length > numVisible && (
         <button
-          className="col-12 mt-5 text-center text-bold color-text-link btn-link js-filter-card-show-more"
-          data-js-filter-card-max={MAX_ARTICLES}
+          className="col-12 mt-5 text-center text-bold color-text-link btn-link"
+          onClick={() => setNumVisible(numVisible + PAGE_SIZE)}
         >
           {t('load_more')}
         </button>
       )}
-      <div className="js-filter-card-no-results d-none py-4 text-center color-text-secondary">
-        <h4 className="text-normal">{t('no_result')}</h4>
-      </div>
+
+      {guides.length === 0 && (
+        <div className="py-4 text-center color-text-secondary">
+          <h4 className="text-normal">{t('no_result')}</h4>
+        </div>
+      )}
     </div>
   )
 }

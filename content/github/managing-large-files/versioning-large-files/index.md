@@ -4,9 +4,9 @@ intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-
 redirect_from:
   - /articles/versioning-large-files
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-git-large-file-storage
   - /installing-git-large-file-storage

@@ -6,10 +6,9 @@ redirect_from:
   - /articles/upgrading-an-app-for-your-personal-account/
   - /articles/upgrading-an-app-for-your-organization/
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Marketplace

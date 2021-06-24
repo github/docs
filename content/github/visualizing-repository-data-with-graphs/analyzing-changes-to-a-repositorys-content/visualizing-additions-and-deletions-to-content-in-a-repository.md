@@ -6,13 +6,13 @@ redirect_from:
   - /articles/visualizing-additions-and-deletions-to-content-in-a-repository
   - /github/visualizing-repository-data-with-graphs/visualizing-additions-and-deletions-to-content-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ![Code frequency graph](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 

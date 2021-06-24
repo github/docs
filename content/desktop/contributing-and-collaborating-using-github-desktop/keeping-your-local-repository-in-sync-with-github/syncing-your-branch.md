@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About branch synchronization
 
@@ -70,6 +70,19 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 ![Force push origin](/assets/images/help/desktop/force-push-origin.png)
 
 {% endwindows %}
+
+## Squashing and merging another branch into your project branch
+
+1. Use the **Branch** drop-down and click **Squash and Merge into Current Branch**.
+![Squash and merge in branch dropdown](/assets/images/help/desktop/squash-and-merge-menu.png)
+2. Click the branch you want to merge into the current branch, then click **Squash and merge**.
+![Squash and merge  button](/assets/images/help/desktop/squash-and-merge-selection.png)
+   {% note %}
+
+   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Squash and merge** button. You will not be able to squash and merge the branch until you have resolved all conflicts.
+
+   {% endnote %}
+{% data reusables.desktop.push-origin %}
 
 ## Further Reading
 - "[Pull](/github/getting-started-with-github/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary

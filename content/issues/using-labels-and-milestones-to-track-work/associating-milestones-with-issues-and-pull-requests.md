@@ -6,9 +6,9 @@ redirect_from:
   - /articles/associating-milestones-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/associating-milestones-with-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

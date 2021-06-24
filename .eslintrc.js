@@ -15,7 +15,9 @@ module.exports = {
     ecmaVersion: 11
   },
   rules: {
-    'import/no-extraneous-dependencies': ['error']
+    'import/no-extraneous-dependencies': ['error'],
+    'node/global-require': ['error'],
+    'import/no-dynamic-require': ['error']
   },
   overrides: [
     {
@@ -42,6 +44,7 @@ module.exports = {
         'no-undef': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
+        'jsx-a11y/no-onchange': 'off',
       }
     },
   ]

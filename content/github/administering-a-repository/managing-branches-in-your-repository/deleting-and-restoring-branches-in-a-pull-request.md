@@ -8,9 +8,9 @@ redirect_from:
   - /articles/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

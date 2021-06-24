@@ -6,7 +6,7 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
 ---

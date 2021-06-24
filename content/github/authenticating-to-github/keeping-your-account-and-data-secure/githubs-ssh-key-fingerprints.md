@@ -7,7 +7,7 @@ redirect_from:
   - /articles/githubs-ssh-key-fingerprints
   - /github/authenticating-to-github/githubs-ssh-key-fingerprints
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Identity
   - Access management

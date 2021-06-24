@@ -3,7 +3,7 @@ title: Getting started with your Python project in Codespaces
 shortTitle: Getting started with your Python project
 intro: 'Get started with your Python project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: tutorial
 topics:
   - Codespaces
@@ -46,7 +46,7 @@ To set up your project with a custom container, you will need to use a `devconta
 
 
 {% data reusables.codespaces.command-palette-container %}
-2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
+2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgreSQL.
   ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 3. Click the recommended version of Python.
   ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
@@ -155,7 +155,7 @@ You can use the Dockerfile to add additional container layers to specify OS pack
 
 ## Step 3: Modify your devcontainer.json file 
 
-With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and your project dependancies when your codespace launches.
+With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
 
 1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it. 
 

@@ -1,11 +1,12 @@
 const request = require('supertest')
 const nock = require('nock')
 const cheerio = require('cheerio')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
 
+  const app = createApp()
   let csrfToken = ''
   let agent
 

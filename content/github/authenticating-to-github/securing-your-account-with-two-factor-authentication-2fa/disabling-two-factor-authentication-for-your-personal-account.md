@@ -5,8 +5,8 @@ redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
   - /github/authenticating-to-github/disabling-two-factor-authentication-for-your-personal-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - 2FA
 ---
@@ -14,7 +14,7 @@ We strongly recommend using two-factor authentication to secure your account. If
 
 {% warning %}
 
-**Warning:** If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
+**Warning:** If you're a member{% ifversion fpt %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
 
 {% endwarning %}
 

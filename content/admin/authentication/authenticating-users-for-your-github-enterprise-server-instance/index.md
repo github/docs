@@ -9,7 +9,7 @@ redirect_from:
   - /enterprise/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:

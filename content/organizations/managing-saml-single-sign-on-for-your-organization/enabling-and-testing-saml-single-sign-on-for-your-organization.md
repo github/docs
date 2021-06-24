@@ -6,7 +6,7 @@ redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams

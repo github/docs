@@ -6,7 +6,7 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---

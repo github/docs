@@ -5,7 +5,7 @@ redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams

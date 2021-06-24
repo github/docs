@@ -7,7 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: reference
 topics:
   - Dependabot
@@ -134,7 +134,7 @@ updates:
 
 ### `schedule.interval`
 
-**Required**. You must define how often to check for new versions for each package manager. By default, this is at 5am UTC. To modify this, use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+**Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
 
 - `daily`—runs on every weekday, Monday to Friday.
 - `weekly`—runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).
@@ -306,7 +306,7 @@ You can use the `ignore` option to customize which dependencies are updated. The
 
 - `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).
 - `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
-- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: *` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
+- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
 
 If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
 

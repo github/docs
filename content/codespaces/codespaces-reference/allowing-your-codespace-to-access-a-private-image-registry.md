@@ -2,7 +2,7 @@
 title: Allowing your codespace to access a private image registry
 intro: 'You can use secrets to allow {% data variables.product.prodname_codespaces %} to access a private image registry'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 ---

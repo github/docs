@@ -19,7 +19,7 @@ export const ProductLanding = () => {
   const { isEnterpriseServer } = useVersion()
   const {
     shortTitle,
-    guideCards,
+    featuredLinks,
     productUserExamples,
     productCommunityExamples,
     productCodeExamples,
@@ -37,7 +37,11 @@ export const ProductLanding = () => {
       </LandingSection>
 
       {productCodeExamples.length > 0 && (
-        <LandingSection title={t('code_examples')} className="my-6 pb-6">
+        <LandingSection
+          title={t('code_examples')}
+          sectionLink="code-examples"
+          className="my-6 pb-6"
+        >
           <CodeExamples />
         </LandingSection>
       )}
@@ -60,15 +64,15 @@ export const ProductLanding = () => {
         </LandingSection>
       )}
 
-      {guideCards.length > 0 && (
+      {featuredLinks.guideCards?.length > 0 && (
         <div className="color-bg-tertiary py-6">
-          <LandingSection title={t('guides')} className="my-6">
+          <LandingSection title={t('guides')} sectionLink="guides-2" className="my-6">
             <GuideCards />
           </LandingSection>
         </div>
       )}
 
-      <LandingSection sectionLink="all-docs" title={`All ${shortTitle} docs`} className="pt-9">
+      <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
         <ProductArticlesList />
       </LandingSection>
     </DefaultLayout>

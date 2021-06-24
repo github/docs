@@ -7,12 +7,14 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About managing branches
 You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
 
 You always create a branch from an existing branch. Typically, you might create a branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
+
+You can also create a branch starting from a previous commit in a branch's history. This can be helpful if you need to return to an earlier view of the repository to investigate a bug, or to create a hot fix on top of your latest release.
 
 Once you're satisfied with your work, you can create a pull request to merge your changes in the current branch into another branch. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/articles/about-pull-requests)."
 
@@ -57,6 +59,15 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
   ![Create branch button](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
+
+## Creating a branch from a previous commit
+
+{% data reusables.desktop.history-tab %}
+2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
+  ![Create branch from commit context menu](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+{% data reusables.desktop.name-branch %}
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Create branch from commit](/assets/images/help/desktop/create-branch-from-commit-overview.png)
 
 ## Publishing a branch
 

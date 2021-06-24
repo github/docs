@@ -5,9 +5,9 @@ redirect_from:
   - /articles/customizing-how-changed-files-appear-on-github
   - /github/administering-a-repository/customizing-how-changed-files-appear-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
@@ -23,5 +23,5 @@ search/index.json linguist-generated=true
   ```
 
 ## Further reading
-- "[Generated code](https://github.com/github/linguist/#generated-code)" in the Linguist documentation
+- "[Generated code](https://github.com/github/linguist/blob/master/docs/overrides.md#generated-code)" in the Linguist documentation
 - "[Creating new files](/articles/creating-new-files/)"

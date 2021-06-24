@@ -6,7 +6,13 @@ const createStagingAppName = require('./create-staging-app-name')
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
-module.exports = async function deployToStaging ({ herokuToken, octokit, pullRequest, forceRebuild = false }) {
+module.exports = async function deployToStaging ({
+  herokuToken,
+  octokit,
+  pullRequest,
+  forceRebuild = false,
+  runId = null
+}) {
   // Start a timer so we can report how long the deployment takes
   const startTime = Date.now()
 
@@ -32,8 +38,9 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
     throw new Error(`This pull request is not open. State is: '${state}'`)
   }
 
+  const workflowRunLog = runId ? `https://github.com/${owner}/${repo}/actions/runs/${runId}` : null
   let deploymentId = null
-  let logUrl = null
+  let logUrl = workflowRunLog
   let appIsNewlyCreated = false
 
   const appName = createStagingAppName({ repo, pullNumber, branch })
@@ -285,7 +292,7 @@ module.exports = async function deployToStaging ({ herokuToken, octokit, pullReq
     // This will help us catch issues with faulty startup code and/or the package manifest.
     const dynoBootStartTime = Date.now()
     console.log('Checking Heroku dynos...')
-    logUrl = null
+    logUrl = workflowRunLog
 
     console.log('🚀 Deployment status: in_progress - Monitoring the Heroku dyno start-up...')
 

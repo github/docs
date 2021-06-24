@@ -5,10 +5,9 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
   - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
-  - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Troubleshooting

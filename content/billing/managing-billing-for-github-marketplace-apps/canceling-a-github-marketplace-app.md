@@ -6,10 +6,9 @@ redirect_from:
   - /articles/canceling-an-app-for-your-personal-account/
   - /articles/canceling-an-app-for-your-organization/
   - /articles/canceling-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Cancellation

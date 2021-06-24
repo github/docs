@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-permanent-link-to-a-code-snippet
   - /github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---

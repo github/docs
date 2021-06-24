@@ -4,9 +4,9 @@ intro: '{% data variables.product.prodname_actions %} and Azure Pipelines share 
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Azure Pipelines

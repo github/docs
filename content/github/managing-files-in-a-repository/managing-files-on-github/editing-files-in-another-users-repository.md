@@ -7,9 +7,9 @@ redirect_from:
   - /articles/editing-files-in-another-users-repository
   - /github/managing-files-in-a-repository/editing-files-in-another-users-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

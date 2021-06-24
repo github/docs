@@ -6,9 +6,9 @@ redirect_from:
   - /categories/user-accounts/
   - /articles/managing-user-account-settings
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
 children:

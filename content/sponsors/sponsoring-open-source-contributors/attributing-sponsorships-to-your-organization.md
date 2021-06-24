@@ -4,7 +4,7 @@ intro: You can attribute the sponsorships paid by one of your organizations to a
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
 type: how_to
 topics:

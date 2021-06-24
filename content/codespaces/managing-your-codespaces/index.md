@@ -2,7 +2,7 @@
 title: Managing your codespaces
 intro: 'You can use {% data variables.product.prodname_github_codespaces %} settings to manage information that your codespace might need.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 redirect_from:

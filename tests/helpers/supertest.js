@@ -1,9 +1,10 @@
-// This file exports an object with utility functions for re-use in
+// This file makes an object with utility functions for re-use in
 // multiple test files
 
 const cheerio = require('cheerio')
 const supertest = require('supertest')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
+const app = createApp()
 
 const helpers = {}
 

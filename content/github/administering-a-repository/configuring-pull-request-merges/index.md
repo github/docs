@@ -4,9 +4,9 @@ intro: 'You can configure pull request merges on {% data variables.product.produ
 redirect_from:
   - /articles/configuring-pull-request-merges
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:

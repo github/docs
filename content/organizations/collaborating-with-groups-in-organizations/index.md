@@ -6,9 +6,9 @@ redirect_from:
   - /articles/collaborating-with-groups-in-organizations
   - /github/setting-up-and-managing-organizations-and-teams/collaborating-with-groups-in-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

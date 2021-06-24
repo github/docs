@@ -5,9 +5,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - CI
@@ -22,7 +22,7 @@ topics:
 
 This guide shows you how to build, test, and publish a Python package.
 
-{% if currentVersion == "github-ae@latest" %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
 {% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -397,17 +397,22 @@ jobs:
 
 ## Publishing to package registries
 
-You can configure your workflow to publish your Python package to any package registry you'd like when your CI tests pass.
+You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/github/administering-a-repository/managing-releases-in-a-repository). 
 
-You can store any access tokens or credentials needed to publish your package using secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 {% raw %}
 ```yaml{:copy}
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
 name: Upload Python Package
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   deploy:
@@ -421,14 +426,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install setuptools wheel twine
-      - name: Build and publish
-        env:
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: |
-          python setup.py sdist bdist_wheel
-          twine upload dist/*
+          pip install build
+      - name: Build package
+        run: python -m build
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
 ```
 {% endraw %}
 

@@ -2,9 +2,9 @@
 title: Setting guidelines for repository contributors
 intro: You can create guidelines to communicate how people should contribute to your project.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors/
   - /articles/setting-guidelines-for-repository-contributors
@@ -23,9 +23,9 @@ For contributors, the guidelines help them verify that they're submitting well-f
 
 For both owners and contributors, contribution guidelines save time and hassle caused by improperly created pull requests or issues that have to be rejected and re-submitted.
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
-You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% ifversion fpt or ghes %} or user account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -61,6 +61,6 @@ If you're stumped, here are some good examples of contribution guidelines:
 - The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## Further reading
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% ifversion fpt %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
 - "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}

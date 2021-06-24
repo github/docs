@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Open Source

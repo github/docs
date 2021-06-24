@@ -5,9 +5,9 @@ redirect_from:
   - /articles/generating-a-new-gpg-key
   - /github/authenticating-to-github/generating-a-new-gpg-key
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
@@ -18,7 +18,7 @@ topics:
 
 {% note %}
 
-**Note:** Before generating a new GPG key, make sure you've verified your email address. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
+**Note:** Before generating a new GPG key, make sure you've verified your email address. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% ifversion fpt %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
 
 {% endnote %}
 
@@ -33,15 +33,15 @@ topics:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default `RSA and RSA`.
-5. Enter the desired key size. Your key must be at least `4096` bits.
+4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default.
+5. At the prompt, specify the key size you want, or press `Enter` to accept the default. Your key must be at least `4096` bits.
 6. Enter the length of time the key should be valid. Press `Enter` to specify the default selection, indicating that the key doesn't expire.
 7. Verify that your selections are correct.
 8. Enter your user ID information.
 
   {% note %}
 
-  **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  For more information, see "[Verifying your email address](/articles/verifying-your-email-address)" and "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+  **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt %}  For more information, see "[Verifying your email address](/articles/verifying-your-email-address)" and "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
 
   {% endnote %}
 

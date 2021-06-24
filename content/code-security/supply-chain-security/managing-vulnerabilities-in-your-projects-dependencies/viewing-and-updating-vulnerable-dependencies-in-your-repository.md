@@ -8,8 +8,8 @@ redirect_from:
 permissions: Repository administrators and organization owners can view and update dependencies.
 shortTitle: Viewing and updating vulnerable dependencies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '>=3.0'
 type: how_to
 topics:
   - Dependabot
@@ -19,9 +19,9 @@ topics:
   - Pull requests
   - Repositories
 ---
-Your repository's {% data variables.product.prodname_dependabot %} alerts tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% if currentVersion == "free-pro-team@latest" %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can sort the list of alerts using the drop-down menu, and you can click into specific alerts for more details. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+Your repository's {% data variables.product.prodname_dependabot %} alerts tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can sort the list of alerts using the drop-down menu, and you can click into specific alerts for more details. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
 {% data reusables.repositories.dependency-review %}
@@ -33,7 +33,7 @@ You can enable automatic security updates for any repository that uses {% data v
 
 ## Viewing and updating vulnerable dependencies
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -46,7 +46,7 @@ You can enable automatic security updates for any repository that uses {% data v
 1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, use the "Dismiss" drop-down, and click a reason for dismissing the alert.
    ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down.png)
 
-{% elsif currentVersion ver_gt "enterprise-server@3.0" %}
+{% elsif ghes > 3.0 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -69,8 +69,8 @@ You can enable automatic security updates for any repository that uses {% data v
 
 ## Further reading
 
-- "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% if currentVersion == "free-pro-team@latest" %}
+- "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt %}
 - "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)"{% endif %}
 - "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt %}
 - "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

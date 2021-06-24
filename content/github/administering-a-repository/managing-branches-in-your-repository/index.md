@@ -4,9 +4,9 @@ intro: 'Whenever you propose a change in Git, you [create a new branch](/article
 redirect_from:
   - /articles/managing-branches-in-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:

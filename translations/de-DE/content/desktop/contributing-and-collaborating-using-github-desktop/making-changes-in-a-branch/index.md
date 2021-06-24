@@ -10,9 +10,5 @@ children:
   - /committing-and-reviewing-changes-to-your-project
   - /stashing-changes
   - /pushing-changes-to-github
-  - /reverting-a-commit
-  - /cherry-picking-a-commit
-  - /managing-tags
   - /viewing-the-branch-history
 ---
-
