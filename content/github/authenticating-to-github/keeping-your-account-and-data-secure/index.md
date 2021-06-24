@@ -4,9 +4,9 @@ intro: 'To protect your personal information, you should keep both your {% data 
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management

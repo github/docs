@@ -6,9 +6,9 @@ redirect_from:
   - /articles/error-ssh-add-illegal-option----k
   - /github/authenticating-to-github/error-ssh-add-illegal-option----k
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 ---

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
   - /github/authenticating-to-github/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSH
 ---

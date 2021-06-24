@@ -4,7 +4,7 @@ intro: You can edit the metadata and description for a security advisory if you 
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Security advisories

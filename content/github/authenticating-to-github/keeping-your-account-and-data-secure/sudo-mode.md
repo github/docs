@@ -5,8 +5,8 @@ redirect_from:
   - /articles/sudo-mode
   - /github/authenticating-to-github/sudo-mode
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Identity
   - Access management

@@ -8,9 +8,9 @@ redirect_from:
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/using-git/pushing-commits-to-a-remote-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 The `git push` command takes two arguments:
 

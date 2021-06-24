@@ -5,8 +5,8 @@ redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Community
 ---
@@ -19,7 +19,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 ## Including an open source license in your repository
 
 <!--Dotcom version uses the license tool-->
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
@@ -38,7 +38,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

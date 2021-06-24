@@ -4,7 +4,7 @@ redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _These terms apply to non-enterprise customers. They also apply to enterprise customers who licensed GitHub offerings prior to January 4, 2021. Enterprise customers who purchase GitHub offerings after that date are directed to https://www.github.com/enterprise-legal for current terms._

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/working-with-jupyter-notebook-files-on-github
   - /github/managing-files-in-a-repository/working-with-jupyter-notebook-files-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

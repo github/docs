@@ -6,9 +6,9 @@ redirect_from:
   - /articles/error-permission-to-userrepo-denied-to-other-user
   - /github/authenticating-to-github/error-permission-to-userrepo-denied-to-other-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 ---

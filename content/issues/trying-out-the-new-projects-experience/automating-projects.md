@@ -4,7 +4,7 @@ intro: 'You can use the API and {% data variables.product.prodname_actions %} to
 product: '{% data reusables.gated-features.actions %}'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Projects

@@ -2,8 +2,8 @@
 title: Using the Command Palette in Codespaces
 intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in Codespaces.'
 versions:
-  free-pro-team: '*'
-type: reference  
+  fpt: '*'
+type: reference
 topics:
   - Codespaces
   - Visual Studio Code

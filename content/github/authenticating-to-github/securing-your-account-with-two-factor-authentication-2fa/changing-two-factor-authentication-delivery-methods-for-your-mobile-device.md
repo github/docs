@@ -6,7 +6,7 @@ redirect_from:
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - 2FA
 ---

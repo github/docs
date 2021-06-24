@@ -1,8 +1,8 @@
 ---
-title: Using the API to manage projects (beta) 
-intro: 'You can use the GraphQL API to find information about projects and to update projects.'
+title: Using the API to manage projects (beta)
+intro: You can use the GraphQL API to find information about projects and to update projects.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 type: how_to

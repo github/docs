@@ -3,7 +3,7 @@ title: Getting started with your Node.js project in Codespaces
 shortTitle: Getting started with your Node.js project
 intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: tutorial
 topics:
   - Codespaces

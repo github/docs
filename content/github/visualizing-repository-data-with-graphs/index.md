@@ -7,9 +7,9 @@ redirect_from:
   - /categories/graphs/
   - /categories/visualizing-repository-data-with-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -17,3 +17,4 @@ children:
   - /analyzing-changes-to-a-repositorys-content
   - /understanding-connections-between-repositories
 ---
+

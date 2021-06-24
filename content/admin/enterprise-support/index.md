@@ -4,8 +4,8 @@ intro: 'Learn how to open a ticket and provide the {% data variables.contact.ent
 redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

@@ -9,9 +9,9 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github
   - /github/getting-started-with-github/quickstart/communicating-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
   - Issues
@@ -22,10 +22,10 @@ topics:
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
-{% if currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
@@ -39,7 +39,7 @@ You can create and participate in issues, pull requests and team discussions, de
 - allow you comment directly on proposed changes suggested by others. 
 - are specific to a repository. 
  
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ### {% data variables.product.prodname_discussions %}
 -  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
 -  may span many repositories. 
@@ -50,7 +50,7 @@ You can create and participate in issues, pull requests and team discussions, de
 
 ### Team discussions
 - can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
-- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% if currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} 
+- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %} 
 - provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
 - often don’t have a clear owner.
 - often do not result in an actionable task.{% endif %}
@@ -98,7 +98,7 @@ The **Files changed** tab of the pull request shows the implemented fix.
 - The user creates a pull request with the fix.
 - A repository maintainer reviews the pull request, comments on it, and merges it.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ### Scenarios for {% data variables.product.prodname_discussions %}
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -115,7 +115,7 @@ This example shows the {% data variables.product.prodname_discussions %} welcome
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
 {% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 ### Scenarios for team discussions
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -123,7 +123,7 @@ This community maintainer started a discussion to welcome the community, and to 
 - I want to start or participate in an open-ended conversation.
 - I want to make an announcement to my team.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 As you can see, team discussions are very similar to {% data variables.product.prodname_discussions %}. For {% data variables.product.prodname_dotcom_the_website %}, we recommend using {% data variables.product.prodname_discussions %} as the starting point for conversations. You can use {% data variables.product.prodname_discussions %} to collaborate with any community on {% data variables.product.prodname_dotcom %}. If you are part of an organization, and would like to initiate conversations within your organization or team within that organization, you should use team discussions.
 {% endif %}
 
@@ -148,7 +148,7 @@ For issues, for example, you can tag issues with labels for quicker searching an
 
 For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 For {% data variables.product.prodname_discussions %}, you can set up a code of conduct and pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 {% endif %}
 

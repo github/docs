@@ -4,9 +4,9 @@ redirect_from:
   - /v3/codes_of_conduct
   - /v3/codes-of-conduct
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

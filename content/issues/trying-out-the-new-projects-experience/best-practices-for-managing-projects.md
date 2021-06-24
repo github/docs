@@ -4,7 +4,7 @@ intro: 'Learn tips for managing your projects on {% data variables.product.compa
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Projects

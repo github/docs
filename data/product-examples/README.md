@@ -29,10 +29,10 @@ At the moment, versioning is only supported in code examples. If an example bloc
     - Version updates
     - Pull requests
   versions:
-    'free-pro-team': '*'
+    fpt: '*'
   ```
 
-  where the syntax for `versions` is the same as the [frontmatter `versions` property](content/README.md) and can support semver notation.
+where the syntax for `versions` is the same as the [frontmatter `versions` property](content/README.md) and can support semver notation.
 
 ## Rendering
 

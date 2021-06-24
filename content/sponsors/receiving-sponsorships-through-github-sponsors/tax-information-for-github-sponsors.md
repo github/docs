@@ -5,7 +5,7 @@ redirect_from:
   - /articles/tax-information-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Open Source

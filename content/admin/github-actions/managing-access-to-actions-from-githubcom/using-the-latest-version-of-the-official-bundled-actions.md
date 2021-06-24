@@ -2,8 +2,8 @@
 title: Using the latest version of the official bundled actions
 intro: 'You can update the actions that are bundled with your enterprise, or use actions directly from {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '>=2.22'
+  ghae: next
 topics:
   - Enterprise
 redirect_from:

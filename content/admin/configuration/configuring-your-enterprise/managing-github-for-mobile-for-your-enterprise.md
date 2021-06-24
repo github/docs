@@ -3,7 +3,7 @@ title: Managing GitHub for mobile for your enterprise
 intro: 'You can decide whether authenticated users can connect to {% data variables.product.product_location %} with {% data variables.product.prodname_mobile %}.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 type: how_to
 topics:
   - Enterprise
@@ -11,7 +11,7 @@ topics:
 redirect_from:
   - /admin/configuration/managing-github-for-mobile-for-your-enterprise
 ---
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 

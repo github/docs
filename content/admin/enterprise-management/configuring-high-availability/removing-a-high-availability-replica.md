@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /admin/enterprise-management/removing-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -38,7 +38,7 @@ topics:
   $ ghe-repl-teardown
   ```
 
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes > 2.22 %}
   {% note %}
   
   **Note:** If you have {% data variables.product.prodname_actions %} enabled, you should decommission the former replica server or update its {% data variables.product.prodname_actions %} configuration to use different external storage. For more information, see "[High availability for {% data variables.product.prodname_actions %}](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)."

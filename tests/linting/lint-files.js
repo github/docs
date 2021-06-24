@@ -18,10 +18,11 @@ const renderContent = require('../../lib/render-content')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const { execSync } = require('child_process')
 const allVersions = require('../../lib/all-versions')
-const { supported } = require('../../lib/enterprise-server-releases')
-const getIfversionConditionals = require('../helpers/get-ifversion-conditionals')
+const { supported, next } = require('../../lib/enterprise-server-releases')
+const getLiquidConditionals = require('../../script/helpers/get-liquid-conditionals')
 const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 const versionShortNames = Object.values(allVersions).map(v => v.shortName)
+const versionKeywords = versionShortNames.concat(['currentVersion', 'enterpriseServerReleases'])
 const allowedVersionOperators = require('../../lib/liquid-tags/ifversion-supported-operators')
 
 const rootDir = path.join(__dirname, '../..')
@@ -317,7 +318,7 @@ describe('lint markdown content', () => {
     '%s',
     (markdownRelPath, markdownAbsPath) => {
       let content, ast, links, yamlScheduledWorkflows, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData,
-      ifversionConditionals
+      ifversionConditionals, ifConditionals
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
@@ -353,8 +354,11 @@ describe('lint markdown content', () => {
           .flat()
           .map(schedule => schedule.cron)
 
-        ifversionConditionals = getIfversionConditionals(data)
-          .concat(getIfversionConditionals(bodyContent))
+        ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif'])
+          .concat(getLiquidConditionals(bodyContent, ['ifversion', 'elsif']))
+
+        ifConditionals = getLiquidConditionals(data, 'if')
+          .concat(getLiquidConditionals(bodyContent, 'if'))
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -367,6 +371,13 @@ describe('lint markdown content', () => {
       test('ifversion conditionals are valid in markdown', async () => {
         const errors = validateIfversionConditionals(ifversionConditionals)
         expect(errors.length, errors.join('\n')).toBe(0)
+      })
+
+      test('ifversion, not if, is used for versioning in markdown', async () => {
+        const ifsForVersioning = ifConditionals.filter(cond => versionKeywords.some(keyword => cond.includes(keyword)))
+        const errorMessage = `Found ${ifsForVersioning.length} "if" conditionals used for versioning! Use "ifversion" instead.
+${ifsForVersioning.join('\n')}`
+        expect(ifsForVersioning.length, errorMessage).toBe(0)
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -544,20 +555,29 @@ describe('lint yaml content', () => {
   describe.each(ymlToLint)(
     '%s',
     (yamlRelPath, yamlAbsPath) => {
-      let dictionary, isEarlyAccess, ifversionConditionals
+      let dictionary, isEarlyAccess, ifversionConditionals, ifConditionals
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        ifversionConditionals = getIfversionConditionals(fileContents)
-
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
+
+        ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
+
+        ifConditionals = getLiquidConditionals(fileContents, 'if')
       })
 
       test('ifversion conditionals are valid in yaml', async () => {
         const errors = validateIfversionConditionals(ifversionConditionals)
         expect(errors.length, errors.join('\n')).toBe(0)
+      })
+
+      test('ifversion, not if, is used for versioning in markdown', async () => {
+        const ifsForVersioning = ifConditionals.filter(cond => versionKeywords.some(keyword => cond.includes(keyword)))
+        const errorMessage = `Found ${ifsForVersioning.length} "if" conditionals used for versioning! Use "ifversion" instead.
+${ifsForVersioning.join('\n')}`
+        expect(ifsForVersioning.length, errorMessage).toBe(0)
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -871,9 +891,6 @@ describe('lint learning tracks', () => {
       })
 
       it('has one and only one featured track per supported version', async () => {
-        const featuredTracks = {}
-        const context = { enterpriseServerVersions }
-
         // Use the YAML filename to determine which product this refers to, and then peek
         // inside the product TOC frontmatter to see which versions the product is available in.
         const product = path.posix.basename(yamlRelPath, '.yml')
@@ -882,21 +899,26 @@ describe('lint learning tracks', () => {
         const { data } = frontmatter(productContents)
         const productVersions = getApplicableVersions(data.versions, productTocPath)
 
+        const featuredTracks = {}
+        const context = { enterpriseServerVersions }
+
         // For each of the product's versions, render the learning track data and look for a featured track.
         await Promise.all(productVersions.map(async (version) => {
-          const featuredTracksPerVersion = (await Promise.all(Object.values(dictionary).map(async (entry) => {
+          const featuredTracksPerVersion = []
+
+          for (const entry of Object.values(dictionary)) {
             if (!entry.featured_track) return
             context.currentVersion = version
+            context[allVersions[version].shortName] = true
             const isFeaturedLink = typeof entry.featured_track === 'boolean' || (await renderContent(entry.featured_track, context, { textOnly: true, encodeEntities: true }) === 'true')
-            return isFeaturedLink
-          })))
-            .filter(Boolean)
+            featuredTracksPerVersion.push(isFeaturedLink)
+          }
 
           featuredTracks[version] = featuredTracksPerVersion.length
         }))
 
         Object.entries(featuredTracks).forEach(([version, numOfFeaturedTracks]) => {
-          const errorMessage = `Expected one featured learning track for ${version} in ${yamlAbsPath}`
+          const errorMessage = `Expected 1 featured learning track but found ${numOfFeaturedTracks} for ${version} in ${yamlAbsPath}`
           expect(numOfFeaturedTracks, errorMessage).toBe(1)
         })
       })
@@ -994,15 +1016,17 @@ function validateIfversionConditionals (conds) {
         // the second item is a supported operator, and the third is a supported GHES release.
         if (strParts.length === 3) {
           const [version, operator, release] = strParts
-          const isGhes = version === 'ghes'
-          const isSupportedOperator = allowedVersionOperators.includes(operator)
-          const isSupportedRelease = supported.includes(release)
-          const isValid = isGhes && isSupportedOperator && isSupportedRelease
-          const errorMessage = str === cond
-            ? `"${str}" is not a valid operation`
-            : `"${str}" is not a valid operation inside "${cond}"`
-            if (!isValid) {
-            errors.push(errorMessage)
+          if (version !== 'ghes') {
+            errors.push(`Found "${version}" inside "${cond}" with a "${operator}" operator; expected "ghes"`)
+          }
+          if (!allowedVersionOperators.includes(operator)) {
+            errors.push(`Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`)
+          }
+          // NOTE: The following will throw errors when we deprecate a version until we run the script to remove the
+          // deprecated versioning. If we deprecate a version before we have a working version of that script,
+          // we can comment out this part of the test temporarily and re-enable it once the script is ready.
+          if (!(supported.includes(release) || release === next)) {
+            errors.push(`Found ${release} inside "${cond}", but ${release} is not a supported GHES release`)
           }
         }
       })

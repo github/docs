@@ -2,7 +2,7 @@
 title: Limiting interactions for your user account
 intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account

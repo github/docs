@@ -11,7 +11,7 @@ redirect_from:
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
   - /github/getting-started-with-github/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Open Source
 ---
