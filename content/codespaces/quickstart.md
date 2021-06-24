@@ -3,7 +3,7 @@ title: Quickstart for GitHub Codespaces
 intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - Codespaces

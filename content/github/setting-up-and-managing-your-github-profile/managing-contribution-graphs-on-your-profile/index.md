@@ -4,9 +4,9 @@ intro: 'Your contributions, including commits, proposed pull requests, and opene
 redirect_from:
   - /articles/managing-contribution-graphs-on-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
 children:

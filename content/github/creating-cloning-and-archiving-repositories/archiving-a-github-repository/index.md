@@ -6,9 +6,9 @@ redirect_from:
   - /articles/archiving-a-github-repository
   - /enterprise/admin/user-management/archiving-and-unarchiving-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:

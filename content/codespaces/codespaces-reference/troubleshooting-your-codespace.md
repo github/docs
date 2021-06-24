@@ -6,7 +6,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/troubleshooting-your-codespace
   - /codespaces/working-with-your-codespace/troubleshooting-your-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: reference
 topics:
   - Codespaces

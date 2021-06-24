@@ -2,9 +2,9 @@
 title: Using GitHub-hosted runners
 intro: You can use GitHub's runners to execute your GitHub Actions workflows.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 children:
   - /about-github-hosted-runners
   - /customizing-github-hosted-runners

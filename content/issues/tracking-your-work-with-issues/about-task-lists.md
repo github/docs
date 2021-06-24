@@ -1,21 +1,21 @@
 ---
 title: About task lists
-intro: You can use task lists to break the work for an issue or pull request into smaller tasks, then track the full set of work to completion.
+intro: 'You can use task lists to break the work for an issue or pull request into smaller tasks, then track the full set of work to completion.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
   - /articles/about-task-lists
   - /github/managing-your-work-on-github/about-task-lists
   - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% note %}
 
 **Note:** Improved task lists are currently in beta and subject to change.
@@ -27,9 +27,9 @@ topics:
 
 A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
 
-You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% if currentVersion == "free-pro-team@latest" %}If you reference an issue, pull request, or disussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
+You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt %}If you reference an issue, pull request, or disussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
 
-{% if currentVersion != "free-pro-team@latest" %} 
+{% ifversion not fpt %} 
 You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
 {% else %}
 

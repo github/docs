@@ -5,9 +5,9 @@ redirect_from:
   - /articles/reviewing-your-authorized-integrations
   - /github/authenticating-to-github/reviewing-your-authorized-integrations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
@@ -29,6 +29,6 @@ topics:
    ![List of authorized {% data variables.product.prodname_github_app %}](/assets/images/help/settings/revoke-github-app.png)
 
 ## Further reading
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - "[About integrations](/articles/about-integrations)"{% endif %}
 - "[Reviewing your authorized applications (OAuth)](/articles/reviewing-your-authorized-applications-oauth)"

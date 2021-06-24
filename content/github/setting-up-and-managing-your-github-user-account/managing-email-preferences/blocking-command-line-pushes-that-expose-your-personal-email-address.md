@@ -5,7 +5,7 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
   - /github/setting-up-and-managing-your-github-user-account/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Notifications

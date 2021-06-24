@@ -5,7 +5,7 @@ redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -27,7 +27,7 @@ topics:
 
 ## Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"
 {% endif %}
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

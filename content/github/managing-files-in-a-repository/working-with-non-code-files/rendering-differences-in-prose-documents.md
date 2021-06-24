@@ -4,9 +4,9 @@ redirect_from:
   - /articles/rendering-differences-in-prose-documents
   - /github/managing-files-in-a-repository/rendering-differences-in-prose-documents
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

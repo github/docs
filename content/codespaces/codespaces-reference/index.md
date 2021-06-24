@@ -2,7 +2,7 @@
 title: Reference
 intro: 'This section contains references that will allow you to be successful with {% data variables.product.prodname_codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-billing-for-codespaces
   - /troubleshooting-your-codespace

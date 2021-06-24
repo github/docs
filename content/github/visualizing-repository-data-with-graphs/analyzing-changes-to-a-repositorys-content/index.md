@@ -6,9 +6,9 @@ redirect_from:
   - /articles/analyzing-changes-to-a-repository-s-content
   - /articles/analyzing-changes-to-a-repositorys-content
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:

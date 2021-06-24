@@ -5,7 +5,7 @@ redirect_from:
   - /articles/installing-an-app-in-your-organization
   - /github/customizing-your-github-workflow/installing-an-app-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% data reusables.marketplace.marketplace-apps-only %}
 
