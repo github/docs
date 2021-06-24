@@ -52,7 +52,7 @@ export const SidebarNav = () => {
       <style jsx>
         {`
           .root {
-            width: 280px;
+            width: 286px;
             height: 100vh;
             flex-shrink: 0;
             padding-bottom: 32px;
