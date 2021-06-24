@@ -1,9 +1,10 @@
 ---
 title: Managing a cross-functional team or project on GitHub
 intro: "The essentials for using {% data variables.product.prodname_dotcom %}'s planning and tracking tools to manage work on a team or project."
-allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ## Introduction
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.

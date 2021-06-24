@@ -15,6 +15,7 @@ children:
   - /tracking-progress-on-your-project-board
   - /filtering-cards-on-a-project-board
   - /archiving-cards-on-a-project-board
+  - /managing-a-cross-functional-team-or-project-on-github
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 ---
