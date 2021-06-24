@@ -4,7 +4,7 @@ intro: 'You can control and secure access to resources like repositories, issues
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:

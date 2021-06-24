@@ -6,7 +6,7 @@ redirect_from:
   - /articles/limiting-interactions-in-your-organization
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community

@@ -7,7 +7,7 @@ redirect_from:
   - /articles/dmca-takedown/
   - /articles/dmca-takedown-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

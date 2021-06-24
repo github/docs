@@ -8,9 +8,9 @@ redirect_from:
   - /articles/exploring-projects-on-github
   - /github/getting-started-with-github/exploring-projects-on-github/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Projects
 children:

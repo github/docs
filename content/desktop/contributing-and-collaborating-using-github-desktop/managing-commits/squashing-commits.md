@@ -1,8 +1,8 @@
 ---
 title: Squashing commits
-intro: "You can use {% data variables.product.prodname_desktop %} to squash commits in your branch's history."
+intro: 'You can use {% data variables.product.prodname_desktop %} to squash commits in your branch''s history.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 ## About squashing a commit

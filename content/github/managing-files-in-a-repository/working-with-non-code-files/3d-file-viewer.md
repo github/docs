@@ -5,9 +5,9 @@ redirect_from:
   - /articles/3d-file-viewer
   - /github/managing-files-in-a-repository/3d-file-viewer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

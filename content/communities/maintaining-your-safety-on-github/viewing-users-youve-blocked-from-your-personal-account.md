@@ -6,7 +6,7 @@ redirect_from:
   - /articles/viewing-users-youve-blocked-from-your-personal-account
   - /github/building-a-strong-community/viewing-users-youve-blocked-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
 ---

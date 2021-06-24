@@ -5,9 +5,9 @@ redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/
   - /articles/finding-information-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 children:

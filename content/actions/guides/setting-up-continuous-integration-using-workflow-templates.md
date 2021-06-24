@@ -9,9 +9,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions
   - /actions/building-and-testing-code-with-continuous-integration/setting-up-continuous-integration-using-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Workflows
@@ -46,6 +46,6 @@ For more information, see "[Learn {% data variables.product.prodname_actions %}]
 
 - "[About continuous integration](/articles/about-continuous-integration)"
 - "[Managing a workflow run](/articles/managing-a-workflow-run)"
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

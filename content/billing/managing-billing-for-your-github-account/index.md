@@ -14,7 +14,7 @@ redirect_from:
   - /articles/managing-your-organization-s-paid-seats/
   - /articles/managing-billing-for-your-github-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-billing-for-github-accounts
   - /about-per-user-pricing
@@ -24,3 +24,4 @@ children:
   - /downgrading-your-github-subscription
   - /discounted-subscriptions-for-github-accounts
 ---
+

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Sponsors payments

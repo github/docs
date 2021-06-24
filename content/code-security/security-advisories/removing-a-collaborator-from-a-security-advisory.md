@@ -4,7 +4,7 @@ intro: 'When you remove a collaborator from a security advisory, they lose read 
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Security advisories

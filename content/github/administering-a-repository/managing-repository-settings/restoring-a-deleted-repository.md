@@ -5,7 +5,7 @@ redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
 ---

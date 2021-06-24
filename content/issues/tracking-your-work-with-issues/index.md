@@ -3,9 +3,9 @@ title: Tracking your work with issues
 shortTitle: Issues
 intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas and work on {% data variables.product.prodname_dotcom %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
 children:
@@ -21,6 +21,7 @@ children:
   - /transferring-an-issue-to-another-repository
   - /deleting-an-issue
 redirect_from:
-- /issues/tracking-your-work-with-issues/creating-issues
-- /issues/tracking-your-work-with-issues/managing-issues
+  - /issues/tracking-your-work-with-issues/creating-issues
+  - /issues/tracking-your-work-with-issues/managing-issues
 ---
+

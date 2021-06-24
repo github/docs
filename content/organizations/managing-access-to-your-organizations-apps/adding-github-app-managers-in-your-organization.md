@@ -5,9 +5,9 @@ redirect_from:
   - /articles/adding-github-app-managers-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-github-app-managers-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -34,7 +34,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 1. Under "App managers", type the username of the person you want to designate as a GitHub App manager for the app, and click **Grant**.
 ![Add a {% data variables.product.prodname_github_app %} manager for a specific app](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"

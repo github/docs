@@ -5,7 +5,7 @@ redirect_from:
   - /articles/deleted-or-missing-ssh-keys
   - /github/authenticating-to-github/deleted-or-missing-ssh-keys
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSH
 ---
