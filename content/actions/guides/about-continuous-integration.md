@@ -88,7 +88,6 @@ For more information, see "[Adding a workflow status badge](/actions/managing-wo
 
 ## Further reading
 
-- "[Setting up continuous integration using workflow templates](/actions/guides/setting-up-continuous-integration-using-workflow-templates)"
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}
