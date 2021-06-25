@@ -133,7 +133,7 @@ You must ensure that the machine has the appropriate network access to communica
 
 {% note %}
 
-**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require adding rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and only the domains listed below will remain contstant.
+**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require adding rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and only the domains listed below will remain constant.
 
 {% endnote %}
 
