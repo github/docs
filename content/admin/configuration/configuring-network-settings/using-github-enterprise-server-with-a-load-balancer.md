@@ -7,13 +7,14 @@ redirect_from:
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Use a load balancer
 ---
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 

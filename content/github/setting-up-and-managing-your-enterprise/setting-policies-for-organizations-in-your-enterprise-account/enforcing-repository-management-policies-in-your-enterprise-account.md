@@ -9,9 +9,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for repositories
 ---
 For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 

@@ -6,13 +6,14 @@ redirect_from:
   - /articles/analyzing-changes-to-a-repository-s-content
   - /articles/analyzing-changes-to-a-repositorys-content
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
   - /visualizing-commits-in-a-repository
   - /visualizing-additions-and-deletions-to-content-in-a-repository
+shortTitle: Analyze changes to repository
 ---
 

@@ -6,25 +6,26 @@ redirect_from:
   - /articles/permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Permissions for organization
 ---
 
 ## Permission levels for an organization
 
-Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles:
+Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% endif %} or *member* roles:
 
 - **Owners** have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - **Billing managers** allow a person to manage billing settings. For more information, see "[Adding a billing manager to your organization](/articles/adding-a-billing-manager-to-your-organization)".
 {% endif %}
 - **Members** are the default role for everyone else.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 <!--Dotcom version has extra column for Billing managers-->
 
 | Organization action | Owners | Members | Billing managers |
@@ -112,7 +113,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | **X** |  |  |
 | Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)" for details) | **X** | **X** | **X** |
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)" for details) | **X** |  |  |
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)" for details) | **X** |  |  |{% if currentVersion ver_gt "enterprise-server@3.0" %}
+| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)" for details) | **X** |  |  |{% ifversion ghes > 3.0 %}
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" for details) | **X** | |{% endif %}
 | [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
 | Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | |
@@ -120,7 +121,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
-{% if currentVersion == "github-ae@latest" %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
 
 {% endif %}
 

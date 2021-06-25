@@ -7,9 +7,10 @@ redirect_from:
   - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Use submodules with Pages
 ---
 
 If the repository for your {% data variables.product.prodname_pages %} site contains submodules, their contents will automatically be pulled in when your site is built.

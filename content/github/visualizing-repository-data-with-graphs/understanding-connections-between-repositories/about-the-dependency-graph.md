@@ -2,11 +2,12 @@
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
-  enterprise-server: <=2.22
+  ghes: <=2.22
 topics:
   - Repositories
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
+shortTitle: Dependency graph
 ---
 <!--See /content/code-security/supply-chain-security/about-the-dependency-graph for the latest version of this article -->
 
@@ -40,9 +41,9 @@ You can use the dependency graph to:
 
 ## Enabling the dependency graph
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes > 2.21 %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %} If the dependency graph is not available in your system, your site administrator can enable the dependency graph and security alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+{% ifversion ghes < 2.22 %} If the dependency graph is not available in your system, your site administrator can enable the dependency graph and security alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
 
 {% endif %}
 
@@ -53,7 +54,7 @@ When the dependency graph is first enabled, any manifest and lock files for supp
 
 The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.
 
-The ecosystems listed below are supported for the dependency graph and {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}.
+The ecosystems listed below are supported for the dependency graph and {% ifversion ghes = 2.22 %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}.
 
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|

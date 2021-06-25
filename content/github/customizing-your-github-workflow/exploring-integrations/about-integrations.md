@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-integrations
   - /github/customizing-your-github-workflow/about-integrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 You can install integrations in your personal account or organizations you own. You can also install {% data variables.product.prodname_github_app %}s from a third-party in a specific repository where you have admin permissions or which is owned by your organization.
 

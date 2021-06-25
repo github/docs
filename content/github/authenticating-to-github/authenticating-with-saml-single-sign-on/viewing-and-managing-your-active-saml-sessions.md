@@ -5,9 +5,10 @@ redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSO
+shortTitle: Active SAML sessions
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}

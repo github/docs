@@ -15,11 +15,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Upgrading GHES
 ---
 ## Preparing to upgrade
 
@@ -67,9 +68,9 @@ There are two types of snapshots:
 
 {% note %}
 
-**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes > 2.22 %}Notes{% else %}Note{% endif %}**:
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 - If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
 
 - {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
@@ -232,7 +233,7 @@ For more information, see "[Command-line utilities](/enterprise/{{ currentVersio
 
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ## Further reading
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"

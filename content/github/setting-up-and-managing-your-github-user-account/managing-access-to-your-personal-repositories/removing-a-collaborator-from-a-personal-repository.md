@@ -11,12 +11,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Repositories
+shortTitle: Remove a collaborator
 ---
 ## Deleting forks of private repositories
 
@@ -26,7 +27,7 @@ While forks of private repositories are deleted when a collaborator is removed, 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
   ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)

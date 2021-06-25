@@ -5,9 +5,10 @@ redirect_from:
   - /articles/resolving-git-large-file-storage-upload-failures
   - /github/managing-large-files/resolving-git-large-file-storage-upload-failures
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Resolve upload failures
 ---
 The {% data variables.large_files.product_name_short %} integrity check ensures that all referenced {% data variables.large_files.product_name_short %} files in a push have been uploaded properly. If the check detects referenced files that have not been uploaded, you will receive an error message and your push will be blocked.
 
