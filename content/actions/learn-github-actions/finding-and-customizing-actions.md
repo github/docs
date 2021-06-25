@@ -66,7 +66,7 @@ You will designate the version of the action in your workflow file. Check the ac
 
 {% note %}
 
-**Note:** Be especially careful with community actions that require secrets as inputs! It's probably better to [use SHAs](#using-shas) in that case. Even if you trust the maintainer, a successor or new team member could be less trustworthy.
+**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
 
 {% endnote %}
 
