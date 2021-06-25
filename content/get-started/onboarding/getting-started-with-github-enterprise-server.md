@@ -2,7 +2,7 @@
 title: Getting started with GitHub Enterprise Server
 intro: 'Get started with setting up and managing your GitHub Enterprise Server instance'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 
 GitHub provides two types of Enterprise products:

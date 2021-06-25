@@ -2,7 +2,7 @@
 title: Getting started with GitHub Team
 intro: 'With {% data variables.product.prodname_team %} groups of people can collaborate across many projects at the same time in an organization account.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## Part 1: Configuring your {% data variables.product.product_name %} account
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing. 
@@ -84,17 +84,17 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 
 {% data reusables.getting-started.customizing-and-automating %}
 
-{% if currentVersion == 'free-pro-team@latest' %}
+{% ifversion fpt %}
 ### 1. Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
 {% endif %}
-### {% if currentVersion == 'free-pro-team@latest' %}2.{% else %}1.{% endif %} Using the {% data variables.product.prodname_dotcom %} API
+### {% ifversion fpt %}2.{% else %}1.{% endif %} Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
-### {% if currentVersion == 'free-pro-team@latest' %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
+### {% ifversion fpt %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### {% if currentVersion == 'free-pro-team@latest' %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
+### {% ifversion fpt %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
@@ -108,7 +108,7 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 ### 3. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
-{% if currentVersion == 'free-pro-team@latest' %}
+{% ifversion fpt %}
 ### 4. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
@@ -116,7 +116,7 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 {% data reusables.getting-started.contact-support %}
 {% endif %}
 
-{% if currentVersion == 'free-pro-team@latest' %}
+{% ifversion fpt %}
 ## Further reading
 - "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"
 {% endif %}
