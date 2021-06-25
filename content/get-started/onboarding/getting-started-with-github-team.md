@@ -55,7 +55,7 @@ You can help to make your organization more secure by recommending or requiring 
 You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."
 
 ### 2. Configuring security features for your organization
-You can use a variety of GitHub security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep your organization secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)."
+You can use a variety of GitHub security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep your organization secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 Some security features are only available for public repositories, and for private repositories owned by organizations with an Advanced Security license. For more information, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."
 ### 3. Reviewing your organization's audit log and integrations
@@ -117,6 +117,6 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 {% endif %}
 
 {% if currentVersion == 'free-pro-team@latest' %}
-### Further reading
+## Further reading
 - "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"
 {% endif %}
