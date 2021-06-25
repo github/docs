@@ -39,7 +39,6 @@ Repository management, permissions, and repo settings
 Secure development features
 
 ## Integration, customization, automation
-
 Apps
 API
 ## Connecting with other GitHub resources
