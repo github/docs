@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef, Children, ReactNode } from 'react'
-import cx from 'classnames'
+import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import debounce from 'lodash/debounce'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { sendEvent } from '../javascripts/events'
+import { sendEvent, EventType } from '../javascripts/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
+import cx from 'classnames'
 
 type SearchResult = {
   url: string
@@ -23,7 +23,8 @@ type Props = {
 // Homepage and 404 should be `isStandalone`, all others not
 // `updateSearchParams` should be false on the GraphQL explorer page
 export function Search({ isStandalone = false, updateSearchParams = true, children }: Props) {
-  const [query, setQuery] = useState('')
+  const router = useRouter()
+  const [query, setQuery] = useState(router.query.query || '')
   const [results, setResults] = useState<Array<SearchResult>>([])
   const [activeHit, setActiveHit] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -31,22 +32,15 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   const { currentVersion } = useVersion()
 
   // Figure out language and version for index
-  const { expose } = useMainContext()
-  const {
-    searchOptions: { languages, versions, nonEnterpriseDefaultVersion },
-  } = JSON.parse(expose)
-  const router = useRouter()
+  const { languages, searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
-  const version = versions[currentVersion] || versions[nonEnterpriseDefaultVersion]
-  const language = (languages.includes(router.locale) && router.locale) || 'en'
+  const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
+  const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
 
   // If the user shows up with a query in the URL, go ahead and search for it
   useEffect(() => {
-    const params = new URLSearchParams(location.search)
-    if (params.has('query')) {
-      const xquery = params.get('query')?.trim() || ''
-      setQuery(xquery)
-      /* await */ fetchSearchResults(xquery)
+    if (router.query.query) {
+      /* await */ fetchSearchResults((router.query.query as string).trim())
     }
   }, [])
 
@@ -130,7 +124,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
     // Analytics tracking
     if (xquery) {
       sendEvent({
-        type: 'search',
+        type: EventType.search,
         search_query: xquery,
         // search_context
       })
@@ -184,8 +178,9 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
           </div>
         )}
       </div>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={'search-overlay-desktop' + (!isStandalone && query ? ' js-open' : '')}
+        className={cx('search-overlay-desktop', !isStandalone && query ? 'js-open' : '')}
         onClick={closeSearch}
       ></div>
     </>
@@ -196,10 +191,12 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
       <div className="ais-SearchBox">
         <form role="search" className="ais-SearchBox-form" noValidate onSubmit={preventRefresh}>
           <input
+            data-testid="site-search-input"
             ref={inputRef}
-            className={'ais-SearchBox-input' + (isStandalone || query ? ' js-open' : '')}
+            className={cx('ais-SearchBox-input', isStandalone || query ? 'js-open' : '')}
             type="search"
             placeholder={t`placeholder`}
+            /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus={isStandalone}
             autoComplete="off"
             autoCorrect="off"

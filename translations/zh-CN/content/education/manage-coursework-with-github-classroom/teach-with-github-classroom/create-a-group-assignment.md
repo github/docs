@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
 ---
+
 ### 关于组分配
 
 {% data reusables.classroom.assignments-group-definition %} 学生可以像专业开发人员团队一样，在共享仓库中共同完成小组作业。

@@ -1,7 +1,7 @@
 ---
-title: GitHub Sponsors Documentation
+title: GitHub Sponsors のドキュメント
 shortTitle: GitHub Sponsors
-intro: 'Invest in the open source projects you depend on, support digital infrastructure, and make open source careers possible by sponsoring open source contributors and their projects. Build a {% data variables.product.prodname_sponsors %} profile and receive compensation for your open source work.'
+intro: 'お使いのオープンソース プロジェクトに投資し、デジタルインフラストラクチャをサポートして、オープンソースコントリビューターとそのプロジェクトを支援することで、オープンソースキャリアを可能にします。 {% data variables.product.prodname_sponsors %} プロファイルを作成して、オープンソース作業に対する報酬を受け取ります。'
 introLinks:
   quickstart: /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
 redirect_from:
@@ -32,7 +32,9 @@ children:
   - /sponsoring-open-source-contributors
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
+  - /guides
 ---
+
 <!---->
 <!---->
 <!---->

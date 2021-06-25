@@ -10,6 +10,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 为您与希望扩展和改进其 {% data variables.product.prodname_dotcom %} 工作流程的开发者提供纽带。 您可以在 {% data variables.product.prodname_marketplace %} 中上架免费和付费的工具，供开发者使用。 {% data variables.product.prodname_marketplace %} 为开发者提供两种类型的工具：{% data variables.product.prodname_actions %} 和应用程序，每种工具都需要不同的步骤才能添加到 {% data variables.product.prodname_marketplace %} 中。
 
 ### GitHub Actions

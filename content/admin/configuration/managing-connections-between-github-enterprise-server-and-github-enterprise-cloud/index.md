@@ -9,7 +9,7 @@ redirect_from:
   - /enterprise/admin/installation/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
   - /enterprise/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -18,5 +18,6 @@ children:
   - /enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
+shortTitle: Manage connections to GHEC
 ---
 

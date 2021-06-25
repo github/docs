@@ -6,9 +6,9 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-goals
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
-### About goals
+## About goals
 
 Goals are targets that you can set for key metrics to measure your team's success. When you set a goal for a key metric, you can see how your team's performance compares to the goal using the goal line on charts and the success rate metric. For example, you can set the goal for `code review turnaround time` to 4 hours. A goal line on the key metric chart shows which code reviews achieved the goal and which did not. If your team completed one half of code reviews in less than 4 hours, your `success rate` will be 50%.
 
@@ -16,7 +16,7 @@ Goals are only available in key metrics. Some reports also show which work, such
 
 Goals cannot be created or deleted. When you edit a goal, the new goal applies to everyone using your {% data variables.product.prodname_insights %} application.
 
-### Editing a goal
+## Editing a goal
 
 {% data reusables.github-insights.navigate-to-key-metrics %}
 {% data reusables.github-insights.choose-key-metric %}

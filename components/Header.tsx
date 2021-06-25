@@ -22,7 +22,8 @@ export const Header = () => {
   const showVersionPicker =
     relativePath === 'index.md' ||
     currentLayoutName === 'product-landing' ||
-    currentLayoutName === 'product-sublanding'
+    currentLayoutName === 'product-sublanding' ||
+    currentLayoutName === 'release-notes'
 
   return (
     <div className="border-bottom color-border-secondary no-print">
@@ -33,7 +34,7 @@ export const Header = () => {
         style={{ zIndex: 2 }}
       >
         {/* desktop header */}
-        <div className="d-none d-lg-flex flex-justify-end">
+        <div className="d-none d-lg-flex flex-justify-end" data-testid="desktop-header">
           {showVersionPicker && (
             <div className="py-2 mr-4">
               <HomepageVersionPicker />
@@ -53,7 +54,7 @@ export const Header = () => {
         </div>
 
         {/* mobile header */}
-        <div className="d-lg-none">
+        <div className="d-lg-none" data-testid="mobile-header">
           <div className="d-flex flex-justify-between">
             <div className="d-flex flex-items-center" id="github-logo-mobile" role="banner">
               <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
@@ -70,6 +71,7 @@ export const Header = () => {
 
             <div>
               <ButtonOutline
+                data-testid="mobile-menu-button"
                 css
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Navigation Menu"

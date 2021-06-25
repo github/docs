@@ -13,7 +13,7 @@ import { useVersion } from 'components/hooks/useVersion'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import { OctocatHeader } from 'components/landing/OctocatHeader'
-import { ArticleList } from 'components/landing/FeaturedArticles'
+import { ArticleList } from 'components/landing/ArticleList'
 import { Search } from 'components/Search'
 
 type FeaturedLink = {
@@ -44,7 +44,7 @@ type LandingPageProps = {
 function LandingPage(props: LandingPageProps) {
   const router = useRouter()
   const { gettingStartedLinks, popularLinks } = props
-  const { activeProducts, isHomepageVersion } = useMainContext()
+  const { activeProducts, isFPT } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['homepage', 'search', 'toc'])
   return (
@@ -80,12 +80,12 @@ function LandingPage(props: LandingPageProps) {
           </h2>
           <div className="d-flex flex-wrap gutter gutter-xl-spacious">
             {activeProducts.map((product) => {
-              if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
+              if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
                 return null
               }
 
               const href = `${!product.external ? `/${router.locale}` : ''}${
-                product.versions?.includes(currentVersion)
+                product.versions?.includes(currentVersion) && !isFPT
                   ? `/${currentVersion}/${product.id}`
                   : product.href
               }`
@@ -113,26 +113,16 @@ function LandingPage(props: LandingPageProps) {
       <div className="px-3 px-md-6 container-xl">
         <div className="featured-links container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
-            {/* <!-- Getting Started articles --> */}
-            <div className="col-12 col-lg-6 float-left">
-              <div className="featured-links-heading pb-4">
-                <h3 className="f5 text-normal text-mono underline-dashed color-text-secondary">
-                  {t('toc:getting_started')}
-                </h3>
-              </div>
-
-              <ArticleList maxLines={6} articles={gettingStartedLinks} />
+            <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
+              <ArticleList
+                title={t('toc:getting_started')}
+                variant="spaced"
+                articles={gettingStartedLinks}
+              />
             </div>
 
-            {/* <!-- Popular articles --> */}
             <div className="col-12 col-lg-6 float-left">
-              <div className="featured-links-heading pb-4">
-                <h3 className="f5 text-normal text-mono underline-dashed color-text-secondary">
-                  {t('toc:popular')}
-                </h3>
-              </div>
-
-              <ArticleList maxLines={6} articles={popularLinks} />
+              <ArticleList title={t('toc:popular')} variant="spaced" articles={popularLinks} />
             </div>
           </div>
         </div>

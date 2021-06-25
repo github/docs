@@ -25,7 +25,7 @@ type VersionItem = {
   versionTitle: string
 }
 
-export type CurrentProductTree = {
+export type ProductTreeNode = {
   page: {
     hidden?: boolean
     documentType: 'article' | 'mapTopic'
@@ -35,7 +35,7 @@ export type CurrentProductTree = {
   renderedShortTitle?: string
   renderedFullTitle: string
   href: string
-  childPages: Array<CurrentProductTree>
+  childPages: Array<ProductTreeNode>
 }
 
 type DataT = {
@@ -59,6 +59,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -67,12 +68,11 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { js: string } }
-  expose: string
   activeProducts: Array<ProductT>
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
+  isFPT: boolean
   data: DataT
   airGap?: boolean
   error: string
@@ -84,7 +84,7 @@ export type MainContextT = {
   userLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree | null
+  currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
@@ -105,18 +105,20 @@ export type MainContextT = {
   }
 
   enterpriseServerVersions: Array<string>
+
+  searchVersions: Record<string, string>
+  nonEnterpriseDefaultVersion: string
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: { main: { js: req.context.builtAssets.main.js } },
-    expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
-    isHomepageVersion: req.context.currentVersion === 'homepage',
-    error: req.context.error || '',
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    isFPT: req.context.currentVersion === 'free-pro-team@latest',
+    error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {
@@ -154,6 +156,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
+      'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
@@ -177,11 +180,13 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
     featureFlags: {},
+    searchVersions: req.context.searchVersions,
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
   }
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): CurrentProductTree => {
+const getCurrentProductTree = (input: any): ProductTreeNode => {
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',

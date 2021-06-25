@@ -1,6 +1,6 @@
 ---
 title: Acerca del licenciamiento para GitHub Advanced Security
-intro: 'You need a license to use {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.'
+intro: 'Necesitas una licencia para utilizar las características de la {% data variables.product.prodname_GH_advanced_security %}, tales como el {% data variables.product.prodname_code_scanning %} y el {% data variables.product.prodname_secret_scanning %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
@@ -14,11 +14,11 @@ topics:
 
 ### Acerca del licenciamiento para {% data variables.product.prodname_GH_advanced_security %}
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información acerca de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)".
+Puedes poner a disposición de los usuarios algunas características adicionales para la seguridad de código si compras y cargas una licencia de la {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información acerca de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)".
 
 {% data reusables.advanced-security.license-overview %}
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %}. To enable {% data variables.product.prodname_GH_advanced_security %}, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your appliance](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Para discutir el licenciamiento de la {% data variables.product.prodname_GH_advanced_security %} para {% data variables.product.product_name %}, contacta a {% data variables.contact.contact_enterprise_sales %}. Para habilitar la {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu aplicativo](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 
 ### Acerca de los números de confirmante para {% data variables.product.prodname_GH_advanced_security %}
 

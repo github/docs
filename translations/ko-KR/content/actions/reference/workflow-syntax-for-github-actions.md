@@ -53,7 +53,7 @@ When using the `push` and `pull_request` events, you can configure a workflow to
 
 The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one branch or tag name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
-#### Example including branches and tags
+#### Example: Including branches and tags
 
 The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**` will match the `refs/heads/releases/10` Git ref.
 
@@ -74,7 +74,7 @@ on:
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
-#### Example ignoring branches and tags
+#### Example: Ignoring branches and tags
 
 Anytime a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` and `tags-ignore` are evaluated against the Git ref's name. For example, defining the pattern `mona/octocat` in `branches` will match the `refs/heads/mona/octocat` Git ref. The pattern `releases/**-alpha` in `branches` will match the `refs/releases/beta/3-alpha` Git ref.
 
@@ -98,7 +98,7 @@ You can use two types of filters to prevent a workflow from running on pushes an
 - `branches` or `branches-ignore` - You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. Use the `branches` filter when you need to filter branches for positive matches and exclude branches. Use the `branches-ignore` filter when you only need to exclude branch names.
 - `tags` or `tags-ignore` - You cannot use both the `tags` and `tags-ignore` filters for the same event in a workflow. Use the `tags` filter when you need to filter tags for positive matches and exclude tags. Use the `tags-ignore` filter when you only need to exclude tag names.
 
-#### Example using positive and negative patterns
+#### Example: Using positive and negative patterns
 
 You can exclude `tags` and `branches` using the `!` character. The order that you define patterns matters.
   - A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
@@ -120,7 +120,7 @@ When using the `push` and `pull_request` events, you can configure a workflow to
 
 The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
-#### Example ignoring paths
+#### Example: Ignoring paths
 
 When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
 
@@ -131,7 +131,7 @@ on:
       - 'docs/**'
 ```
 
-#### Example including paths
+#### Example: Including paths
 
 If at least one path matches a pattern in the `paths` filter, the workflow runs. To trigger a build anytime you push a JavaScript file, you can use a wildcard pattern.
 
@@ -148,7 +148,7 @@ You can exclude paths using two types of filters. You cannot use both of these f
 - `paths-ignore` - Use the `paths-ignore` filter when you only need to exclude path names.
 - `paths` - Use the `paths` filter when you need to filter paths for positive matches and exclude paths.
 
-#### Example using positive and negative patterns
+#### Example: Using positive and negative patterns
 
 You can exclude `paths` using the `!` character. The order that you define patterns matters:
   - A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
@@ -291,7 +291,7 @@ The name of the job displayed on {% data variables.product.prodname_dotcom %}.
 
 Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### Example requiring dependent jobs to be successful
+#### Example: Requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -310,7 +310,7 @@ The jobs in this example run sequentially:
 2. `job2`
 3. `job3`
 
-#### Example not requiring dependent jobs to be successful
+#### Example: Not requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -434,7 +434,7 @@ The URL can be an expression and can use any context except for the `secrets` co
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
@@ -577,7 +577,7 @@ You can use the `if` conditional to prevent a step from running unless a conditi
 
 {% data reusables.github-actions.expression-syntax-if %} For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-#### Example using contexts
+#### Example: Using contexts
 
  This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
@@ -588,7 +588,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### Example using status check functions
+#### Example: Using status check functions
 
 The `my backup step` only runs when the previous step of a job fails. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
@@ -618,7 +618,7 @@ Some actions require inputs that you must set using the [`with`](#jobsjob_idstep
 
 Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
-#### Example using versioned actions
+#### Example: Using versioned actions
 
 ```yaml
 steps:    
@@ -632,7 +632,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-#### Example using a public action
+#### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
@@ -650,7 +650,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### Example using a public action in a subdirectory
+#### Example: Using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -664,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Example using action in the same repository as the workflow
+#### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -680,7 +680,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Example using a Docker Hub action
+#### Example: Using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -695,7 +695,7 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+##### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
@@ -709,7 +709,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-##### Example using a Docker public registry action
+##### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -723,7 +723,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Example using action inside a different private repository than the workflow
+#### Example: Using an action inside a different private repository than the workflow
 
 Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
@@ -792,7 +792,7 @@ You can override the default shell settings in the runner's operating system usi
 | Windows            | `pwsh`            | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead. | `pwsh -command ". '{0}'"`.                      |
 | Windows            | `powershell`      | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                                                                                                                                  | `powershell -command ". '{0}'"`.                |
 
-#### Example running a script using bash
+#### Example: Running a script using bash
 
 ```yaml
 steps:
@@ -801,7 +801,7 @@ steps:
     shell: bash
 ```
 
-#### Example running a script using Windows `cmd`
+#### Example: Running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -810,7 +810,7 @@ steps:
     shell: cmd
 ```
 
-#### Example running a script using PowerShell Core
+#### Example: Running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -828,7 +828,7 @@ steps:
     shell: powershell
 ```
 
-#### Example running a python script
+#### Example: Running a python script
 
 ```yaml
 steps:
@@ -985,7 +985,7 @@ Each option you define in the `matrix` has a key and value. The keys you define 
 
 The order that you define a `matrix` matters. The first option you define will be the first job that runs in your workflow.
 
-#### Example running with more than one version of Node.js
+#### Example: Running multiple versions of Node.js
 
 You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 10, 12, and 14, you could specify an array of those versions in the `matrix`.
 
@@ -1007,7 +1007,7 @@ steps:
 
 The `setup-node` action is the recommended way to configure a Node.js version when using {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see the [`setup-node`](https://github.com/actions/setup-node) action.
 
-#### Example running with more than one operating system
+#### Example: Running with multiple operating systems
 
 You can create a matrix to run workflows on more than one runner operating system. You can also specify more than one matrix configuration. This example creates a matrix of 6 jobs:
 
@@ -1034,7 +1034,7 @@ steps:
 {% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
-#### Example including additional values into combinations
+#### Example: Including additional values into combinations
 
 You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 8 of `node` runs, you can use `include` to specify that additional option.
 
@@ -1054,7 +1054,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Example including new combinations
+#### Example: Including new combinations
 
 You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 14 to build on multiple operating systems, but wanted one extra experimental job using node version 15 on Ubuntu, you can use `include` to specify that additional job.
 
@@ -1072,7 +1072,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Example excluding configurations from a matrix
+#### Example: Excluding configurations from a matrix
 
 You can remove a specific configurations defined in the build matrix using the `exclude` option. Using `exclude` removes a job defined by the build matrix. The number of jobs is the cross product of the number of operating systems (`os`) included in the arrays you provide, minus any subtractions (`exclude`).
 
@@ -1119,7 +1119,7 @@ strategy:
 
 Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
 
-#### Example preventing a specific failing matrix job from failing a workflow run
+#### Example: Preventing a specific failing matrix job from failing a workflow run
 
 You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
@@ -1236,7 +1236,7 @@ If you configure the job to run directly on the runner machine and your step doe
 
 For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
 
-#### Example using localhost
+#### Example: Using localhost
 
 This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
@@ -1365,7 +1365,7 @@ Path patterns must match the whole path, and start from the repository's root.
 | `docs/*`                                                                | All files within the root of the `docs` directory, at the root of the repository.                                                                                                             | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
 | `docs/**`                                                               | Any files in the `/docs` directory at the root of the repository.                                                                                                                             | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | A file with a `.md` suffix anywhere in the `docs` directory.                                                                                                                                  | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | Any files in a `docs` directory anywhere in the repository.                                                                                                                                   | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | Any files in a `docs` directory anywhere in the repository.                                                                                                                                   | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
 | `'**/README.md'`                                                        | A README.md file anywhere in the repository.                                                                                                                                                  | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | Any file in a folder with a `src` suffix anywhere in the repository.                                                                                                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | A file with the suffix `-post.md` anywhere in the repository.                                                                                                                                 | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

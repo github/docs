@@ -10,8 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% warning %}
@@ -43,7 +44,8 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 検証済みのデバイス、SSHトークン、または個人アクセストークンを使用した認証
-2 要素認証の認証情報にアクセスできなくなり、2要素認証リカバリコードを持っていない場合は、検証プロセスを開始してアカウントへのアクセスを回復するために、認証済みメールアドレスにワンタイムパスワードを送信できます。
+
+If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 
@@ -53,7 +55,7 @@ topics:
 
 2要素認証の認証情報または 2 要素認証のリカバリコードを使用して、3〜5 日間の待機期間中にいつでもアカウントへのアクセスを回復できます。
 
-{% data reusables.two_fa.username-password %}
+1. 認証を求めるためにユーザ名とパスワードを入力してください。 If you do not know your {% data variables.product.product_name %} password, you will not be able to generate a one-time password.
 2. [Having Problems?] の下で、[**Can't access your two factor device or valid recovery codes?**] をクリックします。 ![2fa デバイスまたはリカバリコードがない場合のリンク](/assets/images/help/2fa/no-access-link.png)
 3. [**I understand, get started**] をクリックして、認証設定のリセットをリクエストします。 ![認証設定のリセットボタン](/assets/images/help/2fa/reset-auth-settings.png)
 4. [**Send one-time password**] をクリックして、アカウントに関連付けられているすべてのメールアドレスにワンタイムパスワードを送信します。 ![ワンタイムパスワードの送信ボタン](/assets/images/help/2fa/send-one-time-password.png)
@@ -83,8 +85,7 @@ topics:
 1. Facebook で、[セキュリティ設定](https://www.facebook.com/settings?tab=security)に移動し、[**Recovery Accounts Elsewhere**] をクリックします。 ![Facebook のセキュリティ設定ページと Recovery Accounts Elsewhere リンク](/assets/images/help/settings/security-facebook-security-settings-page.png)
 2. {% data variables.product.product_name %}アカウントに関連付けられているリカバリトークンをクリックします。 ![Facebook に格納されているリカバリトークンのリスト](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. アカウントリカバリトークンを引き換えるため、[**Recover This Account**] をクリックします。 新しいウィンドウが開き、{% data variables.product.product_name %}に戻ります。 ![リカバリトークンについての情報を表示するモーダルボックスおよび [Recover This Account] ボタン](/assets/images/help/settings/security-recover-account-facebook.png)
-4. お問い合わせ
-{% data variables.contact.contact_support %} に連絡して、アカウントリカバリトークンはレビューの準備ができていることを知らせます。
+4. {% data variables.contact.contact_support %} に連絡して、アカウントリカバリトークンはレビューの準備ができていることを知らせます。
 {% endif %}
 
 ### 参考リンク

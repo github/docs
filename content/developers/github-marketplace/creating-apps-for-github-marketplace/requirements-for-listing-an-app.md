@@ -10,19 +10,20 @@ redirect_from:
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Listing requirements
 ---
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 The requirements for listing an app on {% data variables.product.prodname_marketplace %} vary according to whether you want to offer a free or a paid app.
 
-### Requirements for all {% data variables.product.prodname_marketplace %} listings
+## Requirements for all {% data variables.product.prodname_marketplace %} listings
 
 All listings on {% data variables.product.prodname_marketplace %} should be for tools that provide value to the {% data variables.product.product_name %} community. When you submit your listing for publication, you must read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)."
 
-#### User experience requirements for all apps
+### User experience requirements for all apps
 
 All listings should meet the following requirements, regardless of whether they are for a free or paid app.
 
@@ -36,7 +37,7 @@ All listings should meet the following requirements, regardless of whether they 
 
 For more information on providing a good customer experience, see "[Customer experience best practices for apps](/developers/github-marketplace/customer-experience-best-practices-for-apps)."
 
-#### Brand and listing requirements for all apps
+### Brand and listing requirements for all apps
 
 - Apps that use GitHub logos must follow the {% data variables.product.company_short %} guidelines. For more information, see "[{% data variables.product.company_short %} Logos and Usage](https://github.com/logos)."
 - Apps must have a logo, feature card, and screenshots images that meet the recommendations provided in "[Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)."
@@ -44,11 +45,11 @@ For more information on providing a good customer experience, see "[Customer exp
 
 To protect your customers, we recommend that you also follow security best practices. For more information, see "[Security best practices for apps](/developers/github-marketplace/security-best-practices-for-apps)."
 
-### Considerations for free apps
+## Considerations for free apps
 
 {% data reusables.marketplace.free-apps-encouraged %} 
 
-### Requirements for paid apps
+## Requirements for paid apps
 
 To publish a paid plan for your app on {% data variables.product.prodname_marketplace %}, your app must be owned by an organization that is a verified publisher. For more information about the verification process or transferring ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
@@ -68,7 +69,7 @@ When you are ready to publish the app on {% data variables.product.prodname_mark
 
 {% endnote %}
 
-### Billing requirements for paid apps
+## Billing requirements for paid apps
 
 Your app does not need to handle payments but does need to use {% data variables.product.prodname_marketplace %} purchase events to manage new purchases, upgrades, downgrades, cancellations, and free trials. For information about how integrate these events into your app, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 

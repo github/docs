@@ -4,12 +4,10 @@ import { useMainContext } from 'components/context/MainContext'
 
 const { NODE_ENV } = process.env
 
-const enableNextLinks = false
-
-type Props = { locale?: string } & ComponentProps<'a'>
+type Props = { locale?: string; disableClientTransition?: boolean } & ComponentProps<'a'>
 export function Link(props: Props) {
   const { airGap } = useMainContext()
-  const { href, locale, ...restProps } = props
+  const { href, locale, disableClientTransition = true, ...restProps } = props
 
   if (!href && NODE_ENV !== 'production') {
     console.warn('Missing href on Link')
@@ -27,19 +25,21 @@ export function Link(props: Props) {
     restProps['aria-label'] = 'This link may not work in this environment.'
   }
 
-  if (enableNextLinks) {
+  if (disableClientTransition) {
     return (
-      <NextLink href={href || ''} locale={locale}>
-        <a rel={isExternal ? 'noopener' : ''} {...restProps} />
-      </NextLink>
+      /* eslint-disable-next-line jsx-a11y/anchor-has-content */
+      <a
+        href={locale ? `/${locale}${href}` : href}
+        rel={isExternal ? 'noopener' : ''}
+        {...restProps}
+      />
     )
   }
 
   return (
-    <a
-      href={locale ? `/${locale}${href}` : href}
-      rel={isExternal ? 'noopener' : ''}
-      {...restProps}
-    />
+    <NextLink href={href || ''} locale={locale || false}>
+      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+      <a rel={isExternal ? 'noopener' : ''} {...restProps} />
+    </NextLink>
   )
 }

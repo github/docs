@@ -4,7 +4,7 @@ shortTitle: Troubleshooting CodeQL
 intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -15,11 +15,11 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### Producing detailed logs for debugging
+## Producing detailed logs for debugging
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
-### Automatic build for a compiled language fails
+## Automatic build for a compiled language fails
 
 If an automatic build of code for a compiled language within your project fails, try the following troubleshooting steps.
 
@@ -31,7 +31,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -51,7 +51,7 @@ If an automatic build of code for a compiled language within your project fails,
    
   For more information about editing the workflow, see "[Configuring code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)."
 
-### No code found during the build
+## No code found during the build
 
 If your workflow fails with an error `No source code was seen during the build` or `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure:
 
@@ -89,23 +89,23 @@ For more information, see the workflow extract in "[Automatic build for a compil
 
 For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)." 
 
-### Portions of my repository were not analyzed using `autobuild`
+## Portions of my repository were not analyzed using `autobuild`
 
 The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-### The build takes too long
+## The build takes too long
 
 If your build with {% data variables.product.prodname_codeql %} analysis takes too long to run, there are several approaches you can try to reduce the build time. 
 
-#### Increase the memory or cores
+### Increase the memory or cores
 
 If you use self-hosted runners to run {% data variables.product.prodname_codeql %} analysis, you can increase the memory or the number of cores on those runners.
 
-#### Use matrix builds to parallelize the analysis
+### Use matrix builds to parallelize the analysis
 
 The default {% data variables.product.prodname_codeql_workflow %} uses a build matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 
-#### Reduce the amount of code being analyzed in a single workflow
+### Reduce the amount of code being analyzed in a single workflow
 
 Analysis time is typically proportional to the amount of code being analyzed. You can reduce the analysis time by reducing the amount of code being analyzed at once, for example, by excluding test code, or breaking analysis into multiple workflows that analyze only a subset of your code at a time.
 
@@ -115,19 +115,19 @@ For interpreted languages like Go, JavaScript, Python, and TypeScript, that {% d
 
 If you split your analysis into multiple workflows as described above, we still recommend that you have at least one workflow which runs on a `schedule` which analyzes all of the code in your repository. Because {% data variables.product.prodname_codeql %} analyzes data flows between components, some complex security behaviors may only be detected on a complete build. 
 
-#### Run only during a `schedule` event
+### Run only during a `schedule` event
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
 
-### Error: "Server error"
+## Error: "Server error"
 
 If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
 
-### Error: "Out of disk" or "Out of memory"
+## Error: "Out of disk" or "Out of memory"
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner. If you encounter this issue, try increasing the memory on the runner.
 
-### Warning: "git checkout HEAD^2 is no longer necessary"
+## Warning: "git checkout HEAD^2 is no longer necessary"
 
 If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
 

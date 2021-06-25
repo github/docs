@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
 ---
+
 ### 基本要求
 
 {% data reusables.actions.enterprise-s3-support-warning %}

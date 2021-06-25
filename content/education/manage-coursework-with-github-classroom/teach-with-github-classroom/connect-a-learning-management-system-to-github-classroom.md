@@ -2,7 +2,7 @@
 title: Connect a learning management system to GitHub Classroom
 intro: 'You can configure an LTI-compliant learning management system (LMS) to connect to {% data variables.product.prodname_classroom %} so that you can import a roster for your classroom.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -11,16 +11,17 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: Connect an LMS
 ---
-### About configuration of your LMS
+## About configuration of your LMS
 
 You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %}, and {% data variables.product.prodname_classroom %} can import a roster of student identifiers from the LMS. To connect your LMS to {% data variables.product.prodname_classroom %}, you must enter configuration credentials for {% data variables.product.prodname_classroom %} in your LMS.
 
-### Prerequisites
+## Prerequisites
 
 To configure an LMS to connect to {% data variables.product.prodname_classroom %}, you must first create a classroom. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)."
 
-### Supported LMSes
+## Supported LMSes
 
 {% data variables.product.prodname_classroom %} supports import of roster data from LMSes that implement Learning Tools Interoperability (LTI) standards.
 
@@ -38,7 +39,7 @@ Using LTI helps keep your information safe and secure. LTI is an industry-standa
 
 Currently, {% data variables.product.prodname_classroom %} doesn't support import of roster data from Blackboard or Brightspace.
 
-### Generating configuration credentials for your classroom
+## Generating configuration credentials for your classroom
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -52,7 +53,7 @@ Currently, {% data variables.product.prodname_classroom %} doesn't support impor
 1. Copy the "Consumer Key", "Shared Secret", and "Launch URL" for the connection to the classroom.
   ![Copy credentials](/assets/images/help/classroom/classroom-copy-credentials.png)
 
-### Configuring a generic LMS
+## Configuring a generic LMS
 
 You must configure the privacy settings for your LMS to allow external tools to receive roster information.
 
@@ -63,7 +64,7 @@ You must configure the privacy settings for your LMS to allow external tools to 
     - Shared secret
     - Launch URL (sometimes called "tool URL" or similar)
 
-### Configuring Canvas
+## Configuring Canvas
 
 You can configure {% data variables.product.prodname_classroom %} as an external app for Canvas to import roster data into your classroom. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).
 
@@ -93,7 +94,7 @@ You can configure {% data variables.product.prodname_classroom %} as an external
 1. In the left sidebar, click **Home**.
 1. To prompt Canvas to send a confirmation email, in the left sidebar, click **GitHub Classroom**. Follow the instructions in the email to finish linking {% data variables.product.prodname_classroom %}.
 
-### Configuring Moodle
+## Configuring Moodle
 
 You can configure {% data variables.product.prodname_classroom %} as an activity for Moodle to import roster data into your classroom. For more information about Moodle, see the [Moodle website](https://moodle.org).
 
@@ -127,11 +128,11 @@ You must be using Moodle version 3.0 or greater.
 1. At the bottom of the page, click **Save and return to course**.
 1. Navigate to anywhere you chose to display {% data variables.product.prodname_classroom %}, and click the {% data variables.product.prodname_classroom %} activity.
 
-### Importing a roster from your LMS
+## Importing a roster from your LMS
 
 For more information about importing the roster from your LMS into {% data variables.product.prodname_classroom %}, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
 
-### Disconnecting your LMS
+## Disconnecting your LMS
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

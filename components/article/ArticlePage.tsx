@@ -73,9 +73,11 @@ export const ArticlePage = () => {
                   data-default-platform={defaultPlatform || undefined}
                 >
                   <div className="UnderlineNav-body">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" className="UnderlineNav-item platform-switcher" data-platform="mac">
                       Mac
                     </a>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a
                       href="#"
                       className="UnderlineNav-item platform-switcher"
@@ -83,6 +85,7 @@ export const ArticlePage = () => {
                     >
                       Windows
                     </a>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a
                       href="#"
                       className="UnderlineNav-item platform-switcher"

@@ -20,9 +20,9 @@ header:
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
-    ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.release_notes_use_latest %}
-    ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.release_notes_use_latest %}
-    ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.release_notes_use_latest %}
+    ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
+    ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
+    ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
 release_notes:
   banner_text_current: These changes will roll out over the next one week.
   banner_text_past: These changes rolled out to enterprises during the week of
@@ -148,7 +148,7 @@ product_landing:
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Sorry, there is no guide that match your filter.
+  no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
   communities_using_discussions: Communities using discussions
   add_your_community: Add your community
@@ -165,6 +165,7 @@ product_sublanding:
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
+  no_result: Sorry, there are no guides that match your filter.
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
   filters:

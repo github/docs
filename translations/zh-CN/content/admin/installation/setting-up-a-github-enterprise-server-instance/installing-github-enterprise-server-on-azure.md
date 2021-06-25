@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 您可以将 {% data variables.product.prodname_ghe_server %} 部署在全局 Azure 或 Azure Government 上。
 
 ### 基本要求

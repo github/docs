@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. 在 Finder 窗口中，导航到 Applications 文件夹。 ![Finder 窗口中的 Applications 文件夹](/assets/images/help/desktop/applications-folder.png)

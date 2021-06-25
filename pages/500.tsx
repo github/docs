@@ -10,7 +10,7 @@ import {
 } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 
-export default function Custom500(props: any) {
+export default function Custom500() {
   const router = useRouter()
   const { isEnterprise } = useVersion()
   const contribution_href = router.locale
@@ -31,12 +31,14 @@ export default function Custom500(props: any) {
             role="banner"
           >
             <Link href={`/${router.locale}`}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a aria-hidden="true" tabIndex={-1}>
                 <MarkGithubIcon size={32} className="color-icon-primary" />
               </a>
             </Link>
 
             <Link href={`/${router.locale}`}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="h4-mktg color-text-primary no-underline no-wrap pl-2">GitHub Docs</a>
             </Link>
           </div>

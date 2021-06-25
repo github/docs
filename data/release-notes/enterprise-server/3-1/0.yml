@@ -132,6 +132,12 @@ sections:
     - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - Upgrading an instance that has previously ran a 2.13 release, but not a 2.14 release, results in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
+    - |
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
+      ```
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+      ```
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.20

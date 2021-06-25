@@ -8,10 +8,9 @@ import { SidebarProduct } from './product/SidebarProduct'
 import { AllProductsLink } from './product/AllProductsLink'
 import { useVersion } from './hooks/useVersion'
 
-type Props = {}
-export const SidebarNav = (props: Props) => {
+export const SidebarNav = () => {
   const router = useRouter()
-  const { error, relativePath, isHomepageVersion } = useMainContext()
+  const { error, relativePath, isFPT } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
@@ -40,7 +39,7 @@ export const SidebarNav = (props: Props) => {
       <nav>
         {error === '404' || relativePath === 'index.md' ? (
           <ul className="sidebar-products mt-4">
-            {!isHomepageVersion && <AllProductsLink />}
+            {!isFPT && <AllProductsLink />}
             <SidebarHomepage />
           </ul>
         ) : (
@@ -53,9 +52,10 @@ export const SidebarNav = (props: Props) => {
       <style jsx>
         {`
           .root {
-            width: 280px;
+            width: 286px;
             height: 100vh;
             flex-shrink: 0;
+            padding-bottom: 32px;
           }
         `}
       </style>
@@ -66,17 +66,17 @@ export const SidebarNav = (props: Props) => {
 const SidebarHomepage = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { activeProducts, isHomepageVersion } = useMainContext()
+  const { activeProducts, isFPT } = useMainContext()
 
   return (
     <>
       {activeProducts.map((product) => {
-        if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
+        if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
           return null
         }
 
         const href = `${!product.external ? `/${router.locale}` : ''}${
-          product.versions?.includes(currentVersion)
+          product.versions?.includes(currentVersion) && !isFPT
             ? `/${currentVersion}/${product.id}`
             : product.href
         }`

@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Preparing the {% data variables.product.prodname_ghe_server %} source instance
 
 1. Verifizieren Sie, dass Sie auf der {% data variables.product.prodname_ghe_server %}-Quelle ein Websiteadministrator sind. Dazu empfiehlt es sich zu verifizieren, dass Sie eine [SSH-Verbindung zur Instanz herstellen können](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).

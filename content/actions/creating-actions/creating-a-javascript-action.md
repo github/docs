@@ -8,20 +8,21 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 In this guide, you'll learn about the basic components needed to create and use a packaged JavaScript action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
 
@@ -33,7 +34,7 @@ Once you complete this project, you should understand how to build your own Java
 
 {% data reusables.github-actions.context-injection-warning %}
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
@@ -57,7 +58,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
   npm init -y
   ```
 
-### Creating an action metadata file
+## Creating an action metadata file
 
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
@@ -79,7 +80,7 @@ runs:
 
 This file defines the `who-to-greet` input and `time` output. It also tells the action runner how to start running this JavaScript action.
 
-### Adding actions toolkit packages
+## Adding actions toolkit packages
 
 The actions toolkit is a collection of Node.js packages that allow you to quickly build JavaScript actions with more consistency.
 
@@ -98,7 +99,7 @@ npm install @actions/github
 
 Now you should see a `node_modules` directory with the modules you just installed and a `package-lock.json` file with the installed module dependencies and the versions of each installed module.
 
-### Writing the action code
+## Writing the action code
 
 This action uses the toolkit to get the `who-to-greet` input variable required in the action's metadata file and prints "Hello [who-to-greet]" in a debug message in the log. Next, the script gets the current time and sets it as an output variable that actions running later in a job can use.
 
@@ -129,7 +130,7 @@ try {
 If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
-### Creating a README
+## Creating a README
 
 To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
 
@@ -149,13 +150,13 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+## `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-### `time`
+## `time`
 
 The time we greeted you.
 
@@ -166,7 +167,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### Commit, tag, and push your action to GitHub
+## Commit, tag, and push your action to GitHub
 
 {% data variables.product.product_name %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
 
@@ -207,13 +208,13 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-### Testing out your action in a workflow
+## Testing out your action in a workflow
 
 Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-#### Example using a public action
+### Example using a public action
 
 This example demonstrates how your new public action can be run from within an external repository.
 
@@ -241,7 +242,7 @@ jobs:
 
 When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
 
-#### Example using a private action
+### Example using a private action
 
 Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
 
@@ -270,11 +271,11 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% ifversion fpt or ghes > 3.0 or ghae %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+{% elsif ghes > 2.22 %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)

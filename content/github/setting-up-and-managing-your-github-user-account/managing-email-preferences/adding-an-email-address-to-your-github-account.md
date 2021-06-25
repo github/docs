@@ -5,13 +5,14 @@ redirect_from:
   - /articles/adding-an-email-address-to-your-github-account
   - /github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Notifications
+shortTitle: Add an email address
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -26,6 +27,6 @@ topics:
 {% data reusables.user_settings.add_and_verify_email %}
 {% data reusables.user_settings.select_primary_email %}
 
-### Further reading
+## Further reading
 
 - "[Managing email preferences](/articles/managing-email-preferences/)"

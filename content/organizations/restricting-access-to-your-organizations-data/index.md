@@ -6,7 +6,7 @@ redirect_from:
   - /articles/restricting-access-to-your-organizations-data
   - /github/setting-up-and-managing-organizations-and-teams/restricting-access-to-your-organizations-data
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -16,5 +16,6 @@ children:
   - /disabling-oauth-app-access-restrictions-for-your-organization
   - /approving-oauth-apps-for-your-organization
   - /denying-access-to-a-previously-approved-oauth-app-for-your-organization
+shortTitle: Restrict access to organization data
 ---
 

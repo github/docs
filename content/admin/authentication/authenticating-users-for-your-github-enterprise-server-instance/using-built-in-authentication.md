@@ -6,17 +6,18 @@ redirect_from:
   - /enterprise/admin/authentication/using-built-in-authentication
   - /admin/authentication/using-built-in-authentication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Use built-in authentication
 ---
 You can create custom messages that users will see on the sign in and sign out pages. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)."
 
-### Configuring built-in authentication
+## Configuring built-in authentication
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -27,7 +28,7 @@ You can create custom messages that users will see on the sign in and sign out p
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Creating your account and adding users
+## Creating your account and adding users
 
 Once your instance has been created, you'll need to create your own admin account and use it to provision users.
 

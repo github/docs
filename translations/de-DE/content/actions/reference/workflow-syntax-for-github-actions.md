@@ -53,7 +53,7 @@ Wenn Sie die Ereignisse `push` und `pull_request` verwenden, können Sie einen W
 
 Die Schlüsselwörter `branches`, `branches-ignore`, `tags` und `tags-ignore` akzeptieren Glob-Muster, bei denen mithilfe der Platzhalterzeichen `*` und `**` mehrere passende Branch- oder Tag-Namen gefunden werden. Weitere Informationen findest Du auf dem „[Spickzettel zu Filtermustern](#filter-pattern-cheat-sheet)“.
 
-#### Beispiel mit Branches und Tags
+#### Example: Including branches and tags
 
 Die in `branches` und `tags` definierten Muster werden anhand des Namens des Git-Ref ausgewertet. Wenn Du das Muster `mona/octocat` in `branches` definierst, passt beispielsweise die Git-Ref `refs/heads/mona/octocat`. Zu dem Muster `releases/**` passt die Git-Ref `refs/heads/releases/10`.
 
@@ -74,7 +74,7 @@ on:
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
-#### Beispiel zum Ignorieren von Branches und Tags
+#### Example: Ignoring branches and tags
 
 Wenn ein Muster mit dem Muster `branches-ignore` oder `tags-ignore` übereinstimmt, wird der Workflow nicht ausgeführt. Die in `branches-ignore` und `tags-ignore` definierten Muster werden anhand des Namens der Git-Ref ausgewertet. Wenn Du das Muster `mona/octocat` in `branches` definierst, passt beispielsweise die Git-Ref `refs/heads/mona/octocat`. Das Muster `releases/**-alpha` in `branches` passt zu der Git-Ref `refs/releases/beta/3-alpha`.
 
@@ -98,7 +98,7 @@ Es stehen zwei Arten von Filtern zur Verfügung, mit denen Du die Ausführung ei
 - `branches` oder `branches-ignore` - Du kannst die beiden Filter `branches` und `branches-ignore` nicht gleichzeitig für dasselbe Ereignis in einem Workflow verwenden. Mit dem Filter `branches` kannst Du die Branches auf positive Übereinstimmungen filtern und Branches ausschließen. Nutze den Filter `branches-ignore`, wenn Du lediglich Branch-Namen ausschließen musst.
 - `tags` oder `tags-ignore` - Du kannst die beiden Filter `tags` und den Filter `tags-ignore` nicht gleichzeitig für dasselbe Ereignis in einem Workflow verwenden. Mit dem Filter `tags` kannst Du die Tags auf positive Übereinstimmungen filtern und Tags ausschließen. Nutze den Filter `branches-ignore`, wenn Du lediglich Tag-Namen ausschließen musst.
 
-#### Beispiel mit positiven und negativen Mustern
+#### Example: Using positive and negative patterns
 
 Mit dem Zeichen `!` kannst Du `tags` und `branches` ausschließen. Die Reihenfolge, in der Du die Muster definierst, ist entscheidend.
   - Wenn eine Übereinstimmung mit einem negativen Muster (mit vorangestelltem `!`) nach einem positiven Abgleich vorliegt, wird die Git-Ref ausgeschlossen.
@@ -120,7 +120,7 @@ Bei den Ereignissen `push` und `pull_request` kannst Du einen Workflows zur Ausf
 
 Unter den Schlüsselwörtern `paths-ignore` und `paths` kannst Du Glob-Muster nutzen, so dass mithilfe der Platzhalterzeichens `*` und `**` mehrere Pfadnamen passen. Weitere Informationen findest Du auf dem „[Spickzettel zu Filtermustern](#filter-pattern-cheat-sheet)“.
 
-#### Beispiel zum Ignorieren von Pfaden
+#### Example: Ignoring paths
 
 When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
 
@@ -131,7 +131,7 @@ on:
       - 'docs/**'
 ```
 
-#### Beispiel mit eingeschlossenen Pfaden
+#### Example: Including paths
 
 Wenn mindestens ein Pfad zu einem Muster im Filter `paths` passt, wird der Workflow ausgeführt. Soll bei jedem Push-Vorgang einer JavaScript-Datei ein Build ausgelöst werden, gibst Du ein Muster mit Platzhalterzeichen an.
 
@@ -148,7 +148,7 @@ Pfade können mit zwei Arten von Filtern ausgeschlossen werden. Du kannst nicht 
 - `paths-ignore` - Verwende den Filter `paths-ignore`, wenn Du lediglich Pfadnamen ausschließen musst.
 - `paths` - Mit dem Filter `paths` kannst Du die Pfade auf positive Übereinstimmungen filtern und Pfade ausschließen.
 
-#### Beispiel mit positiven und negativen Mustern
+#### Example: Using positive and negative patterns
 
 Mit dem Zeichen `!` kannst Du `paths` ausschließen. Die Reihenfolge, in der Sie Muster definieren, ist entscheidend:
   - Wenn nach einem positiven Abgleich ein negatives Muster (mit vorangestelltem `!`) passt, wird der Pfad ausgeschlossen.
@@ -291,7 +291,7 @@ Name des Auftrags, der auf {% data variables.product.prodname_dotcom %} angezeig
 
 Liste mit allen Aufträgen, die erfolgreich abgeschlossen sein müssen, bevor dieser Auftrag ausgeführt wird. Hier ist ein String oder ein Array mit Strings zulässig. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### Example requiring dependent jobs to be successful
+#### Example: Requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -310,7 +310,7 @@ Die Aufträge in diesem Beispiel werden sequenziell ausgeführt:
 2. `job2`
 3. `job3`
 
-#### Example not requiring dependent jobs to be successful
+#### Example: Not requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -434,7 +434,7 @@ The URL can be an expression and can use any context except for the `secrets` co
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
@@ -577,7 +577,7 @@ Mit der Bedingung `if` gibst Du an, dass ein Schritt nur dann ausgeführt werden
 
 {% data reusables.github-actions.expression-syntax-if %} Weitere Informationen findest Du unter „[Kontext- und Ausdruckssyntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)“.
 
-#### Beispiel für die Verwendung von Kontexten
+#### Example: Using contexts
 
  Dieser Schritt wird nur ausgeführt, wenn der Ereignistyp ein `pull_request` ist und die Ereignisaktion `unassigned` ist.
 
@@ -588,7 +588,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### Beispiel für die Verwendung von Statusprüffunktionen
+#### Example: Using status check functions
 
 `my backup step` wird nur dann ausgeführt, wenn der vorherige Schritt eines Auftrags fehlschlägt. Weitere Informationen findest Du unter „[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)“.
 
@@ -618,7 +618,7 @@ Für einige Aktionen sind Eingaben erforderlich, die Du mit dem Schlüsselwort [
 
 Aktionen sind entweder JavaScript-Dateien oder Docker-Container. Bei Docker-Containern als Aktion mmusst Du den Job in einer Linux-Umgebung ausführen. Weitere Details findest Du unter [`runs-on`](#jobsjob_idruns-on).
 
-#### Beispiel mit versionierten Aktionen
+#### Example: Using versioned actions
 
 ```yaml
 steps:    
@@ -632,7 +632,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-#### Beispiel mit einer öffentlichen Aktion
+#### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
@@ -650,7 +650,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### Beispiel mit einer öffentlichen Aktion in einem Unterverzeichnis
+#### Example: Using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -664,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Beispiel mit einer Aktion im selben Repository wie der Workflow
+#### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -680,7 +680,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Beispiel mit einer Docker Hub-Aktion
+#### Example: Using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -695,7 +695,7 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+##### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
@@ -709,7 +709,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-##### Beispiel mit einer Aktion in einer öffentlichen Docker Registry
+##### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -723,7 +723,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Example using action inside a different private repository than the workflow
+#### Example: Using an action inside a different private repository than the workflow
 
 Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
@@ -792,7 +792,7 @@ Du kannst die Einstellungen zur Standard-Shell im Betriebssystem des Läufers mi
 | Windows                | `pwsh`            | Dies ist die standardmäßig für Windows verwendete Shell. Der PowerShell Core. {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.ps1` an Deinen Skriptnamen an. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead. | `pwsh -command ". '{0}'"`.                      |
 | Windows                | `powershell`      | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.ps1` an Deinen Skriptnamen an.                                                                                                                                                                                | `powershell -command ". '{0}'"`.                |
 
-#### Beispiel zur Ausführung eines Skripts mittels Bash
+#### Example: Running a script using bash
 
 ```yaml
 steps:
@@ -801,7 +801,7 @@ steps:
     shell: bash
 ```
 
-#### Beispiel zur Ausführung eines Skripts mittels `cmd` von Windows
+#### Example: Running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -810,7 +810,7 @@ steps:
     shell: cmd
 ```
 
-#### Beispiel zur Ausführung eines Skripts mittels PowerShell Core
+#### Example: Running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -828,7 +828,7 @@ steps:
     shell: powershell
 ```
 
-#### Beispiel zur Ausführung eines Python-Skripts
+#### Example: Running a python script
 
 ```yaml
 steps:
@@ -985,7 +985,7 @@ Jede Option, die Du in der `Matrix` definierst, hat einen Schlüssel und einen W
 
 Die Reihenfolge, in der Du eine `Matrix` definierst, ist wichtig. Die erste Option, die Du definierst, ist der erste Job, der im Workflow ausgeführt wird.
 
-#### Beispiel für die Ausführung mit mehreren Versionen von Node.js
+#### Example: Running multiple versions of Node.js
 
 Zum Erstellen einer Matrix geben Sie ein Array für die Konfigurationsoptionen an. Wenn der Runner beispielsweise die Node.js-Versionen 10, 12 und 14 unterstützt, kannst Du ein Array dieser Versionen in der `matrix` festlegen.
 
@@ -1007,7 +1007,7 @@ steps:
 
 Die Aktion `setup-node` ist das empfohlene Mittel zur Konfiguration einer Node.js-Version, wenn {% data variables.product.prodname_dotcom %}-gehostete Runner verwendet werden. Weitere Informationen findest Du in der Aktion [`setup-node`](https://github.com/actions/setup-node).
 
-#### Beispiel für die Ausführung mit mehreren Betriebssystemen
+#### Example: Running with multiple operating systems
 
 Du kannst eine Matrix erstellen, um Workflows auf mehreren Runner-Betriebssystemen auszuführen. Du kannst auch mehrere Matrix-Konfigurationen angeben. Dieses Beispiel erstellt eine Matrix von 6 Jobs:
 
@@ -1034,7 +1034,7 @@ steps:
 {% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
-#### Beispiel mit kombinierten zusätzlichen Werten
+#### Example: Including additional values into combinations
 
 Zu einem bereits vorhandenen Job mit Buildmatrix kannst Du weitere Konfigurationsoptionen hinzufügen. Wenn Du beispielsweise eine bestimmte Version von `npm` verwenden willst, wenn der Auftrag mit `windows-latest` und Version 8 von `node` ausgeführt wird, kannst Du `include` verwenden, um diese zusätzliche Option anzugeben.
 
@@ -1054,7 +1054,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Beispiel zum Einbeziehen neuer Kombinationen
+#### Example: Including new combinations
 
 Du kannst `include` verwenden, um neue Jobs zu einer Build-Matrix hinzuzufügen. Alle Include-Konfigurationen, die nicht passen, werden zur Matrix hinzugefügt. Wenn Du beispielsweise `node` Version 14 verwenden willst, um auf mehreren Betriebssystemen zu bauen, aber Du willst einen zusätzlichen experimentellen Job mit Node Version 15 auf Ubuntu, kannst Du `include` verwenden, um diesen zusätzlichen Job anzugeben.
 
@@ -1072,7 +1072,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Beispiel zum Ausschließen von Konfigurationen aus einer Matrix
+#### Example: Excluding configurations from a matrix
 
 Mit der Option `exclude` kannst Du bestimmte in der Build-Matrix definierte Konfigurationen entfernen. Durch die Verwendung von `exclude` wird ein durch die Build-Matrix definierter Job entfernt. Die Anzahl der Jobs ist das Kreuzprodukt der Anzahl der Betriebssysteme (`os`), die in den von Dir bereitgestellten Arrays enthalten sind, abzüglich etwaiger Subtraktionen (`exclude`).
 
@@ -1119,7 +1119,7 @@ strategy:
 
 Verhindert, dass ein Workflow scheitert, wenn ein Job scheitert. Setze es auf `true` um einen Workflow-Lauf fortzusetzen, wenn dieser Job scheitert.
 
-#### Beispiel zum Verhindern, dass ein bestimmter scheiternder Job in der Matrix einen Workflow-Lauf scheitern lässt
+#### Example: Preventing a specific failing matrix job from failing a workflow run
 
 Du kannst zulassen, dass bestimmte Jobs in einer Jobmatrix scheitert, ohne dass der Workflow-Lauf scheitert. Das gilt beispielsweise, wenn Du nur einem experimentellen Job, bei dem `node` auf `15` gesetzt wurde, das Scheitern erlauben willst, ohne dass dadurch der Workflow-Lauf scheitert.
 
@@ -1236,7 +1236,7 @@ Wenn Du den Job so konfigurierst, dass er direkt auf der Runner-Maschine läuft 
 
 Weitere Informationen über die Unterschiede zwischen Netzwerk-Servicecontainern finden Sie unter „[Informationen zu Servicecontainern](/actions/automating-your-workflow-with-github-actions/about-service-containers)“.
 
-#### Beispiel für die Verwendung von „localhost“
+#### Example: Using localhost
 
 Dieses Beispiel erzeugt zwei Dienste: nginx und redis. Wenn Du den Port des Docker-Hosts angibst, aber nicht den des Containers, dann wird der Container-Port zufällig einem freien Port zugewiesen. {% data variables.product.prodname_dotcom %} setzt den zugewiesenen Containerport im Kontext {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} . In diesem Beispiel kannst Du über die Kontexte {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} und {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} auf die Ports des Servicecontainers zugreifen.
 
@@ -1365,7 +1365,7 @@ Pfadmuster müssen mit dem gesamten Pfad übereinstimmen und mit dem Root des Re
 | `docs/*`                                                                | Alle Dateien im Root des Verzeichnisses `docs` im Root des Repositorys.                                                                                                                                                              | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
 | `docs/**`                                                               | Beliebige Dateien im Verzeichnis `docs` im Root des Repositorys.                                                                                                                                                                     | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | Eine Datei mit dem Suffix `.md` an beliebiger Stelle im Verzeichnis `docs`.                                                                                                                                                          | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | Beliebige Dateien im Verzeichnis `docs` an beliebiger Stelle im Repository.                                                                                                                                                          | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | Beliebige Dateien im Verzeichnis `docs` an beliebiger Stelle im Repository.                                                                                                                                                          | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
 | `'**/README.md'`                                                        | Eine Datei mit dem Namen „README.md“ an beliebiger Stelle im Repository.                                                                                                                                                             | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | Eine beliebige Datei in einem Ordner mit dem Suffix `src` an beliebiger Stelle im Repository.                                                                                                                                        | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | Eine Datei mit dem Suffix `-post.md` an beliebiger Stelle im Repository.                                                                                                                                                             | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

@@ -11,6 +11,7 @@ versions:
 topics:
   - Profiles
 ---
+
 É possível fixar um repositório público se você detém o repositório ou se fez contribuições ao repositório. Os commits em bifurcações não contam como contribuições e não é possível fixar uma bifurcação que não pertence a você. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
 
 Você pode fixar qualquer gist público do qual você é proprietário.

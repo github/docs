@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **Tipp:** GitHub Importer eignet sich nicht für alle Importe. Wenn beispielsweise Dein existierender Code in einem privaten Netzwerk verwaltet wird, kann unser Tool nicht auf ihn zugreifen. In solchen Fällen empfehlen wir, Git-Repositorys [über die Befehlszeile](/articles/importing-a-git-repository-using-the-command-line) und Projekte aus anderen Quellcode-Verwaltungssystemen mit einem externen [Tool für die Quellcode-Migration](/articles/source-code-migration-tools) zu importieren.

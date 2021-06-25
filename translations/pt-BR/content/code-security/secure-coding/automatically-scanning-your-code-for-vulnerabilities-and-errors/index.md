@@ -10,7 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
 children:
   - /about-code-scanning
   - /triaging-code-scanning-alerts-in-pull-requests
@@ -21,4 +22,5 @@ children:
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

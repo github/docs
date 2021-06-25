@@ -7,7 +7,8 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
   - /insights/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Link Insights & Enterprise
 ---
 After you enable the link, each user can navigate directly from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_insights %}. For more information, see "[Navigating between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/navigating-between-github-enterprise-and-github-insights)."
 

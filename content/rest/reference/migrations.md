@@ -5,9 +5,10 @@ redirect_from:
   - /v3/migration
   - /v3/migration/migrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}

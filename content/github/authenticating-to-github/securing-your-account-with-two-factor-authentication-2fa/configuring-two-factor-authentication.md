@@ -8,24 +8,25 @@ redirect_from:
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - 2FA
+shortTitle: Configure 2FA
 ---
-You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. You can also add a security key.
+You can configure two-factor authentication using a mobile app{% ifversion fpt %} or via text message{% endif %}. You can also add a security key.
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% if currentVersion == "free-pro-team@latest" %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
 {% warning %}
 
 **Warning:**
-- If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
+- If you're a member{% ifversion fpt %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
 - If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
 
 {% endwarning %}
 
-### Configuring two-factor authentication using a TOTP mobile app
+## Configuring two-factor authentication using a TOTP mobile app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
 - [1Password](https://support.1password.com/one-time-passwords/)
@@ -54,9 +55,9 @@ A time-based one-time password (TOTP) application automatically generates an aut
 	![TOTP Enable field](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Configuring two-factor authentication using text messages
+## Configuring two-factor authentication using text messages
 
 If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
 
@@ -81,15 +82,15 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 {% endif %}
 
-### Configuring two-factor authentication using a security key
+## Configuring two-factor authentication using a security key
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
 On most devices and browsers, you can use a physical security key over USB or NFC. Some browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key.
 
-Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
+Authentication with a security key is *secondary* to authentication with a TOTP application{% ifversion fpt %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
-1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
+1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt %} or via SMS{% endif %}.
 2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
@@ -105,7 +106,7 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 	![Download recovery codes button](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
 - "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"

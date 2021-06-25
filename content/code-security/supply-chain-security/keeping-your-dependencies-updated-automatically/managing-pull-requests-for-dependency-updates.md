@@ -5,7 +5,7 @@ redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories
@@ -14,8 +14,9 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: Manage Dependabot PRs
 ---
-### About {% data variables.product.prodname_dependabot %} pull requests
+## About {% data variables.product.prodname_dependabot %} pull requests
 
 {% data reusables.dependabot.pull-request-introduction %}
 
@@ -23,7 +24,7 @@ When {% data variables.product.prodname_dependabot %} raises a pull request, you
 
 If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
 
-### Viewing {% data variables.product.prodname_dependabot %} pull requests
+## Viewing {% data variables.product.prodname_dependabot %} pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -31,11 +32,11 @@ If you have many dependencies to manage, you may want to customize the configura
     - The author is [dependabot](https://github.com/dependabot), the bot account used by {% data variables.product.prodname_dependabot %}.
     - By default, they have the `dependencies` label.
 
-### Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
+## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
 
 By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
 
-### Managing {% data variables.product.prodname_dependabot %} pull requests with comment commands
+## Managing {% data variables.product.prodname_dependabot %} pull requests with comment commands
 
 {% data variables.product.prodname_dependabot %} responds to simple commands in comments. Each pull request contains details of the commands you can use to process the pull request (for example: to merge, squash, reopen, close, or rebase the pull request) under the "{% data variables.product.prodname_dependabot %} commands and options" section. The aim is to make it as easy as possible for you to triage these automatically generated pull requests.
 

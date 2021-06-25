@@ -1,5 +1,7 @@
-import { Tooltip, Link } from '@primer/components'
+import { Tooltip } from '@primer/components'
 import { PrinterIcon } from './PrinterIcon'
+
+import { PrintAction } from 'components/PrintAction'
 
 type Props = {
   children: React.ReactNode
@@ -10,20 +12,11 @@ export const ArticleTitle = ({ children }: Props) => {
       <h1 className="my-4 border-bottom-0">{children}</h1>
       <div className="d-none d-lg-block ml-2">
         <Tooltip aria-label="Print this article" noDelay direction="n">
-          <Link
-            as="button"
-            underline={false}
-            muted
-            onClick={() => {
-              try {
-                document.execCommand('print', false)
-              } catch (e) {
-                window.print()
-              }
-            }}
-          >
-            <PrinterIcon />
-          </Link>
+          <PrintAction>
+            <button className="btn-link Link--muted">
+              <PrinterIcon />
+            </button>
+          </PrintAction>
         </Tooltip>
       </div>
     </div>

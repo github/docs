@@ -3,18 +3,19 @@ title: Managing support entitlements for your enterprise
 intro: You can grant enterprise members the ability to manage support tickets for your enterprise account.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
   - Support
+shortTitle: Manage support entitlements
 ---
-### About support entitlements
+## About support entitlements
 
 People with support entitlements for your enterprise account can use the support portal to open, view, and comment on support tickets associated with the enterprise account.
 
 Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account.
 
-### Adding a support entitlement to an enterprise member
+## Adding a support entitlement to an enterprise member
 
 {% note %}
 
@@ -31,7 +32,7 @@ Enterprise owners and billing managers automatically have a support entitlement.
 5. Click **Add support entitlement**.
 ![Add support entitlement](/assets/images/help/enterprises/settings-support-add-entitlement.png)
 
-### Removing a support entitlement from an enterprise member
+## Removing a support entitlement from an enterprise member
 
 You can remove a support entitlement from an enterprise member. You cannot remove a support entitlement from enterprise owners or billing managers.
 
@@ -42,6 +43,6 @@ You can remove a support entitlement from an enterprise member. You cannot remov
 4. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="The trash icon" %}.
 ![Remove support entitlement](/assets/images/help/enterprises/settings-support-remove-entitlement.png)
 
-### Further reading
+## Further reading
 
 - "[Working with GitHub support](/github/working-with-github-support)"

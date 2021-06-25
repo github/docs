@@ -6,16 +6,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
   - /admin/enterprise-management/creating-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Create HA replica
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Creating a high availability replica
+## Creating a high availability replica
 
 1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
 2. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
@@ -44,7 +45,7 @@ topics:
   $ ghe-repl-status
   ```
 
-### Creating geo-replication replicas
+## Creating geo-replication replicas
 
 This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)."
 
@@ -92,7 +93,7 @@ This example configuration uses a primary and two replicas, which are located in
   (primary)$ ghe-config-apply
   ```
 
-### Configuring DNS for geo-replication
+## Configuring DNS for geo-replication
 
 Configure Geo DNS using the IP addresses of the primary and replica nodes. You can also create a DNS CNAME for the primary node (e.g. `primary.github.example.com`) to access the primary node via SSH or to back it up via `backup-utils`.
 
@@ -104,7 +105,7 @@ For testing, you can add entries to the local workstation's `hosts` file (for ex
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-### Further reading
+## Further reading
 
 - "[About high availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)"
 - "[Utilities for replication management](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

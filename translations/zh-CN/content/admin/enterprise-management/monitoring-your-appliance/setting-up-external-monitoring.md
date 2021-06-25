@@ -14,6 +14,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### 关于 SNMP
 
 简单网络管理协议 (SNMP) 是一种受到广泛支持的网络设备和服务器监视方法。 SNMP 默认禁用，但可以通过 {% data variables.product.prodname_enterprise %} 监视仪表板进行配置。 UDP 端口 161 必须打开，并且可以通过您的网络管理站到达。 更多信息请参阅“[使用 SNMP 进行监视](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)”。

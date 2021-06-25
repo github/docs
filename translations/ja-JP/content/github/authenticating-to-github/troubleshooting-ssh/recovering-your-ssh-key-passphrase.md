@@ -13,6 +13,7 @@ versions:
 topics:
   - SSH
 ---
+
 {% mac %}
 
 [macOS キーチェーンを使用して SSH パスフレーズを設定](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain)した場合、リカバリできる可能性があります。

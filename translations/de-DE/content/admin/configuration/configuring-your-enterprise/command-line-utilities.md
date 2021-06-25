@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - SSH
 ---
+
 Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ein SSH-Administratorbenutzer angemeldet haben. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
 
 ### Allgemein
@@ -24,8 +25,7 @@ Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ei
 Dieses Dienstprogramm liegt im oberen Bereich jeder {% data variables.product.prodname_enterprise %}-Seite einen Banner fest. Diesen können Sie verwenden, um Ihren Benutzer eine Mitteilung zu übermitteln.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on
-{% data variables.product.product_name %}. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)“.
+You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)“.
 {% endif %}
 
 ```shell
