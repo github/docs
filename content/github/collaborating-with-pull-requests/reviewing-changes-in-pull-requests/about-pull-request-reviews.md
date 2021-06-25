@@ -6,21 +6,22 @@ redirect_from:
   - /articles/about-pull-request-reviews
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: About PR reviews
 ---
-### About pull request reviews
+## About pull request reviews
 
 After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
-Repository owners and collaborators can request a pull request review from a specific person. Organization members can also request a pull request review from a team with read access to the repository. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review)." {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Repository owners and collaborators can request a pull request review from a specific person. Organization members can also request a pull request review from a team with read access to the repository. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review)." {% ifversion fpt or ghae or ghes %}You can specify a subset of team members to be automatically assigned in the place of the whole team. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 Reviews allow for discussion of proposed changes and help ensure that the changes meet the repository's contributing guidelines and other quality standards. You can define which individuals or teams own certain types or areas of code in a CODEOWNERS file. When a pull request modifies code that has a defined owner, that individual or team will automatically be requested as a reviewer. For more information, see "[About code owners](/articles/about-code-owners/)."
 
-{% if currentVersion == "free-pro-team@latest" %}You can schedule reminders for pull requests that need to be reviewed. For more information, see "[Managing scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
+{% ifversion fpt %}You can schedule reminders for pull requests that need to be reviewed. For more information, see "[Managing scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
 
 ![Header of review requesting changes with line comments](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
@@ -41,11 +42,11 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Re-requesting a review
+## Re-requesting a review
 
 {% data reusables.pull_requests.re-request-review %}
 
-### Required reviews
+## Required reviews
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
@@ -55,7 +56,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"

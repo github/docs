@@ -24,7 +24,7 @@ export function ProductReleases() {
           const firstPreviousVersion = `enterprise-server@${release.firstPreviousRelease}`
           const secondPreviousVersion = `enterprise-server@${release.secondPreviousRelease}`
           return (
-            <div key={releaseNumber} className="col-lg-4 col-12 mb-3">
+            <div key={releaseNumber} className="col-lg-4 col-12 mb-4">
               <div className="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-text-primary p-5">
                 <h2>{allVersions[releaseVersion].versionTitle}</h2>
                 <p className="mt-2 mb-4 color-text-tertiary">
@@ -60,7 +60,7 @@ export function ProductReleases() {
         })}
       </div>
 
-      <Link href={`${currentPath}/release-notes}`} className="btn btn-outline float-right">
+      <Link href={`${currentPath}/release-notes`} className="btn btn-outline float-right">
         {t('explore_release_notes')} <ArrowRightIcon />
       </Link>
     </div>

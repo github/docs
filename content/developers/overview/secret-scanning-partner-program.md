@@ -1,15 +1,16 @@
 ---
 title: Secret scanning partner program
 intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+shortTitle: Secret scanning
 ---
 
 {% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
@@ -20,15 +21,15 @@ When a match of your secret format is found in a private repository configured f
 
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
-### The {% data variables.product.prodname_secret_scanning %} process
+## The {% data variables.product.prodname_secret_scanning %} process
 
-##### How {% data variables.product.prodname_secret_scanning %} works in a public repository
+#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
 
 The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
 
 ![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
 
-### Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
+## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
 1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
@@ -37,13 +38,13 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 1. Implement secret revocation and user notification in your secret alert service.
 1. Provide feedback for false positives (optional).
 
-#### Contact {% data variables.product.prodname_dotcom %} to get the process started
+### Contact {% data variables.product.prodname_dotcom %} to get the process started
 
 To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
 
-#### Identify your secrets and create regular expressions
+### Identify your secrets and create regular expressions
 
 To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
 
@@ -53,11 +54,11 @@ To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the
 
 Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-#### Create a secret alert service
+### Create a secret alert service
 
 Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
-##### Example POST sent to your endpoint
+#### Example POST sent to your endpoint
 
 ```http
 POST / HTTP/2
@@ -77,7 +78,7 @@ The message body is a JSON array that contains one or more objects with the foll
 * **Type**: The unique name you provided to identify your regular expression.
 * **URL**: The public commit URL where the match was found.
 
-#### Implement signature verification in your secret alert service
+### Implement signature verification in your secret alert service
 
 We strongly recommend you implement signature validation in your secret alert service to ensure that the messages you receive are genuinely from {% data variables.product.prodname_dotcom %} and not malicious.
 
@@ -323,11 +324,11 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-#### Implement secret revocation and user notification in your secret alert service
+### Implement secret revocation and user notification in your secret alert service
 
 For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
 
-#### Provide feedback for false positives
+### Provide feedback for false positives
 
 We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 

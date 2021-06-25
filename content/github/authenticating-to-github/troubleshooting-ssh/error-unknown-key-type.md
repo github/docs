@@ -2,23 +2,23 @@
 title: 'Error: Unknown key type'
 intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
-  github-ae: next
+  fpt: '*'
+  ghes: '>=3.2'
+  ghae: next
 topics:
   - SSH
 redirect_from:
   - /github/authenticating-to-github/error-unknown-key-type
 ---
-### About the `unknown key type` error
+## About the `unknown key type` error
 
 When you generate a new SSH key, you may receive an `unknown key type` error if your SSH client does not support the key type that you specify.{% mac %}To solve this issue on macOS, you can update your SSH client or install a new SSH client.
 
-### Prerequisites
+## Prerequisites
 
 You must have Homebrew installed. For more information, see the [installation guide](https://docs.brew.sh/Installation) in the Homebrew documentation.
 
-### Solving the issue
+## Solving the issue
 
 {% warning %}
 

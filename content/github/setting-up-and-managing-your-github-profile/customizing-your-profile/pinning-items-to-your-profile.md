@@ -6,10 +6,11 @@ redirect_from:
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Profiles
+shortTitle: Pin items
 ---
 You can pin a public repository if you own the repository or you've made contributions to the repository. Commits to forks don't count as contributions, so you can't pin a fork that you don't own. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
 
@@ -31,6 +32,6 @@ You can reorder the items in the "Pinned" section. In the upper-right corner of 
 6. Click **Save pins**.
 	![Save pins button](/assets/images/help/profile/save-pinned-repositories.png)
 
-### Further reading
+## Further reading
 
 - "[About your profile](/articles/about-your-profile)"

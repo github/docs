@@ -7,12 +7,14 @@ redirect_from:
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% tip %}
 
 **Tip**: If you'd like to retain access to a completed or unneeded project board without losing access to its contents, you can [close the project board](/articles/closing-a-project-board) instead of deleting it.
@@ -26,7 +28,7 @@ topics:
 ![Delete project button](/assets/images/help/projects/delete-project-button.png)
 5. To confirm that you want to delete the project board, click **OK**.
 
-### Further reading
+## Further reading
 
 - "[Closing a project board](/articles/closing-a-project-board)"
 - "[Disabling project boards in a repository](/articles/disabling-project-boards-in-a-repository)"

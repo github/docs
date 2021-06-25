@@ -1,8 +1,8 @@
 ---
 title: Understanding your software supply chain
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '>=3.0'
 topics:
   - Dependency graph
   - Dependencies
@@ -11,5 +11,6 @@ children:
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
   - /about-dependency-review
+shortTitle: Understand supply chain
 ---
 

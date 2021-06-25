@@ -2,16 +2,16 @@
 title: Managing encrypted secrets for your repository and organization for Codespaces
 shortTitle: Managing secrets for your repository and organization
 intro: 'Encrypted secrets allow you to store sensitive information in your organization, repository, or {% data variables.product.prodname_codespaces %}.'
-permissions: To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.
+permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
 
-### About secrets
+## About secrets
 
 Secrets are encrypted environment variables that you create in an organization or  repository. The secrets that you create are available to use in {% data variables.product.prodname_codespaces %}. GitHub uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach GitHub and only decrypts them when you use them in a codespace.
 
@@ -19,19 +19,19 @@ Organization-level secrets let you share secrets between multiple repositories, 
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Naming secrets
+### Naming secrets
 
 {% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
   {% data reusables.codespaces.secret-precedence %}
 
-#### Limits for secrets
+### Limits for secrets
 
 You can store up to 100 secrets per organization and 100 secrets per repository.
 
 Secrets are limited to 64 KB in size.
 
-### Adding secrets for a repository
+## Adding secrets for a repository
 
 To create secrets for an organization repository, you must have administrator access.
 
@@ -45,7 +45,7 @@ To create secrets for an organization repository, you must have administrator ac
 1. Enter the value for your secret.
 1. Click **Add secret**.
 
-### Adding secrets for an organization
+## Adding secrets for an organization
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
@@ -63,7 +63,7 @@ When creating a secret in an organization, you can use a policy to limit which r
     ![Repository Access list with private repositories selected](/assets/images/help/codespaces/secret-repository-access.png)
 1. Click **Add secret**.
 
-### Reviewing access to organization-level secrets
+## Reviewing access to organization-level secrets
 
 You can check which access policies are applied to a secret in your organization.
 

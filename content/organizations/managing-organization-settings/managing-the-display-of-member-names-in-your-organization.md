@@ -6,12 +6,13 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-display-of-member-names-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage display of member names
 ---
 
 Organization owners can manage the display of member names in an organization.

@@ -3,11 +3,11 @@ title: Basics of setting up GitHub Classroom
 shortTitle: '{% data variables.product.prodname_classroom %} basics'
 intro: 'Learn how to set up your classroom, manage assignments, and configure time-saving automation.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
 ---
-### Videos about {% data variables.product.prodname_classroom %}
+## Videos about {% data variables.product.prodname_classroom %}
 
 You can watch a series of short video tutorials about the configuration and use of {% data variables.product.prodname_classroom %}. To watch all videos as part of a continuous playlist, see the [{% data variables.product.prodname_classroom %} Getting Started Guide](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u) on YouTube.
 
@@ -25,10 +25,10 @@ For more information about terminology for {% data variables.product.prodname_cl
 7. <a href="https://youtu.be/tJK2cmoh1KM" target="_blank">Next steps to get started</a> {% octicon "link-external" aria-label="The external link icon" %}
 8. <a href="https://youtu.be/X87v3SFQxLU" target="_blank">{% data variables.product.prodname_dotcom %} Teacher Toolbox</a> {% octicon "link-external" aria-label="The external link icon" %}
 
-### Next steps
+## Next steps
 
 For more information about teaching with {% data variables.product.prodname_classroom %}, see "[Teach with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)."
 
-### Further reading
+## Further reading
 
 - "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"

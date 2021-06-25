@@ -3,9 +3,14 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head, post } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
-const { loadPages } = require('../../lib/pages')
+const { loadPages } = require('../../lib/page-data')
 const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
+const CspParse = require('csp-parse')
+const { productMap } = require('../../lib/all-products')
+const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
+
+jest.useFakeTimers()
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -29,6 +34,57 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
+  test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
+    const $ = await getDOM('/en')
+    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarTitles = sidebarItems.map(el => $(el).text().trim())
+    const sidebarHrefs = sidebarItems.map(el => $(el).attr('href'))
+
+    const productTitles = activeProducts.map(prod => prod.name)
+    const productHrefs = activeProducts.map(prod => prod.external ? prod.href : `/en${prod.href}`)
+
+    const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, productTitles)
+    const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
+
+    const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, productHrefs)
+    const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
+
+    expect(titlesInSidebarButNotProducts.length, `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(titlesInProductsButNotSidebar.length, `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`).toBe(0)
+    expect(hrefsInSidebarButNotProducts.length, `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(hrefsInProductsButNotSidebar.length, `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`).toBe(0)
+  })
+
+  test('renders the Enterprise homepage with links to exptected products in both the sidebar and page body', async () => {
+    const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}`)
+    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarTitles = sidebarItems.map(el => $(el).text().trim())
+    const sidebarHrefs = sidebarItems.map(el => $(el).attr('href'))
+
+    const ghesProducts = activeProducts
+      .filter(prod => prod.versions && prod.versions.includes(`enterprise-server@${enterpriseServerReleases.latest}`) || prod.external)
+
+    const ghesProductTitles = ghesProducts.map(prod => prod.name)
+    const ghesProductHrefs = ghesProducts.map(prod => prod.external ? prod.href : `/en${prod.href.includes('enterprise-server') ? prod.href : `/enterprise-server@${enterpriseServerReleases.latest}${prod.href}`}`)
+
+    const firstSidebarTitle = sidebarTitles.shift()
+    const firstSidebarHref = sidebarHrefs.shift()
+
+    const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, ghesProductTitles)
+    const titlesInProductsButNotSidebar = lodash.difference(ghesProductTitles, sidebarTitles)
+
+    const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, ghesProductHrefs)
+    const hrefsInProductsButNotSidebar = lodash.difference(ghesProductHrefs, sidebarHrefs)
+
+    expect(firstSidebarTitle).toBe('All products')
+    expect(firstSidebarHref).toBe('/en')
+    expect(titlesInSidebarButNotProducts.length, `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(titlesInProductsButNotSidebar.length, `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`).toBe(0)
+    expect(hrefsInSidebarButNotProducts.length, `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`).toBe(0)
+    expect(hrefsInProductsButNotSidebar.length, `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`).toBe(0)
+  })
+
+
   test('uses gzip compression', async () => {
     const res = await get('/en')
     expect(res.headers['content-encoding']).toBe('gzip')
@@ -39,7 +95,7 @@ describe('server', () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
 
-    const csp = new (require('csp-parse'))(res.headers['content-security-policy'])
+    const csp = new CspParse(res.headers['content-security-policy'])
     expect(csp.get('default-src')).toBe("'none'")
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
@@ -219,7 +275,7 @@ describe('server', () => {
 
   test('displays links to categories on product TOCs', async () => {
     const $ = await getDOM('/en/github')
-    expect($('article a[href="/en/github/getting-started-with-github"]')).toHaveLength(1)
+    expect($('article a[href="/en/github/authenticating-to-github"]')).toHaveLength(1)
   })
 
   describe('autogenerated mini TOCs', () => {
@@ -250,6 +306,16 @@ describe('server', () => {
     test('does not render mini TOC in non-articles', async () => {
       const $ = await getDOM('/github/getting-started-with-github')
       expect($('h2#in-this-article').length).toBe(0)
+    })
+
+    test('renders mini TOC with correct links when headings contain markup', async () => {
+      const $ = await getDOM('/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates')
+      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+    })
+
+    test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
+      const $ = await getDOM('/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates')
+      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
     })
   })
 
@@ -493,7 +559,7 @@ describe('server', () => {
 describe('URLs by language', () => {
   // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
   test('heading IDs and links on translated pages are in English', async () => {
-    const $ = await getDOM('/ja/github/getting-started-with-github/verifying-your-email-address')
+    const $ = await getDOM('/ja/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password')
     expect($.res.statusCode).toBe(200)
     expect($('h3[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
@@ -504,7 +570,7 @@ describe('URLs by language', () => {
 describe('GitHub Enterprise URLs', () => {
   test('renders the GHE user docs homepage', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github`)
-    expect($(`article a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github"]`).length).toBe(1)
+    expect($(`article a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github"]`).length).toBe(1)
   })
 
   test('renders the Enterprise Server homepage with correct links', async () => {
@@ -636,10 +702,10 @@ describe('extended Markdown', () => {
 
   test('renders platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('.extended-markdown.mac h3#using-textmate-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.windows h3#using-notepad-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.linux h3#using-textmate-as-your-editor').length).toBe(0)
-    expect($('.extended-markdown.linux h3#using-notepad-as-your-editor').length).toBe(0)
+    expect($('.extended-markdown.mac h2#using-textmate-as-your-editor').length).toBe(1)
+    expect($('.extended-markdown.windows h2#using-notepad-as-your-editor').length).toBe(1)
+    expect($('.extended-markdown.linux h2#using-textmate-as-your-editor').length).toBe(0)
+    expect($('.extended-markdown.linux h2#using-notepad-as-your-editor').length).toBe(0)
   })
 
   test('renders expected mini TOC headings in platform-specific content', async () => {

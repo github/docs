@@ -9,13 +9,14 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for projects
 ---
 For more information about types of project boards, see "[About project boards](/articles/about-project-boards)."
 
-### Enforcing a policy for organization-wide project boards
+## Enforcing a policy for organization-wide project boards
 
 Across all organizations owned by your enterprise account, you can enable or disable organization-wide project boards, or allow owners to administer the setting on the organization level.
 
@@ -26,7 +27,7 @@ Across all organizations owned by your enterprise account, you can enable or dis
 5. Under "Organization projects", use the drop-down menu and choose a policy.
   ![Drop-down menu with organization project board policy options](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
-### Enforcing a policy for repository project boards
+## Enforcing a policy for repository project boards
 
 Across all organizations owned by your enterprise account, you can enable or disable repository-level project boards, or allow owners to administer the setting on the organization level.
 

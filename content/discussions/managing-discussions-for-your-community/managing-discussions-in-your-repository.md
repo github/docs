@@ -1,14 +1,15 @@
 ---
 title: Managing discussions in your repository
-intro: You can categorize, spotlight, transfer, or delete the discussions in a repository.
+intro: 'You can categorize, spotlight, transfer, or delete the discussions in a repository.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Manage discussions
 ---
 
 {% data reusables.discussions.beta %}
 
-### About management of discussions
+## About management of discussions
 
 {% data reusables.discussions.about-discussions %} For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
@@ -20,11 +21,11 @@ For more information on facilitating a healthy discussion, see "[Moderating comm
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-### Prerequisites
+## Prerequisites
 
 To manage discussions in a repository, discussions must be enabled for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
-### Changing the category for a discussion
+## Changing the category for a discussion
 
 You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
 
@@ -38,7 +39,7 @@ You can also move a discussion to a different category.
 1. Click a category.
   !["Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
 
-### Pinning a discussion
+## Pinning a discussion
 
 You can pin up to four important discussions above the list of discussions for the repository.
 
@@ -52,7 +53,7 @@ You can pin up to four important discussions above the list of discussions for t
 1. Click **Pin discussion**.
   !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
 
-### Editing a pinned discussion
+## Editing a pinned discussion
 
 Editing a pinned discussion will not change the discussion's category. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
 
@@ -66,7 +67,7 @@ Editing a pinned discussion will not change the discussion's category. For more 
 1. Click **Pin discussion**.
   !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
 
-### Unpinning a discussion
+## Unpinning a discussion
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -76,7 +77,7 @@ Editing a pinned discussion will not change the discussion's category. For more 
 1. Read the warning, then click **Unpin discussion**.
   !["Unpin discussion" button beneath warning in modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
 
-### Transferring a discussion
+## Transferring a discussion
 
 To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion.
 
@@ -90,7 +91,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 1. Click **Transfer discussion**.
   !["Transfer discussion" button](/assets/images/help/discussions/click-transfer-discussion-button.png)
 
-### Deleting a discussion
+## Deleting a discussion
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -100,7 +101,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 1. Read the warning, then click **Delete this discussion**.
   !["Delete this discussion" button beneath warning in modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
 
-### Converting issues based on labels
+## Converting issues based on labels
 
 You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
 

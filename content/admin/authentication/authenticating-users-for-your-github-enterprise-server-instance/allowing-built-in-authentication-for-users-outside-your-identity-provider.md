@@ -6,15 +6,16 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Use built-in authentication
 ---
-### About built-in authentication for users outside your identity provider
+## About built-in authentication for users outside your identity provider
 
 You can use built-in authentication for outside users when you are unable to add specific accounts to your identity provider (IdP), such as accounts for contractors or machine users. You can also use built-in authentication to access a fallback account if the identity provider is unavailable.  
 
@@ -28,7 +29,7 @@ Built-in authentication for a specific IdP is disabled by default.
 
 {% endwarning %}
 
-### Configuring built-in authentication for users outside your identity provider
+## Configuring built-in authentication for users outside your identity provider
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -42,7 +43,7 @@ Built-in authentication for a specific IdP is disabled by default.
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Inviting users outside your identity provider to authenticate to your instance
+## Inviting users outside your identity provider to authenticate to your instance
 
 When a user accepts the invitation, they can use their username and password to sign in rather than signing in through the IdP.
 
@@ -51,7 +52,7 @@ When a user accepts the invitation, they can use their username and password to 
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-### Further reading
+## Further reading
 
 - "[Using LDAP](/enterprise/admin/authentication/using-ldap)"
 - "[Using SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"

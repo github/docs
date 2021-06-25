@@ -3,7 +3,8 @@ title: Navigating between GitHub Enterprise and GitHub Insights
 intro: ''
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can navigate between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: GitHub Enterprise & Insights
 ---
 
 Before you can navigate between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}, a site administrator must enable a link between {% data variables.product.prodname_insights %} and {% data variables.product.prodname_enterprise %}. For more information, see "[Enabling a link between {% data variables.product.prodname_insights %} and {% data variables.product.prodname_enterprise %}](/insights/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise)."
