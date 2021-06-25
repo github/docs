@@ -30,7 +30,7 @@ If your {% data variables.product.prodname_ghe_server %} license expires, you wo
 
 You can download your {% data variables.product.prodname_ghe_server %} license from your [enterprise account](https://enterprise.github.com/download). For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server)." 
 
-## Downloading a new license file and uploading it to {% data variables.product.prodname_ghe_server %}  
+## Downloading a new license and uploading it to {% data variables.product.prodname_ghe_server %}  
 
 
 After you purchase a new license or upgrade an existing license from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file, then upload the file to {% data variables.product.prodname_ghe_server %} to unlock your new user licenses.
