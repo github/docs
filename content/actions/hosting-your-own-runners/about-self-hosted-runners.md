@@ -131,6 +131,12 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
+{% note %}
+
+**Note:** Some of the URLs listed below are set up using `CNAME` records. Some firewalls require might require rules to allow for recursive `CNAME` records.
+
+{% endnote %}
+
 ```
 github.com
 api.github.com
