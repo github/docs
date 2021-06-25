@@ -64,6 +64,12 @@ The creators of a community action have the option to use tags, branches, or SHA
 
 You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
 
+{% note %}
+
+**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
+
+{% endnote %}
+
 ### Using tags
 
 Tags are useful for letting you decide when to switch between major and minor versions, but these are more ephemeral and can be moved or deleted by the maintainer. This example demonstrates how to target an action that's been tagged as `v1.0.1`:
