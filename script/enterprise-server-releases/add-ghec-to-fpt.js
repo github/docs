@@ -12,7 +12,9 @@ const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
 const program = require('commander')
+const { escapeRegExp } = require('lodash')
 const frontmatter = require('../../lib/read-frontmatter')
+const getLiquidConditionals = require('../helpers/get-liquid-conditionals')
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')
 
@@ -32,12 +34,6 @@ if (products) {
 }
 
 console.log('✅ Running on English content and data\n')
-
-// The new conditional to add
-const githubECConditional = 'currentVersion == "enterprise-cloud@latest"'
-
-// Match: currentVersion == "free-pro-team@latest"
-const fptConditionalRegex = /currentVersion == "free-pro-team@latest"/
 
 console.log('Working...\n')
 
@@ -84,7 +80,7 @@ allContentFiles
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
     // Return early if the current page frontmatter does not apply to either GHEC or the given fpt release
-    if (!(data.versions['free-pro-team'])) return
+    if (!data.versions.fpt) return
 
     const conditionalsToUpdate = getConditionalsToUpdate(content)
     if (!conditionalsToUpdate.length) return
@@ -93,7 +89,7 @@ allContentFiles
     const newContent = updateLiquid(conditionalsToUpdate, content)
 
     // Add frontmatter version
-    data.versions['enterprise-cloud'] = '*'
+    data.versions.ghec = '*'
 
     // Update Liquid in frontmatter props
     Object.keys(data)
@@ -108,33 +104,20 @@ allContentFiles
   })
 
 function getConditionalsToUpdate (content) {
-  const allConditionals = content.match(/{% if .+?%}/g)
-
-  return (allConditionals || [])
-    .filter(conditional => !conditional.includes('enterprise-cloud'))
-    .filter(conditional => conditional.includes('free-pro-team'))
+  return getLiquidConditionals(content, 'ifversion')
+    .filter(c => c.includes('fpt'))
+    .filter(c => !c.includes('ghec'))
 }
 
 function updateLiquid (conditionalsToUpdate, content) {
   let newContent = content
-
-  conditionalsToUpdate.forEach(conditional => {
-    let newConditional = conditional
-
-    const fptMatch = conditional.match(fptConditionalRegex)
-
-    if (!fptMatch) {
-      console.error(conditional)
-      return
-    }
-
-    // First do the replacement within the conditional
-    // Old: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    // New: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "enterprise-cloud@latest" %}
-    newConditional = newConditional.replace(fptMatch[0], `${fptMatch[0]} or ${githubECConditional}`)
+  conditionalsToUpdate.forEach(cond => {
+    const oldConditional = `{% ifversion ${cond} %}`
+    const newConditional = `{% ifversion ${cond.concat(' or ghec')} %}`
+    const oldConditionalRegex = new RegExp(escapeRegExp(oldConditional), 'g')
 
     // Then replace all instances of the conditional in the content
-    newContent = newContent.replace(conditional, newConditional)
+    newContent = newContent.replace(oldConditionalRegex, newConditional)
   })
 
   return newContent

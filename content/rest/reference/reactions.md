@@ -3,9 +3,9 @@ title: Reactions
 redirect_from:
   - /v3/reactions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

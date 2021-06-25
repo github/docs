@@ -8,14 +8,15 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  fpt: '*'
+  ghes: '>=3.2'
 type: how_to
 topics:
   - Enterprise
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verify or approve a domain
 ---
 
 ## About domain verification
@@ -61,7 +62,7 @@ To verify a domain, you must have access to modify domain records with your doma
 
 ## Approving a domain for your organization
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.1 %}
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 

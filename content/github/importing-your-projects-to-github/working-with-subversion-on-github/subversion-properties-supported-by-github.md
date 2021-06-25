@@ -5,8 +5,9 @@ redirect_from:
   - /articles/subversion-properties-supported-by-github
   - /github/importing-your-projects-to-github/subversion-properties-supported-by-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Properties supported by GitHub
 ---
 ## Executable files (svn:executable)
 

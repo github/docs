@@ -13,14 +13,16 @@ const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../helpers/schemas/ghes-release-notes-schema')
 const ghaeReleaseNotesSchema = require('../helpers/schemas/ghae-release-notes-schema')
 const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema')
+const featureVersionsSchema = require('../helpers/schemas/feature-versions-schema')
 const renderContent = require('../../lib/render-content')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const { execSync } = require('child_process')
 const allVersions = require('../../lib/all-versions')
-const { supported } = require('../../lib/enterprise-server-releases')
-const getIfversionConditionals = require('../helpers/get-ifversion-conditionals')
+const { supported, next } = require('../../lib/enterprise-server-releases')
+const getLiquidConditionals = require('../../script/helpers/get-liquid-conditionals')
 const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 const versionShortNames = Object.values(allVersions).map(v => v.shortName)
+const versionKeywords = versionShortNames.concat(['currentVersion', 'enterpriseServerReleases'])
 const allowedVersionOperators = require('../../lib/liquid-tags/ifversion-supported-operators')
 
 const rootDir = path.join(__dirname, '../..')
@@ -31,6 +33,7 @@ const glossariesDir = path.join(rootDir, 'data/glossaries')
 const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes/enterprise-server')
 const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
 const learningTracks = path.join(rootDir, 'data/learning-tracks')
+const featureVersionsDir = path.join(rootDir, 'data/features')
 
 const languageCodes = Object.keys(languages)
 
@@ -186,7 +189,7 @@ const yamlWalkOptions = {
 }
 
 // different lint rules apply to different content types
-let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learningTracksToLint
+let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learningTracksToLint, featureVersionsToLint
 
 if (!process.env.TEST_TRANSLATION) {
   // compile lists of all the files we want to lint
@@ -227,6 +230,11 @@ if (!process.env.TEST_TRANSLATION) {
   const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
   const learningTracksYamlRelPaths = learningTracksYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
+
+  // Feature versions
+  const featureVersionsYamlAbsPaths = walk(featureVersionsDir, yamlWalkOptions).sort()
+  const featureVersionsYamlRelPaths = featureVersionsYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  featureVersionsToLint = zip(featureVersionsYamlRelPaths, featureVersionsYamlAbsPaths)
 } else {
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync('git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"', { maxBuffer: 1024 * 1024 * 100 }).toString().split('\n')
@@ -236,7 +244,14 @@ if (!process.env.TEST_TRANSLATION) {
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
-  const { mdRelPaths = [], ymlRelPaths = [], ghesReleaseNotesRelPaths = [], ghaeReleaseNotesRelPaths = [], learningTracksRelPaths = [] } = groupBy(changedFilesRelPaths, (path) => {
+  const { 
+    mdRelPaths = [], 
+    ymlRelPaths = [], 
+    ghesReleaseNotesRelPaths = [], 
+    ghaeReleaseNotesRelPaths = [], 
+    learningTracksRelPaths = [],
+    featureVersionsRelPaths = [],
+  } = groupBy(changedFilesRelPaths, (path) => {
     // separate the changed files to different groups
     if (path.endsWith('README.md')) {
       return 'throwAway'
@@ -250,13 +265,29 @@ if (!process.env.TEST_TRANSLATION) {
       return 'ghaeReleaseNotesRelPaths'
     } else if (path.match(/\data\/learning-tracks/)) {
       return 'learningTracksRelPaths'
+    } else if (path.match(/\data\/features/)) {
+      return 'featureVersionsRelPaths'
     } else {
       // we aren't linting the rest
       return 'throwAway'
     }
   })
 
-  const [mdTuples, ymlTuples, ghesReleaseNotesTuples, ghaeReleaseNotesTuples, learningTracksTuples] = [mdRelPaths, ymlRelPaths, ghesReleaseNotesRelPaths, ghaeReleaseNotesRelPaths, learningTracksRelPaths].map(relPaths => {
+  const [
+    mdTuples,
+    ymlTuples,
+    ghesReleaseNotesTuples,
+    ghaeReleaseNotesTuples,
+    learningTracksTuples,
+    featureVersionsTuples
+  ] = [
+    mdRelPaths,
+    ymlRelPaths,
+    ghesReleaseNotesRelPaths,
+    ghaeReleaseNotesRelPaths,
+    learningTracksRelPaths,
+    featureVersionsRelPaths
+  ].map(relPaths => {
     const absPaths = relPaths.map(p => path.join(rootDir, p))
     return zip(relPaths, absPaths)
   })
@@ -266,6 +297,7 @@ if (!process.env.TEST_TRANSLATION) {
   ghesReleaseNotesToLint = ghesReleaseNotesTuples
   ghaeReleaseNotesToLint = ghaeReleaseNotesTuples
   learningTracksToLint = learningTracksTuples
+  featureVersionsToLint = featureVersionsTuples
 }
 
 function formatLinkError(message, links) {
@@ -286,7 +318,7 @@ describe('lint markdown content', () => {
     '%s',
     (markdownRelPath, markdownAbsPath) => {
       let content, ast, links, yamlScheduledWorkflows, isHidden, isEarlyAccess, isSitePolicy, frontmatterErrors, frontmatterData,
-      ifversionConditionals
+      ifversionConditionals, ifConditionals
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
@@ -322,8 +354,11 @@ describe('lint markdown content', () => {
           .flat()
           .map(schedule => schedule.cron)
 
-        ifversionConditionals = getIfversionConditionals(data)
-          .concat(getIfversionConditionals(bodyContent))
+        ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif'])
+          .concat(getLiquidConditionals(bodyContent, ['ifversion', 'elsif']))
+
+        ifConditionals = getLiquidConditionals(data, 'if')
+          .concat(getLiquidConditionals(bodyContent, 'if'))
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -336,6 +371,13 @@ describe('lint markdown content', () => {
       test('ifversion conditionals are valid in markdown', async () => {
         const errors = validateIfversionConditionals(ifversionConditionals)
         expect(errors.length, errors.join('\n')).toBe(0)
+      })
+
+      test('ifversion, not if, is used for versioning in markdown', async () => {
+        const ifsForVersioning = ifConditionals.filter(cond => versionKeywords.some(keyword => cond.includes(keyword)))
+        const errorMessage = `Found ${ifsForVersioning.length} "if" conditionals used for versioning! Use "ifversion" instead.
+${ifsForVersioning.join('\n')}`
+        expect(ifsForVersioning.length, errorMessage).toBe(0)
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -513,20 +555,29 @@ describe('lint yaml content', () => {
   describe.each(ymlToLint)(
     '%s',
     (yamlRelPath, yamlAbsPath) => {
-      let dictionary, isEarlyAccess, ifversionConditionals
+      let dictionary, isEarlyAccess, ifversionConditionals, ifConditionals
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        ifversionConditionals = getIfversionConditionals(fileContents)
-
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
+
+        ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
+
+        ifConditionals = getLiquidConditionals(fileContents, 'if')
       })
 
       test('ifversion conditionals are valid in yaml', async () => {
         const errors = validateIfversionConditionals(ifversionConditionals)
         expect(errors.length, errors.join('\n')).toBe(0)
+      })
+
+      test('ifversion, not if, is used for versioning in markdown', async () => {
+        const ifsForVersioning = ifConditionals.filter(cond => versionKeywords.some(keyword => cond.includes(keyword)))
+        const errorMessage = `Found ${ifsForVersioning.length} "if" conditionals used for versioning! Use "ifversion" instead.
+${ifsForVersioning.join('\n')}`
+        expect(ifsForVersioning.length, errorMessage).toBe(0)
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -840,9 +891,6 @@ describe('lint learning tracks', () => {
       })
 
       it('has one and only one featured track per supported version', async () => {
-        const featuredTracks = {}
-        const context = { enterpriseServerVersions }
-
         // Use the YAML filename to determine which product this refers to, and then peek
         // inside the product TOC frontmatter to see which versions the product is available in.
         const product = path.posix.basename(yamlRelPath, '.yml')
@@ -851,21 +899,26 @@ describe('lint learning tracks', () => {
         const { data } = frontmatter(productContents)
         const productVersions = getApplicableVersions(data.versions, productTocPath)
 
+        const featuredTracks = {}
+        const context = { enterpriseServerVersions }
+
         // For each of the product's versions, render the learning track data and look for a featured track.
         await Promise.all(productVersions.map(async (version) => {
-          const featuredTracksPerVersion = (await Promise.all(Object.values(dictionary).map(async (entry) => {
+          const featuredTracksPerVersion = []
+
+          for (const entry of Object.values(dictionary)) {
             if (!entry.featured_track) return
             context.currentVersion = version
+            context[allVersions[version].shortName] = true
             const isFeaturedLink = typeof entry.featured_track === 'boolean' || (await renderContent(entry.featured_track, context, { textOnly: true, encodeEntities: true }) === 'true')
-            return isFeaturedLink
-          })))
-            .filter(Boolean)
+            featuredTracksPerVersion.push(isFeaturedLink)
+          }
 
           featuredTracks[version] = featuredTracksPerVersion.length
         }))
 
         Object.entries(featuredTracks).forEach(([version, numOfFeaturedTracks]) => {
-          const errorMessage = `Expected one featured learning track for ${version} in ${yamlAbsPath}`
+          const errorMessage = `Expected 1 featured learning track but found ${numOfFeaturedTracks} for ${version} in ${yamlAbsPath}`
           expect(numOfFeaturedTracks, errorMessage).toBe(1)
         })
       })
@@ -882,6 +935,38 @@ describe('lint learning tracks', () => {
             .not
             .toThrow()
         })
+      })
+    }
+  )
+})
+
+describe('lint feature versions', () => {
+  if (featureVersionsToLint.length < 1) return
+  describe.each(featureVersionsToLint)(
+    '%s',
+    (yamlRelPath, yamlAbsPath) => {
+      let dictionary
+
+      beforeAll(async () => {
+        const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      })
+
+      it('matches the schema', () => {
+        const { errors } = revalidator.validate(dictionary, featureVersionsSchema)
+
+        const errorMessage = errors.map(error => {
+          // Make this one message a little more readable than the error we get from revalidator
+          // when additionalProperties is set to false and an additional prop is found.
+          const errorToReport = error.message === 'must not exist' && error.actual.feature
+            ? `feature: '${error.actual.feature}'`
+            : JSON.stringify(error.actual, null, 2)
+
+            return `- [${error.property}]: ${errorToReport}, ${error.message}`
+        })
+          .join('\n')
+
+        expect(errors.length, errorMessage).toBe(0)
       })
     }
   )
@@ -931,15 +1016,17 @@ function validateIfversionConditionals (conds) {
         // the second item is a supported operator, and the third is a supported GHES release.
         if (strParts.length === 3) {
           const [version, operator, release] = strParts
-          const isGhes = version === 'ghes'
-          const isSupportedOperator = allowedVersionOperators.includes(operator)
-          const isSupportedRelease = supported.includes(release)
-          const isValid = isGhes && isSupportedOperator && isSupportedRelease
-          const errorMessage = str === cond
-            ? `"${str}" is not a valid operation`
-            : `"${str}" is not a valid operation inside "${cond}"`
-            if (!isValid) {
-            errors.push(errorMessage)
+          if (version !== 'ghes') {
+            errors.push(`Found "${version}" inside "${cond}" with a "${operator}" operator; expected "ghes"`)
+          }
+          if (!allowedVersionOperators.includes(operator)) {
+            errors.push(`Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`)
+          }
+          // NOTE: The following will throw errors when we deprecate a version until we run the script to remove the
+          // deprecated versioning. If we deprecate a version before we have a working version of that script,
+          // we can comment out this part of the test temporarily and re-enable it once the script is ready.
+          if (!(supported.includes(release) || release === next)) {
+            errors.push(`Found ${release} inside "${cond}", but ${release} is not a supported GHES release`)
           }
         }
       })

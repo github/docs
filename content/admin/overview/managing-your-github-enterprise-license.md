@@ -13,9 +13,10 @@ redirect_from:
   - /enterprise/admin/installation/managing-your-github-enterprise-server-license
   - /enterprise/admin/overview/managing-your-github-enterprise-license
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Manage your license
 ---
 
 ## About {% data variables.product.prodname_enterprise %} licenses
@@ -53,7 +54,7 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 14. Click **Upload**.
   ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
 
-{% if currentVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
+{% ifversion ghes < 3.0 %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
 
 ## Viewing license usage
 
@@ -61,7 +62,7 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 {% data reusables.enterprise-accounts.settings-tab %}
 3. In the left sidebar, click **Enterprise licensing**.
   !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses. {% if currentVersion ver_gt "enterprise-server@3.0" %}If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
+4. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses. {% ifversion ghes > 3.0 %}If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 ## Automatically syncing user license usage with {% data variables.product.prodname_ghe_cloud %}
 
@@ -86,7 +87,7 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
   ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
 
-{% if currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghes < 3.0 %}
 
 ## Troubleshooting
 

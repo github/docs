@@ -3,7 +3,8 @@ title: Approving workflow runs from public forks
 intro: 'When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve any workflow runs.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Approve public fork runs
 ---
 
 Forks of public repositories can submit pull requests that propose changes to a repository's {% data variables.product.prodname_actions %} workflows. Although workflows from forks do not have access to sensitive data such as secrets, they can be an annoyance for maintainers if they are modified for abusive purposes. To help prevent this, workflows on pull requests are not run automatically if they are received from first-time contributors, and must be approved first.

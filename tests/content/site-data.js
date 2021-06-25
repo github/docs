@@ -14,7 +14,7 @@ describe('siteData module (English)', () => {
     done()
   })
 
-  test('exports an object', async () => {
+  test('makes an object', async () => {
     expect(isPlainObject(data)).toBe(true)
   })
 

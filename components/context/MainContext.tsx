@@ -72,6 +72,7 @@ export type MainContextT = {
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
+  isFPT: boolean
   data: DataT
   airGap?: boolean
   error: string
@@ -115,7 +116,8 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
-    isHomepageVersion: req.context.currentVersion === 'homepage',
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    isFPT: req.context.currentVersion === 'free-pro-team@latest',
     error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,

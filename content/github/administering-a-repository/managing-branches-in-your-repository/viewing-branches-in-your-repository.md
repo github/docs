@@ -5,11 +5,12 @@ redirect_from:
   - /articles/viewing-branches-in-your-repository
   - /github/administering-a-repository/viewing-branches-in-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: View branches
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}

@@ -3,9 +3,10 @@ title: Disabling and enabling a workflow
 intro: 'You can disable and re-enable a workflow using the {% data variables.product.prodname_dotcom %} UI, the REST API, or {% data variables.product.prodname_cli %}.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.23'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
+shortTitle: Disable & enable a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}

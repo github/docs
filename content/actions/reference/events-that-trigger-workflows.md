@@ -8,9 +8,10 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/events-that-trigger-workflows
   - /actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+shortTitle: Events that trigger workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -586,7 +587,7 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 
 ### `pull_request_target`
 
@@ -720,7 +721,7 @@ on:
     types: [started]
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 
 ### `workflow_run`
 

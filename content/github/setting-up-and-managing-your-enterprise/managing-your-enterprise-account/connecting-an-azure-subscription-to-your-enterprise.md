@@ -6,7 +6,8 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Connect an Azure subscription
 ---
 ## About Azure subscriptions and {% data variables.product.product_name %}
 

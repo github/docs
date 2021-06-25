@@ -4,9 +4,10 @@ intro: 'For help with purchasing or paying for an app from {% data variables.pro
 redirect_from:
   - /articles/github-marketplace-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
+shortTitle: GitHub Marketplace
 ---
 
 

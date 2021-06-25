@@ -4,10 +4,9 @@ intro: 'Learn about the different ways that {% data variables.product.product_na
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
-
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 learningTracks:
   - security_advisories
   - dependabot_alerts
@@ -18,7 +17,6 @@ learningTracks:
   - code_security_actions
   - code_security_ci
   - code_security_integration
-
 includeGuides:
   - /code-security/getting-started/adding-a-security-policy-to-your-repository
   - /code-security/getting-started/github-security-features
@@ -77,3 +75,4 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
+

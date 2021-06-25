@@ -12,9 +12,10 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Write listing descriptions
 ---
 Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
 

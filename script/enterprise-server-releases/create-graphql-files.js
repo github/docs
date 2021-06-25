@@ -53,10 +53,10 @@ const changesFile = path.join(graphqlStaticDir, 'upcoming-changes.json')
 const objectsFile = path.join(graphqlStaticDir, 'prerendered-objects.json')
 const inputObjectsFile = path.join(graphqlStaticDir, 'prerendered-input-objects.json')
 
-const previews = require(previewsFile)
-const changes = require(changesFile)
-const objects = require(objectsFile)
-const inputObjects = require(inputObjectsFile)
+const previews = JSON.parse(fs.readFileSync(previewsFile))
+const changes = JSON.parse(fs.readFileSync(changesFile))
+const objects = JSON.parse(fs.readFileSync(objectsFile))
+const inputObjects = JSON.parse(fs.readFileSync(inputObjectsFile))
 // The prerendered objects file for the "old version" contains hardcoded links with the old version number.
 // We need to update those links to include the new version to prevent a test from failing.
 const regexOldVersion = new RegExp(oldVersion, 'gi')

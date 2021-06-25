@@ -3,7 +3,7 @@ title: Best practices for community conversations on GitHub
 shortTitle: Best practices for community conversations
 intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to a discussion when you are ready to scope out the work.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data reusables.discussions.beta %}

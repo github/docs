@@ -5,11 +5,12 @@ redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Add a new SSH key
 ---
 Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
@@ -19,7 +20,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% data reusables.ssh.dsa-support %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 {% tip %}
 
 **Tip**: You can also add an SSH key using the {% data variables.product.prodname_cli %}. For more information, see "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" in the {% data variables.product.prodname_cli %} documentation.
@@ -122,7 +123,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% endlinux %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Further reading
 
 - "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"

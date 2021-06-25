@@ -3,7 +3,7 @@ title: About AE hosted runners
 intro: '{% data variables.product.prodname_ghe_managed %} offers customizable and security hardened hosted virtual machines to run {% data variables.product.prodname_actions %} workflows. You can select the hardware, bring your own machine image, and enable an IP address for networking with your {% data variables.actions.hosted_runner %}.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
 

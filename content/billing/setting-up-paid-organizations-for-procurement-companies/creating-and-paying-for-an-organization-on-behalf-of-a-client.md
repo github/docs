@@ -6,12 +6,13 @@ redirect_from:
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - User account
   - Organizations
   - Upgrades
+shortTitle: On behalf of a client
 ---
 ## Requirements
 

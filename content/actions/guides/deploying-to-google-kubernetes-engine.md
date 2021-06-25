@@ -3,14 +3,15 @@ title: Deploying to Google Kubernetes Engine
 intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - CD
   - Containers
   - Google Kubernetes Engine
+shortTitle: Deploy to Kubernetes (GKE)
 ---
 
 {% data reusables.actions.enterprise-beta %}

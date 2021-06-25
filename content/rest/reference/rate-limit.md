@@ -4,9 +4,9 @@ redirect_from:
   - /v3/rate_limit
   - /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

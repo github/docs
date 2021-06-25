@@ -6,9 +6,9 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ## Rewriting the most recent commit message
 
@@ -24,7 +24,7 @@ If the commit only exists in your local repository and has not been pushed to {%
 2. Type `git commit --amend` and press **Enter**.
 3. In your text editor, edit the commit message, and save the commit.
     - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/articles/creating-a-commit-with-multiple-authors)."
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 

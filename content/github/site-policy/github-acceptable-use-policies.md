@@ -3,7 +3,7 @@ title: GitHub Acceptable Use Policies
 redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

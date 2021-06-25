@@ -6,10 +6,11 @@ redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Connect an IdP
 ---
 
 Before [enabling SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in your {% data variables.product.product_name %} organization, you'll need to connect your identity provider (IdP) to your organization.

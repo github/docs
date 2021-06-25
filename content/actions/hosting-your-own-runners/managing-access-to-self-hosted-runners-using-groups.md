@@ -4,10 +4,11 @@ intro: You can use policies to limit access to self-hosted runners that have bee
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
+shortTitle: Manage access groups
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -17,7 +18,7 @@ type: 'tutorial'
 
 ## About self-hosted runner groups
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% note %}
 
 **Note:** All organizations have a single default self-hosted runner group. Creating and managing additional self-hosted runner groups is only available to enterprise accounts, and for organizations owned by an enterprise account.
@@ -42,12 +43,12 @@ When creating a group, you must choose a policy that defines which repositories 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. In the {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %} section, click **Add new**, and then **New group**.
+1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section, click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for repository access.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this.{% elsif currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
+   {% ifversion fpt or ghes > 2.22 or ghae %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this.{% elsif ghes = 2.22 %}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
 
    {% warning %}
 
@@ -79,7 +80,7 @@ When creating a group, you must choose a policy that defines which organizations
     ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for organization access.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this.{% elsif currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+   {% ifversion fpt or ghes > 2.22 or ghae %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this.{% elsif ghes = 2.22 %}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
 
    {% warning %}
 
@@ -104,7 +105,7 @@ You can update the access policy of a runner group, or rename a runner group.
 
 New self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
-1. In the {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
+1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
     ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Select the checkbox next to the self-hosted runner, and then click **Move to group** to see the available destinations.
     ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move.png)
@@ -115,7 +116,7 @@ New self-hosted runners are automatically assigned to the default group, and can
 
 Self-hosted runners are automatically returned to the default group when their group is removed.
 
-1. In the {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button.
+1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button.
     ![View runner group settings](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. To remove the group, click **Remove group**.
