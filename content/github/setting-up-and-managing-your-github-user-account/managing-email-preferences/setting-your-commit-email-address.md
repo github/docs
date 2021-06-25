@@ -4,7 +4,7 @@ intro: 'You can set the email address that is used to author commits on {% data 
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
-  - /article/about-commit-email-addresses/
+  - /articles/about-commit-email-addresses/
   - /articles/git-email-settings/
   - /articles/setting-your-email-in-git/
   - /articles/set-your-user-name-email-and-github-token/
