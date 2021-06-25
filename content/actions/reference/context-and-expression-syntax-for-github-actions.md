@@ -105,6 +105,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
 | `github.ref` | `string` | The branch or tag ref that triggered the workflow run. For branches this in the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`. |
 | `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
+| `github.repository.name` | `string` | The repository name. For example, `Hello-World`. |
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
 | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
