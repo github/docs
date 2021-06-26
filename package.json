@@ -185,6 +185,7 @@
     "xlsx-populate": "^1.21.0"
   },
   "scripts": {
+    "prepare": "npm run build",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.js",
     "dev": "npm start",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.js",

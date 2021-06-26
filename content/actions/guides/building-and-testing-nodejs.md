@@ -66,7 +66,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test
 ```
 {% endraw %}
@@ -126,7 +125,6 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test
 ```
 {% endraw %}
@@ -274,7 +272,6 @@ steps:
   with:
     node-version: '12.x'
 - run: npm install
-- run: npm run build --if-present
 - run: npm test
 ```
 

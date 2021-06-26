@@ -28,9 +28,6 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build
-        run: npm run build
-
       - name: 'Link check: Enterprise Server'
         env:
           DOCS_VERSION: 'enterprise-server'

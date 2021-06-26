@@ -27,8 +27,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm ci
-      - name: Run build scripts
-        run: npm run build
       - name: (Dry run) sync indices
         env:
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}

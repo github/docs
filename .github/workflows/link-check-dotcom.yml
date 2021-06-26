@@ -28,9 +28,6 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build
-        run: npm run build
-
       - name: 'Link check: Dotcom'
         env:
           DOCS_VERSION: 'dotcom'

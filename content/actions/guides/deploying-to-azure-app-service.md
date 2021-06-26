@@ -102,7 +102,6 @@ jobs:
           # Build and test the project, then
           # deploy to Azure Web App.
           npm install
-          npm run build --if-present
           npm run test --if-present
 
       - name: 'Deploy to Azure WebApp'

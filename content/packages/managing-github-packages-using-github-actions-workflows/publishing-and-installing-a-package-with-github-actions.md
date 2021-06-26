@@ -107,7 +107,6 @@ jobs:
       - name: npm install and build webpack
         run: |
           npm install
-          npm run build
       - uses: actions/upload-artifact@main
         with:
           name: webpack artifacts
@@ -224,7 +223,6 @@ run-npm-build:
     - name: npm install and build webpack
       run: |
         npm install
-        npm run build
     - uses: actions/upload-artifact@main
       with:
         name: webpack artifacts

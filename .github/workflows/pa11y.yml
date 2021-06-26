@@ -37,8 +37,5 @@ jobs:
       - name: Install dependencies
         run: npm ci --include=optional
 
-      - name: Run build scripts
-        run: npm run build
-
       - name: Run pa11y tests
         run: npm run pa11y-test

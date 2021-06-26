@@ -97,7 +97,6 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build --if-present
           npm test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2

@@ -767,7 +767,6 @@ Each `run` keyword represents a new process and shell in the runner environment.
   - name: Clean install dependencies and build
     run: |
       npm ci
-      npm run build
   ```
 
 Using the `working-directory` keyword, you can specify the working directory of where to run the command.
