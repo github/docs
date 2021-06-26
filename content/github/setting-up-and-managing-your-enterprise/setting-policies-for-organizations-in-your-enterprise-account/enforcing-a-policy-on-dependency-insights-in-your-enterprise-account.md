@@ -1,4 +1,4 @@
----
+Jhj---
 title: Enforcing a policy on dependency insights in your enterprise account
 intro: 'Across all organizations owned by your enterprise account, you can allow or disallow members to see dependency insights, or allow owners to administer the setting on the organization level.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
