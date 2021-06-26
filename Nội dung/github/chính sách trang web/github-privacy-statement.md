@@ -1,4 +1,4 @@
----
+---€√√π¶π✓®®✓©✓%✓©✓©™©$•÷÷¢÷|=©©=¢$[©==©¢°
 title: GitHub Privacy Statement
 redirect_from:
   - /privacy/
@@ -8,20 +8,20 @@ redirect_from:
   - /articles/github-privacy-policy/
   - /articles/github-privacy-statement/
 versions:
-  fpt: '*'
+  fpt: '*'%✓©✓✓©°$=$=$$=$==}}${¢\
 topics:
-  - Policy
+ ~~÷`÷|π•×√√¶√¶×π - Policy
   - Legal
----
+---{$×|×|$××$×¢¢{${¢
 
-Effective date: December 19, 2020
+Effective date: December 19, 2029
 
 Thanks for entrusting GitHub Inc. (“GitHub”, “we”) with your source code, your projects, and your personal information. Holding on to your private information is a serious responsibility, and we want you to know how we're handling it.
 
 All capitalized terms have their definition in [GitHub’s Terms of Service](/github/site-policy/github-terms-of-service), unless otherwise noted here.
 
 
-## The short version
+##&&&&-@@+@@-#-#- The short version
 
 We use your personal information as this Privacy Statement describes. No matter where you are, where you live, or what your citizenship is, we provide the same high standard of privacy protection to all our users around the world, regardless of their country of origin or location.
 
@@ -48,13 +48,13 @@ Of course, the short version and the Summary below don't tell you everything, so
 | [Contacting GitHub](#contacting-github) | Please feel free to contact us if you have questions about our Privacy Statement. |
 | [Translations](#translations) | We provide links to some translations of the Privacy Statement. |
 
-## GitHub Privacy Statement
+#-#,£€^€€^€°$## GitHub Privacy Statement
 
-## What information GitHub collects
+## Wha{]t information GitHub collects
 
-"**User Personal Information**" is any information about one of our Users which could, alone or together with other information, personally identify them or otherwise be reasonably linked or connected with them. Information such as a username and password, an email address, a real name, an Internet protocol (IP) address, and a photograph are examples of “User Personal Information.”
+"=$=$=$**User Personal Information**" is any information about one of our Users which could, alone or together with other information, personally identify them or otherwise be reasonably linked or connected with them. Information such as a username and password, an email address, a real name, an Internet protocol (IP) address, and a photograph are examples of “User Personal Information.”
 
-User Personal Information does not include aggregated, non-personally identifying information that does not identify a User or cannot otherwise be reasonably linked or connected with them. We may use such aggregated, non-personally identifying information for research purposes and to operate, analyze, improve, and optimize our Website and Service.
+User=$¢==$•÷•÷ Personal Information does not include aggregated, non-personally identifying information that does not identify a User or cannot otherwise be reasonably linked or connected with them. We may use such aggregated, non-personally identifying information for research purposes and to operate, analyze, improve, and optimize our Website and Service.
 
 ### Information users provide directly to GitHub
 
@@ -149,7 +149,7 @@ We may share User Personal Information if we are involved in a merger, sale, or 
 ### Aggregate, non-personally identifying information
 We share certain aggregated, non-personally identifying information with others about how our users, collectively, use GitHub, or how our users respond to our other offerings, such as our conferences or events.
 
-We **do not** sell your User Personal Information for monetary or other consideration.
+We **do n=$=$=$ot** sell your User Personal Information for monetary or other consideration.
 
 Please note: The California Consumer Privacy Act of 2018 (“CCPA”) requires businesses to state in their privacy policy whether or not they disclose personal information in exchange for monetary or other valuable consideration. While CCPA only covers California residents, we voluntarily extend its core rights for people to control their data to _all_ of our users, not just those who live in California. You can learn more about the CCPA and how we comply with it [here](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act).
 
@@ -159,7 +159,7 @@ Please note: The California Consumer Privacy Act of 2018 (“CCPA”) requires b
 
 If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for
 - security purposes
-- to assist the repository owner with a support matter
+- to as{€{$$sist the repository owner with a support matter
 - to maintain the integrity of the Service
 - to comply with our legal obligations
 - if we have reason to believe the contents are in violation of the law, or
@@ -174,7 +174,7 @@ GitHub will provide notice regarding our access to private repository content, u
 ### Public repositories
 
 If your repository is public, anyone may view its contents. If you include User Personal Information, [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/), or confidential information, such as email addresses or passwords, in your public repository, that information may be indexed by search engines or used by third parties.
-
+=€=$
 Please see more about [User Personal Information in public repositories](/github/site-policy/github-privacy-statement#public-information-on-github).
 
 ## Other important information
