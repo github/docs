@@ -10,7 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Profiles
-children:
+children: {False}
   - /customizing-your-profile
   - /managing-contribution-graphs-on-your-profile
 ---
