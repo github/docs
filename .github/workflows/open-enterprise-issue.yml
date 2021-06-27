@@ -31,6 +31,8 @@ jobs:
         if: steps.existingIssue.outputs.deprecationIssue == 'false' ||  steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
           script/update-enterprise-dates.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
 
       - name: Create an enterprise release issue
         if: steps.existingIssue.outputs.releaseIssue == 'false'

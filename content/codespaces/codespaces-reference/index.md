@@ -8,5 +8,6 @@ children:
   - /troubleshooting-your-codespace
   - /allowing-your-codespace-to-access-a-private-image-registry
   - /using-the-command-palette-in-codespaces
+  - /disaster-recovery-for-codespaces
 ---
 {% data reusables.codespaces.release-stage %}

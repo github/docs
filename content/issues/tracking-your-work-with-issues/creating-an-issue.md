@@ -26,7 +26,7 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: Automate with query parameters
+shortTitle: Create an issue
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
