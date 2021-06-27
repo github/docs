@@ -1,4 +1,4 @@
----
+ ---
 title: Approving workflow runs from public forks
 intro: 'When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve any workflow runs.'
 product: '{% data reusables.gated-features.actions %}'
