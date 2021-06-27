@@ -7,7 +7,8 @@ redirect_from:
   - /articles/about-github-education-for-students
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education-for-students
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: For students
 ---
 Using {% data variables.product.prodname_dotcom %} for your school projects is a practical way to collaborate with others and build a portfolio that showcases real-world experience.
 

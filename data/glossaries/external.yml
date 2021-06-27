@@ -180,7 +180,7 @@
     Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)" or "[About your organization dashboard](/articles/about-your-organization-dashboard)."
 - term: default branch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - term: dependents graph
   description: >-
     A repository graph that shows the packages, projects, and repositories that depend on a
@@ -256,8 +256,8 @@
 - term: gist
   description: >-
     A gist is a shareable file that you can edit, clone, and fork on GitHub.
-    You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be
-    available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be
+    available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - term: Git
   description: >-
     Git is an open source program for tracking changes in text files. It was
@@ -400,7 +400,7 @@
   description: A system for annotating and formatting a document.
 - term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}
+    {% ifversion fpt or ghes > 3.1 or ghae %}
     The default development branch. Whenever you create a Git repository,
     a branch named `main` is created, and becomes the active branch. 
     In most cases, this contains the local development, though that is purely by
@@ -410,7 +410,7 @@
   description: >-
     The default branch in many Git repositories. By default, when you create
     a new Git repository on the command line, a branch called `master` is created.
-    Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example,
+    Many tools now use an alternative name for the default branch.{% ifversion fpt or ghes > 3.1 or ghae %} For example,
     when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - term: members graph
   description: A repository graph that shows all the forks of a repository.

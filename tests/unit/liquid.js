@@ -1,7 +1,9 @@
 const { liquid } = require('../../lib/render-content')
-const middleware = require('../../middleware/contextualizers/short-versions')
+const shortVersionsMiddleware = require('../../middleware/contextualizers/short-versions')
+const featureVersionsMiddleware = require('../../middleware/contextualizers/features')
 const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+const loadSiteData = require('../../lib/site-data')
 
 const template = `
   {% if currentVersion ver_gt "enterprise-server@2.13" %}up to date{% endif %}
@@ -23,6 +25,10 @@ const negativeVersionsTemplate = `
   {% ifversion not ghae %} I am not GHAE {% endif %}
   {% ifversion not ghes %} I am not GHES {% endif %}
   {% ifversion ghes != 3.1 %} I am not GHES 3.1 {% endif %}
+`
+
+const featureVersionsTemplate = `
+  {% if placeholder %} I am placeholder content {% endif %}
 `
 
 describe('liquid template parser', () => {
@@ -68,7 +74,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       // We should have TWO results because we are supporting two shortcuts
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am FPT I am FTP or GHES < 3.0')
@@ -81,7 +87,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.trim()).toBe('I am GHAE')
     })
@@ -93,7 +99,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am FTP or GHES < 3.0')
     })
@@ -105,7 +111,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am 3.0 only')
     })
@@ -117,7 +123,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHES I am not GHES 3.1')
     })
@@ -129,7 +135,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE I am not GHES 3.1')
     })
@@ -141,9 +147,59 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases
       }
-      await middleware(req, null, () => {})
+      await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE')
+    })
+  })
+
+  describe('feature versions', () => {
+    // Create a fake req so we can test the feature versions middleware
+    const req = { language: 'en', query: {} }
+
+    let siteData
+    beforeAll(async () => {
+      const allSiteData = await loadSiteData()
+      siteData = allSiteData.en.site
+    })
+
+    test('does not render in FPT because feature is not available in FPT', async () => {
+      req.context = {
+        currentVersion: 'free-pro-team@latest',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(false)
+    })
+
+    test('renders in GHES because feature is available in GHES', async () => {
+      req.context = {
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(true)
+    })
+
+    test('renders in GHAE because feature is available in GHAE', async () => {
+      req.context = {
+        currentVersion: 'github-ae@latest',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+        site: siteData
+      }
+      await featureVersionsMiddleware(req, null, () => {})
+      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(outputFpt.includes('placeholder content')).toBe(true)
     })
   })
 })

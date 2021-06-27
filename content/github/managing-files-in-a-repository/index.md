@@ -5,14 +5,15 @@ redirect_from:
   - /categories/manipulating-files/
   - /categories/managing-files-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
   - /managing-files-on-github
   - /managing-files-using-the-command-line
   - /working-with-non-code-files
+shortTitle: Manage files in a repository
 ---
 

@@ -7,9 +7,9 @@ redirect_from:
   - /github/getting-started-with-github/quickstart/create-a-repo
 intro: 'To put your project up on {% data variables.product.product_location %}, you''ll need to create a repository for it to live in.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
   - Issues
@@ -18,17 +18,17 @@ topics:
 ---
 ## Create a repository
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
-{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% elsif ghes or ghae %}
 
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -49,7 +49,7 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 {% tip %}
 
 **Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.

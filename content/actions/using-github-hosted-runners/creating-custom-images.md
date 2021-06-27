@@ -2,7 +2,7 @@
 title: Creating custom images
 intro: 'You can create custom images for {% data variables.actions.hosted_runner %}s.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
 {% data reusables.actions.ae-beta %}

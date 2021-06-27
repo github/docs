@@ -5,7 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-the-branch-history
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: View branch history
 ---
 Each commit shows:
 

@@ -2,7 +2,7 @@
 title: Forwarding ports in your codespace
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
 type: how_to
@@ -10,6 +10,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Forward ports
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -22,7 +23,7 @@ When an application running inside a codespace outputs a port to the console, {%
 
 ![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
-You can also forward a port manually, label forwarded ports, share fowarded ports publicly, and add forwarded ports to the codespace configuration.
+You can also forward a port manually, label forwarded ports, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
 ## Forwarding a port
 
@@ -58,10 +59,9 @@ If you want to share a forwarded port with others, you can make the port public.
 
 You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
-You can manually configure fowarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
+You can manually configure forwarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Right click the port you want to add to the codespace configuration, then click **Set Label and Update devcontainer.json**.
   ![Option to set label and add port to devcontainer.json in the right-click menu](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png)
 {% data reusables.codespaces.type-port-label %}
-

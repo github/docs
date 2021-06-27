@@ -7,9 +7,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for GitHub Actions
 ---
 ## About {% data variables.product.prodname_actions %} permissions for your enterprise account
 

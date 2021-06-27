@@ -5,7 +5,8 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Metrics in GitHub Insights
 ---
 
 ## About metrics in {% data variables.product.prodname_insights %}

@@ -5,7 +5,7 @@ redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot
@@ -13,6 +13,7 @@ topics:
   - Secret store
   - Repositories
   - Dependencies
+shortTitle: Manage encrypted secrets
 ---
 ## About encrypted secrets for {% data variables.product.prodname_dependabot %}
 

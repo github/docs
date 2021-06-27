@@ -6,7 +6,7 @@ redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot
@@ -14,6 +14,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Enable & disable updates
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 

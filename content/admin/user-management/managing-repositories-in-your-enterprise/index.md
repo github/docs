@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/repositories
   - /enterprise/admin/user-management/managing-repositories-in-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -14,5 +14,6 @@ children:
   - /migrating-to-internal-repositories
   - /disabling-git-ssh-access-on-your-enterprise
   - /troubleshooting-service-hooks
+shortTitle: Manage repositories
 ---
 

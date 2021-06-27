@@ -1,24 +1,25 @@
 ---
 title: Managing notifications from your inbox
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} and mobile{% endif %}.'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes > 2.22 %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
   - /github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
+shortTitle: Manage from your inbox
 ---
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
 ## About your inbox
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes > 2.22 %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
@@ -95,7 +96,7 @@ Custom filters do not currently support:
 These are the types of filters that you can use:
   - Filter by repository with `repo:`
   - Filter by discussion type with `is:`
-  - Filter by notification reason with `reason:`{% if currentVersion == "free-pro-team@latest" %}
+  - Filter by notification reason with `reason:`{% ifversion fpt %}
   - Filter by notification author with `author:`
   - Filter by organization with `org:`{% endif %}
 
@@ -105,21 +106,21 @@ To add a `repo:` filter, you must include the owner of the repository in the que
 
 ### Supported `is:` queries
 
-To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% ifversion fpt or ghes > 2.21 %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
+- `is:repository-invitation`{% ifversion not ghae %}
 - `is:repository-vulnerability-alert`
 - `is:repository-advisory`{% endif %}
-- `is:team-discussion`{% if currentVersion == "free-pro-team@latest" %}
+- `is:team-discussion`{% ifversion fpt %}
 - `is:discussion`{% endif %}
 
-{% if currentVersion != "github-ae@latest" %}
-For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% ifversion not ghae %}
+For information about reducing noise from notifications for {% ifversion fpt or ghes > 2.21 %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 You can also use the `is:` query to describe how the notification was triaged.
@@ -142,13 +143,13 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:invitation` | When you're invited to a team, organization, or repository.
 | `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
 | `reason:mention` | You were directly @mentioned.
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% ifversion not ghae %}
 | `reason:security-alert` | When a security alert is issued for a repository.{% endif %}
 | `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
 | `reason:team-mention` | When a team you're a member of is @mentioned.
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
@@ -161,10 +162,10 @@ For example, to see notifications from the octo-org organization, use `org:octo-
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion fpt or ghes > 2.21 %}
 ## {% data variables.product.prodname_dependabot %} custom filters
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
 - `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
@@ -173,7 +174,7 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
 
 For more information about {% data variables.product.prodname_dependabot %}, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."

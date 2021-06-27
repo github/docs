@@ -5,20 +5,21 @@ redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: how_to
 topics:
   - Actions
   - Enterprise
   - Policies
+shortTitle: Enforce enterprise policies
 ---
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your enterprise
 
-{% if currentVersion == "github-ae@latest" %}{% else %}When you enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, it is enabled for all organizations in your enterprise. {% endif %}You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
+{% ifversion ghae %}{% else %}When you enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, it is enabled for all organizations in your enterprise. {% endif %}You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your enterprise
 
@@ -27,7 +28,7 @@ topics:
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest"%}
+{% ifversion ghes > 2.22 or ghae %}
 ## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
