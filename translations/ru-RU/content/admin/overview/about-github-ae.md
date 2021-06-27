@@ -38,3 +38,7 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 ### Commercial and government environments
 
 {% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
+
+### Дополнительная литература
+
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

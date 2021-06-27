@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
   - /admin/enterprise-management/monitoring-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -16,7 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
-### Manually checking cluster status
+## Manually checking cluster status
 
 {% data variables.product.prodname_ghe_server %} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:
 
@@ -31,15 +31,15 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 {% endnote %}
 
-### Monitoring cluster status with Nagios
+## Monitoring cluster status with Nagios
 
 You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables.product.prodname_ghe_server %}. In addition to monitoring basic connectivity to each of the cluster nodes, you can check the cluster status by configuring Nagios to use the `ghe-cluster-status -n` command. This returns output in a format that Nagios understands.
 
-#### Prerequisites
+### Prerequisites
 * Linux host running Nagios.
 * Network access to the {% data variables.product.prodname_ghe_server %} cluster.
 
-#### Configuring the Nagios host
+### Configuring the Nagios host
 1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>

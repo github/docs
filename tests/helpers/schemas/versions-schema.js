@@ -6,6 +6,7 @@ const delimiter = '@'
 const versionPattern = `${planPattern}${delimiter}${releasePattern}`
 
 module.exports = {
+  additionalProperties: false,
   properties: {
     version: {
       required: true,
@@ -38,6 +39,11 @@ module.exports = {
     planTitle: {
       required: true,
       description: 'the plan title', // this is the same as the version title, sans numbered release
+      type: 'string'
+    },
+    shortName: {
+      required: true,
+      description: 'the short name for the version to be used in Liquid conditionals',
       type: 'string'
     },
     releases: {

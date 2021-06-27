@@ -8,12 +8,13 @@ redirect_from:
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Invite people to manage
 ---
-### About inviting people to manage your enterprise account
+## About inviting people to manage your enterprise account
 
 {% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).
 
@@ -23,7 +24,7 @@ topics:
 
 {% endtip %}
 
-### Inviting an enterprise administrator to your enterprise account
+## Inviting an enterprise administrator to your enterprise account
 
 Only enterprise owners can invite other people to become enterprise administrators.
 
@@ -42,7 +43,7 @@ After you invite someone to join the enterprise account, they must accept the em
 7. Click **Send Invitation**.
   ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png)
 
-### Removing an enterprise administrator from your enterprise account
+## Removing an enterprise administrator from your enterprise account
 
 Only enterprise owners can remove other enterprise administrators from the enterprise account.
 

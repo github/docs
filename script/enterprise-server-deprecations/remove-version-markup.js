@@ -12,6 +12,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const contentPath = path.join(__dirname, '../../content')
 const dataPath = path.join(__dirname, '../../data')
 const removeUnusedAssetsScript = 'script/remove-unused-assets'
+const runRemoveUnusedAssetsScript = require('../remove-unused-assets')
 const elseifRegex = /{-?% elsif/
 
 // [start-readme]
@@ -64,7 +65,7 @@ const allFiles = contentFiles.concat(dataFiles)
 
 main()
 console.log(`\nRunning ${removeUnusedAssetsScript}...`)
-require(path.join(process.cwd(), removeUnusedAssetsScript))
+runRemoveUnusedAssetsScript()
 
 function printElseIfFoundWarning (location) {
   console.log(`${location} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`)

@@ -10,13 +10,14 @@ redirect_from:
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
+shortTitle: Personalize
 ---
-### Changing your profile picture
+## Changing your profile picture
 
 Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
 
@@ -28,7 +29,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 {% endtip %}
 
-#### Setting a profile picture
+### Setting a profile picture
 
 {% data reusables.user_settings.access_settings %}
 2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
@@ -38,7 +39,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 3. Crop your picture. When you're done, click **Set new profile picture**.
 	![Crop uploaded photo](/assets/images/help/profile/avatar_crop_and_save.png)
 
-#### Resetting your profile picture to the identicon
+### Resetting your profile picture to the identicon
 
 {% data reusables.user_settings.access_settings %}
 2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
@@ -46,7 +47,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 3. To revert to your identicon, click **Remove photo**. If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
 ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png)
 
-### Changing your profile name
+## Changing your profile name
 
 You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
 
@@ -54,11 +55,11 @@ You can change the name that is displayed on your profile. This name may also be
 2. Under "Name", type the name you want to be displayed on your profile.
   ![Name field in profile settings](/assets/images/help/profile/name-field.png)
 
-### Adding a bio to your profile
+## Adding a bio to your profile
 
 Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion fpt or ghes > 2.21 %}
 
 For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 
@@ -84,7 +85,7 @@ For a longer-form and more prominent way of displaying customized information ab
 3. Click **Update profile**.
 	![Update profile button](/assets/images/help/profile/update-profile-button.png)
 
-### Setting a status
+## Setting a status
 
 You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
 - on your {% data variables.product.product_name %} profile page.
@@ -94,7 +95,7 @@ You can set a status to display information about your current availability on {
 
 When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
 
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availibilty-text.png)
+![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
 
 ![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
@@ -115,8 +116,8 @@ If you select the "Busy" option, when people @mention your username, assign you 
 7. Click **Set status**.
   ![Button to set status](/assets/images/help/profile/set-status-button.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Displaying badges on your profile
+{% ifversion fpt %}
+## Displaying badges on your profile
 
 When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.
 
@@ -127,8 +128,10 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 | ![{% data variables.product.prodname_dotcom %} Sponsor badge icon](/assets/images/help/profile/badge-sponsors-small.png) | **{% data variables.product.prodname_dotcom %} Sponsor**  | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a {% data variables.product.prodname_dotcom %} Sponsor badge on your profile. Clicking the badge takes you to the **Sponsoring** tab of your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)." |
 | {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% data variables.product.prodname_dotcom %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/). |
 | {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)." |
+| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **Github Campus Expert** | If you participate in the {% data variables.product.prodname_dotcom %} Campus Program you'll get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
 
-### Disabling badges on your profile
+## Disabling badges on your profile
 
 You can disable some of the badges for {% data variables.product.prodname_dotcom %} programs you're participating in, including the PRO, {% data variables.product.prodname_arctic_vault %} and Mars 2020 Helicopter Contributor badges.
 
@@ -139,9 +142,9 @@ You can disable some of the badges for {% data variables.product.prodname_dotcom
 
 {% endif %}
 
-### List of qualifying repositories for Mars 2020 Helicopter Contributor badge
+## List of qualifying repositories for Mars 2020 Helicopter Contributor badge
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/github/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
 
 | {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
 |---|---|---|
@@ -212,8 +215,8 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | [HdrHistogram/HdrHistogram](https://github.com/HdrHistogram/HdrHistogram) | 2.1.9 | [HdrHistogram-2.1.9](https://github.com/HdrHistogram/HdrHistogram/releases/tag/HdrHistogram-2.1.9) |
 | [locationtech/spatial4j](https://github.com/locationtech/spatial4j) | 0.7 | [spatial4j-0.7](https://github.com/locationtech/spatial4j/releases/tag/spatial4j-0.7) |
 | [locationtech/jts](https://github.com/locationtech/jts) | 1.15.0 | [jts-1.15.0](https://github.com/locationtech/jts/releases/tag/jts-1.15.0) |
-| [apache/log4j](https://github.com/apache/log4j) | 2.11 | [v1_2_11](https://github.com/apache/log4j/releases/tag/v1_2_11) |
+| [apache/logging-log4j2](https://github.com/apache/logging-log4j2) | 2.11 | [log4j-2.11.0](https://github.com/apache/logging-log4j2/releases/tag/log4j-2.11.0) |
 
-### Further reading
+## Further reading
 
 - "[About your profile](/articles/about-your-profile)"

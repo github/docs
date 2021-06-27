@@ -10,8 +10,8 @@ children:
   - /managing-deploy-keys
   - /viewing-deployment-history
   - /using-ssh-agent-forwarding
-  - /secret-scanning
+  - /secret-scanning-partner-program
   - /replacing-github-services
   - /github-developer-program
 ---
-### 目录
+

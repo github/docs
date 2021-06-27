@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
 ---
+
 ### インボックスのトリアージを開始する
 
 インボックスのトリアージを開始する前に、最重要の更新を最初に見つけて対応するか、削除またはトリアージが簡単な煩わしい更新をインボックスからクリアするかを検討してください。

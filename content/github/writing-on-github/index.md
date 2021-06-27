@@ -5,10 +5,11 @@ redirect_from:
   - /articles/github-flavored-markdown/
   - /articles/writing-on-github/
   - /categories/writing-on-github
+intro: 'You can structure the information shared on {% data variables.product.product_name %} with various formatting options.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /getting-started-with-writing-and-formatting-on-github
   - /working-with-advanced-formatting

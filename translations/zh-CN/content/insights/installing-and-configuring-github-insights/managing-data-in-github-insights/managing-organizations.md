@@ -8,6 +8,7 @@ permissions: 'People with admin permissions in {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于组织管理
 
 将组织添加到 {% data variables.product.prodname_insights %} 后，该组织拥有的仓库将包含在指标中。 您可以选择添加所有仓库或选择要添加的特定仓库。

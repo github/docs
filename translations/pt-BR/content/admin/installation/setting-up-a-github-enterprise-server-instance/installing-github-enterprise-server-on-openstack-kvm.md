@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}
@@ -31,9 +32,7 @@ topics:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. No OpenStack Horizon, faça o upload do
-
-imagem de {% data variables.product.prodname_ghe_server %} que você baixou. Para obter instruções, consulte a seção "Fazer upload de uma imagem" do guia OpenStack "[Fazer upload e gerenciar imagens](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
+1. No OpenStack Horizon, faça upload da imagem do {% data variables.product.prodname_ghe_server %} que você baixou. Para obter instruções, consulte a seção "Fazer upload de uma imagem" do guia OpenStack "[Fazer upload e gerenciar imagens](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
 {% data reusables.enterprise_installation.create-attached-storage-volume %} Para obter instruções, consulte o guia OpenStack "[Criar e gerenciar volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)".
 3. Crie um grupo de segurança e adicione uma nova regra de grupo de segurança para cada porta na tabela abaixo. Para ver as instruções, consulte o guia do OpenStack "[Configurar o acesso e a segurança nas instâncias](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)".
 

@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Performance
 ---
+
 ### {% data variables.product.prodname_enterprise_api %}のレート制限の有効化
 
 {% data variables.product.prodname_enterprise_api %}のレート制限を有効化すれば、個人あるいは認証されていないユーザによるリソースの過剰な利用を回避できます。 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。

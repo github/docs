@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **提示：**您可以通过拖放文件夹到 {% data variables.product.prodname_desktop %} 的方式，将 Git 仓库从本地计算机添加到 GitHub Desktop。 如果同时将多个 Git 文件夹拖入 {% data variables.product.prodname_desktop %}，则每个文件夹将添加为一个单独的 Git 仓库。

@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Informationen zur E-Mail-Verifizierung
 
 Du kannst Deine E-Mail-Adresse verifizieren, nachdem Du ein neues Konto registriert hast, oder wenn Du eine neue E-Mail-Adresse hinzufügst. Wenn es nicht möglich ist, E-Mails an eine E-Mail-Adresse zuzustellen, wird sie nicht bestätigt.

@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise アカウントを管理するようユーザを招待することについて
 
 {% data reusables.enterprise-accounts.enterprise-administrators %}詳しい情報については、「[Enterprise のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)」を参照してください。

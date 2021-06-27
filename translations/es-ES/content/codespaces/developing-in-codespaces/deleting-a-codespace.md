@@ -18,12 +18,12 @@ topics:
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
-1. Navigate to the repository where you created the codespace. Select **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces** and then click {% octicon "gear" aria-label="The Settings gear" %}. This will display all {% data variables.product.prodname_codespaces %} that you have created in the repository. ![Codespaces tab](/assets/images/help/codespaces/codespaces-manage.png)
+1. Navega al repositorio en donde creaste el codespace. Selecciona **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces** y lugo haz clic en {% octicon "gear" aria-label="The Settings gear" %}. Esto mostrará todos los {% data variables.product.prodname_codespaces %} que hayas creado en el repositorio. ![Pestaña de codespaces](/assets/images/help/codespaces/codespaces-manage.png)
 
-  Alternatively, you can see every codespace owned by your user account at [github.com/codespaces](https://github.com/codespaces).
+  Como alternativa, puedes ver cada codespace que pertenezca a tu cuenta de usuario en [github.com/codespaces](https://github.com/codespaces).
 
-2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete** ![Botón de borrar](/assets/images/help/codespaces/delete-codespace.png)
+2. A la derecha del codespace que quieres borrar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Borrar {% octicon "trash" aria-label="The trash icon" %}** ![Botón de borrar](/assets/images/help/codespaces/delete-codespace.png)
 
 ### Borrar un codespace en {% data variables.product.prodname_vscode %}
 
-For information on deleting a codespace in {% data variables.product.prodname_vscode %}, see "[Using Codespaces in Visual Studio Code](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#deleting-a-codespace-in-visual-studio-code)."
+Para obtener más información sobre borrar un codespace en {% data variables.product.prodname_vscode %}, consulta la sección "[Utilizar Codespaces en Visual Studio Code](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#deleting-a-codespace-in-visual-studio-code)".

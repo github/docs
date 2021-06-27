@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 在安装 {% data variables.product.prodname_desktop %} 时， {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 也会安装。 {% data variables.large_files.product_name_short %} 可让您将文件推送到超出 {% data variables.large_files.max_github_size %} 正常限制的 {% data variables.product.prodname_dotcom %}。 有关 {% data variables.large_files.product_name_short %} 的更多信息，请参阅“[关于 {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage)”。
 
 要使用 {% data variables.large_files.product_name_short %} 与 {% data variables.product.prodname_desktop %}，您必须使用命令行配置 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[配置 {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)。”

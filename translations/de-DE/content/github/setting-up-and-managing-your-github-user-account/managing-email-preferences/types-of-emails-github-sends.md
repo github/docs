@@ -10,6 +10,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### Benachrichtigungs-E-Mails
 
 Du kannst festlegen, ob und welche Aktivitätsbenachrichtigungen Du via E-Mail erhalten willst. Weitere Informationen findest Du unter „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)." Benachrichtigungs-E-Mails können folgendes beinhalten:

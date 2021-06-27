@@ -1,4 +1,4 @@
-const { loadPages } = require('../../lib/pages')
+const { loadPages } = require('../../lib/page-data')
 
 module.exports = async function findIndexablePages () {
   const allPages = await loadPages()

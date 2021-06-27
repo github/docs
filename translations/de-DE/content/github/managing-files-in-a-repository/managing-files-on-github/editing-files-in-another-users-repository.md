@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 1. Navigiere im Repository eines anderen Benutzers zu dem Ordner mit der Datei, die Du bearbeiten möchtest. Klicke auf den Namen der Datei, die Du bearbeiten möchtest.
 2. Klicke über dem Inhalt der Datei auf {% octicon "pencil" aria-label="The edit icon" %}. An dieser Stelle forkt GitHub das Repository für Dich.
 3. Nimm alle erforderlichen Änderungen an der Datei vor. ![Neuer Inhalt in Datei](/assets/images/help/repository/edit-readme-light.png)

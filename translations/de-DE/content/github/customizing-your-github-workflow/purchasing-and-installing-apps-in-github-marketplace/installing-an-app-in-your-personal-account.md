@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonnement am aktuellen Abrechnungsdatum Deines persönlichen Kontos mit der vorhandenen Zahlungsmethode.

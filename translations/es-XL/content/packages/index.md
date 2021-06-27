@@ -32,9 +32,9 @@ changelog:
   prefix: 'Packages: '
 layout: product-landing
 children:
-  - /getting-started-with-github-container-registry
-  - /managing-container-images-with-github-container-registry
-  - /publishing-and-managing-packages
-  - /using-github-packages-with-your-projects-ecosystem
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}

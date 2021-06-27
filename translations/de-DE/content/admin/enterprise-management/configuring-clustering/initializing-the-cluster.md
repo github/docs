@@ -12,6 +12,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ### {% data variables.product.prodname_ghe_server %} installieren

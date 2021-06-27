@@ -16,6 +16,7 @@ topics:
   - GitHub Connect
   - GitHub search
 ---
+
 启用统一搜索后，用户可在从 {% data variables.product.product_location_enterprise %} 进行搜索时查看 {% data variables.product.prodname_dotcom_the_website %} 上公共和私有内容的搜索结果。
 
 用户将无法从 {% data variables.product.prodname_dotcom_the_website %} 搜索 {% data variables.product.product_location_enterprise %}，即使他们对这两个环境都具有访问权限。 用户只能搜索您已启用 {% data variables.product.prodname_unified_search %} 的私有仓库，并且他们可以在连接的 {% data variables.product.prodname_ghe_cloud %} 组织中访问。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)”和“[在 {% data variables.product.prodname_ghe_server %} 帐户中启用私有 {% data variables.product.prodname_dotcom_the_website %} 仓库搜索](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)”。

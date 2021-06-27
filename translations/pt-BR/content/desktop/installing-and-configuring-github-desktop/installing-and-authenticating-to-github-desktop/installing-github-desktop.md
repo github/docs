@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre a instalação do {% data variables.product.prodname_desktop %}
 
-Você pode instalar o {% data variables.product.prodname_desktop %} em sistemas operacionais suportados. Se você tiver uma conta em {% data variables.product.prodname_dotcom %} ou {% data variables.product.prodname_enterprise %}, você pode conectar sua conta ao {% data variables.product.prodname_desktop %}. Para obter mais informações sobre criar uma conta, consulte "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account/)" ou entre em contato com o administrador de seu site {% data variables.product.prodname_enterprise %}.
+Você pode instalar {% data variables.product.prodname_desktop %} em sistemas operacionais compatíveis, que incluem atualmente {% data variables.desktop.mac-osx-versions %} e {% data variables.desktop.windows-versions %}. Se você tiver uma conta em {% data variables.product.prodname_dotcom %} ou {% data variables.product.prodname_enterprise %}, você pode conectar sua conta ao {% data variables.product.prodname_desktop %}. Para obter mais informações sobre criar uma conta, consulte "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account/)" ou entre em contato com o administrador de seu site {% data variables.product.prodname_enterprise %}.
 
 {% windows %}
 

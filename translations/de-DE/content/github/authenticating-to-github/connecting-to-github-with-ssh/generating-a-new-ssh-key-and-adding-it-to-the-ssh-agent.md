@@ -13,6 +13,7 @@ versions:
 topics:
   - SSH
 ---
+
 ### About SSH key generation
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
@@ -81,7 +82,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% mac %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 2. Wenn Sie macOS Sierra 10.12.2 oder höher verwenden, müssen Sie die Datei `~/.ssh/config` bearbeiten, damit automatisch Schlüssel in den ssh-agent geladen und Passphrasen in der Keychain gespeichert werden.
 
@@ -155,7 +156,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 1. Stellen Sie sicher, dass ssh-agent ausgeführt wird. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
   # start the ssh-agent in the background
-  $ eval `ssh-agent -s`
+  $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
 
@@ -168,15 +169,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% linux %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
-
-  In some Linux environments, you need root access to run the command:
-
-  ```
-  $ sudo -s -H
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  ```
+{% data reusables.command_line.start_ssh_agent %}
 
 2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}

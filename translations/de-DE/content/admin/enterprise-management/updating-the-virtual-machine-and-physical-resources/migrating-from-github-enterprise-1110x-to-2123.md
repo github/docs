@@ -19,6 +19,7 @@ topics:
   - Migration
   - Upgrades
 ---
+
 Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und höher werden unterstützt. Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und früher werden nicht unterstützt. Sie müssen zunächst in verschiedenen Upgrades ein Upgrade auf die Version 11.10.348 durchführen. Weitere Informationen finden Sie in der 11.10.348-Upgrade-Prozedur „[Upgrade auf die neueste Version durchführen](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)“.
 
 Um ein Upgrade auf die neueste Version von {% data variables.product.prodname_enterprise %} durchzuführen, müssen Sie zunächst ein Upgrade auf {% data variables.product.prodname_ghe_server %} 2.1 vornehmen. Anschließend können Sie den normalen Upgrade-Prozess befolgen. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)“.

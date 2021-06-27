@@ -23,6 +23,10 @@ topics:
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+1. Si estás configurando niveles por primera vez, te recomendamos que revises los ejemplos de niveles sugeridos para ver cómo lotros contribuyetntes de código abierto configuraron {% data variables.product.prodname_sponsors %}. Decide siquieres iniciar con algunos niveles de borrador sugeridos, los cuales puedes personalizar en el editor de niveles.
+   - Para utilizar un nivel sugerido, selecciona las contraseñas que te gustaría incluir en tu nivel o niveles de borrador. Posteriormente, haz clic en **Seguir con el editor de niveles**.
+   - Para crear niveles sin utilizar con cualquiera de las sugerencias de borrador, haz clic en **Saltar este paso**. ![Opción de "Saltar este paso" y botón de "Avanzar al editor de niveles"](/assets/images/help/sponsors/tier-editor-button.png)
+1. Opcionalmente, para editar un nivel de borrador, encuentra dicho nivel y haz clic en **Editar**. ![Botón de editar junto al nivel en borrador](/assets/images/help/sponsors/draft-tier-edit.png)
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
@@ -33,6 +37,11 @@ topics:
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
+  {% note %}
+
+  **Nota:** Para ver las ideas de las descripciones de nivel, despázate hacia abajo.
+
+  {% endnote %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}

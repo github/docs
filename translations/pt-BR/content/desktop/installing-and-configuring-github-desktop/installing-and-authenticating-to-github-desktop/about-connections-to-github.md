@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} conecta-se a {% data variables.product.prodname_dotcom %} quando você pull, push, clona e bifurca os repositórios remotos. Para se conectar a {% data variables.product.prodname_dotcom %} a partir de {% data variables.product.prodname_desktop %}, você deve autenticar sua conta. Para obter mais informações, consulte "
 Autenticar-se no {% data variables.product.prodname_dotcom %}."</p> 
 

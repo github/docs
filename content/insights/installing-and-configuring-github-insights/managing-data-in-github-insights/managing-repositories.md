@@ -5,11 +5,11 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
   - /insights/installing-and-configuring-github-insights/managing-repositories
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
-### About repository management
+## About repository management
 
 For {% data variables.product.prodname_insights %} to include data from a repository in {% data variables.product.prodname_enterprise %}, you must add the organization that owns the repository to {% data variables.product.prodname_insights %}. For more information, see "[Managing organizations](/github/installing-and-configuring-github-insights/managing-organizations)."
 
@@ -25,7 +25,7 @@ Repository data is updated through webhooks and periodic synchronizations. You c
 
 You can exclude specific files from {% data variables.product.prodname_insights %} for a specific repository or for all repositories.  
 
-### About import times
+## About import times
 
 {% data variables.product.prodname_insights %} imports the last three years of data for each repository. Depending on the size and complexity of your repositories, the initial import can some time, during which {% data variables.product.prodname_insights %} data is incomplete. Typically, the initial import of a few teams will take one or two days. Large and complex initial imports can take up to two weeks.
 
@@ -48,7 +48,7 @@ If you have many large repositories, you can improve initial import times by pro
 
 Importing a large number of pull requests can trigger rate-limiting from {% data variables.product.prodname_enterprise %}. In this case, importing will pause for one hour before resuming. You can temporarily increase the {% data variables.product.prodname_enterprise %} rate limit to improve import times. For more information, see "[Configuring rate limits](/enterprise/{{ currentVersion }}/admin/installation/configuring-rate-limits)."
 
-### Viewing and managing repositories
+## Viewing and managing repositories
 
 You can view imported repositories and repositories that are available to import. If an import is in progress, you can see the import's status and a time estimate for the import's completion.
 
@@ -63,11 +63,11 @@ You can view imported repositories and repositories that are available to import
 6. Optionally, to remove an imported repository, to the right of the repository's name, click **Remove**.
   ![Remove button](/assets/images/help/insights/remove-button.png)
 
-### Managing repository groups for reports
+## Managing repository groups for reports
 
 You can create a repository group, add or remove repositories to a group, and delete a repository group.
 
-#### Creating a repository group
+### Creating a repository group
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.repo-groups-tab %}
@@ -77,7 +77,7 @@ You can create a repository group, add or remove repositories to a group, and de
   ![Group Name field](/assets/images/help/insights/group-name.png)
 4. Click **Create**.
 
-#### Adding a repository to a repository group
+### Adding a repository to a repository group
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.repo-groups-tab %}
@@ -86,7 +86,7 @@ You can create a repository group, add or remove repositories to a group, and de
   ![Repositories drop-down menu](/assets/images/help/insights/repositories-drop-down.png)
 5. Click **Done**.
 
-#### Deleting a repository group
+### Deleting a repository group
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.repo-groups-tab %}
@@ -95,11 +95,11 @@ You can create a repository group, add or remove repositories to a group, and de
   ![Delete Group button](/assets/images/help/insights/delete-group.png)
 5. Click **Confirm**.
 
-### Managing exclusion filters
+## Managing exclusion filters
 
 You can create a list of file exclusion rules to omit specified files from all {% data variables.product.prodname_insights %} data. File exclusion rules follow the same rules used in *.gitignore* files. For more information, see "[gitignore](https://git-scm.com/docs/gitignore)" in the Git documentation.
 
-#### Adding a file exclusion rule for all repositories
+### Adding a file exclusion rule for all repositories
 
 Changes to global file exclusions only apply to newly imported data and will not retroactively affect existing data. To apply new exclusion rules to existing data, you can remove and re-add repositories to {% data variables.product.prodname_insights %}.
 
@@ -111,7 +111,7 @@ Changes to global file exclusions only apply to newly imported data and will not
   ![Code editor to add global exclusion rule](/assets/images/help/insights/global-exclusion-list.png)
 5. Click **Save Changes**.
 
-#### Adding a file exclusion rule for a repository
+### Adding a file exclusion rule for a repository
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.exclude-files-tab %}

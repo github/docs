@@ -9,6 +9,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 ---
+
 ### About contributors and teams in {% data variables.product.prodname_insights %}
 
 A contributor in {% data variables.product.prodname_insights %} is an entity associated with {% data variables.product.prodname_enterprise %} data. You can edit and hide contributors.

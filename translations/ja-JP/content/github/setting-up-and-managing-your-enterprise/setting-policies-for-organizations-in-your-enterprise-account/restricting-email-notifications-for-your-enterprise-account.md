@@ -14,6 +14,7 @@ topics:
   - Notifications
   - Policy
 ---
+
 ### Enterprise アカウントのメール制限について
 
 {% data reusables.enterprise-accounts.email-restrictions-about %}

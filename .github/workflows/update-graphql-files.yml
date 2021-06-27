@@ -29,14 +29,6 @@ jobs:
           exit 1 # prevents further steps from running
       - name: Checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262
-        with:
-          ruby-version: '2.4'
-      - name: Install Ruby dependencies
-        run: |
-          gem install bundler
-          bundle install
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run updater scripts

@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### ホットパッチでのアップグレード
 {% data reusables.enterprise_installation.hotpatching-explanation %}ホットパッチのインストールスクリプトは、ホットパッチをクラスタ内の各ノードにインストールし、サービスを適切な順序で再起動し、ダウンタイムを回避します。
 

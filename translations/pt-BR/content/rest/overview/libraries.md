@@ -71,7 +71,7 @@ Nome da biblioteca | Repositório | metacpan Website for the Library |---|---|--
 
 ### PHP
 
-Nome da biblioteca | Repositório |---|---| **GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github) **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
+Library name | Repository |---|---| **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
 
 ### PowerShell
 

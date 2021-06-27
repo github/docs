@@ -4,7 +4,7 @@ redirect_from:
   - /categories/61/articles/
   - /categories/site-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -16,7 +16,7 @@ children:
   - /global-privacy-practices
   - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
-  - /github-additional-product-terms
+  - /github-terms-for-additional-products-and-features
   - /github-logo-policy
   - /github-username-policy
   - /submitting-content-removal-requests

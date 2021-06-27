@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Über das Sortiermenü kannst Du die Ergebnisse nach Relevanz, Anzahl der Sterne, Anzahl der Forks und dem letzten Änderungsdatum sortieren.
 
   ![Menü mit Optionen zum Sortieren der Suchergebnisse](/assets/images/help/search/repo-search-sort.png)

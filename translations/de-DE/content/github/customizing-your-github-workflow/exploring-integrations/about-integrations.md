@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Du kannst Integrationen in Deinem persönlichen Konto oder in Deinen eigenen Organisation installieren. Sie können auch {% data variables.product.prodname_github_app %}s von einem Drittanbieter in einem bestimmten Repository installieren, für das Sie Administratorrechte haben oder das sich im Besitz Ihrer Organisation befindet.
 
 ### Unterschiede zwischen {% data variables.product.prodname_github_app %}s und {% data variables.product.prodname_oauth_app %}s

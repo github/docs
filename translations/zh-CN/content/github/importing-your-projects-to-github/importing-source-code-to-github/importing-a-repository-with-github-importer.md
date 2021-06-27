@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **提示：**GitHub 导入工具不适用于所有导入。 例如，如果您现有的代码托管在私有网络上，我们的工具便无法访问。 在这些情况下，我们建议对 Git 仓库[使用命令行导入](/articles/importing-a-git-repository-using-the-command-line)，或者对导入自其他版本控制系统的项目使用[源代码迁移工具](/articles/source-code-migration-tools)。

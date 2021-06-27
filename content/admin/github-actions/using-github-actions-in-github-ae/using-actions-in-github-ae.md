@@ -2,15 +2,16 @@
 title: Using actions in GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} includes most of the {% data variables.product.prodname_dotcom %}-authored actions.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
+shortTitle: Use actions
 ---
 {% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} workflows can use _actions_, which are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 
-### Official actions bundled with {% data variables.product.prodname_ghe_managed %}
+## Official actions bundled with {% data variables.product.prodname_ghe_managed %}
 
 Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.prodname_ghe_managed %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}. When your {% data variables.product.prodname_ghe_managed %} instance is updated, the bundled official actions are also updated.
 

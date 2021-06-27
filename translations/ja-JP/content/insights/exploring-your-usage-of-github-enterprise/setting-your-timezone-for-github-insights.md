@@ -1,7 +1,6 @@
 ---
 title: GitHub Insightsのためのタイムゾーンの設定
 intro: '{% data variables.product.prodname_insights %}で表示するメトリクスのタイムゾーンを設定できます。'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   enterprise-server: '*'

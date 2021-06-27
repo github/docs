@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
 ---
+
 {% note %}
 
 **注釈:** お客様が管理するキーを使用した保存時の暗号化設定は現在ベータであり、変更される可能性があります。

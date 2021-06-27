@@ -7,11 +7,12 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Check out a PR locally
 ---
 {% note %}
 
@@ -19,7 +20,7 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 {% tip %}
 
 **Tip**: You can also check out a pull request locally using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" in the {% data variables.product.prodname_cli %} documentation.
@@ -27,10 +28,10 @@ topics:
 {% endtip %}
 {% endif %}
 
-### Modifying an active pull request locally
+## Modifying an active pull request locally
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to modify.{% if currentVersion == "free-pro-team@latest" %}
+2. In the list of pull requests, click the pull request you'd like to modify.{% ifversion fpt %}
 3. To choose where you'd like to open the pull request, select the **Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}** drop-down and click one of the tabs.
   ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. In the merge box, click **command line instructions**. Follow the sequence of steps to bring down the proposed pull request.
@@ -38,7 +39,7 @@ topics:
 4. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, click **open this in {% data variables.product.prodname_desktop %}**.
   ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
-### Modifying an inactive pull request locally
+## Modifying an inactive pull request locally
 
 If a pull request's author is unresponsive to requests or has deleted their fork, the pull request can still be merged. However, if you want to make changes to a pull request and the author is not responding, you'll need to perform some additional steps to update the pull request.
 
@@ -74,7 +75,7 @@ Anyone can work with a previously opened pull request to continue working on it,
   ```
 9. [Create a new pull request](/articles/creating-a-pull-request) with your new branch.
 
-### Error: Failed to push some refs
+## Error: Failed to push some refs
 
 The remote `refs/pull/` namespace is *read-only*. If you try to push any commits there, you'll see this error:
 ```shell

@@ -12,6 +12,7 @@ topics:
   - Infrastructure
   - Upgrades
 ---
+
 {% tip %}
 
 **Tip:** ステージングインスタンスをプロダクションで利用しないのであれば、既存の{% data variables.product.prodname_enterprise %}ライセンスファイルを再利用できます。

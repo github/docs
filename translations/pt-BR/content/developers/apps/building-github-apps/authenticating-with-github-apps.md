@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -124,11 +125,31 @@ Para obter uma lista dos pontos finais da API REST que você pode usar para obte
 
 ### Autenticar como uma instalação
 
-Autenticar como uma instalação permite que você execute ações na API para essa instalação. Antes de autenticar como uma instalação, você deverá criar um token de acesso de instalação. Estes tokens de acesso de instalação são usados por {% data variables.product.prodname_github_app %}s para efetuar a autenticação.
+Autenticar como uma instalação permite que você execute ações na API para essa instalação. Antes de autenticar como uma instalação, você deverá criar um token de acesso de instalação. Certifique-se de que você já instalou o aplicativo GitHub em pelo menos um repositório; é impossível criar um token de instalação sem uma única instalação. Estes tokens de acesso de instalação são usados por {% data variables.product.prodname_github_app %}s para efetuar a autenticação. Para obter mais informações, consulte "[Instalando aplicativos GitHub](/developers/apps/managing-github-apps/installing-github-apps)".
 
 Por padrão, os tokens de acesso de instalação são limitados em todos os repositórios que uma instalação pode acessar. É possível limitar o escopo do token de acesso de instalação a repositórios específicos usando o parâmetro `repository_ids`. Consulte [Criar um token de acesso de instalação para um ponto final de um aplicativo](/rest/reference/apps#create-an-installation-access-token-for-an-app) para obter mais informações. Os tokens de acesso de instalação têm as permissões configuradas pelo {% data variables.product.prodname_github_app %} e expiram após uma hora.
 
-Para criar um token de acesso de instalação, inclua o JWT [gerado acima](#jwt-payload) no cabeçalho de autorização na solicitação de API:
+Para listar as instalações para um aplicativo autenticado, inclua o JWT [gerado acima](#jwt-payload) no cabeçalho de autorização no pedido da API:
+
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
+```shell
+$ curl -i -X GET \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.machine-man-preview+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% else %}
+```shell
+$ curl -i -X GET \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.v3+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% endif %}
+
+A resposta incluirá uma lista de instalações em que o `id` de cada instalação pode ser usado para criar um token de acesso de instalação. Para obter mais informações sobre o formato de resposta, consulte "[Instalações de lista para o aplicativo autenticado](/rest/reference/apps#list-installations-for-the-authenticated-app)".
+
+Para criar um token de acesso de instalação, inclua o JWT [gerado acima](#jwt-payload) no cabeçalho Autorização no pedido de API e substitua `:installation_id` pelo `id` da instalação da instalação:
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell

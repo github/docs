@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Para aplicativos GitHub
 
 Alguns aplicativos em {% data variables.product.prodname_marketplace %} têm o selo {% octicon "verified" aria-label="The verified badge" %} e uma dica que diz "domínio de editor e e-mail verificados". Isso significa que o aplicativo é propriedade de uma organização que tem:

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% note %}
 
 **Observação:** Seu {% data variables.product.prodname_github_app %} terá acesso a quaisquer repositórios que o aplicativo criar, mesmo que alguém instale apenas seu aplicativo em repositórios selecionados.

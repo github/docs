@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
   - /admin/enterprise-management/about-geo-replication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -20,15 +20,15 @@ Git requests and specific file server requests, such as LFS and file uploads, ca
 
 Geo DNS, such as [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo), is required for geo-replication to work seamlessly. The hostname for the instance should resolve to the replica that is closest to the user's location.
 
-### Limitations
+## Limitations
 
 Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests. 
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Monitoring a geo-replication configuration
+## Monitoring a geo-replication configuration
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### Further reading
+## Further reading
 - "[Creating geo-replication replicas](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

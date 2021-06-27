@@ -11,9 +11,10 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### アプリケーションのテスト
 
-ドラフトの{% data variables.product.prodname_marketplace %}リストを使って、それぞれの支払いフローをシミュレートできます。 リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。 詳細な情報については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」及び「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+ドラフトの{% data variables.product.prodname_marketplace %}リストを使って、それぞれの支払いフローをシミュレートできます。 リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。 Note that you can only simulate purchases for plans published in the draft listing and not for draft plans. 詳細な情報については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」及び「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
 #### 変更のテストのために開発アプリケーションをドラフトリストと使用する
 

@@ -12,6 +12,7 @@ children:
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
   - /configuring-the-self-hosted-runner-application-as-a-service
+  - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners
   - /using-self-hosted-runners-in-a-workflow
   - /managing-access-to-self-hosted-runners-using-groups

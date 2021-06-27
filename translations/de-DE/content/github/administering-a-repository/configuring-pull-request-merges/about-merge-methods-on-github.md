@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} Sie können eine Art von Merge-Methode, beispielsweise Commit-Squashing oder Rebasing, erzwingen, indem Sie nur die gewünschte Methode für Ihr Repository aktivieren.
 
 {% data reusables.pull_requests.default_merge_option %}

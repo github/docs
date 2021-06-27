@@ -5,7 +5,8 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: On behalf of an organization
 ---
 {% note %}
 
@@ -24,7 +25,7 @@ To create commits on behalf of an organization:
 
 Organization's can use the `name@organization.com` email as a public point of contact for open source efforts.
 
-### Creating commits with an `on-behalf-of` badge on the command line
+## Creating commits with an `on-behalf-of` badge on the command line
 
 1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
   ```shell
@@ -49,7 +50,7 @@ Organization's can use the `name@organization.com` email as a public point of co
 
 The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
-### Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
 
 After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
 
@@ -63,7 +64,7 @@ After you've made changes in a file using the web editor on {% data variables.pr
 
 The new commit, message, and badge will appear on {% data variables.product.product_location %}.
 
-### Further reading
+## Further reading
 
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

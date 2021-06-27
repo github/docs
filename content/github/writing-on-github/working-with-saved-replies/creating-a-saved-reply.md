@@ -5,9 +5,9 @@ redirect_from:
   - /articles/creating-a-saved-reply
   - /github/writing-on-github/creating-a-saved-reply
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
@@ -20,7 +20,7 @@ versions:
 6. Click **Add saved reply**.
 ![Add a saved reply](/assets/images/help/settings/saved-replies-add-button.png)
 
-### Further reading
+## Further reading
 
 - "[Using saved replies](/articles/using-saved-replies)"
 - "[Editing a saved reply](/articles/editing-a-saved-reply)"

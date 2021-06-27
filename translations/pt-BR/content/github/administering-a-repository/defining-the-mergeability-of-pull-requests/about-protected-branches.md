@@ -23,6 +23,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Sobre as regras de proteção do branch
 
 É possível aplicar certos fluxos de trabalho ou requisitos antes que um colaborador possa fazer push de alterações em um branch no repositório, incluindo o merge de um pull request no branch, criando uma regra de proteção de branch.
@@ -40,6 +41,8 @@ Por padrão, as restrições de uma regra de proteção de branch não se aplica
 Para cada regra de proteção do branch, você pode escolher habilitar ou desabilitar as seguintes configurações.
 - [Exigir revisões de pull request antes do merge](#require-pull-request-reviews-before-merging)
 - [Exigir verificações de status antes do merge](#require-status-checks-before-merging)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+- [Exigir resolução de conversas antes do merge](#require-conversation-resolution-before-merging){% endif %}
 - [Exigir commits assinados](#require-signed-commits)
 - [Exigir histórico linear](#require-linear-history)
 - [Incluir administradores](#include-administrators)
@@ -47,7 +50,7 @@ Para cada regra de proteção do branch, você pode escolher habilitar ou desabi
 - [Permitir push forçado](#allow-force-pushes)
 - [Permitir exclusões](#allow-deletions)
 
-For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+Para obter mais informações sobre como configurar a proteção de branches, consulte "[Gerenciar uma regra de proteção de branch](/github/administering-a-repository/managing-a-branch-protection-rule)".
 
 #### Exigir revisões de pull request antes do merge
 
@@ -96,6 +99,12 @@ Você pode configurar as verificações de status obrigatórias como "flexível"
 
 Para obter informações sobre a solução de problemas, consulte "[Solucionar problemas para as verificações de status obrigatórias](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+#### Exigir resolução de conversa antes de merge
+
+Exige que todos os comentários no pull request sejam resolvidos antes de poder fazer merge em um branch protegido. Isso garante que todos os comentários sejam resolvidos ou reconhecidos antes do merge.
+{% endif %}
+
 #### Exigir commits assinados
 
 Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores {% if currentVersion == "free-pro-team@latest" %}e bots{% endif %} só podem fazer push de commits que foram assinados e verificados no branch. Para obter mais informações, consulte "[Sobre verificação de assinatura commit](/articles/about-commit-signature-verification)".
@@ -105,8 +114,8 @@ Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores
 {% if currentVersion == "free-pro-team@latest" %}
 **Notas:**
 
-* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
-* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+* Se você habilitou o modo vigilante, que indica que seus commits serão sempre assinados, todos os commits que {% data variables.product.prodname_dotcom %} indentificar como "parcialmente verificado" serão permitidos em branches que exijam commits assinados. Para obter mais informações sobre o modo vigilante, consulte "[Exibir status de verificação para todos os seus commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
+* Se um colaborador fizer push de um commit não assinado para um branch que exige assinaturas de commit, o colaborador deverá fazer rebase do commit para incluir uma assinatura verificada e, em seguida, fazer push forçado no commit reescrito para o branch.
 
 {% else %}
 **Observação:** Se um colaborador fizer push de um commit não assinado para um branch que exige assinaturas de commit, o colaborador deverá fazer rebase do commit para incluir uma assinatura verificada e, em seguida, fazer push forçado no commit reescrito para o branch.
@@ -131,8 +140,7 @@ Por padrão, as regras de branch protegidos não se aplicam a pessoas com permis
 #### Restringir quem pode fazer push para branches correspondentes
 
 {% if currentVersion == "free-pro-team@latest" %}
-Você pode habilitar restrições de branch se o seu repositório pertencer a uma organização que usa
-{% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}.
+Você pode habilitar as restrições do branch se seu repositório for propriedade de uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
 Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido.

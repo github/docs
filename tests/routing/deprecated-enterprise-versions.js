@@ -1,4 +1,5 @@
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
+const app = createApp()
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
@@ -100,15 +101,15 @@ describe('deprecation banner', () => {
   })
 })
 
-describe('does not render helpfulness prompt or contribution button', () => {
-  test('does not render helpfulness prompt', async () => {
+describe('does not render survey prompt or contribution button', () => {
+  test('does not render survey prompt', async () => {
     let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    expect($('.js-survey').length).toBeGreaterThan(0)
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('.js-helpfulness').length).toBe(0)
+      expect($('.js-survey').length).toBe(0)
     } else {
-      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 
@@ -119,7 +120,7 @@ describe('does not render helpfulness prompt or contribution button', () => {
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
-      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 })

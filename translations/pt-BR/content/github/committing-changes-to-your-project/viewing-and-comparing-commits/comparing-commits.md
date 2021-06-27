@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Você pode comparar o estado de seu repositório entre os branches, tags, commits e datas. Para comparar diferentes versões do repositório, adicione `/compare` ao caminho do seu repositório.
 
 Demonstraremos o poder da comparação observando a página de comparação de [uma bifurcação do repo Linguist](https://github.com/octocat/linguist), que está em [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master).

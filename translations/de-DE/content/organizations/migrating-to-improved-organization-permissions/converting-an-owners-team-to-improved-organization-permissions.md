@@ -27,8 +27,8 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Lege im Feld für den Teamnamen einen neuen Namen für das Inhaberteam fest. Ein Beispiel:
@@ -45,8 +45,8 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Lies unten auf der Seite die Warnung, und klicke dann auf **Delete the Owners team** (Inhaberteam löschen). ![Link zum Löschen des Inhaberteams](/assets/images/help/teams/owners-team-delete.png)

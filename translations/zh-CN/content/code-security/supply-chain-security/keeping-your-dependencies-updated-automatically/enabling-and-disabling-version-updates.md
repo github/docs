@@ -7,9 +7,15 @@ redirect_from:
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 
 ### 关于依赖项的版本更新
@@ -18,7 +24,7 @@ topics:
 
 {% data reusables.dependabot.initial-updates %} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 
-{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
+{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 更多信息请参阅“[关于 Dependabot 版本更新](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)”和“[{% data variables.product.prodname_dotcom %} 语言支持](/github/getting-started-with-github/github-language-support)”。
 
 ### 启用 {% data variables.product.prodname_dependabot_version_updates %}
 
@@ -113,7 +119,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
       # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
@@ -122,8 +127,9 @@ updates:
       - dependency-name: "express"
         # Ignore only new versions for 4.x and 5.x
         versions: ["4.x", "5.x"]
+      # For all packages, ignore all patch updates
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
 ```
-
-{% data reusables.dependabot.warning-ignore-option %}
 
 有关检查现有忽略首选项的更多信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)。”

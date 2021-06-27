@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### URLs
 
 {% data variables.product.product_name %} erstellt aus Standard-URLs automatisch Links.
@@ -32,7 +33,7 @@ In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise 
 | Verweistyp                                                               | Rohverweis                                     | Kurzlink                                                               |
 | ------------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | URL des Issues oder Pull Requests                                        | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
-| `#` und Nummer des Issues oder Pull Requests                             | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
+| `#` and issue or pull request number                                     | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
 | `GH-` und Nummer des Issues oder Pull Requests                           | GH-26                                          | [GH-26](https://github.com/jlord/sheetsee.js/issues/26)                |
 | `Username/Repository#` und Nummer des Issues oder Pull Requests          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization_name/Repository#` und Nummer des Issues oder Pull Requests | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |

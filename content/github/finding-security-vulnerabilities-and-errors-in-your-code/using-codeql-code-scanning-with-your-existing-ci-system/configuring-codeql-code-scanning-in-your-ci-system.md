@@ -3,9 +3,9 @@ title: Configuring CodeQL code scanning in your CI system
 shortTitle: Configuring in your CI
 intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
+## About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
 To integrate {% data variables.product.prodname_code_scanning %} into your CI system, you can use the {% data variables.product.prodname_codeql_runner %}. For more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 
@@ -32,7 +32,7 @@ There are three versions of the {% data variables.product.prodname_codeql_runner
 
 To customize the way the {% data variables.product.prodname_codeql_runner %} scans your code, you can use flags, such as `--languages` and `--queries`, or you can specify custom settings in a separate configuration file.
 
-### Scanning pull requests
+## Scanning pull requests
 
 Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
 
@@ -48,7 +48,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% endnote %}
 
-### Overriding automatic language detection
+## Overriding automatic language detection
 
 The {% data variables.product.prodname_codeql_runner %} automatically detects and scans code written in the supported languages.
 
@@ -62,7 +62,7 @@ To override automatic language detection, run the `init` command with the `--lan
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-### Running additional queries
+## Running additional queries
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -81,7 +81,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-### Using a custom configuration file
+## Using a custom configuration file
 
 Instead of passing additional information to the {% data variables.product.prodname_codeql_runner %} commands, you can specify custom settings in a separate configuration file.
 
@@ -95,11 +95,11 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-#### Example configuration files
+### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
 For the compiled languages C/C++, C#, and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
 
@@ -113,7 +113,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 If the `autobuild` command can't build your code, you can run the build steps yourself, between the `init` and `analyze` steps. For more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)."
 
-### Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 
 By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
 
@@ -121,11 +121,11 @@ Once you've uploaded the data, {% data variables.product.prodname_dotcom %} disp
 - If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
 - If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
-### {% data variables.product.prodname_codeql_runner %} command reference
+## {% data variables.product.prodname_codeql_runner %} command reference
 
 The {% data variables.product.prodname_codeql_runner %} supports the following commands and flags.
 
-#### `init`
+### `init`
 
 Initializes the {% data variables.product.prodname_codeql_runner %} and creates a {% data variables.product.prodname_codeql %} database for each language to be analyzed.
 
@@ -144,7 +144,7 @@ Initializes the {% data variables.product.prodname_codeql_runner %} and creates 
 | `--debug` | | None. Prints more verbose output. |
 | `-h`, `--help` | | None. Displays help for the command. |
 
-#### `autobuild`
+### `autobuild`
 
 Attempts to build the code for the compiled languages C/C++, C#, and Java. For those languages, {% data variables.product.prodname_codeql %} builds the code before analyzing it. Run `autobuild` between the `init` and `analyze` steps.
 
@@ -155,7 +155,7 @@ Attempts to build the code for the compiled languages C/C++, C#, and Java. For t
 | `--debug` | | None. Prints more verbose output. |
 | `-h`, `--help` | | None. Displays help for the command. |
 
-#### `analyze`
+### `analyze`
 
 Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
 
@@ -176,7 +176,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--debug` | | None. Prints more verbose output. |
 | `-h`, `--help` | | None. Displays help for the command. |
 
-#### `upload`
+### `upload`
 
 Uploads SARIF files to {% data variables.product.product_name %}.
 

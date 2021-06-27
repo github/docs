@@ -58,7 +58,7 @@ Developers and organization administrators can also configure settings to add en
 
 ### Der Beta-Phase beitreten
 
-Eine begrenzte Anzahl von Personen wird eingeladen, der Beta-Phase beizutreten. Weitere Informationen zum Beitritt zur Warteliste findest Du unter „[Für Codespaces-Beta anmelden](https://github.com/features/codespaces/signup)".
+Eine begrenzte Anzahl von Personen wird eingeladen, der Beta-Phase beizutreten. To join the waitlist, see [Sign up for the Codespaces beta](https://github.com/features/codespaces/signup).
 
 ### Kontaktiere uns zu {% data variables.product.prodname_codespaces %}
 

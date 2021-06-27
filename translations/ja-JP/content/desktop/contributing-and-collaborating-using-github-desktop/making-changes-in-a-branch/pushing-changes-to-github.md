@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### {% data variables.product.prodname_dotcom %} への変更のプッシュについて
 
 変更をプッシュすると、ローカルリポジトリ内のコミットされた変更が {% data variables.product.prodname_dotcom %} のリモートリポジトリに送信されます。 プロジェクトをローカルで変更し、他のユーザが変更にアクセスできるようにするには、変更を {% data variables.product.prodname_dotcom %} にプッシュする必要があります。

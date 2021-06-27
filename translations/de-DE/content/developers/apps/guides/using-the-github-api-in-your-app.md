@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### Einführung
 
 This guide will help you build a GitHub App and run it on a server. The app you build will add a label to all new issues opened in the repository where the app is installed.

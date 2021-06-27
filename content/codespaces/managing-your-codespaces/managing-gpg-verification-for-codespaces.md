@@ -2,7 +2,7 @@
 title: Managing GPG verification for Codespaces
 intro: 'You can allow {% data variables.product.company_short %} to automatically use GPG to sign commits you make in your codespaces, so other people can be confident that the changes come from a trusted source.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces
   - /codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces
+shortTitle: GPG verification
 ---
 
 {% data reusables.codespaces.release-stage %}

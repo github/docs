@@ -12,4 +12,5 @@ children:
   - /configuring-codeql-code-scanning-in-your-ci-system
   - /troubleshooting-codeql-code-scanning-in-your-ci-system
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->

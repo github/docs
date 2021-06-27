@@ -4,9 +4,9 @@ intro: 'When using SSH to connect and authenticate to {% data variables.product.
 redirect_from:
   - /articles/troubleshooting-ssh
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 children:

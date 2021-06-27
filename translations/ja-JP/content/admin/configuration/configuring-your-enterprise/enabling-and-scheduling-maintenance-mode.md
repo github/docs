@@ -20,6 +20,7 @@ topics:
   - Maintenance
   - Upgrades
 ---
+
 ### メンテナンスモードについて
 
 操作の種類によっては、{% data variables.product.product_location %} をオフラインにしてメンテナンスモードにする必要があります。

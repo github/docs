@@ -1,6 +1,6 @@
 ---
-title: Building and testing Swift
-intro: You can create a continuous integration (CI) workflow to build and test your Swift project.
+title: 构建和测试 Swift
+intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 Swift 项目。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -18,20 +18,20 @@ topics:
 
 ### 简介
 
-This guide shows you how to build and test a Swift package.
+本指南介绍如何构建和测试 Swift 包。
 
-{% if currentVersion == "github-ae@latest" %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the necessary Swift dependencies. 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
-{% else %}{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[About GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
+{% if currentVersion == "github-ae@latest" %} 要构建和测试您在 {% data variables.product.prodname_ghe_managed %} 上的 Swift 项目，则需要创建包含必要 Swift 依赖项的自定义操作系统映像。 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}{% data variables.product.prodname_dotcom %} 托管的运行器带有预装软件的工具缓存，Ubuntu 和 macOS 运行器包括用于构建 Swift 包的依赖项。 有关最新版软件以及 Swift 和 Xcode 预安装版本的完整列表，请参阅“[关于 GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)”。{% endif %}
 
 ### 基本要求
 
 您应该已经熟悉 YAML 语法及其如何与 {% data variables.product.prodname_actions %} 结合使用。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
-We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/swift_packages)" in the Apple developer documentation.
+我们建议您对 Swift 包有基本的了解。 更多信息请参阅 Apple 开发者文档中的“[Swift 包](https://developer.apple.com/documentation/swift_packages)”。
 
-### Starting with the Swift workflow template
+### 从 Swift 工作流程模板开始
 
-{% data variables.product.prodname_dotcom %} provides a Swift workflow template that should work for most Swift projects, and this guide includes examples that show you how to customize this template. For more information, see the [Swift workflow template](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data variables.product.prodname_dotcom %} 提供了一个 Swift 工作流程模板，该模板应适合大多数 Swift 项目，本指南包括演示如何自定义此模板的示例。 更多信息请参阅 [Swift 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)。
 
 要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
 
@@ -55,17 +55,17 @@ jobs:
 ```
 {% endraw %}
 
-### Specifying a Swift version
+### 指定 Swift 版本
 
-To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `fwal/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
+要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用特定的预安装 Swift 版本，请使用 `fwal/setup-swift` 操作。 此操作从运行器上的工具缓存中查找特定版本的 Swift，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。 更多信息请参阅 [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) 操作。
 
-If you are using a self-hosted runner, you must install your desired Swift versions and add them to `PATH`.
+如果使用自托管运行器，则必须安装所需的 Swift 版本并将它们添加到 `PATH`。
 
-The examples below demonstrate using the `fwal/setup-swift` action.
+下面的示例演示了如何使用 `fwal/setup-swift` 操作。
 
-#### Using multiple Swift versions
+#### 使用多个 Swift 版本
 
-You can configure your job to use a multiple versions of Swift in a build matrix.
+您可以将作业配置为在构建矩阵中使用多个版本的 Swift。
 
 {% raw %}
 ```yaml{:copy}
@@ -93,9 +93,9 @@ jobs:
 ```
 {% endraw %}
 
-#### Using a single specific Swift version
+#### 使用单个特定的 Swift 版本
 
-You can configure your job to use a single specific version of Swift, such as `5.3.3`.
+您可以将作业配置为使用单个特定版本的 Swift，例如 `5.3.3`。
 
 {% raw %}
 ```yaml{:copy}
@@ -110,7 +110,7 @@ steps:
 
 ### 构建和测试代码
 
-You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
+您可以使用与本地相同的命令来使用 Swift 构建和测试代码。 此示例演示如何在作业中使用 `swift build` 和 `swift test`：
 
 {% raw %}
 ```yaml{:copy}

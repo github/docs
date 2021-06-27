@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 É simples identificar esse erro; o Git avisará quando você tentar clonar o repositório:
 
 ```shell

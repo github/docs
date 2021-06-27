@@ -94,7 +94,7 @@ async function main () {
     if (content) {
       toWrite = matter.stringify(content, newData, { lineWidth: 10000, forceQuotes: true })
     } else {
-      toWrite = yaml.safeDump(newData, { lineWidth: 10000, forceQuotes: true })
+      toWrite = yaml.dump(newData, { lineWidth: 10000, forceQuotes: true })
     }
 
     fs.writeFileSync(localisedAbsPath, toWrite)

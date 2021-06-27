@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于 {% data variables.product.prodname_insights %}
 
 {% data variables.product.prodname_insights %} 是一个独立的应用程序，根据 {% data variables.product.product_location %} 中的数据帮助您了解和改进软件交付流程。 您可以使用这些指标消除流程中的瓶颈，改进协作，并且更快速地交付质量更高的项目。

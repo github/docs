@@ -19,7 +19,7 @@ redirect_from:
 
 Os proprietários da organização podem gerenciar quais repositórios um codespace pode acessar.
 
-By default, a codespace can only access the repository where it was created. Ao habilitar o acesso e a segurança de um repositório pertencente à sua organização, todos os codespaces que forem criados para esse repositório também terão permissões de leitura e gravação para todos os outros repositórios que a organização possui e o criador de codespace terá permissões para acessar. Se você deseja restringir os repositórios que um codespace pode acessar, você pode limitá-lo ao repositório em que o codespace foi criado ou a repositórios específicos. Você só deve habilitar o acesso e a segurança para repositórios nos quais confia.
+Por padrão, um codespace só pode acessar o repositório onde foi criado. Ao habilitar o acesso e a segurança de um repositório pertencente à sua organização, todos os codespaces que forem criados para esse repositório também terão permissões de leitura e gravação para todos os outros repositórios que a organização possui e o criador de codespace terá permissões para acessar. Se você deseja restringir os repositórios que um codespace pode acessar, você pode limitá-lo ao repositório em que o codespace foi criado ou a repositórios específicos. Você só deve habilitar o acesso e a segurança para repositórios nos quais confia.
 
 Para gerenciar quais usuários na sua organização podem usar {% data variables.product.prodname_codespaces %}, consulte "[Gerenciar permissões de usuário para a sua organização](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".
 

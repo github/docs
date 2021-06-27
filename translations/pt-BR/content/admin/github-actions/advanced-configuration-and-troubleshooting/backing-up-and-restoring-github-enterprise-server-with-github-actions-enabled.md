@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ---
+
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
 Se você usar {% data variables.product.prodname_enterprise_backup_utilities %} para fazer backup de {% data variables.product.product_location %}, é importante observar que os dados de {% data variables.product.prodname_actions %} armazenados no seu provedor de armazenamento externo não serão incluídos no backup.

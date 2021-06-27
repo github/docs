@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Logging
 ---
+
 ### Sintaxe de consulta de pesquisa
 
 Crie uma consulta de pesquisa com um ou mais pares chave-valor separados por operadores lógicos AND/OR.

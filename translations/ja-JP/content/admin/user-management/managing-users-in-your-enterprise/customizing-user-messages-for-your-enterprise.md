@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Maintenance
 ---
+
 ### ユーザメッセージについて
 
 ユーザメッセージにはいくつかの種類があります。
@@ -94,8 +95,7 @@ topics:
 各ページの上部にグローバルアナウンスバナーを設定し、すべてのユーザに対して表示できます。
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-コマンドラインユーティリティまたは API を使用して、
-{% endif %} 管理シェルでアナウンスバナー {% if enterpriseServerVersions contains currentVersion %} を設定することもできます。 詳しい情報については、{% if enterpriseServerVersions contains currentVersion %}「[コマンドラインユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-announce)」および{% endif %}「[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)」を参照してください。
+You can also set an announcement banner{% if enterpriseServerVersions contains currentVersion %} in the administrative shell using a command line utility or{% endif %} using the API. 詳しい情報については、{% if enterpriseServerVersions contains currentVersion %}「[コマンドラインユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-announce)」および{% endif %}「[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)」を参照してください。
 {% else %}
 
 コマンドラインユーティリティを使用して、管理シェルでアナウンスバナーを設定することもできます。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-announce)」を参照してください。

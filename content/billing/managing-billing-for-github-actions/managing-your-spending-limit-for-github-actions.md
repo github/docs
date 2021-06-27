@@ -4,8 +4,9 @@ intro: 'You can set a spending limit for {% data variables.product.prodname_acti
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Actions
@@ -13,8 +14,9 @@ topics:
   - Organizations
   - Spending limits
   - User account
+shortTitle: Spending limits for Actions
 ---
-### About spending limits for {% data variables.product.prodname_actions %}
+## About spending limits for {% data variables.product.prodname_actions %}
 
 {% data reusables.github-actions.actions-billing %}
 
@@ -28,7 +30,7 @@ As soon as you set a spending limit other than $0, you will be responsible for a
 
 Because you have not enabled overages, your next attempt to create a workflow artifact will fail. You will not receive a bill for the 0.1GB overage that month. However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
 
-### Managing the spending limit for {% data variables.product.prodname_actions %} for your user account
+## Managing the spending limit for {% data variables.product.prodname_actions %} for your user account
 
 Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own user account.
 
@@ -38,18 +40,16 @@ Anyone can manage the spending limit for {% data variables.product.prodname_acti
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Managing the spending limit for {% data variables.product.prodname_actions %} for your organization
+## Managing the spending limit for {% data variables.product.prodname_actions %} for your organization
 
 Organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_actions %} for an organization.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Managing the spending limit for {% data variables.product.prodname_actions %} for your enterprise account
+## Managing the spending limit for {% data variables.product.prodname_actions %} for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_actions %} for an enterprise account.
 

@@ -5,9 +5,9 @@ redirect_from:
   - /categories/89/articles/
   - /articles/working-with-non-code-files
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -18,5 +18,6 @@ children:
   - /rendering-differences-in-prose-documents
   - /mapping-geojson-files-on-github
   - /working-with-jupyter-notebook-files-on-github
+shortTitle: Work with non-code files
 ---
 

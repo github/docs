@@ -8,6 +8,7 @@ permissions: 'People with admin permissions to {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 Ao desativar uma métrica, esta não será visível para nenhum usuário, em qualquer lugar no {% data variables.product.prodname_insights %}.
 
 {% data reusables.github-insights.settings-tab %}

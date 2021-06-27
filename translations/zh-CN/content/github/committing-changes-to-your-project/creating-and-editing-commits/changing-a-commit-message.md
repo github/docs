@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### 重写最近的提交消息
 
 您可以使用 `git commit --amend` 命令更改最近的提交消息。
@@ -49,9 +50,9 @@ versions:
 **修改最近推送提交的消息**
 
 1. 按照[上述步骤](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)修改提交消息。
-2. 使用 `push --force` 命令强制推送经修改的旧提交。
+2. 使用 `push --force-with-lease` 命令强制推送经修改的旧提交。
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **修改旧提交或多个提交的消息**

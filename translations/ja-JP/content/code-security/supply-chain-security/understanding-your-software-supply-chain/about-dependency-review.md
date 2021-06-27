@@ -3,11 +3,17 @@ title: 依存関係のレビューについて
 intro: 'Dependency review lets you catch vulnerable dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
 versions:
   free-pro-team: '*'
+type: overview
 topics:
+  - Advanced Security
+  - Dependency review
+  - Vulnerabilities
+  - Dependencies
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
+
 {% note %}
 
 **注釈:** 依存関係のレビューは現在ベータであり、変更される可能性があります。

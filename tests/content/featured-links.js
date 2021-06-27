@@ -14,7 +14,7 @@ describe('featuredLinks', () => {
 
     test('landing page intro links have expected properties', async () => {
       const $ = await getDOM('/en')
-      const $featuredLinks = $('.featured-links a')
+      const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href')).toBe('/en/github/getting-started-with-github/set-up-git')
       expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
@@ -30,13 +30,13 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('.featured-links a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
-      expect(japaneseCharacters.presentIn($featuredLinks.eq(0).children('h4').text())).toBe(true)
-      expect(japaneseCharacters.presentIn($featuredLinks.eq(0).children('p').text())).toBe(true)
+      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('h4').text())).toBe(true)
+      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('p').text())).toBe(true)
     })
 
     test('Enterprise user intro links have expected values', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/insights`)
-      const $featuredLinks = $('.featured-links a')
+      const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(6)
       expect($featuredLinks.eq(0).attr('href')).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`)
       expect($featuredLinks.eq(0).children('h4').text().startsWith('About GitHub Insights')).toBe(true)
@@ -44,21 +44,21 @@ describe('featuredLinks', () => {
     })
 
     // If any of these tests fail, check to see if the content has changed and update text if needed.
-    test('featured links respect versioning', async () => {
+    test('product articles links respect versioning', async () => {
       const enterpriseVersionedLandingPage = `/en/enterprise-server@${enterpriseServerReleases.latest}/packages`
       const $ = await getDOM(enterpriseVersionedLandingPage)
-      const $featuredLinks = $('.all-articles-list a')
-      let msg = `Featured links are not rendered as expected on ${enterpriseVersionedLandingPage}`
-      expect($featuredLinks.length, msg).toBeGreaterThan(2)
+      const $productArticlesLinks = $('[data-testid=product-articles-list] a')
+      let msg = `Product article links are not rendered as expected on ${enterpriseVersionedLandingPage}`
+      expect($productArticlesLinks.length, msg).toBeGreaterThan(2)
 
       // Confirm that the following Enterprise link IS included on this Enterprise page.
-      msg = `Enterprise featured link is not rendered as expected on ${enterpriseVersionedLandingPage}`
-      expect($featuredLinks.text().includes('Working with a GitHub Packages registry'), msg).toBe(true)
+      msg = `Enterprise article link is not rendered as expected on ${enterpriseVersionedLandingPage}`
+      expect($productArticlesLinks.text().includes('Working with a GitHub Packages registry'), msg).toBe(true)
 
       // Confirm that the following Dotcom-only links are NOT included on this Enterprise page.
-      msg = `Dotcom-only featured link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
-      expect($featuredLinks.text().includes('Enabling improved container support with the Container registry')).toBe(false)
-      expect($featuredLinks.text().includes('Migrating to the Container registry from the Docker registry'), msg).toBe(false)
+      msg = `Dotcom-only article link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
+      expect($productArticlesLinks.text().includes('Working with the Container registry')).toBe(false)
+      expect($productArticlesLinks.text().includes('Migrating to the Container registry from the Docker registry'), msg).toBe(false)
     })
   })
 

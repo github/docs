@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Migrationstypen
 
 Es gibt drei Migrationstypen, die von Ihnen durchgeführt werden können:

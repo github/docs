@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. **Repository**メニューで、**Repository Settings...**をクリックします。 ![Repository Settingsメニューオプション](/assets/images/help/desktop/repository-settings-mac.png)

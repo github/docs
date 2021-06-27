@@ -4,12 +4,13 @@ intro: 您可以更改仓库中分支的名称。
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  enterprise-server: '>=3.1'
 topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
 ---
+
 ### 关于重命名分支
 
 您可以重命名 {% data variables.product.product_location %} 上仓库中的分支。 有关分支的更多信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches)”。
@@ -18,7 +19,7 @@ redirect_from:
 
 虽然文件 URL 会自动重定向，但原始文件 URL 未被重定向。 此外，如果用户对前一个分支名称执行 `git pull`，则 {% data variables.product.prodname_dotcom %} 不会执行任何重定向。
 
-{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
+{% data variables.product.prodname_actions %} 工作流不会跟随重命名，因此，如果您的仓库发布某个操作，任何人使用该操作结合 `{old-branch-name}` 都会崩溃。 您应该考虑添加带有原始内容的新分支，外加一个额外的提交报告，说明分支名称已弃用，并建议用户迁移到新的分支名称。
 
 ### 重命名分支
 

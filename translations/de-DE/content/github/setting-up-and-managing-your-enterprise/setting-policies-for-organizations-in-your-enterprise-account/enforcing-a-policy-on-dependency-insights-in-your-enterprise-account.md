@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 In Organisationen, die einem Enterprise-Konto gehören, können Organisationsinhaber Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke der Organisation festlegen. Weitere Informationen findest Du unter „[Die Sichtbarkeit der Abhängigkeiten-Einblicke Deiner Organisation ändern](/articles/changing-the-visibility-of-your-organizations-dependency-insights).“
 
 {% data reusables.enterprise-accounts.access-enterprise %}

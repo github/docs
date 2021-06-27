@@ -2,8 +2,13 @@
 title: About dependency review
 intro: 'Dependency review lets you catch vulnerable dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
 topics:
+  - Advanced Security
+  - Dependency review
+  - Vulnerabilities
+  - Dependencies
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
@@ -14,7 +19,7 @@ redirect_from:
 
 {% endnote %}
 
-### About dependency review
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}
 

@@ -50,6 +50,6 @@ Para obter mais informações, consulte "[Aprenda {% data variables.product.prod
   
   {% if currentVersion == "free-pro-team@latest" %}
 
-- "[Gerenciar a cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)" 
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)" 
   
   {% endif %}

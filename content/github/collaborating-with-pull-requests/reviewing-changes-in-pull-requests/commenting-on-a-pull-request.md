@@ -9,13 +9,14 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
 intro: 'After you open a pull request in a repository, collaborators or team members can comment on the comparison of files between the two specified branches, or leave general comments on the project as a whole.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Comment on a PR
 ---
-### About pull request comments
+## About pull request comments
 
 You can comment on a pull request's **Conversation** tab to leave general comments, questions, or props. You can also suggest changes that the author of the pull request can apply directly from your comment.
 
@@ -41,7 +42,7 @@ To reply to an existing line comment, you'll need to navigate to the comment on 
 
 {% endtip %}
 
-### Adding line comments to a pull request
+## Adding line comments to a pull request
 
 {% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request where you'd like to leave line comments.
@@ -56,8 +57,8 @@ Anyone watching the pull request or repository will receive a notification of yo
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Further reading
+## Further reading
 
 - "[Writing on GitHub](/github/writing-on-github)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+{% ifversion fpt %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

@@ -7,15 +7,16 @@ redirect_from:
   - /articles/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/remembering-your-github-username-or-email
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Notifications
+shortTitle: Find your username or email
 ---
 {% mac %}
 
-### {% data variables.product.prodname_desktop %} users
+## {% data variables.product.prodname_desktop %} users
 
 1. In the **GitHub Desktop** menu, click **Preferences**.
 2. In the Preferences window, verify the following:
@@ -26,7 +27,7 @@ topics:
 
 {% windows %}
 
-### {% data variables.product.prodname_desktop %} users
+## {% data variables.product.prodname_desktop %} users
 
 1. In the **File** menu, click **Options**.
 2. In the Options window, verify the following:
@@ -35,7 +36,7 @@ topics:
   
 {% endwindows %}
 
-### Finding your username in your `user.name` configuration
+## Finding your username in your `user.name` configuration
 
 During set up, you may have [set your username in Git](/github/getting-started-with-github/setting-your-username-in-git). If so, you can review the value of this configuration setting:
 
@@ -45,7 +46,7 @@ $ git config user.name
 <em>YOUR_USERNAME</em>
 ```
 
-### Finding your username in the URL of remote repositories
+## Finding your username in the URL of remote repositories
 
 If you have any local copies of personal repositories you have created or forked, you can check the URL of the remote repository.
 
@@ -65,8 +66,8 @@ origin	https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em
 
 Your user name is what immediately follows the `https://{% data variables.command_line.backticks %}/`.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+{% ifversion fpt %}
+## Further reading
 
 - "[Verifying your email address](/articles/verifying-your-email-address)"
 {% endif %}

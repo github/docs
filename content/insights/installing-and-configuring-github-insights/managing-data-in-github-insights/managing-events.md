@@ -6,15 +6,15 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-events
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage events.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
-### About events
+## About events
 
 Events add context to metrics. For example, holidays or release dates can cause changes in work patterns, so knowing when those events occurred can change your evaluation of metrics. You can create events for the reorganization of teams, start dates of new employees, changes in scope for teams, and anything else that would affect your team's work.
 
 After you create an event in {% data variables.product.prodname_insights %}, anyone can view the event as an annotation in some metrics. For more information, see "[Viewing key metrics and reports](/insights/exploring-your-usage-of-github-enterprise/viewing-key-metrics-and-reports)."
 
-### Creating an event
+## Creating an event
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.events-tab %}
@@ -28,7 +28,7 @@ After you create an event in {% data variables.product.prodname_insights %}, any
   ![End Date drop-down menu](/assets/images/help/insights/end-date.png)
 6. Click **Save**.
 
-### Deleting an event
+## Deleting an event
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.events-tab %}

@@ -14,6 +14,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
@@ -163,8 +164,7 @@ Os {% data variables.product.prodname_github_app %}s com a permissão `security_
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `remetente` é
-{% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}empty {% endif %}para todas as outras ações.
+</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto do `remetente` é {% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}vazio {% endif %}para todas as outras ações.
 
 #### Exemplo de carga de webhook
 
@@ -760,7 +760,9 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0"><table spaces-before="0">
+<p spaces-before="0">
+
+<table spaces-before="0">
 <thead>
 <tr>
   <th>Tecla</th>
@@ -817,7 +819,9 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0"><table spaces-before="0">
+<p spaces-before="0">
+
+<table spaces-before="0">
 <thead>
 <tr>
   <th>Tecla</th>
@@ -1382,7 +1386,9 @@ Você só pode criar um webhook de patrocínio em {% data variables.product.prod
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0"><table spaces-before="0">
+<p spaces-before="0">
+
+<table spaces-before="0">
 <thead>
 <tr>
   <th>Tecla</th>
@@ -1415,7 +1421,9 @@ Você só pode criar um webhook de patrocínio em {% data variables.product.prod
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0"><table spaces-before="0">
+<p spaces-before="0">
+
+<table spaces-before="0">
 <thead>
 <tr>
   <th>Tecla</th>

@@ -15,9 +15,9 @@ redirect_from:
   - /actions/publishing-packages-with-github-actions
   - /actions/building-and-testing-code-with-continuous-integration
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 learningTracks:
   - getting_started
   - continuous_integration
@@ -99,7 +99,6 @@ children:
   - /creating-postgresql-service-containers
   - /deploying-to-amazon-elastic-container-service
   - /deploying-to-azure-app-service
-  - /deploying-to-google-kubernetes-engine
   - /deploying-to-google-kubernetes-engine
   - /using-github-actions-for-project-management
   - /closing-inactive-issues

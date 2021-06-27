@@ -1,6 +1,6 @@
 ---
 title: 个性化您账户的 Codespaces
-intro: 'You can personalize {% data variables.product.prodname_codespaces %} by using a `dotfiles` repository on {% data variables.product.product_name %} or by using Settings Sync.'
+intro: '您可以通过使用 {% data variables.product.product_name %} 上的 `dotfiles` 仓库或使用设置同步来个性化 {% data variables.product.prodname_codespaces %}。'
 permissions: 'Anyone can personalize {% data variables.product.prodname_codespaces %} for their user account.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
@@ -16,26 +16,26 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About personalizing {% data variables.product.prodname_codespaces %}
+### 关于个性化 {% data variables.product.prodname_codespaces %}
 
-When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_codespaces %} allows for two main ways of personalizing your codespaces.
+在使用任何开发环境时，根据您的喜好和工作流程自定义设置和工具是一个重要步骤。 {% data variables.product.prodname_codespaces %} 允许两种主要方法个性化您的代码空间。
 
-- [Settings Sync](#settings-sync) - You can use and share {% data variables.product.prodname_vscode %} settings between {% data variables.product.prodname_codespaces %} and other instances of {% data variables.product.prodname_vscode %}.
-- [Dotfiles](#dotfiles) – You can use a public `dotfiles` repository to specify scripts, shell preferences, and other configurations.
+- [设置同步](#settings-sync) - 您可以在 {% data variables.product.prodname_codespaces %} 与其他 {% data variables.product.prodname_vscode %}实例之间使用和共享 {% data variables.product.prodname_vscode %} 设置。
+- [Dotfiles](#dotfiles) - 您可以使用公共 `dotfiles` 仓库来指定脚本、shell 首选项和其他配置。
 
-{% data variables.product.prodname_codespaces %} personalization applies to any codespace you create.
+{% data variables.product.prodname_codespaces %} 个性化适用于您创建的任何代码空间。
 
 项目维护员还可以定义默认配置，将应用到任何人创建的仓库的每个代码空间。 更多信息请参阅“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)”。
 
-### Settings Sync
+### 设置同步
 
-Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
+设置同步允许您在机器和 {% data variables.product.prodname_vscode %} 实例中共享配置，如设置、键盘快捷方式、片段、扩展和 UI 状态。
 
-Settings Sync is on by default. To configure any settings, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is on**. From the dialog, you can choose to configure, show settings and data, or turn off Settings Sync.
+设置同步默认打开。 要配置任何设置，在活动栏的左下角，选择 {% octicon "gear" aria-label="The gear icon" %} 并单击 **Settings Sync is on（设置同步打开）**。 从对话框中，您可以选择配置、显示设置和数据，或关闭设置同步。
 
-![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
+![在管理菜单中设置同步选项](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
-For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode %} documentation.
+更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的[设置同步指南](https://code.visualstudio.com/docs/editor/settings-sync)。
 
 ### Dotfiles
 
@@ -51,8 +51,10 @@ Dotfiles 是类似 Unix 的系统上以 `.` 开头的文件和文件夹，用于
 * _安装_
 * _bootstrap.sh_
 * _bootstrap_
+* _script/bootstrap_
 * _setup.sh_
 * _setup_
+* _script/setup_
 
 如果未找到这些文件，则 `dotfiles` 中以 `.` 开头的文件或文件夹通过符号链接到代码空间的 `~` 或 `$HOME` 目录。
 

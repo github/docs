@@ -3,6 +3,7 @@ const path = require('path')
 const { difference, isPlainObject } = require('lodash')
 const { getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+const rest = require('../../lib/rest')
 // list of REST markdown files that do not correspond to REST API resources
 // TODO could we get this list dynamically, say via page frontmatter?
 const excludeFromResourceNameCheck = [
@@ -15,7 +16,7 @@ describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   test('markdown file exists for every operationId prefix in the api.github.com schema', async () => {
-    const { categories } = require('../../lib/rest')
+    const { categories } = rest
     const referenceDir = path.join(__dirname, '../../content/rest/reference')
     const filenames = (await fs.readdir(referenceDir))
       .filter(filename => !excludeFromResourceNameCheck.find(excludedFile => filename.endsWith(excludedFile)))
@@ -47,7 +48,7 @@ describe('REST references docs', () => {
   })
 
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {
-    const { operations } = require('../../lib/rest')
+    const { operations } = rest
     expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
   })
 })

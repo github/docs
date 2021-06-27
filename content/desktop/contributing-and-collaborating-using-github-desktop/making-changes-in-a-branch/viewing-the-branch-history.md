@@ -5,7 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-the-branch-history
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: View branch history
 ---
 Each commit shows:
 
@@ -20,6 +21,6 @@ Each commit shows:
 3. If there are multiple files in the commit, click on an individual file to see the changes made to that file in that commit.
 ![A file in the commit](/assets/images/help/desktop/branch-history-file.png)
 
-### Further reading
+## Further reading
 
 - "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)"

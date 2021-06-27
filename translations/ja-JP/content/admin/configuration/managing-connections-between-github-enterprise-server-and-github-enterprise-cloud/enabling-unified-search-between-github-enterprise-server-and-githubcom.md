@@ -16,6 +16,7 @@ topics:
   - GitHub Connect
   - GitHub search
 ---
+
 Unified Searchを有効化すると、ユーザは{% data variables.product.product_location_enterprise %}から検索をした際に、{% data variables.product.prodname_dotcom_the_website %}上のパブリックおよびプライベートコンテンツからの検索結果を見ることができます。
 
 両方の環境にアクセスできる場合でも、ユーザは{% data variables.product.prodname_dotcom_the_website %}から{% data variables.product.product_location_enterprise %}を検索することはできません。 ユーザが検索できるのは、あなたが{% data variables.product.prodname_unified_search %}を有効化したプライベートリポジトリと、接続された{% data variables.product.prodname_ghe_cloud %} Organizationでユーザがアクセスできるプライベートリポジトリだけです。 詳細は、「[{% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)での検索について」と「[{% data variables.product.prodname_ghe_server %}アカウントでのプライベートな{% data variables.product.prodname_dotcom_the_website %}リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。

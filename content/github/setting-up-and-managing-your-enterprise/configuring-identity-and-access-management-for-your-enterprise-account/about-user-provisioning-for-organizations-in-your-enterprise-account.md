@@ -3,11 +3,12 @@ title: About user provisioning for organizations in your enterprise account
 intro: You can manage organization membership in an enterprise account directly from an identity provider (IdP).
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account
+shortTitle: About provisioning
 ---
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 

@@ -21,8 +21,8 @@ Si tu organización está en una suscripción de pago por usuario, debes contar 
 Si tu organización [requiere que los miembros utilicen autenticación bifactorial](/articles/requiring-two-factor-authentication-in-your-organization), los usuarios {% if currentVersion == "free-pro-team@latest" %}que invites deben [habilitar la autenticación bifactorial](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de que puedan aceptar la invitación.{% else %}deben [habilitar la autenticación bifactorial](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de que puedas agregarlos a la organización.{% endif %}
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}

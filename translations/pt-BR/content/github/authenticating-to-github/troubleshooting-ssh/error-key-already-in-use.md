@@ -11,6 +11,7 @@ versions:
 topics:
   - SSH
 ---
+
 ### Descobrir onde a chave foi usada
 
 Para determinar onde a chave foi usada, abra um terminal e digite o comando `ssh`. Use o sinalizador `-i` para fornecer o caminho para a chave que deseja marcar:

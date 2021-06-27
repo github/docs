@@ -8,9 +8,9 @@ redirect_from:
   - /actions/building-actions
   - /articles/creating-a-github-action/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 children:
   - /about-actions
   - /creating-a-docker-container-action

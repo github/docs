@@ -1,0 +1,201 @@
+name: Staging - Deploy PR
+
+# **What it does**: To deploy PRs to a Heroku staging environment.
+# **Why we have it**: To deploy with high visibility in case of failures.
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - unlocked
+  workflow_dispatch:
+    inputs:
+      pullRequestUrl:
+        description: 'Pull Request URL'
+        required: true
+        default: 'https://github.com/github/docs/pull/1234'
+      forceRebuild:
+        description: 'Force the Heroku App to be rebuilt from scratch? (true/false)'
+        required: false
+        default: 'false'
+
+jobs:
+  validate-inputs:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    name: Validate inputs
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      headRef: ${{ steps.validate.outputs.headRef }}
+    steps:
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          # Enables cloning the Early Access repo later with the relevant PAT
+          persist-credentials: 'false'
+
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        name: Setup node
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        with:
+          node-version: 16.x
+
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        name: Cache node modules
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        name: Install dependencies
+        run: npm ci
+
+      - if: ${{ github.event_name == 'workflow_dispatch' }}
+        name: Validate and get head.ref
+        id: validate
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          PR_URL: ${{ github.event.inputs.pullRequestUrl }}
+          FORCE_REBUILD: ${{ github.event.inputs.forceRebuild }}
+        with:
+          script: |
+            const parsePrUrl = require('./script/deployment/parse-pr-url')
+
+            // Manually resolve workflow_dispatch inputs
+            const { PR_URL, FORCE_REBUILD } = process.env
+
+            if (!['true', 'false'].includes(FORCE_REBUILD)) {
+              throw new Error(`'forceRebuild' input must be either 'true' or 'false' but was '${FORCE_REBUILD}'`)
+            }
+
+            const { owner, repo, pullNumber } = parsePrUrl(PR_URL)
+            if (!owner || !repo || !pullNumber) {
+              throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${PR_URL}'`)
+            }
+
+            const { data: pullRequest } = await github.pulls.get({
+              owner,
+              repo,
+              pull_number: pullNumber
+            })
+
+            core.setOutput('headRef', pullRequest.head.ref)
+
+  deploy:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    needs: validate-inputs
+    name: Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: staging_${{ needs.validate-inputs.outputs.headRef || github.head_ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          # Enables cloning the Early Access repo later with the relevant PAT
+          persist-credentials: 'false'
+
+      - name: Setup node
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        with:
+          node-version: 16.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
+          HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
+          HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
+          PR_URL: ${{ github.event.inputs.pullRequestUrl }}
+          FORCE_REBUILD: ${{ github.event.inputs.forceRebuild }}
+        with:
+          script: |
+            const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
+
+            // Exit if GitHub Actions PAT is not found
+            if (!GITHUB_TOKEN) {
+              throw new Error('You must supply a GITHUB_TOKEN environment variable!')
+            }
+
+            // Exit if Heroku API token is not found
+            if (!HEROKU_API_TOKEN) {
+              throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
+            }
+
+            const parsePrUrl = require('./script/deployment/parse-pr-url')
+            const getOctokit = require('./script/helpers/github')
+            const deployToStaging = require('./script/deployment/deploy-to-staging')
+
+            // This helper uses the `GITHUB_TOKEN` implicitly!
+            // We're using our usual version of Octokit vs. the provided `github`
+            // instance to avoid versioning discrepancies.
+            const octokit = getOctokit()
+
+            try {
+              let pullRequest = null
+              let forceRebuild = false
+
+              // Manually resolve workflow_dispatch inputs
+              if (context.eventName === 'workflow_dispatch') {
+                const { PR_URL, FORCE_REBUILD } = process.env
+
+                forceRebuild = FORCE_REBUILD === 'true'
+
+                const { owner, repo, pullNumber } = parsePrUrl(PR_URL)
+                if (!owner || !repo || !pullNumber) {
+                  throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${PR_URL}'`)
+                }
+
+                const { data: pr } = await octokit.pulls.get({
+                  owner,
+                  repo,
+                  pull_number: pullNumber
+                })
+                pullRequest = pr
+              }
+
+              await deployToStaging({
+                herokuToken: HEROKU_API_TOKEN,
+                octokit,
+                pullRequest: pullRequest || context.payload.pull_request,
+                forceRebuild,
+                runId: context.runId
+              })
+            } catch (error) {
+              console.error(`Failed to deploy to staging: ${error.message}`)
+              console.error(error)
+              throw error
+            }

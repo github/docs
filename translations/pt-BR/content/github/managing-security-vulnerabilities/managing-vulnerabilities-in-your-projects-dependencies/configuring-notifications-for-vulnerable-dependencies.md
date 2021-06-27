@@ -9,19 +9,18 @@ topics:
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
 ---
+
 <!--See /content/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies for the current version of this article -->
 
 ### Sobre notificações para dependências vulneráveis
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.prodname_dependabot %} detects vulnerable dependencies in your repositories, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. {% data variables.product.product_name %} notifies the maintainers of affected repositories about the new alert according to their notification preferences.{% else %}When {% data variables.product.product_name %} detects vulnerable dependencies in your repositories, it sends security alerts.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}Quando {% data variables.product.prodname_dependabot %} detecta dependências vulneráveis nos seus repositórios, geramos um alerta de {% data variables.product.prodname_dependabot %} e o exibimos na aba Segurança do repositório. {% data variables.product.product_name %} notifica os mantenedores dos repositórios afetados sobre o novo alerta de acordo com as suas preferências de notificação.{% else %}Quando {% data variables.product.product_name %} detecta dependências vulneráveis no seu repositório, ele envia alertas de segurança.{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.21" %}
-O administrador do seu site precisa habilitar alertas de segurança para dependências vulneráveis para
-{% data variables.product.product_location %} antes de você poder usar o recurso. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
+O administrador do seu site precisa habilitar alertas de segurança para dependências vulneráveis para {% data variables.product.product_location %} antes de poder usar o recurso. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.20" %}
-Por padrão, se o administrador do site tiver configurado e-mail para notificações na sua empresa, você receberá
-{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %} por e-mail.{% endif %}
+Por padrão, se o administrador do site tiver configurado o e-mail para notificações na sua empresa, você receberá {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %} por e-mail.{% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}Os administradores do site também podem habilitar {% data variables.product.prodname_dependabot_alerts %} sem notificações. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
 
@@ -50,7 +49,7 @@ Você pode definir as configurações de notificação para si mesmo ou para sua
 
 ### Como reduzir o ruído das notificações para dependências vulneráveis
 
-If you are concerned about receiving too many notifications for {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, we recommend you opt into the weekly email digest, or turn off notifications while keeping {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} enabled. You can still navigate to see your {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} in your repository's Security tab.
+Se você estiver preocupado em receber muitas notificações para {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, recomendamos que você opte pelo resumo semanal por e-mail ou que você desative as notificações ao mesmo tempo em que mantém os {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %} habilitados. Você ainda pode acessar os seus {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %} na aba de Segurança do seu repositório.
 
 ### Leia mais
 

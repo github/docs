@@ -7,15 +7,17 @@ name: Check unallowed file changes
 on:
   pull_request_target:
     paths:
+      - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
-      - 'translations/**'
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'lib/graphql/**'
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
+      - 'scripts/**'
+      - 'translations/**'
 
 jobs:
   triage:
@@ -25,7 +27,7 @@ jobs:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
       - name: Check for existing requested changes
         id: requested-change
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: json
@@ -63,42 +65,44 @@ jobs:
             openapi:
               - 'lib/rest/static/**'
             notAllowed:
+              - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
-              - 'translations/**'
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'lib/graphql/**'
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
+              - 'scripts/**'
+              - 'translations/**'
 
       # When there are changes to files we can't accept
       # and no review exists,leave a REQUEST_CHANGES review
       - name: Request pull request changes
         # Check for no reviews or reviews that aren't CHANGES_REQUESTED
         if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const badFilesArr = [
-              'translations/**',
-              'lib/rest/static/**',
+              '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
-              'translations/**',
               'assets/fonts/**',
               'data/graphql/**',
               'lib/graphql/**',
               'lib/redirects/**',
               'lib/rest/**',
-              'lib/webhooks/**'
+              'lib/webhooks/**',
+              'scripts/**',
+              'translations/**'
             ]
 
             const badFiles = badFilesArr.join('\n')
 
-            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
 
             await github.pulls.createReview({
               ...context.repo,
@@ -114,7 +118,7 @@ jobs:
         # Check that unallowed files aren't modified and that a
         # CHANGES_REQUESTED review already exists
         if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |

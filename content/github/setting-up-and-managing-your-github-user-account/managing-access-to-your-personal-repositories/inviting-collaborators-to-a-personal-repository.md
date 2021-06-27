@@ -1,6 +1,6 @@
 ---
 title: Inviting collaborators to a personal repository
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+intro: 'You can {% ifversion fpt %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -8,20 +8,21 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Repositories
+shortTitle: Invite collaborators
 ---
 Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.product_name %}](/articles/access-permissions-on-github)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -31,10 +32,10 @@ Repositories owned by an organization can grant more granular access. For more i
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-manage-access %}
 1. Click **Invite a collaborator**.
   !["Invite a collaborator" button](/assets/images/help/repository/invite-a-collaborator-button.png)
@@ -51,11 +52,11 @@ Repositories owned by an organization can grant more granular access. For more i
 8. Click **Add collaborator**.
    ![Add button](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"

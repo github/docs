@@ -8,6 +8,7 @@ permissions: 'Anyone with access to {% data variables.product.prodname_insights 
 versions:
   enterprise-server: '*'
 ---
+
 ### Sobre as metas
 
 As metas são os que você pode definir para métricas principais para medir o sucesso da sua equipe. Ao definir definiu uma meta para uma métrica chave, você pode ver como o desempenho da sua equipe é comparado com as metas usando a linha de meta nos gráficos e a métrica da taxa de sucesso. Por exemplo, você pode definir a meta para o `tempo de resposta de revisão do código` para 4 horas. Uma linha de meta no gráfico principal mostra quais revisões de código alcançaram a meta e quais não. Se sua equipe completou metade das revisões de código em menos de 4 horas, a sua `taxa de sucesso` será 50%.

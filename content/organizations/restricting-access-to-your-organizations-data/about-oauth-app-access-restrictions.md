@@ -6,10 +6,11 @@ redirect_from:
   - /articles/about-oauth-app-access-restrictions
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: OAuth App access
 ---
 
 When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members cannot authorize {% data variables.product.prodname_oauth_app %} access to organization resources. Organization members can request owner approval for {% data variables.product.prodname_oauth_app %}s they'd like to use, and organization owners receive a notification of pending requests.
@@ -22,7 +23,7 @@ When {% data variables.product.prodname_oauth_app %} access restrictions are ena
 
 {% endtip %}
 
-### Setting up {% data variables.product.prodname_oauth_app %} access restrictions
+## Setting up {% data variables.product.prodname_oauth_app %} access restrictions
 
 When an organization owner sets up {% data variables.product.prodname_oauth_app %} access restrictions for the first time:
 
@@ -35,21 +36,21 @@ When an organization owner sets up {% data variables.product.prodname_oauth_app 
 - **Hooks created by users and hooks created before May 2014** will not be affected.
 - **Private forks of organization-owned repositories** are subject to the organization's access restrictions.
 
-### Resolving SSH access failures
+## Resolving SSH access failures
 
 When an SSH key created before February 2014 loses access to an organization with {% data variables.product.prodname_oauth_app %} access restrictions enabled, subsequent SSH access attempts will fail. Users will encounter an error message directing them to a URL where they can approve the key or upload a trusted key in its place.
 
-### Webhooks
+## Webhooks
 
 When an {% data variables.product.prodname_oauth_app %} is granted access to the organization after restrictions are enabled, any pre-existing webhooks created by that {% data variables.product.prodname_oauth_app %} will resume dispatching.
 
 When an organization removes access from a previously-approved {% data variables.product.prodname_oauth_app %}, any pre-existing webhooks created by that application will no longer be dispatched (these hooks will be disabled, but not deleted).
 
-### Re-enabling access restrictions
+## Re-enabling access restrictions
 
 If an organization disables {% data variables.product.prodname_oauth_app %} access application restrictions, and later re-enables them, previously approved {% data variables.product.prodname_oauth_app %} are automatically granted access to the organization's resources.
 
-### Further reading
+## Further reading
 
 - "[Enabling {% data variables.product.prodname_oauth_app %} access restrictions for your organization](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
 - "[Approving {% data variables.product.prodname_oauth_app %}s for your organization](/articles/approving-oauth-apps-for-your-organization)"

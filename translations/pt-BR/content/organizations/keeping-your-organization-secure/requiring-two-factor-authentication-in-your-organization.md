@@ -57,8 +57,8 @@ Para exibir as pessoas que foram removidas automaticamente da organização por 
 
 ![Evento do log de auditoria mostrando um usuário removido por motivo de não conformidade com a 2FA](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Faça a pesquisa. Para pesquisar:
     - Integrantes da organização removidos, use `action:org.remove_member` na pesquisa

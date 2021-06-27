@@ -4,9 +4,13 @@ intro: '{% data variables.product.prodname_dependabot %} can maintain your repos
 redirect_from:
   - /github/administering-a-repository/keeping-your-dependencies-updated-automatically
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
+  - Pull requests
 children:
   - /about-dependabot-version-updates
   - /upgrading-from-dependabotcom-to-github-native-dependabot
@@ -17,5 +21,6 @@ children:
   - /customizing-dependency-updates
   - /configuration-options-for-dependency-updates
   - /keeping-your-actions-up-to-date-with-dependabot
+shortTitle: Auto-update dependencies
 ---
 

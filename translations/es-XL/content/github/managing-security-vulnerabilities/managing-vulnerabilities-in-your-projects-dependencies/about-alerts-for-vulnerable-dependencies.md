@@ -2,8 +2,6 @@
 title: About alerts for vulnerable dependencies
 intro: '{% data variables.product.product_name %} sends {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} when we detect vulnerabilities affecting your repository.'
 redirect_from:
-  - /articles/about-security-alerts-for-vulnerable-dependencies
-  - /github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 versions:
   enterprise-server: <=2.22

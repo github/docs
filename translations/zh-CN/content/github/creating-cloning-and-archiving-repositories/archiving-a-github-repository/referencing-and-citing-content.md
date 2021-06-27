@@ -9,6 +9,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 使用 Zenodo 发出仓库的持久标识符
 
 为了使您的仓库在学术文献中更易于参考，您可以创建持久标识符，也称为数字对象标识符 (DOI)。 您可以使用数据存档工具 [Zenodo](https://zenodo.org/about) 来存档 {% data variables.product.product_name %} 仓库并发出存档的 DOI。

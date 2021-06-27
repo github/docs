@@ -1,7 +1,7 @@
 ---
-title: Working with a GitHub Packages registry
-shortTitle: Working with a GitHub Packages registry
-intro: 'Learn how to use a supported {% data variables.product.prodname_registry %} registry.'
+title: Trabajar con un registro de Paquetes de GitHub
+shortTitle: Trabajar con un registro de Paquetes de GitHub
+intro: 'Aprende a utilizar el registro compatible del {% data variables.product.prodname_registry %}.'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
   - /packages/using-github-packages-with-your-projects-ecosystem
@@ -12,29 +12,22 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+children:
+  - /working-with-the-npm-registry
+  - /working-with-the-rubygems-registry
+  - /working-with-the-apache-maven-registry
+  - /working-with-the-gradle-registry
+  - /working-with-the-nuget-registry
+  - /working-with-the-docker-registry
+  - /working-with-the-container-registry
+  - /enabling-improved-container-support-with-the-container-registry
+  - /migrating-to-the-container-registry-from-the-docker-registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-
 {% if currentVersion == "free-pro-team@latest" %}
-
-![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
-
+![Diagrama que muestra la compatibilidad de paquetes para Docker, el registro de contenedores, RubyGems, npm, Apache Maven, NuGet y Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 {% else %}
-
-![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
-
+![Diagrama ue muestra la compatibilidad de paquetes para Docker, RubyGems, npm, Apache Maven, Gradle, NuGet y Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 {% endif %}
-
-### Índice
-
-{% link_in_list /working-with-the-npm-registry %}
-{% link_in_list /working-with-the-rubygems-registry %}
-{% link_in_list /working-with-the-apache-maven-registry %}
-{% link_in_list /working-with-the-gradle-registry %}
-{% link_in_list /working-with-the-nuget-registry %}
-{% link_in_list /working-with-the-docker-registry %}
-{% link_in_list /working-with-the-container-registry %}
-{% link_in_list /enabling-improved-container-support-with-the-container-registry %}
-{% link_in_list /migrating-to-the-container-registry-from-the-docker-registry %}

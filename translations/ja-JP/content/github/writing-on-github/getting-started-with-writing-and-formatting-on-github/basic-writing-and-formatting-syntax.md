@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### ヘッディング
 
 ヘッディングを作成するには、1 つから 6 つの `#` シンボルをヘッディングのテキストの前に追加します。 使用する `#` の数によって、ヘッディングのサイズが決まります。
@@ -163,7 +164,7 @@ git commit
 
 {% data reusables.repositories.task-list-markdown %}
 
-タスクリストアイテムの説明が括弧で始まる場合、その括弧を "\" でエスケープする必要があります。
+タスクリストアイテムの説明がカッコから始まるのであれば、`\` でエスケープしなければなりません。
 
 `- [ ] \(オプション) フォローアップの Issue のオープン`
 
@@ -227,7 +228,7 @@ git commit
 
 ### Markdown のフォーマットの無視
 
-{% data variables.product.product_name %}に対し、Markdown のキャラクタの前に "\" を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます
+{% data variables.product.product_name %}に対し、Markdown のキャラクタの前に `\` を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます。
 
 `\*新しいプロジェクト\* を \*古いプロジェクト\* にリネームしましょう`
 

@@ -6,15 +6,15 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/updating-github-insights
 permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
-### About {% data variables.product.prodname_insights %} updates
+## About {% data variables.product.prodname_insights %} updates
 
 Before you update {% data variables.product.prodname_insights %}, you can check the version that you're currently using in the lower-right corner of any page.
 
 The update process will take up to 10 minutes. During this time, users cannot access {% data variables.product.prodname_insights %}.
 
-### Updating from {% data variables.product.prodname_insights %} 0.4.0+
+## Updating from {% data variables.product.prodname_insights %} 0.4.0+
 
 To update {% data variables.product.prodname_insights %} from 0.4.0+, you can install the latest version. {% data variables.product.prodname_insights %} will ask to use the previous installation configuration.
 
@@ -30,6 +30,6 @@ To update {% data variables.product.prodname_insights %} from 0.4.0+, you can in
   ```
 {% data reusables.github-insights.run-script %}
 
-### Updating from {% data variables.product.prodname_insights %} 0.3.1 or lower
+## Updating from {% data variables.product.prodname_insights %} 0.3.1 or lower
 
 {% data variables.product.prodname_insights %} versions 0.3.1 or lower are incompatible with versions 0.4.0+. To update from {% data variables.product.prodname_insights %} 0.3.1 or lower, install and configure {% data variables.product.prodname_insights %} on a new application server.

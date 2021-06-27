@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 第 1 部分：安装 {% data variables.product.prodname_desktop %}
 
 您可以在任何支持的操作系统上安装 {% data variables.product.prodname_desktop %}。 更多信息请参阅“[支持的操作系统](/desktop/getting-started-with-github-desktop/supported-operating-systems)”。

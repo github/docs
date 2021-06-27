@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### Aplicativo suspenso
 
 Se o aplicativo OAuth que você configurou foi suspenso (em razão de abusos, spam, ou de má utilização da API), o GitHub irá redirecionar para a URL de chamada de retorno registrada, usando os parâmetros a seguir para resumir o erro:

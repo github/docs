@@ -9,6 +9,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于仓库管理
 
 要让 {% data variables.product.prodname_insights %} 包含来自 {% data variables.product.prodname_enterprise %} 中的仓库的数据，您必须将拥有该仓库的组织添加到 {% data variables.product.prodname_insights %}。 更多信息请参阅“[管理组织](/github/installing-and-configuring-github-insights/managing-organizations)”。

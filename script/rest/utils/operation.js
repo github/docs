@@ -1,10 +1,12 @@
 const { get, flatten, isPlainObject } = require('lodash')
 const { sentenceCase } = require('change-case')
-const slugger = new (require('github-slugger'))()
+const GitHubSlugger = require('github-slugger')
+const slugger = new GitHubSlugger()
 const httpStatusCodes = require('http-status-code')
 const renderContent = require('../../../lib/render-content')
 const createCodeSamples = require('./create-code-samples')
 const Ajv = require('ajv')
+const operationSchema = require('./operation-schema')
 
 // titles that can't be derived by sentence-casing the ID
 const categoryTitles = { scim: 'SCIM' }
@@ -39,7 +41,7 @@ module.exports = class Operation {
   }
 
   get schema () {
-    return require('./operation-schema')
+    return operationSchema
   }
 
   async process () {

@@ -45,5 +45,5 @@ Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/e
 
 - [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) no repositório  `github/roadmap`
 {% if currentVersion == "github-ae@latest" %}
-- [ Observações da versão de {% data variables.product.prodname_ghe_managed %}](/admin/overview/github-ae-release-notes)
+- [ Observações da versão de {% data variables.product.prodname_ghe_managed %}](/admin/release-notes)
 {% endif %}

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### パート 1: {% data variables.product.prodname_desktop %} のインストール方法
 
 {% data variables.product.prodname_desktop %} は、サポートされている任意のオペレーティングシステムにインストールできます。 詳しい情報については、「[サポートされているオペレーティングシステム](/desktop/getting-started-with-github-desktop/supported-operating-systems)」を参照してください。

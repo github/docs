@@ -4,13 +4,14 @@ intro: 'You can control and secure access to resources like repositories, issues
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+shortTitle: Enable SSO for organizations
 ---
-### About SAML single sign-on for enterprise accounts
+## About SAML single sign-on for enterprise accounts
 
 {% data reusables.saml.dotcom-saml-explanation %} For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
@@ -22,7 +23,7 @@ redirect_from:
 
 {% data reusables.scim.enterprise-account-scim %} If you're not participating in the private beta, SCIM is not supported for enterprise accounts. For more information, see "[About user provisioning for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)."
 
-### Enabling SAML single-sign on for organizations in your enterprise account
+## Enabling SAML single-sign on for organizations in your enterprise account
 
 {% note %}
 

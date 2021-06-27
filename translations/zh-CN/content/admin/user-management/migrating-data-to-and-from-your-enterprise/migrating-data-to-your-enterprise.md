@@ -19,6 +19,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
 一旦[准备迁移](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)，您即可使用以下步骤来完成迁移。

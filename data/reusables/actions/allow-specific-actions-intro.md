@@ -8,7 +8,7 @@ When you choose **Allow select actions**, local actions are allowed, and there a
 
   You can use the `*` wildcard character to match patterns. For example, to allow all actions in organizations that start with `space-org`, you can specify `space-org*/*`. To add all actions in repositories that start with octocat, you can use `*/octocat*@*`. For more information about using the `*` wildcard, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)." 
 
-  {% if currentVersion == "free-pro-team@latest" %}
+  {% ifversion fpt %}
   {% note %}
 
   **Note:** The **Allow specified actions** option is only available in public repositories with the {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plan.

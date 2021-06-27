@@ -13,6 +13,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 Quando ocorre um push, cada script é executado em um ambiente isolado e pode executar verificações no conteúdo do push. Os scripts farão o push ser aceito se o status de saída for 0, ou farão o push ser rejeitado se o status de saída for diferente de zero.
 
 ### Cenários de uso

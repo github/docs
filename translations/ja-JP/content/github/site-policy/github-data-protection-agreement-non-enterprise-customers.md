@@ -326,7 +326,7 @@ h) 要請に応じて、データ主体に対し、添付文書2を除く本契�
 
 しかしながら、データ輸入者はストレージサービスを提供し、そこに保存するデータのカテゴリを管理していないため、データ輸出者は特別カテゴリのデータを転送することも選択できます。 したがってデータ輸出者は、センシティブな個人を処理する前にデータ主体の明示的同意を得ることを含め、特別カテゴリのデータの収集および処理に関して適用される法令により課されるあらゆる義務に確実に従う義務を単独で負います。
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement), and the “Data Processing” section of the DPA. 下請け業者: DPAに従い、データ輸入者は顧客サポートの提供などの限定的なサービスをデータ輸入者に代わって提供するため、他の企業に業務を委託することができます。 かかる下請け業者は、データ輸入者が下請け業者に要請したサービスを提供する目的においてのみ、お客様の個人データを取得することができ、その他の目的でお客様の個人データを利用することはできないものとします。
+**操作の処理:** 転送される個人データは、次の基本的な処理活動に従います。GitHubは、[https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement)で閲覧できる、GitHubのプライバシーについての声明に記載された限定的な目的において、およびDPAの「データ処理」セクションに従って個人データを利用します。 下請け業者: DPAに従い、データ輸入者は顧客サポートの提供などの限定的なサービスをデータ輸入者に代わって提供するため、他の企業に業務を委託することができます。 かかる下請け業者は、データ輸入者が下請け業者に要請したサービスを提供する目的においてのみ、お客様の個人データを取得することができ、その他の目的でお客様の個人データを利用することはできないものとします。
 
 ### 標準契約条項添付文書2
 第4条 (d) および第5条 (c) に従ってデータ輸入者が実施する、技術的および組織的セキュリティ対策を以下に説明します。

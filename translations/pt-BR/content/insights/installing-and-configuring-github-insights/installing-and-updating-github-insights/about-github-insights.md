@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### Sobre o {% data variables.product.prodname_insights %}
 
 {% data variables.product.prodname_insights %} é um aplicativo autônomo que fornece relatórios analíticos com base em dados de {% data variables.product.product_location %} para ajudá-lo a entender e melhorar o seu processo de entrega de software. Você pode usar essas métricas para remover obstáculos nos processos, melhorar a colaboração e entregar projetos mais rápido, com maior qualidade.

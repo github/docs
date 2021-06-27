@@ -10,21 +10,22 @@ redirect_from:
   - /articles/unlocking-a-locked-personal-account/
   - /articles/unlocking-a-locked-organization-account/
   - /articles/unlocking-a-locked-account
-  - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - User account
+shortTitle: Locked account
 ---
 You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
 You can downgrade your organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {% data variables.product.product_name %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
 
-### Unlocking an organization's features due to a declined payment
+## Unlocking an organization's features due to a declined payment
 
 If your organization's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 

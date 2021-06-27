@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **Tipp:** Du kannst von Deinem lokalen Computer ein Git-Repository auf den GitHub Desktop hinzufügen. Ziehe dazu den Ordner in das {% data variables.product.prodname_desktop %}-Fenster. Wenn Sie mehrere Git-Ordner gleichzeitig nach {% data variables.product.prodname_desktop %} ziehen, wird jeder Ordner als ein separates Git-Repository hinzugefügt.

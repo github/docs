@@ -62,6 +62,10 @@ Dynatrace | Dynatrace Access Token | dynatrace_access_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Dynatrace | Dynatrace Internal Token | dynatrace_internal_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+EasyPost | EasyPost Production API Key | easypost_production_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+EasyPost | EasyPost Test API Key | easypost_test_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 Facebook | Facebook Access Token | facebook_access_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 Fastly | Fastly API Token | fastly_api_token{% endif %}
@@ -105,10 +109,16 @@ Lob | Lob Test API Key | lob_test_api_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Mailgun | Mailgun API Key | mailgun_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 npm | npm Access Token | npm_access_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 NuGet | NuGet API Key | nuget_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 OpenAI | OpenAI API Key | openai_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
@@ -135,6 +145,10 @@ Samsara | Samsara API Token | samsara_api_token{% endif %}
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Shippo | Shippo Test API Token | shippo_test_api_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Shopify | Shopify App Shared Secret | shopify_app_shared_secret{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
@@ -163,6 +177,12 @@ Stripe | Stripe Test API Secret Key | stripe_test_secret_key{% endif %}
 Stripe | Stripe Live API Restricted Key | stripe_live_restricted_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Telegram | Telegram Bot Token | telegram_bot_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}

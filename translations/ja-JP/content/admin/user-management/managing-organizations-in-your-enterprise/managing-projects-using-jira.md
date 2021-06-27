@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Project management
 ---
+
 ### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
 1. http[s]://[hostname]/login で {% data variables.product.prodname_enterprise %}のアカウントにサインインする。 If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.

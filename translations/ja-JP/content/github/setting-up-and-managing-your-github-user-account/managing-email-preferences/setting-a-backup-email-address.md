@@ -12,6 +12,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
 3. [Backup email address] の下で、ドロップダウンメニューを使って、バックアップメールアドレスに設定したいアドレスを選択します。 ![バックアップメールアドレス](/assets/images/help/settings/backup-email-address.png)

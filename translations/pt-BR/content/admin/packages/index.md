@@ -15,6 +15,7 @@ children:
   - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /configuring-package-ecosystem-support-for-your-enterprise
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
   {% if currentVersion ver_gt "enterprise-server@2.22" %}
   {% endif %}

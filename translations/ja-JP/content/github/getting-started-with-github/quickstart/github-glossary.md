@@ -1,6 +1,6 @@
 ---
 title: GitHub 用語集
-intro: '弊社のサイトおよびドキュメンテーションで使用する、Git および {% data variables.product.prodname_dotcom %} に固有の用語の一部を以下に挙げます。'
+intro: 'This glossary introduces common Git and {% data variables.product.prodname_dotcom %} terminology.'
 redirect_from:
   - /articles/github-glossary
   - /github/getting-started-with-github/github-glossary
@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% for term in site.data.glossaries.external %}
   ### {% data glossaries.external[forloop.index0].term %}
   {% data glossaries.external[forloop.index0].description %}

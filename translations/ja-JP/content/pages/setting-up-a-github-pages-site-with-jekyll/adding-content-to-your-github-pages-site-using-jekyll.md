@@ -45,6 +45,11 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+{% data reusables.files.choose_pull_request %}
+{% data reusables.files.merge_pull_request %}
+{% data reusables.files.write_commit_message_pull_request %}
+{% data reusables.files.confirm_merge %}
+{% data reusables.files.delete_branch %}
 
 ### 新規投稿をサイトに追加する
 
@@ -64,6 +69,11 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+{% data reusables.files.choose_pull_request %}
+{% data reusables.files.merge_pull_request %}
+{% data reusables.files.write_commit_message_pull_request %}
+{% data reusables.files.confirm_merge %}
+{% data reusables.files.delete_branch %}
 
 あなたの投稿がサイトにアップされているはずです。 サイトのベース URL が `https://octocat.github.io` の場合、新しい投稿は `https://octocat.github.io/YYYY/MM/DD/TITLE.html` にあります。
 

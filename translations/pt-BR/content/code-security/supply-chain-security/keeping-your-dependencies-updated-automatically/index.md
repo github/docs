@@ -7,6 +7,10 @@ versions:
   free-pro-team: '*'
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
+  - Pull requests
 children:
   - /about-dependabot-version-updates
   - /upgrading-from-dependabotcom-to-github-native-dependabot

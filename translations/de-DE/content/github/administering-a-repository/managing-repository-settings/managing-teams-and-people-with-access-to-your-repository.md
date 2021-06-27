@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Über die Verwaltung von Zugriffen auf Dein Repository
 
 Für jedes Repository, das Du auf {% data variables.product.prodname_dotcom %} verwaltest, kannst Du eine Übersicht aller Teams und Personen sehen, die Zugriff auf das Repository haben. In der Übersicht kannst Du auch neue Teams oder Personen einladen, die Berechtigungen jedes Teams oder jeder Person ändern oder den Zugriff auf das Repository entfernen.

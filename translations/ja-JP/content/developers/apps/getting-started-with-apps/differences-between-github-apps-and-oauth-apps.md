@@ -14,6 +14,7 @@ topics:
   - GitHub Apps
   - OAuth Apps
 ---
+
 ### GitHub App のインストール、OAuth App の承認が可能なユーザ
 
 GitHub App は、個人アカウントおよび自分が所有する Organization にインストールできます。 リポジトリの管理者権限がある場合には、GitHub App を Organization のアカウントにインストールできます。 GitHub App がリポジトリにインストールされていて、Organization の権限を要求している場合、Organization のオーナーはアプリケーションを承認する必要があります。

@@ -10,7 +10,8 @@ topics:
   - Accounts
   - Notifications
 ---
-コミットをコマンドラインからプッシュする際には、[Git で設定した](/articles/setting-your-commit-email-address)メールアドレスがコミットに関連付けられます。 この設定により、コマンドライン上で個人のメールアドレスを使用してコミットをプッシュすることがブロックされます。
+
+コミットをコマンドラインからプッシュする際には、[Git で設定した](/articles/setting-your-commit-email-address)メールアドレスがコミットに関連付けられます。 If you enable this setting, each time you push to GitHub, we’ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.
 
 {% data reusables.user_settings.about-commit-email-addresses %}
 

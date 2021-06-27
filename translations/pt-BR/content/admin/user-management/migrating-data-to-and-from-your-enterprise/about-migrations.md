@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Tipos de migração
 
 Você pode fazer três tipos de migração:

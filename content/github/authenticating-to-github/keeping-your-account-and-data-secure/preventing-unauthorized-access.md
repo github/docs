@@ -5,11 +5,12 @@ redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Unauthorized access
 ---
 {% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
 
@@ -17,7 +18,7 @@ After changing your password, you should perform these actions to make sure that
 
 - [Enable two-factor authentication](/articles/about-two-factor-authentication) on your account so that access requires more than just a password.
 - [Review your SSH keys](/articles/reviewing-your-ssh-keys), [deploy keys](/articles/reviewing-your-deploy-keys), and [authorized integrations](/articles/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - [Verify all your email addresses](/articles/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
 {% endif %}
 - [Review your account's security log](/github/authenticating-to-github/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.

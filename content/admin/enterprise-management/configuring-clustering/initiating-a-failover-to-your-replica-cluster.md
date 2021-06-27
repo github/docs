@@ -5,15 +5,16 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '>2.21'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate a failover to replica
 ---
-### About failover to your replica cluster
+## About failover to your replica cluster
 
 In the event of a failure at your primary datacenter, you can fail over to the replica nodes in the secondary datacenter if you configure a passive replica node for each node in your active cluster.
 
@@ -21,11 +22,11 @@ The time required to fail over depends on how long it takes to manually promote 
 
 Promoting a replica cluster does not automatically set up replication for the existing cluster. After promoting a replica cluster, you can reconfigure replication from the new active cluster. For more information, see "[Configuring high availability for a cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)."
 
-### Prerequisites
+## Prerequisites
 
 To fail over to passive replica nodes, you must have configured high availability for your cluster. For more information, see "[Configuring high availability for a cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)."
 
-### Initiating a failover to your replica cluster
+## Initiating a failover to your replica cluster
 
 1. SSH into any passive node in the secondary datacenter for your cluster. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 

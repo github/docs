@@ -9,7 +9,8 @@ const RedisAccessor = require('../lib/redis-accessor')
 const { isConnectionDropped } = require('./halt-on-dropped-connection')
 const { nextHandleRequest } = require('./next')
 
-const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
+const { HEROKU_RELEASE_VERSION } = process.env
+
 const pageCacheDatabaseNumber = 1
 const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
 
@@ -84,16 +85,34 @@ module.exports = async function renderPage (req, res, next) {
   }
   const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
 
-  // Serve from the cache if possible (skip during tests)
-  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
-
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
-  // Should the current path be rendered by NextJS?
-  const renderWithNextjs = 'nextjs' in req.query && FEATURE_NEXTJS
+  // Is in an airgapped session?
+  const isAirgapped = Boolean(req.cookies.AIRGAP)
 
-  if (isCacheable && !isRequestingJsonForDebugging && !renderWithNextjs) {
+  // Is the request for the GraphQL Explorer page?
+  const isGraphQLExplorer = req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
+
+  // Serve from the cache if possible
+  const isCacheable = (
+    // Skip for CI
+    !process.env.CI &&
+    // Skip for tests
+    process.env.NODE_ENV !== 'test' &&
+    // Skip for HTTP methods other than GET
+    req.method === 'GET' &&
+    // Skip for JSON debugging info requests
+    !isRequestingJsonForDebugging &&
+    // Skip for NextJS rendering
+    !req.renderWithNextjs &&
+    // Skip for airgapped sessions
+    !isAirgapped &&
+    // Skip for the GraphQL Explorer page
+    !isGraphQLExplorer
+  )
+
+  if (isCacheable) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -112,8 +131,7 @@ module.exports = async function renderPage (req, res, next) {
   const context = Object.assign({}, req.context, { page })
 
   // collect URLs for variants of this page in all languages
-  context.page.languageVariants = Page.getLanguageVariants(req.path)
-
+  context.page.languageVariants = Page.getLanguageVariants(req.pagePath)
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
@@ -129,24 +147,24 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // handle special-case prerendered GraphQL objects page
-  if (req.path.endsWith('graphql/reference/objects')) {
+  if (req.pagePath.endsWith('graphql/reference/objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
     context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
     context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
   // handle special-case prerendered GraphQL input objects page
-  if (req.path.endsWith('graphql/reference/input-objects')) {
+  if (req.pagePath.endsWith('graphql/reference/input-objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
     context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
     context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
   }
 
   // Create string for <title> tag
-  context.page.fullTitle = context.page.title
+  context.page.fullTitle = context.page.titlePlainText
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
-  if (!patterns.homepagePath.test(req.path)) {
+  if (!patterns.homepagePath.test(req.pagePath)) {
     context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
   }
 
@@ -164,19 +182,22 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  if (renderWithNextjs) {
-    nextHandleRequest(req, res)
-  } else {
-    // currentLayout is added to the context object in middleware/contextualizers/layouts
-    const output = await liquid.parseAndRender(req.context.currentLayout, context)
+  // Hand rendering over to NextJS when appropriate
+  if (req.renderWithNextjs) {
+    req.context.renderedPage = context.renderedPage
+    req.context.miniTocItems = context.miniTocItems
+    return nextHandleRequest(req, res)
+  }
 
-    // First, send the response so the user isn't waiting
-    // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-    res.send(modifyOutput(req, output))
+  // currentLayout is added to the context object in middleware/contextualizers/layouts
+  const output = await liquid.parseAndRender(req.context.currentLayout, context)
 
-    // Finally, save output to cache for the next time around
-    if (isCacheable) {
-      await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
-    }
+  // First, send the response so the user isn't waiting
+  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
+  res.send(modifyOutput(req, output))
+
+  // Finally, save output to cache for the next time around
+  if (isCacheable) {
+    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
   }
 }

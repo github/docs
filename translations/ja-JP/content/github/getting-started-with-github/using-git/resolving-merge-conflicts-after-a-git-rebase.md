@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 `git rebase` を使用してコミットを並べ替えて操作した後に、マージ コンフリクトが発生した場合、Git は次のメッセージを端末に表示してその旨をお知らせします:
 
 ```shell

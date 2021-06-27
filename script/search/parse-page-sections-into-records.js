@@ -1,5 +1,5 @@
 // This module takes cheerio page object and divides it into sections
-// using H1,h2,h3 heading elements as section delimiters. The text
+// using H1,H2 heading elements as section delimiters. The text
 // that follows each heading becomes the content of the search record.
 
 const { chain } = require('lodash')
@@ -36,7 +36,7 @@ module.exports = function parsePageSectionsIntoRecords (href, $) {
 
   let records
 
-  const $sections = $('.article-grid-body h3')
+  const $sections = $('.article-grid-body h2')
     .filter('[id]')
     .filter((i, el) => {
       return !ignoredHeadingSlugs.includes($(el).attr('id'))
@@ -52,7 +52,7 @@ module.exports = function parsePageSectionsIntoRecords (href, $) {
         const content = $(el)
           // Platform-specific content is nested in a DIV
           // GraphQL content in nested in two DIVS
-          .nextUntil('h2, h3, div > h2, div > h3, div > div > h2, div > div > h3')
+          .nextUntil('h2, div > h2, div > div > h2')
           .map((i, el) => $(el).text())
           .get()
           .join(' ')

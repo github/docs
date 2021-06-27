@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Infrastructure
 ---
+
 {% warning %}
 
 **警告：**衝突を避けるため、入れ替えるノードはそれまでクラスタ中で使われていないホスト名を使わなければなりません。

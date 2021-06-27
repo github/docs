@@ -11,6 +11,7 @@ versions:
 topics:
   - Events
 ---
+
 Eventos de problemas são acionados pela atividade em problemas e pull requests e estão disponíveis na [API de eventos de problemas](/rest/reference/issues#events) e na [API de eventos da linha do tempo](/rest/reference/issues#timeline). Cada tipo de evento especifica se o evento está disponível nos eventos do problema ou na API de eventos da linha do tempo.
 
 A API REST do GitHub considera que todo pull request é um problema, mas nem todos os problemas são pull request. Por este motivo, os eventos de problemas e os pontos de extremidade dos eventos da linha do tempo podem retornar problemas e pull requests na resposta. Pull requests têm uma propriedade `pull_request` no objeto `problema`. Como os pull requests são problemas, os números de problemas e pull requests não se sobrepõem em um repositório. Por exemplo, se você abrir seu primeiro problema em um repositório, o número será 1. Se você abrir um pull request, o número será 2. Cada tipo de evento especifica se o evento ocorre em um pull request, em um problema ou em ambos.

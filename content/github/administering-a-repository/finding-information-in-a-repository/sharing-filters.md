@@ -6,9 +6,9 @@ redirect_from:
   - /articles/sharing-filters
   - /github/managing-your-work-on-github/sharing-filters
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +20,7 @@ For example, if you filter on issues assigned to Hubot, and sort on the oldest o
 /issues?q=state:open+type:issue+assignee:hubot+sort:created-asc
 ```
 
-### Further reading
+## Further reading
 
 * "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 * "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"

@@ -6,15 +6,15 @@ redirect_from:
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
 Before you can duplicate a repository and push to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
 
-### Mirroring a repository
+## Mirroring a repository
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a bare clone of the repository.
@@ -32,7 +32,7 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
   $ rm -rf <em>old-repository</em>
   ```
 
-### Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
+## Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
@@ -61,7 +61,7 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
   $ rm -rf <em>old-repository</em>
   ```
 
-### Mirroring a repository in another location
+## Mirroring a repository in another location
 
 If you want to mirror a repository in another location, including getting updates from the original, you can clone a mirror and periodically push the changes.
 

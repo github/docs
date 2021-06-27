@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% note %}
 
 **Observação:** os arquivos SVGs no {% data variables.product.prodname_dotcom %} podem não renderizar no navegador Firefox.

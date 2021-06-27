@@ -1,6 +1,6 @@
 const { isEqual, get, uniqWith } = require('lodash')
 const loadSiteData = require('../../lib/site-data')
-const { loadPages } = require('../../lib/pages')
+const { loadPages } = require('../../lib/page-data')
 const getDataReferences = require('../../lib/get-liquid-data-references')
 const frontmatter = require('../../lib/read-frontmatter')
 const fs = require('fs').promises

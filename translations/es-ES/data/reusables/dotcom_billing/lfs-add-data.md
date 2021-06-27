@@ -1,1 +1,1 @@
-1. Next to "{% data variables.large_files.product_name_short %} Data", click **Add more data** or use the **Edit** drop-down and click **Add more data packs**. ![Botón Agregar más datos](/assets/images/help/billing/data-pack-purchase-more.png)
+1. Junto a "Datos de {% data variables.large_files.product_name_short %}", haz clic en **Agregar más datos** o utiliza el menú desplegable **Editar** y haz clic en **Agregar más paquetes de datos**. ![Botón Agregar más datos](/assets/images/help/billing/data-pack-purchase-more.png)

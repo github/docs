@@ -11,10 +11,9 @@ topics:
 children:
   - /actions
   - /activity
-  - /activity
+  - /apps
   - /billing
   - /checks
-  - /code-scanning
   - /codes-of-conduct
   - /code-scanning
   - /emojis
@@ -30,6 +29,7 @@ children:
   - /migrations
   - /oauth-authorizations
   - /orgs
+  - /packages
   - /projects
   - /pulls
   - /rate-limit
@@ -37,6 +37,7 @@ children:
   - /repos
   - /scim
   - /search
+  - /secret-scanning
   - /teams
   - /users
   - /permissions-required-for-github-apps

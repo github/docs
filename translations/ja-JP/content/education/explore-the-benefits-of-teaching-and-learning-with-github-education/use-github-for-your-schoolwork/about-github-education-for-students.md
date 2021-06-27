@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 学校のプロジェクトで{% data variables.product.prodname_dotcom %}を利用することは、他者とコラボレーションして実世界の体験を見てもらうためのポートフォリオを構築するための実際的な方法です。
 
 {% data reusables.education.about-github-education-link %}

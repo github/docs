@@ -11,6 +11,7 @@ topics:
   - Identity
   - Access management
 ---
+
 您执行受 sudo 保护的操作后，只有几个小时不活动后才会再次要求您重新进行身份验证。 每个受 sudo 保护的操作都会重置此计时器。
 
 ![Sudo 模式对话框](/assets/images/help/settings/sudo_mode_popup.png)

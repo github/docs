@@ -30,13 +30,15 @@ redirect_from:
 layout: product-landing
 versions:
   free-pro-team: '*'
+children:
+  - /about-codespaces
+  - /quickstart
+  - /getting-started-with-codespaces
+  - /setting-up-your-codespace
+  - /developing-in-codespaces
+  - /managing-your-codespaces
+  - /managing-codespaces-for-your-organization
+  - /codespaces-reference
+  - /guides
 ---
 
-<!-- {% link_in_list /about-codespaces %} -->
-<!-- {% link_in_list /quickstart %} -->
-<!-- {% link_in_list /getting-started-with-codespaces %} -->
-<!-- {% link_in_list /setting-up-your-codespace %} -->
-<!-- {% link_in_list /developing-in-codespaces %} -->
-<!-- {% link_in_list /managing-your-codespaces %} -->
-<!-- {% link_in_list /managing-codespaces-for-your-organization %} -->
-<!-- {% link_in_list /codespaces-reference %} -->

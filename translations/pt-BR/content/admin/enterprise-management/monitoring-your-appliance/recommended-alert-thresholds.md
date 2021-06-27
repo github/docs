@@ -17,6 +17,7 @@ topics:
   - Performance
   - Storage
 ---
+
 ### Monitorar o armazenamento
 
 É recomendável monitorar seus dispositivos de armazenamento raiz e de usuário, bem como configurar um alerta com valores que definam um tempo de resposta longo quando o espaço em disco disponível estiver baixo.

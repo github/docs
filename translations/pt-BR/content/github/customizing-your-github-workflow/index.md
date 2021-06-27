@@ -8,4 +8,4 @@ children:
   - /exploring-integrations
   - /purchasing-and-installing-apps-in-github-marketplace
 ---
-### Índice
+

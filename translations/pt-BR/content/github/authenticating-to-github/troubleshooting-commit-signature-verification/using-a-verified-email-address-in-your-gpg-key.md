@@ -12,9 +12,9 @@ topics:
   - Identity
   - Access management
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-Se precisar verificar seu endereço de e-mail do GitHub, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address/)".
-{% endif %}Se precisar atualizar ou adicionar um endereço de e-mail à sua chave GPG, consulte "[Acessar um e-mail com sua chave GPG](/articles/associating-an-email-with-your-gpg-key)".
+Se precisar verificar seu endereço de e-mail do GitHub, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address/)". {% endif %}Se precisar atualizar ou adicionar um endereço de e-mail à sua chave GPG, consulte "[Acessar um e-mail com sua chave GPG](/articles/associating-an-email-with-your-gpg-key)".
 
 Commits e tags podem conter vários endereços de e-mail. Nos commits, há o autor — a pessoa que escreveu o código — e o committer — a pessoa que adicionou o commit à árvore. Ao assinar um commit com Git, seja durante um `git commit` normal, cherry-pick ou merge, o endereço de e-mail do committer será o seu, mesmo que o endereço de e-mail do autor não seja. As tags são mais simples: o endereço de e-mail do tagger é sempre o do usuário que criou a tag.
 

@@ -43,7 +43,7 @@ Para obter mais informações sobre como usar {% data variables.product.prodname
 #### Executando seu aplicativo a partir de um codespace
 {% data reusables.codespaces.about-port-forwarding %} Para obter mais informações, consulte "[Encaminhar portas no seu codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)".
 
-#### Committing your changes
+#### Fazendo commit das suas alterações
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 

@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
 ---
+
 Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assinatura, consulte "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".
 
 {% note %}
@@ -60,11 +61,11 @@ Quando você deixa de inspecionar um repositório, você cancela sua assinatura 
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
   {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
     - Deixar de inspecionar um repositório
-    - Only watch releases for a repository
-    - Ignore all notifications for a repository
+    - Apenas inspecione versões para um repositório
+    - Ignorar todas as notificações de um repositório
   {% endif %}
   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
     - Deixar de inspecionar um repositório
-    - Ignore all notifications for a repository
-    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+    - Ignorar todas as notificações de um repositório
+    - Personalize os tipos de eventos que você recebe notificações para ({% data reusables.notifications-v2.custom-notification-types %}, se habilitado)
   {% endif %}

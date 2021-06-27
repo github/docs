@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 A exclusão da conta de usuário remove todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% if currentVersion == "free-pro-team@latest" %} Os problemas e pull requests que você criou e comentários que você fez em repositórios pertencentes a outros usuários não serão excluídos - em vez disso, eles serão associados ao nosso [Usuário fantasma](https://github.com/ghost).{% else %}Problemas e pull requests que você criou e comentários que você fez em repositórios pertencentes a outros usuários não serão excluídos.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %} O nome da conta também fica disponível para qualquer pessoa usar em uma nova conta e paramos de efetuar a cobrança. O endereço de e-mail associado à conta fica disponível para ser usado com uma conta diferente do {% data variables.product.product_name %}. {% endif %}

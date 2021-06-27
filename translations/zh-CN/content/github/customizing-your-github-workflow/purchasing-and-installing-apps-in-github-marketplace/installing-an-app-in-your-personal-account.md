@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 如果选择付费计划，则要使用组织现有的支付方式，在个人帐户的当前结算日期支付应用程序订阅。

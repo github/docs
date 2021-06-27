@@ -15,6 +15,7 @@ topics:
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
+
 ### Sobre a identidade e gestão de acesso para a sua empresa
 
 {% if currentVersion == "github-ae@latest" %}

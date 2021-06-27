@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 您可以在您的个人帐户或拥有的组织中安装集成， 也可从您具有管理员权限或者您的组织所拥有的特定仓库中的第三方安装 {% data variables.product.prodname_github_app %}。
 
 ### {% data variables.product.prodname_github_app %} 与 {% data variables.product.prodname_oauth_app %} 之间的差异

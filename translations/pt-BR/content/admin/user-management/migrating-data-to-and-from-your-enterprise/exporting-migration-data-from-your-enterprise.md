@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Preparar a instância de origem de {% data variables.product.prodname_ghe_server %}
 
 1. Verifique se você é administrador do site na origem do {% data variables.product.prodname_ghe_server %}. A melhor maneira de fazer isso é verificar se você consegue fazer [SSH na instância](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).

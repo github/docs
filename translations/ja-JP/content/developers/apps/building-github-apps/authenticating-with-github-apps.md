@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -124,11 +125,31 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 ### インストールとして認証を行う
 
-インストールとして認証を行うと、そのインストールの API でアクションを実行できます。 インストールとして認証を行う前に、インストールアクセストークンを作成する必要があります。 インストールアクセストークンは、認証を行うため {% data variables.product.prodname_github_app %} により使用されます。
+インストールとして認証を行うと、そのインストールの API でアクションを実行できます。 インストールとして認証を行う前に、インストールアクセストークンを作成する必要があります。 Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. インストールアクセストークンは、認証を行うため {% data variables.product.prodname_github_app %} により使用されます。 詳しい情報については「[GitHub Appのインストール](/developers/apps/managing-github-apps/installing-github-apps)」を参照してください。
 
 デフォルトでは、インストールトークンのスコープは、インストールがアクセスできるすべてのリポジトリにアクセスできるよう設定されています。 `repository_ids` パラメータを使用すると、インストールアクセストークンのスコープを特定のリポジトリに限定できます。 詳細については、[アプリケーション (エンドポイント) に対するアクセストークンの作成](/rest/reference/apps#create-an-installation-access-token-for-an-app)を参照してください。 インストールアクセストークンは {% data variables.product.prodname_github_app %} によって設定された権限を持ち、1 時間後に期限切れになります。
 
-インストールアクセストークンを作成するには、[上記で生成した](#jwt-payload) JWT を API リクエストの Authorization ヘッダに含めます。
+To list the installations for an authenticated app, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
+
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
+```shell
+$ curl -i -X GET \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.machine-man-preview+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% else %}
+```shell
+$ curl -i -X GET \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.v3+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% endif %}
+
+The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[List installations for the authenticated app](/rest/reference/apps#list-installations-for-the-authenticated-app)."
+
+To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request and replace `:installation_id` with the installation's `id`:
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell

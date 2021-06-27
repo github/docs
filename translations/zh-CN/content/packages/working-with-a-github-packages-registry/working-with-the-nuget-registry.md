@@ -1,5 +1,5 @@
 ---
-title: Working with the NuGet registry
+title: 使用 NuGet 注册表
 intro: '您可以配置 `dotnet` 命令行接口 (CLI) 以将 NuGet 包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作 .NET 项目中的依赖项。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -24,9 +24,9 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+#### 在 {% data variables.product.prodname_actions %} 中使用 `GITHUB_TOKEN` 进行身份验证
 
-Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
+在 {% data variables.product.prodname_actions %} 工作流程中通过以下命令使用 `GITHUB_TOKEN` 向 {% data variables.product.prodname_registry %} 验证，而不是对仓库的 nuget.config 文件中的令牌进行硬编码。
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
@@ -230,7 +230,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ### 疑难解答
 
-Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+如果 *.csproj* 中的 `RepositoryUrl` 未设置为预期的仓库，则 NuGet 包可能无法推送。
 
 ### 延伸阅读
 

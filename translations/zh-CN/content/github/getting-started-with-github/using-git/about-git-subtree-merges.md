@@ -12,7 +12,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### About subtree merges
+
+### 关于子树合并
 
 通常，子树合并用于在仓库中包含仓库。 “子仓库”存储在主仓库的文件夹中。
 

@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 {% data reusables.actions.about-artifact-log-retention %}
 
 ## Enterprise の保持期間を設定する

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 Por padrão, um aplicativo GitHub novo terá um [identicon](https://github.com/blog/1586-identicons) gerado automaticamente. O selo do identicon assemelha-se a isso:
 
 ![Identicon](/assets/images/identicon.png)

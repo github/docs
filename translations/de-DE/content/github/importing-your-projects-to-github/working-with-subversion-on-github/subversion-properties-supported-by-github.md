@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### Ausführbare Dateien (svn:executable)
 
 `svn:executable`-Eigenschaften werden durch direktes Aktualisieren des Dateimodus vor dem Hinzufügen der Datei in das Git-Repository konvertiert.

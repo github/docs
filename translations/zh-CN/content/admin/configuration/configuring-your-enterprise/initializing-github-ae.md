@@ -9,21 +9,29 @@ topics:
 redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
+
 ### 关于初始化
 
 在初始化企业之前，必须购买 {% data variables.product.product_name %}。 更多信息请联系 {% data variables.contact.contact_enterprise_sales %}。
 
 在购买 {% data variables.product.product_name %} 后，我们会要求您提供想要初始化企业的个人的电子邮件地址和用户名。 您在 {% data variables.contact.enterprise_support %} 中的专用技术客户经理将为企业所有者创建一个帐户，并向企业所有者发送一封电子邮件以登录 {% data variables.product.product_name %} 并完成初始化。 确保您提供的信息与 IdP 中的预期企业所有者信息相匹配。 有关企业所有者的更多信息，请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 
+{% note %}
+
+**注意**：
+
+- 如果 {% data variables.product.prodname_ghe_managed %} 的初始密码在您完成初始化之前过期，您可以随时从邀请电子邮件请求重置密码。
+
+- 将 {% data variables.product.prodname_ghe_managed %} 的初始用户名和密码安全地存储在密码管理器中。 {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+
+{% endnote %}
+
 在初始化期间，企业所有者将命名企业、配置 SAML SSO、为企业中的所有组织创建策略以及为用户配置支持联系人。
 
 ### 基本要求
 
-{% note %}
+要开始初始化，您将收到来自 {% data variables.product.company_short %} 的邀请电子邮件。 在配置 {% data variables.product.prodname_ghe_managed %} 之前，要查看以下先决条件。
 
-**注**：在开始初始化之前，请将 {% data variables.product.prodname_ghe_managed %} 的初始用户名和密码安全地存储在密码管理器中。 {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
-
-{% endnote %}
 
 1. 要初始化 {% data variables.product.product_location %}，您必须具有 SAML 身份提供程序 (Idp)。 {% data reusables.saml.ae-uses-saml-sso %} 在初始化过程中将您的 IdP 连接到企业，您应该具有您的 IdP 实体 ID (SSO) URL、发行者 ID URL 和公共签名证书（Base64 编码）。 更多信息请参阅“[关于企业的身份和访问权限管理](/admin/authentication/about-identity-and-access-management-for-your-enterprise)”。
 

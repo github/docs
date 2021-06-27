@@ -1,6 +1,6 @@
 ---
 title: Fluxo do GitHub
-intro: 'Follow {% data variables.product.prodname_dotcom %} flow to collaborate on projects.'
+intro: 'Siga o fluxo de {% data variables.product.prodname_dotcom %} para colaborar em projetos.'
 redirect_from:
   - /articles/creating-and-editing-files-in-your-repository/
   - /articles/github-flow-in-the-browser/
@@ -16,84 +16,85 @@ topics:
   - Fundamentals
 miniTocMaxHeadingLevel: 4
 ---
+
 ### Introdução
 
-{% data variables.product.prodname_dotcom %} flow is a lightweight, branch-based workflow. The {% data variables.product.prodname_dotcom %} flow is useful for everyone, not just developers. For example, here at {% data variables.product.prodname_dotcom %}, we use {% data variables.product.prodname_dotcom %} flow for our [site policy](https://github.com/github/site-policy), [documentation](https://github.com/github/docs), and [roadmap](https://github.com/github/roadmap).
+O fluxo de {% data variables.product.prodname_dotcom %} é um fluxo de trabalho leve e baseado no branch. O fluxo do {% data variables.product.prodname_dotcom %} é útil para todos, não apenas para os desenvolvedores. Por exemplo, aqui em {% data variables.product.prodname_dotcom %}, usamos o fluxo de {% data variables.product.prodname_dotcom %} para a nossa [política do site](https://github.com/github/site-policy), [documentação](https://github.com/github/docs)e [roteiro](https://github.com/github/roadmap).
 
 ### Pré-requisitos
 
-To follow {% data variables.product.prodname_dotcom %} flow, you will need {% data variables.product.prodname_dotcom %} account and a repository. For information on how to create an account, see "[Signing up for {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)." For information on how to create a repository, see "[Create a repo](/github/getting-started-with-github/create-a-repo)."{% if currentVersion == "free-pro-team@latest" %} For information on how to find an existing repository to contribute to, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa da conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% if currentVersion == "free-pro-team@latest" %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
-### Following {% data variables.product.prodname_dotcom %} flow
+### Seguindo o fluxo de {% data variables.product.prodname_dotcom %}
 
 {% tip %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/desktop).
+**Dica:** Você pode realizar todas as etapas do fluxo de {% data variables.product.prodname_dotcom %} através da interface web de {% data variables.product.prodname_dotcom %}, linha de comando e [{% data variables.product.prodname_cli %}](https://cli.github.com) ou [{% data variables.product.prodname_desktop %}](/desktop).
 {% else %}
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through {% data variables.product.prodname_dotcom %} web interface or through the command line and [{% data variables.product.prodname_cli %}](https://cli.github.com).
+**Dica:** Você pode realizar todas as etapas de {% data variables.product.prodname_dotcom %} através da interface web de {% data variables.product.prodname_dotcom %} ou através da linha de comando e [{% data variables.product.prodname_cli %}](https://cli.github.com).
 {% endif %}
 
 {% endtip %}
 
-#### Create a branch
+#### Criar uma branch
 
-  Create a branch in your repository. A short, descriptive branch name enables your collaborators to see ongoing work at a glance. For example, `increase-test-timeout` or `add-code-of-conduct`. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)".
+  Crie um branch no seu repositório. Um nome de branch curto e descritivo permite que seus colaboradores vejam o trabalho em andamento rapidamente. Por exemplo, `increase-test-timeout` ou `add-code-of-conduct`. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)".
 
-  By creating a branch, you create a space to work without affecting the default branch. Additionally, you give collaborators a chance to review your work.
+  Ao criar um branch, você cria um espaço para trabalhar sem afetar o branch padrão. Além disso, você fornece aos colaboradores a oportunidade de revisar seu trabalho.
 
-#### Make changes
+#### Fazer alterações
 
-On your branch, make any desired changes to the repository. For more information, see "[Creating new files](/articles/creating-new-files)," "[Editing files](/articles/editing-files)," "[Renaming a file](/articles/renaming-a-file)," "[Moving a file to a new location](/articles/moving-a-file-to-a-new-location)," or "[Deleting files in a repository](/github/managing-files-in-a-repository/deleting-files-in-a-repository)."
+No seu branch, faça quaisquer alterações desejadas no repositório. Para obter mais informações, consulte "[Criar novos arquivos](/articles/creating-new-files)," "[Editar arquivos](/articles/editing-files)"[Renomear um arquivo](/articles/renaming-a-file), "[Mover um arquivo para um novo local](/articles/moving-a-file-to-a-new-location)" ou "[Excluir arquivos em um repositório](/github/managing-files-in-a-repository/deleting-files-in-a-repository)".
 
-Your branch is a safe place to make changes. If you make a mistake, you can revert your changes or push additional changes to fix the mistake. Your changes will not end up on the default branch until you merge your branch.
+Seu branch é um lugar seguro para fazer alterações. Se você cometer um erro, você poderá reverter suas alterações ou fazer push das alterações adicionais para corrigir o erro. As suas alterações não serão feitas no branch padrão até que você faça merge de seu branch.
 
-Commit and push your changes to your branch. Give each commit a descriptive message to help you and future contributors understand what changes the commit contains. For example, `fix typo` or `increase rate limit`.
+Faça o commit e faça push das alterações no seu branch. Dê a cada commit uma mensagem descritiva para ajudar você e futuros contribuidores a entender quais alterações o commit contém. Por exemplo, `corrigir erro de digitação` ou `aumentar o limite de taxa`.
 
-Ideally, each commit contains an isolated, complete change. This makes it easy to revert your changes if you decide to take a different approach. For example, if you want to rename a variable and add some tests, put the variable rename in one commit and the tests in another commit. Later, if you want to keep the tests but revert the variable rename, you can revert the specific commit that contained the variable rename. If you put the variable rename and tests in the same commit or spread the variable rename across multiple commits, you would spend more effort reverting your changes.
+Idealmente, cada commit contém uma alteração isolada e completa. Isso facilita reverter as suas alterações se decidirmos adotar uma abordagem diferente. Por exemplo, se você deseja renomear uma variável e adicionar alguns testes, coloque a variável renomeada em um commit e os testes em outro commit. Posteriormente, se você quiser manter os testes, mas reverter o novo nome da variável, você poderá reverter o commit específico que continha a variável renomeada. Se você colocar o novo nome da variável e testar no mesmo commit ou espalhar o novo nome da variável por múltiplos commits, você gastaria mais esforço revertendo suas alterações.
 
-By committing and pushing your changes, you back up your work to remote storage. This means that you can access your work from any device. It also means that your collaborators can see your work, answer questions, and make suggestions or contributions.
+Ao fazer commit e push das suas alterações, você fará backup do seu trabalho no armazenamento remoto. Isso significa que você pode acessar seu trabalho a partir de qualquer dispositivo. Isso também significa que os seus colaboradores poderão ver o seu trabalho, responder a perguntas e fazer sugestões ou contribuições.
 
-Continue to make, commit, and push changes to your branch until you are ready to ask for feedback.
+Continue a criar, fazer commit e fazer push das alterações no seu branch até que você esteja pronto para pedir feedback.
 
 {% tip %}
 
-**Tip:** Make a separate branch for each set of unrelated changes. This makes it easier for reviewers to give feedback. It also makes it easier for you and future collaborators to understand the changes and to revert or build on them. Additionally, if there is a delay in one set of changes, your other changes aren't also delayed.
+**Dica:** Crie um branch separado para cada conjunto de alterações não relacionadas. Isso facilita para os revisores darem feedback. Isso também facilita para você e para futuros colaboradores entenderem as alterações e reverter ou criar com elas. Além disso, se houver um atraso em um conjunto de alterações, as suas outras alterações também não serão atrasadas.
 
 {% endtip %}
 
 #### Criar um pull request
 
-Create a pull request to ask collaborators for feedback on your changes. Pull request review is so valuable that some repositories require an approving review before pull requests can be merged. If you want early feedback or advice before you complete your changes, you can mark your pull request as a draft. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request)".
+Crie um pull request para pedir aos colaboradores feedback sobre suas alterações. A revisão de pull request é tão valiosa que alguns repositórios exigem uma revisão de aprovação antes que os pull requests possam ser mesclados. Se você quiser feedback ou conselhos antes de concluir suas alterações, você poderá marcar seu pull request como um rascunho. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request)".
 
-When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. For more information, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)" and "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)."
+Ao criar uma pull request, inclua um resumo das alterações e qual o problema que elas resolvem. Você pode incluir imagens, links e tabelas para ajudar a transmitir estas informações. Se o seu pull request resolve um problema, vincule o problema para que os interessados no problema estejam cientes do pull request e vice-versa. Se você vincular com uma palavra-chave, o problema será fechado automaticamente quando o pull request for mesclado. Para obter mais informações, consulte "[Sintaxe de escrita e formatação básica](/github/writing-on-github/basic-writing-and-formatting-syntax)" e "[Vincular um pull request a um problema](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-![pull request body](../../../assets/images/help/pull_requests/pull-request-body.png)
+![texto do pull request](/assets/images/help/pull_requests/pull-request-body.png)
 
-In addition to filling out the body of the pull request, you can add comments to specific lines of the pull request to explicitly point something out to the reviewers.
+Além de preencher o texto do pull request, você pode adicionar comentários em linhas específicas do pull request para apontar algo explicitamente para os revisores.
 
-![pull request comment](../../../assets/images/help/pull_requests/pull-request-comment.png)
+![comentário do pull request](/assets/images/help/pull_requests/pull-request-comment.png)
 
-Your repository may be configured to automatically request a review from specific teams or users when a pull request is created. You can also manually @mention or request a review from specific people or teams.
+Seu repositório pode ser configurado para solicitar uma revisão automaticamente de equipes específicas ou usuários quando um pull request for criado. Você também pode @mencionar ou solicitar manualmente uma avaliação de pessoas ou equipes específicas.
 
-If your repository has checks configured to run on pull requests, you will see any checks that failed on your pull request. This helps you catch errors before merging your branch. Para obter mais informações, consulte "[Sobre verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)".
+Se seu repositório tiver verificações configuradas para serem executadas em pull requests, você verá todas as verificações que falharam no seu pull request. Isso ajuda você a capturar erros antes de fazer merge do seu branch. Para obter mais informações, consulte "[Sobre verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)".
 
-#### Address review comments
+#### Comentários de revisão do endereço
 
-Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[Reviewing changes in pull requests](/github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests)."
+Os revisores devem deixar perguntas, comentários e sugestões. Os revisores podem comentar em todo o pull request ou adicionar comentários em linhas específicas. Você e os revisores podem inserir imagens ou sugestões de código para esclarecer comentários. Para obter mais informações, consulte "[Revisar alterações em pull requests](/github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests)".
 
-You can continue to commit and push changes in response to the reviews. Sua pull request atualizará automaticamente.
+Você pode continuar a fazer commit e push das alterações em resposta às revisões. Sua pull request atualizará automaticamente.
 
-#### Merge your pull request
+#### Fazer merge do seu pull request
 
-Once your pull request is approved, merge your pull request. This will automatically merge your branch so that your changes appear on the default branch. {% data variables.product.prodname_dotcom %} retains the history of comments and commits in the pull request to help future contributors understand your changes. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
+Depois que seu pull request for aprovado, faça merge do seu pull request. Isso fará o merge automático do seu branch para que suas alterações apareçam no branch padrão. {% data variables.product.prodname_dotcom %} mantém o histórico de comentários e commits no pull request para ajudar futuros contribuidores a entender suas alterações. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
 
-{% data variables.product.prodname_dotcom %} will tell you if your pull request has conflicts that must be resolved before merging. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."
+{% data variables.product.prodname_dotcom %} dirá se o seu pull request possui conflitos que precisam ser resolvidos antes do merge. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."
 
-Branch protection settings may block merging if your pull request does not meet certain requirements. For example, you need a certain number of approving reviews or an approving review from a specific team. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
+Configurações de proteção de branch podem bloquear o merge se seu pull request não cumprir certos requisitos. Por exemplo, você precisa de um certo número de revisões ou uma revisão de aprovação de uma equipe específica. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
 
-#### Delete your branch
+#### Excluir seu branch
 
-After you merge your pull request, delete your branch. This indicates that the work on the branch is complete and prevents you or others from accidentally using old branches. For more information, see "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)."
+Depois de realizar o merge do seu pull request, exclua o branch. Isso indica que o trabalho no branch foi concluído e impede que você ou outras pessoas de usar os branches antigos acidentalmente. Para obter mais informações, consulte "[Excluindo e recuperando branches em um pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)".
 
-Don't worry about losing information. Your pull request and commit history will not be deleted. You can always restore your deleted branch or revert your pull request if needed.
+Não se preocupe em perder informações. O histórico do seu pull request e commit não será excluído. Você sempre tem a opção de restaurar o branch excluído ou reverter seu pull request, se necessário.

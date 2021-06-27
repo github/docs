@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Você pode implantar o {% data variables.product.prodname_ghe_server %} no Azure global ou Azure Government.
 
 ### Pré-requisitos

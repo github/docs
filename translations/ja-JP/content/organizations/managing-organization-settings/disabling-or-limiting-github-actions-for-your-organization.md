@@ -81,20 +81,20 @@ Organization のワークフローをすべて無効にすることも、Organiz
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-### Setting the permissions of the `GITHUB_TOKEN` for your organization
+### Organizationに対する`GITHUB_TOKEN`の権限の設定
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
-You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you choose the restricted option as the default in your organization settings, the same option is auto-selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and the more restricted default has been selected in the enterprise settings, you won't be able to choose the more permissive default in your organization settings.
+Organizationもしくはリポジトリの設定で、`GITHUB_TOKEN`のデフォルト権限を設定できます。 Organizationの設定でデフォルトとして制限付きのオプションを選択した場合、そのオプションはOrganization内のリポジトリの設定でも自動設定され、許可するようなオプションは無効化されます。 Organizationが{% data variables.product.prodname_enterprise %}に属しており、Enterprise設定でさらに制約の強いデフォルトが選択されている場合、Organizationの設定でもっと許可をするようなデフォルトは選択できません。
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configuring the default `GITHUB_TOKEN` permissions
+#### デフォルトの`GITHUB_TOKEN`権限の設定
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope. ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![このOrganizationのGITHUB_TOKENの権限を設定](/assets/images/help/settings/actions-workflow-permissions-organization.png)
 1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}

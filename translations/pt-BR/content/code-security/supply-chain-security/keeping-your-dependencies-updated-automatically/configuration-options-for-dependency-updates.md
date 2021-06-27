@@ -8,9 +8,15 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: reference
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 ### Sobre o arquivo *dependabot.yml*
 
 O arquivo de configuração do {% data variables.product.prodname_dependabot %} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
@@ -283,22 +289,27 @@ updates:
 
 #### `ignore`
 
-{% data reusables.dependabot.warning-ignore-option %}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-##### Verificando preferências existentes para ignorar
+As dependências podem ser ignoradas adicionando-as a `ignore` ou usando o comando `@dependabot ignore` em um pull request aberto por {% data variables.product.prodname_dependabot %}.
 
-Antes de adicionar uma opção `ignore` ao arquivo de configuração, verifique se você usou algum dos comandos `@dependabot ignore` em uma atualização de segurança ou pull request da atualização da versão. O {% data variables.product.prodname_dependabot %} armazena essas preferências para cada gerenciador de pacotes centralmente e esta informação é substituída pela opção `ignore`. Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [Gerenciando pull requests para atualizações de dependências](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)".
+##### Criar as condições de `ignore` a partir de `@dependabot ignore`
 
-Você pode verificar se um repositório tem preferências armazenadas pesquisando no repositório por  `"@dependabot ignore" in:comments`. Se você revisar quaisquer pull requests nos resultados, você pode decidir se especifica ou não essas dependências ou versões ignoradas no arquivo de configuração.
+As dependências ignoradas usando o comando `@dependabot ignore` são armazenadas centralmente para cada gerenciador de pacotes. Se você começar a ignorar as dependências no arquivo `dependabot.yml`, estas preferências existentes serão consideradas junto com as dependências `ingore` na configuração.
+
+Você pode verificar se um repositório armazenou as preferências `ignore` ao fazer a pesquisa no repositório por `"@dependabot ignore" in:comments`. Se você deseja deixar de ignorar uma dependência ignorada, reabra o pull request.
+
+Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [Gerenciando pull requests para atualizações de dependências](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)".
 
 ##### Especificando dependências e versões para ignorar
 
-{% data reusables.dependabot.default-dependencies-allow-ignore %}
-
 Você pode usar a opção `ignore` para personalizar quais dependências são atualizadas. A opção `ignore` suporta as seguintes opções.
 
-- `dependency-name`—use para ignorar atualizações para dependências com nomes correspondentes, opcionalmente usando `*` para corresponder a zero ou mais caracteres. Para dependências Java, o formato do atributo `dependency-name` é: `groupId:artifactId`, por exemplo: `org.kohsuke:github-api`.
+- `dependency-name`—use para ignorar atualizações para dependências com nomes correspondentes, opcionalmente usando `*` para corresponder a zero ou mais caracteres. Para dependências do Java, o formato do atributo `dependency-name` é: `groupId:artifactId` (por exemplo: `org.kohsuke:github-api`).
 - `versions`—use para ignorar versões específicas ou intervalos de versões. Se você deseja definir um intervalo, use o padrão pattern para o gerenciador de pacotes (por exemplo: `^1.0.0` para npm, ou `~> 2.0` para o Bundler).
+- `update-types`—use para ignorar tipos de atualizações, como semver `major`, `minor` ou `atualizações de atualização de versão` (por exemplo: `version-update:semver-patch` ignorará atualizações de patch). Você pode combinar isso com `dependency-name: *` para ignorar `update-types` específicos para todas as dependências. Atualmente, `version-update:semver-major`, `version-update:semver-minor` e `version-update:semver-patch` são as únicas opções compatíveis. As atualizações de segurança não afetadas por esta configuração.
+
+Se as `versões` e `update-types` forem usadas em conjunto, {% data variables.product.prodname_dependabot %} irá ignorar qualquer atualização em qualquer conjunto.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -317,11 +328,14 @@ updates:
         versions: ["4.x", "5.x"]
         # For Lodash, ignore all updates
       - dependency-name: "lodash"
+        # For AWS SDK, ignore all patch updates
+      - dependency-name: "aws-sdk"
+        update-types: ["version-update:semver-patch"]
 ```
 
 {% note %}
 
-**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %} ](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
+**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
 
 
 {% endnote %}
@@ -933,5 +947,19 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `terraform-registry`
+
+The `terraform-registry` type supports a token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}

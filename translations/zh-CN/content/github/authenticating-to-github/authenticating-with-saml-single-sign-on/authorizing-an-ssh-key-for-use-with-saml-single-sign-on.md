@@ -10,6 +10,7 @@ versions:
 topics:
   - SSO
 ---
+
 您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。 有关创建新 SSH 密钥的更多信息，请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
 {% note %}

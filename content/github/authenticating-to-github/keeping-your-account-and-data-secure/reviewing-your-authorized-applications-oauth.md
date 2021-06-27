@@ -5,19 +5,20 @@ redirect_from:
   - /articles/reviewing-your-authorized-applications-oauth
   - /github/authenticating-to-github/reviewing-your-authorized-applications-oauth
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Review OAuth apps
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
 {% data reusables.user_settings.access_authorized_oauth_apps %}
 {% data reusables.user_settings.review-oauth-apps %}
 
-### Further reading
-{% if currentVersion == "free-pro-team@latest" %}
+## Further reading
+{% ifversion fpt %}
 - "[About integrations](/articles/about-integrations)"{% endif %}
 - "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)"

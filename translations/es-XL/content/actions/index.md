@@ -43,6 +43,7 @@ children:
   - /learn-github-actions
   - /managing-workflow-runs
   - /creating-actions
+  - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /reference
 ---

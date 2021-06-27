@@ -23,6 +23,7 @@ topics:
   - LFS
   - Storage
 ---
+
 ### 关于 {% data variables.large_files.product_name_long %}
 
 {% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} 您可以将 {% data variables.large_files.product_name_long %} 与单一仓库、所有个人或组织仓库或企业中的每一个仓库结合使用。 您需要先为企业启用 {% data variables.large_files.product_name_short %}，然后才能为特定仓库或组织启用 {% data variables.large_files.product_name_short %}。

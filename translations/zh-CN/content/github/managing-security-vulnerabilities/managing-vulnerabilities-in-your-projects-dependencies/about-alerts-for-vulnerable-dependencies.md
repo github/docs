@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 ---
+
 <!--See /content/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies for the current version of this article -->
 
 ### 关于易受攻击的依赖项
@@ -42,13 +43,11 @@ redirect_from:
 {% data reusables.repositories.enable-security-alerts %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-当
-{% data variables.product.product_name %} 发现易受攻击的依赖项时，我们会生成 {% data variables.product.prodname_dependabot %} 警报，并显示在仓库的 Security（安全）选项卡上。 该警报包括指向项目中受影响的文件的链接，以及有关修复的版本的信息。 {% data variables.product.product_name %} 还根据受影响仓库的管理员的通知首选项向他们通知新的警报。 更多信息请参阅“[为易受攻击的依赖项配置通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
+当 {% data variables.product.product_name %} 发现易受攻击的依赖项时，我们会生成 {% data variables.product.prodname_dependabot %} 警报，并显示在仓库的 Security（安全）选项卡上。 该警报包括指向项目中受影响的文件的链接，以及有关修复的版本的信息。 {% data variables.product.product_name %} 还根据受影响仓库的管理员的通知首选项向他们通知新的警报。 更多信息请参阅“[为易受攻击的依赖项配置通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-当
-{% data variables.product.product_name %} 发现有漏洞的依赖项时， 我们会发送安全警报给受影响仓库的维护员，其中包含该漏洞的详细说明、项目中受影响文件的链接以及有关修复版本的信息。
+当 {% data variables.product.product_name %} 发现有漏洞的依赖项时， 我们会发送安全警报给受影响仓库的维护员，其中包含该漏洞的详细说明、项目中受影响文件的链接以及有关修复版本的信息。
 {% endif %}
 
 {% warning %}
@@ -62,12 +61,10 @@ redirect_from:
 您可以在仓库的依赖关系图中看到影响特定项目的所有警报。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-默认情况下，我们会通知受影响仓库中具有管理权限的人有新的
-{% data variables.product.prodname_dependabot_alerts %}.{% endif %}
+默认情况下，我们会向受影响仓库中具有管理员权限的人员通知有关新的 {% data variables.product.prodname_dependabot_alerts %}。{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-默认情况下，我们会向具有受影响仓库管理员权限的人员发送安全警报。
-{% data variables.product.product_name %} 从不公开披露在任何仓库中发现的漏洞。
+默认情况下，我们会向具有受影响仓库管理员权限的人员发送安全警报。 {% data variables.product.product_name %} 从不公开披露在任何仓库中发现的漏洞。
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %} 更多信息请参阅“[选择通知的递送方式](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。{% endif %}{% if currentVersion ver_gt "enterprise-server@2.20" %}更多信息请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。{% endif %}

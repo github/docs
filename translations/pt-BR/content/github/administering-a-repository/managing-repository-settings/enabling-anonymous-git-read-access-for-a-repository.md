@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 Os administradores de repositório poderão alterar a configuração do acesso de leitura anônimo do Git de um repositório específico se:
 - Um administrador de site tiver habilitado o modo privado e o acesso de leitura anônimo do Git.
 - O repositório é público na empresa e não é uma bifurcação.

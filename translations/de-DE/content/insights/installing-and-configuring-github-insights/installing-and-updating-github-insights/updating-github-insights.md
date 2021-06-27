@@ -8,6 +8,7 @@ permissions: 'People with read permissions to the `github/insights-releases` rep
 versions:
   enterprise-server: '*'
 ---
+
 ### About {% data variables.product.prodname_insights %} updates
 
 Before you update {% data variables.product.prodname_insights %}, you can check the version that you're currently using in the lower-right corner of any page.

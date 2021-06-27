@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 通常，出现连接问题是因为防火墙、代理服务器、公司网络或其他网络配置为阻止 {% data variables.product.prodname_dotcom %} 的方式。
 
 ### 允许 {% data variables.product.prodname_dotcom %} 的 IP 地址

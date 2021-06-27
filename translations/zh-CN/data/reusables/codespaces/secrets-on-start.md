@@ -1,1 +1,1 @@
-Once you have created a secret, it will be available when you create a new codespace or restart the codespace. To use a secret that you've just created in a current codespace, you will need to suspend the codespace and resume it.
+一旦创建了密码，便可以在创建新的代码空间或重新启动代码空间时使用它。 要使用刚刚在当前代码空间中创建的密码，您需要暂停代码空间并恢复它。

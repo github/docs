@@ -78,7 +78,7 @@
   term: カード
   description: Issue またはプルリクエストに関連付けられたプロジェクトボード内にある、移動可能な正方形。
 - 
-  term: チェック
+  term: check
   description: >-
     チェックは、{% data variables.product.product_name %}上のステータスチェックの一種です。「[ステータスチェック](#status-checks)」を参照してください。
 - 
@@ -213,7 +213,7 @@
   term: メール通知
   description: ユーザのメールアドレスに送信される通知。
 - 
-  term: Enterprise アカウント
+  term: enterprise account
   description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -250,7 +250,7 @@
   description: >-
     ユーザアカウントの支払いプランで、無料のもの。ユーザがコラボレーションできるパブリックリポジトリは無制限、コラボレータも無制限です。
 - 
-  term: Gist
+  term: gist
   description: >-
     Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% if currentVersion == "github-ae@latest" %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% if currentVersion == "github-ae@latest" %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
 - 
@@ -377,7 +377,7 @@
   description: >-
     ユーザがアクセスできない個人アカウント。ユーザが有料アカウントを無料のものにダウングレードした場合、または有料プランの支払いが期限を過ぎた場合、アカウントはロックされます。
 - 
-  term: Management Console
+  term: management Console
   description: >-
     GitHub Enterprise インターフェース内で、管理機能を含むセクション。
 - 
@@ -754,9 +754,6 @@
   term: webhook
   description: >-
     webhook は、GitHub.com の特定のイベントにサブスクライブする GitHub App のビルドやセットアップができるようにするものです。webhook により、特定のアクションがリポジトリあるいはOrganizationで発生したら必ず外部のウェブサーバへ通知を配信するための方法が得られます。サービスフックともいいます。
-- 
-  term: Works with GitHub
-  description: GitHub で行うインテグレーションの一覧。
 - 
   term: 書き込みアクセス
   description: >-

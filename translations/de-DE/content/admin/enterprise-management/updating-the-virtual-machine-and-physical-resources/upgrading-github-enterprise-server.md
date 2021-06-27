@@ -21,6 +21,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### Upgrade vorbereiten
 
 1. Bestimmen Sie eine Upgrade-Strategie, und wählen Sie eine Version aus, auf die das Upgrade durchgeführt werden soll. Weitere Informationen finden Sie unter „[Upgrade-Anforderungen](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)“.

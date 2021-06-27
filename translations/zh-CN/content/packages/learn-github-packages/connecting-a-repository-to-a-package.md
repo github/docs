@@ -1,6 +1,6 @@
 ---
-title: Connecting a repository to a package
-intro: 'You can connect a repository to a container image on {% data variables.product.prodname_dotcom %}.'
+title: 将仓库连接到包
+intro: '您可以在 {% data variables.product.prodname_dotcom %} 上将仓库连接到容器映像。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
@@ -9,21 +9,21 @@ versions:
   free-pro-team: '*'
 ---
 
-By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.
+通过将仓库连接到包，包登录页面将显示来自仓库的信息和链接，例如 README。
 
-### Connecting a repository to a user-owned package on {% data variables.product.prodname_dotcom %}
+### 在 {% data variables.product.prodname_dotcom %} 上将仓库连接到用户拥有的包
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to an organization-owned package on {% data variables.product.prodname_dotcom %}
+### 在 {% data variables.product.prodname_dotcom %} 上将仓库连接到组织拥有的包
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to a container image using the command line
+### 使用命令行将仓库连接到容器映像
 
 1. 在 Dockerfile 中添加此行，将 `OWNER` 和 `REPO` 替换为您的详细信息：
 
@@ -59,14 +59,14 @@ By connecting a repository to a package, the package landing page will show info
   $ docker tag 38f737a91f39 ghcr.io/monalisa/hello_docker:latest
   ```
 
-5. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[Authenticating to the {% data variables.product.prodname_container_registry %}](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)."
+5. 如果尚未向 {% data variables.product.prodname_container_registry %} 验证，请验证。 更多信息请参阅“[向 {% data variables.product.prodname_container_registry %} 验证](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)”。
     {% raw %}
     ```shell
     $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
     > Login Succeeded
     ```
     {% endraw %}
-6. Push your container image to the {% data variables.product.prodname_container_registry %}.
+6. 推送容器映像到 {% data variables.product.prodname_container_registry %}。
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE-NAME:TAG
   ```

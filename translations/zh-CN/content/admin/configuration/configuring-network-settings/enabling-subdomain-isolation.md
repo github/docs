@@ -16,18 +16,17 @@ topics:
   - Networking
   - Security
 ---
+
 ### 关于子域隔离
 
 子域隔离可以减少跨站脚本和其他相关漏洞。 更多信息请参阅 Wikipedia 上的“[跨站脚本](http://en.wikipedia.org/wiki/Cross-site_scripting)”。 我们强烈建议在 {% data variables.product.product_location %} 上启用子域隔离。
 
-启用子域隔离后，{% data variables.product.prodname_ghe_server %} 会以子域替代多个路径。
+启用子域隔离后，{% data variables.product.prodname_ghe_server %} 会以子域替代多个路径。 启用子域隔离后，尝试访问某些用户提供内容的以前路径（如 `http(s)://HOSTNAME/raw/`）可能会返回 `404` 错误。
 
 {% if currentVersion == "enterprise-server@2.22" %}
-要将 Docker 与
-{% data variables.product.prodname_registry %} 一起使用，您还必须启用子域隔离。 For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+要将 Docker 与 {% data variables.product.prodname_registry %} 一起使用，您还必须启用子域隔离。 更多信息请参阅“[使用 Docker 注册表](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)”。
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-|
 {% endif %}
 | 未使用子域隔离的路径                                                                                                                                 | 使用子域隔离的路径                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |

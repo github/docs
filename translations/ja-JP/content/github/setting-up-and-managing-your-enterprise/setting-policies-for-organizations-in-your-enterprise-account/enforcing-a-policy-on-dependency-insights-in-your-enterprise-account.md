@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Enterprise アカウントが所有する Organization では、Organization のオーナーが Organization dependency insights の表示制限を設定できます。 詳細は「[Organization dependency insights の可視性を変更する](/articles/changing-the-visibility-of-your-organizations-dependency-insights)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}

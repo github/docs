@@ -6,11 +6,12 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
 children:
   - /about-code-scanning
   - /triaging-code-scanning-alerts-in-pull-requests
@@ -20,5 +21,6 @@ children:
   - /configuring-the-codeql-workflow-for-compiled-languages
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
+  - /viewing-code-scanning-logs
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

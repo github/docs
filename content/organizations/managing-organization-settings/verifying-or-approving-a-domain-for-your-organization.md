@@ -8,17 +8,18 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  fpt: '*'
+  ghes: '>=3.2'
 type: how_to
 topics:
   - Enterprise
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verify or approve a domain
 ---
 
-### About domain verification
+## About domain verification
 
 After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. If your organization is on {% data variables.product.prodname_ghe_cloud %} and has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[About your organization's profile page](/articles/about-your-organization-s-profile/)" and "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
 
@@ -28,7 +29,7 @@ If your organization is owned by an enterprise account, a "Verified" badge will 
 
 On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
 
-### About domain approval
+## About domain approval
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
@@ -40,7 +41,7 @@ Enterprise owners cannot see which organization members or email addresses recei
 
 Enterprise owners can also approve additional domains for organizations owned by the enterprise. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
 
-### Verifying a domain for your organization
+## Verifying a domain for your organization
 
 To verify a domain, you must have access to modify domain records with your domain hosting service.
 
@@ -59,9 +60,9 @@ To verify a domain, you must have access to modify domain records with your doma
 11. Optionally, once the "Verified" badge is visible on your organization's profile page, you can delete the TXT entry from the DNS record at your domain hosting service.
 ![Verified badge](/assets/images/help/organizations/verified-badge.png)
 
-### Approving a domain for your organization
+## Approving a domain for your organization
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.1 %}
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
@@ -75,7 +76,7 @@ To verify a domain, you must have access to modify domain records with your doma
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-### Removing an approved or verified domain
+## Removing an approved or verified domain
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

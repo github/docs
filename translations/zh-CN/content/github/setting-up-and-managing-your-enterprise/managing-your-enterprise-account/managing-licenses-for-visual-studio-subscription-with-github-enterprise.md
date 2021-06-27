@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 关于 {% data variables.product.prodname_vss_ghe %}
 
 {% data variables.product.prodname_vss_ghe %} 是 Microsoft 的组合产品，允许订阅者使用 {% data variables.product.prodname_enterprise %} 和 {% data variables.product.prodname_vs %}。 {% data variables.product.prodname_vss_ghe %} 由 Microsoft 根据 Microsoft 企业协议的条款提供。 更多信息请参阅 {% data variables.product.prodname_vs %} 网站上的 [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/)。

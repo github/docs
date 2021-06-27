@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Du kannst den Status Deines Repositorys über Branches, Tags, Commits und Daten hinweg vergleichen. Um verschiedene Versionen Deines Repositorys zu vergleichen, füge `/compare` (vergleichen) zum Pfad Deines Repository hinzu.
 
 Um die Leistungsfähigkeit der Vergleichsfunktion zu demonstrieren, sehen wir uns die Vergleichsseite für [einen Fork des Linguist-Repositorys](https://github.com/octocat/linguist) an, der unter [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master) zu finden ist.

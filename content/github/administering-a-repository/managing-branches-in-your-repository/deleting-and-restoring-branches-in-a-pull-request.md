@@ -8,13 +8,14 @@ redirect_from:
   - /articles/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Delete & restore
 ---
-### Deleting a branch used for a pull request
+## Deleting a branch used for a pull request
 
 You can delete a branch that is associated with a pull request if the pull request has been merged or closed and there are no other open pull requests referencing the branch. For information on closing branches that are not associated with pull requests, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
 
@@ -27,7 +28,7 @@ You can delete a branch that is associated with a pull request if the pull reque
 
    This button isn't displayed if there's currently an open pull request for this branch.
 
-### Restoring a deleted branch
+## Restoring a deleted branch
 
 You can restore the head branch of a closed pull request.
 
@@ -38,7 +39,7 @@ You can restore the head branch of a closed pull request.
 5. Near the bottom of the pull request, click **Restore branch**.
    ![Restore deleted branch button](/assets/images/help/branches/branches-restore-deleted.png)
 
-### Further reading
+## Further reading
 
 - "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"
 - "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)"

@@ -14,6 +14,7 @@ topics:
   - GitHub Apps
   - OAuth Apps
 ---
+
 ### Quem pode instalar aplicativos GitHub e autorizar aplicativos OAuth?
 
 Você pode instalar os aplicativos GitHub em sua conta pessoal ou em organizações das quais você é proprietário. Se você tiver permissões de administrador em um repositório, você poderá instalar os aplicativos GitHub em contas de organização. Se um aplicativo GitHub for instalado em um repositório e exigir permissões de organização, o proprietário da organização deverá aprovar o aplicativo.

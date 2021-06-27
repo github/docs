@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Fundamentals
 ---
+
 ### {% data variables.enterprise.management_console %}について
 
 次の基本的な管理作業には {% data variables.enterprise.management_console %} を使用します。

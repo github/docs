@@ -16,7 +16,8 @@ topics:
   - Enterprise
   - Security
 ---
-#### Authentifizierung
+
+### Authentifizierung
 
 | Aktion                               | Beschreibung                                                                                                                              |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -32,13 +33,13 @@ topics:
 | `two_factor_authentication.disabled` | [Two-factor authentication][2fa] was disabled for a user account.{% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-#### {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
-#### Hooks
+### Hooks
 
 | Aktion                | Beschreibung                                               |
 | --------------------- | ---------------------------------------------------------- |
@@ -47,7 +48,7 @@ topics:
 | `hook.destroy`        | Ein Hook wurde gelöscht.                                   |
 | `hook.events_changed` | Die konfigurierten Ereignisse eines Hooks wurden geändert. |
 
-#### Enterprise configuration settings
+### Enterprise configuration settings
 
 | Aktion                                                  | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
@@ -59,7 +60,7 @@ topics:
 
 {% if currentVersion == "github-ae@latest" %}
 
-#### IP allow lists
+### IP allow lists
 
 |                                       Name | Beschreibung                                                                                     |
 | ------------------------------------------:| ------------------------------------------------------------------------------------------------ |
@@ -73,7 +74,7 @@ topics:
 
 {% endif %}
 
-#### Issues und Pull Requests
+### Issues und Pull Requests
 
 | Aktion                               | Beschreibung                                                                                                                                                   |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +83,7 @@ topics:
 | `pull_request_review_comment.delete` | A comment on a pull request was deleted.                                                                                                                       |
 | `issue.destroy`                      | Ein Issue wurde aus dem Repository gelöscht. Weitere Informationen finden Sie unter „[Issue löschen](/github/managing-your-work-on-github/deleting-an-issue)“. |
 
-#### Organisationen
+### Organisationen
 
 | Aktion             | Beschreibung                                                                                                                                                                                                                                |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,7 +91,7 @@ topics:
 | `org.delete`       | An organization was deleted by a user-initiated background job.{% if currentVersion != "github-ae@latest" %}
 | `org.transform`    | Ein Benutzerkonto wurde in eine Organisation umgewandelt. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
 
-#### geschützte Branches
+### geschützte Branches
 
 | Aktion                                                             | Beschreibung                                                                               |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -105,7 +106,7 @@ topics:
 | `protected_branch.rejected_ref_update`                             | Ein Branch-Aktualisierungsversuch wird abgelehnt.                                          |
 | `protected_branch.policy_override`                                 | Eine Branch-Schutzanforderung wird durch einen Repository-Administrator überschrieben.     |
 
-#### Repositorys
+### Repositorys
 
 | Aktion                                     | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -125,7 +126,7 @@ topics:
 | `repo.config.lock_anonymous_git_access`    | Die Einstellung für den anonymen Git-Lesezugriff eines Repositorys ist gesperrt, wodurch Repository-Administratoren daran gehindert werden, diese Einstellung zu ändern (zu aktivieren oder zu deaktivieren). Weitere Informationen finden Sie unter „[Änderung des anonymen Git-Lesezugriffs durch Benutzer verhindern](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)“. |
 | `repo.config.unlock_anonymous_git_access`  | Die Einstellung für den anonymen Git-Lesezugriff ist entsperrt, wodurch Repository-Administratoren diese Einstellung ändern (aktivieren oder deaktivieren) können. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
 
-#### Websiteadministratortools
+### Websiteadministratortools
 
 | Aktion               | Beschreibung                                                                                                                           |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -135,7 +136,7 @@ topics:
 | `staff.repo_unlock`  | Ein Websiteadministrator hat eines der privaten Repositorys eines Benutzers entsperrt (temporär vollständigen Zugriff darauf erlangt). |
 | `staff.unlock`       | Ein Websiteadministrator hat alle der privaten Repositorys eines Benutzers entsperrt (temporär vollständigen Zugriff darauf erlangt).  |
 
-#### Teams
+### Teams
 
 | Aktion                    | Beschreibung                                                                                                                                         |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +147,7 @@ topics:
 | `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
 
 
-#### Benutzer
+### Benutzer
 
 | Aktion                          | Beschreibung                                                                                                                                                         |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

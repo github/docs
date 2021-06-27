@@ -11,6 +11,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 现在，我们的 web 挂钩已准备好传递消息，我们将设置一个基本的 Sinatra 服务器 来处理传入的有效负载。
 
 {% note %}

@@ -7,25 +7,26 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure DNS servers
 ---
 The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-### Configuring nameservers using the virtual machine console
+## Configuring nameservers using the virtual machine console
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 2. Configure nameservers for your instance.
 {% data reusables.enterprise_installation.vm-console-done %}
 
-### Configuring nameservers using the administrative shell
+## Configuring nameservers using the administrative shell
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. To edit your nameservers, enter:

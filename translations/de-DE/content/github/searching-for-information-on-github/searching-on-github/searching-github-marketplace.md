@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
 ---
+
 ### Informationen zur Suche auf {% data variables.product.prodname_marketplace %}
 
 Du kannst Apps und Aktionen auf {% data variables.product.prodname_marketplace %} auf zwei verschiedene Arten finden:

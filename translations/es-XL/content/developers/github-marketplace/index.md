@@ -10,6 +10,7 @@ versions:
 topics:
   - Marketplace
 children:
+  - /github-marketplace-overview
   - /creating-apps-for-github-marketplace
   - /using-the-github-marketplace-api-in-your-app
   - /listing-an-app-on-github-marketplace

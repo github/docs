@@ -1,6 +1,6 @@
 ---
-title: Managing your codespaces
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} settings to manage information that your codespace might need.'
+title: 管理代码空间
+intro: '您可以使用 {% data variables.product.prodname_github_codespaces %} 设置来管理代码空间可能需要的信息。'
 versions:
   free-pro-team: '*'
 topics:
@@ -13,4 +13,5 @@ children:
   - /reviewing-your-security-logs-for-codespaces
   - /managing-gpg-verification-for-codespaces
 ---
+
 {% data reusables.codespaces.release-stage %}

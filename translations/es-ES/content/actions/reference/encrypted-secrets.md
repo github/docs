@@ -29,9 +29,11 @@ Para que los secretos se almacenen a nivel de ambiente, puedes habilitar los rev
 
 #### Nombrar tus secretos
 
-{% data reusables.codespaces.secrets-naming %}. Por ejemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}un secreto que se creó a nivel de ambiente debe tener un nombre único en este, {% endif %}un secreto que se cree a nivel de repositorio, debe tener un nombre único en dicho repositorio, y un secreto que se cree a nivel de organización debe tener un nombre único en este nivel.
+{% data reusables.codespaces.secrets-naming %}
 
-  {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
+  Por ejemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}un secreto que se creó a nivel de ambiente debe tener un nombre único en este, {% endif %}un secreto que se cree a nivel de repositorio, debe tener un nombre único en dicho repositorio, y un secreto que se cree a nivel de organización debe tener un nombre único en este nivel.
+
+  {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} De forma similar, si una organización, repositorio y ambiente tienen el mismo secreto con el mismo nombre, el secreto a nivel de ambiente tomará precedencia.{% endif %}
 
 Para ayudarte a garantizar que {% data variables.product.prodname_dotcom %} redacta tus secretos en bitácoras, evita utilizar datos estructurados como los valores de los secretos. Por ejemplo, evita crear secretos que contengan JSON o blobs de Git codificados.
 
@@ -184,7 +186,13 @@ steps:
 
 ### Límites para los secretos
 
-Puedes almacenar hasta 1,000 secretos por organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 secretos por repositorio, y 100 secretos por ambiente{% else %} y 100 secretos por repositorio{% endif %}. Un flujo de trabajo puede utilizar hasta 100 secretos de organización y 100 de repositorio.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Adicionalmente, un job que referencie a un ambiente puede utilizar hasta 100 secretos de ambiente.{% endif %}
+You can store up to 1,000 organization secrets{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+
+A workflow created in a repository can access the following number of secrets:
+
+* All 100 repository secrets.
+* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}* All 100 environment secrets.{% endif %}
 
 Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamaño mayor a 64 KB, puedes almacenar los secretos cifrados en tu repositorio y guardar la contraseña de descifrado como un secreto en {% data variables.product.prodname_dotcom %}. Por ejemplo, puedes usar `gpg` para cifrar tus credenciales de manera local antes de verificar el archivo en tu repositorio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la página del manual "[gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 

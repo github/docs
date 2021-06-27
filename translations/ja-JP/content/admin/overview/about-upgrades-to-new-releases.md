@@ -45,5 +45,5 @@ Enterprise を新しいリリースにアップグレードするには、「[�
 
 - `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
 {% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/release-notes)
 {% endif %}

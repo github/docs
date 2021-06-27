@@ -14,6 +14,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 ### Criar hooks pre-receive
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -45,9 +46,8 @@ topics:
 
 O administrador da organização só pode configurar permissões de hook para a organização se o administrador do site tiver selecionado a opção **Administrators can enable or disable this hook** (Administradores podem habilitar e desabilitar este hook) ao criar o hook pre-receive. Para configurar hooks pre-receive em um repositório, você deve ser administrador ou proprietário da organização.
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Na barra lateral esquerda, clique em **Hooks**. ![Barra lateral de hooks](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. Ao lado do hook pre-receive que você pretende configurar, clique no menu suspenso **Hook permissions** (Permissões de hook). Selecione se deseja habilitar ou desabilitar o hook pre-receive, ou permitir que ele seja configurado pelos administradores do repositório. ![Permissões de hook](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 

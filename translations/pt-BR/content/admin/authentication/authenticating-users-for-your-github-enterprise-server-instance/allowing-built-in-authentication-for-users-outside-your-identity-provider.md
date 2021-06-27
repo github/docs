@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Identity
 ---
+
 ### Sobre a autenticação integrada para usuários de fora do provedor de identidade
 
 É possível usar a autenticação integrada para usuários externos quando você não conseguir adicionar contas específicas ao seu provedor de identidade (IdP), como contas de contratados ou usuários de máquinas. Você também pode usar a autenticação integrada para acessar uma conta de fallback se o provedor de identidade não estiver disponível.

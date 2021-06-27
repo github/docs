@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### Atualizar com hotpatch
 {% data reusables.enterprise_installation.hotpatching-explanation %} O script de instalação do hotpatch instala o hotpatch em cada nó do cluster e reinicia os serviços na sequência adequada para evitar tempo de inatividade.
 

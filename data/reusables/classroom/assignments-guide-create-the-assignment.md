@@ -1,4 +1,4 @@
-#### If there are no existing assignments in the classroom
+### If there are no existing assignments in the classroom
 
 To create your first assignment:
  
@@ -10,7 +10,7 @@ To create your first assignment:
   <img alt="Creating your first assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
 </div>
 
-#### If there already are existing assignments in the classroom
+### If there already are existing assignments in the classroom
 
 To create an assignment:
 

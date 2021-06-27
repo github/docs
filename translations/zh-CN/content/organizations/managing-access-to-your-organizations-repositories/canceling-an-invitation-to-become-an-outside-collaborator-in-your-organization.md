@@ -15,8 +15,8 @@ topics:
 
 对于每个待定协作者，您可以同时取消加入组织仓库的所有邀请。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. 单击 **X pending collaborators（删除待定协作者）**。 !["待定协作者" 按钮](/assets/images/help/organizations/pending-collaborator-list.png)

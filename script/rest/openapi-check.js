@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+const fs = require('fs')
+const path = require('path')
 const glob = require('glob')
 const program = require('commander')
 const getOperations = require('./utils/get-operations')
@@ -28,8 +29,7 @@ if (filesToCheck.length) {
 
 async function check (files) {
   console.log('Verifying OpenAPI files are valid with decorator')
-
-  const documents = files.map(filename => [filename, require(filename)])
+  const documents = files.map(filename => [filename, JSON.parse(fs.readFileSync(path.join(process.cwd(), filename)))])
 
   for (const [filename, schema] of documents) {
     try {

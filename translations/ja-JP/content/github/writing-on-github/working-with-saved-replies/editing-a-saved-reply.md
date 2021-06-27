@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. [Saved replies] で、編集対象の返信テンプレートの隣にある {% octicon "pencil" aria-label="The pencil" %} をクリックします。  

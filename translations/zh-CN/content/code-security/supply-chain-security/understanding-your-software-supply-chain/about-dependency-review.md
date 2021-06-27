@@ -3,11 +3,17 @@ title: 关于依赖项审查
 intro: 依赖项审查可让您在将有漏洞的依赖项引入您的环境之前找到它们，并提供关于许可证、依赖项和依赖项存在时间的信息。
 versions:
   free-pro-team: '*'
+type: overview
 topics:
+  - Advanced Security
+  - Dependency review
+  - Vulnerabilities
+  - Dependencies
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
+
 {% note %}
 
 **注意：**依赖项审查目前处于测试阶段，可能会更改。

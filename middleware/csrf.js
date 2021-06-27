@@ -1,4 +1,6 @@
+const cookieSettings = require('../lib/cookie-settings')
+
 module.exports = require('csurf')({
-  cookie: require('../lib/cookie-settings'),
+  cookie: cookieSettings,
   ignoreMethods: ['GET', 'HEAD', 'OPTIONS']
 })

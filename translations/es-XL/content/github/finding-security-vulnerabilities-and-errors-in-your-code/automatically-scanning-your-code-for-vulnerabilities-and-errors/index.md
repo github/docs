@@ -8,10 +8,12 @@ topics:
   - Security
 children:
   - /about-code-scanning
-  - /enabling-code-scanning
-  - /managing-alerts-from-code-scanning
+  - /triaging-code-scanning-alerts-in-pull-requests
+  - /setting-up-code-scanning-for-a-repository
+  - /managing-code-scanning-alerts-for-your-repository
   - /configuring-code-scanning
-  - /configuring-the-codeql-action-for-compiled-languages
-  - /troubleshooting-code-scanning
+  - /configuring-the-codeql-workflow-for-compiled-languages
+  - /troubleshooting-the-codeql-workflow
+  - /running-codeql-code-scanning-in-a-container
 ---
 

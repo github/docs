@@ -13,6 +13,7 @@ versions:
 topics:
   - Profiles
 ---
+
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Seu gráfico de contribuição mostra a atividade dos repositórios públicos. {% endif %}Você pode escolher mostrar a atividade dos {% if currentVersion == "free-pro-team@latest" ou enterpriseServerVersions contém currentVersion %}repositórios públicos e {% endif %}privados, com informações específicos da atividade em repositórios privados anonimizados. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
 
 {% note %}
@@ -90,9 +91,8 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 {% if currentVersion != "github-ae@latest" %}
 ### Exibir contribuições da {% data variables.product.product_location_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
-Se o administrador do site habilitou
 
-{% data variables.product.prodname_unified_contributions %}, você pode enviar contagens de contribuição de {% data variables.product.prodname_enterprise %} para o seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+Se o administrador do site tiver ativado o {% data variables.product.prodname_unified_contributions %}, você poderá enviar contagens de contribuição do {% data variables.product.prodname_enterprise %} para o perfil do {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
 {% endif %}
 
 ### Leia mais

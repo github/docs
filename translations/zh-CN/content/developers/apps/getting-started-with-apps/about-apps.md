@@ -14,7 +14,8 @@ versions:
 topics:
   - GitHub Apps
 ---
-{% data variables.product.prodname_dotcom %} 上的应用程序允许您自动化并改进工作流程。 您可以构建应用程序来改进工作流程。{% if currentVersion == "free proteam@latest" %} 您也可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中分享或销售应用程序。 要了解如何在 {% data variables.product.prodname_marketplace %} 上列出应用程序，请参阅“[GitHub Marketplace 使用入门](/marketplace/getting-started/)”。{% endif %}
+
+{% data variables.product.prodname_dotcom %} 上的应用程序允许您自动化并改进工作流程。 您可以构建应用程序来改进工作流程。{% if currentversion == "free proteam@latest" %} 您也可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中分享或销售应用程序。 要了解如何在 {% data variables.product.prodname_marketplace %} 上列出应用程序，请参阅“[GitHub Marketplace 使用入门](/marketplace/getting-started/)”。{% endif %}
 
 {% data reusables.marketplace.github_apps_preferred %}，但 GitHub 支持 {% data variables.product.prodname_oauth_app %} 和 {% data variables.product.prodname_github_apps %}。 有关选择应用程序类型的信息，请参阅“[GitHub 应用程序和 OAuth 应用程序之间的差异](/developers/apps/differences-between-github-apps-and-oauth-apps)”。
 

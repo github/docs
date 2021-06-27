@@ -1,6 +1,6 @@
 ---
-title: Working with the Docker registry
-intro: 'You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.'
+title: 使用 Docker 注册表
+intro: '您可以使用 {% data variables.product.prodname_registry %} Docker 注册表推送和拉取 Docker 映像，该注册表使用包命名空间 `https://docker.pkg.github.com` 。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -22,9 +22,9 @@ versions:
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### About Docker support
+### 关于 Docker 支持
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
+安装或发布 Docker 映像时，Docker 注册表目前不支持外部层，例如 Windows 映像。
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -100,7 +100,7 @@ When installing or publishing a Docker image, the Docker registry does not curre
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
+2. 使用 Docker 映像 ID、标记和 Docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}并将 *VERSION* 替换为构建时的包版本。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -119,7 +119,7 @@ When installing or publishing a Docker image, the Docker registry does not curre
   ```
   {% endif %}
   {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+3. 如果尚未为包构建 docker 映像，请构建映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，将 *VERSION* 替换为构建时的包版本，{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}将 *HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}将 *PATH* 替换为映像路径（如果映像未在当前工作目录中）。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>

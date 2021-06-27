@@ -37,7 +37,7 @@ jobs:
 
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           script: |
@@ -136,10 +136,28 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}
 
+      # Because we get far too much spam ;_;
+      - name: Lock conversations
+        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            try {
+              await github.issues.lock({
+                ...context.repo,
+                issue_number: parseInt(${{ steps.find-pull-request.outputs.number }}),
+                lock_reason: 'spam'
+              })
+              console.log('Locked the pull request to prevent spam!')
+            } catch (error) {
+              // Log the error but don't fail the workflow
+              console.error(`Failed to lock the pull request. Error: ${error}`)
+            }
+
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
@@ -156,18 +174,39 @@ jobs:
             console.log(`Pull request base sha: ${pull.data.base.sha}`)
 
             if (mainHeadSha.data.object.sha !== pull.data.base.sha || pull.data.mergeable_state === 'behind') {
-              const updateBranch = await github.pulls.updateBranch({
-                ...context.repo,
-                pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
-              })
-              console.log(updateBranch.data.message)
+              try {
+                const updateBranch = await github.pulls.updateBranch({
+                  ...context.repo,
+                  pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+                })
+                console.log(updateBranch.data.message)
+              } catch (error) {
+                // When the head branch is modified an error with status 422 is thrown
+                // We should retry one more time to update the branch
+                if (error.status === 422) {
+                  try {
+                    const updateBranch = await github.pulls.updateBranch({
+                      ...context.repo,
+                      pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+                    })
+                    console.log(updateBranch.data.message)
+                  } catch (error) {
+                    // Only retry once. We'll rely on the update branch workflow to update 
+                    // this PR in the case of a second failure.
+                    console.log(`Retried updating the branch, but an error occurred: ${error}`)
+                  }
+                } else {
+                  // A failed branch update shouldn't fail this worklow. 
+                  console.log(`An error occurred when updating the branch: ${error}`)
+                }
+              }
             } else {
               console.log(`Branch is already up-to-date`)
             }
 
       - name: Enable GitHub auto-merge
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |

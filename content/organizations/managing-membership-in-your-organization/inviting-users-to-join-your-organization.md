@@ -7,10 +7,11 @@ redirect_from:
   - /articles/inviting-users-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Invite users to join
 ---
 
 {% tip %}
@@ -32,5 +33,5 @@ topics:
 {% data reusables.organizations.send-invitation %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
-### Further reading
+## Further reading
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

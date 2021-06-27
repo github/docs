@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### Diagnosticファイルの作成と共有
 
 Diagnostics は {% data variables.product.prodname_ghe_server %} インスタンスの設定と環境の概要であり、以下の内容が含まれます:

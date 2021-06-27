@@ -3,11 +3,11 @@ title: Configuring secret scanning for your appliance
 shortTitle: Configuring secret scanning
 intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 type: how_to
 topics:
   - Advanced Security
@@ -18,20 +18,20 @@ topics:
 
 {% data reusables.secret-scanning.beta %}
 
-### About {% data variables.product.prodname_secret_scanning %}
+## About {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.secret-scanning.about-secret-scanning %} For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)."
 
-### Prerequisites for {% data variables.product.prodname_secret_scanning %}
+## Prerequisites for {% data variables.product.prodname_secret_scanning %}
 
 
 - The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion ver_gt "enterprise-server@3.0" %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
+- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
 
 - {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
-### Checking support for the SSSE3 flag on your vCPUs
+## Checking support for the SSSE3 flag on your vCPUs
 
 The SSSE3 set of instructions is required because {% data variables.product.prodname_secret_scanning %} leverages hardware accelerated pattern matching to find potential credentials committed to your {% data variables.product.prodname_dotcom %} repositories. SSSE3 is enabled for most modern CPUs. You can check whether SSSE3 is enabled for the vCPUs available to your {% data variables.product.prodname_ghe_server %} instance.
 
@@ -46,7 +46,7 @@ If this returns the value `0`, it means that the SSSE3 flag is available and ena
 
 If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
 
-#### Checking whether you have an {% data variables.product.prodname_advanced_security %} license
+### Checking whether you have an {% data variables.product.prodname_advanced_security %} license
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -55,7 +55,7 @@ If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to ref
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
 
-### Enabling {% data variables.product.prodname_secret_scanning %}
+## Enabling {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
@@ -66,7 +66,7 @@ If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to ref
 ![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Disabling {% data variables.product.prodname_secret_scanning %}
+## Disabling {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 

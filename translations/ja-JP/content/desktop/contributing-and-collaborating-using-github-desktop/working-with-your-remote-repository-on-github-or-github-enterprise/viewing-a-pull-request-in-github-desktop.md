@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### {% data variables.product.prodname_desktop %} のプルリクエストについて
 自分またはコラボレータが提案したプルリクエストは、{% data variables.product.prodname_desktop %} で確認できます。 プルリクエストを使用すると、プロジェクトへの変更を提案し、フィードバックとレビューを提供し、変更をプロジェクトにマージできます。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
 

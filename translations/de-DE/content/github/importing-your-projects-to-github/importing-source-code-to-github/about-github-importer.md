@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 GitHub Importer ist ein Tool, das Quellcode-Repositorys, einschließlich Commits und Revisionsverlauf, für Dich schnell in GitHub importiert.
 
 ![GIF zum Import eines Repositorys](/assets/images/help/importer/github-importer.gif)

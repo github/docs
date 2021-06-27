@@ -1,0 +1,88 @@
+name: Staging - Undeploy PR
+
+# **What it does**: To undeploy PRs from a Heroku staging environment, i.e. destroy the Heroku App.
+# **Why we have it**: To save money spent on deployments for closed PRs.
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - closed
+      - locked
+
+jobs:
+  undeploy:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    name: Undeploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    concurrency:
+      group: staging_${{ github.head_ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          # Enables cloning the Early Access repo later with the relevant PAT
+          persist-credentials: 'false'
+
+      - name: Setup node
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        with:
+          node-version: 16.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Undeploy
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+        with:
+          script: |
+            const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
+
+            // Exit if GitHub Actions PAT is not found
+            if (!GITHUB_TOKEN) {
+              throw new Error('You must supply a GITHUB_TOKEN environment variable!')
+            }
+
+            // Exit if Heroku API token is not found
+            if (!HEROKU_API_TOKEN) {
+              throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
+            }
+
+            const getOctokit = require('./script/helpers/github')
+            const undeployFromStaging = require('./script/deployment/undeploy-from-staging')
+
+            // This helper uses the `GITHUB_TOKEN` implicitly!
+            // We're using our usual version of Octokit vs. the provided `github`
+            // instance to avoid versioning discrepancies.
+            const octokit = getOctokit()
+
+            try {
+              await undeployFromStaging({
+                herokuToken: HEROKU_API_TOKEN,
+                octokit,
+                pullRequest: context.payload.pull_request,
+                runId: context.runId
+              })
+            } catch (error) {
+              console.error(`Failed to undeploy from staging: ${error.message}`)
+              console.error(error)
+              throw error
+            }

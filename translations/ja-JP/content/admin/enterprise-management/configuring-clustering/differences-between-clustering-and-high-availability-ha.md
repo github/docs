@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### フェイルオーバーのシナリオ
 
 High Availability (HA) とクラスタリングはどちらも、障害の原因となる単一ノードを排除することによって冗長性を提供します。 可用性は次のシナリオで提供できます:

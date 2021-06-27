@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Fundamentals
 ---
+
 要访问仪表板，请在任意页面的右上角中单击 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}

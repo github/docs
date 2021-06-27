@@ -57,8 +57,8 @@ topics:
 
 ![显示因 2FA 不合规而删除的用户的审核日志事件](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. 输入您的搜索查询。 要搜索：
     - 删除的组织成员，请在搜索查询中使用 `action:org.remove_member`

@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Performance
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
 ### AWSでのCPUあるいはメモリリソースの追加

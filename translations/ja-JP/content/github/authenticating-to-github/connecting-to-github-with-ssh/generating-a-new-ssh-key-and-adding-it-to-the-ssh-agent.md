@@ -13,6 +13,7 @@ versions:
 topics:
   - SSH
 ---
+
 ### About SSH key generation
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
@@ -77,11 +78,11 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
 
 ### SSH キーを ssh-agent に追加する
 
-Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports] macports (https://www.macports.org/)、[homebrew] (http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports](https://www.macports.org/)、[homebrew](http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
 
 {% mac %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 2. macOS Sierra 10.12.2 以降を使用している場合は、`~/.ssh/config` ファイルを修正して、キーが自動で ssh-agent に読み込まれ、キーチェーンにパスフレーズが記憶されるようにする必要があります。
 
@@ -155,7 +156,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 1. ssh-agent が実行されていることを確認します. 「[SSH キーパスフレーズで操作する](/articles/working-with-ssh-key-passphrases)」の「ssh-agent を自動起動する」の手順を使用するか、手動で開始できます。
   ```shell
   # start the ssh-agent in the background
-  $ eval `ssh-agent -s`
+  $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
 
@@ -168,15 +169,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% linux %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
-
-  In some Linux environments, you need root access to run the command:
-
-  ```
-  $ sudo -s -H
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  ```
+{% data reusables.command_line.start_ssh_agent %}
 
 2. SSH プライベートキーを ssh-agent に追加します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}

@@ -1,5 +1,5 @@
 ---
-title: Managing encrypted secrets for your codespaces
+title: 管理代码空间的加密密码
 intro: 您可以在代码空间中存储要通过环境变量访问的敏感信息（如令牌）。
 versions:
   free-pro-team: '*'
@@ -29,15 +29,15 @@ topics:
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Naming secrets
+#### 命名密钥
 
-{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
+{% data reusables.codespaces.secrets-naming %} 例如，在仓库级别创建的密钥必须在该仓库中具有唯一的名称。
 
   {% data reusables.codespaces.secret-precedence %}
 
 #### 密码的限制
 
-You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
+您最多可以为 {% data variables.product.prodname_codespaces %} 存储 100 个密钥。
 
 密码大小限于 64 KB。
 

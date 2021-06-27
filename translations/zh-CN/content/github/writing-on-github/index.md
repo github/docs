@@ -5,6 +5,7 @@ redirect_from:
   - /articles/github-flavored-markdown/
   - /articles/writing-on-github/
   - /categories/writing-on-github
+intro: '您可以通过各种格式选项构建 {% data variables.product.product_name %} 共享的信息。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -15,4 +16,4 @@ children:
   - /working-with-saved-replies
   - /editing-and-sharing-content-with-gists
 ---
-### 目录
+

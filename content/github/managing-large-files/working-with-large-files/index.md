@@ -4,9 +4,9 @@ intro: 'A Git repository contains every version of every file. But for some file
 redirect_from:
   - /articles/working-with-large-files
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /conditions-for-large-files
   - /removing-files-from-a-repositorys-history

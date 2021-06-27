@@ -63,7 +63,7 @@
 - 
   term: Azure DevOps
   description: >-
-    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+    Un producto de Microsoft que ofrece hospedaje de código fuente, propuestas, mapas de IC/DC y otros servicios de desarrollador. Se le conocía a la versión interna como Team Foundation Services. La versión hospedada en la nube se conocía como Visual Studio Team Services.
 - 
   term: repositorio en blanco
   description: >-
@@ -652,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
+    El nombre anterior de un producto de Microsoft que proporciona administración de código fuente y otros servicios de equipo. Ahora se le conoce como Azure DevOps Server.
 - 
   term: Textile
   description: >-

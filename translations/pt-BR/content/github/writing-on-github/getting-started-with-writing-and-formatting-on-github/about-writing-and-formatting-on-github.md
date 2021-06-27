@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 [Markdown](http://daringfireball.net/projects/markdown/) é uma sintaxe de leitura e gravação fáceis para formatação de texto sem formatação.
 
 Adicionamos algumas funcionalidades personalizadas para criar o markdown em estilo {% data variables.product.prodname_dotcom %}, usadas para formatar prosa e código em nosso site.

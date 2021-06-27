@@ -6,10 +6,11 @@ redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Prepare to enforce SAML SSO
 ---
 
 When you [enforce SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in your organization, members that haven't authenticated via your identity provider (IdP) will be removed from the organization and will receive an email notifying them about the removal.
@@ -22,6 +23,6 @@ Before enforcing SAML SSO in your organization, you should:
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Compare branches
 ---
 {% note %}
 
@@ -19,13 +20,13 @@ topics:
 {% endnote %}
 
 You can view proposed changes in a pull request in the Files changed tab.
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![Pull Request Files changed tab](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 Rather than viewing the commits themselves, you can view the proposed changes as they'll appear in the files once the pull request is merged. The files appear in alphabetical order within the Files changed tab. Additions to the files appear in green and are prefaced by a `+` sign while content that has been removed appears in red and is prefaced by a `-` sign.
 
-### Diff view options
+## Diff view options
 
 {% tip %}
 
@@ -47,7 +48,7 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
   ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
 
-### Three-dot and two-dot Git diff comparisons
+## Three-dot and two-dot Git diff comparisons
 
 By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
 
@@ -61,11 +62,11 @@ If you want to simulate a two-dot diff in a pull request and see a comparison be
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
-### Reasons diffs will not display
+## Reasons diffs will not display
 - You've exceeded the total limit of files or certain file types. For more information, see "[Limits for viewing content and diffs in a repository](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)."
 - Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
 
-### Further reading
+## Further reading
 
 - "[About pull requests](/articles/about-pull-requests)"
 - "[About forks](/articles/about-forks)"

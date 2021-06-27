@@ -23,13 +23,19 @@ Si un administrador de repositorio o mantenedor de proyecto habilita los debates
 
 Para obtener más información sobre la adminsitración de debates para tu repositorio, consulta la sección "[Administrar debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
-### Acerca de las categorías y formatos para los debates
+### Acerca de la organización de debates
+
+Puedes organizar debates con categorías y etiquetas.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 Para los debates con un formato de pregunta/respuesta, un comentario individual dentro del debate puede marcarse como la respuesta a éste. {% data reusables.discussions.github-recognizes-members %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### Mejores prácticas para las discusiones
 

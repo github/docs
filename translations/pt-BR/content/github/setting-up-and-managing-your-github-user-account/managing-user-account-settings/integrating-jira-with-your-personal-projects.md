@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 3. Na barra lateral esquerda, clique em **{% data variables.product.prodname_oauth_app %}s**. ![Aba {% data variables.product.prodname_oauth_app %}s na barra lateral esquerda](/assets/images/help/settings/developer-settings-oauth-apps.png)

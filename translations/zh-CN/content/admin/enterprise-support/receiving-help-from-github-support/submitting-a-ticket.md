@@ -1,6 +1,6 @@
 ---
 title: 提交事件单
-intro: '您可以使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或{% endif %}支持门户提交支持单。'
+intro: '您可以使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或支持门户{% elsif currentVersion == "github-ae@latest" %}{% data variables.contact.ae_azure_portal %}{% endif %} 提交支持单。'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
   - /admin/enterprise-support/submitting-a-ticket
@@ -12,13 +12,19 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### 关于提交事件单
+
+{% if currentVersion == "github-ae@latest" %}
+
+您可以从 {% data variables.contact.ae_azure_portal %} 通过 {% data variables.product.prodname_ghe_managed %} 提交支持单。
+
+{% endif %}
 
 在提交事件单之前，您应当收集 {% data variables.contact.github_support %} 的有用信息并选择联系人。 更多信息请参阅“[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”。
 
 {% if enterpriseServerVersions contains currentVersion %}
-在提交支持请求和可选诊断信息后，
-{% data variables.contact.github_support %} 可能要求您下载并与我们分享支持包。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
+提交支持请求和可选诊断信息后，{% data variables.contact.github_support %} 可能会要求您下载支持包并将其共享给我们。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
 
 ### 使用 {% data variables.contact.enterprise_portal %} 提交事件单
 
@@ -52,10 +58,24 @@ topics:
 7. 单击 **Submit（提交）**。
 
 {% endif %}
+
 {% if currentVersion == "github-ae@latest" %}
+
+### 基本要求
+
+要在 {% data variables.contact.ae_azure_portal %} 中提交 {% data variables.product.prodname_ghe_managed %} 支持单，您必须将 Azure 中 {% data variables.product.prodname_ghe_managed %} 订阅的 ID 提交到 Microsoft 上的 Customer Success Account Manager (CSAM)。
+
 ### 使用 {% data variables.contact.ae_azure_portal %}提交事件单
 
 商业客户可以在 {% data variables.contact.contact_ae_portal %} 中提交支持请求。 政府客户应该使用[政府客户的 Azure 门户网站](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 更多信息请参阅 Microsoft 文档中的 "[创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)"。
+
+### {% data variables.contact.ae_azure_portal %} 中的问题排除
+
+{% data variables.product.company_short %} 无法排除 Azure 门户中的访问和订阅问题。 有关 Azure 门户的帮助，请联系 Microsoft 的 CSAM 或查看以下信息。
+
+- 如果您无法登录 Azure 门户，请参阅 Microsoft 文档中的[Azure 订阅登录问题故障排除](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)或[直接提交请求](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178)。
+
+- 如果您可以登录 Azure 门户，但无法提交 {% data variables.product.prodname_ghe_managed %} 支持单，请查看提交支持单的先决条件。 更多信息请参阅“[先决条件](#prerequisites)”。
 
 {% endif %}
 

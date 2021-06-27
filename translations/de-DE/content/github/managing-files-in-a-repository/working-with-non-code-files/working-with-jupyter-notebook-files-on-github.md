@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Die interaktiven Features des Notebooks, beispielsweise benutzerdefinierte JavaScript-Plots, funktionieren in Ihrem Repository auf {% data variables.product.product_location %} nicht. Ein Beispiel findest Du unter [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
 Du kannst [nbviewer](https://nbviewer.jupyter.org/) verwenden, um Dein Jupyter Notebook mit dargestelltem JavaScript-Inhalt anzuzeigen oder um Deine Notebook-Dateien mit anderen zu teilen. Ein Beispiel zu auf nbviewer gerenderten Elementen findest Du unter [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).

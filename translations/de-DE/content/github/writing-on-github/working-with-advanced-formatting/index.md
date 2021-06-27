@@ -11,5 +11,7 @@ children:
   - /organizing-information-with-tables
   - /creating-and-highlighting-code-blocks
   - /autolinked-references-and-urls
+  - /attaching-files
+  - /creating-a-permanent-link-to-a-code-snippet
 ---
 

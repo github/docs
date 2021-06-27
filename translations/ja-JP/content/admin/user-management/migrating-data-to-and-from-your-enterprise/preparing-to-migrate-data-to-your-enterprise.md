@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### 移行したデータを {% data variables.product.prodname_ghe_server %} にインポートするための準備
 
 1. [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って、ソースインスタンスまたは Organization から生成された移行アーカイブを {% data variables.product.prodname_ghe_server %} ターゲットにコピーします:

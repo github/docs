@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - SSH
 ---
+
 SSH 管理ユーザとしてサインインした後では、VM 上のどこからでもこれらのコマンドを実行できます。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
 
 ### 一般的
@@ -24,8 +25,7 @@ SSH 管理ユーザとしてサインインした後では、VM 上のどこか�
 このユーティリティは、あらゆる {% data variables.product.prodname_enterprise %} ページの上部にバナーを設定します。 これを使用すればユーザにメッセージを配信することができます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-また、
-{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
+{% data variables.product.product_name %} の Enterprise 設定を使用して、お知らせバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
 {% endif %}
 
 ```shell
@@ -249,7 +249,7 @@ $ ghe-reactivate-admin-login
 
 #### ghe-resque-info
 
-このユーティリティは、アクティブなものとキュー内にあるもの両方のバックグラウンドジョブに関する情報を表示します。 これは、すべてのページの上部にある管理統計バーと同じジョブ数を表示します。
+このユーティリティは、アクティブでありかつキュー内にある、バックグラウンドジョブに関する情報を表示します。 あらゆるページの上部には、管理統計バーと同じジョブ数が表示されます。
 
 このユーティリティは、Resque サーバーでバックグラウンドジョブの処理に問題があるかどうかを識別するのに役立ちます。 以下のどのシナリオも Resque の問題を示している可能性があります。
 
@@ -498,7 +498,7 @@ ghe-webhook-logs -g <em>delivery-guid</em> -v
 
 #### ghe-cluster-status
 
-Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %} のクラスターデプロイメントでノードとサービスの健全性を確認します。
 
 ```shell
 $ ghe-cluster-status
@@ -651,14 +651,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
+このユーティリティは、Team Foundation Version Control (TFVC) からインポートします。 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-このユーティリティは、インポートされたリポジトリを書き直します。 This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
+このユーティリティは、インポートされたリポジトリを書き直します。 これにより、作者名を変更したり、Subversion および TFVC では、フォルダーに基づいて Git ブランチがを生成したりすることができます。 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
 ```shell
 git-import-rewrite
 ```

@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -124,11 +125,31 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 ### 验证为安装
 
-通过验证为安装，您可以在 API 中为此安装执行操作。 验证为安装之前，必须创建安装访问令牌。 这些安装访问令牌由 {% data variables.product.prodname_github_app %} 用于进行身份验证。
+通过验证为安装，您可以在 API 中为此安装执行操作。 验证为安装之前，必须创建安装访问令牌。 确保您已将 GitHub 应用安装到至少一个仓库；如果没有单个安装，就无法创建安装令牌。 这些安装访问令牌由 {% data variables.product.prodname_github_app %} 用于进行身份验证。 更多信息请参阅“[安装 GitHub 应用程序](/developers/apps/managing-github-apps/installing-github-apps)”。
 
 默认情况下，安装访问令牌的作用域为安装可访问的所有仓库。 您可以使用 `repository_ids` 参数将安装访问令牌的作用域限定于特定仓库。 请参阅[创建应用程序的安装访问令牌](/rest/reference/apps#create-an-installation-access-token-for-an-app)端点了解更多详细信息。 安装访问令牌具有由 {% data variables.product.prodname_github_app %} 配置的权限，一个小时后到期。
 
-要创建安装访问令牌，请在 API 请求的“授权”标头中加入[上文生成的](#jwt-payload) JWT：
+要列出已验证应用的安装，请在 API 请求中的授权头中包括[上述生成](#jwt-payload)的 JWT：
+
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
+```shell
+$ curl -i -X GET \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.machine-man-preview+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% else %}
+```shell
+$ curl -i -X GET \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.v3+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% endif %}
+
+响应将包括一个安装列表，其中每个安装的 `id` 可用来创建一个安装访问令牌。 有关响应格式的更多信息，请参阅“[列出已验证应用的安装](/rest/reference/apps#list-installations-for-the-authenticated-app)”。
+
+要创建安装访问令牌，请在 API 请求的授权头中包括[上述生成](#jwt-payload)的 JWT，并将 `:installation_id` 替换为安装的 `id`：
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell

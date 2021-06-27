@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafiken zur Anzahl der
 - neuen Pull Requests,
 - gemergten Pull Requests,
@@ -26,8 +27,7 @@ Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafik
 ![Aktivitäts-Dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
-For more analytics based on data from
-{% data variables.product.product_name %}, you can purchase {% data variables.product.prodname_insights %}. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)“.
+Für weitere Analysen auf Basis der Daten von {% data variables.product.product_name %} kannst Du {% data variables.product.prodname_insights %} erwerben. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)“.
 {% endif %}
 
 ### Auf das Aktivitäts-Dashboard zugreifen

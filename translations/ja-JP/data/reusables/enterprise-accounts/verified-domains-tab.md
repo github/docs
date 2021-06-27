@@ -1,1 +1,1 @@
-1. Under "Settings", click **Verified & approved domains**. !["Verified & approved domains" tab](/assets/images/help/enterprises/verified-domains-tab.png)
+1. "Settings（設定）"の下で、**Verified & approved domains（検証及び承認済みドメイン）**をクリックしてください。 !["検証済み及び承認済みドメイン"タブ](/assets/images/help/enterprises/verified-domains-tab.png)

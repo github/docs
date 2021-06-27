@@ -21,9 +21,9 @@ Esto te permitirá ejecutar el código en la solicitud de extracción en tu máq
 Además de cargar artefactos de empaquetado para las pruebas en un flujo de trabajo de integración continua, puedes crear flujos de trabajo que construyan tu proyecto y publiquen paquetes en un registro de paquete.
 
 * **Publicar paquetes en el {% data variables.product.prodname_registry %}**
-  El {% data variables.product.prodname_registry %} puede actuar como un servicio de hospedaje para paquetes para varios tipos de éstos. Puedes elegir compartir tus paquetes con todos los {% data variables.product.prodname_dotcom %}, o paquetes privados para compartir con los colaboradores o una organización. For more information, see "[Introduction to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages)."
+  El {% data variables.product.prodname_registry %} puede actuar como un servicio de hospedaje para paquetes para varios tipos de éstos. Puedes elegir compartir tus paquetes con todos los {% data variables.product.prodname_dotcom %}, o paquetes privados para compartir con los colaboradores o una organización. Para obtener más información, consulta la sección "[Introducción a los Paquetes de GitHub](/packages/learn-github-packages/introduction-to-github-packages)".
 
-  Es posible que desees publicar paquetes para el {% data variables.product.prodname_registry %} en cada subida a la rama predeterminada. This will allow developers on your project to always be able to run and test the latest build from the default branch easily, by installing it from {% data variables.product.prodname_registry %}.
+  Es posible que desees publicar paquetes para el {% data variables.product.prodname_registry %} en cada subida a la rama predeterminada. Esto permitirá que los desarrolladores de tu proyecto siempre puedan ejecutar y probar la última compilación de la rama predeterminada fácilmente, si la instalan desde el {% data variables.product.prodname_registry %}.
 
 * **Publicar paquetes en un registro de paquetes**  
   Para muchos proyectos, publicar en un registro de paquete se realiza cada vez que se lanza una nueva versión de un proyecto. Por ejemplo, un proyecto que produce un archivo JAR puede cargar nuevos lanzamientos en el repositorio central de Maven. O bien, un proyecto de .NET puede generar un paquete NuGet y cargarlo en la galería de NuGet.

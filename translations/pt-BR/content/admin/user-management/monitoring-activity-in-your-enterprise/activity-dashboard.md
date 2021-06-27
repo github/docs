@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 O painel Atividade gera gráficos semanais, mensais e anuais informando o número de:
 - Novas pull requests;
 - Pull requests com merge;
@@ -26,8 +27,7 @@ O painel Atividade gera gráficos semanais, mensais e anuais informando o númer
 ![Painel Atividade](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
-Para mais análises com base em dados de
-{% data variables.product.product_name %}, você pode comprar {% data variables.product.prodname_insights %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
+Para mais análises baseadas em dados de {% data variables.product.product_name %}, você pode comprar o {% data variables.product.prodname_insights %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
 {% endif %}
 
 ### Acessar o painel Atividade

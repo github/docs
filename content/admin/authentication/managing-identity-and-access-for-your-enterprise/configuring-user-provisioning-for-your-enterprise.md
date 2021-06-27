@@ -5,7 +5,7 @@ intro: 'You can configure System for Cross-domain Identity Management (SCIM) for
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,13 +16,13 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
-### About user provisioning for your enterprise
+## About user provisioning for your enterprise
 
 {% data reusables.saml.ae-uses-saml-sso %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
 
 {% data reusables.scim.after-you-configure-saml %} For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 Configuring provisioning allows your IdP to communicate with {% data variables.product.product_location %} when you assign or unassign the application for {% data variables.product.product_name %} to a user on your IdP. When you assign the application, your IdP will prompt {% data variables.product.product_location %} to create an account and send an onboarding email to the user. When you unassign the application, your IdP will communicate with {% data variables.product.product_name %} to invalidate any SAML sessions and disable the member's account.
 
@@ -32,15 +32,15 @@ The provisioning application on your IdP communicates with {% data variables.pro
 
 {% endif %}
 
-### Supported identity providers
+## Supported identity providers
 
 {% data reusables.scim.supported-idps %}
 
 When you set up user provisioning with a supported IdP, you can also assign or unassign the application for {% data variables.product.product_name %} to groups of users. These groups are then available to organization owners and team maintainers in {% data variables.product.product_location %} to map to {% data variables.product.product_name %} teams. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
-### Prerequisites
+## Prerequisites
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 To automatically provision and deprovision access to {% data variables.product.product_location %} from your IdP, you must first configure SAML SSO when you initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
 
@@ -48,9 +48,9 @@ You must have administrative access on your IdP to configure the application for
 
 {% endif %}
 
-### Enabling user provisioning for your enterprise
+## Enabling user provisioning for your enterprise
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. While signed into {% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
   {% note %}
@@ -84,7 +84,7 @@ You must have administrative access on your IdP to configure the application for
 
   | Value | Other names | Description | Example |
   | :- | :- | :- | :- |
-  | URL | Tenant URL | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre> |
+  | URL | Tenant URL | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <nobr><code>{% data variables.product.api_url_pre %}</nobr></code> |
   | Shared secret | Personal access token, secret token | Token for application on your IdP to perform provisioning tasks on behalf of an enterprise owner | Personal access token you created in step 1 |
 
 {% endif %}

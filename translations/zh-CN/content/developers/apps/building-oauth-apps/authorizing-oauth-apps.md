@@ -16,6 +16,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% data variables.product.product_name %} 的 OAuth 实现支持标准[授权代码授予类型](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}以及 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)（针对无法访问 web 浏览器的应用程序）{% endif %}。
 
 如果您想要跳过以标准方式授权应用程序，例如测试应用程序时， 您可以使用[非 web 应用程序流程](#non-web-application-flow)。
@@ -80,7 +81,6 @@ topics:
 | `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端密钥。  |
 | `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                             |
 | `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                            |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                              |
 
 ##### 响应
 
@@ -277,7 +277,7 @@ http://localhost:1234/path
 
 如果您的 OAuth 应用程序支持一个使用 GitHub 登录且只需基本用户信息的工作流程，此方法将非常有用。 另一个工作流程可能需要访问用户的私有仓库。 您的 OAuth 应用程序可以使用多个令牌为每个用例执行 web 流程，只需要所需的作用域。 如果用户仅使用您的应用程序登录，则无需向他们的私有仓库授予您的 OAuth 应用程序访问权限。
 
-每个用户/应用程序/作用域组合签发的令牌数量有限。 如果您的应用程序请求足够的令牌超越其中一个限制，_所请求的作用域相同的_旧令牌将停止工作。
+{% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 

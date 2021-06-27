@@ -20,6 +20,7 @@ topics:
   - Fundamentals
   - SSH
 ---
+
 ### Informationen zum Verwaltungsshellzugriff
 
 Wenn Sie über SSH-Zugriff auf die Verwaltungsshell verfügen, können Sie die Befehlszeilendienstprogramme von {% data variables.product.prodname_ghe_server %} ausführen. Der SSH-Zugriff eignet sich zudem zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation. Der SSH-Verwaltungszugriff wird getrennt vom Git SSH-Zugriff verwaltet und ist nur über Port 122 zugänglich.

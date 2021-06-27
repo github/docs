@@ -9,13 +9,17 @@ children:
   - /finding-discussions-across-multiple-repositories
   - /granting-higher-permissions-to-top-contributors
 ---
+
 {% data reusables.discussions.beta %}
 ### ディスカッションを使ってみる
+
  <!--
  -->
 ### ディスカッションを管理する
+
 <!--<!-- Commenting out what is only nice to have for discussions release
 -->
+
 <!--
 ### Discussions and open source projects
 -->

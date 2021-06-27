@@ -6,13 +6,14 @@ redirect_from:
   - /articles/about-git-large-file-storage
   - /github/managing-large-files/about-git-large-file-storage
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Git Large File Storage
 ---
 {% data variables.large_files.product_name_short %} handles large files by storing references to the file in the repository, but not the actual file itself. To work around Git's architecture, {% data variables.large_files.product_name_short %} creates a pointer file which acts as a reference to the actual file (which is stored somewhere else). {% data variables.product.product_name %} manages this pointer file in your repository. When you clone the repository down, {% data variables.product.product_name %} uses the pointer file as a map to go and find the large file for you.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Using {% data variables.large_files.product_name_short %}, you can store files up to:
 
 | Product | Maximum file size |
@@ -21,14 +22,14 @@ Using {% data variables.large_files.product_name_short %}, you can store files u
 | {% data variables.product.prodname_pro %} | 2 GB |
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
-Using {% data variables.large_files.product_name_short %}, you can store files up to {% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} in your repository.
+Using {% data variables.large_files.product_name_short %}, you can store files up to 5 GB in your repository.
 {% endif %}  
 
 You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[Cloning a repository from GitHub to GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
-#### Pointer file format
+## Pointer file format
 
 {% data variables.large_files.product_name_short %}'s pointer file looks like this:
 
@@ -48,6 +49,6 @@ It tracks the `version` of {% data variables.large_files.product_name_short %} y
   
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage)"

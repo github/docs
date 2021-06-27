@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 您可以在所有 {% data variables.product.product_name %} 内全局搜索议题和拉取请求，也可以在特定组织内搜索议题和拉取请求。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
 
 {% tip %}

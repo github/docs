@@ -5,14 +5,15 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Support for Subversion clients
 ---
 GitHub supports Subversion clients via the HTTPS protocol. We use a Subversion bridge to communicate svn commands to GitHub.
 
-### Supported Subversion features on GitHub
+## Supported Subversion features on GitHub
 
-#### Checkout
+### Checkout
 
 The first thing you'll want to do is a Subversion checkout.  Since Git clones keep the working directory (where you edit files) separate from the repository data, there is only one branch in the working directory at a time.
 
@@ -43,7 +44,7 @@ Subversion checkouts are different: they mix the repository data in the working 
   Updated to revision 1.
   ```
 
-#### Creating branches
+### Creating branches
 
 You can also create branches using the Subversion bridge to GitHub.
 
@@ -75,7 +76,7 @@ $ git fetch
 > * [new branch]    more_awesome -> origin/more_awesome
 ```
 
-#### Making commits to Subversion
+### Making commits to Subversion
 
 After you've added some features and fixed some bugs, you'll want to commit those
 changes to GitHub. This works just like the Subversion you're used to. Edit your files, and use `svn commit` to record your changes:
@@ -99,7 +100,7 @@ $ svn commit -m 'Test coverage for problems'
 > Committed revision 4.
 ```
 
-#### Switching between branches
+### Switching between branches
 
 To switch between branches, you'll probably want to start with a checkout of `trunk`:
 
@@ -113,7 +114,7 @@ Then, you can switch to another branch:
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
 ```
 
-### Finding the Git commit SHA for a Subversion commit
+## Finding the Git commit SHA for a Subversion commit
 
 GitHub's Subversion server exposes the Git commit sha for each Subversion commit.
 
@@ -126,6 +127,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 With this commit SHA, you can, for example, look up the corresponding Git commit on GitHub.
 
-### Further reading
+## Further reading
 
 * "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"

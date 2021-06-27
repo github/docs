@@ -7,9 +7,17 @@ redirect_from:
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
+  - Security updates
   - Repositories
+  - Dependencies
+  - Pull requests
+  - Vulnerabilities
 ---
+
 ### Sobre a personalização de atualizações de dependências
 
 Depois que você habilitou as atualizações de versão, você pode personalizar a forma como o {% data variables.product.prodname_dependabot %} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:

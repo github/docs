@@ -1,6 +1,6 @@
 ---
 title: Acerca de Codespaces
-intro: '{% data variables.product.prodname_codespaces %} is a configurable online development environment, hosted by {% data variables.product.prodname_dotcom %} and powered by {% data variables.product.prodname_vscode %}, that allows you to develop entirely in the cloud.'
+intro: '{% data variables.product.prodname_codespaces %} es un ambiente de desarrollo en línea configurable que hospeda {% data variables.product.prodname_dotcom %} y que impulsa {% data variables.product.prodname_vscode %}, el cual te permite desarrollar integralmente desde la nube.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
   - /github/developing-online-with-codespaces/about-codespaces
@@ -16,41 +16,41 @@ topics:
 
 ### Acerca de {% data variables.product.prodname_codespaces %}
 
-{% data variables.product.prodname_codespaces %} is a configurable cloud development environment available in your browser on {% data variables.product.prodname_dotcom %} or through {% data variables.product.prodname_vscode %}.
+{% data variables.product.prodname_codespaces %} es un ambiente de desarrollo configurable en la nube que está disponible en tu buscador dentro de {% data variables.product.prodname_dotcom %} o a través de {% data variables.product.prodname_vscode %}.
 
 ![Un codespace abierto](/assets/images/help/codespaces/codespace-overview.png)
 
-A codespace includes everything developers need to develop for a specific repository, including the {% data variables.product.prodname_vscode %} editing experience and common languages, tools, and utilities. {% data variables.product.prodname_codespaces %} is completely configurable, allowing you to create a customized development environment for your project, and allowing developers to personalize their experience with extensions and dotfile settings.
+Un codespace incluye todo lo que necesitan los desarrolladores para desarrollar en un repositorio específico, incluyendo la experiencia de editar en {% data variables.product.prodname_vscode %} y los lenguajes, herramientas y utilidades comunes. {% data variables.product.prodname_codespaces %} es completamente configurable, lo cual te permite crear un ambiente de desarrollo personalizado para tu proyecto y le permite a los desarrolladores personalizar su experiencia con extensiones y ajustes de dotfile.
 
-Codespaces offers many benefits to teams by allowing for a consistent environment across your entire team, fast onboarding, and creating a secure space for development.
+Los codespaces ofrecen muchos beneficios para los equipos al permitir un ambiente consistente a través de todo tu equipo, una incorporación rápida y la creación de un espacio de desarrollo seguro.
 
-### A consistent environment
+### Un ambiente consistente
 
-You can create a single codespace configuration that defines the environment (or _dev container_) of every new codespace that anyone creates for your repository. Once you've made a configuration, developers don’t have to worry about installing the right tools to comment, review, or contribute. A standardized environment is already available for them as soon as they create a codespace from the repository. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)".
+Puedes crear solo una configuración de codespace que defina el ambiente (o _contenedor dev_) de cada codespace nuevo que cualquiera pueda crear para tu repositorio. Una vez que hagas una configuración, los desarrolladores no tienen que preocuparse por instalar las herramientas correctas para comentar, revisar o contribuir. Ellos ya tendrán un ambiente estandarizado disponible tan pronto creen un codespace desde el repositorio. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)".
 
-For help getting started with configurations for specific languages, see the [Getting Started](/codespaces/getting-started-with-codespaces) tutorials.
+Para obtener ayuda en iniciar con las configuraciones para lenguajes específicos, consulta los tutoriales de [Inicio](/codespaces/getting-started-with-codespaces).
 
-While every codespace created from your repository has a consistent development environment, developers can use {% data variables.product.prodname_codespaces %} wherever they need it – on {% data variables.product.prodname_dotcom %} or through {% data variables.product.prodname_vscode %}.
+Si bien cada codespace de tu repositorio tiene un ambiente de desarrollo consistente, los desarrolladores pueden utilizar los {% data variables.product.prodname_codespaces %} donde sea que los necesiten – en {% data variables.product.prodname_dotcom %} o a través de {% data variables.product.prodname_vscode %}.
 
-### Fast and personal onboarding
+### Incorporación rápida y personal
 
-With a [dev container](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#about-dev-containers) configured in your repository, any new developer can quickly onboard with the correct development environment for your project by using the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and selecting **Open with Codespaces**.
+Si tienes configurado un [contenedor de dev](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#about-dev-containers) en tu repositorio, cualquier desarrollador puede integrarse rápidamente con el ambiente de desarrollo correcto para tu proyecto si utilizan el {% octicon "download" aria-label="The download icon" %} menú desplegable de **Código** y seleccionan **Abrir con codespaces**.
 
 ![Botón de abrir con codespaces](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-As a result of standardizing on a repeatable developer environment, developers can get started with a new codespace without doing any manual configuration and do not need to do continued maintenance of their developer environment. A new codespace can be created when starting a new feature.
+Como resultado de estandarizar en un ambiente de desarrollador repetible, los desarrolladores puede iniciar con codespaces nuevos sin hacer ninguna configuración manual y no necesitan dar mantenimiento contínuo para su ambiente de desarrollo. Se puede crear un codespace nuevo cuando inicias una característica nueva.
 
-Developers can also personalize aspects of their codespace environment by using a [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and extensions, such as Live Share. Personal customizations are stored on a per-user basis, so every codespace a developer opens has their environment ready to go. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
+Los desarrolladores también pueden personalizar algunos aspectos del ambiente de un codespace utilizando un repositorio de [dotfiles](https://dotfiles.github.io/tutorials/) y la [Sincronización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync). La personalización puede incluir preferencias de shell, herramientas adicionales, configuraciones de editor y extensiones tales como Live Share. Las personalizaciones que hagas se almacenan por usuario, así que cada codespace que abra un desarrollador tendrá su ambiente listo. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
 
-Because {% data variables.product.prodname_codespaces %} can be accessed in the browser, developers can work on multiple projects by switching between tabs.
+Ya que se puede acceder a {% data variables.product.prodname_codespaces %} desde el buscador, los desarrolladores pueden trabajar en varios proyectos si cambian de pestaña.
 
-### A secure environment
+### Un ambiente seguro
 
-{% data variables.product.prodname_codespaces %} allows developers to develop in the cloud instead of locally. This creates one single, trackable, source of truth. Los desarrolladores pueden contribuir desde donde sea, en cualquier máquina, incluyendo tablets o Chromebooks, y no es necesario mantener copias locales o propiedad intelectual. Developers always have to be logged in and provided with access to both {% data variables.product.prodname_codespaces %} and specific repositories. These permissions can be revoked at any time. As soon as you revoke access, those developers will lose all access to protected resources. In addition, authenticated developers create audit trails so you know who is doing what. For more information on access and security, see "[Managing access and security for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
+{% data variables.product.prodname_codespaces %} permite el desarrollo en la nube en vez de localmente. Esto crea una fuente única y rastreable de verdad. Los desarrolladores pueden contribuir desde donde sea, en cualquier máquina, incluyendo tablets o Chromebooks, y no es necesario mantener copias locales o propiedad intelectual. Los desarrolladores siempre tienen que iniciar sesión y contar con acceso tanto a {% data variables.product.prodname_codespaces %} como a los repositorios específcos. Estos permisos se pueden revocar en cualquier momento. Tan pronto revoques los accesos, estos desarrolladores perderán cualquier tipo de acceso a los recursos protegidos. Adicionalmente, los desarrolladores autenticados crean pistas de auditoría para que sepas quién hace qué. Para obtener más información sobre acceso y seguridad, consulta la sección "[Administrar el acceso y seguridad de los codespaces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
 
-Using {% data variables.product.prodname_codespaces %} is the most secure when all members of your team are using it. It means that there is no need to clone the repository onto a local machine and that developers don't need to install locally as `root`.
+Utilizar {% data variables.product.prodname_codespaces %} es lo más seguro cuando todos los miembros de tu equipo lo están utilizando. Esto significa que no hay necesidad de clonar el repositorio en una máquina local y que los desarrolladores no necesitan instalar nada localmente como `root`.
 
-Developers and organization administrators can also configure settings to add encrypted secrets and enable GPG verification. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
+Los desarrolladores y administradores organizacionales también pueden configurar los ajustes para agregar secretos cifrados y habilitar la verificación de GPG. Para obtener más información, consulta las secciones "[Administrar los secretos cifrados de los {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Administrar la verificación GPG para los {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
 
 ### Acerca de la facturación para {% data variables.product.prodname_codespaces %}
 
@@ -58,7 +58,7 @@ Developers and organization administrators can also configure settings to add en
 
 ### Unirse al beta
 
-Se invitará a una cantidad limitada de personas para unirse al beta. Para unirse a la lista de espera, consulta la sección [Registrarse para el beta de Codespaces](https://github.com/features/codespaces/signup).
+Se invitará a una cantidad limitada de personas para unirse al beta. To join the waitlist, see [Sign up for the Codespaces beta](https://github.com/features/codespaces/signup).
 
 ### Contáctanos para conocer sobre {% data variables.product.prodname_codespaces %}
 

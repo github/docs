@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /managing-your-github-billing-settings
   - /managing-billing-for-your-github-account
@@ -18,3 +18,4 @@ children:
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-organizations-for-procurement-companies
 ---
+

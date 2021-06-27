@@ -8,13 +8,14 @@ redirect_from:
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
+shortTitle: Webhook events & payloads
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% endif %}
 
@@ -22,7 +23,7 @@ topics:
 
 You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
 
-### Webhook payload object common properties
+## Webhook payload object common properties
 
 Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
 
@@ -42,31 +43,31 @@ The unique properties for a webhook event are the same properties you'll find in
 
 {% endtip %}
 
-#### Delivery headers
+### Delivery headers
 
 HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
 
 Header | Description
 -------|-------------|
 `X-GitHub-Event`| Name of the event that triggered the delivery.
-`X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+`X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
 `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "github-ae@latest" %}
-`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
+`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes > 2.22 %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
 `X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
 
 Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
-#### Example delivery
+### Example delivery
 
 ```shell
 > POST /payload HTTP/2
 
 > Host: localhost:4567
-> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% ifversion ghes or ghae %}
 > X-GitHub-Enterprise-Version: 2.15.0
-> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "github-ae@latest" %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Host: example.com{% endif %}{% ifversion not ghae %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
 > X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
@@ -98,19 +99,19 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-### check_run
+## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
 
 {% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
-#### Availability
+### Availability
 
 - Repository webhooks only receive payloads for the `created` and `completed` event types in a repository
 - Organization webhooks only receive payloads for the `created` and `completed` event types in repositories
 - {% data variables.product.prodname_github_app %}s with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `rerequested` and `requested_action` event types. The `rerequested` and `requested_action` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_app %}s with the `checks:write` are automatically subscribed to this webhook event.
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.check_run_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -118,23 +119,23 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.check_run.created }}
 
-### check_suite
+## check_suite
 
 {% data reusables.webhooks.check_suite_short_desc %}
 
 {% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
-#### Availability
+### Availability
 
 - Repository webhooks only receive payloads for the `completed` event types in a repository
 - Organization webhooks only receive payloads for the `completed` event types in repositories
 - {% data variables.product.prodname_github_app %}s with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `requested` and `rerequested` event types. The `requested` and `rerequested` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_app %}s with the `checks:write` are automatically subscribed to this webhook event.
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.check_suite_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -142,44 +143,44 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-### code_scanning_alert
+{% ifversion fpt or ghes > 2.21 or ghae %}
+## code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `security_events :read` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.code_scanning_alert_event_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}empty {% endif %}for all other actions.
+`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt %}`github` {% elsif ghes > 3.0 %}`github-enterprise` {% else %}empty {% endif %}for all other actions.
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.code_scanning_alert.reopened }}
 
-### commit_comment
+## commit_comment
 
 {% data reusables.webhooks.commit_comment_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.commit_comment_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -187,26 +188,26 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 {% endif %}
 
-### content_reference
+## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
 
 Webhook events are triggered based on the specificity of the domain you register. For example, if you register a subdomain (`https://subdomain.example.com`) then only URLs for the subdomain trigger this event. If you register a domain (`https://example.com`) then URLs for domain and all subdomains trigger this event. See "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" to create a new content attachment.
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s with the `content_references:write` permission
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
-### create
+## create
 
 {% data reusables.webhooks.create_short_desc %}
 
@@ -216,13 +217,13 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% endnote %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.create_properties %}
 {% data reusables.webhooks.pusher_type_desc %}
@@ -231,11 +232,11 @@ Webhook events are triggered based on the specificity of the domain you register
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.create }}
 
-### delete
+## delete
 
 {% data reusables.webhooks.delete_short_desc %}
 
@@ -245,13 +246,13 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% endnote %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.delete_properties %}
 {% data reusables.webhooks.pusher_type_desc %}
@@ -260,44 +261,44 @@ Webhook events are triggered based on the specificity of the domain you register
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.delete }}
 
-### deploy_key
+## deploy_key
 
 {% data reusables.webhooks.deploy_key_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.deploy_key_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.deploy_key.created }}
 
-### deployment
+## deployment
 
 {% data reusables.webhooks.deployment_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `deployments` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
-----|------|-------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+----|------|-------------{% ifversion fpt or ghes or ghae %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
 `deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments).
 {% data reusables.webhooks.repo_desc %}
@@ -305,24 +306,24 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.deployment }}
 
-### deployment_status
+## deployment_status
 
 {% data reusables.webhooks.deployment_status_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `deployments` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
-----|------|-------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+----|------|-------------{% ifversion fpt or ghes or ghae %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
 `deployment_status` |`object` | The [deployment status](/rest/reference/repos#list-deployment-statuses).
 `deployment_status["state"]` |`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
@@ -334,23 +335,23 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### discussion
+{% ifversion fpt %}
+## discussion
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
 Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `discussions` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -360,23 +361,23 @@ Key | Type | Description
 {% data reusables.webhooks.org_desc_graphql %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.discussion.created }}
 
-### discussion_comment
+## discussion_comment
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
 Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `discussions` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -387,44 +388,44 @@ Key | Type | Description
 {% data reusables.webhooks.org_desc_graphql %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 
-### enterprise
+## enterprise
 
 {% data reusables.webhooks.enterprise_short_desc %}
 
-#### Availability
+### Availability
 
 - GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
 `action` |`string` | The action performed. Can be `anonymous_access_enabled` or `anonymous_access_disabled`.
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.enterprise.anonymous_access_enabled }}
 
 {% endif %}
 
-### fork
+## fork
 
 {% data reusables.webhooks.fork_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.fork_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -432,42 +433,42 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.fork }}
 
-### github_app_authorization
+## github_app_authorization
 
 When someone revokes their authorization of a {% data variables.product.prodname_github_app %}, this event occurs. A {% data variables.product.prodname_github_app %} receives this webhook by default and cannot unsubscribe from this event.
 
 {% data reusables.webhooks.authorization_event %} For details about user-to-server requests, which require {% data variables.product.prodname_github_app %} authorization, see "[Identifying and authorizing users for {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
 `action` |`string` | The action performed. Can be `revoked`.
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.github_app_authorization.revoked }}
 
-### gollum
+## gollum
 
 {% data reusables.webhooks.gollum_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.gollum_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -475,11 +476,11 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.gollum }}
 
-### installation
+## installation
 
 {% data reusables.webhooks.installation_short_desc %}
 
@@ -489,21 +490,21 @@ Key | Type | Description
 
 {% endnote %}
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.installation_properties %}
 {% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.installation.deleted }}
 
-### installation_repositories
+## installation_repositories
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
 
@@ -513,31 +514,31 @@ Key | Type | Description
 
 {% endnote %}
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.installation_repositories_properties %}
 {% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.installation_repositories.added }}
 
-### issue_comment
+## issue_comment
 
 {% data reusables.webhooks.issue_comment_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `issues` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
@@ -546,21 +547,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.issue_comment.created }}
 
-### issues
+## issues
 
 {% data reusables.webhooks.issues_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `issues` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.issue_webhook_properties %}
 {% data reusables.webhooks.issue_properties %}
@@ -569,21 +570,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example when someone edits an issue
+### Webhook payload example when someone edits an issue
 
 {{ webhookPayloadsForCurrentVersion.issues.edited }}
 
-### label
+## label
 
 {% data reusables.webhooks.label_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `metadata` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -597,20 +598,20 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.label.deleted }}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### marketplace_purchase
+{% ifversion fpt %}
+## marketplace_purchase
 
 Activity related to a GitHub Marketplace purchase. {% data reusables.webhooks.action_type_desc %} For more information, see the "[GitHub Marketplace](/marketplace/)."
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -618,23 +619,23 @@ Key | Type | Description
 
 For a detailed description of this payload and the payload for each type of `action`, see [{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
 
-#### Webhook payload example when someone purchases the plan
+### Webhook payload example when someone purchases the plan
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
 {% endif %}
 
-### member
+## member
 
 {% data reusables.webhooks.member_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.member_webhook_properties %}
 {% data reusables.webhooks.member_properties %}
@@ -643,40 +644,40 @@ For a detailed description of this payload and the payload for each type of `act
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.member.added }}
 
-### membership
+## membership
 
 {% data reusables.webhooks.membership_short_desc %}
 
-#### Availability
+### Availability
 
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.membership_properties %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
-### meta
+## meta
 
 The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to receive meta events for.
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -687,21 +688,21 @@ Key | Type | Description
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.meta.deleted }}
 
-### milestone
+## milestone
 
 {% data reusables.webhooks.milestone_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.milestone_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -709,48 +710,48 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.milestone.created }}
 
-### organization
+## organization
 
 {% data reusables.webhooks.organization_short_desc %}
 
-#### Availability
+### Availability
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 - GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action that was performed. Can be one of:{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`.
+`action` |`string` | The action that was performed. Can be one of:{% ifversion ghes or ghae %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`.
 `invitation` |`object` | The invitation for the user or email if the action is `member_invited`.
 `membership`  |`object` | The membership between the user and the organization.  Not present when the action is `member_invited`.
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.organization.member_added }}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### org_block
+## org_block
 
 {% data reusables.webhooks.org_block_short_desc %}
 
-#### Availability
+### Availability
 
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `organization_administration` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|------------
@@ -760,46 +761,46 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.org_block.blocked }}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghae %}
 
-### package
+## package
 
 Activity related to {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[Managing packages with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" to learn more about {% data variables.product.prodname_registry %}.
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.package_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
 {% endif %}
 
-### page_build
+## page_build
 
 {% data reusables.webhooks.page_build_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `pages` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|------------
@@ -810,21 +811,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.page_build }}
 
-### ping
+## ping
 
 {% data reusables.webhooks.ping_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s receive a ping event with an `app_id` used to register the app
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|------------
@@ -836,21 +837,21 @@ Key | Type | Description
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
-### project_card
+## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.project_card_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -858,21 +859,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.project_card.created }}
 
-### project_column
+## project_column
 
 {% data reusables.webhooks.project_column_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.project_column_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -880,21 +881,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-### project
+## project
 
 {% data reusables.webhooks.project_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.project_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -902,21 +903,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### public
+{% ifversion fpt or ghes %}
+## public
 
 {% data reusables.webhooks.public_short_desc %}
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `metadata` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -925,21 +926,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.public }}
 {% endif %}
-### pull_request
+## pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.pull_request_webhook_properties %}
 {% data reusables.webhooks.pull_request_properties %}
@@ -948,23 +949,23 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 Deliveries for `review_requested` and `review_request_removed` events will have an additional field called `requested_reviewer`.
 
 {{ webhookPayloadsForCurrentVersion.pull_request.opened }}
 
-### pull_request_review
+## pull_request_review
 
 {% data reusables.webhooks.pull_request_review_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.pull_request_review_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -972,21 +973,21 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review.submitted }}
 
-### pull_request_review_comment
+## pull_request_review_comment
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.pull_request_review_comment_webhook_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
@@ -995,11 +996,11 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
-### push
+## push
 
 {% data reusables.webhooks.push_short_desc %}
 
@@ -1009,13 +1010,13 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% endnote %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -1040,21 +1041,21 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.push }}
 
-### release
+## release
 
 {% data reusables.webhooks.release_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `contents` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.release_webhook_properties %}
 {% data reusables.webhooks.release_properties %}
@@ -1063,104 +1064,104 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-### repository_dispatch
+{% ifversion fpt or ghes or ghae %}
+## repository_dispatch
 
 This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s must have the `contents` permission to receive this webhook.
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
 {% endif %}
 
-### repository
+## repository
 
 {% data reusables.webhooks.repository_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks receive all event types except `deleted`
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `metadata` permission receive all event types except `deleted`
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted.</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul>
+`action` |`string` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted.</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul>
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.repository.publicized }}
 
-{% if currentVersion == "free-pro-team@latest"%}
-### repository_import
+{% ifversion fpt %}
+## repository_import
 
 {% data reusables.webhooks.repository_import_short_desc %} To receive this event for a personal repository, you must create an empty repository prior to the import. This event can be triggered using either the [GitHub Importer](/articles/importing-a-repository-with-github-importer/) or the [Source imports API](/rest/reference/migrations#source-imports).
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.repository_import_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.repository_import }}
 
-### repository_vulnerability_alert
+## repository_vulnerability_alert
 
 {% data reusables.webhooks.repository_vulnerability_alert_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.repository_vulnerability_alert_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.repository_vulnerability_alert.create }}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes > 3.0 %}
 
-### secret_scanning_alert
+## secret_scanning_alert
 
 {% data reusables.webhooks.secret_scanning_alert_event_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `secret_scanning_alerts:read` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.secret_scanning_alert_event_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -1168,90 +1169,90 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 `sender` | `object` | If the `action` is `resolved` or `reopened`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-### security_advisory
+{% ifversion fpt or ghes %}
+## security_advisory
 
 Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 {% endif %}
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s with the `security_events` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action that was performed. The action can be one of `published`, `updated`, or `performed` for all new events.
+`action` |`string` | The action that was performed. The action can be one of `published`, `updated`, `performed`, or `withdrawn` for all new events.
 `security_advisory` |`object` | The details of the security advisory, including summary, description, and severity.
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### sponsorship
+{% ifversion fpt %}
+## sponsorship
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
 You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
 
-#### Availability
+### Availability
 
 - Sponsored accounts
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.sponsorship_webhook_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example when someone creates a sponsorship
+### Webhook payload example when someone creates a sponsorship
 
 {{ webhookPayloadsForCurrentVersion.sponsorship.created }}
 
-#### Webhook payload example when someone downgrades a sponsorship
+### Webhook payload example when someone downgrades a sponsorship
 
 {{ webhookPayloadsForCurrentVersion.sponsorship.downgraded }}
 
 {% endif %}
 
-### star
+## star
 
 {% data reusables.webhooks.star_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.star_properties %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.star.created }}
 
-### status
+## status
 
 {% data reusables.webhooks.status_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `statuses` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -1266,20 +1267,20 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.status }}
 
-### team
+## team
 
 {% data reusables.webhooks.team_short_desc %}
 
-#### Availability
+### Availability
 
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -1296,21 +1297,21 @@ Key | Type | Description
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.team.added_to_repository }}
 
-### team_add
+## team_add
 
 {% data reusables.webhooks.team_add_short_desc %}
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 Key | Type | Description
 ----|------|-------------
@@ -1320,38 +1321,38 @@ Key | Type | Description
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.team_add }}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 
-### user
+## user
 
 When a user is `created` or `deleted`.
 
-#### Availability
+### Availability
 - GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.user.created }}
 
 {% endif %}
 
-### watch
+## watch
 
 {% data reusables.webhooks.watch_short_desc %}
 
 The event’s actor is the [user](/rest/reference/users) who starred a repository, and the event’s repository is the [repository](/rest/reference/repos) that was starred.
 
-#### Availability
+### Availability
 
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_app %}s with the `metadata` permission
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.watch_properties %}
 {% data reusables.webhooks.repo_desc %}
@@ -1359,34 +1360,34 @@ The event’s actor is the [user](/rest/reference/users) who starred a repositor
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-### workflow_dispatch
+{% ifversion fpt or ghes > 2.21 %}
+## workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s must have the `contents` permission to receive this webhook.
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### workflow_run
+{% ifversion fpt or ghes > 2.22 %}
+## workflow_run
 
 When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
 
-#### Availability
+### Availability
 
 - {% data variables.product.prodname_github_app %}s with the `actions` or `contents` permissions.
 
-#### Webhook payload object
+### Webhook payload object
 
 {% data reusables.webhooks.workflow_run_properties %}
 {% data reusables.webhooks.workflow_desc %}
@@ -1394,7 +1395,7 @@ When a {% data variables.product.prodname_actions %} workflow run is requested o
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
 
-#### Webhook payload example
+### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.workflow_run }}
 {% endif %}

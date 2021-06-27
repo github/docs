@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/configuration/about-enterprise-configuration
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} For more information, see "[Site admin dashboard](/admin/configuration/site-admin-dashboard)."
 
@@ -21,8 +22,7 @@ redirect_from:
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-The first time you access your enterprise, you will complete an initial configuration to get
-{% data variables.product.product_name %} ready to use. The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+The first time you access your enterprise, you will complete an initial configuration to get {% data variables.product.product_name %} ready to use. The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
 
 Later, you can use the site admin dashboard and enterprise settings to further configure your enterprise, manage users, organizations and repositories, and set policies that reduce risk and increase quality.
 

@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% tip %}
 
 **Dica**: Pressione "?" em qualquer página de {% data variables.product.product_name %} para visualizar todos os atalhos de teclado disponíveis.

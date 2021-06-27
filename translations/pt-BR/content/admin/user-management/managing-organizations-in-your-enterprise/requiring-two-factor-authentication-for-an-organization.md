@@ -8,12 +8,13 @@ versions:
   enterprise-server: '*'
 type: how_to
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies
   - Security
 ---
+
 Ao usar o LDAP ou autenticação integrada, a autenticação de dois fatores será compatível em {% data variables.product.product_location %}. Os administradores da organização podem exigir que os integrantes habilitem a autenticação de dois fatores.
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
@@ -36,9 +37,8 @@ Antes de poder exigir que os integrantes da organização e colaboradores extern
 
 Antes de exigir o uso da autenticação de dois fatores, é recomendável notificar os integrantes da organização e os colaboradores externos, pedindo que eles configurem 2FA nas contas deles. Na guia People (Pessoas) da organização, é possível [ver se os integrantes e colaboradores externos já usam 2FA](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}

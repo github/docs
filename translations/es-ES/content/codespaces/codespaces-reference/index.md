@@ -1,14 +1,13 @@
 ---
 title: Referencia
-intro: 'This section contains references that will allow you to be successful with {% data variables.product.prodname_codespaces %}'
+intro: 'Esta sección contiene referencias que te permitirán tener éxito con {% data variables.product.prodname_codespaces %}'
 versions:
   free-pro-team: '*'
+children:
+  - /about-billing-for-codespaces
+  - /troubleshooting-your-codespace
+  - /allowing-your-codespace-to-access-a-private-image-registry
+  - /using-the-command-palette-in-codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
-
-{% link_with_intro /about-billing-for-codespaces %}
-
-{% link_with_intro /troubleshooting-your-codespace %}
-
-{% link_with_intro /allowing-your-codespace-to-access-a-private-image-registry %}

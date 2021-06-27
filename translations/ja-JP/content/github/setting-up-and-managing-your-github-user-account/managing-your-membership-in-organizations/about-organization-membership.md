@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
 
 プロフィールページ上でメンバーになっている Organization には、アクセスできます。 詳細は「[Organization にアクセスする](/articles/accessing-an-organization)」を参照してください。

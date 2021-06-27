@@ -13,6 +13,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 Eine Pre-Receive-Umgebung für {% data variables.product.prodname_ghe_server %} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 
 
 {% data variables.product.prodname_ghe_server %} bietet eine Standardumgebung. Diese enthält die folgenden Pakete: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.

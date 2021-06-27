@@ -16,6 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
 ---
+
 ### Sobre o SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}

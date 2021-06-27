@@ -8,7 +8,7 @@
 
 const renderContent = require('../lib/render-content')
 const loadSiteData = require('../lib/site-data')
-const { loadPages } = require('../lib/pages')
+const { loadPages } = require('../lib/page-data')
 const languages = require('../lib/languages')
 const path = require('path')
 const { promisify } = require('util')

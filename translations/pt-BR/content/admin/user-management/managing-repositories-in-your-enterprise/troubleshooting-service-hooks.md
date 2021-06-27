@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Obter informações nas entregas
 
 Você pode encontrar informações sobre a resposta mais recente de todas as entregas de hooks de serviço em qualquer repositório.

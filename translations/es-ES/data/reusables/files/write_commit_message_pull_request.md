@@ -1,0 +1,1 @@
+1. Si se te solicita, escribe un mensaje de confirmación o acepta el mensaje predeterminado. ![Campo para mensaje de confirmación](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)

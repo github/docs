@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. Klicken Sie unter „Saved replies“ (Gespeicherte Antworten) neben der gespeicherten Antwort, die Sie bearbeiten möchten, auf {% octicon "pencil" aria-label="The pencil" %}.  
