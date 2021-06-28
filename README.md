@@ -49,22 +49,21 @@ There are a few more things to know when you're getting started with this repo:
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
-- [includes/README.md](includes/README.md)
-- [javascripts/README.md](javascripts/README.md)
-- [layouts/README.md](layouts/README.md)
-- [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
-- [middleware/README.md](middleware/README.md)
-- [script/README.md](script/README.md)
-- [stylesheets/README.md](stylesheets/README.md)
-- [tests/README.md](tests/README.md)
+- [content/WRITEME.md](content/WRITEME.md)
+- [content/graphql/WRITEME.md](content/graphql/WRITEME.md)
+- [content/rest/WRITEME.md](content/rest/WRITEME.md)
+- [contributing/README.md](contributing/WRITEME.md)
+- [data/README.md](data/WRITEME.md)
+- [data/reusables/WRITEME.md](data/reusables/README.md)
+- [data/variables/WRITEME.md](data/variables/README.md)
+- [includes/liquid-tags/WRITEME.md](includes/liquid-tags/WRITEME.md)
+- [includes/WRITEME.md](includes/WRITEME.md)
+- [javascripts/WRITEME.md](javascripts/WRITEME.md)
+- [layouts/WRITEME.md](layouts/WRITEME.md)
+- [lib/liquid-tags/WRITEME.md](lib/liquid-tags/WRITEME.md)
+- [middleware/WRITEME.md](middleware/WRITEME.md)
+- [script/WRITEME.md](script/WRITEME.md)
+- [stylesheets/WRITEME.md](stylesheets/WRITEME.md)
 
 ## License
 
