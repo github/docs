@@ -27,7 +27,7 @@ In open source projects, forks are often used to iterate on ideas or changes bef
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and [Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
 
 ## Further reading
 

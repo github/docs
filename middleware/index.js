@@ -160,6 +160,10 @@ module.exports = function (app) {
   }))
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
+
+  // Check for a dropped connection before proceeding (again)
+  app.use(haltOnDroppedConnection)
+
   app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
   app.use(instrument(robots, './robots'))
   app.use(/(\/.*)?\/early-access$/, instrument(earlyAccessLinks, './contextualizers/early-access-links'))
