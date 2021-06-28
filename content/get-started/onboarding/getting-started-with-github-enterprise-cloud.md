@@ -168,19 +168,15 @@ You can also restrict email notifications for your enterprise account so that en
 {% data reusables.getting-started.packages %}
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
-{% data reusables.getting-started.participating-in-community %}
-### 1. Contributing to open source projects
-{% data reusables.getting-started.open-source-projects %}
+Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
+### 1. Learning with {% data variables.product.prodname_learning %}
+Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
 
-### 2. Interacting with the {% data variables.product.prodname_gcf %}
-{% data reusables.support.ask-and-answer-forum %}
-
-### 3. Learning with {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab %}
-### 4. Supporting the open source community
+For more information, see “[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+### 2. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 5. Contacting {% data variables.contact.github_support %}
+### 3. Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see "[{% data variables.product.prodname_ghe_cloud %} support](/github/working-with-github-support/github-enterprise-cloud-support)."
