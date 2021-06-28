@@ -1,5 +1,6 @@
 ---
 title: SCIM
+intro: 'You can control and manage your {% data variables.product.product_name %} organization members access using SCIM API.'
 redirect_from:
   - /v3/scim
 versions:
