@@ -1,4 +1,4 @@
----
+---is:push <run></run>
 title: About managing vulnerable dependencies
 intro: '{% data variables.product.prodname_dotcom %} helps you to avoid using third-party software that contains known vulnerabilities.'
 redirect_from:
