@@ -102,7 +102,6 @@ Library name | Repository | metacpan Website for the Library
 Library name | Repository
 |---|---|
 **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)
-**GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api)
 **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api)
 **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
 

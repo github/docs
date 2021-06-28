@@ -21,7 +21,7 @@ topics:
 
 ### Merge message for a squash merge
 
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a commit message which you can change if you want to. The message default depends on whether the pull request contains multiple commits or just one.
+When you squash and merge, {% data variables.product.prodname_dotcom %} generates a commit message which you can change if you want to. The message default depends on whether the pull request contains multiple commits or just one. We do not include merge commits when we count the total number of commits.
 
 Number of commits | Summary | Description |
 ----------------- | ------- | ----------- |

@@ -191,7 +191,7 @@ describe('redirects', () => {
     test('frontmatter redirect', async () => {
       const res = await get('/enterprise/2.12/user/articles/github-flavored-markdown')
       expect(res.statusCode).toBe(301)
-      expect(res.text).toContain('location=\'/enterprise/2.12/user/categories/writing-on-github/\'')
+      expect(res.headers.location).toBe('/enterprise/2.12/user/categories/writing-on-github/')
     })
   })
 

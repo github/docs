@@ -10,6 +10,7 @@ versions:
   ghae: '*'
 topics:
   - Security
+shortTitle: View code scanning logs
 ---
 
 {% data reusables.code-scanning.beta %}
