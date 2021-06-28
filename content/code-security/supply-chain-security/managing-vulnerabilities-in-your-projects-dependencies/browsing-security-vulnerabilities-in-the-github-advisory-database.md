@@ -1,7 +1,7 @@
 ---
 title: Browsing security vulnerabilities in the GitHub Advisory Database
 intro: 'The {% data variables.product.prodname_advisory_database %} allows you to browse or search for vulnerabilities that affect open source projects  on {% data variables.product.company_short %}.'
-shortTitle: Browsing the Advisory Database
+shortTitle: Browse Advisory Database
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database

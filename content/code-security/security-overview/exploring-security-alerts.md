@@ -12,6 +12,7 @@ topics:
   - Alerts
   - Organizations
   - Teams
+shortTitle: Explore security alerts
 ---
 
 {% data reusables.security-center.beta %}

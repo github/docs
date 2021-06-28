@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting CodeQL runner in your CI system
-shortTitle: Troubleshooting CodeQL runner
+shortTitle: Troubleshoot CodeQL runner
 intro: 'If you''re having problems with the {% data variables.product.prodname_codeql_runner %}, you can troubleshoot by using these tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:

@@ -1,6 +1,6 @@
 ---
 title: Defining custom patterns for secret scanning
-shortTitle: Defining custom patterns
+shortTitle: Define custom patterns
 intro: 'You can define custom patterns for {% data variables.product.prodname_secret_scanning %} in organizations and private repositories.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:

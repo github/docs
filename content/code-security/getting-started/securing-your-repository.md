@@ -15,6 +15,7 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Advanced Security
+shortTitle: Secure your repository
 ---
 
 ## Introduction
