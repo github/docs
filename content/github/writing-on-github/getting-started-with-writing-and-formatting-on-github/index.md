@@ -13,5 +13,5 @@ children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
 shortTitle: Start writing on GitHub
----
+---DOG-DOG-
 
