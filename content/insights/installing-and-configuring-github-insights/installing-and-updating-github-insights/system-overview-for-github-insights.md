@@ -5,9 +5,10 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/system-overview-for-github-insights
   - /insights/installing-and-configuring-github-insights/system-overview-for-github-insights
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: System overview
 ---
-### Requirements for running {% data variables.product.prodname_insights %}
+## Requirements for running {% data variables.product.prodname_insights %}
 
 {% data variables.product.prodname_insights %} requires a supported version of {% data variables.product.prodname_ghe_server %}.
 
@@ -25,11 +26,11 @@ The application server should meet minimum specifications.
 
 If you'll use {% data variables.product.prodname_insights %} to import large amounts of data, we recommend greater minimum specifications. For more information, see "[Managing repositories](/github/installing-and-configuring-github-insights/managing-repositories#about-import-times)."
 
-### Security and authentication for {% data variables.product.prodname_insights %}
+## Security and authentication for {% data variables.product.prodname_insights %}
 
 {% data variables.product.prodname_insights %} runs on your infrastructure and is governed by your existing information security controls. {% data variables.product.prodname_insights %} uses existing user accounts in {% data variables.product.prodname_enterprise %} for authentication and access permissions.
 
-#### Network Security
+### Network Security
 
 {% data variables.product.prodname_insights %}'s internal firewall restricts network access to the application server's services. Only services necessary for the application server to function are available over the network.
 
@@ -41,7 +42,7 @@ If you'll use {% data variables.product.prodname_insights %} to import large amo
 | 80        | HTTP USER  | TCP   |
 | 443       | HTTPS USER | TCP   |
 
-#### Authentication and access permissions
+### Authentication and access permissions
 
 Authentication for {% data variables.product.prodname_insights %} is handled through {% data variables.product.prodname_enterprise %}. During installation, you will create a {% data variables.product.prodname_github_app %}, which allows {% data variables.product.prodname_insights %} to authorize users. The {% data variables.product.prodname_github_app %} is also used to interact with {% data variables.product.prodname_enterprise %} within the scope of the user and app’s permissions.
 
@@ -49,6 +50,6 @@ Authentication for {% data variables.product.prodname_insights %} is handled thr
 
 Data access in {% data variables.product.prodname_insights %} is restricted according to each user's data access in {% data variables.product.prodname_enterprise %}. A user will never see data in {% data variables.product.prodname_insights %} for repositories the user does not have access to in {% data variables.product.prodname_enterprise %}.
 
-### Architecture of {% data variables.product.prodname_insights %}
+## Architecture of {% data variables.product.prodname_insights %}
 
 ![System architecture](/assets/images/help/insights/github-isights-system-diagram.png)

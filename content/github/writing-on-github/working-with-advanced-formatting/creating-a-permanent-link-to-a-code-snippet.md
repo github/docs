@@ -6,11 +6,12 @@ redirect_from:
   - /articles/creating-a-permanent-link-to-a-code-snippet
   - /github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Permanent links to code
 ---
 This type of permanent link will render as a code snippet only in the repository it originated in. In other repositories, the permalink code snippet will render as a URL.
 
@@ -33,7 +34,7 @@ This type of permanent link will render as a code snippet only in the repository
 6. Paste your permalink into a comment, and click **Comment**.
   ![Pasted permalink in a comment in the same repository](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### Further reading
+## Further reading
 
 - "[Creating an issue](/articles/creating-an-issue/)"
 - "[Opening an issue from code](/articles/opening-an-issue-from-code/)"

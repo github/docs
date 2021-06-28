@@ -6,11 +6,12 @@ redirect_from:
   - /articles/visualizing-commits-in-a-repository
   - /github/visualizing-repository-data-with-graphs/visualizing-commits-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: View commits in repository
 ---
 The top graph shows commits for the entire year by week.
 
@@ -20,7 +21,7 @@ The bottom graph shows the average number of commits by day of the week for the 
 
 ![Repository commit week graph](/assets/images/help/graphs/repo_commit_activity_week_graph.png)
 
-### Accessing the commits graph
+## Accessing the commits graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

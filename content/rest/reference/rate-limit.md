@@ -4,11 +4,12 @@ redirect_from:
   - /v3/rate_limit
   - /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.

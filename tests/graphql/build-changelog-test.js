@@ -3,8 +3,9 @@ const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntr
 const fs = require('fs').promises
 const MockDate = require('mockdate')
 const readFileAsync = require('../../lib/readfile-async')
-const expectedChangelogEntry = require('../fixtures/changelog-entry')
-const expectedUpdatedChangelogFile = require('../fixtures/updated-changelog-file')
+const readJsonFile = require('../../lib/read-json-file')
+const expectedChangelogEntry = readJsonFile('./tests/fixtures/changelog-entry.json')
+const expectedUpdatedChangelogFile = readJsonFile('./tests/fixtures/updated-changelog-file.json')
 
 describe('creating a changelog from old schema and new schema', () => {
   afterEach(() => {

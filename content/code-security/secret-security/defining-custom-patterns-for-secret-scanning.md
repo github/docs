@@ -1,12 +1,12 @@
 ---
 title: Defining custom patterns for secret scanning
-shortTitle: 'Defining custom patterns'
+shortTitle: Define custom patterns
 intro: 'You can define custom patterns for {% data variables.product.prodname_secret_scanning %} in organizations and private repositories.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
-  github-ae: 'next'
+  fpt: '*'
+  ghes: '>=3.2'
+  ghae: next
 topics:
   - Repositories
 ---
@@ -17,11 +17,11 @@ topics:
 
 {% endnote %}
 
-### About custom patterns for {% data variables.product.prodname_secret_scanning %}
+## About custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.company_short %} performs {% data variables.product.prodname_secret_scanning %} on {% if currentVersion == "free-pro-team@latest" %}public and private{% endif %} repositories for secret patterns provided by {% data variables.product.company_short %} and {% data variables.product.company_short %} partners. For more information on the {% data variables.product.prodname_secret_scanning %} partner program, see "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanning partner program</a>."
+{% data variables.product.company_short %} performs {% data variables.product.prodname_secret_scanning %} on {% ifversion fpt %}public and private{% endif %} repositories for secret patterns provided by {% data variables.product.company_short %} and {% data variables.product.company_short %} partners. For more information on the {% data variables.product.prodname_secret_scanning %} partner program, see "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanning partner program</a>."
 
-However, there can be situations where you want to scan for other secret patterns in your {% if currentVersion == "free-pro-team@latest" %}private{% endif %} repositories. For example, you might have a secret pattern that is internal to your organization. For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in organizations and {% if currentVersion == "free-pro-team@latest" %}private{% endif %} repositories on {% data variables.product.product_name %}. You can define up to 20 custom patterns for each {% if currentVersion == "free-pro-team@latest" %}private{% endif %} repository or organization.
+However, there can be situations where you want to scan for other secret patterns in your {% ifversion fpt %}private{% endif %} repositories. For example, you might have a secret pattern that is internal to your organization. For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in organizations and {% ifversion fpt %}private{% endif %} repositories on {% data variables.product.product_name %}. You can define up to 20 custom patterns for each {% ifversion fpt %}private{% endif %} repository or organization.
 
 {% note %}
 
@@ -33,11 +33,11 @@ However, there can be situations where you want to scan for other secret pattern
 
 {% endnote %}
 
-### Regular expression syntax for custom patterns
+## Regular expression syntax for custom patterns
 
 Custom patterns for {% data variables.product.prodname_secret_scanning %} are specified as regular expressions. {% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
 
-### Defining a custom pattern for a repository
+## Defining a custom pattern for a repository
 
 Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
 
@@ -49,9 +49,9 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 
 After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-### Defining a custom pattern for an organization
+## Defining a custom pattern for an organization
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the {% if currentVersion == "free-pro-team@latest" %}private{% endif %} repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all {% if currentVersion == "free-pro-team@latest" %}private{% endif %} repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the {% ifversion fpt %}private{% endif %} repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all {% ifversion fpt %}private{% endif %} repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 {% note %}
 
@@ -65,9 +65,9 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.repositories.secret-scanning-add-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% if currentVersion == "free-pro-team@latest" %}private{% endif %} repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt %}private{% endif %} repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-### Removing a custom pattern
+## Removing a custom pattern
 
 Removing a custom pattern also closes all the {% data variables.product.prodname_secret_scanning %} alerts that the pattern created.
 

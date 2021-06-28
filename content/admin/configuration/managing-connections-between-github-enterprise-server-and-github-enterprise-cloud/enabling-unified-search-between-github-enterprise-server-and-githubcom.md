@@ -10,11 +10,12 @@ redirect_from:
   - /admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - GitHub Connect
   - GitHub search
+shortTitle: Enable unified search
 ---
 When you enable unified search, users can view search results from public and private content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.product.product_location_enterprise %}.
 
@@ -31,6 +32,6 @@ Searching via the REST and GraphQL APIs does not include {% data variables.produ
 6. Optionally, under "Users can search private repositories on {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
     ![Enable private repositories search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/enable-private-search.png)
 
-### Further reading
+## Further reading
 
 - "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)"

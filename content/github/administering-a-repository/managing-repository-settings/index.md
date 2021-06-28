@@ -4,9 +4,9 @@ intro: 'Repository administrators and organization owners can change settings fo
 redirect_from:
   - /articles/managing-repository-settings
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -32,5 +32,6 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
+shortTitle: Manage repository settings
 ---
 

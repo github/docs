@@ -7,13 +7,13 @@ redirect_from:
   - /articles/about-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
-### About pull requests
+## About pull requests
 
 {% note %}
 
@@ -29,7 +29,7 @@ Once you've created a pull request, you can push commits from your topic branch 
 
 Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/articles/viewing-deployment-activity-for-your-repository)."
 {% endif %}
 
@@ -49,7 +49,7 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
-### Draft pull requests
+## Draft pull requests
 
 {% data reusables.gated-features.draft-prs %}
 
@@ -57,14 +57,14 @@ When you create a pull request, you can choose to create a pull request that is 
 
 {% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/articles/changing-the-stage-of-a-pull-request)."
 
-### Differences between commits on compare and pull request pages
+## Differences between commits on compare and pull request pages
 
 The compare and pull request pages use different methods to calculate the diff for changed files:
 
 - Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref. 
 - Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
 
-### Further reading
+## Further reading
 
 - "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"

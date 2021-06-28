@@ -6,11 +6,12 @@ redirect_from:
   - /articles/filtering-pull-requests-by-review-status
   - /github/managing-your-work-on-github/filtering-pull-requests-by-review-status
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter by review status
 ---
 You can filter a repository's list of pull requests to find:
 - Pull requests that haven't been [reviewed](/articles/about-pull-request-reviews) yet
@@ -27,7 +28,7 @@ You can filter a repository's list of pull requests to find:
 4. Choose a filter to find all of the pull requests with that filter's status.
   ![List of filters in the Reviews drop-down menu](/assets/images/help/pull_requests/pr-review-filters.png)
 
-### Further reading
+## Further reading
 
 - "[About pull request reviews](/articles/about-pull-request-reviews)"
 - "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"

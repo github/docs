@@ -7,15 +7,16 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure firewall rules
 ---
-### About {% data variables.product.product_location %}'s firewall
+## About {% data variables.product.product_location %}'s firewall
 
 {% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
@@ -23,7 +24,7 @@ After you install {% data variables.product.prodname_ghe_server %}, all required
 
 The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
-### Viewing the default firewall rules
+## Viewing the default firewall rules
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
@@ -54,7 +55,7 @@ The UFW firewall also opens several other ports that are required for {% data va
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### Adding custom firewall rules
+## Adding custom firewall rules
 
 {% warning %}
 
@@ -74,7 +75,7 @@ The UFW firewall also opens several other ports that are required for {% data va
 
 After you upgrade {% data variables.product.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
 
-### Restoring the default firewall rules
+## Restoring the default firewall rules
 
 If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
 

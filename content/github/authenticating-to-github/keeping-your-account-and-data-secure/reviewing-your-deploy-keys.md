@@ -5,12 +5,13 @@ redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Deploy keys
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

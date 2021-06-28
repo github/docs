@@ -3,9 +3,10 @@ title: Disabling and enabling a workflow
 intro: 'You can disable and re-enable a workflow using the {% data variables.product.prodname_dotcom %} UI, the REST API, or {% data variables.product.prodname_cli %}.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.23'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
+shortTitle: Disable & enable a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -27,9 +28,9 @@ Temporarily disabling a workflow can be useful in many scenarios. These are a fe
 
 {% endwarning %}
 
-### Disabling and enabling workflows with the {% data variables.product.prodname_dotcom %} UI
+## Disabling and enabling workflows with the {% data variables.product.prodname_dotcom %} UI
 
-#### Disabling a workflow
+### Disabling a workflow
 
 You can manually disable a workflow so that it won't execute any workflow runs. A disabled workflow is not deleted, and can be re-enabled.
 
@@ -44,7 +45,7 @@ You can manually disable a workflow so that it won't execute any workflow runs. 
 The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status.
 ![actions list disabled workflow](/assets/images/help/repository/actions-find-disabled-workflow.png)
 
-#### Enabling a workflow
+### Enabling a workflow
 
 You can re-enable a workflow that was previously disabled.
 
@@ -55,7 +56,7 @@ You can re-enable a workflow that was previously disabled.
 1. Click **Enable workflow**.
 ![actions enable workflow](/assets/images/help/repository/actions-enable-workflow.png)
 
-### Disabling and enabling workflows with {% data variables.product.prodname_cli %}
+## Disabling and enabling workflows with {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 
@@ -71,6 +72,6 @@ To enable a workflow, use the `workflow enable` subcommand. Replace `workflow` w
 gh workflow enable <em>workflow</em>
 ```
 
-### Disabling and enabling workflows through the REST API
+## Disabling and enabling workflows through the REST API
 
 You can also disable and enable a workflow using the REST API. For more information, see the "[Actions REST API](/rest/reference/actions#workflows)."

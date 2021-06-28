@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/network-ports
 intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,7 +18,7 @@ topics:
   - Networking
   - Security
 ---
-### Administrative ports
+## Administrative ports
 
 Some administrative ports are required to configure {% data variables.product.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
 
@@ -31,7 +31,7 @@ Some administrative ports are required to configure {% data variables.product.pr
 | 123/UDP| NTP | Required for time protocol operation. |
 | 161/UDP | SNMP | Required for network monitoring protocol operation. |
 
-### Application ports for end users
+## Application ports for end users
 
 Application ports provide web application and Git access for end users.
 
@@ -44,7 +44,7 @@ Application ports provide web application and Git access for end users.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Email ports
+## Email ports
 
 Email ports must be accessible directly or via relay for inbound email support for end users.
 

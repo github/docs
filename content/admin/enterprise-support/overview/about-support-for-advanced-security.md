@@ -5,11 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
   - /admin/enterprise-support/about-support-for-advanced-security
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Support for Advanced Security
 ---
 {% note %}
 
@@ -17,11 +18,11 @@ topics:
 
 {% endnote %}
 
-### About support for {% data variables.product.prodname_advanced_security %}
+## About support for {% data variables.product.prodname_advanced_security %}
 
 {% data variables.product.prodname_advanced_security %} includes {% data variables.contact.enterprise_support %} in English, by email.
 
-### Scope of support
+## Scope of support
 
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.enterprise_support %}. Your support request is possibly out of {% data variables.contact.enterprise_support %}'s scope if it's primarily about:
 - Third party integrations
@@ -34,17 +35,17 @@ If your support request is outside of the scope of what our team can help you wi
 
 If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.
 
-### Contacting {% data variables.contact.enterprise_support %}
+## Contacting {% data variables.contact.enterprise_support %}
 
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
 - Installing and using {% data variables.product.prodname_advanced_security %}
 - Identifying and verifying the causes of supported errors
 
-### Hours of operation
+## Hours of operation
 
 We offer support for {% data variables.product.prodname_advanced_security %} in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 1 business day.
 
-### Holiday schedule
+## Holiday schedule
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
@@ -64,11 +65,11 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
-### Installing {% data variables.product.prodname_advanced_security %} updates
+## Installing {% data variables.product.prodname_advanced_security %} updates
 
 To ensure that your {% data variables.product.prodname_advanced_security %} instance is stable, you must install and implement new releases when they are made available. This ensures that you have the latest features, modifications, and enhancements as well as any updates to features, code corrections, patches, or other general updates and fixes to {% data variables.product.prodname_advanced_security %}.
 
-### Assigning a priority to a support ticket
+## Assigning a priority to a support ticket
 
 When you contact {% data variables.contact.enterprise_support %} for help with {% data variables.product.prodname_advanced_security %}, you can choose one of three priorities for the ticket: {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
@@ -80,6 +81,6 @@ When you contact {% data variables.contact.enterprise_support %} for help with {
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
 | {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
 
-### Resolving and closing support tickets
+## Resolving and closing support tickets
 
 {% data reusables.support.enterprise-resolving-and-closing-tickets %}

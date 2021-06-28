@@ -7,15 +7,16 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Add organizations
 ---
 Enterprise owners can create new organizations within an enterprise account's settings.
 
 To add an organization to your enterprise account, you must create the organization from within the enterprise account settings. If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
 
-### Creating an organization in your enterprise account
+## Creating an organization in your enterprise account
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription. For more information on collaborating in organizations, see "[Setting up and managing organizations and teams](/categories/setting-up-and-managing-organizations-and-teams)."
 

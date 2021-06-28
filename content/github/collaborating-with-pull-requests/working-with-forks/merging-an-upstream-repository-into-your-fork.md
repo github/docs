@@ -6,11 +6,12 @@ redirect_from:
   - /articles/merging-an-upstream-repository-into-your-fork
   - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Merge an upstream repo
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.

@@ -8,12 +8,13 @@ redirect_from:
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Remove sensitive data
 ---
 The `git filter-branch` command and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
@@ -27,9 +28,9 @@ This article tells you how to make commits with sensitive data unreachable from 
 
 {% endwarning %}
 
-### Purging a file from your repository's history
+## Purging a file from your repository's history
 
-#### Using the BFG
+### Using the BFG
 
 The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
@@ -51,7 +52,7 @@ $ git push --force
 
 See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
 
-#### Using filter-branch
+### Using filter-branch
 
 {% warning %}
 
@@ -144,7 +145,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
 
   {% endnote %}
 
-### Avoiding accidental commits in the future
+## Avoiding accidental commits in the future
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
@@ -153,7 +154,7 @@ There are a few simple tricks to avoid committing things you don't want committe
 - Use `git add --interactive` to individually review and stage changes within each file.
 - Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
 
-### Further reading
+## Further reading
 
 - [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

@@ -5,11 +5,12 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
   - /insights/installing-and-configuring-github-insights/managing-contributors-and-teams
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Manage contributors & teams
 ---
-### About contributors and teams in {% data variables.product.prodname_insights %}
+## About contributors and teams in {% data variables.product.prodname_insights %}
 
 A contributor in {% data variables.product.prodname_insights %} is an entity associated with {% data variables.product.prodname_enterprise %} data. You can edit and hide contributors.
 
@@ -17,7 +18,7 @@ Sometimes, the same person can appear as more than one contributor. For example,
 
 You can also group contributors into teams. You can use teams as a filter on reports. For more information, see "[Viewing key metrics and reports](/insights/exploring-your-usage-of-github-enterprise/viewing-key-metrics-and-reports)."
 
-### Editing a contributor
+## Editing a contributor
 
 You can edit a contributor's display name in {% data variables.product.prodname_insights %}.
 
@@ -30,7 +31,7 @@ You can edit a contributor's display name in {% data variables.product.prodname_
   ![Last Name field](/assets/images/help/insights/last-name.png)
 6. Click **Rename**.
 
-### Managing contributor visibility
+## Managing contributor visibility
 
 Hiding a contributor excludes all data associated with that contributor from all metrics.
 
@@ -41,13 +42,13 @@ Hiding a contributor excludes all data associated with that contributor from all
   ![Checkbox to show or hide contributor](/assets/images/help/insights/show-contributor.png)
 4. Click **Done**.
 
-### Merging contributor data
+## Merging contributor data
 
 When you merge two or more contributors, the {% data variables.product.prodname_insights %} data for those contributors becomes associated with one primary contributor. All of the merged contributor data belongs to the primary contributor in metrics.
 
 You can merge contributors manually or automatically, based on contributors {% data variables.product.prodname_insights %} has detected with matching names.
 
-#### Auto-merging contributors
+### Auto-merging contributors
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.contributors-tab %}
@@ -59,7 +60,7 @@ You can merge contributors manually or automatically, based on contributors {% d
   ![Radio buttons to select primary contributor](/assets/images/help/insights/select-primary.png)
 6. Click **Merge All**.
 
-#### Manually merging contributors
+### Manually merging contributors
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.contributors-tab %}
@@ -71,14 +72,14 @@ You can merge contributors manually or automatically, based on contributors {% d
   ![Radio buttons to select primary contributor](/assets/images/help/insights/select-primary.png)
 6. Click **Merge accounts**.
 
-#### Unmerging a contributor
+### Unmerging a contributor
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.contributors-tab %}
 4. To the right of the contributor, click **Unmerge**.
   ![Unmerge button](/assets/images/help/insights/unmerge-contributor.png)
 
-### Managing teams in {% data variables.product.prodname_insights %}
+## Managing teams in {% data variables.product.prodname_insights %}
 
 There are two types of teams in {% data variables.product.prodname_insights %}: teams imported from {% data variables.product.product_name %} and custom teams.
 
@@ -86,7 +87,7 @@ When an organization is added to {% data variables.product.prodname_insights %},
 
 You can create and manage custom teams in {% data variables.product.prodname_insights %}. Custom teams may include members from multiple organizations in {% data variables.product.product_name %}.
 
-#### Creating a custom team
+### Creating a custom team
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
@@ -96,7 +97,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
   ![Team Name field](/assets/images/help/insights/team-name.png)
 4. Click **Create**.
 
-#### Adding contributors to a custom team
+### Adding contributors to a custom team
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
@@ -105,7 +106,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
   ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
 4. Click **Done**.
 
-#### Removing a contributor from a custom team
+### Removing a contributor from a custom team
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
@@ -113,7 +114,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
 3. To the right of the contributor you'd like to remove, click {% octicon "trash" aria-label="The trash icon" %}.
   ![trash button](/assets/images/help/insights/contributor-trashcan.png)
 
-#### Renaming a custom team
+### Renaming a custom team
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
@@ -124,7 +125,7 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
   ![Rename button](/assets/images/help/insights/rename-button-team.png)
 5. Click **Done**.
 
-#### Deleting a custom team
+### Deleting a custom team
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}

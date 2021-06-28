@@ -7,11 +7,12 @@ redirect_from:
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Permanent links to files
 ---
 {% tip %}
 
@@ -19,7 +20,7 @@ topics:
 
 {% endtip %}
 
-### File views show the latest version on a branch
+## File views show the latest version on a branch
 
 When viewing a file on {% data variables.product.product_location %}, you usually see the version at the current head of a branch.  For example:
 
@@ -29,7 +30,7 @@ refers to GitHub's `codeql` repository, and shows the `main` branch's current ve
 
 The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
 
-### Press <kbd>y</kbd> to permalink to a file in a specific commit
+## Press <kbd>y</kbd> to permalink to a file in a specific commit
 
 For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
 
@@ -45,10 +46,10 @@ Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you
 
 {% endtip %}
 
-### Creating a permanent link to a code snippet
+## Creating a permanent link to a code snippet
 
 You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
 
-### Further reading
+## Further reading
 
 - "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"

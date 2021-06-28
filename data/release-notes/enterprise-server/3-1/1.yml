@@ -23,10 +23,6 @@ sections:
     - |
       After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
       ```
-      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"`
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
-
-      If that doesn't resolve the issue, run:
-      ```
-      ghe-actions-console -s actions -c "Set-FeatureFlag -FeatureName Microsoft.AzureDevOps.SigningService.SecureSigningKey -State Off"
-      ```
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.

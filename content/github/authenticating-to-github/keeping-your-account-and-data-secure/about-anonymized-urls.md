@@ -7,7 +7,7 @@ redirect_from:
   - /authenticating-to-github/about-anonymized-image-urls
   - /github/authenticating-to-github/about-anonymized-urls
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Identity
   - Access management
@@ -18,7 +18,7 @@ Videos also get anonymized URLs with the same format as image URLs, but are not 
 
 Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
 
-### Troubleshooting issues with Camo
+## Troubleshooting issues with Camo
 
 In rare circumstances, images that are processed through Camo might not appear on {% data variables.product.prodname_dotcom %}. Here are some steps you can take to determine where the problem lies.
 
@@ -32,7 +32,7 @@ Windows users will either need to use the Git Powershell (which is installed alo
 
 {% endwindows %}
 
-#### An image is not showing up
+### An image is not showing up
 
 If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
 
@@ -55,7 +55,7 @@ If your content type is not supported by Camo, you can try several actions:
   * If you're using an external service for hosting images, contact support for that service.
   * Make a pull request to Camo to add your content type to the list.
 
-#### An image that changed recently is not updating
+### An image that changed recently is not updating
 
 If you changed an image recently and it's showing up in your browser but not {% data variables.product.prodname_dotcom %}, you can try resetting the cache of the image.
 
@@ -76,7 +76,7 @@ Check the value of `Cache-Control`. In this example, there's no `Cache-Control`.
 
  If `Cache-Control` *is* set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
 
-#### Removing an image from Camo's cache
+### Removing an image from Camo's cache
 
 Purging the cache forces every {% data variables.product.prodname_dotcom %} user to re-request the image, so you should use it very sparingly and only in the event that the above steps did not work.
 
@@ -87,12 +87,12 @@ Purging the cache forces every {% data variables.product.prodname_dotcom %} user
   > {"status": "ok", "id": "216-8675309-1008701"}
   ```
 
-#### Viewing images on private networks
+### Viewing images on private networks
 
 If an image is being served from a private network or from a server that requires authentication, it can't be viewed by {% data variables.product.prodname_dotcom %}. In fact, it can't be viewed by any user without asking them to log into the server.
 
 To fix this, please move the image to a service that is publicly available.
 
-### Further reading
+## Further reading
 
 - "[Proxying user images](https://github.com/blog/1766-proxying-user-images)" on {% data variables.product.prodname_blog %}

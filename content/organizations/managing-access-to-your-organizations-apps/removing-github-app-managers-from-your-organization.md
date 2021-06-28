@@ -5,17 +5,18 @@ redirect_from:
   - /articles/removing-github-app-managers-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-github-app-managers-from-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Remove GitHub App managers
 ---
 
 For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#github-app-managers)."
 
-### Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
+## Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -23,7 +24,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 1. Under "Management", find the username of the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, and click **Revoke**.
 ![Revoke {% data variables.product.prodname_github_app %} manager permissions](/assets/images/help/organizations/github-app-manager-revoke-permissions.png)
 
-### Removing a {% data variables.product.prodname_github_app %} manager's permissions for an individual {% data variables.product.prodname_github_app %}
+## Removing a {% data variables.product.prodname_github_app %} manager's permissions for an individual {% data variables.product.prodname_github_app %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -34,8 +35,8 @@ For more information about {% data variables.product.prodname_github_app %} mana
 1. Under "App managers", find the username of the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, and click **Revoke**.
 ![Revoke {% data variables.product.prodname_github_app %} manager permissions](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+{% ifversion fpt %}
+## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"
 {% endif %}

@@ -20,7 +20,7 @@ module.exports = async function learningTrack (req, res, next) {
 
   const currentLearningTrack = { trackName }
 
-  const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.path))
+  const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
   const guideIndex = track.guides.findIndex((path) => path === guidePath)
 
   if (guideIndex < 0) return noTrack()
