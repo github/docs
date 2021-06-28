@@ -1,6 +1,6 @@
 ---
 title: Configuring CodeQL runner in your CI system
-shortTitle: Configuring CodeQL runner
+shortTitle: Configure CodeQL runner
 intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
