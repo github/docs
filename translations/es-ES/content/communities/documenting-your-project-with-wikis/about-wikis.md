@@ -22,6 +22,12 @@ Con las wikis, puedes escribir contenido como en cualquier otro lado en {% data 
 
 Puedes editar las wikis directamente en {% data variables.product.product_name %} o puedes editar los archivos wiki localmente. Predeterminadamente, solo las personas con acceso a tu repositorio podrán hacer cambios a los wikis, aunque podrás permitir que cualquiera en {% data variables.product.product_location %} colabore con un wiki en {% if currentVersion == "github-ae@latest" %}un repositorio interno{% else %}un repositorio público{% endif %}. Para obtener más información, consulta "[Cambiar permisos de acceso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
 
+{% note %}
+
+**Nota:** Los motores de búsqueda no indizarán el contenido de los wikis. Para que tu contenido se indice en los motores de búsqueda, puedes utilizar [{% data variables.product.prodname_pages %}](/pages) en un repositorio público.
+
+{% endnote %}
+
 ### Leer más
 
 - "[Agregar o eliminar páginas wiki](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"

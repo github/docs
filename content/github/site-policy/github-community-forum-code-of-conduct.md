@@ -3,13 +3,13 @@ title: GitHub Community Forum Code of Conduct
 redirect_from:
   - /articles/github-community-forum-code-of-conduct
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
 ---
 
-### Overview and Purpose
+## Overview and Purpose
 
 Millions of developers host millions of projects on GitHub — both open and closed source — and we're honored to play a part in enabling collaboration across the developer community every day. Together, we all have an exciting opportunity and responsibility to make this a community we can be proud of.
 
@@ -19,17 +19,17 @@ With this Code of Conduct, we hope to help you understand how best to collaborat
 
 GitHub users worldwide bring wildly different perspectives, ideas, and experiences, and range from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub and the GitHub Community Forum a welcoming environment for all the different voices and perspectives here, while maintaining a space where people are free to express themselves.
 
-### Pledge
+## Pledge
 
 In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in the GitHub Community Forum a harassment-free experience for everyone, regardless of age, body size, ability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-### Standards
+## Standards
 
 Treat the GitHub Community Forum with respect. We are a shared resource — a place to share skills, knowledge, and interests through ongoing conversation.
 
 The following are not hard and fast rules, merely aids to the human judgment of our Community. Use these guidelines to keep this a clean, well-lighted place for civilized public discourse.
 
-#### *Best Practices for Building a Strong Community*
+### *Best Practices for Building a Strong Community*
 
 - Be respectful and considerate.
   - **Be welcoming and open-minded.** Other Community members may not have the same experience level or background as you, but that doesn't mean they don't have good ideas to contribute. We encourage you to be welcoming to new members and those just getting started.
@@ -61,7 +61,7 @@ The following are not hard and fast rules, merely aids to the human judgment of 
 - Be trustworthy.
   - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community Forum members. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in the Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
 
-#### *What is not Allowed*
+### *What is not Allowed*
 
 - **Threats of violence.** You may not threaten violence towards others or use the site to organize, promote, or incite acts of real-world violence or terrorism. Think carefully about the words you use, the images you post, and even the software you write, and how they may be interpreted by others. Even if you mean something as a joke, it might not be received that way. If you think that someone else might interpret the content you post as a threat, or as promoting violence or terrorism, stop. Don't post it. In extraordinary cases, we may report threats of violence to law enforcement if we think there may be a genuine risk of physical harm or a threat to public safety.
 
@@ -85,15 +85,15 @@ The following are not hard and fast rules, merely aids to the human judgment of 
 
 - **Other conduct which could reasonably be considered inappropriate in a professional setting.** The GitHub Community Forum is a professional space and should be treated as such.
 
-### Enforcement
+## Enforcement
 
-#### *What GitHub Community Forum Members Can Do*
+### *What GitHub Community Forum Members Can Do*
 
 - **If you see a problem, report it.** Moderators have special authority; they are responsible for this Community. But so are you. With your help, moderators can be Community facilitators, not just janitors or police.
 
   When you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. Just report it via "Report Inappropriate Content" in the Option Menu. If enough reports accrue, action will be taken, either automatically or by moderator intervention.
 
-#### Our Responsibilities
+### Our Responsibilities
 
 There are a variety of actions that we may take in response to inappropriate behavior or content. It usually depends on the exact circumstances of a particular case. We recognize that sometimes people may say or do inappropriate things for any number of reasons. Perhaps they did not realize how their words would be perceived. Or maybe they just let their emotions get the best of them. Of course, sometimes, there are folks who just want to spam or cause trouble.
 
@@ -107,13 +107,13 @@ Actions we may take in response to a flag or abuse report include, but are not l
 
 Community Forum moderators who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the Community Forum’s leadership.
 
-### Contacting GitHub Staff
+## Contacting GitHub Staff
 
 If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact?tags=community-support). Contacting any member of GitHub Staff via channels other than the forum itself or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
 
 Let's work together to keep the forum a place where people feel safe to participate by being respectful of them and their time.
 
-### Legal Notices
+## Legal Notices
 
 Yes, legalese is boring, but we must protect ourselves – and by extension, you and your data – against unfriendly folks. We have a [Terms of Service](/articles/github-terms-of-service/) and [Privacy Statement](/articles/github-privacy-statement/) describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our [Terms of Service](/articles/github-terms-of-service/) and the [Privacy Statement](/articles/github-privacy-statement/).
 

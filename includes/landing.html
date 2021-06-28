@@ -20,7 +20,7 @@
       <h2 class="text-mono f5 text-normal color-text-secondary text-md-center mb-4">{% data ui.homepage.explore_by_product %}</h2>
       <div class="d-flex flex-wrap gutter gutter-xl-spacious">
       {% for product in activeProducts %}
-      {% if product.versions contains currentVersion or currentVersion == 'homepage' %}
+      {% if currentVersion == 'free-pro-team@latest' or product.external or product.versions contains currentVersion %}
       <div class="d-flex flex-column col-12 col-sm-6 col-lg-3 pb-4">
         <a class="btn-mktg flex-auto d-flex flex-items-center btn-outline-mktg btn-large-mktg ws-normal " href="{% unless product.external %}/{{ currentLanguage }}{% endunless %}{% if product.versions contains currentVersion %}/{{currentVersion}}/{{product.id}}{% else %}{{product.href}}{% endif %}" {% if product.external %}target="_blank"{% endif %}>{{ product.name }}
       {% if product.external %}

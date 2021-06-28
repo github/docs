@@ -1,7 +1,6 @@
 ---
 title: 在 GitHub Enterprise 与 GitHub Insight 之间导航
 intro: ''
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can navigate between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'

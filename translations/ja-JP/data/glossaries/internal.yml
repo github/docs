@@ -61,6 +61,10 @@
   term: Azure
   description: Microsoft のクラウドコンピューティングプラットフォーム。
 - 
+  term: Azure DevOps
+  description: >-
+    ソースコードのホスティング、Issue、CI/CDパイプライン、その他の開発者サービスを提供するMicrosoft製品。オンプレミスバージョンは、以前Team Foundation Serverとして知られていました。クラウドでホストされているバージョンは、Visual Studio Team Servicesとして知られていました。
+- 
   term: ベアリポジトリ
   description: >-
     ベアリポジトリとは通常、サフィックス .git を付けて適切に命名されたディレクトリで、リビジョンコントロール下にあるファイルをローカルでチェックアウトしたコピーがないものです。つまり、通常は非表示の .git サブディレクトリに存在する Git の管理ファイルおよび制御ファイルはすべて、ベアリポジトリではなく repository.git ディレクトリの直下に存在し、それ以外のファイルは存在せずチェックアウトもされません。通常は、パブリックリポジトリの公開者がベアリポジトリを使用可能にします。
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    ソースコード管理などの Team サービスを提供する Microsoft 製品。
+    ソースコード管理及びその他のチームサービスを提供したMicrosoft製品の以前の名称。現在はAzure DevOps Serverとして知られています。
 - 
   term: Textile
   description: >-

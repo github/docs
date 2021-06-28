@@ -17,9 +17,9 @@ Una vez que inhabilites tableros de proyecto de repositorios en una organizació
 
 Cuando inhabilitas tableros de proyecto, ya no ves su información de manera cronológica o de acuerdo con los [registros de auditoría](/articles/reviewing-your-security-log/).
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Decide si deseas inhabilitar los tableros de proyecto que se usan en toda la organización, los tableros de proyecto de los repositorios de la organización, o ambos. Luego, en "Proyectos":
     - Para inhabilitar los tableros de proyecto que se usan en toda la organización, quita la marca de selección de **Habilitar proyectos para la organización**.
     - Para inhabilitar los tableros de proyecto de los repositorios en la organización, quita la marca de selección de **Habilitar proyectos para todos los repositorios**. ![Casillas de verificación para inhabilitar proyectos para una organización o para todos los repositorios de una organización](/assets/images/help/projects/disable-org-projects-checkbox.png)

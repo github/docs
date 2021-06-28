@@ -12,12 +12,15 @@ module.exports = async function learningTrack (req, res, next) {
   const trackName = req.query.learn
   if (!trackName) return noTrack()
 
+  const tracksPerProduct = req.context.site.data['learning-tracks'][req.context.currentProduct]
+  if (!tracksPerProduct) return noTrack()
+
   const track = req.context.site.data['learning-tracks'][req.context.currentProduct][trackName]
   if (!track) return noTrack()
 
   const currentLearningTrack = { trackName }
 
-  const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.path))
+  const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
   const guideIndex = track.guides.findIndex((path) => path === guidePath)
 
   if (guideIndex < 0) return noTrack()

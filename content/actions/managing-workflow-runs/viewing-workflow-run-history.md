@@ -3,16 +3,17 @@ title: Viewing workflow run history
 intro: You can view logs for each run of a workflow. Logs include the status for each job and step in a workflow.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+shortTitle: View workflow run history
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Viewing workflow run history on {% data variables.product.prodname_dotcom %} 
+## Viewing workflow run history on {% data variables.product.prodname_dotcom %} 
 
 {% data reusables.repositories.permissions-statement-read %}
 
@@ -21,11 +22,11 @@ versions:
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 
-### Viewing workflow run history with {% data variables.product.prodname_cli %}
+## Viewing workflow run history with {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 
-#### Viewing recent workflow runs
+### Viewing recent workflow runs
 
 To list the recent workflow runs, use the `run list` subcommand.
 
@@ -45,7 +46,7 @@ To only return runs for the specified workflow, you can use the `-w` or `--workf
 gh run list --workflow <em>workflow</em>
 ```
 
-#### Viewing details for a specific workflow run
+### Viewing details for a specific workflow run
 
 To display details for a specific workflow run, use the `run view` subcommand. Replace `run-id` with the ID of the run that you want to view. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run.
 

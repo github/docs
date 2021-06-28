@@ -48,11 +48,13 @@ Além de ajudá-lo a configurar fluxos de trabalho de CI para seu projeto, você
 Para obter uma definição de termos comuns, consulte "[Conceitos básicos de {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)".
 
 ### Linguagens compatíveis
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} oferece modelos de fluxo de trabalho de CI para uma variedade de linguagens e estruturas.
 
 Pesquise a lista completa dos modelos de fluxo de trabalho de CI oferecidos por {% data variables.product.product_name %} no repositório {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) {% else %} e no repositório `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 ### Ignorar execuções de fluxo de trabalho
 
 Se você deseja impedir temporariamente que um fluxo de trabalho seja acionado, pode adicionar uma instrução para ignorar a mensagem de commit. Os fluxos de trabalho que seriam acionados `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push, ou o commit HEAD de um pull request:
@@ -72,6 +74,7 @@ Você não conseguirá fazer o merge do pull request se o repositório estiver c
 **Observação:** Ignorar instruções só se aplica aos eventos `push` e `pull_request`. Por exemplo, adicionar `[skip ci]` a uma mensagem de commit não impedirá que um fluxo de trabalho que acionou `on : pull_request_target` seja executado.
 
 {% endnote %}
+{% endif %}
 
 ### Notificações para execução de fluxo de trabalho
 
@@ -87,5 +90,5 @@ Para obter mais informações, consulte "[Configurar fluxo de trabalho](/article
 
 - "[Configurar a integração contínua usando {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Gerenciar a cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

@@ -22,9 +22,10 @@ featuredLinks:
     - /actions/reference/environment-variables
     - /actions/reference/encrypted-secrets
 changelog:
-  label: 'actions'
+  label: actions
   prefix: 'GitHub Actions: '
-product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
+examples_source: data/product-examples/actions/code-examples.yml
+product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -34,16 +35,17 @@ redirect_from:
   - /marketplace/actions
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+children:
+  - /quickstart
+  - /guides
+  - /learn-github-actions
+  - /managing-workflow-runs
+  - /creating-actions
+  - /using-github-hosted-runners
+  - /hosting-your-own-runners
+  - /reference
 ---
 
-<!-- {% link_with_intro /quickstart %} -->
-<!-- {% link_with_intro /guides %} -->
-<!-- {% link_with_intro /learn-github-actions %} -->
-<!-- {% link_with_intro /managing-workflow-runs %} -->
-<!-- {% link_with_intro /creating-actions %} -->
-<!-- {% link_with_intro /using-github-hosted-runners %} -->
-<!-- {% link_with_intro /hosting-your-own-runners %} -->
-<!-- {% link_with_intro /reference %} -->

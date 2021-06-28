@@ -14,7 +14,7 @@ featuredLinks:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
   guideCards:
     - /codespaces/developing-in-codespaces/creating-a-codespace
-    - /codespaces/developing-in-codespaces/developing-in-a-codespace 
+    - /codespaces/developing-in-codespaces/developing-in-a-codespace
     - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popular:
@@ -23,20 +23,23 @@ featuredLinks:
     - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
     - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
   popularHeading: Managing GitHub Codespaces
-product_video: https://www.youtube-nocookie.com/embed/_W9B7qc9lVc
+product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
 layout: product-landing
+examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /about-codespaces
+  - /quickstart
+  - /getting-started-with-codespaces
+  - /setting-up-your-codespace
+  - /developing-in-codespaces
+  - /managing-your-codespaces
+  - /managing-codespaces-for-your-organization
+  - /codespaces-reference
+  - /guides
 ---
 
-<!-- {% link_in_list /about-codespaces %} -->
-<!-- {% link_in_list /quickstart %} -->
-<!-- {% link_in_list /getting-started-with-codespaces %} -->
-<!-- {% link_in_list /setting-up-your-codespace %} -->
-<!-- {% link_in_list /developing-in-codespaces %} -->
-<!-- {% link_in_list /managing-your-codespaces %} -->
-<!-- {% link_in_list /managing-codespaces-for-your-organization %} -->
-<!-- {% link_in_list /codespaces-reference %} -->

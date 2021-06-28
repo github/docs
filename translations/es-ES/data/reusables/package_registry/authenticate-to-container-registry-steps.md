@@ -1,7 +1,7 @@
 1. Crea un token de acceso personal nuevo (PAT) con los alcances adecuados para las tareas que quieres realizar. Si tu organización requiere SSO, debes hablitarlo para tu token nuevo.
   {% warning %}
 
-  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://github.com/settings/tokens/new?scopes=write:packages`.
+  **Nota:** Predeterminadamente, cuando seleccionas el alcance `write:packages` para tu token de acceso personal (PAT) en la interface de usuario, también se seleccionará el alcance `repo`. El alcance `repo` ofrece un acceso amplio e innecesario, el cual te recomendamos no utilices para los flujos de trabajo de GitHub Actions en particualr. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)". Como medida alterna, puedes seleccionar solo el alcance de `write:packages` para tu PAT en la interface de usuario con esta url: `https://github.com/settings/tokens/new?scopes=write:packages`.
 
   {% endwarning %}
 
@@ -16,7 +16,7 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. Utilizando el CLI para tu tipo de contenedor, ingresa en el
-servicio del {% data variables.product.prodname_github_container_registry %} en `ghcr.io`.
+servicio del {% data variables.product.prodname_container_registry %} en `ghcr.io`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

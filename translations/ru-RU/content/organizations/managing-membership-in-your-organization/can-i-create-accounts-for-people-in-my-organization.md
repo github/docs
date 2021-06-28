@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Because you access an organization by logging in to a personal account, each of your team members needs a personal account. Once you have user names for each person you'd like to add to your organization, you can add them to teams.

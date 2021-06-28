@@ -1,4 +1,4 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 1. Above the list of files, click **Create new file**.
   !["Create new file" button](/assets/images/help/repository/create_new_file.png)
 {% else %}

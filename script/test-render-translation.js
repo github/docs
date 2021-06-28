@@ -8,16 +8,21 @@
 
 const renderContent = require('../lib/render-content')
 const loadSiteData = require('../lib/site-data')
-const { loadPages } = require('../lib/pages')
+const { loadPages } = require('../lib/page-data')
 const languages = require('../lib/languages')
 const path = require('path')
+const { promisify } = require('util')
 const { execSync } = require('child_process')
+const exec = promisify(require('child_process').exec)
 const fs = require('fs')
 const frontmatter = require('../lib/frontmatter')
 const chalk = require('chalk')
+const { YAMLException } = require('js-yaml')
 
-const main = async () => {
-  const siteData = loadSiteData()
+main()
+
+async function main () {
+  const siteData = await loadAndPatchSiteData()
   const pages = await loadPages()
   const contextByLanguage = {}
   for (const lang in languages) {
@@ -33,7 +38,7 @@ const main = async () => {
 
   const rootDir = path.join(__dirname, '..')
 
-  const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.md$"', { maxBuffer: 1024 * 1024 * 100 })
+  const changedFilesRelPaths = execSync('git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"', { maxBuffer: 1024 * 1024 * 100 })
     .toString()
     .split('\n')
     .filter(path => path !== '' && !path.endsWith('README.md'))
@@ -41,7 +46,7 @@ const main = async () => {
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
-  changedFilesRelPaths.forEach(async (relPath) => {
+  for (const relPath of changedFilesRelPaths) {
     const fullPath = path.join(rootDir, relPath)
     const lang = relPath.split('/')[1]
     const context = {
@@ -50,7 +55,7 @@ const main = async () => {
       page: pages.find(page => page.fullPath === fullPath),
       redirects: {}
     }
-    if (!context.page && !relPath.includes('data/reusables')) return
+    if (!context.page && !relPath.includes('data/reusables')) continue
     const fileContents = await fs.promises.readFile(fullPath, 'utf8')
     const { content } = frontmatter(fileContents)
     try {
@@ -59,7 +64,35 @@ const main = async () => {
       console.log(chalk.bold(relPath))
       console.log(chalk.red(`  error message: ${err.message}`))
     }
-  })
+  }
 }
 
-main()
+async function loadAndPatchSiteData (filesWithKnownIssues = {}) {
+  try {
+    const siteData = loadSiteData()
+    return siteData
+  } catch (error) {
+    if (error instanceof YAMLException && error.mark) {
+      const relPath = error.mark.name
+      if (!filesWithKnownIssues[relPath]) {
+        // Note the file as problematic
+        filesWithKnownIssues[relPath] = true
+
+        // This log is important as it will get ${relPath} written to a logfile
+        console.log(chalk.bold(relPath))
+        console.log(chalk.red(`  error message: ${error.toString()}`))
+
+        // Reset the file
+        console.warn(`resetting file "${relPath}" due to loadSiteData error: ${error.toString()}`)
+        await exec(`script/reset-translated-file.js --prefer-main ${relPath}`)
+
+        // Try to load the site data again
+        return loadAndPatchSiteData(filesWithKnownIssues)
+      } else {
+        console.error(`FATAL: Tried to reset file "${relPath}" but still had errors`)
+      }
+    }
+
+    throw error
+  }
+}

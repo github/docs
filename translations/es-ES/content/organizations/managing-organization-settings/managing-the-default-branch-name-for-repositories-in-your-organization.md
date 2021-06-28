@@ -23,9 +23,8 @@ Si un propietario de la empresa requirió una política para el nombre de la ram
 
 ### Configurar el nombre de la rama predeterminada
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
 3. Debajo de "Rama predeterminada del repositorio", da clic en **Cambiar el nombre de la rama predeterminada ahora**. ![Botón de ignorar](/assets/images/help/organizations/repo-default-name-button.png)
 4. Teclea el nombre predeterminado que quisieras utilizar para las ramas nuevas. ![Caja de texto para ingresar el nombre predeterminado](/assets/images/help/organizations/repo-default-name-text.png)

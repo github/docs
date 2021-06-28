@@ -1,7 +1,10 @@
 /* global page, browser */
+const fs = require('fs')
+const path = require('path')
 const sleep = require('await-sleep')
 const { latest } = require('../../lib/enterprise-server-releases')
 const languages = require('../../lib/languages')
+const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), './feature-flags.json')))
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -17,20 +20,33 @@ describe('browser search', () => {
 
   it('works on the homepage', async () => {
     await page.goto('http://localhost:4001/en')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'actions')
+    await page.click('[data-testid=site-search-input]')
+    await page.type('[data-testid=site-search-input]', 'actions')
     await page.waitForSelector('.ais-Hits')
     const hits = await page.$$('.ais-Hits-item')
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('works on article pages', async () => {
+  it('works on mobile landing pages', async () => {
     await page.goto('http://localhost:4001/en/actions')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'workflows')
+    await page.click('[data-testid=mobile-menu-button]')
+    await page.click('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'workflows')
     await page.waitForSelector('.ais-Hits')
     const hits = await page.$$('.ais-Hits-item')
     expect(hits.length).toBeGreaterThan(5)
+  })
+
+  it('works on desktop landing pages', async () => {
+    const initialViewport = page.viewport()
+    await page.setViewport({ width: 1024, height: 768 })
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
+    await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'workflows')
+    await page.waitForSelector('.ais-Hits')
+    const hits = await page.$$('.ais-Hits-item')
+    expect(hits.length).toBeGreaterThan(5)
+    await page.setViewport(initialViewport)
   })
 
   it('works on 404 error page', async () => {
@@ -58,8 +74,10 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
   })
 
@@ -79,13 +97,15 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
   })
 })
 
-describe('helpfulness', () => {
+describe('survey', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
@@ -104,20 +124,20 @@ describe('helpfulness', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('.js-helpfulness [for=helpfulness-yes]')
+    await page.click('[data-testid=survey-form] [for=survey-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('.js-helpfulness [type="email"]')
+    await page.waitForSelector('[data-testid=survey-form] [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('.js-helpfulness [type="email"]', 'test@example.com')
+    await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('.js-helpfulness [type="submit"]')
+    await page.click('[data-testid=survey-form] [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('.js-helpfulness [data-help-end]')
+    await page.waitForSelector('[data-testid=survey-end]')
   })
 })
 
@@ -205,64 +225,63 @@ describe('platform specific content', () => {
   })
 })
 
-describe('card filters', () => {
+describe('code examples', () => {
   it('loads correctly', async () => {
     await page.goto('http://localhost:4001/en/actions')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownNoResult = await page.$('.js-filter-card-no-results:not(.d-none)')
-    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
-    expect(shownCards.length).toBe(maxCards)
+    const shownCards = await page.$$('[data-testid=code-example-card]')
+    const shownNoResult = await page.$('[data-testid=code-examples-no-results]')
+    expect(shownCards.length).toBeGreaterThan(0)
     expect(shownNoResult).toBeNull()
   })
 
   it('filters cards', async () => {
     await page.goto('http://localhost:4001/en/actions')
-    await page.click('input.js-filter-card-filter')
-    await page.type('input.js-filter-card-filter', 'issues')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const showMoreClasses = await page.$eval('.js-filter-card-show-more', btn => Object.values(btn.classList))
-    expect(showMoreClasses).toContain('d-none')
+    await page.click('[data-testid=code-examples-input]')
+    await page.type('[data-testid=code-examples-input]', 'issues')
+    const shownCards = await page.$$('[data-testid=code-example-card]')
     expect(shownCards.length).toBeGreaterThan(1)
   })
 
+  it('shows more cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const initialCards = await page.$$('[data-testid=code-example-card]')
+    await page.click('[data-testid=code-examples-show-more]')
+    const moreCards = await page.$$('[data-testid=code-example-card]')
+    expect(moreCards.length).toBe(initialCards.length * 2)
+  })
+
+  it('displays no result message', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('[data-testid=code-examples-input]')
+    await page.type('[data-testid=code-examples-input]', 'this should not work')
+    const shownCards = await page.$$('[data-testid=code-example-card]')
+    expect(shownCards.length).toBe(0)
+    const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
+    expect(noResultsMessage).not.toBeNull()
+  })
+})
+
+describe('filter cards', () => {
   it('works with select input', async () => {
     await page.goto('http://localhost:4001/en/actions/guides')
-    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
-      cards.map(card => card.dataset.type)
+    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    const shownCards = await page.$$('[data-testid=article-card]')
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
+      cardTypes.map(cardType => cardType.textContent)
     )
-    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    shownCardTypes.map(type => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 
   it('works with select input on an Enterprise version', async () => {
     await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
-    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
-      cards.map(card => card.dataset.type)
+    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    const shownCards = await page.$$('[data-testid=article-card]')
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
+      cardTypes.map(cardType => cardType.textContent)
     )
-    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    shownCardTypes.map(type => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
-  })
-
-  it('shows more cards', async () => {
-    await page.goto('http://localhost:4001/en/actions')
-    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
-    await page.click('.js-filter-card-show-more')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    expect(shownCards.length).toBe(maxCards * 2)
-  })
-
-  it('displays no result message', async () => {
-    await page.goto('http://localhost:4001/en/actions')
-    await page.click('input.js-filter-card-filter')
-    await page.type('input.js-filter-card-filter', 'this should not work')
-    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
-    expect(shownCards.length).toBe(0)
-    const noResultsClasses = await page.$eval('.js-filter-card-no-results', elem => Object.values(elem.classList))
-    expect(noResultsClasses).not.toContain('d-none')
   })
 })
 
@@ -306,5 +325,41 @@ describe('GraphQL Explorer', () => {
     await page.waitForSelector('#search-results-container')
     const searchResult = await page.$('#search-results-container.js-open')
     expect(searchResult).toBeNull()
+  })
+})
+
+describe('nextjs query param', () => {
+  jest.setTimeout(60 * 1000)
+
+  it('landing page renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
+    const flagVal = featureFlags.FEATURE_NEXTJS
+    await page.goto('http://localhost:4001/en/actions?nextjs=')
+    const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
+    const nextWrapper = await page.$('#__next')
+    flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
+    flagVal === true ? expect(IS_NEXTJS_PAGE).toBe(true) : expect(IS_NEXTJS_PAGE).toBe(false)
+  })
+})
+
+// Skipping because next/links are disabled by default for now
+describe.skip('next/link client-side navigation', () => {
+  jest.setTimeout(60 * 1000)
+
+  it('should have 200 response to /_next/data when link is clicked', async () => {
+    const initialViewport = page.viewport()
+    await page.setViewport({ width: 1024, height: 768 })
+    await page.goto('http://localhost:4001/en/actions/guides')
+
+    const [response] = await Promise.all([
+      page.waitForResponse(
+        (response) =>
+          response.url().startsWith('http://localhost:4001/_next/data') 
+      ),
+      page.waitForNavigation({ waitUntil: 'networkidle2' }),
+      page.click('.sidebar-articles:nth-child(2) .sidebar-article:nth-child(1) a'),
+    ])
+
+    expect(response.status()).toBe(200)
+    await page.setViewport(initialViewport)
   })
 })

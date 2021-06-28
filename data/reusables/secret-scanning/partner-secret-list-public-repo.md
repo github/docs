@@ -9,6 +9,7 @@ Alibaba Cloud | Alibaba Cloud Access Key ID and Access Key Secret pair
 Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
 Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
+Azure | Azure Active Directory Application Secret
 Azure | Azure DevOps Personal Access Token
 Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
@@ -77,3 +78,4 @@ Stripe | Stripe Test API Restricted Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
+Valour | Valour Access Token

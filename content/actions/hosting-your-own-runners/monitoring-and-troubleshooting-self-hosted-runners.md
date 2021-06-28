@@ -6,11 +6,12 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
 defaultPlatform: linux
+shortTitle: Monitor & troubleshoot
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -18,13 +19,13 @@ defaultPlatform: linux
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Checking the status of a self-hosted runner
+## Checking the status of a self-hosted runner
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Under "Self-hosted runners," you can view a list of registered runners, including the runner's name, labels, and status.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Under {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     ![Runner list](/assets/images/help/settings/actions-runner-list.png)
 
@@ -35,19 +36,19 @@ defaultPlatform: linux
     * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
 
 
-### Reviewing the self-hosted runner application log files
+## Reviewing the self-hosted runner application log files
 
 You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory, and a new one is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
 
 For detailed logs on workflow job executions, see the next section describing the *Worker_* files.
 
-### Reviewing a job's log file
+## Reviewing a job's log file
 
 The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory, and the filename begins with *Worker_*.
 
 {% linux %}
 
-### Using journalctl to check the self-hosted runner application service
+## Using journalctl to check the self-hosted runner application service
 
 For Linux-based self-hosted runners running the application using a service, you can use `journalctl` to monitor their real-time activity. The default systemd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>.service`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file. For example:
 
@@ -81,7 +82,7 @@ If you want to customize the self-hosted runner application service, do not dire
 
 {% mac %}
 
-### Using launchd to check the self-hosted runner application service
+## Using launchd to check the self-hosted runner application service
 
 For macOS-based self-hosted runners running the application as a service, you can use `launchctl` to monitor their real-time activity. The default launchd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file in the runner directory:
 
@@ -110,7 +111,7 @@ If you want to customize the self-hosted runner application service, do not dire
 
 {% windows %}
 
-### Using PowerShell to check the self-hosted runner application service
+## Using PowerShell to check the self-hosted runner application service
 
 For Windows-based self-hosted runners running the application as a service, you can use PowerShell to monitor their real-time activity. The service uses the naming convention `GitHub Actions Runner (<org>-<repo>.<runnerName>)`. You can also find the service's name by checking the _.service_ file in the runner directory:
 
@@ -147,7 +148,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-### Monitoring the automatic update process
+## Monitoring the automatic update process
 
 We recommend that you regularly check the automatic update process, as the self-hosted runner will not be able to process jobs if it falls below a certain version threshold. The self-hosted runner application automatically updates itself, but note that this process does not include any updates to the operating system or other software; you will need to separately manage these updates.
 
@@ -161,9 +162,9 @@ In addition, you can find more information in the _SelfUpdate_ log files located
 
 {% linux %}
 
-### Troubleshooting containers in self-hosted runners
+## Troubleshooting containers in self-hosted runners
 
-#### Checking that Docker is installed
+### Checking that Docker is installed
 
 If your jobs require containers, then the self-hosted runner must be Linux-based and needs to have Docker installed. Check that your self-hosted runner has Docker installed and that the service is running.
 
@@ -182,7 +183,7 @@ If Docker is not installed, then dependent actions will fail with the following 
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-#### Checking the Docker permissions
+### Checking the Docker permissions
 
 If your job fails with the following error:
 

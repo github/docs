@@ -6,13 +6,14 @@ redirect_from:
   - /articles/limiting-interactions-in-your-organization
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community
+shortTitle: Limit interactions in org
 ---
 
-### About temporary interaction limits
+## About temporary interaction limits
 
 Limiting interactions in your organization enables temporary interaction limits for all public repositories owned by the organization. {% data reusables.community.interaction-limits-restrictions %}
 
@@ -26,7 +27,7 @@ When you enable organization-wide activity limitations, you can't enable or disa
 
 Organization owners can also block users for a specific amount of time. After the block expires, the user is automatically unblocked. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
 
-### Limiting interactions in your organization
+## Limiting interactions in your organization
 
 
 {% data reusables.profile.access_org %}
@@ -38,7 +39,7 @@ Organization owners can also block users for a specific amount of time. After th
 {% data reusables.community.set-interaction-limit %}
   ![Temporary interaction limit options](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
-### Further reading
+## Further reading
 - "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"

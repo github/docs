@@ -12,6 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +33,9 @@ Debes usar una sintaxis específica para decirle a {% data variables.product.pro
 
 {% data reusables.github-actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-#### Expresión de ejemplo en un condicional `if`
+{% data reusables.github-actions.context-injection-warning %}
+
+##### Expresión de ejemplo en un condicional `if`
 
 ```yaml
 steps:
@@ -40,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Ejemplo de parámetros en una variable de entorno
+##### Ejemplo de parámetros en una variable de entorno
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -60,7 +63,7 @@ Los contextos son una manera de acceder a información acerca de las ejecuciones
 | Nombre del contexto | Tipo     | Descripción                                                                                                                                                                                                                                                        |
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `github`            | `objeto` | Información sobre la ejecución del flujo de trabajo. Para obtener más información, consulta [github</code> context](#github-context).                                                                                                                              |
-| `env`               | `objeto` | Contiene variables de entorno establecidas en un flujo de trabajo, trabajo o paso. Para obtener más información, consulta contexto de [`env`](#env-context).                                                                                                       |
+| `env`               | `objeto` | Contiene variables de entorno establecidas en un flujo de trabajo, trabajo o paso. Para obtener más información, consulta el [contexto `env`](#env-context).                                                                                                       |
 | `job`               | `objeto` | Información sobre el trabajo actualmente en ejecución. Para obtener más información, consulta contexto de [`job`](#job-context).                                                                                                                                   |
 | `pasos`             | `objeto` | Información sobre los pasos que se han ejecutado en este trabajo. Para obtener más información, consulta contexto de [`steps`](#steps-context).                                                                                                                    |
 | `runner`            | `objeto` | Incluye información sobre el ejecutor que está realizando el trabajo actual. Para más información, consulta [Contexto del `ejecutador (runner)`](#runner-context).                                                                                                 |
@@ -73,7 +76,7 @@ Como parte de una expresión, puedes acceder a la información del contexto usan
 - Sintaxis de índice: `github['sha']`
 - Sintaxis de desreferencia de propiedad: `github.sha`
 
-Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad debe cumplir los siguientes requisitos:
+Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad debe cumplir con lo siguiente:
 - comenzar con `a-Z` o `_`.
 - estar seguida por `a-Z` `0-9` `-` o `_`.
 
@@ -86,6 +89,7 @@ Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad d
 El contexto de `github` contiene información sobre la ejecución del flujo de trabajo y el evento que desencadenó la ejecución. Puedes leer la mayoría de los datos de contexto de `github` en las variables del entorno. Para más información sobre las variables de entorno, consulta "[Utilizando variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Nombre de la propiedad    | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -93,11 +97,11 @@ El contexto de `github` contiene información sobre la ejecución del flujo de t
 | `github.action`           | `secuencia` | El nombre de la acción que se está ejecutando actualmente. {% data variables.product.prodname_dotcom %} elimina caracteres especiales o usa el nombre `run` cuando el paso actual ejecuta un script.  Si usas la misma acción más de una vez en el mismo trabajo, el nombre incluirá un sufijo con el número de secuencia.  Por ejemplo, el primer script que ejecutes tendrá el nombre `run1`, y el segundo script será nombrado `run2`. Del mismo modo, la segunda invocación de `actions/checkout` será `actionscheckout2`. |
 | `github.action_path`      | `secuencia` | La ruta en donde se ubica tu acción. Puedes utilizar esta ruta para acceder fácilmente a los archivos ubicados en el mismo repositorio que tu acción. Este atributo solo es compatible con las acciones de los pasos de ejecución compuestos.                                                                                                                                                                                                                                                                                  |
 | `github.actor`            | `secuencia` | El inicio de sesión del usuario que inició la ejecución del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `github.base_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es una `pull_request`.                                                                                                                                                                                                                                                                                                       |
+| `github.base_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es ya sea `pull_request` o `pull_request_target`.                                                                                                                                                                                                                                                                            |
 | `github.event`            | `objeto`    | La carga de webhook del evento completo. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/articles/events-that-trigger-workflows/)". "Puedes acceder a propiedades individuales del evento que utiliza este contexto.                                                                                                                                                                                                                                                                      |
 | `github.event_name`       | `secuencia` | El nombre del evento que activó la ejecución del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `github.event_path`       | `secuencia` | La ruta a la carga del webhook del evento completo en el ejecutor.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `github.head_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es una `pull_request`.                                                                                                                                                                                                                                                                                                       |
+| `github.head_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es ya sea `pull_request` o `pull_request_target`.                                                                                                                                                                                                                                                                            |
 | `github.job`              | `secuencia` | El [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) del job actual.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `github.ref`              | `secuencia` | La rama o ref de etiqueta que activó la ejecución del flujo de trabajo. Para las ramas, está en el formato `refs/heads/<branch_name>`, y para las etiquetas está en `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                        |
 | `github.repository`       | `secuencia` | El nombre del repositorio y del propietario. Por ejemplo, `Codertocat/Hello-World`.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -124,7 +128,7 @@ Si quieres usar el valor de una variable de entorno dentro de un ejecutor, usa e
 
 #### contexto de `job`
 
-El contexto `trabajo` contiene información sobre el trabajo de ejecución actual.
+El contexto de `job` contiene información sobre el trabajo de ejecución actual.
 
 | Nombre de la propiedad                    | Tipo        | Descripción                                                                                                                                                                                                                                                                            |
 | ----------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -140,7 +144,7 @@ El contexto `trabajo` contiene información sobre el trabajo de ejecución actua
 
 #### contexto de `steps`
 
-El contexto `steps` contiene información sobre los pasos en el trabajo actual que ya se ha ejecutado.
+El contexto de `steps` contiene información sobre los pasos del trabajo actual que ya se han ejecutado.
 
 | Nombre de la propiedad                              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -172,9 +176,9 @@ El contexto `needs` contiene salidas de todos los jobs que se definen como depen
 | `needs.<job id>.outputs.<output name>` | `secuencia` | El valor de un resultado específico para un job del cual depende el job actual.                                                 |
 | `needs.<job id>.result`                      | `secuencia` | El resultado de un job del cual depende el job actual. Los valores posibles son `success`, `failure`, `cancelled`, o `skipped`. |
 
-#### Ejemplo de impresión de información de contexto de un archivo de registro
+##### Ejemplo de impresión de información de contexto de un archivo de registro
 
-Para inspeccionar la información accesible en cada contexto, puedes utilizar este ejemplo de archivo de flujo de trabajo.
+Para revisar la información accesible en cada contexto, puedes utilizar este ejemplo de archivo de flujo de trabajo.
 
 {% data reusables.github-actions.github-context-warning %}
 
@@ -225,7 +229,7 @@ Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `num
 | `number`      | Cualquier formato de número compatible con JSON.                                        |
 | `secuencia`   | Debes usar comillas simples. Escapar comillas simples literales con una comilla simple. |
 
-#### Ejemplo
+##### Ejemplo
 
 {% raw %}
 ```yaml
@@ -275,7 +279,7 @@ env:
 
 ### Funciones
 
-{% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona tipos de datos con una cadena usando las siguientes conversiones:
+{% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con una cadena usando estas conversiones:
 
 | Tipo     | Resultado                                         |
 | -------- | ------------------------------------------------- |
@@ -303,7 +307,7 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 `startsWith( searchString, searchValue )`
 
-Devuelve `verdadero` cuando `searchString` contiene `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
+Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
 ##### Ejemplo
 
@@ -313,7 +317,7 @@ Devuelve `verdadero` cuando `searchString` contiene `searchValue`. Esta función
 
 `endsWith( searchString, searchValue )`
 
-Devuelve `verdadero` si `searchString` contiene `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
+Arroja `true` si `searchString` termina con `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
 ##### Ejemplo
 
@@ -323,11 +327,11 @@ Devuelve `verdadero` si `searchString` contiene `searchValue`. Esta función no 
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar llaves usando llaves dobles.
+Reemplaza valores en la `string`, con la variable `replaceValueN`. Las variables en la `string` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `string`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
 
 ##### Ejemplo
 
-Devuelve 'Hello Mona the Octocat'
+Arroja 'Hello Mona the Octocat'
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
@@ -355,7 +359,7 @@ El valor para `array` puede ser una matriz o una cadena. Todos los valores en `a
 
 `toJSON(value)`
 
-Devuelve una representación JSON con formato mejorado de `valor`. Puedes usar esta función para depurar la información suministrada en contextos.
+Arroja una representación JSON con formato mejorado de `value`. Puedes usar esta función para depurar la información suministrada en contextos.
 
 ##### Ejemplo
 
@@ -381,15 +385,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
 ```
 {% endraw %}
 
@@ -408,9 +412,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - continue-on-error: ${{ fromJSON(env.continue) }}
-      timeout-minutes: ${{ fromJSON(env.time) }}
-      run: echo ...
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 
@@ -436,7 +440,7 @@ Crea un hash para cualquier archivo de `package-lock.json` y de `Gemfile.lock` e
 
 ### Funciones de verificación de estado del trabajo
 
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Si la expresión `if` no contiene ninguna de las funciones de estado, se obtendrá automáticamente con `success()`. Para obtener información sobre los condicionales `if`, consulta "[Sintaxis de flujo de trabajo para acciones de GitHub](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Si la expresión `if` no contiene ninguna de las funciones de estado, se obtendrá automáticamente con `success()`. Para obtener información sobre los condicionales `if`, consulta "[Sintaxis de flujo de trabajo para acciones de GitHub](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
 #### success
 
@@ -445,7 +449,7 @@ Arroja `true` cuando no falló ni se canceló ninguno de los pasos anteriores.
 ##### Ejemplo
 
 ```yaml
-Pasos:
+steps:
   ...
   - name: The job has succeeded
     if: {% raw %}${{ success() }}{% endraw %}
@@ -463,7 +467,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 #### cancelled
 
-Devuelve `verdadero` si se canceló el flujo de trabajo.
+Arroja `true` si se canceló el flujo de trabajo.
 
 ##### Ejemplo
 
@@ -478,7 +482,7 @@ Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo.
 ##### Ejemplo
 
 ```yaml
-Pasos:
+steps:
   ...
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
@@ -498,4 +502,4 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`
+El filtro `fruits.*.name` arroja la matriz `[ "apple", "orange", "pear" ]`
