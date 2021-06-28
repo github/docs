@@ -1,6 +1,6 @@
 ---
 title: Setting up code scanning for a repository
-shortTitle: Setting up code scanning
+shortTitle: Set up code scanning
 intro: 'You can set up {% data variables.product.prodname_code_scanning %} by adding a workflow to your repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
