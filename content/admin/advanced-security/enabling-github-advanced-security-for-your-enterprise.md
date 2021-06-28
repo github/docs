@@ -27,7 +27,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 ## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
 1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} For information about licensing, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."{% endif %}
-2. Upload the new license to {% data variables.product.product_location %}. For more information, see "[Managing your GitHub Enterprise license](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes > 2.22 %}
+2. Upload the new license to {% data variables.product.product_location %}. For more information, see "[Managing your GitHub Enterprise license](/admin/overview/managing-your-github-enterprise-license#downloading-a-new-license-and-uploading-it-to-github-enterprise-server)."{% ifversion ghes > 2.22 %}
 3. Review the prerequisites for the features you plan to enable.
 
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
