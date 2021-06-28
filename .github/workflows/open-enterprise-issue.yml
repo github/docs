@@ -5,6 +5,7 @@ name: Open Enterprise release or deprecation issue
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '49 14 * * *' # At 14:49 UTC daily
 
@@ -28,11 +29,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update enterprise dates
-        if: steps.existingIssue.outputs.deprecationIssue == 'false' ||  steps.existingIssue.outputs.releaseIssue == 'false'
+        if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
           script/update-enterprise-dates.js
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
 
       - name: Create an enterprise release issue
         if: steps.existingIssue.outputs.releaseIssue == 'false'
