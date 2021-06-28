@@ -1,5 +1,6 @@
 ---
 title: Secret scanning
+intro: 'To retrieve and update the secret alerts from a private repository, you can use Secret Scanning API.'
 versions:
   fpt: '*'
   ghes: '>=3.1'
