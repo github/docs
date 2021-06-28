@@ -87,16 +87,20 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
 8. Tell NPM which scope and registry to publish packages to using one of the following methods:
-   - Add an NPM configuration file for the repository by creating a `.npmrc, in the root directory with the contents:
+   - Add an NPM configuration file for the repository by creating a `.npmrc` file, in the root directory with the contents:
+      {% raw %}
       ```
       @<em>YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
       ```
+      {% endraw %}
    - Edit the `package.json` file and specify the `publishConfig` key:
+      {% raw %}
       ```json
       "publishConfig": {
         "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
       }
       ```
+      {% endraw %}
   
 9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
