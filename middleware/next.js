@@ -15,7 +15,7 @@ function renderPageWithNext (req, res, next) {
     return nextHandleRequest(req, res)
   }
 
-  next()
+  return next()
 }
 
 renderPageWithNext.nextHandleRequest = nextHandleRequest

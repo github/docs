@@ -15,5 +15,5 @@ module.exports = async function handleNextDataPath (req, res, next) {
     req.pagePath = req.path
   }
 
-  next()
+  return next()
 }
