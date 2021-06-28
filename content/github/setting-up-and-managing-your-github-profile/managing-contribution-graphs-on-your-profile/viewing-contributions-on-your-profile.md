@@ -1,4 +1,4 @@
----
+---ok 
 title: Viewing contributions on your profile
 intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
