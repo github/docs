@@ -48,7 +48,11 @@ If you do decide to purchase {% data variables.product.prodname_ghe_cloud %}, yo
 Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)".
 
 ### Setting up an enterprise account with {% data variables.product.prodname_ghe_cloud %}
+ {% note %}
+
 In order to get an enterprise account created for you, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+
+ {% endnote %}
 #### 1. About enterprise accounts
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts)."
 #### 2. Adding organizations to your account

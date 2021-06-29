@@ -7,12 +7,15 @@ versions:
 ## Part 1: Configuring your {% data variables.product.product_name %} account
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing. 
 
-### 1. Creating an organization and signing up for {% data variables.product.prodname_team %}
+### 1. About organizations
+Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)".
+
+### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
 Before creating an organization, you will need to create a user account or log in to your existing {% data variables.product.prodname_dotcom %} account. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)". 
 
 Once your user account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-### 2. Managing billing for an organization
+### 3. Managing billing for an organization
 You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see "[Switching between settings for your different accounts](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)".
 
 Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)".
@@ -20,21 +23,20 @@ Your organization's billing settings page allows you to manage settings like you
 {% data variables.product.prodname_dotcom %} sends receipts and other billing-related information to your organization's billing email. For more information, see "[Setting your organization's billing email](/billing/managing-your-github-billing-settings/setting-your-billing-email#setting-your-organizations-billing-email)".
 
 Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)".
-### 3. About organizations
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)".
 
-Organization members can stay up-to-date with recent activity or keep track of issues and pull requests by visiting the organization dashboard. For more information, see "[About your organization dashboard](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)".
 
 ## Part 2: Adding members and setting up teams
 After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
 
 ### 1. Managing members of your organization
 You can invite anyone to be a member of your organization, as long as they have a personal account on GitHub. You can also remove members and reinstate former members. For more information, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)."
+
+Organization members can stay up-to-date with recent activity or keep track of issues and pull requests by visiting the organization dashboard. For more information, see "[About your organization dashboard](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)".
 ### 2. Organization permissions and roles
 Each person in your organization has a role that defines their level of access to the organization. The member role is the default, and you can assign owner and billing manager roles as well as "team maintainer" permissions. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)."
 
 ### 3. About and creating teams
-Teams are groups of organization members that you can create to reflect your company or group's structure with cascading access permissions and mentions. Organization members can send notifications to a team or request reviews. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+Teams are groups of organization members that you can create to reflect your company or group's structure with cascading access permissions and mentions. Organization members can send notifications to a team or request reviews, and teams can be visible or secret. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 You can create independent teams or have multiple levels of nested teams to reflect your group or company's hierarchy. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
 
@@ -57,7 +59,6 @@ You can view whether your organization members have two-factor authentication en
 ### 2. Configuring security features for your organization
 You can use a variety of GitHub security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep your organization secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-Some security features are only available for public repositories, and for private repositories owned by organizations with an Advanced Security license. For more information, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."
 ### 3. Reviewing your organization's audit log and integrations
 The audit log for your organization allows you, as an organization owner, to review the actions performed by members of the organization within the last 90 days. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
