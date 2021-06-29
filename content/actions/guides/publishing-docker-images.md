@@ -57,8 +57,10 @@ In the example workflow below, we use the Docker `login-action` and `build-push-
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 The `login-action` options required for Docker Hub are:
-
 * `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+
+The `metadata-action` option required for Docker Hub is:
+* `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
 
 The `build-push-action` options required for Docker Hub are:
 * `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
@@ -72,6 +74,7 @@ name: Publish Docker image
 on:
   release:
     types: [published]
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -79,16 +82,26 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
-      - name: Push to Docker Hub
+      
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: my-docker-hub-namespace/my-docker-hub-repository
+      
+      - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
-          tags: my-docker-hub-namespace/my-docker-hub-repository:latest
+          tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
+          labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
@@ -139,15 +152,18 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@v1
         with:
           registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-      - name: Build container image
+      
+      - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
           tags: |
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
@@ -173,6 +189,7 @@ name: Publish Docker image
 on:
   release:
     types: [published]
+
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
@@ -183,38 +200,36 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
+      
       - name: Log in to the {% ifversion fpt %}Container{% else %}Docker{% endif %} registry
         uses: docker/login-action@v1
         with:
           registry: {% ifversion fpt %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-      - name: Build and push to Docker Hub
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: my-docker-hub-namespace/my-docker-hub-repository:{% raw %}${{ github.event.release.tag_name }}{% endraw %}{% ifversion fpt %}
+      
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% endif %}
-      - name: Build and push to {% data variables.product.prodname_registry %}
+          images: |
+            my-docker-hub-namespace/my-docker-hub-repository
+            {% ifversion fpt %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
+      
+      - name: Build and push Docker images
         uses: docker/build-push-action@v2
         with:
-          push: true{% ifversion fpt %}
           context: .
+          push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
-          labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}{% else %}
-          tags: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/my-image:${{ github.event.release.tag_name }}{% endraw %}{% endif %}
+          labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` twice to log in to both registries, and then uses the `build-push-action` action twice to build and push the Docker image to Docker Hub and the 
-{% ifversion fpt %}{% data variables.product.prodname_container_registry %}. For Docker Hub, it tags the built Docker image with the version tag for the release that triggered the workflow. For the {% data variables.product.prodname_container_registry %}, tags and labels are automatically generated by the `metadata-action` action. 
-{% else %}Docker registry. For both steps, it tags the built Docker image with the version tag for the release that triggered the workflow.
-{% endif %}
+The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
+Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
