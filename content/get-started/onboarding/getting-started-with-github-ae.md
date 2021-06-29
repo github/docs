@@ -9,7 +9,7 @@ versions:
 To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, manage billing, and configure user authentication and provisioning for your enterprise. 
 
 ### 1. Creating your {% data variables.product.prodname_ghe_managed %} enterprise account
-You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](/admin/configuration/configuring-your-enterprise/initializing-github-ae).
+You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
 After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in {% data variables.product.prodname_dotcom %} Enterprise Support to create an account. 
 

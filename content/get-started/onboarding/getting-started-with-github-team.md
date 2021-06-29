@@ -17,7 +17,7 @@ You must manage billing settings, payment method, and paid features and products
 
 Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)".
 
-{% data variables.product.prodname_dotcom %} sends receipts and other billing-related information to your organization' billing email. For more information, see "[Setting your organization's billing email](/billing/managing-your-github-billing-settings/setting-your-billing-email#setting-your-organizations-billing-email)".
+{% data variables.product.prodname_dotcom %} sends receipts and other billing-related information to your organization's billing email. For more information, see "[Setting your organization's billing email](/billing/managing-your-github-billing-settings/setting-your-billing-email#setting-your-organizations-billing-email)".
 
 Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)".
 ### 3. About organizations
@@ -51,7 +51,7 @@ You can also customize access to your organization's project boards and allow in
 ## Part 3: Managing security for your organization
 You can help to make your organization more secure by recommending or requiring two-factor authentication for your organization members, configuring security features, and reviewing your organization's audit log and integrations. 
 
-### 1. Recommending or requiring two-factor authentication
+### 1. Requiring two-factor authentication
 You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."
 
 ### 2. Configuring security features for your organization

@@ -17,15 +17,15 @@ For an overview of how {% data variables.product.prodname_ghe_server %} works, s
 ## Part 1: Installing {% data variables.product.prodname_ghe_server %}
 To get started with {% data variables.product.prodname_ghe_server %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 
 ### 1. Creating your enterprise account
-Before install {% data variables.product.prodname_ghe_server %}, you will first need to create an enterprise account on GitHub. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+Before you install {% data variables.product.prodname_ghe_server %}, you will first need to create an enterprise account on GitHub by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 ### 2. Installing a {% data variables.product.prodname_ghe_server %} instance
 To get started with {% data variables.product.prodname_ghe_server %}, you will need to install your instance on a virtualization platform of your choice. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
 ### 3. Using the Management Console
-You will use the Management Console to walk through the initial setup process when first launching your instance. You can also use it to manage virtual appliance settings such as the domain, authentication and SSL. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+You will use the Management Console to walk through the initial setup process when first launching your instance. You can also use the  Management Console to manage virtual appliance settings such as the domain, authentication and SSL. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
 
 ### 4. Configuring your {% data variables.product.prodname_ghe_server %} instance
-In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage your enterprise. You can configure applications and rate limits, view reports, use command-line utilities, and much more. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise).'
+In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage your enterprise. You can configure applications and rate limits, view reports, use command-line utilities, and much more. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 
 You can use the default network settings used by {% data variables.product.prodname_ghe_server %} via the dynamic host configuration protocol (DHCP), or you can also configure the network settings using the virtual machine console. You can also configure a proxy server or firewall rules. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
 
@@ -71,7 +71,7 @@ You can use {% data variables.product.prodname_ghe_server %}'s built-in authenti
 You can also require two-factor authentication for each of your organizations. For more information, see "[Requiring two factor authentication for an organization](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
 
 ### 2. Staying in compliance
-You can implement required status checks ands commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/enterprise-server@3.1/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
+You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/enterprise-server@3.1/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
 
 #### 3. Configuring security features for your organizations
 You can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep the organizations in your enterprise secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."

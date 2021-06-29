@@ -12,7 +12,7 @@ versions:
 - **{% data variables.product.prodname_ghe_cloud %}**
 - **{% data variables.product.prodname_ghe_server %}**
 
-The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %}is self-hosted.
+The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
 Within the {% data variables.product.prodname_ghe_cloud %} product, there are two different types of account that you can use:
 
@@ -95,7 +95,7 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 ## Part 4: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
 ### Managing security for a single organization
-#### 1. Recommending or requiring two-factor authentication
+#### 1. Requiring two-factor authentication
 You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."
 
 #### 2. Configuring security features for your organization
