@@ -8,9 +8,15 @@ versions:
 ---
 ## Part 1: Configuring your {% data variables.product.prodname_dotcom %} account
 
-As the first steps in starting with {% data variables.product.product_name %}, you'll need to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile. 
+{% ifversion fpt %}
+The first steps in starting with {% data variables.product.product_name %} are to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile. 
+{% elsif ghes %}
+The first steps in starting with {% data variables.product.product_name %}, are to access your account, set up two-factor authentication, and view your profile.
+{% elsif ghae %}
+The first steps in starting with {% data variables.product.product_name %}, are to access your account and view your profile.
+{% endif %}
 
-There are several types of accounts on {% data variables.product.prodname_dotcom %}. Every person who uses {% data variables.product.product_location %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
+{% ifversion fpt %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif}Every person who uses {% data variables.product.product_name %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
 
 ### 1. Creating an account
 To sign up for a {% data variables.product.prodname_dotcom %} account, navigate to https://github.com/ and follow the prompts. 
@@ -23,7 +29,7 @@ For more information on all of {% data variables.product.prodname_dotcom %}'s pl
 
 {% ifversion fpt %}
 ### 3. Verifying your email address
-To ensure you can use all of {% data variables.product.product_name %}'s features, verify your email address after signing up for a new account. For more information, see "[Verifying your email address](/github/getting-started-with-github/signing-up-for-github/verifying-your-email-address)."
+To ensure you can use all of the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[Verifying your email address](/github/getting-started-with-github/signing-up-for-github/verifying-your-email-address)."
 {% endif %}
 
 {% ifversion fpt or ghes %}
@@ -48,9 +54,9 @@ Everyone has their own unique workflow for interacting with {% data variables.pr
 
 For more information about how to authenticate to {% data variables.product.product_name %} with each of these methods, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github)".
 
-| **Method**  | **Description** | **Use Cases** |
+| **Method**  | **Description** | **Use cases** |
 | ------------- | ------------- | ------------- |
-| In browser on {% data variables.product.prodname_dotcom_the_website %} | If you don't need to work with files locally, {% data variables.product.product_name %} lets you complete most Git-related actions directly in the browser, from creating and forking repositories to editing files and opening pull requests.| This method is useful if you want a visual interface and need to do quick, simple changes or workflows that don't require working locally. |
+| Browse to {% data variables.product.prodname_dotcom_the_website %} | If you don't need to work with files locally, {% data variables.product.product_name %} lets you complete most Git-related actions directly in the browser, from creating and forking repositories to editing files and opening pull requests.| This method is useful if you want a visual interface and need to do quick, simple changes or workflows that don't require working locally. |
 | {% data variables.product.prodname_desktop %} | {% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. For more information on getting started with {% data variables.product.prodname_desktop %}, see “[Getting started with GitHub Desktop](/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)." | This method is best if you need or want to work with files locally, but prefer using a visual interface to use Git and interact with {% data variables.product.product_name %}. |
 | IDE or File Editor  | You can set a default text editor, like [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/) to open and edit your files with Git, use extensions, and view the project structure. For more information, see "[Associating text editors with Git](https://help-docs-pr-11947.herokuapp.com/en/github/using-git/associating-text-editors-with-git)." | This is convenient if you are working with more complex files and projects and want everything in one place, since text editors or IDEs often allow you to directly access the command line in the editor. |
 | Command line, with or without {% data variables.product.prodname_cli %} | For the most granular control and customization of how you use Git and interact with {% data variables.product.product_name %}, you can use the command line. For more information on using Git commands, see "[Git cheatsheet](/github/getting-started-with-github/quickstart/git-cheatsheet)".<br/><br/> {% data variables.product.prodname_cli %} is a separate command-line tool you can install that brings pull requests, issues, {% data variables.product.prodname_actions %}, and other {% data variables.product.prodname_dotcom %} features to your terminal, so you can do all your work in one place. For more information, see "[{% data variables.product.prodname_cli %}](/github/getting-started-with-github/using-github/github-cli)". | This is most convenient if you are already working from the command line, allowing you to avoid switching context, or if you are more comfortable using the command line. |
