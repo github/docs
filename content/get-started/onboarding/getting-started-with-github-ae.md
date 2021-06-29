@@ -9,24 +9,24 @@ versions:
 To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, manage billing, and configure user authentication and provisioning for your enterprise. 
 
 ### 1. Creating your {% data variables.product.prodname_ghe_managed %} enterprise account
-You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [GitHub's Sales team](/admin/configuration/configuring-your-enterprise/initializing-github-ae).
+You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](/admin/configuration/configuring-your-enterprise/initializing-github-ae).
 
-After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in GitHub Enterprise Support to create an account. 
+After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in {% data variables.product.prodname_dotcom %} Enterprise Support to create an account. 
 
 ### 2. Initializing {% data variables.product.prodname_ghe_managed %}
-When your {% data variables.product.prodname_ghe_managed %} enterprise account has been created, you will receive an email to log into GitHub AE and complete the initialization. During initialization, you, as the enterprise owner,  will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+When your {% data variables.product.prodname_ghe_managed %} enterprise account has been created, you will receive an email to log into {% data variables.product.prodname_ghe_managed %} and complete the initialization. During initialization, you, as the enterprise owner,  will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 
 ### 3. Restricting network traffic
 You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
 
 ### 4. Managing identity and access for your enterprise
-You can centrally manage access to GitHub AE from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure it, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+You can centrally manage access to {% data variables.product.prodname_ghe_managed %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure it, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
 
 ### 5. Managing billing for your enterprise
-Enterprise owners can view billing information for GitHub AE. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+Enterprise owners can view billing information for {% data variables.product.prodname_ghe_managed %}. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 ## Part 2: Organizing and managing your users
-As an enterprise owner for GitHub AE, you can manage settings on user, repository, team and organization levels. You can manage users in your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
+As an enterprise owner for {% data variables.product.prodname_ghe_managed %}, you can manage settings on user, repository, team and organization levels. You can manage users in your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
 
 ### 1. Managing and auditing users of your enterprise
 You can manage user settings and audit user activity in your enterprise, including managing dormant users, viewing the audit log for user activity in your enterprise, and customizing messages that users will see on your enterprise. For more information, see "[Managing users in your enterprise](/admin/user-management/managing-users-in-your-enterprise)."
