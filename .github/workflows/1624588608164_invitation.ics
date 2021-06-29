@@ -1,0 +1,56 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:icalendar-ruby
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTAMP:20210625T022942Z
+UID:bigmarker_conference_163ab53bf9c7@bigmarker.com
+DTSTART:20210616T180000Z
+DTEND:20210616T190000Z
+DESCRIPTION:Laying the Foundation for Google Workspace for Education Securi
+ ty Best Practices\n\n\nLet’s get back to basics. Security in Google star
+ ts with some foundational settings in the Admin Console to best control wh
+ at type of Apps will have access to your domain\, how users login and more
+  User and Device settings. Building off a solid security foundation helps 
+ mitigate many potentially harmful situations and empowers Workspace for Ed
+ ucation Admins to dive deeper with Security Tools such as the paid Workspa
+ ce for Education editions. Participants will investigate their own domain 
+ to see if their security foundation is solid or shaky. You will leave with
+  security best practices and how to implement them in your own domain.\n\n
+ This session will cover key security areas such as:\nAccount and password 
+ security\nDirectory & Core Application security settings\n3rd party applic
+ ation control and security management\n\nIdentify and Mitigate Threats usi
+ ng Advanced Security Tools\n91% of attacks on districts start with Phishin
+ g. While we do all that we can to prevent attacks\, what do we do if an at
+ tack occurs? Participants will explore their own domains using Enterprise 
+ level security tools to uncover potential threats to their environment. Th
+ e session will start with an introduction to the basics of the Investigati
+ on Tool and Security Center followed by guided activities and prompts to e
+ xplore potentially harmful situations happening right now in their own dom
+ ains. From phishing attempts to inappropriate file uploads and shares\, we
+  will explore and mitigate security risks happening live in Google Workspa
+ ce for Education.\n\n\nThis session will cover key security areas such as:
+ \nScenarios of real life attacks\nTrends in the Security Dashboard\nInvest
+ igation Tool use to mitigate and remediate issues\n\n View and attend at h
+ ttps://www.bigmarker.com/series/higher-ed-security-best-prac/series_summit
+ ?bmid=0a408604e90a
+LOCATION:https://www.bigmarker.com/series/higher-ed-security-best-prac/seri
+ es_summit?bmid=0a408604e90a
+ORGANIZER:mailto:info@BigMarker.com
+STATUS:CONFIRMED
+SUMMARY:Higher Ed - Security Best Practices - 2 Session Summit
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VALARM
+ACTION:AUDIO
+TRIGGER:-PT15M
+ATTACH:Basso
+END:VALARM
+END:VEVENT
+END:VCALENDAR
