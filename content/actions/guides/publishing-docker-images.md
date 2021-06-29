@@ -100,8 +100,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
+          labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
@@ -232,4 +232,4 @@ jobs:
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
-Then the `build-push-action` action build and push the Docker images for both Docker Hub and {% data variables.product.prodname_container_registry %}.
+Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
