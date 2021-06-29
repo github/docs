@@ -1,6 +1,6 @@
 ---
 title: Running CodeQL runner in your CI system
-shortTitle: Running CodeQL runner
+shortTitle: Run CodeQL runner
 intro: 'You can use the {% data variables.product.prodname_codeql_runner %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:

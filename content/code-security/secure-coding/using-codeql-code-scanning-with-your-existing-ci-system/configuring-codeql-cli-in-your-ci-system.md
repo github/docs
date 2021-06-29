@@ -1,6 +1,6 @@
 ---
 title: Configuring CodeQL CLI in your CI system
-shortTitle: Configuring CodeQL CLI
+shortTitle: Configure CodeQL CLI
 intro: 'You can configure your continuous integration system to run the {% data variables.product.prodname_codeql_cli %}, perform {% data variables.product.prodname_codeql %} analysis, and upload the results to {% data variables.product.product_name %} for display as {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
