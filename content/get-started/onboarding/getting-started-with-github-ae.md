@@ -60,15 +60,15 @@ You can use a variety of {% data variables.product.prodname_dotcom %} security f
 ## Part 4: Customizing and automating your enterprise's work on {% data variables.product.prodname_dotcom %}
 You can customize and automate work in organizations in your enterprise with the {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
 
-### 2. Using the {% data variables.product.prodname_dotcom %} API
+### 1. Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
-### 3. Building {% data variables.product.prodname_actions %}
+### 2. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
 For more information on enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
 
-### 4. Using {% data variables.product.prodname_pages %}
+### 3. Using {% data variables.product.prodname_pages %}
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository in your enterprise and publishes a website. You can enable or disable {% data variables.product.prodname_pages %} for your users at the organization level. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise)."
 
 
