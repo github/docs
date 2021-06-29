@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization owners can manage default labels for repositories in the organization.

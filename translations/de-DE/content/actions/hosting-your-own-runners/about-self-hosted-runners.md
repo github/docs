@@ -7,10 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu selbst-gehosteten Runnern
 
@@ -48,7 +52,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-* Du kannst die Anwendung für selbst-gehostete Runner auf dem Rechner installieren und ausführen. Weitere Informationen findest Du unter „[Unterstützte Betriebssysteme für selbst-gehostete Runner](#supported-operating-systems-for-self-hosted-runners)“.
+* Du kannst die Anwendung für selbst-gehostete Runner auf dem Rechner installieren und ausführen. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
 * Die Maschine kann mit {% data variables.product.prodname_actions %} kommunizieren. Weitere Informationen findest Du unter „[Kommunikation zwischen selbst-gehosteten Runnern und {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)“.
 * Der Rechner verfügt über genügend Hardwareressourcen für den Typ der Workflows, den Du ausführen möchtest. Die Anwendung für selbst-gehostete Runner selbst erfordert nur minimale Ressourcen.
 * Wenn Du Workflows ausführen willst, die Docker-Container-Aktionen oder Service-Container verwenden, brauchst Du eine Linux-Maschine und Docker muss installiert sein.
@@ -61,15 +65,20 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 - **Job queue time** (Job-Warteschlangenzeit) - Jeder Auftrag für selbst-gehostete Läufer kann maximal 24 Stunden lang in die Warteschlange gestellt werden. Wenn ein selbst-gehosteter Läufer die Ausführung des Auftrags nicht innerhalb dieses Limits startet, wird der Auftrag beendet und kann nicht abgeschlossen werden.
 {% data reusables.github-actions.usage-api-requests %}
 - **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### Unterstützte Betriebssysteme für selbst-gehostete Runner
+### Workflow continuity for self-hosted runners
+
+{% data reusables.github-actions.runner-workflow-continuity %}
+
+### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 or later
+- CentOS 7 or later
 - Oracle Linux 7
 - Fedora 29 oder höher
 - Debian 9 oder höher
@@ -87,9 +96,17 @@ The following operating systems are supported for the self-hosted runner applica
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) oder höher
+
+#### Architectures
+
+The following processor architectures are supported for the self-hosted runner application.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -103,6 +120,15 @@ Die Maschine kann mit {% data variables.product.prodname_actions %} kommuniziere
 
 The self-hosted runner polls {% data variables.product.prodname_dotcom %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.prodname_dotcom %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
+{% if currentVersion == "github-ae@latest" %}
+You must ensure that the self-hosted runner has appropriate network access to communicate with the
+{% data variables.product.prodname_ghe_managed %} URL.
+For example, if your instance name is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.github.com`.
+If you use an IP address allow list for your
+
+{% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. Weitere Informationen findest Du auf „[Zugelassene IP-Adressen für Deine Organisation verwalten](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugriff verfügt, um mit den nachfolgend aufgelisteten {% data variables.product.prodname_dotcom %}-URLs zu kommunizieren.
@@ -111,10 +137,16 @@ Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugrif
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
 codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
 ```
 
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

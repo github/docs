@@ -1,6 +1,6 @@
 ---
 title: コメントを扱う
-intro: 'REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。'
+intro: REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。
 redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -18,7 +20,7 @@ versions:
 
 ### プルリクエストのコメント
 
-To access comments on a Pull Request, you'll go through [the Issues API][issues]. 最初はこれを意外に思うかもしれません。 しかし、プルリクエストがコード付きの Issue に過ぎないことさえ理解すれば、プルリクエストにコメントを作成するため Issues API を使うこともうなずけるでしょう。
+プルリクエストのコメントにアクセスするには、[Issues API][issues] を経由します。 最初はこれを意外に思うかもしれません。 しかし、プルリクエストがコード付きの Issue に過ぎないことさえ理解すれば、プルリクエストにコメントを作成するため Issues API を使うこともうなずけるでしょう。
 
 ここでは [Octokit.rb][octokit.rb] を使って Ruby スクリプトを作成し、プルリクエストのコメントをフェッチする方法を示します。 また、[個人アクセストークン][personal token]の作成もおすすめします。
 
@@ -44,7 +46,7 @@ end
 
 ### 行につけるプルリクエストのコメント
 
-diff ビュー内では、プルリクエスト内の一つの変更について、特定の側面からディスカッションを開始できます。 これらのコメントは、変更されたファイル内の個々の行について書き込まれます。 The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+diff ビュー内では、プルリクエスト内の一つの変更について、特定の側面からディスカッションを開始できます。 これらのコメントは、変更されたファイル内の個々の行について書き込まれます。 このディスカッションのエンドポイントURLは、[Pull Request Review API][PR Review API] から取得されます。
 
 以下のコードは、指定したプルリクエスト番号のファイルにあるプルリクエストのコメントすべてをフェッチします。
 
@@ -70,7 +72,7 @@ end
 
 ### コミットのコメント
 
-最後のタイプのコメントは、特に個々のコミットで発生します。 For this reason, they make use of [the commit comment API][commit comment API].
+最後のタイプのコメントは、特に個々のコミットで発生します。 このため、[コミットのコメント API][commit comment API] を使用します。
 
 コミットのコメントを取得するには、コミットの SHA1 を使用します。 言い換えれば、プルリクエストに関する識別子は全く使用しません。 次に例を示します。
 

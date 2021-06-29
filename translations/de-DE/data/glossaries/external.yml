@@ -1,7 +1,7 @@
 ---
 - 
   term: '@erwähnen'
-  description: um eine Person auf GitHub mittels „@“ vor ihrem Benutzernamen zu benachrichtigen. Benutzer in einer Organisation auf GitHub können auch Bestandteil eines Teams sein, das erwähnt werden kann.
+  description: Um eine Person auf GitHub mittels „@“ vor ihrem Benutzernamen zu benachrichtigen. Benutzer in einer Organisation auf GitHub können auch Bestandteil eines Teams sein, das erwähnt werden kann.
 - 
   term: Zugriffstoken
   description: >-
@@ -35,7 +35,7 @@
 - 
   term: Bio
   description: >-
-    Die vom Benutzer generierte Beschreibung, die sich in einem Profil befindet: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: Abrechnungszeitraum
   description: Das Zeitintervall für Ihren spezifischen Abrechnungsplan.
@@ -78,7 +78,7 @@
   term: Ticket
   description: Ein bewegliches Quadrat innerhalb eines Projektboards, das einem Issue oder einem Pull Request zugeordnet ist.
 - 
-  term: Check
+  term: check
   description: >-
     Ein Check ist eine Art Statusprüfung auf {% data variables.product.product_name %}. Siehe „[Status checks](#status-Checks)."
 - 
@@ -88,7 +88,7 @@
 - 
   term: Cherry-Picking
   description: >-
-    Um eine Teilmenge an Änderungen aus einer Reihe an Änderungen (in der Regel Commits) auszuwählen und sie zusätzlich zu einer anderen Codebasis als eine neue Reihe an Änderungen aufzuzeichnen. In Git wird dies durch den Befehl „git cherry-pick“ ausgeführt, um die Änderung zu extrahieren, die durch einen vorhandenen Commit auf einem anderen Branch vorgenommen wurde, und um sie basierend auf dem Tipp des aktuellen Branches als neuen Commit aufzuzeichnen.
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
 - 
   term: untergeordnetes Team
   description: >-
@@ -106,7 +106,7 @@
   description: >-
     Die Fähigkeit, GitHub Enterprise-Dienste knotenübergreifend auszuführen und einen Lastenausgleich zwischen ihnen herzustellen.
 - 
-  term: Code-Verlaufsdiagramm
+  term: code-Verlaufsdiagramm
   description: >-
     Ein Repository-Diagramm, das die Inhaltsergänzungen und -löschungen für jede Woche im Verlauf eines Repositorys darstellt.
 - 
@@ -123,7 +123,7 @@
 - 
   term: Commit
   description: >-
-    Ein Commit (oder „Revision“) ist eine einzelne Änderung an einer Datei (oder an einer Reihe von Dateien). Wenn Sie einen Commit durchführen, um Ihre Arbeit zu speichern, erstellt Git eine eindeutige ID (die auch als „SHA“ oder „Hash“ bezeichnet wird). Dadurch können Sie den Überblick dahingehend behalten, wer die spezifischen Änderungen wann durchgeführt hat. Commits enthalten in der Regel eine Commit-Mitteilung, in der die vorgenommenen Änderungen kurz beschrieben werden.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: Commit-Autor
   description: Der Benutzer, der den Commit durchführt.
@@ -137,7 +137,7 @@
 - 
   term: Commit-Mitteilung
   description: >-
-    Ein kurzer, beschreibender Text zu einem Commit, in dem die Änderung kommuniziert wird, die der Commit nach sich zieht.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: Branch vergleichen
   description: >-
@@ -156,13 +156,13 @@
 - 
   term: Beiträge
   description: >-
-    Spezifische Aktivitäten auf GitHub, die: - dem Beteiligungsdiagramm eines Benutzers ein Quadrat hinzufügen: „[Was zählt als ein Beitrag](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)“ - der Zeitleiste eines Benutzers in dessen Profil Aktivitäten hinzufügen "[Beitragsaktivität](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: Mitwirkende
   description: >-
     Ein Mitarbeiter besitzt keinen Mitarbeiterzugriff auf ein Repository, hat sich jedoch an einem Projekt beteiligt und besaß einen in das Repository gemergten Pull Request, den er geöffnet hatte.
 - 
-  term: Mitarbeiterdiagramm
+  term: mitarbeiterdiagramm
   description: Ein Repository-Diagramm, in dem die Top-100-Mitarbeiter an einem Repository angezeigt werden.
 - 
   term: Gutschein
@@ -181,13 +181,13 @@
 - 
   term: Standardbranch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
-  term: Abhängigkeitsdiagramm
+  term: abhängigkeitsdiagramm
   description: >-
     Ein Repository-Diagramm, in dem die Pakete, Projekte und Repositorys gezeigt werden, die von einem öffentlichen Repository abhängen.
 - 
-  term: Abhängigkeitsdiagramm
+  term: dependency graph
   description: >-
     Ein Repository-Diagramm, in dem die Pakete und Projekte angezeigt werden, von denen das Repository abhängig ist.
 - 
@@ -213,7 +213,7 @@
   term: E-Mail-Benachrichtigungen
   description: An die E-Mail-Adresse eines Benutzers gesendete Benachrichtigungen.
 - 
-  term: Enterprise-Konto
+  term: Unternehmenskonto
   description: Enterprise-Konten erlauben Dir die zentrale Verwaltung von Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %} Organisationen. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -229,7 +229,7 @@
     Ein Branch, der verwendet wird, um mit einem neuen Feature zu experimentieren oder einen nicht in der Produktion befindlichen Issue zu korrigieren. Wird auch als Themen-Branch bezeichnet.
 - 
   term: Fenced-Code-Block
-  description: 'Ein eingerückter Codeblock, den Du mit GitHub Flavored Markdown mit dreifachen Backticks vor und nach dem Codeblock erstellen kannst. Siehe hierzu dieses [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: abrufen
   description: >-
@@ -250,9 +250,9 @@
   description: >-
     Ein kostenloser Benutzerkonto-Abrechnungsplan. Benutzer können in unbegrenzten öffentlichen Repositorys mit unbegrenzt vielen Mitarbeitern interagieren.
 - 
-  term: Gist
+  term: gist
   description: >-
-    Ein Gist ist eine Datei, die freigegeben werden kann, die Sie auf GitHub bearbeiten, klonen und forken können. Sie können festlegen, dass ein Gist öffentlich oder geheim ist. Geheime Gists stehen jedoch allen Personen zur Verfügung, die über die entsprechende URL verfügen.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     Ein persönliches Konto, auf das der Benutzer nicht zugreifen kann. Konten sind gesperrt, wenn Benutzer ihr bezahltes Konto auf ein kostenloses downgraden oder wenn ihr bezahlter Plan überfällig ist.
 - 
-  term: Managementkonsole
+  term: management console
   description: >-
     Ein Abschnitt auf der GitHub Enterprise-Oberfläche mit enthaltenen Verwaltungsfeatures.
 - 
@@ -385,18 +385,18 @@
   description: >-
     Markdown ist ein unglaublich einfaches semantisches Dateiformat und ähnelt .doc, .rtf und .txt. Mithilfe von Markdown können Benutzer ohne Know-how in Bezug auf Web-Publishing Fließtext (einschließlich Links, Listen, Aufzählungszeichen usw.) schreiben und ihn wie eine Website anzeigen. GitHub unterstützt Markdown und verwendet eine bestimmte Form von Markdown, das sog. GitHub Flavored Markdown. Siehe [GitHub Flavored Markdown – Spezifikation](https://github.github.com/gfm/) oder [Erste Schritte mit dem Schreiben und Formatieren auf GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
 - 
-  term: Markup
+  term: markup
   description: Ein System, um ein Dokument mit Anmerkungen zu versehen und zu formatieren.
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: Master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
-  term: Mitgliederdiagramm
+  term: mitgliederdiagramm
   description: Ein Repository-Diagramm, in dem alle Forks eines Repositorys gezeigt werden.
 - 
   term: erwähnen
@@ -422,11 +422,11 @@
   description: >-
     Ein untergeordnetes Team eines übergeordneten Teams. Sie können über mehrere untergeordnete Teams verfügen.
 - 
-  term: Netzwerkdiagramm
+  term: netzwerkdiagramm
   description: >-
     Ein Repository-Diagramm, in dem der Branch-Verlauf des gesamten Repository-Netzwerks angezeigt wird, einschließlich der Branches des Root-Repositorys und der Branches der Forks, die netzwerkspezifische Commits enthalten.
 - 
-  term: News-Feed
+  term: news feed
   description: >-
     Eine aktive Ansicht der Repositorys oder Personen, die von Ihnen beobachtet werden können. Der News-Feed einer Organisation zeigt die Aktivität zu den Repositorys, die der Organisation gehören.
 - 
@@ -436,7 +436,7 @@
 - 
   term: Benachrichtigung
   description: >-
-    Aktualisierungen, die je nach Ihren Einstellungen per Web oder E-Mail bereitgestellt wurden, die Ihnen die Informationen zu den für Sie relevanten Aktivitäten bereitstellen.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: OAuth App
   description: >-
@@ -543,10 +543,10 @@
   description: >-
     Kommentare von Mitarbeitern zu Pull Requests, welche die Änderungen genehmigen oder weitere Änderungen anfordern, bevor der Pull Request gemergt wird.
 - 
-  term: Pulse-Diagramm
+  term: pulse-Diagramm
   description: Ein Repository-Diagramm, in dem Sie eine Übersicht zur Aktivität eines Repositorys erhalten.
 - 
-  term: Punch-Diagramm
+  term: punch-Diagramm
   description: >-
     Ein Repository-Diagramm, das die Häufigkeit der Aktualisierungen an einem Repository basierend auf dem Wochentag und der Uhrzeit anzeigt.
 - 
@@ -680,7 +680,7 @@
   description: >-
     Eine visuelle Darstellung innerhalb eines Pull Requests dahingehend, dass Ihre Commits die für das Repository festgelegten Bedingungen erfüllen, an dem Sie mitwirken.
 - 
-  term: Statuschecks
+  term: statuschecks
   description: >-
     Statusprüfungen sind externe Prozesse, z. B. kontinuierliche Integrations-Builds, die für jeden Commit ausgeführt werden, den Du in einem Repository erstellst. Weitere Informationen findest Du unter „[Über Statusprüfungen](/articles/about-status-checks)."
 - 
@@ -714,7 +714,7 @@
   description: >-
     Eine Möglichkeit, Repositorys in einem bestimmten Themenbereich zu erkunden, nach Projekten zu suchen, zu denen beigetragen werden soll, und neue Lösungen zu einem spezifischen Problem auf GitHub zu finden.
 - 
-  term: Traffic-Diagramm
+  term: traffic-Diagramm
   description: >-
     Ein Repository-Diagramm, das den Traffic eines Repositorys anzeigt, darunter die vollständigen Klone (nicht Abrufe), Besucher der letzten 14 Tage, verweisende Websites und beliebte Inhalte.
 - 
@@ -754,9 +754,6 @@
   term: Webhooks
   description: >-
     Mithilfe von Webhooks können Sie GitHub Apps erstellen oder einrichten, die bestimmte Ereignisse auf GitHub.com abonnieren. Webhooks bieten eine Möglichkeit zum Senden von Benachrichtigungen an einen externen Webserver, sobald bestimmte Aktionen in einem Repository oder in einer Organisation auftreten. Werden auch als Dienst-Hook bezeichnet.
-- 
-  term: Works with GitHub
-  description: Eine Auflistung der Integrationen, die in GitHub funktionieren.
 - 
   term: Schreibzugriff
   description: >-

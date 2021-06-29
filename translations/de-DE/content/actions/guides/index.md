@@ -17,46 +17,95 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+learningTracks:
+  - getting_started
+  - continuous_integration
+  - continuous_deployment
+  - deploy_to_the_cloud
+  - hosting_your_own_runners
+  - create_actions
+layout: product-sublanding
+includeGuides:
+  - /actions/quickstart
+  - /actions/learn-github-actions/introduction-to-github-actions
+  - /actions/creating-actions/creating-a-docker-container-action
+  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+  - /actions/guides/building-and-testing-python
+  - /actions/guides/building-and-testing-nodejs
+  - /actions/guides/about-packaging-with-github-actions
+  - /actions/guides/publishing-docker-images
+  - /actions/guides/caching-dependencies-to-speed-up-workflows
+  - /actions/guides/about-continuous-integration
+  - /actions/guides/building-and-testing-powershell
+  - /actions/guides/building-and-testing-ruby
+  - /actions/guides/building-and-testing-java-with-maven
+  - /actions/guides/building-and-testing-java-with-gradle
+  - /actions/guides/building-and-testing-java-with-ant
+  - /actions/guide/building-and-testing-swift
+  - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /actions/guides/building-and-testing-xamarin-applications
+  - /actions/guides/publishing-nodejs-packages
+  - /actions/guides/publishing-java-packages-with-maven
+  - /actions/guides/publishing-java-packages-with-gradle
+  - /actions/guides/storing-workflow-data-as-artifacts
+  - /actions/guides/about-service-containers
+  - /actions/guides/creating-redis-service-containers
+  - /actions/guides/creating-postgresql-service-containers
+  - /actions/guides/deploying-to-amazon-elastic-container-service
+  - /actions/guides/deploying-to-azure-app-service
+  - /actions/guides/deploying-to-google-kubernetes-engine
+  - /actions/learn-github-actions/essential-features-of-github-actions
+  - /actions/learn-github-actions/security-hardening-for-github-actions
+  - /actions/creating-actions/about-actions
+  - /actions/creating-actions/creating-a-javascript-action
+  - /actions/creating-actions/creating-a-composite-run-steps-action
+  - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
+  - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
+  - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/learn-github-actions/migrating-from-jenkins-to-github-actions
+  - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
+  - /actions/guides/using-github-actions-for-project-management
+  - /actions/guides/closing-inactive-issues
+  - /actions/guides/scheduling-issue-creation
+  - /actions/guides/adding-labels-to-issues
+  - /actions/guides/commenting-on-an-issue-when-a-label-is-added
+  - /actions/guides/moving-assigned-issues-on-project-boards
+  - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /actions/guides/managing-github-actions-with-github-cli
+children:
+  - /about-continuous-integration
+  - /setting-up-continuous-integration-using-workflow-templates
+  - /building-and-testing-nodejs
+  - /building-and-testing-net
+  - /building-and-testing-powershell
+  - /building-and-testing-python
+  - /building-and-testing-ruby
+  - /building-and-testing-java-with-maven
+  - /building-and-testing-java-with-gradle
+  - /building-and-testing-java-with-ant
+  - /building-and-testing-swift
+  - /installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /building-and-testing-xamarin-applications
+  - /about-packaging-with-github-actions
+  - /publishing-nodejs-packages
+  - /publishing-java-packages-with-maven
+  - /publishing-java-packages-with-gradle
+  - /publishing-docker-images
+  - /storing-workflow-data-as-artifacts
+  - /caching-dependencies-to-speed-up-workflows
+  - /about-service-containers
+  - /creating-redis-service-containers
+  - /creating-postgresql-service-containers
+  - /deploying-to-amazon-elastic-container-service
+  - /deploying-to-azure-app-service
+  - /deploying-to-google-kubernetes-engine
+  - /using-github-actions-for-project-management
+  - /closing-inactive-issues
+  - /scheduling-issue-creation
+  - /adding-labels-to-issues
+  - /commenting-on-an-issue-when-a-label-is-added
+  - /moving-assigned-issues-on-project-boards
+  - /removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /managing-github-actions-with-github-cli
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-### Creating custom continuous integration workflows
-
-You can use {% data variables.product.prodname_actions %} to create custom continuous integration (CI) workflows that build and test projects written in different programming languages.
-
-{% link_in_list /about-continuous-integration %}
-{% link_in_list /setting-up-continuous-integration-using-workflow-templates %}
-{% link_in_list /building-and-testing-nodejs %}
-{% link_in_list /building-and-testing-powershell %}
-{% link_in_list /building-and-testing-python %}
-{% link_in_list /building-and-testing-ruby %}
-{% link_in_list /building-and-testing-java-with-maven %}
-{% link_in_list /building-and-testing-java-with-gradle %}
-{% link_in_list /building-and-testing-java-with-ant %}
-
-### Publishing software packages
-
-You can automate publishing software packages as part your continuous delivery (CD) workflow. Packages can be published to any package host and to {% data reusables.gated-features.packages %}.
-
-{% link_in_list /about-packaging-with-github-actions %}
-{% link_in_list /publishing-nodejs-packages %}
-{% link_in_list /publishing-java-packages-with-maven %}
-{% link_in_list /publishing-java-packages-with-gradle %}
-{% link_in_list /publishing-docker-images %}
-
-### Workflow-Daten speichern und zwischenspeichern
-
-Abhängigkeiten zwischenspeichern und Artefakte speichern, um Deinen Workflow effizienter ablaufen zu lassen.
-
-{% link_in_list /storing-workflow-data-as-artifacts %}
-{% link_in_list /caching-dependencies-to-speed-up-workflows %}
-
-### Using service containers in a workflow
-
-Connect services to your workflow using service containers.
-
-{% link_in_list /about-service-containers %}
-{% link_in_list /creating-redis-service-containers %}
-{% link_in_list /creating-postgresql-service-containers %}

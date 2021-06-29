@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Требования
@@ -21,6 +23,9 @@ This guide assumes you are familiar with the following AWS concepts:
  - [Using Security Groups](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (For managing network access to your instance)
  - [Elastic IP Addresses (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (Strongly recommended for production environments)
  - [EC2 and Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
+ - [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
+
+ This guide recommends the principle of least privilege when setting up {% data variables.product.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
 ### Hardware considerations
 
@@ -28,17 +33,11 @@ This guide assumes you are familiar with the following AWS concepts:
 
 ### Determining the instance type
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the type of virtual machine that best fits the needs of your organization.
-
-#### Supported instance types
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Recommended instance types
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### Selecting the {% data variables.product.prodname_ghe_server %} AMI
 
@@ -130,4 +129,5 @@ Both primary and replica instances should be assigned separate EIPs in productio
 
 ### Дополнительная литература
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

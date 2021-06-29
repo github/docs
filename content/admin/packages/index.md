@@ -4,12 +4,18 @@ intro: 'You can enable {% data variables.product.prodname_registry %} for your e
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '>=2.22'
+topics:
+  - Enterprise
+children:
+  - /getting-started-with-github-packages-for-your-enterprise
+  - /enabling-github-packages-with-aws
+  - /enabling-github-packages-with-azure-blob-storage
+  - /enabling-github-packages-with-minio
+  - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
+  - /configuring-package-ecosystem-support-for-your-enterprise
+shortTitle: Manage GitHub Packages
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_with_intro /enabling-github-packages-for-your-enterprise %}
-{% link_with_intro /quickstart-for-configuring-minio-storage %}
-{% link_with_intro /configuring-packages-support-for-your-enterprise %}
-{% link_with_intro /configuring-third-party-storage-for-packages %}
+  {% ifversion ghes > 2.22 %}
+  {% endif %}

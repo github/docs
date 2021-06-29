@@ -1,4 +1,5 @@
-const app = require('../../server')
+const createApp = require('../../lib/app')
+const app = createApp()
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
@@ -30,6 +31,12 @@ describe('enterprise deprecation', () => {
     expect(res.headers.location).toBe('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile')
   })
 
+  test('can access redirects from redirects.json in deprecated enterprise content >2.17', async () => {
+    const res = await get('/enterprise/2.19/admin/categories/time')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization')
+  })
+
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const $ = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
@@ -40,7 +47,7 @@ describe('enterprise deprecation', () => {
   test('sets the expected x-robots-tag header for deprecated Enterprise pages', async () => {
     const res = await get('/en/enterprise/2.13/user/articles/about-branches')
     expect(res.statusCode).toBe(200)
-    expect(res.get('x-robots-tag')).toBe('none')
+    expect(res.get('x-robots-tag')).toBe('noindex')
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
@@ -94,15 +101,15 @@ describe('deprecation banner', () => {
   })
 })
 
-describe('does not render helpfulness prompt or contribution button', () => {
-  test('does not render helpfulness prompt', async () => {
+describe('does not render survey prompt or contribution button', () => {
+  test('does not render survey prompt', async () => {
     let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    expect($('.js-survey').length).toBeGreaterThan(0)
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('.js-helpfulness').length).toBe(0)
+      expect($('.js-survey').length).toBe(0)
     } else {
-      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 
@@ -113,7 +120,7 @@ describe('does not render helpfulness prompt or contribution button', () => {
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
-      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+      expect($('.js-survey').length).toBeGreaterThan(0)
     }
   })
 })
@@ -169,6 +176,16 @@ describe('JS and CSS assets', () => {
     expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
   })
 
+  it('returns the expected node_modules', async () => {
+    const result = await supertest(app)
+      .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
+      .set('Referrer', '/en/enterprise/2.17')
+
+    expect(result.statusCode).toBe(200)
+    expect(result.get('x-is-archived')).toBe('true')
+    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+  })
+
   it('returns the expected favicon', async () => {
     const result = await supertest(app)
       .get('/assets/images/site/favicon.svg')
@@ -179,7 +196,7 @@ describe('JS and CSS assets', () => {
     expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
   })
 
-  it('returns the expected CSS file  ( <2.13 )', async () => {
+  it('returns the expected CSS file ( <2.13 )', async () => {
     const result = await supertest(app)
       .get('/assets/stylesheets/application.css')
       .set('Referrer', '/en/enterprise/2.12')

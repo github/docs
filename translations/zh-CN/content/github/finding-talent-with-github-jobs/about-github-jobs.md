@@ -6,6 +6,8 @@ redirect_from:
 intro: '您可以在 {% data variables.product.prodname_jobs %} 上发布职位招聘，为您的企业寻找人才。'
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 在发布职位之前，必须先创建 {% data variables.product.prodname_dotcom %} 帐户并验证您的电子邮件地址。 更多信息请参阅“[注册新的 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”和“[验证电子邮件地址](/articles/verifying-your-email-address)”。

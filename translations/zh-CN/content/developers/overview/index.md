@@ -1,17 +1,17 @@
 ---
 title: 概览
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and secure your deployments.{% else %}, secure your deployments, and join {% data variables.product.prodname_dotcom %}''s Developer Program.{% endif %}'
+intro: '了解 {% data variables.product.prodname_dotcom %} 的 API{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 并保护您的部署。{% else %}、保护您的部署并加入 {% data variables.product.prodname_dotcom %} 开发者计划。{% endif %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+children:
+  - /about-githubs-apis
+  - /managing-deploy-keys
+  - /viewing-deployment-history
+  - /using-ssh-agent-forwarding
+  - /secret-scanning-partner-program
+  - /replacing-github-services
+  - /github-developer-program
 ---
 
-### 目录
-
-{% link_in_list /about-githubs-apis %}
-{% link_in_list /managing-deploy-keys %}
-{% link_in_list /using-ssh-agent-forwarding %}
-{% link_in_list /secret-scanning %}
-{% link_in_list /replacing-github-services %}
-{% link_in_list /github-developer-program %}

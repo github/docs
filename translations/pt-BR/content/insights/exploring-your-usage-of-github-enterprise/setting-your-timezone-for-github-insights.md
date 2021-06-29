@@ -1,8 +1,7 @@
 ---
 title: Definindo o seu fuso horário para o GitHub Insights
 intro: 'Você pode definir o fuso horário para as métricas que você visualizar em {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
-permissions: 'Qualquer pessoa com acesso ao {% data variables.product.prodname_insights %} pode definir seu próprio fuso horário.'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   enterprise-server: '*'
 ---

@@ -9,12 +9,18 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions
   - /actions/building-and-testing-code-with-continuous-integration/setting-up-continuous-integration-using-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Anyone with write permission to a repository can set up continuous integration (CI) using {% data variables.product.prodname_actions %}.
 
@@ -32,14 +38,15 @@ After you set up CI, you can customize the workflow to meet your needs.
 
 Once a push is made to your repository, you can follow the status and detailed logs of your continuous integration workflow run on {% data variables.product.prodname_dotcom %} and receive customized notifications. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)" and "[Managing a workflow run](/articles/managing-a-workflow-run)."
 
-{% data reusables.repositories.actions-workflow-status-badge-into %}
+{% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
-### Further reading
+## Further reading
 
 - "[About continuous integration](/articles/about-continuous-integration)"
 - "[Managing a workflow run](/articles/managing-a-workflow-run)"
-{% if currentVersion == "free-pro-team@latest" %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+{% ifversion fpt %}
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

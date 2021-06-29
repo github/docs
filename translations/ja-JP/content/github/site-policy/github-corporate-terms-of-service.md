@@ -4,12 +4,17 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 貴社のビジネスにおけるニーズを満たすために GitHub をお選びいただき、ありがとうございます。 本契約を注意深くお読みください。GitHub がお客様と書面による合意を別途行わない限り、本製品 (以下に定義) の利用に対しては、この契約が適用されます。 「同意する」またはそれに類似するボタンをクリックするか、本製品を利用することにより、お客様は本契約の規約および条件の全てに同意することになります。 お客様が、企業またはその他の法人を代表して契約を締結しようとする場合、お客様は、本契約を締結するためにその企業またはその他の法人に義務を負担させる法的権限を持つことを表明するものとします。
 
 ### GitHub企業向け利用規約
-Version Effective Date: November 16, 2020
+このバージョンの発効日: 2020 年 11 月 16 日
 
 本契約は、以下に詳述する GitHub の提供品 (併せて「**製品**」) に対して適用されます。
 - 「サービス」、
@@ -21,7 +26,7 @@ Version Effective Date: November 16, 2020
 
 「**関係会社**」とは、直接的または間接的に支配している、支配されている、あるいは当事者と共通の支配下にある、あらゆる法人を意味します。本定義において「支配」とは、所有権のうち 50% 超を持つか、当該法人の経営管理を指揮する権限を有することを意味します。
 
-「**契約**」とは、集合的に、本書に含まれるか、または本書で参照されるすべての規約、条件、通知、並びに、当社が適宜「サービス」に掲載する場合があるその他すべての操作規則、ポリシーおよび手順を指します。 GitHub のサイトポリシーは、[https://docs.github.com/categories/site-policy](/categories/site-policy) でご確認いただけます。
+「**契約**」とは、集合的に、本書に含まれるか、または本書で参照されるすべての規約、条件、通知、並びに、当社が適宜「サービス」に掲載する場合があるその他すべての操作規則、ポリシーおよび手順を指します。 GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 「**全ユーザ**」とは、「サービス」を利用する、「お客様」の「ユーザ」および「外部ユーザ」を総称的に意味します。
 
@@ -108,7 +113,7 @@ Version Effective Date: November 16, 2020
 場合によっては、お客様による GitHub の利用について、第三者による規約が適用されることがあります。 たとえば、お客様が独自の条項またはライセンス契約を持つ Organization の成員である場合、お客様が「サービス」に統合するアプリケーションをダウンロードしている場合、お客様が他のサービスに認証するために「サービス」を利用している場合などです。 本契約は、お客様と GitHub との完全な合意を示していますが、お客様と第三者との関係については第三者の規約が適用されます。
 
 #### 5. アメリカ合衆国の祝日 米国連邦政府の条項
-If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+お客様が米国 government entity or otherwise accessing or using the Service in a government capacity, the [U.S. 連邦政府修正条項](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)が適用され、お客様はその条項に同意するものとします。
 
 #### 6. Enterprise Cloud Service Level Agreement
 GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
@@ -122,7 +127,7 @@ GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided i
 お客様が「製品」を利用する際には、[「GitHub利用規程」](/articles/github-acceptable-use-policies)および[「GitHubコミュニティガイドライン」](/articles/github-community-guidelines)に従う必要があります。 お客様は、いかなる管轄区域内でも、違法、わいせつ、不快、または詐欺的なコンテンツまたは活動 (損害を与えたりそう標榜したりする、ネットワークまたはシステムの完全性またはセキュリティを妨害または侵害する、フィルタを回避する、迷惑・虐待的・虚偽的なメッセージ、ウイルスまたは有害なコードを送信する、あるいは第三者の権利を侵害するなど) の目的で「サービス」を使用してはなりません。
 
 #### 3. プライバシー
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
+The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
 
 ### D. コンテンツの責任、所有権、ライセンス権
 
@@ -191,7 +196,7 @@ GitHub will provide notice regarding our access to private repository content, u
 
 #### 1. 価格、料金
 
-**支払い条件** 料金については、[github.com/pricing](https://github.com/pricing) に掲載されているものが適用されます (ただし、関係者による協議を行い、「注文書」に記載されている場合を除きます)。 お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 設定しなければなりません。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 お客様が定められた期限に「料金」を支払わなかった場合、普通法または衡平法に基づく法的措置を取ることに加え、GitHub は次の権利を留保します。(i) 過去の未払い金に対して毎月 1.0% か、法律により許容される最高額の金利のうち、いずれか低い額の金利を課し、かつ回収に要するあらゆる費用を課すこと、および (ii) 該当する「注文書」または SOW を解約すること。 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+**支払い条件** 料金については、[github.com/pricing](https://github.com/pricing) に掲載されているものが適用されます (ただし、関係者による協議を行い、「注文書」に記載されている場合を除きます)。 お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
 **従量制支払い:** 「サービス」の一部の機能は、使用量に基づいて請求されます。 かかる「サービス」機能は、限られた使用量および期間であれば、追加料金なしでご利用のプランで使用できる場合があります。 ご利用のプランに含まれる数量を超えて有料の「サービス」機能を購入することを選択した場合、お客様は前月の実際の使用量に基づいてかかる「サービス」機能の料金を支払います。 かかる購入に対する毎月の支払いは、後払いで定期的に請求されます。ただし、請求書払いのお客様については、有料の「サービス」機能は前払いとなります。 詳しくは、[GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)を参照してください。
 
@@ -278,7 +283,7 @@ GitHub は、独自の裁量により、いつでも本契約を修正する権�
 GitHub は、「アップデート」および新機能の追加により、サービスを変更します。 上記にかかわらず、GitHubは通知の有無にかかわらず、「サービス」(またはその一部) をいつでも変更する、あるいは一時的または恒久的に停止する権利を留保するものとします。
 
 ### S. サポート
-GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 日の標準的な技術「サポート」を、「サービス」に対して無料で提供するものとします。 （アメリカの祝日は除く） 「Standard Support」は、「GitHub Support」を通じたウェブベースのチケット発行によってのみ提供され、「サポート」の要請は、GitHub の「サポート」チームがやり取りできる「ユーザ」から行う必要があります。 GitHub may provide premium Support (subject to the [GitHub Premium Support for Enterprise Cloud](/articles/about-github-premium-support) terms) or dedicated technical Support for the Service at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
+GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 日の標準的な技術「サポート」を、「サービス」に対して無料で提供するものとします。 （アメリカの祝日は除く） 「Standard Support」は、「GitHub Support」を通じたウェブベースのチケット発行によってのみ提供され、「サポート」の要請は、GitHub の「サポート」チームがやり取りできる「ユーザ」から行う必要があります。 GitHub は、「注文書」または「SOW」に記載されている「サポート」レベル、「料金」、および「プラン契約期間」で、「サービス」に対してプレミアム「サポート」 (「[GitHub Enterprise Cloud の GitHub Premium Support](/articles/about-github-premium-support)」の規定に従う) または専用技術「サポート」を提供することができます。
 
 ### T. 雑則
 
@@ -310,4 +315,4 @@ GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 �
 各「当事者」は、本契約の主題に関して独立契約者です。 本契約に含まれるいかなる規定も、法的関係、パートナーシップ、合弁事業、雇用、代理、受託、その他これらに類する関係を両「当事者」間に構築するものとはいかなる場合にも見なされるまたは解釈されるものではなく、またいずれの「当事者」も、他方を契約上拘束することはできません。
 
 #### 10. 質問
-「利用規約」について質問がございましたら、 [Contact us](https://github.com/contact/).
+「利用規約」について質問がございましたら、 [お問い合わせください](https://github.com/contact/)。

@@ -1,17 +1,20 @@
 ---
 title: Managing billing for your enterprise
-intro: 'You can view billing information for your enterprise.'
+intro: You can view billing information for your enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
   - /enterprise/admin/overview/managing-billing-for-github-enterprise
   - /admin/overview/managing-billing-for-github-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - Enterprise
+shortTitle: Manage billing
 ---
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.github-ae.about-billing %} Once per day, {% data variables.product.prodname_dotcom %} will count the number of users with a license for your enterprise. {% data variables.product.company_short %} bills you for each licensed user regardless of whether the user logged into {% data variables.product.prodname_ghe_managed %} that day.
 
@@ -24,25 +27,25 @@ For example, here are the costs for users with licenses on different dates.
 User | License dates | Counted days | Cost
 ---- | ------------ | ------- | -----
 @octocat | January 1 - January 31 | 31 | $39
-@robocat | February 1 - February 28 | 29 | $35.23
+@robocat | February 1 - February 28 | 28 | $35.23
 @devtocat  | January 15 - January 31 | 17 | $21.39
 @doctocat | January 1 - January 15 | 31 | $39
 @prodocat | January 7 - January 15 | 25 | $31.45
 @monalisa | January 1 - January 7,<br>January 15 - January 31 | 31 | $39
 
-Your enterprise can include one or more instances. {% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
+{% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
 
 You can see your current usage in your [Azure account portal](https://portal.azure.com).
 
 {% else %}
 
-### About billing for enterprise accounts
+## About billing for enterprise accounts
 
 Enterprise accounts are currently available to {% data variables.product.prodname_enterprise %} customers paying by invoice. Billing for all of the organizations and {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services (including paid licenses in organizations, {% data variables.large_files.product_name_long %} data packs, and subscriptions for {% data variables.product.prodname_marketplace %} apps).
 
-Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts. For more information about enterprise accounts, {% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
+Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts. For more information about enterprise accounts, {% ifversion fpt or ghae %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
-### Viewing your current invoice
+## Viewing your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -50,7 +53,7 @@ Enterprise owners and billing managers can access and manage all billing setting
 4. Under "Quick Actions", click **View invoice**.
   ![View invoice link](/assets/images/help/business-accounts/view-invoice-link.png)
 
-### Paying your current invoice
+## Paying your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -60,7 +63,7 @@ Enterprise owners and billing managers can access and manage all billing setting
 5. Under "Pay invoice", type your credit card information in the secure form, then click **Pay Invoice**.
   ![Confirm and pay invoice](/assets/images/help/business-accounts/pay-invoice.png)
 
-### Downloading your current invoice
+## Downloading your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -68,7 +71,7 @@ Enterprise owners and billing managers can access and manage all billing setting
 4. Under "Quick Actions", click **Download current invoice**.
   ![Download current invoice link](/assets/images/help/business-accounts/download-current-invoice.png)
 
-### Viewing your payment history
+## Viewing your payment history
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

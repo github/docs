@@ -1,8 +1,9 @@
 const { sortBy } = require('lodash')
 const { parse, buildASTSchema } = require('graphql')
 const helpers = require('./schema-helpers')
+const fs = require('fs')
 
-const externalScalars = require('../../../lib/graphql/non-schema-scalars')
+const externalScalars = JSON.parse(fs.readFileSync('../../../lib/graphql/non-schema-scalars.json'))
   .map(scalar => {
     scalar.id = helpers.getId(scalar.name)
     scalar.href = helpers.getFullLink('scalars', scalar.id)
@@ -348,7 +349,7 @@ module.exports = async function processSchemas (idl, previewsPerVersion) {
   // add non-schema scalars and sort all scalars alphabetically
   data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
 
-  // sort all the types alphebatically
+  // sort all the types alphabetically
   data.queries.connections = sortBy(data.queries.connections, 'name')
   data.queries.fields = sortBy(data.queries.fields, 'name')
   data.mutations = sortBy(data.mutations, 'name')

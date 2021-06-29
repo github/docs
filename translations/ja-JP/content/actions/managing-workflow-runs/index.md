@@ -1,7 +1,7 @@
 ---
 title: ワークフロー実行を管理する
 shortTitle: ワークフロー実行を管理する
-intro: 'ワークフローの各ステップのステータスと結果の表示、保留中のワークフローのキャンセル、請求可能なジョブ実行時間の表示、失敗したワークフローのデバッグと再実行、ログの検索とダウンロード、アーティファクトのダウンロードを行うことができます。'
+intro: 'ワークフローの各ステップのステータスと結果の表示、保留中のワークフローのキャンセル、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}デプロイメントのレビュー、{% endif %}支払い可能なジョブの実行分の表示、失敗したワークフローのデバッグと再実行、ログの検索とダウンロード、成果物のダウンロードを行うことができます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/viewing-your-repository-s-workflows
@@ -13,20 +13,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+children:
+  - /using-the-visualization-graph
+  - /viewing-workflow-run-history
+  - /using-workflow-run-logs
+  - /manually-running-a-workflow
+  - /re-running-a-workflow
+  - /canceling-a-workflow
+  - /approving-workflow-runs-from-public-forks
+  - /reviewing-deployments
+  - /disabling-and-enabling-a-workflow
+  - /deleting-a-workflow-run
+  - /viewing-job-execution-time
+  - /downloading-workflow-artifacts
+  - /removing-workflow-artifacts
+  - /enabling-debug-logging
+  - /adding-a-workflow-status-badge
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
-
-{% link_in_list /viewing-workflow-run-history %}
-{% link_in_list /using-workflow-run-logs %}
-{% link_in_list /manually-running-a-workflow %}
-{% link_in_list /re-running-a-workflow %}
-{% link_in_list /canceling-a-workflow %}
-{% link_in_list /disabling-and-enabling-a-workflow %}
-{% link_in_list /deleting-a-workflow-run %}
-{% link_in_list /viewing-job-execution-time %}
-{% link_in_list /downloading-workflow-artifacts %}
-{% link_in_list /removing-workflow-artifacts %}
-{% link_in_list /enabling-debug-logging %}
-{% link_in_list /adding-a-workflow-status-badge %}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% endif %}

@@ -5,18 +5,28 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 authors:
   - potatoqualitee
+type: tutorial
+topics:
+  - CI
+  - Powershell
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
 本指南演示如何将 PowerShell 用于 CI。 它介绍了如何使用 Pester、安装依赖项、测试模块以及发布到 PowerShell Gallery。
 
-{% data variables.product.prodname_dotcom %} 托管的运行器具有预安装了软件的工具缓存，包括 PowerShell 和 Pester。 有关最新版软件以及 PowerShell 和 Pester 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% data variables.product.prodname_dotcom %} 托管的运行器具有预安装了软件的工具缓存，包括 PowerShell 和 Pester。
+
+{% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}有关最新版软件以及 PowerShell 和 Pester 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% endif %}
 
 ### 基本要求
 
@@ -44,15 +54,15 @@ jobs:
     name: Pester test
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Perform a Pester test from the command-line
-      shell: pwsh
-      run: Test-Path resultsfile.log | Should -Be $true
-    - name: Perform a Pester test from the Tests.ps1 file
-      shell: pwsh
-      run: |
-        Invoke-Pester Unit.Tests.ps1 -Passthru
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Perform a Pester test from the command-line
+        shell: pwsh
+        run: Test-Path resultsfile.log | Should -Be $true
+      - name: Perform a Pester test from the Tests.ps1 file
+        shell: pwsh
+        run: |
+          Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
 {% endraw %}
 
@@ -60,7 +70,11 @@ jobs:
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
 * `Should -Be $true` - 使用 Pester 定义预期结果。 如果结果是非预期的，则 {% data variables.product.prodname_actions %} 会将此标记为失败的测试。 例如：
 
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+  ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test-updated.png)
+  {% else %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test.png)
+  {% endif %}
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - 使用 Pester 执行文件 `Unit.Tests.ps1` 中定义的测试。 例如，要执行上述相同的测试， `Unit.Tests.ps1` 将包含以下内容：
   ```
@@ -91,7 +105,7 @@ jobs:
 
 {% endnote %}
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 例如，以下作业将安装 `SqlServer` 和 `PSScriptAnalyzer` 模块：
 
@@ -102,12 +116,12 @@ jobs:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install from PSGallery
-      shell: pwsh
-      run: |
-        Set-PSRepository PSGallery -InstallationPolicy Trusted
-        Install-Module SqlServer, PSScriptAnalyzer
+      - uses: actions/checkout@v2
+      - name: Install from PSGallery
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module SqlServer, PSScriptAnalyzer
 ```
 {% endraw %}
 
@@ -119,7 +133,7 @@ jobs:
 
 #### 缓存依赖项
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存 PowerShell 依赖项， 这样在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时可以恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 PowerShell 根据运行器的操作系统将其依赖项缓存在不同的位置。 例如，以下 Ubuntu 示例中使用的 `path` 位置在 Windows 操作系统中是不同的。
 
@@ -156,23 +170,23 @@ steps:
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install PSScriptAnalyzer module
-      shell: pwsh
-      run: |
-            Set-PSRepository PSGallery -InstallationPolicy Trusted
-            Install-Module PSScriptAnalyzer -ErrorAction Stop
-    - name: Lint with PSScriptAnalyzer
-      shell: pwsh
-      run: |
-            Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
-            $errors   = $issues.Where({$_.Severity -eq 'Error'})
-            $warnings = $issues.Where({$_.Severity -eq 'Warning'})
-            if ($errors) {
-                Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
-            } else {
-                Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
-            }
+      - uses: actions/checkout@v2
+      - name: Install PSScriptAnalyzer module
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -ErrorAction Stop
+      - name: Lint with PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
+          $errors   = $issues.Where({$_.Severity -eq 'Error'})
+          $warnings = $issues.Where({$_.Severity -eq 'Warning'})
+          if ($errors) {
+              Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
+          } else {
+              Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+          }
 ```
 {% endraw %}
 
@@ -193,15 +207,15 @@ jobs:
     name: Run Pester and upload results
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Test with Pester
-      shell: pwsh
-      run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: ubuntu-Unit-Tests
-        path: Unit.Tests.xml
+      - uses: actions/checkout@v2
+      - name: Test with Pester
+        shell: pwsh
+        run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: ubuntu-Unit-Tests
+          path: Unit.Tests.xml
     if: ${{ always() }}
 ```
 {% endraw %}
@@ -210,7 +224,7 @@ jobs:
 
 ### 发布到 PowerShell Gallery
 
-您可以配置工作流程在 CI 测试通过时将 PowerShell 模块发布到 PowerShell Gallery。 您可以使用仓库机密来存储发布软件包所需的任何令牌或凭据。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+您可以配置工作流程在 CI 测试通过时将 PowerShell 模块发布到 PowerShell Gallery。 您可以使用机密来存储发布软件包所需的任何令牌或凭据。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 下面的示例创建软件包并使用 `Publish-Module` 将其发布到PowerShell Gallery：
 
@@ -226,13 +240,13 @@ jobs:
   publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build and publish
-      env:
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-      shell: pwsh
-      run: |
-        ./build.ps1 -Path /tmp/samplemodule
-        Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
+      - uses: actions/checkout@v2
+      - name: Build and publish
+        env:
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        shell: pwsh
+        run: |
+          ./build.ps1 -Path /tmp/samplemodule
+          Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
 {% endraw %}

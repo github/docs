@@ -7,10 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre executores auto-hospedados
 
@@ -48,7 +52,7 @@ Os executores auto-hospedados em {% data variables.product.prodname_dotcom %} of
 
 Você pode usar qualquer máquina como um executor auto-hospedado, desde que ela atenda a estes requisitos:
 
-* Você pode instalar e executar o aplicativo do executor auto-hospedado na máquina. Para obter mais informações, consulte "[Sistemas operacionais compatíveis com os executores auto-hospedados](#supported-operating-systems-for-self-hosted-runners)".
+* Você pode instalar e executar o aplicativo do executor auto-hospedado na máquina. Para obter mais informações, consulte "[Arquiteturas e sistemas operacionais compatíveis com executores auto-hospedados](#supported-architectures-and-operating-systems-for-self-hosted-runners)".
 * A máquina pode comunicar-se com {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Comunicação entre os executores auto-hospedados e {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)".
 * A máquina tem recursos de hardware suficientes para o tipo de fluxos de trabalho que você planeja executar. O aplicativo do executor auto-hospedado requer apenas recursos mínimos.
 * Se você desejar executar fluxos de trabalho que usam ações do contêiner do Docker ou dos contêineres de serviço, você deverá usar uma máquina Linux e o Docker deve estar instalados.
@@ -61,15 +65,20 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
 - **Tempo de fila de tarefas** - Cada trabalho para executores auto-hospedados pode ser enfileirado por um máximo de 24 horas. Se um executor auto-hospedado não começar a executar a tarefa dentro deste limite, a tarefa será encerrada e não será concluída.
 {% data reusables.github-actions.usage-api-requests %}
 - **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### Sistemas operacionais compatíveis com executores auto-hospedados
+### Continuidade do fluxo de trabalho para executores auto-hospedados
+
+{% data reusables.github-actions.runner-workflow-continuity %}
+
+### Arquiteturas e sistemas operacionais compatíveis com executores auto-hospedados
 
 Os sistemas operacionais a seguir são compatíveis com o aplicativo de execução auto-hospedado.
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 ou posterior
+- CentOS 7 ou posterior
 - Oracle Linux 7
 - Fedora 29 ou versão posterior
 - Debian 9 ou versão posterior
@@ -87,9 +96,17 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) or versão posterior
+
+#### Arquiteturas
+
+As seguintes arquiteturas de processador são compatíveis com o aplicativo do executor auto-hospedado.
+
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Apenas Linux.
+- `ARM32` - Apenas Linux.
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -103,6 +120,15 @@ A máquina pode comunicar-se com {% data variables.product.prodname_actions %}. 
 
 As enquetes dos executores auto-hospedados {% data variables.product.product_name %} para recuperar atualizações do aplicativo e verificar se algum trabalho está na fila para processamento. O executor auto-hospedado usa uma _enquete longa_ HTTPS que abre uma conexão com {% data variables.product.product_name %} por 50 segundos e, se nenhuma resposta for recebida, o período de espera se encerra a uma nova enquete é criada. O aplicativo deve estar rodando na máquina para aceitar e executar trabalhos do {% data variables.product.prodname_actions %}.
 
+{% if currentVersion == "github-ae@latest" %}
+Você deve garantir que o executor auto-hospedado tenha acesso à rede para comunicar-se com a
+URL de {% data variables.product.prodname_ghe_managed %}.
+Por exemplo, se o nome da sua instância for `octoghae`, você precisará permitir que o executor auto-hospedado acesse `octoghae.github.com`.
+Se você usa uma lista de endereços IP para a
+
+conta da sua organização ou empresa de {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do seu executor auto-hospedado à lista de permissão. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.prodname_dotcom %} URLs listadas abaixo.
@@ -111,10 +137,16 @@ Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
 codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
 ```
 
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

@@ -1,5 +1,5 @@
 ---
-title: 自己ホストランナーについて
+title: セルフホストランナーについて
 intro: '独自のランナーをホストして、{% data variables.product.prodname_actions %}ワークフロー中でジョブの実行に使われる環境をカスタマイズできます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
@@ -7,12 +7,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### 自己ホストランナーについて
+### セルフホストランナーについて
 
 {% data reusables.github-actions.self-hosted-runner-description %} セルフホストランナーは、物理、仮想、コンテナ内、オンプレミス、クラウド内のいずれでも可能です。
 
@@ -48,7 +52,7 @@ versions:
 
 以下の要求を満たしていれば、いかなるマシンもセルフホストランナーとして利用できます。
 
-* マシン上にセルフホストランナーアプリケーションをあなたがインストールして実行できること。 詳しい情報については「[セルフホストランナーでサポートされるオペレーティングシステム](#supported-operating-systems-for-self-hosted-runners)」を参照してください。
+* マシン上にセルフホストランナーアプリケーションをあなたがインストールして実行できること。 詳しい情報については、「[セルフホストランナーでサポートされるアーキテクチャとオペレーティングシステム](#supported-architectures-and-operating-systems-for-self-hosted-runners)」を参照してください。
 * そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[セルフホストランナーと{% data variables.product.prodname_dotcom %}の通信](#communication-between-self-hosted-runners-and-github)」を参照してください。
 * そのマシンが、実行しようとしている種類のワークフローに対して十分なハードウェアリソースを持っていること。 セルフホストランナーアプリケーションそのものは、最小限のリソースしか必要としません。
 * Dockerコンテナアクションあるいはサービスコンテナを使うワークフローを実行したいなら、Linuxのマシンを使い、Dockerがインストールされていなければなりません。
@@ -61,15 +65,20 @@ versions:
 - **ジョブキュー時間** - セルフホストランナーの各ジョブは、最大24時間キューイングできます。 この制限内にセルフホストランナーがジョブの実行を開始しなければ、ジョブは終了させられ、完了に失敗します。
 {% data reusables.github-actions.usage-api-requests %}
 - **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### セルフホストランナーをサポートするオペレーティングシステム
+### セルフホストランナーのワークフローの継続性
+
+{% data reusables.github-actions.runner-workflow-continuity %}
+
+### セルフホストランナーをサポートするアーキテクチャとオペレーティングシステム
 
 セルフホストランナーアプリケーション用には、以下のオペレーティングシステムがサポートされています。
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 or later
+- CentOS 7 or later
 - Oracle Linux 7
 - Fedora 29以降
 - Debian 9以降
@@ -87,21 +96,38 @@ versions:
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra)以降
+
+#### アーキテクチャ
+
+セルフホストランナーアプリケーションでは、次のプロセッサアーキテクチャがサポートされています。
+
+- `x64` - Linux、macOS、Windows。
+- `ARM64` - Linux のみ。
+- `ARM32` - Linux のみ。
 
 {% if enterpriseServerVersions contains currentVersion %}
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 
-そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[セルフホストランナーと{% data variables.product.prodname_dotcom %}の通信](#communication-between-self-hosted-runners-and-github)」を参照してください。
+そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[{% data variables.product.prodname_dotcom_the_website %}からのアクションへのアクセスの管理](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)」を参照し、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。
 
 {% endif %}
 
 ### セルフホストランナーと{% data variables.product.product_name %}との通信
 
 The self-hosted runner polls {% data variables.product.prodname_dotcom %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.prodname_dotcom %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. アプリケーションは、{% data variables.product.prodname_actions %}ジョブを受け付けて実行するためにマシン上で動作していなければなりません。
+
+{% if currentVersion == "github-ae@latest" %}
+セルフホストランナーが
+{% data variables.product.prodname_ghe_managed %} URL と通信するための適切なネットワークアクセスがあることを確認する必要があります。
+たとえば、インスタンス名が `octoghae` の場合、セルフホストランナーが `octoghae.github.com` にアクセスできるようにする必要があります。
+IP アドレス許可リストを
+
+{% data variables.product.prodname_dotcom %} Organization または Enterprise アカウントで使用する場合は、セルフホストランナーの IP アドレスを許可リストに追加する必要があります。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」を参照してください。
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -111,10 +137,16 @@ The self-hosted runner polls {% data variables.product.prodname_dotcom %} to ret
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
 codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
 ```
 
-{% data variables.product.prodname_dotcom %} OrganizationあるいはEnterpriseアカウントでIPアドレス許可リストを使うなら、セルフホストランナーのIPアドレスを許可リストに追加しなければなりません。 詳しい情報については「[Organizationの許可IPアドレスの管理](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」あるいは「[Enterpriseアカウントでのセキュリティ設定の適用](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)」を参照してください。
+{% data variables.product.prodname_dotcom %} OrganizationあるいはEnterpriseアカウントでIPアドレス許可リストを使うなら、セルフホストランナーのIPアドレスを許可リストに追加しなければなりません。 詳しい情報については「[Organizationの許可IPアドレスの管理](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」あるいは「[Enterpriseアカウントでのセキュリティ設定の適用](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)」を参照してください。
 
 {% else %}
 

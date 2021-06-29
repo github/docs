@@ -1,0 +1,1 @@
+1. Debajo del nombre de tu repositorio, da clic en {% octicon "issue-opened" aria-label="The issues icon" %}**Informes de problemas** o en {% octicon "git-pull-request" aria-label="The pull request icon" %}**Solicitudes de extracción**. ![Selección de la pestaña de propuestas y solicitudes de extracción](/assets/images/help/repository/repo-settings-issues-pull-requests.png)

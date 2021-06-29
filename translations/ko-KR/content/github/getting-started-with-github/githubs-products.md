@@ -1,5 +1,6 @@
 ---
 title: GitHub's products
+intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -7,7 +8,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
+
+### About {% data variables.product.prodname_dotcom %}'s products
 
 {% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
@@ -78,26 +87,17 @@ In addition to the features available with {% data variables.product.prodname_te
 - Additional security, compliance, and deployment controls
 - Authentication with SAML single sign-on
 - Access provisioning with SAML or SCIM
-- {% data variables.product.prodname_github_connect %}
+- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} also includes:
 - {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."
 - 50,000 {% data variables.product.prodname_actions %} minutes
 - 50GB {% data variables.product.prodname_registry %} storage
+- Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
 - A service level agreement for 99.9% monthly uptime
 - The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>."
 
 You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Setting up a trial of {% data variables.product.prodname_ghe_cloud %}</a>."
 
 For more information about hosting your own instance of [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), contact {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
-
-### {% data variables.product.prodname_ghe_one %}
-
-{% data variables.product.prodname_ghe_one %} includes [{% data variables.product.prodname_enterprise %}](#github-enterprise), plus:
-
-- {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
-- {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" and "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
-- [{% data variables.product.prodname_learning %} for organizations](https://lab.github.com/organizations)
-
-For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact [{% data variables.product.product_name %}'s Sales team](https://enterprise.github.com/contact).

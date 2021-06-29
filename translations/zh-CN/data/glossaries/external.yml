@@ -35,7 +35,7 @@
 - 
   term: 个人简历
   description: >-
-    个人资料中用户生成的描述：https://help.github.com/articles/adding-a-bio-to-your-profile/
+    个人资料中用户生成的描述：[为个人资料添加简介](/articles/adding-a-bio-to-your-profile)
 - 
   term: 结算周期
   description: 特定结算方案的时间间隔。
@@ -78,7 +78,7 @@
   term: 卡
   description: 项目板中与某个议题或拉取请求关联的可移动方框。
 - 
-  term: 检查
+  term: check
   description: >-
     检查是指 {% data variables.product.product_name %} 上的一种状态检查。请参阅“[状态检查](#status-checks)”。
 - 
@@ -88,7 +88,7 @@
 - 
   term: 优选
   description: >-
-    从一系列更改（通常是提交）中选择一部分更改，并在不同的代码库上将它们记录为新的更改系列。在 Git 中，这通过 `git cherry-pick` 命令来执行，在另一个分支上解压缩现有提交引入的更改，并根据当前分支的提示将其记录为新提交。
+    从一系列更改（通常是提交）中选择一部分更改，并在不同的代码库上将它们记录为新的更改系列。在 Git 中，这通过 `git cherry-pick` 命令来执行，在另一个分支上解压缩现有提交引入的更改，并根据当前分支的提示将其记录为新提交。更多信息请参阅 Git 文档中的 [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)。
 - 
   term: 子团队
   description: >-
@@ -156,7 +156,7 @@
 - 
   term: 贡献
   description: >-
-    GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: 贡献者
   description: >-
@@ -181,7 +181,7 @@
 - 
   term: 默认分支
   description: >-
-    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为"main"，并且通常是默认分支。
+    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
 - 
   term: 从属者图
   description: >-
@@ -229,7 +229,7 @@
     用于试验新功能或修复未正式使用的议题的分支。也称为主题分支。
 - 
   term: 围栏代码块
-  description: '您可以在代码块前后使用三个反引号 \`\`\`，通过 GitHub Flavored Markdown 创建缩进代码块。请参阅此 [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)。'
+  description: '您可以在代码块前后使用三个反引号 \`\`\`，通过 GitHub Flavored Markdown 创建缩进代码块。请参阅此 [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)。'
 - 
   term: 获取
   description: >-
@@ -250,9 +250,9 @@
   description: >-
     免费的用户帐户结算方案。用户可以通过无限的协作者协作处理无限的公共仓库。
 - 
-  term: Gist
+  term: gist
   description: >-
-    gist 是一种可共享的文件，可用于在 GitHub 上编辑、克隆和分叉。您可以将 gist 设为公共或私密，但私密 gist 可供具有 URL 的任何人访问。
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "main" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 默认开发分支。每当您创建 Git 仓库时，都会创建名为 `main` 的分支，它将成为活动分支。在大多数情况下，它包含本地开发内容，但这完全是就惯例而言，并不是必需的。{% else %}通常选择名称替代仓库默认分支的名称 `master`。{% endif %}
 - 
   term: master
   description: >-
-    许多 Git 存储库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。
+    许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
 - 
   term: 成员图
   description: 显示仓库所有分叉的仓库图。
@@ -436,7 +436,7 @@
 - 
   term: 通知
   description: >-
-    web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
+    Web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
 - 
   term: OAuth 应用程序
   description: >-
@@ -754,9 +754,6 @@
   term: web 挂钩
   description: >-
     Web 挂钩可让您构建或设置订阅 GitHub.com 上特定事件的 GitHub 应用程序。Web 挂钩提供一种通知方式，只要仓库或组织中发生特定操作，就会发送通知到外部 web 服务器。也称为“服务挂钩”。
-- 
-  term: 与 GitHub 结合使用
-  description: 支持 GitHub 的集成列表。
 - 
   term: 写入权限
   description: >-

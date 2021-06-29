@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dotcom %} reconhecerá automaticamente os integrantes da comunidade que contribuem com a maioria dos comentários marcados como respostas para discussões com um formato de pergunta/resposta.

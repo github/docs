@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% data reusables.codespaces.release-stage %}

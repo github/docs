@@ -14,13 +14,9 @@ Você habilita {% data variables.product.prodname_dependabot_version_updates %},
 
 {% data reusables.dependabot.initial-updates %} Para obter mais informações, consulte "[Personalizar atualizações de dependência](/github/administering-a-repository/customizing-dependency-updates)".
 
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
+
 ### Habilitar {% data variables.product.prodname_dependabot_version_updates %}
-
-{% note %}
-
-{% data reusables.dependabot.private-dependencies %}
-
-{% endnote %}
 
 {% data reusables.dependabot.create-dependabot-yml %}
 1. Use `package-ecosystem` para especificar os gerenciadores de pacote a monitorar.

@@ -1,0 +1,1 @@
+Você pode usar discussões para perguntar e responder a perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de conversas sobre um projeto. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".

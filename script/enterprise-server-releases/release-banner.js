@@ -38,7 +38,7 @@ if (!(Object.keys(allVersions).includes(options.version))) {
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.safeLoad(fs.readFileSync(releaseCandidateYaml, 'utf8'))
+const releaseCandidateData = yaml.load(fs.readFileSync(releaseCandidateYaml, 'utf8'))
 
 // Create or remove the variable
 if (options.action === 'create') {
@@ -50,7 +50,7 @@ if (options.action === 'remove') {
 }
 
 // Update the file
-fs.writeFileSync(releaseCandidateYaml, yaml.safeDump(releaseCandidateData))
+fs.writeFileSync(releaseCandidateYaml, yaml.dump(releaseCandidateData))
 
 // Display next steps
 console.log(`\nDone! Commit the update to ${releaseCandidateFile}. This ${options.action}s the banner for ${options.version}.

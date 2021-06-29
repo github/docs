@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -130,7 +132,7 @@ end
 
 仅在发出请求之前检查作用域是不够的，因为用户可能会在检查与实际请求之间的时间段更改作用域。 如果发生这种情况，您期望成功的 API 调用可能会以 `404` 或 `401` 状态失败，或者返回不同的信息子集。
 
-为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/rest/reference/apps#check-a-token\]{% else %}\[check a token for validity\]\[/rest/reference/apps#check-an-authorization\]{% endif %}. 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
+为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [检查令牌的有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌的有效性](/rest/reference/apps#check-an-authorization){% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
 
 #### 发出经过身份验证的请求
 

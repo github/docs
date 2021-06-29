@@ -10,10 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -25,15 +31,17 @@ Once you complete this project, you should understand how to build your own Java
 
 {% data reusables.github-actions.pure-javascript %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Требования
 
-Before you begin, you'll need to download Node.js and create a GitHub repository.
+Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
 1. Download and install Node.js 12.x, which includes npm.
 
   https://nodejs.org/en/download/current/
 
-1. Create a new repository on {% data variables.product.product_location %}. You can choose any repository name or use "hello-world-javascript-action" like this example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 
@@ -43,7 +51,7 @@ Before you begin, you'll need to download Node.js and create a GitHub repository
   cd hello-world-javascript-action
   ```
 
-1. From your terminal, initialize the directory with a `package.json` file.
+1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
   ```shell
   npm init -y
@@ -51,10 +59,8 @@ Before you begin, you'll need to download Node.js and create a GitHub repository
 
 ### Creating an action metadata file
 
-Create a new file `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-
-**action.yml**
 ```yaml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -100,7 +106,7 @@ GitHub Actions provide context information about the webhook event, Git refs, wo
 
 Add a new file called `index.js`, with the following code.
 
-**index.js**
+{% raw %}
 ```javascript
 const core = require('@actions/core');
 const github = require('@actions/github');
@@ -118,6 +124,7 @@ try {
   core.setFailed(error.message);
 }
 ```
+{% endraw %}
 
 If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
@@ -135,7 +142,6 @@ In your `hello-world-javascript-action` directory, create a `README.md` file tha
 - Environment variables the action uses.
 - An example of how to use your action in a workflow.
 
-**README.md**
 ```markdown
 # Hello world javascript action
 
@@ -172,11 +178,11 @@ It's best practice to also add a version tag for releases of your action. For mo
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
-git tag -a -m "My first action release" v1
+git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-As an alternative to checking in your `node_modules` directory you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
+Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. Install `vercel/ncc` by running this command in your terminal. `npm i -g @vercel/ncc`
 
@@ -192,7 +198,7 @@ As an alternative to checking in your `node_modules` directory you can use a too
 ```shell
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
-git tag -a -m "My first action release" v1
+git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
@@ -204,10 +210,11 @@ Now you're ready to test your action out in a workflow. When an action is in a p
 
 #### Example using a public action
 
-The following workflow code uses the completed hello world action in the `actions/hello-world-javascript-action` repository. Copy the workflow code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-javascript-action` repository with the repository you created. You can also replace the `who-to-greet` input with your name.
+This example demonstrates how your new public action can be run from within an external repository.
+
+Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
-**.github/workflows/main.yml**
 ```yaml
 on: [push]
 
@@ -216,16 +223,18 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-javascript-action@v1.1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: octocat/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
+
+When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
 
 #### Example using a private action
 
@@ -256,9 +265,11 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)

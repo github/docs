@@ -1,9 +1,11 @@
 const revalidator = require('revalidator')
 const allVersions = require('../../lib/all-versions')
 const { latest } = require('../../lib/enterprise-server-releases')
-const schema = require('../../lib/versions-schema')
+const schema = require('../helpers/schemas/versions-schema')
 const { getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+
+jest.useFakeTimers()
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {
@@ -30,7 +32,7 @@ describe('versions middleware', () => {
 
   test('adds res.context.currentVersion string', async () => {
     let currentVersion = await getJSON('/en?json=currentVersion')
-    expect(currentVersion).toBe('homepage')
+    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
 
     currentVersion = await getJSON(`/en/${nonEnterpriseDefaultVersion}?json=currentVersion`)
     expect(currentVersion).toBe(nonEnterpriseDefaultVersion)

@@ -2,10 +2,13 @@
 title: Mutações
 redirect_from:
   - /v4/mutation
+  - /v4/reference/mutation
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Sobre as mutações

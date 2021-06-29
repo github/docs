@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHubをご利用いただきありがとうございます。 また、こちらのページをご覧いただきありがとうございます。 GitHubにアクセスするまたはGitHubをご利用いただく前に、こちらの「利用規約」をよくお読みください。 当社とユーザ間の非常に大切な契約になるため、できるだけわかりやすくなるよう心がけています。 便宜上、本規約は全文の前に法的拘束力のない短い要約を記載してあります。
@@ -106,7 +109,7 @@ We have the right to refuse or remove any User-Generated Content that, in our so
 お客様は「あなたのコンテンツ」の所有権と責任を保持しているため、当社は、セクション D.4〜D.7 に記載されている特定の法的権限を当社および GitHub の他の「ユーザ」に付与することを求めます。 かかるライセンス付与は、「あなたのコンテンツ」に適用されます。 お客様が、当社が「サービス」を実行するために必要な権限を GitHub に付与するライセンスをあらかじめ伴うような「コンテンツ」をアップロードする場合、追加のライセンスは必要ありません。 お客様は、セクション D.4〜D.7 で付与された権利のいずれに対しても支払いを受け取らないことを理解するものとします。 他の「ユーザ」がフォークした場合を除き、当社のサーバーから「あなたのコンテンツ」を削除すると、当社に付与したライセンスは終了します。
 
 #### 4. 当社へのライセンス許可
-当社には、「あなたのコンテンツ」のホスト、公開および共有などを行うための法的権利が必要です。 You grant us and our legal successors the right to store, archive, parse, and display Your Content, and make incidental copies, as necessary to provide the Service, including improving the Service over time. This license includes the right to do things like copy it to our database and make backups; show it to you and other users; parse it into a search index or otherwise analyze it on our servers; share it with other users; and perform it, in case Your Content is something like music or video.
+当社には、「あなたのコンテンツ」のホスト、公開および共有などを行うための法的権利が必要です。 You grant us and our legal successors the right to store, archive, parse, and display Your Content, and make incidental copies, as necessary to provide the Service, including improving the Service over time. このライセンスには、「あなたのコンテンツ」が音楽やビデオなどのものである場合、データベースにコピーしてバックアップを作成する、お客様および他のユーザに表示する、検索インデックスに解析する、またはその他サーバー上で分析する、他のユーザと共有する、実行するなどの操作を行う権利が含まれます。
 
 This license does not grant GitHub the right to sell Your Content. It also does not grant GitHub the right to otherwise distribute or use Your Content outside of our provision of the Service, except that as part of the right to archive Your Content, GitHub may permit our partners to store and archive Your Content in public repositories in connection with the [GitHub Arctic Code Vault and GitHub Archive Program](https://archiveprogram.github.com/).
 
@@ -180,7 +183,7 @@ GitHub は、高スループットアクセスまたは GitHub の「サービ�
 「サービス」の一部の機能には、「GitHub 追加製品の利用規約」の定めに従い、かかる機能または製品に固有の追加条件が適用される場合があります。 「サービス」にアクセスまたはこれを利用することにより、あなたは [GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)にも同意することになります。
 
 ### J. ベータプレビュー
-**趣旨の要約:** *「ベータプレビュー」はサポートされない場合があります、または任意に適宜変更される可能性があります。プログラムが非公開である間は機密情報を保持する必要があるプログラムを通じて機密情報を受け取る場合があります。なお、当社は「ベータプレビュー」 の改善につながる皆さまのフィードバックを歓迎いたします。*
+**Short version:** *Beta Previews may not be supported or may change at any time. You may receive confidential information through those programs that must remain confidential while the program is private. We'd love your feedback to make our Beta Previews better.*
 
 #### 1. 変更の対象
 
@@ -215,7 +218,7 @@ GitHub は、高スループットアクセスまたは GitHub の「サービ�
 
 **使用量に基づく支払い:** 「サービス」の一部の機能は、使用量に基づいて請求されます。 かかる「サービス」機能は、限られた使用量および期間であれば、追加料金なしでご利用のプランで使用できる場合があります。 ご利用のプランに含まれる数量を超えて有料の「サービス」機能を購入することを選択した場合、お客様は前月の実際の使用量に基づいてかかる「サービス」機能の料金を支払います。 かかる購入に対する毎月の支払いは、後払いで定期的に請求されます。 詳しくは、[GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)を参照してください。
 
-**請求:** 請求書払いの「ユーザ」の場合、「ユーザ」は、いかなる種類の控除も相殺もなく料金の全額を米ドルの前払いで支払うことに同意するものとします。 設定しなければなりません。 「ユーザ」は、GitHub による請求日から 30 日以内に料金を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 「ユーザ」が定められた期限に料金を支払わなかった場合、普通法または衡平法に基づく法的措置を取ることに加え、GitHub は次の権利を留保します。(i) 過去の未払い金に対して毎月 1.0% か、法律により許容される最高額の金利のうち、いずれか低い額の金利を課し、かつ回収に要するあらゆる費用を課すこと、および (ii) 該当する注文書を解約すること。 本「契約」に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+**請求:** 請求書払いの「ユーザ」の場合、「ユーザ」は、いかなる種類の控除も相殺もなく料金の全額を米ドルの前払いで支払うことに同意するものとします。 。 「ユーザ」は、GitHub による請求日から 30 日以内に料金を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 「ユーザ」が定められた期限に料金を支払わなかった場合、普通法または衡平法に基づく法的措置を取ることに加え、GitHub は次の権利を留保します。(i) 過去の未払い金に対して毎月 1.0% か、法律により許容される最高額の金利のうち、いずれか低い額の金利を課し、かつ回収に要するあらゆる費用を課すこと、および (ii) 該当する注文書を解約すること。 本「契約」に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
 #### 4. 認可
 本「規約」に同意することにより、お客様は GitHub に対して承認した料金について、登録されたクレジットカード、PayPal アカウント、またはその他の承認された支払い方法に請求する許可を当社に与えるものとします。

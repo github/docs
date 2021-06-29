@@ -1,0 +1,41 @@
+name: Move Reopened Issues to Triage
+
+# **What it does**: Moves issues that are reopened from the Done column to the Triage column.
+# **Why we have it**: To prevent having to do this manually.
+# **Who does it impact**: Open-source.
+
+on:
+  issues:
+    types:
+      - reopened
+
+jobs:
+  move-reopened-issue-to-triage:
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const issueNumber = context.issue.number;
+            const doneColumnId = 11167427;
+            const triageColumnId = 11007039;
+
+            try {
+              const cards = await github.projects.listCards({
+                column_id: doneColumnId
+              });
+
+              for (const card of cards) {
+                if (card.content_url.endsWith(`/${issueNumber}`)) {
+                  await github.projects.moveCard({
+                    card_id: card.id,
+                    position: 'position',
+                    column_id: triageColumnId
+                  });
+                }
+              }
+            } catch(e) {
+              console.log(error);
+            }

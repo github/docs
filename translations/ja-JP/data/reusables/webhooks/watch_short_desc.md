@@ -1,1 +1,1 @@
-When someone stars a repository. {% data reusables.webhooks.action_type_desc %} For more information, see the "[starring](/rest/reference/activity#starring)" REST API.
+誰かがリポジトリにStarを付けたとき。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[Star付け](/rest/reference/activity#starring)」 REST APIを参照してください。

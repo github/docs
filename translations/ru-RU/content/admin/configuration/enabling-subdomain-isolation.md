@@ -7,6 +7,13 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### About subdomain isolation
@@ -15,30 +22,31 @@ Subdomain isolation mitigates cross-site scripting and other related vulnerabili
 
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "enterprise-server@2.22" %}
 To use Docker with
-{% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Configuring Docker for use with {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)."
+{% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |
 {% endif %}
-| Path without subdomain isolation                                                                                 | Path with subdomain isolation                                                              |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `http(s)://HOSTNAME/assets/`                                                                                     | `http(s)://assets.HOSTNAME/`                                                               |
-| `http(s)://HOSTNAME/avatars/`                                                                                    | `http(s)://avatars.HOSTNAME/`                                                              |
-| `http(s)://HOSTNAME/codeload/`                                                                                   | `http(s)://codeload.HOSTNAME/`                                                             |
-| `http(s)://HOSTNAME/gist/`                                                                                       | `http(s)://gist.HOSTNAME/`                                                                 |
-| `http(s)://HOSTNAME/media/`                                                                                      | `http(s)://media.HOSTNAME/`                                                                |
-| `http(s)://HOSTNAME/pages/`                                                                                      | `http(s)://pages.HOSTNAME/`                                                                |
-| `http(s)://HOSTNAME/raw/`                                                                                        | `http(s)://raw.HOSTNAME/`                                                                  |
-| `http(s)://HOSTNAME/render/`                                                                                     | `http(s)://render.HOSTNAME/`                                                               |
-| `http(s)://HOSTNAME/reply/`                                                                                      | `http(s)://reply.HOSTNAME/`                                                                |
-| `http(s)://HOSTNAME/uploads/`                                                                                    | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled. | `http(s)://docker.HOSTNAME/`                                                               |
-| `https://HOSTNAME/_registry/npm/`                                                                                | `https://npm.HOSTNAME/`                                                                    |
-| `https://HOSTNAME/_registry/rubygems/`                                                                           | `https://rubygems.HOSTNAME/`                                                               |
-| `https://HOSTNAME/_registry/maven/`                                                                              | `https://maven.HOSTNAME/`                                                                  |
-| `https://HOSTNAME/_registry/nuget/`                                                                              | `https://nuget.HOSTNAME/`{% endif %}
+| Path without subdomain isolation                                                                                                                                                    | Path with subdomain isolation                                                                  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`                                                                                                                                                        | `http(s)://assets.HOSTNAME/`                                                                   |
+| `http(s)://HOSTNAME/avatars/`                                                                                                                                                       | `http(s)://avatars.HOSTNAME/`                                                                  |
+| `http(s)://HOSTNAME/codeload/`                                                                                                                                                      | `http(s)://codeload.HOSTNAME/`                                                                 |
+| `http(s)://HOSTNAME/gist/`                                                                                                                                                          | `http(s)://gist.HOSTNAME/`                                                                     |
+| `http(s)://HOSTNAME/media/`                                                                                                                                                         | `http(s)://media.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/pages/`                                                                                                                                                         | `http(s)://pages.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/raw/`                                                                                                                                                           | `http(s)://raw.HOSTNAME/`                                                                      |
+| `http(s)://HOSTNAME/render/`                                                                                                                                                        | `http(s)://render.HOSTNAME/`                                                                   |
+| `http(s)://HOSTNAME/reply/`                                                                                                                                                         | `http(s)://reply.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/uploads/`                                                                                                                                                       | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion == "enterprise-server@2.22" %}
+| N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled for the {% data variables.product.prodname_registry %} 2.22 beta. | `http(s)://docker.HOSTNAME/` |{% endif %}                                                      |{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/docker/`                                                                                                                                                | `http(s)://docker.HOSTNAME/`{% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/npm/`                                                                                                                                                   | `https://npm.HOSTNAME/`                                                                        |
+| `https://HOSTNAME/_registry/rubygems/`                                                                                                                                              | `https://rubygems.HOSTNAME/`                                                                   |
+| `https://HOSTNAME/_registry/maven/`                                                                                                                                                 | `https://maven.HOSTNAME/`                                                                      |
+| `https://HOSTNAME/_registry/nuget/`                                                                                                                                                 | `https://nuget.HOSTNAME/`{% endif %}
 
 ### Требования
 

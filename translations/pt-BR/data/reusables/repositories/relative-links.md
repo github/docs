@@ -1,6 +1,6 @@
 É possível definir links relativos e caminhos de imagens em seus arquivos representados para ajudar os leitores a acessar outros arquivos no repositório.
 
-Um link relativo é um link que é relativo ao arquivo atual. Por exemplo, se você tiver um arquivo LEIAME na raiz do seu repositório e tiver outro arquivo em _docs/CONTRIBUTING.md_, o link relativo para _CONTRIBUTING.md_ no seu README pode se parecer com isso:
+Um link relativo é um link que é relativo ao arquivo atual. Por exemplo, se você tiver um arquivo README na raiz do seu repositório e tiver outro arquivo em _docs/CONTRIBUTING.md_, o link relativo para _CONTRIBUTING.md_ no seu README pode se parecer com isso:
 
 ```
 [Diretrizes de contribuição para este projeto](docs/CONTRIBUTING.md)

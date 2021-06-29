@@ -35,7 +35,7 @@
 - 
   term: 바이오
   description: >-
-    프로필에 있는 사용자 생성 설명: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: 청구 주기
   description: 특정 청구 계획에 대한 시간 간격입니다.
@@ -88,7 +88,7 @@
 - 
   term: cherry-pick
   description: >-
-    일련의 변경 사항(일반적으로 커밋)에서 변경 하위 집합을 선택하고 다른 코드베이스 위에 새로운 일련의 변경 사항으로 기록합니다. Git에서는 `git cherry-pick` 명령에 의해 수행되어 다른 분기에 기존 커밋에서 도입한 변경 사항을 추출하고 현재 분기의 끝을 기반으로 새 커밋으로 기록합니다.
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
 - 
   term: 하위 팀
   description: >-
@@ -123,7 +123,7 @@
 - 
   term: 커밋
   description: >-
-    커밋 또는 "개정"은 파일(또는 파일 집합)에 대한 개별 변경입니다. 작업을 저장하기 위해 커밋을 할 때 Git은 고유 ID(일명 "SHA" 또는 "해시")를 만들어 누가, 언제 만들었는지와 함께 커밋된 특정 변경 사항을 기록할 수 있습니다. 커밋에는 일반적으로 변경된 내용에 대한 간략한 설명인 커밋 메시지가 포함되어 있습니다.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: 커밋 작성자
   description: 커밋을 수행한 사용자입니다.
@@ -137,7 +137,7 @@
 - 
   term: 커밋 메시지
   description: >-
-    커밋을 수반하고 커밋이 도입하는 변경 내용을 전달하는 짧고 설명적인 텍스트입니다.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: 비교 브랜치
   description: >-
@@ -156,7 +156,7 @@
 - 
   term: 기여
   description: >-
-    GitHub의 특정 활동: - 사용자의 기여 그래프에 정사각형 추가: "[기여로 간주되는 것](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 프로필의 사용자 타임라인에 활동 추가: "[기여 활동](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: 기여자
   description: >-
@@ -181,13 +181,13 @@
 - 
   term: 기본 분기
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
   term: 의존도 그래프
   description: >-
     공용 리포지토리에 종속된 패키지, 프로젝트 및 리포지토리를 표시하는 리포지토리 그래프입니다.
 - 
-  term: 의존성 그래프
+  term: dependency graph
   description: >-
     리포지토리가 종속된 패키지 및 프로젝트를 표시하는 리포지토리 그래프입니다.
 - 
@@ -229,7 +229,7 @@
     새 기능을 실험하거나 프로덕션 환경에 없는 이슈를 해결하는 데 사용되는 분기입니다. 토픽 분기라고도 합니다.
 - 
   term: 울타리친 코드 블록
-  description: '코드 블록 전후의 트리플 백틱 \`\`\`을 사용하여 GitHub Flavored Markdown으로 만들 수 있는 코드의 들여쓴 블록입니다. 이 [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)를 참조하십시오.'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: 가져오기
   description: >-
@@ -250,9 +250,9 @@
   description: >-
     무료 사용자 계정 요금제입니다. 사용자는 무제한 공동 작업자와 무제한 공용 리포지토리에서 공동 작업할 수 있습니다.
 - 
-  term: Gist
+  term: gist
   description: >-
-    gist는 GitHub에서 편집, 복제 및 포크할 수 있는 공유 가능한 파일입니다. URL을 가진 모든 사람이 비밀 gist를 사용할 수 있지만, 사용자가 gist를 공개 또는 비밀로 만들 수 있습니다.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     사용자가 액세스할 수 없는 개인 계정입니다. 사용자가 유료 계정을 무료 계정으로 다운그레이드하거나 유료 요금제가 기한이 지난 경우 계정이 잠깁니다.
 - 
-  term: 관리 콘솔
+  term: management console
   description: >-
     관리 기능이 포함된 GitHub Enterprise 인터페이스 내의 섹션입니다.
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
   term: 구성원 그래프
   description: 리포지토리의 모든 포크를 표시하는 리포지토리 그래프입니다.
@@ -426,7 +426,7 @@
   description: >-
     루트 리포지토리의 분기 및 네트워크에 고유한 커밋이 포함된 포크 분기를 포함하여 전체 리포지토리 네트워크의 분기 기록을 보여주는 리포지토리 그래프입니다.
 - 
-  term: 뉴스 피드
+  term: news feed
   description: >-
     리포지토리 또는 시청하는 사람의 활동 보기입니다. 조직의 뉴스 피드는 조직이 소유한 리포지토리에 대한 활동을 보여줍니다.
 - 
@@ -436,7 +436,7 @@
 - 
   term: 알림
   description: >-
-    설정에 따라 웹 또는 이메일로 제공되는 업데이트로 관심 있는 활동에 대한 정보를 제공합니다.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: OAuth 앱
   description: >-
@@ -754,9 +754,6 @@
   term: webhooks
   description: >-
     Webhook를 사용하면 GitHub.com에서 특정 이벤트를 구독하는 GitHub 앱을 빌드하거나 설정할 수 있습니다. Webhook는 리포지토리 또는 조직에서 특정 작업이 발생할 때마다 알림을 외부 웹 서버에 전달할 수 있는 방법을 제공합니다. 서비스 후크라고도 합니다.
-- 
-  term: GitHub와 함께 작동
-  description: GitHub와 함께 작업하는 통합 목록입니다.
 - 
   term: 쓰기 권한
   description: >-

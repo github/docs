@@ -7,20 +7,26 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
   - /actions/configuring-and-managing-workflows/creating-redis-service-containers
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you workflow examples that configure a service container using the Docker Hub `redis` image. The workflow runs a script to create a Redis client and populate the client with data. To test that the workflow creates and populates the Redis client, the script prints the client's data to the console.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-### Prerequisites
+## Prerequisites
 
 {% data reusables.github-actions.service-container-prereqs %}
 
@@ -29,14 +35,14 @@ You may also find it helpful to have a basic understanding of YAML, the syntax f
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 - "[Getting Started with Redis](https://redislabs.com/get-started-with-redis/)" in the Redis documentation
 
-### Running jobs in containers
+## Running jobs in containers
 
 {% data reusables.github-actions.container-jobs-intro %}
 
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -84,13 +90,13 @@ jobs:
 ```
 {% endraw %}
 
-#### Configuring the container job
+### Configuring the container job
 
 {% data reusables.github-actions.service-container-host %}
 
 {% data reusables.github-actions.redis-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the container job
   container-job:
@@ -113,11 +119,11 @@ jobs:
           --health-retries 5
 ```
 
-#### Configuring the steps
+### Configuring the steps
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -144,14 +150,14 @@ steps:
 
 The hostname of the Redis service is the label you configured in your workflow, in this case, `redis`. Because Docker containers on the same user-defined bridge network open all ports by default, you'll be able to access the service container on the default Redis port 6379.
 
-### Running jobs directly on the runner machine
+## Running jobs directly on the runner machine
 
 When you run a job directly on the runner machine, you'll need to map the ports on the service container to ports on the Docker host. You can access service containers from the Docker host using `localhost` and the Docker host port number.
 
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis runner example
 on: push
 
@@ -201,7 +207,7 @@ jobs:
 ```
 {% endraw %}
 
-#### Configuring the runner job
+### Configuring the runner job
 
 {% data reusables.github-actions.service-container-host-runner %}
 
@@ -209,7 +215,7 @@ jobs:
 
 The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the runner job
   runner-job:
@@ -233,11 +239,11 @@ jobs:
           - 6379:6379
 ```
 
-#### Configuring the steps
+### Configuring the steps
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -265,7 +271,7 @@ steps:
 
 {% data reusables.github-actions.service-container-localhost %}
 
-### Testing the Redis service container
+## Testing the Redis service container
 
 You can test your workflow using the following script, which creates a Redis client and populates the client with some placeholder data. The script then prints the values stored in the Redis client to the terminal. Your script can use any language you'd like, but this example uses Node.js and the `redis` npm module. For more information, see the [npm redis module](https://www.npmjs.com/package/redis).
 
@@ -273,7 +279,7 @@ You can modify *client.js* to include any Redis operations needed by your workfl
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const redis = require("redis");
 
 // Creates a new Redis client

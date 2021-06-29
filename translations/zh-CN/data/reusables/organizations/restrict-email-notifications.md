@@ -1,0 +1,1 @@
+1. 在“Enforcement preferences（强制执行首选项）”下，选择 **Restrict email notifications to domain email（将电子邮件通知限制为域电子邮件）**。 ![将电子邮件通知限制为经验证域电子邮件的复选框](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)

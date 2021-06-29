@@ -1,24 +1,33 @@
 ---
 title: Sobre contas corporativas
-intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to give administrators a single point of visibility and management{% if enterpriseServerVersions contains currentVersion %} for billing and license usage{% endif %}.'
+intro: 'Com {% data variables.product.product_name %}, você pode usar uma conta corporativa para dar aos administradores um único ponto de visibilidade e gestão{% if enterpriseServerVersions contains currentVersion %} para cobrança e uso da licença{% endif %}.'
 redirect_from:
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
 versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
+type: overview
+topics:
+  - Accounts
+  - Enterprise
+  - Fundamentals
 ---
 
 ### Sobre as contas corporativas do {% data variables.product.product_name %}
 
-An enterprise account allows you to manage multiple organizations{% if enterpriseServerVersions contains currentVersion %} and {% data variables.product.prodname_ghe_server %} instances{% else %} on {% data variables.product.product_name %}{% endif %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
+Uma conta corporativa permite gerenciar várias organizações{% if enterpriseServerVersions contains currentVersion %} e instâncias de {% data variables.product.prodname_ghe_server %} {% else %} em {% data variables.product.product_name %}{% endif %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
 
-- Member access and management (organization members, outside collaborators){% if enterpriseServerVersions contains currentVersion %}
-- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs){% endif %}
-- Security{% if enterpriseServerVersions contains currentVersion %}(single sign-on, two factor authentication)
-- Requests {% if enterpriseServerVersions contains currentVersion %}and support bundle sharing {% endif %}with {% data variables.contact.enterprise_support %}{% endif %}
+- Acesso de integrante e gerenciamento (integrantes da organização, colaboradores externos){% if enterpriseServerVersions contains currentVersion %}
+- Cobrança e uso (instâncias de {% data variables.product.prodname_ghe_server %}, licenças de usuário, pacotes de {% data variables.large_files.product_name_short %}){% endif %}
+- Segurança {% if enterpriseServerVersions contains currentVersion %}(logon único, autenticação de dois fatores)
+- Compartilhamento de pacotes de solicitação e {% if enterpriseServerVersions contains currentVersion %}suporte {% endif %} com {% data variables.contact.enterprise_support %}{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." {% endif %}For more information about managing your {% data variables.product.product_name %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+{% if enterpriseServerVersions contains currentVersion %}{% data reusables.enterprise-accounts.enterprise-accounts-billing %} Para obter mais informações sobre o gerenciamento da sua assinatura de {% data variables.product.prodname_ghe_cloud %}, consulte "[Visualizar a assinatura e o uso da sua conta corporativa](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)". {% endif %}Para obter mais informações sobre como gerenciar suas configurações de cobrança de {% data variables.product.product_name %}, consulte "[Gerenciar cobrança para sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
+
+Para obter mais informações sobre o gerenciamento de usuários, organizações, dados e políticas para {% data variables.product.product_location %}, consulte "[Gerenciar usuários, organizações e repositórios](/admin/user-management)" e "[Definir políticas para a sua empresa](/admin/policies)."
+
+Para obter mais informações sobre o gerenciamento de contas corporativas usando a API do GraphQL, consulte "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)".
 
 {% if enterpriseServerVersions contains currentVersion %}
 

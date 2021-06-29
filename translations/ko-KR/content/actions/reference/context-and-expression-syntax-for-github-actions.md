@@ -11,10 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About contexts and expressions
 
@@ -30,7 +33,9 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 {% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
-#### Example expression in an `if` conditional
+{% data reusables.github-actions.context-injection-warning %}
+
+##### Example expression in an `if` conditional
 
 ```yaml
 steps:
@@ -38,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+##### Example setting an environment variable
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -58,7 +63,7 @@ Contexts are a way to access information about workflow runs, runner environment
 | Context name | 유형   | 설명                                                                                                                                                                                                                                                |
 | ------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `github`     | `개체` | Information about the workflow run. For more information, see [`github` context](#github-context).                                                                                                                                                |
-| `env`        | `개체` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context) .                                                                                                                         |
+| `env`        | `개체` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context).                                                                                                                          |
 | `작업`         | `개체` | Information about the currently executing job. For more information, see [`job` context](#job-context).                                                                                                                                           |
 | `steps`      | `개체` | Information about the steps that have been run in this job. For more information, see [`steps` context](#steps-context).                                                                                                                          |
 | `runner`     | `개체` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context).                                                                                                                      |
@@ -75,11 +80,16 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
-#### **`github` context**
+#### Determining when to use contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
+#### `github` context
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Property name             | 유형    | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -87,11 +97,11 @@ The `github` context contains information about the workflow run and the event t
 | `github.action`           | `문자열` | The name of the action currently running. {% data variables.product.prodname_dotcom %} removes special characters or uses the name `run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name `run1`, and the second script will be named `run2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
 | `github.action_path`      | `문자열` | The path where your action is located. You can use this path to easily access files located in the same repository as your action. This attribute is only supported in composite run steps actions.                                                                                                                                                                                                                                                                                                 |
 | `github.actor`            | `문자열` | The login of the user that initiated the workflow run.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `github.base_ref`         | `문자열` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`.                                                                                                                                                                                                                                                                                                                             |
+| `github.base_ref`         | `문자열` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`.                                                                                                                                                                                                                                                                                               |
 | `github.event`            | `개체`  | The full event webhook payload. For more information, see "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." You can access individual properties of the event using this context.                                                                                                                                                                                                                                                                                        |
 | `github.event_name`       | `문자열` | The name of the event that triggered the workflow run.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `github.event_path`       | `문자열` | The path to the full event webhook payload on the runner.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `github.head_ref`         | `문자열` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`.                                                                                                                                                                                                                                                                                                                             |
+| `github.head_ref`         | `문자열` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`.                                                                                                                                                                                                                                                                                               |
 | `github.job`              | `문자열` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                                                                                                                                                                                                                                                |
 | `github.ref`              | `문자열` | The branch or tag ref that triggered the workflow run. For branches this in the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                          |
 | `github.repository`       | `문자열` | The owner and repository name. For example, `Codertocat/Hello-World`.                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -103,21 +113,20 @@ The `github` context contains information about the workflow run and the event t
 | `github.workflow`         | `문자열` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository.                                                                                                                                                                                                                                                                                                                                        |
 | `github.workspace`        | `문자열` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action.                                                                                                                                                                                                                                                                                                                                        |
 
-#### **`env` context**
+#### `env` context
 
 The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
 
-The `env` context syntax allows you to use the value of an environment variable in your workflow file. If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
+The `env` context syntax allows you to use the value of an environment variable in your workflow file. You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 
-You can only use the `env` context in the value of the `with` and `name` keys, or in a step's `if` conditional. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
 
 | Property name          | 유형    | 설명                                                                                               |
 | ---------------------- | ----- | ------------------------------------------------------------------------------------------------ |
 | `env`                  | `개체`  | This context changes for each step in a job. You can access this context from any step in a job. |
-| `env.<env name>` | `문자열` | The value of a specific environment variable.                                                    |
+| `env.<env_name>` | `문자열` | The value of a specific environment variable.                                                    |
 
-
-#### **`job` context**
+#### `job` context
 
 The `job` context contains information about the currently running job.
 
@@ -133,7 +142,7 @@ The `job` context contains information about the currently running job.
 | `job.services.<service id>.ports`   | `개체`  | The exposed ports of the service container.                                                                                                                                                                                          |
 | `job.status`                              | `문자열` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`.                                                                                                                                             |
 
-#### **`steps` context**
+#### `steps` context
 
 The `steps` context contains information about the steps in the current job that have already run.
 
@@ -145,17 +154,18 @@ The `steps` context contains information about the steps in the current job that
 | `steps.<step id>.outcome`                     | `문자열` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
 | `steps.<step id>.outputs.<output name>` | `문자열` | The value of a specific output.                                                                                                                                                                                                                                                                                                                  |
 
-#### **`runner` context**
+#### `runner` context
 
 The `runner` context contains information about the runner that is executing the current job.
 
-| Property name       | 유형    | 설명                                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `문자열` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.                                                                                                                                                                                                                           |
-| `runner.temp`       | `문자열` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.                                                                                                                                                                                 |
-| `runner.tool_cache` | `문자열` | The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Property name       | 유형    | 설명                                                                                                                                                                                                                                                                  |
+| ------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `문자열` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.                                                                                                                                                           |
+| `runner.temp`       | `문자열` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.                                                                                                                 |
+| `runner.tool_cache` | `문자열` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." |
+{% else %}The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
-#### **`needs` context**
+#### `needs` context
 
 The `needs` context contains outputs from all jobs that are defined as a dependency of the current job. For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
@@ -166,7 +176,7 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 | `needs.<job id>.outputs.<output name>` | `문자열` | The value of a specific output for a job that the current job depends on.                                                 |
 | `needs.<job id>.result`                      | `문자열` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
 
-#### Example printing context information to the log file
+##### Example printing context information to the log file
 
 To inspect the information that is accessible in each context, you can use this workflow file example.
 
@@ -183,27 +193,27 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
@@ -219,7 +229,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON.                                          |
 | `문자열`     | You must use single quotes. Escape literal single-quotes with a single quote. |
 
-#### 예시
+##### 예시
 
 {% raw %}
 ```yaml
@@ -317,7 +327,7 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces useing double braces.
+Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
 ##### 예시
 
@@ -345,7 +355,7 @@ The value for `array` can be an array or a string. All values in `array` are con
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -355,13 +365,13 @@ Returns a pretty-print JSON representation of `value`. You can use this function
 
 `toJSON(job)` might return `{ "status": "Success" }`
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-Returns a JSON object for `value`. You can use this function to provide a JSON object as an evaluated expression.
+Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
 
-##### 예시
+##### Example returning a JSON object
 
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
@@ -375,15 +385,36 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
+```
+{% endraw %}
+
+##### Example returning a JSON data type
+
+This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 

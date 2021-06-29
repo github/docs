@@ -1,15 +1,23 @@
 ---
-title: 从 Jenkins 迁移到 GitHub 操作
+title: 从 Jenkins 迁移到 GitHub Actions
 intro: '{% data variables.product.prodname_actions %} 和 Jenkins 有多种相似之处，这使得迁移到 {% data variables.product.prodname_actions %} 相对简单。'
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-jenkins-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Jenkins
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -24,7 +32,7 @@ Jenkins 和 {% data variables.product.prodname_actions %} 都允许您创建能�
 
 ### 主要差异
 
-- Jenkins 有两种类型的语法用来创建管道：Declarative Pipeline 和 Scripted Pipeline。 {% data variables.product.prodname_actions %} 使用 YAML 创建工作流程和配置文件。 更多信息请参阅“[GitHub 操作的工作流程语法](/actions/reference/workflow-syntax-for-github-actions)”。
+- Jenkins 有两种类型的语法用来创建管道：Declarative Pipeline 和 Scripted Pipeline。 {% data variables.product.prodname_actions %} 使用 YAML 创建工作流程和配置文件。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions)”。
 - Jenkins 部署通常是自托管的，用户在自己的数据中心维护服务器。 {% data variables.product.prodname_actions %} 通过托管自己可用于运行作业的运行器提供混合云方法，同时也支持自托管运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
 
 ### 比较功能
@@ -36,8 +44,8 @@ Jenkins 可让您发送版本到单个构建代理，或者您可以在多个代
 同样， {% data variables.product.prodname_actions %} 可以向 {% data variables.product.prodname_dotcom %} 托管或自托管的运行器发送作业，您可以根据不同的属性使用标签对运行器分类。 下表比较了如何对 Jenkins 和 {% data variables.product.prodname_actions %} 实施分布式构建概念。
 
 | Jenkins                                                                | {% data variables.product.prodname_actions %}
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`agents`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`runners`](/actions/learn-github-actions/introduction-to-github-actions#runners)  <br> [`self-hosted runners`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`agents`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`runners`](/actions/learn-github-actions/introduction-to-github-actions#runners) <br> [`self-hosted runners`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
 
 #### 使用区段组织管道
 
@@ -50,24 +58,23 @@ Jenkins 将其 Declarative Pipelines 分为多个区段。 同样，{% data vari
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#stages) | [`jobs`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobs)                                                                                                                                                                                                |
 | [`steps`](https://jenkins.io/doc/book/pipeline/syntax/#steps)   | [`jobs.<job_id>.steps`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)                                                                                                                                                                |
 
-
 ### 使用指令
 
 Jenkins 使用指令来管理 _Declarative Pipelines_。 这些指令定义工作流程的特性及其执行方式。 下表演示这些指令如何映射到 {% data variables.product.prodname_actions %} 中的概念。
 
-| Jenkins 指令                                                                                 | {% data variables.product.prodname_actions %}
-| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`environment`](https://jenkins.io/doc/book/pipeline/syntax/#environment)                  | [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)                                                                                                                                                                                                                                                                                                 |
-| [`options`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                       | [`jobs.<job_id>.strategy`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) <br> [`jobs.<job_id>.strategy.fail-fast`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) <br> [`jobs.<job_id>.timeout-minutes`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)                                                                                    |
-| [`parameters`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                    | [`inputs`](/actions/creating-actions/metadata-syntax-for-github-actions#inputs) <br> [`outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)                                                                                                                                                                                                                                                                                                                                                                                                        |
-| [`triggers`](https://jenkins.io/doc/book/pipeline/syntax/#triggers)                        | [`on`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on) <br> [`on.<event_name>.types`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onevent_nametypes) <br> [<code>on.<push\|pull_request>.<branches\|tags></code>](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) <br> [<code>on.<push\|pull_request>.paths</code>](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) |
-| [`triggers { upstreamprojects() }`](https://jenkins.io/doc/book/pipeline/syntax/#triggers) | [`jobs.<job_id>.needs`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [Jenkins cron syntax](https://jenkins.io/doc/book/pipeline/syntax/#cron-syntax)            | [`on.schedule`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule)                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| [`阶段，暂存`](https://jenkins.io/doc/book/pipeline/syntax/#stage)                              | [`jobs.<job_id>`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_id) <br> [`jobs.<job_id>.name`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idname)                                                                                                                                                                                                                                                                                                       |
-| [`tools`](https://jenkins.io/doc/book/pipeline/syntax/#tools)                              | [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [`input`](https://jenkins.io/doc/book/pipeline/syntax/#input)                              | [`inputs`](/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [`when`](https://jenkins.io/doc/book/pipeline/syntax/#when)                                | [`jobs.<job_id>.if`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idif)                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-
+| Jenkins 指令                                                                                                                                                                                                                                                                                                                                | {% data variables.product.prodname_actions %}
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`environment`](https://jenkins.io/doc/book/pipeline/syntax/#environment)                                                                                                                                                                                                                                                                 | [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps[*].env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)                                                                                                                                                                                                                                                                                              |
+| [`options`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                                                                                                                                                                                                                                                                      | [`jobs.<job_id>.strategy`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) <br> [`jobs.<job_id>.strategy.fail-fast`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) <br> [`jobs.<job_id>.timeout-minutes`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)                                                                                    |
+| [`parameters`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                                                                                                                                                                                                                                                                   | [`inputs`](/actions/creating-actions/metadata-syntax-for-github-actions#inputs) <br> [`outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [`triggers`](https://jenkins.io/doc/book/pipeline/syntax/#triggers)                                                                                                                                                                                                                                                                       | [`on`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on) <br> [`on.<event_name>.types`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onevent_nametypes) <br> [<code>on.<push\|pull_request>.<branches\|tags></code>](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) <br> [<code>on.<push\|pull_request>.paths</code>](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) |
+| [`triggers { upstreamprojects() }`](https://jenkins.io/doc/book/pipeline/syntax/#triggers)                                                                                                                                                                                                                                                | [`jobs.<job_id>.needs`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [Jenkins cron syntax](https://jenkins.io/doc/book/pipeline/syntax/#cron-syntax)                                                                                                                                                                                                                                                           | [`on.schedule`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule)                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| [`阶段，暂存`](https://jenkins.io/doc/book/pipeline/syntax/#stage)                                                                                                                                                                                                                                                                             | [`jobs.<job_id>`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_id) <br> [`jobs.<job_id>.name`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idname)                                                                                                                                                                                                                                                                                                       |
+| [`tools`](https://jenkins.io/doc/book/pipeline/syntax/#tools)                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| {% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。{% else %}[{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software) | {% endif %}
+| [`input`](https://jenkins.io/doc/book/pipeline/syntax/#input)                                                                                                                                                                                                                                                                             | [`inputs`](/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [`when`](https://jenkins.io/doc/book/pipeline/syntax/#when)                                                                                                                                                                                                                                                                               | [`jobs.<job_id>.if`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idif)                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 ### 使用连续阶段
 
@@ -113,23 +120,23 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
-    pipeline {
-     agent any
-      triggers {
-        cron('H/15 * * * 1-5')
-      }
-   }
-  ```
+```yaml
+pipeline {
+  agent any
+  triggers {
+    cron('H/15 * * * 1-5')
+  }
+}
+```
 
 </td>
 <td>
 
-  ```yaml
-  on:
+```yaml
+on:
   schedule:
-    - cron:  '*/15 * * * 1-5'
-  ```
+    - cron: '*/15 * * * 1-5'
+```
 
 </td>
 </tr>
@@ -149,25 +156,24 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
-  pipeline {
-    agent any
-    environment {
-      MAVEN_PATH = '/usr/local/maven'
-    }
+```yaml
+pipeline {
+  agent any
+  environment {
+    MAVEN_PATH = '/usr/local/maven'
   }
-  ```
+}
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
+```yaml
+jobs:
+  maven-build:
     env:
       MAVEN_PATH: '/usr/local/maven'
-  
-  ```
+```
 
 </td>
 </tr>
@@ -187,30 +193,28 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
-  pipeline {
-    triggers {
-      upstream(
-        upstreamProjects: 'job1,job2',
-        threshold: hudson.model.Result.SUCCESS)
-      }
-    }
+```yaml
+pipeline {
+  triggers {
+    upstream(
+      upstreamProjects: 'job1,job2',
+      threshold: hudson.model.Result.SUCCESS
+    )
   }
-
-  ```
+}
+```
 
 </td>
 <td>
 
-  ```yaml
-  jobs:
-    job1:
-    job2:
-      needs: job1
-    job3:
-      needs: [job1, job2]
-  
-  ```
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    needs: [job1, job2]
+```
 
 </td>
 </tr>
@@ -230,26 +234,27 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
+```yaml
 pipeline {
-agent none
-stages {
-  stage('Run Tests') {
-    matrix {
-      axes {
-        axis {
-          name: 'PLATFORM'
-          values: 'macos', 'linux'
+  agent none
+  stages {
+    stage('Run Tests') {
+      matrix {
+        axes {
+          axis {
+            name: 'PLATFORM'
+            values: 'macos', 'linux'
+          }
         }
-      }
-      agent { label "${PLATFORM}" }
-      stages {
-        stage('test') {
-          tools { nodejs "node-12" }
-          steps {
-            dir("scripts/myapp") {
-              sh(script: "npm install -g bats")
-              sh(script: "bats tests")
+        agent { label "${PLATFORM}" }
+        stages {
+          stage('test') {
+            tools { nodejs "node-12" }
+            steps {
+              dir("scripts/myapp") {
+                sh(script: "npm install -g bats")
+                sh(script: "bats tests")
+              }
             }
           }
         }
@@ -257,33 +262,32 @@ stages {
     }
   }
 }
-}
-  ```
+```
 
 </td>
 <td>
 
 {% raw %}
-  ```yaml
-  name: demo-workflow
-  on:
-    push:
-  jobs:
-    test:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        fail-fast: false
-        matrix:
-          os: [macos-latest, ubuntu-latest]
-      steps:
-        - uses: actions/checkout@v1
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 12
-        - run: npm install -g bats
-        - run: bats tests
-          working-directory: scripts/myapp
-  ```
+```yaml
+name: demo-workflow
+on:
+  push:
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install -g bats
+      - run: bats tests
+        working-directory: scripts/myapp
+```
 {% endraw %}
 
 </td>

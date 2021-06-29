@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -15,7 +17,7 @@ versions:
 
 {% data reusables.codespaces.about-configuration %}
 
-如果您没有在仓库中定义配置，{% data variables.product.prodname_dotcom %} 将创建一个具有基本 Linux 映像的代码空间。 基本 Linux 映像包括适用于 Node.js、JavaScript、TypeScript、Python、C++、Java、C#、.NET Core、PHP 和 PowerShell 的工具。 有关基本 Linux 映像的更多信息，请参阅 [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) 仓库。
+如果您没有在仓库中定义配置，{% data variables.product.prodname_dotcom %} 将创建一个具有基本 Linux 映像的代码空间。 基本 Linux 映像包括适用于 Python、Node.js、JavaScript、TypeScript、C++、Java、C#、F#、.NET Core、PHP、PowerShell、Go、Ruby 和 Rust 的工具。 有关基本 Linux 映像的更多信息，请参阅 [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) 仓库。
 
 {% data reusables.codespaces.about-personalization %} {% data reusables.codespaces.codespace-config-order %} 更多信息请参阅“[个性化您帐户的 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)”。
 

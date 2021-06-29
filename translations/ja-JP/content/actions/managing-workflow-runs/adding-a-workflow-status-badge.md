@@ -5,56 +5,40 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.actions-workflow-status-badge-into %}
 
-ワークフローで `名` キーワードを使用する場合は、ワークフローを名前で参照する必要があります。 ワークフローの名前に空白が含まれている場合は、URL エンコード文字列 `%20`にスペースを置き換える必要があります。 `name` キーワードに関する詳しい情報については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions#name)」を参照してください。
+ワークフローファイルの名前でワークフローを参照します。
 
 ```
-https://github.com/<OWNER>/<REPOSITORY>/ワークフロー/<WORKFLOW_NAME>/badge.svg
+https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 ```
+### ワークフローファイル名を使用する
 
-または、ワークフローに `名が含まれていない場合`は、リポジトリのルート ディレクトリに対する相対ファイル パスを使用してワークフロー ファイルを参照する必要があります。
+この Markdown の例では、`.github/workflow/main.yml`というファイル パスのワークフローにステータス バッジを追加します 。 リポジトリの `OWNER` は `github` Organization で、`REPOSITORY` 名は `docs` です。
 
-{% note %}
-
-**注意:** ワークフローに `名が含まれていない場合、ファイル パスを使用してワークフロー ファイルを参照`機能しません。
-
-{% endnote %}
-
+```markdown
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
-https://github.com/<OWNER>/<REPOSITORY>/ワークフロー/<WORKFLOW_FILE_PATH>/badge.svg
-```
-
-### ワークフロー名を使用する
-
-この Markdown の例では、"すべてのユーザーを出す" という名前のワークフローのステータス バッジを追加します。 リポジトリの `OWNER` は、組織</code> `アクションであり、 <code>リポジトリ` 名はハローワールド</code>`。</p>
-
-<pre><code>![ワークフロー名の例](https://github.com/actions/hello-world/workflows/Greet%20E非常に一つ/バッジ.svg)
-`</pre>
-
-### ワークフローのファイルパスを使用する
-
-この Markdown の例では、ファイル パスを持つワークフローのステータス バッジを追加します `.github/workflow/main.yml`。 リポジトリの `OWNER` は、組織</code> `アクションであり、 <code>リポジトリ` 名はハローワールド</code>`。</p>
-
-<pre><code>![ワークフロー ファイルのパスの例](https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
-`</pre>
 
 ### `branch` パラメータを使用する
 
-この Markdown の例では、機能 1</code>の名前 `分岐のステータス バッジを追加します。</p>
+この Markdown の例では、`feature-1`という名前のブランチにステータス バッジを追加します。
 
-<pre><code>![分岐パラメータの例](https://github.com/actions/hello-world/workflows/Greet%20E非常に一人/バッジ.svg?ブランチ=フィーチャー-1)
-`</pre>
+```markdown
+![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
+```
 
 ### `event` パラメータを使用する
 
-この Markdown の例では、 `pull_request` イベントによってトリガーされたワークフロー実行の状態を示すバッジを追加します。
+この Markdown の例では、 `pull_request` イベントによってトリガーされたワークフロー実行のステータスを示すバッジを追加します。
 
-```
-![イベント パラメーターの例](https://github.com/actions/hello-world/workflows/Greet%20E非常に一人/バッジ.svg?イベント=pull_request)
+```markdown
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
 ```

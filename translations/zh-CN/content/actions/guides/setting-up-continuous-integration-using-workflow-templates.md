@@ -11,12 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-authors:
-  - GitHub
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 对仓库具有写入权限的任何人都可以使用 {% data variables.product.prodname_actions %} 设置持续集成 (CI)。
 
@@ -41,5 +45,5 @@ authors:
 - "[关于持续集成](/articles/about-continuous-integration)"
 - "[管理工作流程运行](/articles/managing-a-workflow-run)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
 {% endif %}

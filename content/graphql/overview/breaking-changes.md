@@ -4,12 +4,14 @@ intro: 'Learn about recent and upcoming breaking changes to the {% data variable
 redirect_from:
   - /v4/breaking_changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
-### About breaking changes
+## About breaking changes
 
 Breaking changes are any changes that might require action from our integrators. We divide these changes into two categories:
 
@@ -21,11 +23,11 @@ We strive to provide stable APIs for our integrators. When a new feature is stil
 We'll announce upcoming breaking changes at least three months before making changes to the GraphQL schema, to give integrators time to make the necessary adjustments. Changes go into effect on the first day of a quarter (January 1st, April 1st, July 1st, or October 1st). For example, if we announce a change on January 15th, it will be made on July 1st.
 
 {% for date in graphql.upcomingChangesForCurrentVersion %}
-### Changes scheduled for {{ date[0] }}
+## Changes scheduled for {{ date[0] }}
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}border-red bg-red-light{% else %}border-purple bg-purple-light{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> A change will be made to <code>{{ change.location }}</code>.
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> A change will be made to <code>{{ change.location }}</code>.
 
 <p><b>Description:</b> {{ change.description }}</p>
 

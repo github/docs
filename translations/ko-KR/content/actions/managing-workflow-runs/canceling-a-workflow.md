@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -17,8 +19,13 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, click **Cancel workflow**. ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
+1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel. ![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
+1. In the upper-right corner of the workflow, click **Cancel workflow**.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
+{% else %}
+ ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
+{% endif %}
 
 ### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
 

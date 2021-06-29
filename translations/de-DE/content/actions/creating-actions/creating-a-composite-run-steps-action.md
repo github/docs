@@ -5,16 +5,23 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
-In diesem Handbuch erfahren Sie mehr über die grundlegenden Komponenten, die zum Erstellen und Verwenden einer Aktion für die verwendungsgemäßen zusammengesetzten Ausführungsschritte erforderlich sind. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. Die Aktion druckt "Hello World" und dann "Goodbye", oder wenn Sie einen benutzerdefinierten Namen angeben, druckt sie "Hello [who-to-greet]" und dann "Goodbye". Die Aktion ordnet auch eine Zufallszahl der `Zufallszahl` Ausgabevariablen zu und führt ein Skript mit dem Namen `goodbye.sh`aus.
+In this guide, you'll learn about the basic components needed to create and use a packaged composite run steps action. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
 
-Nachdem Sie dieses Projekt abgeschlossen haben, sollten Sie verstehen, wie Sie Ihre eigene Aktion für zusammengesetzte Ausführungsschritte erstellen und in einem Workflow testen.
+Once you complete this project, you should understand how to build your own composite run steps action and test it in a workflow.
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Vorrausetzungen
 
@@ -56,26 +63,26 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
     {% raw %}
     **action.yml**
     ```yaml
-    Name: 'Hello World'
-    Beschreibung: 'Greet someone'
+    name: 'Hello World'
+    description: 'Greet someone'
     inputs:
-      who-to-greet: 'id of input
+      who-to-greet:  # id of input
         description: 'Who to greet'
         required: true
         default: 'World'
     outputs:
-      zuzufällige Zahl: 
-        Beschreibung: "Zufallszahl"
-        Wert:{{ steps.random-number-generator.outputs.random-id }}
-    läuft:
-      mit: "composite"
-      Schritten: 
-        - laufen:{{ inputs.who-to-greet }}echo
+      random-number:
+        description: "Random number"
+        value: ${{ steps.random-number-generator.outputs.random-id }}
+    runs:
+      using: "composite"
+      steps:
+        - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::'(echo $RANDOM)"
+          run: echo "::set-output name=random-id::$(echo $RANDOM)"
           shell: bash
-        - run: '{{ github.action_path }}/goodbye.sh
+        - run: ${{ github.action_path }}/goodbye.sh
           shell: bash
     ```
     {% endraw %}
@@ -93,7 +100,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+1. From your terminal, add a tag. This example uses a tag called `v1`. Weitere Informationen finden Sie unter „[Informationen zu Aktionen](/actions/creating-actions/about-actions#using-release-management-for-actions)“.
 
   ```shell
   git tag -a -m "Description of this release" v1
@@ -102,28 +109,28 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
 
 ### Deine Aktion in einem Workflow testen
 
-Der folgende Workflowcode verwendet die abgeschlossene Hello-World-Aktion, die Sie in "[Erstellen einer Aktionsmetadatendatei](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)" ausgeführt haben.
+The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
 
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-zu: [push]
+on: [push]
 
-Jobs:
+jobs:
   hello_world_job:
-    läuft auf: ubuntu-latest
-    Name: Ein Job, um Hallo zu sagen
-    Schritte:
-    - verwendet: aktionen/checkout@v2
-    - id: foo
-      verwendet: actions/hello-world-composite-run-steps-action@v1
-      mit:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-{{ steps.foo.outputs.random-number }} 
-      number
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 
-Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. Die Ausgabe sollte folgendes enthalten: "Hello Mona the Octocat", das Ergebnis des Skripts "Goodbye" und eine Zufallszahl.
+Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.

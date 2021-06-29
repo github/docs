@@ -11,12 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-authors:
-  - GitHub
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Anyone with write permission to a repository can set up continuous integration (CI) using {% data variables.product.prodname_actions %}.
 
@@ -41,5 +45,5 @@ For more information, see "[Learn {% data variables.product.prodname_actions %}]
 - "[About continuous integration](/articles/about-continuous-integration)"
 - "[Managing a workflow run](/articles/managing-a-workflow-run)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

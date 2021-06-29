@@ -5,6 +5,6 @@ Key | Type | Description
 `check_suite[head_branch]`|`string` | The head branch name the changes are on.
 `check_suite[head_sha]`|`string` | The SHA of the most recent commit for this check suite.
 `check_suite[status]`|`string` | The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`.
-`check_suite[conclusion]`|`string`| The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`,  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}`action_required` or `stale`{% else %}or `action_required`{% endif %}. This value will be `null` until the check run has `completed`.
+`check_suite[conclusion]`|`string`| The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`,  {% ifversion fpt or ghes or ghae %}`action_required` or `stale`{% else %}or `action_required`{% endif %}. This value will be `null` until the check run has `completed`.
 `check_suite[url]`|`string` | URL that points to the check suite API resource.
 `check_suite[pull_requests]`|`array`| An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.

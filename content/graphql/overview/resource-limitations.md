@@ -4,9 +4,11 @@ intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitat
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
 ## Node limit
@@ -17,7 +19,7 @@ To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all
 * Values of `first` and `last` must be within 1-100.
 * Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
 
-#### Calculating nodes in a call
+### Calculating nodes in a call
 
 These two examples show how to calculate the total nodes in a call.
 
@@ -125,7 +127,7 @@ These two examples show how to calculate the total nodes in a call.
 
                    = 22,060 total nodes</pre>
 
-### Rate limit
+## Rate limit
 
 The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
@@ -136,13 +138,7 @@ To accurately represent the server cost of a query, the GraphQL API v4 calculate
 * The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, ElasticSearch, and Git.
 * Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
 
-The GraphQL API v4 rate limit is **5,000 points per hour**.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-For {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 points per hour.
-
-{% endif %}
+The GraphQL API v4 rate limit is **5,000 points per hour**. 
 
 Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API v4 and REST API v3 use different rate limits.
 
@@ -152,7 +148,7 @@ Note that 5,000 points per hour is not the same as 5,000 calls per hour: the Gra
 
 {% endnote %}
 
-#### Returning a call's rate limit status
+### Returning a call's rate limit status
 
 With the REST API v3, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
 
@@ -180,7 +176,7 @@ query {
 
 * The `resetAt` field returns the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
-#### Calculating a rate limit score before running the call
+### Calculating a rate limit score before running the call
 
 Querying the `rateLimit` object returns a call's score, but running the call counts against the limit. To avoid this dilemma, you can calculate the score of a call before you run it. The following calculation works out to roughly the same cost that `rateLimit { cost }` returns.
 

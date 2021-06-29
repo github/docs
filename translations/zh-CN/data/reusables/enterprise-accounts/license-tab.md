@@ -4,6 +4,6 @@
 
 {% else %}
 
-1. 在左侧边栏中，单击 **License（许可）**。 ![企业帐户设置边栏中的"License（许可）"选项卡](/assets/images/enterprise/enterprises/license.png)
+1. 在左侧边栏中，单击 **License（许可）**。 ![企业帐户设置边栏中的"License（许可）"选项卡](/assets/images/enterprise/enterprise-server/license.png)
 
 {% endif %}

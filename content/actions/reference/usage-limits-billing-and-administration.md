@@ -5,24 +5,29 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+topics:
+  - Billing
+shortTitle: Workflow billing & limits
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### About billing for {% data variables.product.prodname_actions %}
+## About billing for {% data variables.product.prodname_actions %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
+{% ifversion fpt %}
+{% data reusables.github-actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} that use self-hosted runners.
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
 {% endif %}
 
-### Usage limits
+## Usage limits
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
 
 {% note %}
@@ -43,18 +48,20 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Usage policy
+{% ifversion fpt %}
+## Usage policy
 
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/articles/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Artifact and log retention policy
+{% ifversion fpt or ghes > 2.22 or ghae %}
+## Artifact and log retention policy
 
 You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
@@ -63,21 +70,21 @@ You can configure the artifact and log retention period for your repository, org
 For more information, see:
 
 - [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
 - [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your enterprise](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
-### Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
+## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.github-actions.disabling-github-actions %}
 
 For more information, see:
 - "[Disabling or limiting {% data variables.product.prodname_actions %} for a repository](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)"
-- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% ifversion fpt %}
 - "[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" for {% data variables.product.prodname_ghe_cloud %}{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Disabling and enabling workflows
+{% ifversion fpt or ghes > 2.22 or ghae %}
+## Disabling and enabling workflows
 
 You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 

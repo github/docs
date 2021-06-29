@@ -6,11 +6,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 搜索 API 可帮助您搜索要查找的特定条目。 例如，您可以在仓库中找到用户或特定文件。 就像您在 Google 上执行搜索一样。 它旨在帮助您找到要查找的一个或几个结果。 就像在 Google 上搜索一样，有时您希望查看几页搜索结果，以便找到最能满足您需求的条目。 为了满足这一需求， {% data variables.product.product_name %} 搜索 API **为每个搜索提供最多 1,000 个结果**。
 
-您可以使用查询缩小搜索范围。 To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
+您可以使用查询缩小搜索范围。 要了解有关搜索查询语法的更多信息，请查看“[构建搜索查询](/rest/reference/search#constructing-a-search-query)”。
 
 ### 排列搜索结果
 
@@ -18,7 +20,7 @@ versions:
 
 ### 速率限制
 
-搜索 API 有自定义速率限制。 For requests using [Basic Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
+搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
 
 {% data reusables.enterprise.rate_limit %}
 
@@ -40,7 +42,7 @@ SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 GitHub Octocat in:readme user:defunkt
 ```
 
-**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. 例如：
+**注意：** 请务必使用语言的首选 HTML 编码器构造查询字符串。 例如：
 ```javascript
 // JavaScript
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');

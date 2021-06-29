@@ -1,0 +1,1 @@
+1. En la barra lateral de Configuración, da clic en **Equipos**. ![Pestaña de equipos en la barra lateral de configuración de la organización](/assets/images/help/settings/settings-sidebar-team-settings.png)

@@ -23,7 +23,7 @@ program
   .option('--decorate-only', '⚠️ Only used by a 🤖 to generate decorated schema files from existing dereferenced schema files.')
   .parse(process.argv)
 
-const decorateOnly = program.decorateOnly
+const decorateOnly = program.opts().decorateOnly
 
 main()
 
@@ -35,7 +35,7 @@ async function main () {
       process.exit(1)
     }
 
-    getDereferencedFiles()
+    await getDereferencedFiles()
   }
 
   await decorate()
@@ -58,7 +58,13 @@ async function getDereferencedFiles () {
   mkdirp(tempDocsDir)
 
   console.log(`\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`)
-  execSync(`${path.join(githubRepoDir, 'bin/openapi')} bundle ${tempDocsDir}`, { stdio: 'inherit' })
+  try {
+    execSync(`${path.join(githubRepoDir, 'bin/openapi')} bundle -o ${tempDocsDir} --include_unpublished`, { stdio: 'inherit' })
+  } catch (error) {
+    console.error(error)
+    console.log('🛑 Whoops! It looks like the `bin/openapi bundle` command failed to run in your `github/github` repository checkout. To troubleshoot, ensure that your OpenAPI schema YAML is formatted correctly. A CI test runs on your `github/github` PR that flags malformed YAML. You can check the PR diff view for comments left by the openapi CI test to find and fix any formatting errors.')
+    process.exit(1)
+  }
 
   execSync(`find ${tempDocsDir} -type f -name "*deref.json" -exec mv '{}' ${dereferencedPath} ';'`)
 
@@ -69,7 +75,7 @@ async function getDereferencedFiles () {
   // name of the `github/github` checkout. A CI test
   // checks the version and fails if it's not a semantic version.
   schemas.forEach(filename => {
-    const schema = require(path.join(dereferencedPath, filename))
+    const schema = JSON.parse(fs.readFileSync(path.join(dereferencedPath, filename)))
     schema.info.version = `${githubBranch} !!DEVELOPMENT MODE - DO NOT MERGE!!`
     fs.writeFileSync(path.join(dereferencedPath, filename), JSON.stringify(schema, null, 2))
   })
@@ -79,23 +85,29 @@ async function decorate () {
   console.log('\n🎄 Decorating the OpenAPI schema files in lib/rest/static/dereferenced.\n')
 
   const dereferencedSchemas = schemas.reduce((acc, filename) => {
-    const schema = require(path.join(dereferencedPath, filename))
+    const schema = JSON.parse(fs.readFileSync(path.join(dereferencedPath, filename)))
     const key = filename.replace('.deref.json', '')
     return { ...acc, [key]: schema }
   }, {})
 
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
-    // munge OpenAPI definitions object in an array of operations objects
-    const operations = await getOperations(schema)
+    try {
+      // munge OpenAPI definitions object in an array of operations objects
+      const operations = await getOperations(schema)
 
-    // process each operation, asynchronously rendering markdown and stuff
-    await Promise.all(operations.map(operation => operation.process()))
+      // process each operation, asynchronously rendering markdown and stuff
+      await Promise.all(operations.map(operation => operation.process()))
 
-    const filename = path.join(decoratedPath, `${schemaName}.json`)
-      .replace('.deref', '')
-    // write processed operations to disk
-    fs.writeFileSync(filename, JSON.stringify(operations, null, 2))
+      const filename = path.join(decoratedPath, `${schemaName}.json`)
+        .replace('.deref', '')
+      // write processed operations to disk
+      fs.writeFileSync(filename, JSON.stringify(operations, null, 2))
 
-    console.log('Wrote', path.relative(process.cwd(), filename))
+      console.log('Wrote', path.relative(process.cwd(), filename))
+    } catch (error) {
+      console.error(error)
+      console.log('🐛 Whoops! It looks like the decorator script wasn\'t able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.')
+      process.exit(1)
+    }
   }
 }

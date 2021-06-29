@@ -1,7 +1,7 @@
 ---
 - 
   term: '@упоминание'
-  description: уведомить человека на GitHub, используя `@` перед именем пользователя. Пользователи в организации на GitHub также могут быть частью команды, которую можно упомянуть.
+  description: Уведомить человека на GitHub, используя `@` перед именем пользователя. Пользователи в организации на GitHub также могут быть частью команды, которую можно упомянуть.
 - 
   term: токен доступа
   description: >-
@@ -35,7 +35,7 @@
 - 
   term: биография
   description: >-
-    Описание, созданное пользователем, которое находится в профиле: https://help.github.com/articles/adding-a-bio-to-your-profile/
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - 
   term: расчётный период
   description: Период времени для вашего конкретного плана выставления счетов.
@@ -78,7 +78,7 @@
   term: карта
   description: Подвижный квадрат на панели проекта, относящийся к проблеме или запросу на включение внесенных изменений.
 - 
-  term: Проверка
+  term: проверка
   description: >-
     Проверка — это типа проверки состояния на {% data variables.product.product_name %}. См. «[Проверки состояния](#status-checks)».
 - 
@@ -88,7 +88,7 @@
 - 
   term: отбор
   description: >-
-    Выбор подмножества изменений из серии изменений (обычно коммитов) и их запись в виде новой серии изменений в начале другой базы исходного кода. В Git это делается с помощью команды «git cherry-pick» для отбора изменения, внесенного существующим коммитом в другой ветви, и его записи в качестве нового коммита на основе подсказки текущей ветви.
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
 - 
   term: дочерняя команда
   description: >-
@@ -106,7 +106,7 @@
   description: >-
     Возможность запуска служб GitHub Enterprise в нескольких узлах и выполнения запросов на выравнивание нагрузки между ними.
 - 
-  term: Диаграмма частоты обновления кода
+  term: график частоты обновления кода
   description: >-
     График репозитория, на котором показывается добавление и удаление содержимого за неделю в журнале работы с репозиторием.
 - 
@@ -123,7 +123,7 @@
 - 
   term: коммит
   description: >-
-    Коммит или «версия» — это отдельное изменение файла (или набора файлов). При создании коммита для сохранения своей работы Git присваивает уникальный ID (также называемый «SHA» или «хэш»), который позволяет регистрировать конкретные изменения вместе с данными о том, кто и когда их внес. Обычно коммиты содержат сообщение о коммите, в котором кратко описаны сделанные изменения.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: автор коммита
   description: Пользователь, выполняющий коммит.
@@ -137,7 +137,7 @@
 - 
   term: сообщение коммита
   description: >-
-    Краткий описательный текст, который присутствует в коммите и содержит информацию об изменении, которое вносит коммит.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: сравнить ветвь
   description: >-
@@ -156,13 +156,13 @@
 - 
   term: вклад
   description: >-
-    Конкретные действия в GitHub, в результате которых: – Добавляется квадрат к графику вклада пользователя: «[Что считается вкладом] (https://help.github.com/articles/viewing-contributions-on-your-profile/#what -counts-as-a-impact)» – Добавляются действия в историю действий пользователя в его профиле: «[Связанные с вкладом действия](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)»
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: участник
   description: >-
     Участник — сотрудник, не имеющий доступа с правами соавтора к репозиторию, но который внес свой вклад в проект и открытый запрос которого на включение внесенных изменений был слит в репозиторий.
 - 
-  term: Диаграмма участников
+  term: график участников
   description: График репозитория, на котором отображаются 100 основных участников репозитория.
 - 
   term: купон
@@ -175,19 +175,19 @@
   term: cURL
   description: Используется в командных строках или скриптах для передачи данных.
 - 
-  term: Панель мониторинга
+  term: панель мониторинга
   description: >-
     Ваша персональная панель мониторинга является основным центром вашей работы в GitHub. На своей персональной панели мониторинга пользователь может отслеживать проблемы и запросы на включение внесенных изменений, которые он контролирует или с которыми работает, осуществлять навигацию по основным репозиториям и страницам команды и узнавать о недавних действиях в репозиториях, которые пользователь отслеживает или в работе с которыми он принимает участие. Пользователь также может находить новые репозитории, рекомендованные на основании оценок пользователей, на которых он подписан, или добавленные в избранное репозитории. Для просмотра только действий, связанных с конкретной организацией, перейдите на панель мониторинга этой организации. Дополнительную информацию см. в «[Сведения о персональной панели мониторинга](/articles/about-your-personal-dashboard)» или «[Сведения о панели мониторинга вашей организации](/articles/about-your-organization-dashboard)».
 - 
   term: ветвь по умолчанию
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
-  term: Диаграмма зависимостей
+  term: график зависимостей
   description: >-
     График репозитория, на котором показаны пакеты, проекты и репозитории, зависимые от публичного репозитория.
 - 
-  term: График зависимостей
+  term: dependency graph
   description: >-
     График репозитория, на котором показаны пакеты и проекты, от которых зависит репозиторий.
 - 
@@ -213,7 +213,7 @@
   term: уведомления по электронной почте
   description: Уведомления отправленные на адрес электронной почты пользователя.
 - 
-  term: Учетная запись предприятия
+  term: корпоративная учетная запись
   description: Учетные записи предприятия позволяют централизованно управлять политикой и выставление счетов для нескольких {% data variables.product.prodname_dotcom_the_website %} организаций. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Проводник
@@ -229,7 +229,7 @@
     Ветвь, используемая для тестирования новой функции или исправления проблемы, которая не находится в эксплуатации. Также называется тематической ветвью.
 - 
   term: огороженный блок кода
-  description: 'Специальный блок кода можно создать в GitHub Flavored Markdown с помощью трех апострофов \`\`\` до и после блока кода. См. [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: выбрать
   description: >-
@@ -250,9 +250,9 @@
   description: >-
     Бесплатный тарифный план для учетной записи пользователя. Пользователи могут сотрудничать в неограниченном числе публичных репозиториев с неограниченным количеством соавторов.
 - 
-  term: Gist
+  term: gist
   description: >-
-    Gist — это файл совместного доступа, который можно редактировать, клонировать и порождать его копию в GitHub. Gist может быть общедоступным или скрытым, хотя скрытый gist будет доступен всем, у кого есть URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     Личная учетная запись, к которой пользователь не может получить доступ. Учетные записи блокируются, когда пользователь переходит с платной учетной записи на бесплатную или после истечения срока действия его платного тарифного плана.
 - 
-  term: Консоль управления
+  term: management console
   description: >-
     Раздел интерфейса GitHub Enterprise, содержащий функции администрирования.
 - 
@@ -385,18 +385,18 @@
   description: >-
     Markdown — это очень простой семантический формат файла, не слишком отличающийся от форматов .doc, .rtf и .txt. С помощью Markdown даже люди, не имеющие опыта публикации в Интернете, могут создавать тексты (в том числе содержащие ссылки, списки, маркеры и т. д.), которые будут выглядеть как страницы сайта. GitHub поддерживает особую версию языка Markdown — GitHub Flavored Markdown. См. [Спецификация GitHub Flavored Markdown] (https://github.github.com/gfm/) или [Начало работы с написанием текстов и форматированием в GitHub] (/articles/getting-started-with-writing-and-formatting-on- github).
 - 
-  term: Разметка
+  term: разметка
   description: Система для аннотирования и форматирования документа.
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: главная (ветвь)
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
-  term: Диаграмма участников
+  term: график элементов
   description: График репозитория, на котором показаны все ответвления репозитория.
 - 
   term: упоминание
@@ -422,11 +422,11 @@
   description: >-
     Дочерняя команда родительской команды. Может существовать несколько дочерних (или вложенных) команд.
 - 
-  term: Сетевая диаграмма
+  term: диаграмма сети
   description: >-
     Диаграмма репозитория, на которой показана история ветвей всей сети репозитория, включая ветви корневого репозитория и ветви ответвлений, которые содержат уникальные для сети коммиты.
 - 
-  term: Лента новостей
+  term: news feed
   description: >-
     Просмотр активности в репозиториях или активности сотрудников, работу которых вы контролируете. В ленте новостей организации отображается активность в репозиториях, принадлежащих организации.
 - 
@@ -436,7 +436,7 @@
 - 
   term: оповещение
   description: >-
-    Обновления, доставляемые через Интернет или по электронной почте, в зависимости от ваших настроек, в которых содержится информация об интересующих вас действиях.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: Приложение OAuth
   description: >-
@@ -543,10 +543,10 @@
   description: >-
     Комментарии от соавторов к запросу на включение внесенных изменений, которые утверждают изменения или просят внести дальнейшие изменения перед слиянием запроса на включение внесенных изменений.
 - 
-  term: Импульсный граф
+  term: график активности
   description: Диаграмма репозитория, на которой показана активность в репозитории.
 - 
-  term: График частоты обновления
+  term: график частоты обновления
   description: >-
     Диаграмма репозитория, на которой показана частота обновлений репозитория по дням недели и времени суток.
 - 
@@ -680,7 +680,7 @@
   description: >-
     Визуальное представление в запросе на включение внесенных изменений подтверждения соответствия ваших коммитов требованиям, установленным для репозитория, с которым вы работаете.
 - 
-  term: Проверки состояния
+  term: проверки статуса
   description: >-
     Проверки состояния — это внешние процессы, такие как конфигурация непрерывной интеграции, которые выполняются для каждого коммита, выполненного в репозитории. Дополнительную информацию см. в «[Проверки состояния](/articles/about-status-checks)».
 - 
@@ -714,7 +714,7 @@
   description: >-
     Способ исследования репозиториев в определенной предметной области, поиска проектов, в работе над которыми можно участвовать, и нахождения новых решений конкретной проблемы в GitHub.
 - 
-  term: Диаграмма трафика
+  term: диаграмма трафика
   description: >-
     Диаграмма репозитория, на которой показан трафик репозитория, включая полные клоны (не выборки), посетители за последние 14 дней, ссылающиеся сайты и популярный контент.
 - 
@@ -754,9 +754,6 @@
   term: веб-перехватчики
   description: >-
     Веб-перехватчики позволяют выполнять сборки или настраивать приложения GitHub путем подписки на уведомления об определенных событиях в GitHub.com. Веб-перехватчики обеспечивают доставку уведомлений на внешний веб-сервер всякий раз, когда в репозитории или организации выполняются определенные действия. Также называется перехватчиком службы.
-- 
-  term: Работает с GitHub
-  description: Список интеграций с GitHub.
 - 
   term: доступ на запись
   description: >-

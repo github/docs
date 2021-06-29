@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-support
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 ### Über {% data variables.contact.github_support %}
@@ -23,9 +25,9 @@ Um zu prüfen, ob es derzeit Probleme gibt, die die Dienstleistungen von {% data
 
 ### {% data variables.contact.github_support %} kontaktieren
 
-Benutzer- und Organisationskonten von {% data variables.product.prodname_free_user %} können das {% data variables.contact.community_support_forum %} verwenden, um Themen zu durchsuchen, Fragen zu stellen, Lösungen zu teilen und direkt mit {% data variables.contact.community_support %} zu interagieren. Du kannst {% data variables.contact.contact_support %} auch kontaktieren, um Issues mit Konten, Sicherheit oder Missbrauch zu melden.
+You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}.
 
-Mit einem bezahlten Konto kannst du entweder {% data variables.contact.contact_support %} kontaktieren oder in Abhängigkeit von Deinem Plan auch {% data variables.contact.premium_support %} oder {% data variables.contact.contact_ent_support %}. Weitere Informationen zum Kontaktieren von {% data variables.contact.premium_support %} findest Du unter „[Über {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)" oder „[Über {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise)."
+To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}.
 
 ### {% data variables.contact.github_support %} temporären Zugriff auf ein privates Repository gewähren
 

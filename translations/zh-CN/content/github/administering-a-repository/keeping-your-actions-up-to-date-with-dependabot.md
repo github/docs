@@ -1,5 +1,5 @@
 ---
-title: Keeping your actions up to date with Dependabot
+title: 使用 Dependabot 保持操作的最新状态
 intro: '您可以使用 {% data variables.product.prodname_dependabot %} 来确保您使用的操作更新到最新版本。'
 redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-github-dependabot

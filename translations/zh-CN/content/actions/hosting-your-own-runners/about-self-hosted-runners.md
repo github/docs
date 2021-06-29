@@ -7,10 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于自托管运行器
 
@@ -48,7 +52,7 @@ versions:
 
 只要符合以下要求，便可将任何计算机用作自托管运行器：
 
-* 您可以在机器上安装和运行自托管运行器应用程序。 更多信息请参阅“[自托管运行器支持的操作系统](#supported-operating-systems-for-self-hosted-runners)”。
+* 您可以在机器上安装和运行自托管运行器应用程序。 更多信息请参阅“[自托管运行器支持的架构和操作系统](#supported-architectures-and-operating-systems-for-self-hosted-runners)”。
 * 计算机可与 {% data variables.product.prodname_actions %} 通信。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
 * 机器有足够的硬件资源来执行您计划运行的工作流程类型。 自托管运行器应用程序本身只需要很少的资源。
 * 如果您想运行使用 Docker 容器操作或服务容器的工作流程，您必须使用 Linux 机器并安装 Docker。
@@ -61,15 +65,20 @@ versions:
 - **作业排队时间** - 自托管运行器的每个作业最多可排队 24 小时。 如果自托管运行器在此限制内没有开始执行作业，则作业将被终止，并且无法完成。
 {% data reusables.github-actions.usage-api-requests %}
 - **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### 自托管运行器支持的操作系统
+### 自托管运行器的工作流连续性
+
+{% data reusables.github-actions.runner-workflow-continuity %}
+
+### 自托管运行器支持的架构和操作系统
 
 自托管运行器应用程序支持以下操作系统。
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 或更新版本
+- CentOS 7 或更新版本
 - Oracle Linux 7
 - Fedora 29 或更高版本
 - Debian 9 或更高版本
@@ -87,9 +96,17 @@ versions:
 - Windows Server 2016 64 位
 - Windows Server 2019 64 位
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) 或更高版本
+
+#### 架构
+
+自托管运行器应用程序支持以下处理器架构。
+
+- `x64` - Linux、macOS、Windows。
+- `ARM64` - 仅 Linux。
+- `ARM32` - 仅 Linux。
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -103,6 +120,15 @@ versions:
 
 自托管运行器将调查 {% data variables.product.product_name %} 以检索应用程序更新，并检查是否有作业在排队等待处理。 自托管运行器使用 HTTPS _long poll_ 打开 {% data variables.product.product_name %} 连接 50 秒，如果没有收到任何响应，就会暂停并创建新的长轮询。 应用程序必须在机器上运行才能接受和运行 {% data variables.product.prodname_actions %} 作业。
 
+{% if currentVersion == "github-ae@latest" %}
+您必须确保自托管运行器具有适当的网络访问权限才可与
+{% data variables.product.prodname_ghe_managed %} URL 通信。
+例如，如果你的实例名称是 `octoghie`，则需要允许自托管运行器访问 `octoghe. ithub.com`。
+如果您对
+
+{% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”。
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 您必须确保机器具有适当的网络访问权限才可与以下列出的 {% data variables.product.prodname_dotcom %} URL 通信。
@@ -111,10 +137,16 @@ versions:
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
 codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
 ```
 
-如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
+如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
 
 {% else %}
 

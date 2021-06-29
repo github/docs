@@ -4,9 +4,12 @@ shortTitle: 关于集成
 intro: '您可以在外部执行 {% data variables.product.prodname_code_scanning %}，然后在 {% data variables.product.prodname_dotcom %} 中显示结果，或者设置侦听仓库中 {% data variables.product.prodname_code_scanning %} 活动的 web 挂钩。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -17,7 +20,7 @@ versions:
 
 ### 与 web 挂钩集成
 
-您可以使用 {% data variables.product.prodname_code_scanning %} web 挂钩构建或设置集成，例如 [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) 或 [{% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/)，以订阅仓库中的 {% data variables.product.prodname_code_scanning %} 事件。 例如，您可以构建在 {% data variables.product.product_location %} 上创建议题，或者在仓库中新增 {% data variables.product.prodname_code_scanning %} 警报时向您发送 Slack 通知的集成。 更多信息请参阅“[创建 web 挂钩](/developers/webhooks-and-events/creating-webhooks)”和“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。
+您可以使用 {% data variables.product.prodname_code_scanning %} web 挂钩构建或设置集成，例如 [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) 或 [{% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/)，以订阅仓库中的 {% data variables.product.prodname_code_scanning %} 事件。 例如，您可以构建在 {% data variables.product.product_name %} 上创建议题，或者在仓库中新增 {% data variables.product.prodname_code_scanning %} 警报时向您发送 Slack 通知的集成。 更多信息请参阅“[创建 web 挂钩](/developers/webhooks-and-events/creating-webhooks)”和“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。
 
 ### 延伸阅读
 

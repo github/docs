@@ -10,10 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Action development
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于操作
 
@@ -33,8 +39,8 @@ versions:
 | 类型         | 操作系统                |
 | ---------- | ------------------- |
 | Docker 容器  | Linux               |
-| JavaScript | Linux、MacOS、Windows |
-| 组合运行步骤     | Linux、MacOS、Windows |
+| JavaScript | Linux、macOS、Windows |
+| 组合运行步骤     | Linux、macOS、Windows |
 
 #### Docker 容器操作
 
@@ -123,7 +129,7 @@ steps:
 
 #### 使用提交的 SHA 进行发行版管理
 
-每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 使用提交的完整 SHA 值而不是缩写值可以帮助防止人们使用缩写相同的恶意提交。
+每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}您必须使用提交的完整 SHA 值，而不是缩写值。{% else %}使用提交的完整 SHA 值而不使用缩写值有助于防止他人使用相同缩写值进行恶意提交。{% endif %}
 
 ```yaml
 steps:
@@ -145,7 +151,7 @@ steps:
 
 {% data variables.product.prodname_marketplace %} 提供用于改进工作流程的工具。 了解每种工具的差异和优势将使您能够选择最适合自己作业的工具。 有关构建应用程序的更多信息，请参阅"[关于应用程序](/apps/about-apps/)。
 
-#### GitHub 操作和 GitHub 应用程序的设置
+#### GitHub Actions 和 GitHub 应用程序的设置
 
 尽管 {% data variables.product.prodname_actions %}和 {% data variables.product.prodname_github_app %}都提供了构建自动化和工作流程工具的方法，但它们各有优点，使其以不同的方式发挥作用。
 

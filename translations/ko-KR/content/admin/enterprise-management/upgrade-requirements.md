@@ -7,6 +7,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
 versions:
   enterprise-server: '*'
+type: reference
+topics:
+  - Enterprise
+  - Upgrades
 ---
 
 {% note %}
@@ -25,7 +29,7 @@ versions:
 - If you’re several versions behind, upgrade {% data variables.product.product_location %} as far forward as possible with each step of your upgrade process. Using the latest version possible on each upgrade allows you to take advantage of performance improvements and bug fixes. For example, you could upgrade from {% data variables.product.prodname_enterprise %} 2.7 to 2.8 to 2.10, but upgrading from {% data variables.product.prodname_enterprise %} 2.7 to 2.9 to 2.10 uses a later version in the second step.
 - Use the latest patch release when upgrading. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - Use a staging instance to test the upgrade steps. For more information, see "[Setting up a staging instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
-- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and backgrounded upgrade tasks to fully complete.
+- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.
 
 ### 요구 사항
 
@@ -38,5 +42,9 @@ versions:
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
 Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
+
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
+
+### 다음 단계
 
 After reviewing these recommendations and requirements, you can upgrade {% data variables.product.prodname_ghe_server %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."

@@ -1,0 +1,27 @@
+<div class="bg-guides-gradient py-6">
+  <div class="container-xl px-3 px-md-6 my-6">
+    <h2 class="font-mktg h1 mb-2" id="supported-releases"><a href="#supported-releases">{% data ui.product_landing.supported_releases %}</a></h2>
+
+    <div class="d-lg-flex gutter-lg flex-items-stretch">
+      {% for release in releases %}
+      {% assign releaseNumber = release.version %}
+      {% if enterpriseServerReleases.supported contains releaseNumber %}
+      {% assign releaseVersion = 'enterprise-server@' | append: releaseNumber %}
+      {% assign latestPatch = release.patches[0] %}
+      {% assign firstPreviousVersion = 'enterprise-server@' | append: release.firstPreviousRelease %}
+      {% assign secondPreviousVersion = 'enterprise-server@' | append: release.secondPreviousRelease %}
+      <div class="col-lg-4 col-12 mb-3">
+        <div class="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-text-primary p-5">
+          <h2>{{ allVersions[releaseVersion].versionTitle }}</h2>
+          <p class="mt-2 mb-4 color-text-tertiary">{% octicon "list-unordered" %} <a href="/{{ currentLanguage }}/{{ releaseVersion }}/admin/release-notes#{{ latestPatch.version }}">{% data ui.product_landing.release_notes_for %} {{ latestPatch.version }}</a> ({{ latestPatch.date }})</p>
+          <p class="mt-2 mb-4 color-text-tertiary">{% octicon "arrow-up" %} {% data ui.product_landing.upgrade_from %} <a href="/{{ currentLanguage }}/{{ firstPreviousVersion }}/admin/enterprise-management/upgrading-github-enterprise-server">{{ release.firstPreviousRelease }}</a> or <a href="/{{ currentLanguage }}/{{ secondPreviousVersion }}/admin/enterprise-management/upgrading-github-enterprise-server">{{ release.secondPreviousRelease }}</a></p>
+          <p class="mt-2 mb-4 color-text-tertiary">{% octicon "file" %} <a href="/{{ currentLanguage }}/{{ releaseVersion }}">{% data ui.product_landing.browse_all_docs %}</a></p>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <a href="{{ currentPath }}/release-notes" class="btn btn-outline float-right">{% data ui.product_landing.explore_release_notes %} {% octicon "arrow-right" %}</a>
+  </div>
+</div>

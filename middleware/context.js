@@ -1,12 +1,21 @@
 const languages = require('../lib/languages')
 const enterpriseServerReleases = require('../lib/enterprise-server-releases')
 const allVersions = require('../lib/all-versions')
-const allProducts = require('../lib/all-products')
-const activeProducts = Object.values(allProducts).filter(product => !product.wip && !product.hidden)
-const { getVersionStringFromPath, getProductStringFromPath, getPathWithoutLanguage } = require('../lib/path-utils')
+const { productMap } = require('../lib/all-products')
+const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
+const {
+  getVersionStringFromPath,
+  getProductStringFromPath,
+  getCategoryStringFromPath,
+  getPathWithoutLanguage
+} = require('../lib/path-utils')
 const productNames = require('../lib/product-names')
 const warmServer = require('../lib/warm-server')
-const featureFlags = Object.keys(require('../feature-flags'))
+const readJsonFile = require('../lib/read-json-file')
+const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
+const builtAssets = require('../lib/built-asset-urls')
+const searchVersions = require('../lib/search/versions')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
@@ -19,19 +28,21 @@ module.exports = async function contextualize (req, res, next) {
   // make feature flag environment variables accessible in layouts
   req.context.process = { env: {} }
   featureFlags.forEach(featureFlagName => {
-    req.context.process.env[featureFlagName] = process.env[featureFlagName]
+    req.context[featureFlagName] = process.env[featureFlagName]
   })
 
   // define each context property explicitly for code-search friendliness
   // e.g. searches for "req.context.page" will include results from this file
   req.context.currentLanguage = req.language
-  req.context.currentVersion = getVersionStringFromPath(req.path)
-  req.context.currentProduct = getProductStringFromPath(req.path)
-  req.context.allProducts = allProducts
+  req.context.userLanguage = req.userLanguage
+  req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentProduct = getProductStringFromPath(req.pagePath)
+  req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
+  req.context.productMap = productMap
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
-  req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.path)
-  req.context.currentPath = req.path
+  req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
+  req.context.currentPath = req.pagePath
   req.context.query = req.query
   req.context.languages = languages
   req.context.productNames = productNames
@@ -41,6 +52,24 @@ module.exports = async function contextualize (req, res, next) {
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
   req.context.pages = pageMap
+
+  // JS + CSS asset paths
+  req.context.builtAssets = builtAssets
+
+  // Object exposing selected variables to client
+  req.context.expose = JSON.stringify({
+    // Languages and versions for search
+    searchOptions: {
+      languages: Object.keys(languages),
+      versions: searchVersions,
+      nonEnterpriseDefaultVersion
+    },
+    // `|| undefined` won't show at all for production
+    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined
+  })
+  if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
+  req.context.searchVersions = searchVersions
+  req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
 
   return next()
 }

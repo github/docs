@@ -1,6 +1,5 @@
 .sidebar {
   width: 260px;
-  background-color: $blue-900;
   position: sticky;
   top: 0;
   padding-bottom: $spacer-5;
@@ -13,10 +12,6 @@
   }
 }
 
-.sidebar-background-color {
-  background-color: $blue-900;
-}
-
 .sidebar-products > li {
   margin: 4px 0;
 }
@@ -24,57 +19,46 @@
 .sidebar-products a,
 .sidebar-products .arrow {
   text-decoration: none;
-  color: $white;
   display: block;
   line-height: 1.4;
-
-  &:hover {
-    color: $blue-300;
-  }
 }
 
 .sidebar-category,
 .sidebar-product {
   > a,
   summary a {
-    color: $blue-200;
     opacity: 0.8;
   }
 }
 
-.sidebar-product,
-.sidebar-category,
-.sidebar-maptopic,
-.sidebar-article {
-  &.active > a {
-  }
-  &.is-current-page > a {
-    color: $blue-300;
-  }
-}
-
 .sidebar-category.active {
-  background-color: $blue-800;
+  background-color: rgba(#959da5, 0.1); // --color-auto-gray-4
+  // We can't do rgba(var(--color-auto-gray-4, 0.1) quite yet
+  // as the browsers are still working on supporting that combination
 }
 
-.sidebar-maptopic {
-  .sidebar-article {
-    position: relative;
+.sidebar-article {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: $spacer-4;
+    height: 100%;
+    border-left: 1px solid var(--color-text-primary);
+    width: 1px;
+    top: 0;
+  }
+
+  &.active {
     &::before {
-      content: "";
-      position: absolute;
-      left: $spacer-4;
-      height: 100%;
-      border-left: 1px solid $blue-700;
-      width: 1px;
-      top: 0;
-    }
-    &.active {
-      &::before {
-        border-left: 3px solid $blue-700;
-      }
+      border-left: 2px solid var(--color-text-primary);
     }
   }
+}
+
+.is-current-page > a {
+  font-weight: bolder;
 }
 
 // only display child lists of active elements in sidebar
@@ -91,5 +75,23 @@
 }
 
 .sidebar-maptopic > ul {
+  display: none;
+}
+
+.sidebar-maptopic > details > summary > div,
+.sidebar-article > a {
+  color: var(--color-text-secondary);
+}
+
+.sidebar-maptopic > details > summary > div:hover,
+.sidebar-article > a:hover {
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
   display: none;
 }

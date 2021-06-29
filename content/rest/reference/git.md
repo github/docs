@@ -4,9 +4,12 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags). For more information about using the Git Database API, see "[Getting started with the Git data API](/rest/guides/getting-started-with-the-git-database-api)."
@@ -18,7 +21,7 @@ The Git Database API gives you access to read and write raw Git objects to your 
 ## Blobs
 
 A Git blob (binary large object) is the object type used to store the contents of each file in a repository. The file's SHA-1 hash is computed and stored in the blob object. These endpoints allow you to read and write [blob objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)
-to your Git database on {% data variables.product.product_name %}. Blobs leverage [these custom media types](#custom-media-types). You can read more about the use of media types in the API [here](/rest/overview/media-types).
+to your Git database on {% data variables.product.product_name %}. Blobs leverage [these custom media types](#custom-media-types-for-blobs). You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
 ### Custom media types for blobs
 

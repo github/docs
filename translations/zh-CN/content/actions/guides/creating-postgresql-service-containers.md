@@ -9,14 +9,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
-本指南演示了使用 Docker Hub `postgres` 映像配置服务容器的工作流程示例。 工作流程运行脚本来创建 PostgreSQL 客户端并使用数据填充客户端。 要测试工作流程是否创建并填充 PostgreSQL 客户端，脚本会将客户端数据打印到控制台。
+本指南演示了使用 Docker Hub `postgres` 映像配置服务容器的工作流程示例。 工作流程运行一个脚本，以连接到 PostgreSQL 服务，创建一个表，然后用数据填充该表。 为了测试工作流程是否创建并填充 PostgreSQL 表，脚本会将表中的数据打印到控制台。
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -36,7 +42,7 @@ versions:
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL service example
 on: push
 
@@ -75,10 +81,10 @@ jobs:
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # Runs a script that creates a PostgreSQL client, populates
-        # the client with data, and retrieves data
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
         run: node client.js
-        # Environment variable used by the `client.js` script to create a new PostgreSQL client.
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_HOST: postgres
@@ -93,7 +99,7 @@ jobs:
 
 {% data reusables.github-actions.postgres-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the container job
   container-job:
@@ -123,7 +129,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -135,8 +141,8 @@ steps:
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # Runs a script that creates a PostgreSQL client, populates
-    # the client with data, and retrieves data
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data.
     run: node client.js
     # Environment variable used by the `client.js` script to create
     # a new PostgreSQL client.
@@ -158,7 +164,7 @@ PostgreSQL 文档中的服务的主机名是您在工作流程中配置的标签
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
 
@@ -198,11 +204,11 @@ jobs:
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # Runs a script that creates a PostgreSQL client, populates
-        # the client with data, and retrieves data
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data
         run: node client.js
-        # Environment variable used by the `client.js` script to create
-        # a new PostgreSQL client.
+        # Environment variables used by the `client.js` script to create
+        # a new PostgreSQL table.
         env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_HOST: localhost
@@ -219,7 +225,7 @@ jobs:
 
 工作流程将 PostgreSQL 服务容器上的端口 5432 映射到 Docker 主机。 有关 `ports` 关键字的更多信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)”。
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label of the runner job
   runner-job:
@@ -250,7 +256,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -262,11 +268,11 @@ steps:
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # Runs a script that creates a PostgreSQL client, populates
-    # the client with data, and retrieves data
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data
     run: node client.js
-    # Environment variable used by the `client.js` script to create
-    # a new PostgreSQL client.
+    # Environment variables used by the `client.js` script to create
+    # a new PostgreSQL table.
     env:
       # The hostname used to communicate with the PostgreSQL service container
       POSTGRES_HOST: localhost
@@ -280,13 +286,13 @@ steps:
 
 ### 测试 PostgreSQL 服务容器
 
-您可以使用以下脚本测试工作流程，该脚本将创建 PostgreSQL 客户端，并添加包含某些占位符数据的新表。 然后，脚本将存储在 PostgreSQL 客户端中的值打印到终端。 您的脚本可以使用任何您喜欢的语言，但此示例使用 Node.js 和 `Pg` npm 模块。 更多信息请参阅 [npm pg 模块](https://www.npmjs.com/package/pg)。
+您可以使用以下脚本测试工作流程，该脚本将连接到 PostgreSQL 服务，并添加包含某些占位符数据的新表。 然后，脚本将存储在 PostgreSQL 表中的值打印到终端。 您的脚本可以使用任何您喜欢的语言，但此示例使用 Node.js 和 `Pg` npm 模块。 更多信息请参阅 [npm pg 模块](https://www.npmjs.com/package/pg)。
 
-您可以修改 *client.js* 以包含工作流程需要的任何 PostgreSQL 操作。 在此示例中，脚本创建 PostgreSQL 客户端实例、创建表、添加占位符数据，然后检索数据。
+您可以修改 *client.js* 以包含工作流程需要的任何 PostgreSQL 操作。 在本例中，脚本连接到 PostgreSQL 服务，向 `postgres` 数据库添加一个表，插入一些占位符数据，然后检索数据。
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const { Client } = require('pg');
 
 const pgclient = new Client({
@@ -318,11 +324,11 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-该脚本创建新的 PostgreSQLL `Client`，接受 `host` 和 `port` 参数。 该脚本使用 `POSTGRES_HOST` 和 `POSTGRES_PORT` 环境变量来设置客户端的 IP 地址和端口。 如果未定义 `host` 和 `port`，则默认主机为 `localhost`，默认端口为 5432。
+脚本创建与 PostgreSQL 服务的新连接，并使用 `POSTGRES_HOST` 和 `POSTGRES_PORT` 环境变量来指定 PostgreSQL 服务 IP 地址和端口。 如果未定义 `host` 和 `port`，则默认主机为 `localhost`，默认端口为 5432。
 
-脚本创建一个表并将用占位符数据添加。 要测试 PostgreSQL 数据库是否包含数据，脚本将会表的内容打印到控制台日志。
+脚本创建一个表并将用占位符数据添加。 要测试 `postgres` 数据库是否包含数据，脚本会将表的内容打印到控制台日志。
 
-运行此工作流程时，应会在“连接到 PostgreSQL”步骤中看到以下输出，确认您创建了 PostgreSQL 客户端并添加了数据：
+运行此工作流程时，应会在“连接到 PostgreSQL”步骤中看到以下输出，确认您成功创建了 PostgreSQL 表并添加了数据：
 
 ```
 null [ { id: 1,
