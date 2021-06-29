@@ -41,7 +41,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 
 ## CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`. If an author modifies the files under their ownership, then the review is not required, but still appointed. 
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 ### Example of a CODEOWNERS file
@@ -52,7 +52,9 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
-# review when someone opens a pull request.
+# review when someone opens a pull request. When multiple
+# owners are specified, a review from only one of them is
+# required.
 *       @global-owner1 @global-owner2
 
 # Order is important; the last matching pattern takes the most
@@ -84,6 +86,12 @@ apps/ @octocat
 # directory in the root of your repository and any of its
 # subdirectories.
 /docs/ @doctocat
+
+# In this example, @octocat owns any file in an apps directory
+# anywhere in your repository except for the apps/github 
+# repository.
+apps/ @octocat
+apps/github @ghost
 ```
 ### Syntax exceptions
 There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
