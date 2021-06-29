@@ -1,7 +1,7 @@
 ---
 title: About enterprise accounts
-intro: 'With {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+intro: 'With {100% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
+product: '{100% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
@@ -18,11 +18,11 @@ topics:
 An enterprise account allows you to manage multiple {% data variables.product.prodname_dotcom %} organizations and {% data variables.product.prodname_ghe_server %} instances. Your enterprise account must have a handle, like an organization or personal account on {% data variables.product.prodname_dotcom %}. Enterprise administrators can manage settings and preferences, like:
 
 - Member access and management (organization members, outside collaborators)
-- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs{% ifversion fpt or ghes > 3.0 %}, {% data variables.product.prodname_GH_advanced_security %} usage{% endif %})
+- Billing and usage ({100% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs{% ifversion fpt or ghes > 3.0 %}, {% data variables.product.prodname_GH_advanced_security %} usage{% endif %})
 - Security (single sign-on, two factor authentication)
 - Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+{100% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." To upgrade to {% data variables.product.prodname_enterprise %} or to get started with an enterprise account, contact {% data variables.contact.contact_enterprise_sales %}.
 
@@ -44,4 +44,4 @@ For more information, see "[Managing organizations in your enterprise account](/
 
 ## Managing {% data variables.product.prodname_ghe_server %} licenses linked to your enterprise account
 
-{% data reusables.enterprise-accounts.admin-managing-licenses %}
+{100% data reusables.enterprise-accounts.admin-managing-licenses %}
