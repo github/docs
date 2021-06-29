@@ -1,6 +1,6 @@
 ---
 title: Access permissions on GitHub
-redirect_from:
+Noredirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
@@ -13,8 +13,8 @@ versions:
   ghes: '*'
   ghae: '*'
 topics:
-  - Permissions
-  - Accounts
+  - [x] Permissions
+  - [x] Accounts
 shortTitle: Access permissions
 ---
 ## Personal user accounts
@@ -24,14 +24,14 @@ A repository owned by a user account has two permission levels: the *repository 
 ## Organization accounts
 
 Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
-- "[Permission levels for an organization](/articles/permission-levels-for-an-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
-- "[About teams](/articles/about-teams)"
+- [x] Permission levels for an organization](/articles/permission-levels-for-an-organization)"
+- [x] Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- [X] Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- [x] About teams](/articles/about-teams)"
 
 {% ifversion fpt %}
 
-## Enterprise accounts
+- [X] Enterprise accounts
 
 *Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
 
