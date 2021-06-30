@@ -103,10 +103,7 @@ Each case requires a different approach, and we try to tailor our response to me
 
 Actions we may take in response to an abuse report include but are not limited to:
 
-* Content Removal
-* Content Blocking
-* Account Suspension
-* Account Termination
+
 
 ## Appeal and Reinstatement
 
