@@ -64,6 +64,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
       - name: Build with Gradle
         run: ./gradlew build
 ```
@@ -73,7 +75,8 @@ This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
 2. The `setup-java` step configures the Java 11 JDK by Adoptium.
-3. The "Build with Gradle" step runs the `gradlew` wrapper script to ensure that your code builds, tests pass, and a package can be created.
+3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
+4. The "Build with Gradle" step runs the `gradlew` wrapper script to ensure that your code builds, tests pass, and a package can be created.
 
 The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
 
@@ -97,6 +100,8 @@ steps:
     with:
       java-version: '11'
       distribution: 'adopt'
+  - name: Validate Gradle wrapper
+    uses: gradle/wrapper-validation-action@v1
   - name: Run the Gradle package task
     run: ./gradlew -b ci.gradle package
 ```
@@ -115,6 +120,8 @@ steps:
     with:
       java-version: '11'
       distribution: 'adopt'
+  - name: Validate Gradle wrapper
+    uses: gradle/wrapper-validation-action@v1
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
@@ -151,7 +158,8 @@ steps:
     with:
       java-version: '11'
       distribution: 'adopt'
-
+  - name: Validate Gradle wrapper
+    uses: gradle/wrapper-validation-action@v1
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

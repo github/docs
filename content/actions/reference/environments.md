@@ -76,8 +76,9 @@ For more information on syntax to reference environments in workflows, see "[Wor
 
 When a workflow references an environment, the environment will appear in the repository's deployments. For more information about viewing current and previous deployments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
 
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## Using concurrency to serialize deployments in an environment
-You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#concurrency)."
+You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#concurrency)."{% endif %}
 
 ## Deleting an environment
 

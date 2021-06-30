@@ -25,6 +25,9 @@ module.exports = async function genericToc (req, res, next) {
   // Find the part of the site tree that corresponds to the current path.
   const treePage = findPageInSiteTree(req.context.currentProductTree, req.context.currentEnglishTree, req.pagePath)
 
+  // Do not include hidden child items on a TOC page unless it's an Early Access category page.
+  req.context.showHiddenTocItems = req.context.page.documentType === 'category' && req.context.currentPath.includes('/early-access/')
+
   // Conditionally run getTocItems() recursively.
   let isRecursive
   // Conditionally render intros.
@@ -49,8 +52,7 @@ module.exports = async function genericToc (req, res, next) {
 
 async function getTocItems (pagesArray, context, isRecursive, renderIntros) {
   return (await Promise.all(pagesArray.map(async (child) => {
-    // Do not include hidden child items on a TOC page
-    if (child.page.hidden && !context.currentPath.includes('/early-access/')) return
+    if (child.page.hidden && !context.showHiddenTocItems) return
 
     return {
       title: child.renderedFullTitle,

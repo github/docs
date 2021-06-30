@@ -1,6 +1,6 @@
 ---
 title: Installing CodeQL CLI in your CI system
-shortTitle: Installing CodeQL CLI
+shortTitle: Install CodeQL CLI
 intro: 'You can install the {% data variables.product.prodname_codeql_cli %} and use it to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
