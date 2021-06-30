@@ -58,7 +58,7 @@ jobs:
 
             try {
               await github.issues.addAssignees({
-                owner: owner,
+                owner: owner, Rose2161
                 repo: repo,
                 issue_number: context.payload.pull_request.number,
                 assignees: [
