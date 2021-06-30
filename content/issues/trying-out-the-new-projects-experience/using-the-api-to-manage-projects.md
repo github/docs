@@ -75,7 +75,7 @@ curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
   --header 'GraphQL-Features: projects_next_graphql' \
-  --data '{"query":"query{organization(login: \"<em>ORGANIZATION</em>\") {projectNext(number: <em>NUMBER</em>){id}}}"}'
+  --data '{"query":"query{organization(login: \"<em>ORGANIZATION</em>\") {project(number: <em>NUMBER</em>){id}}}"}'
 ```
 {% endcurl %}
 
@@ -102,7 +102,7 @@ curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
   --header 'GraphQL-Features: projects_next_graphql' \
-  --data '{"query":"{organization(login: \"<em>ORGANIZATION</em>\") {projectsNext(first: 20) {nodes {id title}}}}"}'
+  --data '{"query":"{organization(login: \"<em>ORGANIZATION</em>\") {projects(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
 
