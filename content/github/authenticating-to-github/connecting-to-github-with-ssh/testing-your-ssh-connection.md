@@ -33,8 +33,13 @@ When you test your connection, you'll need to authenticate this action using you
   > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Are you sure you want to continue connecting (yes/no)?
   ```
-
-3. Verify that the fingerprint in the message you see matches {% ifversion fpt %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+  If you do see this you might need to run the following:
+  
+  ```shell
+  $ ssh-keyscan github.com >> ~/.ssh/known_hosts
+  ```
+  
+  3. Verify that the fingerprint in the message you see matches {% ifversion fpt %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
