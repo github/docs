@@ -18,11 +18,12 @@ The first steps in starting with {% data variables.product.product_name %}, are 
 
 {% ifversion fpt %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif}Every person who uses {% data variables.product.product_name %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
 
+{% ifversion fpt %}
 ### 1. Creating an account
 To sign up for a {% data variables.product.prodname_dotcom %} account, navigate to https://github.com/ and follow the prompts. 
 
 To keep your {% data variables.product.prodname_dotcom %} account secure you should use a strong and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password)."
-{% ifversion fpt %}
+
 ### 2. Choosing your {% data variables.product.prodname_dotcom %} product
 You can choose {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} to get access to different features for your personal account. You can upgrade at any time if you are unsure at first which product you want.
 
@@ -33,10 +34,10 @@ To ensure you can use all of the features in your {% data variables.product.prod
 {% endif %}
 
 {% ifversion fpt or ghes %}
-### {% ifversion fpt %}4.{% else %}2.{% endif %} Configuring two-factor authentication
+### {% ifversion fpt %}4.{% else %}1.{% endif %} Configuring two-factor authentication
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see "[About two-factor authentication](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
 {% endif %}
-### {% ifversion fpt %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.product_name %} profile and contribution graph
+### {% ifversion fpt %}5.{% elsif ghes %}2.{% else %}1.{% endif %} Viewing your {% data variables.product.product_name %} profile and contribution graph
 Your {% data variables.product.product_name %} profile tells people the story of your work through the repositories and gists you've pinned, the organization memberships you've chosen to publicize, the contributions you've made, and the projects you've created. For more information, see “[About your profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)" and “[Viewing contributions on your profile](/github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile)."
 
 ## Part 2: Using {% data variables.product.product_name %}'s tools and processes
