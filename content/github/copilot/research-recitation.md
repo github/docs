@@ -14,7 +14,7 @@ A first look at rote learning in {% data variables.product.prodname_dotcom %} Co
 
 ## Introduction
 
-{% data variables.product.prodname_dotcom %} Copilot helps you write code leveraging the collective intelligence of software developers worldwide. Copilot has already read through lots of public code, then it considers your own code, tries to guess what you want to do and comes up with a suggestion for how to get you there. That suggestion is based on your code. But indirectly, it’s informed by the code of those who came before you.
+{% data variables.product.prodname_dotcom %} Copilot is trained on billions of lines of public code. The suggestions it makes to you are adapted to your code, but the processing behind it is ultimately informed by code written by others.
 
 How direct is the relationship between the suggested code and the code that informed it? In a recent thought-provoking paper<sup id="anchor1">[1](#footnote1)</sup>, Bender, Gebru et al. coined the phrase “stochastic parrots” for artificial intelligence systems like the ones that power {% data variables.product.prodname_dotcom %} Copilot. Or as a fellow machine learning engineer at {% data variables.product.company_short %}<sup id="anchor2">[2](#footnote2)</sup> remarked during a water cooler chat: these systems can feel like ”a toddler with a photographic memory.”
 
@@ -110,7 +110,7 @@ And nothing is ever foolproof of course: so this too can be tricked. Some cases 
 
 ## Conclusion and Next Steps
 
-This demonstration demonstrates that GitHub Copilot _can_ quote a body of code verbatim, but that it rarely does so, and when it does, it mostly quotes code everybody quotes, and mostly at the beginning of a file, as if to break the ice.
+This investigation demonstrates that {% data variables.product.prodname_dotcom %} Copilot _can_ quote a body of code verbatim, but that it rarely does so, and when it does, it mostly quotes code that everybody quotes, and mostly at the beginning of a file, as if to break the ice.
 
 But there’s still one big difference between GitHub Copilot reciting code and me reciting a poem: I _know_ when I’m quoting. I would also like to know when Copilot is echoing existing code rather than coming up with its own ideas. That way, I’m able to look up background information about that code, and to include credit where credit is due.
 
