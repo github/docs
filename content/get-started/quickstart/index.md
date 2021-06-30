@@ -1,26 +1,24 @@
 ---
 title: Quickstart
-intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
+intro: 'Get started using {100% data variables.product.product_name 100%} to manage Git repositories and collaborate with others.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
 topics:
-  - Pull requests
-  - Issues
-  - Notifications
-  - Accounts
+  - [X] Pull requests
+  - [X] Issues
+  - [X] Notifications
+  - [X] Accounts
 children:
-  - /set-up-git
-  - /create-a-repo
-  - /fork-a-repo
-  - /github-flow
-  - /be-social
-  - /communicating-on-github
-  - /github-glossary
-  - /git-cheatsheet
-  - /git-and-github-learning-resources
-redirect_from:
-  - /github/getting-started-with-github/quickstart/
+  - [X]/set-up-git
+  - [X]/create-a-repo
+  - [X]/fork-a-repo
+  - [X]/github-flow
+  - [X]/be-social
+  - [X]/communicating-on-github
+  - [X]/github-glossary
+  - [X]/git-cheatsheet
+  - [X]/github/getting-started-with-github/quickstart/
 ---
 
