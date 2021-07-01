@@ -1,3 +1,4 @@
+[open-source-licenses.txt](https://github.com/github/docs/files/6744875/open-source-licenses.txt)
 ---
 title: Verifying or approving a domain for your organization
 intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.'
