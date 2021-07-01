@@ -17,6 +17,7 @@ shortTitle: Remove label when adding card
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -32,6 +33,8 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 4. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
     name: Remove labels
     on:
       project_card:
@@ -46,7 +49,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
           pull-requests: write{% endif %}
         steps:
           - name: remove labels
-            uses: andymckay/labeler@master
+            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
             with:
               remove-labels: "needs review"
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}

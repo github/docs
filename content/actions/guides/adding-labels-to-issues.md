@@ -16,6 +16,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -30,6 +31,8 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
     name: Label issues
     on:
       issues:
@@ -43,7 +46,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
           issues: write{% endif %}
         steps:
           - name: Label issues
-            uses: andymckay/labeler@1.0.2
+            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
             with:
               add-labels: "triage"
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
