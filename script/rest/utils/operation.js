@@ -37,6 +37,11 @@ module.exports = class Operation {
       this.subcategoryLabel = sentenceCase(this.subcategory)
     }
 
+    // Add content type. We only display one example and default
+    // to the first example defined.
+    const contentTypes = Object.keys(get(this, 'requestBody.content', []))
+    this.contentType = contentTypes[0]
+
     return this
   }
 
@@ -109,8 +114,8 @@ module.exports = class Operation {
        * example:
        *  '$ref': '../../components/examples/bar.yaml'
       */
-      const examplesProperty = get(rawResponse, 'content.application/json.examples')
-      const exampleProperty = get(rawResponse, 'content.application/json.example')
+      const examplesProperty = get(rawResponse, `content.${this.contentType}.examples`)
+      const exampleProperty = get(rawResponse, `content.${this.contentType}.example`)
 
       // Return early if the response doesn't have an example payload
       if (!exampleProperty && !examplesProperty) {
@@ -168,9 +173,9 @@ module.exports = class Operation {
   }
 
   async renderBodyParameterDescriptions () {
-    let bodyParamsObject = get(this, 'requestBody.content.application/json.schema.properties', {})
-    let requiredParams = get(this, 'requestBody.content.application/json.schema.required', [])
-    const oneOfObject = get(this, 'requestBody.content.application/json.schema.oneOf', undefined)
+    let bodyParamsObject = get(this, `requestBody.content.${this.contentType}.schema.properties`, {})
+    let requiredParams = get(this, `requestBody.content.${this.contentType}.schema.required`, [])
+    const oneOfObject = get(this, `requestBody.content.${this.contentType}.schema.oneOf`, undefined)
 
     // oneOf is an array of input parameter options, so we need to either
     //  use the first option or munge the options together.
