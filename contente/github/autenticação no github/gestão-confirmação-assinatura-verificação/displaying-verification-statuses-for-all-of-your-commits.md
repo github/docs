@@ -1,3 +1,4 @@
+![Core](https://user-images.githubusercontent.com/80979442/124143828-d24ee200-da61-11eb-88c7-57c6c5c444f1.jpg)
 ---
 title: Displaying verification statuses for all of your commits
 shortTitle: Displaying verification for all commits
