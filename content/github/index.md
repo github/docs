@@ -13,6 +13,7 @@ children:
   - /setting-up-and-managing-your-github-user-account
   - /setting-up-and-managing-your-github-profile
   - /authenticating-to-github
+  - /copilot
   - /managing-subscriptions-and-notifications-on-github
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github
@@ -34,4 +35,3 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
-

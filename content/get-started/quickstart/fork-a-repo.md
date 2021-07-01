@@ -43,39 +43,50 @@ When creating your public repository from a fork of someone's project, make sure
 
 {% endif %}
 
-{% note %}
+## Prerequisties
 
-**Note**: {% data reusables.repositories.desktop-fork %}
+If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.product.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
-{% endnote %}
+## Forking a repository
 
-{% ifversion fpt or ghes or ghae %}
-{% tip %}
+{% include tool-switcher %}
+{% webui %}
 
-**Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
-## Fork an example repository
-
-Forking a repository is a simple two-step process. We've created a repository for you to practice with.
+You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
 
 1. On {% data variables.product.product_location %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. In the top-right corner of the page, click **Fork**.
 ![Fork button](/assets/images/help/repository/fork_button.jpg)
 
-## Keep your fork synced
+{% endwebui %}
 
-You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
+{% cli %}
 
-### Step 1: Set up Git
+{% data reusables.cli.download-cli %}
 
-If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.product.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
+To create a fork of a repository, use the `gh repo fork` subcommand.
 
-### Step 2: Create a local clone of your fork
+```shell
+gh repo fork <em>repository</em>
+```
 
-Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository on your computer. Let's create a clone of your fork locally on your computer.
+To create the fork in an organization, use the `--org` flag.
+
+```shell
+gh repo fork <em>repository</em> --org "octo-org"
+```
+
+{% endcli %}
+
+{% desktop %}
+{% enddesktop %}
+
+## Cloning your forked repository
+
+Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally your computer.
+
+{% include tool-switcher %}
+{% webui %}
 
 1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
@@ -95,16 +106,42 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
-Now, you have a local copy of your fork of the Spoon-Knife repository.
 
-### Step 3: Configure Git to sync your fork with the original Spoon-Knife repository
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.download-cli %}
+
+To create a clone of your fork, use the `--clone` flag.
+
+```shell
+gh repo fork <em>repository</em> --clone=true
+```
+
+{% endcli %}
+
+{% desktop %}
+
+{% data reusables.desktop.choose-clone-repository %}
+{% data reusables.desktop.cloning-location-tab %}
+{% data reusables.desktop.cloning-repository-list %}
+{% data reusables.desktop.choose-local-path %}
+{% data reusables.desktop.click-clone %}
+
+{% enddesktop %}
+
+## Configuring Git to sync your fork with the original repository
 
 When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
+
+{% include tool-switcher %}
+{% webui %}
 
 1. On {% data variables.product.product_name %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
-4. Change directories to the location of the fork you cloned in [Step 2: Create a local clone of your fork](#step-2-create-a-local-clone-of-your-fork).
+4. Change directories to the location of the fork you cloned.
     - To go to your home directory, type just `cd` with no other text.
     - To list the files and folders in your current directory, type `ls`.
     - To go into one of your listed directories, type `cd your_listed_directory`.
@@ -131,6 +168,26 @@ When you fork a project in order to propose changes to the original repository, 
   ```
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/articles/syncing-a-fork)."
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.download-cli %}
+
+To configure a remote repository for the forked repository, use the `--remote` flag.
+
+```shell
+gh repo fork <em>repository</em> --remote=true
+```
+
+To specify the remote repository's name, use the `--remote-name` flag.
+
+```shell
+gh repo fork <em>repository</em> --remote-name "main-remote-repo"
+```
+
+{% endcli %}
 
 ### Next steps
 
