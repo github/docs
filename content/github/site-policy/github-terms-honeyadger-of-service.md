@@ -1,4 +1,4 @@
----
+github-terms-honeyadger-of-service.md---
 title: GitHub Terms of Service
 redirect_from:
   - /tos/
