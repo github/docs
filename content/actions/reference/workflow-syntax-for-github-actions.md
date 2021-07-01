@@ -595,7 +595,7 @@ The `my backup step` only runs when the previous step of a job fails. For more i
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@main
+    uses: octo-org/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
@@ -644,7 +644,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@1.0.0
+        uses: actions/heroku@main
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -909,7 +909,7 @@ A `string` that defines the inputs for a Docker container. {% data variables.pro
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@main
+    uses: octo-org/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -931,7 +931,7 @@ Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't 
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@main
+    uses: octo-org/action-name@main
     with:
       entrypoint: /a/different/executable
 ```

@@ -17,6 +17,7 @@ shortTitle: Move assigned issues
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -31,8 +32,9 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
 3. {% data reusables.actions.make-workflow-file %}
 4. Copy the following YAML contents into your workflow file.
 
-    {% raw %}
     ```yaml{:copy}
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
     name: Move assigned card
     on:
       issues:
@@ -42,13 +44,13 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
       move-assigned-card:
         runs-on: ubuntu-latest
         steps:
-          - uses: alex-page/github-project-automation-plus@v0.3.0
+          - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
             with:
               project: Docs Work
               column: In Progress
-              repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+              repo-token: {% raw %}${{ secrets.PERSONAL_ACCESS_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 5. Customize the parameters in your workflow file:
    - Change the value for `project` to the name of your project board. If you have multiple project boards with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
    - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
