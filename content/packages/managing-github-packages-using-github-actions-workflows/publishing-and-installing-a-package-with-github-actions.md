@@ -123,7 +123,7 @@ jobs:
     steps: {% raw %}
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}{% endraw %}
       - uses: actions/download-artifact@main
@@ -251,7 +251,7 @@ run-npm-test:
   steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
     - uses: actions/download-artifact@main

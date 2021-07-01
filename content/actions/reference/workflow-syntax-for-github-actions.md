@@ -625,9 +625,9 @@ steps:
   # Reference a specific commit
   - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
-  - uses: actions/setup-node@v1
-  # Reference a minor version of a release
-  - uses: actions/setup-node@v1.2
+  - uses: actions/setup-node@v2
+  # Reference a specific version
+  - uses: actions/setup-node@v2.2.0
   # Reference a branch
   - uses: actions/setup-node@main
 ```
