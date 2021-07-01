@@ -341,7 +341,8 @@ describe('nextjs query param', () => {
   })
 })
 
-describe('next/link client-side navigation', () => {
+// Skipping because next/links are disabled by default for now
+describe.skip('next/link client-side navigation', () => {
   jest.setTimeout(60 * 1000)
 
   it('should have 200 response to /_next/data when link is clicked', async () => {

@@ -76,7 +76,7 @@ You can create an example workflow in your repository that automatically trigger
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
           - run: npm install -g bats
           - run: bats -v
     ```
@@ -170,7 +170,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 <td>
 
   ```yaml
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
   ```
 </td>
 <td>

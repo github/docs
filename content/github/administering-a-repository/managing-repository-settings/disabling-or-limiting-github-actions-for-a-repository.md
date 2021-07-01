@@ -75,6 +75,19 @@ You can disable all workflows for a repository or set a policy that configures w
 2. Click **Save**.
 {% endif %}
 
+{% ifversion fpt %}
+## Configuring required approval for workflows from public forks
+
+{% data reusables.actions.workflow-run-approve-public-fork %} You can configure this behavior for a repository using the procedure below. Modifying this setting overrides the configuration set at the organization or enterprise level.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.workflows-from-public-fork-setting %}
+
+{% data reusables.actions.workflow-run-approve-link %}
+{% endif %}
+
 {% ifversion fpt or ghes > 2.22 %}
 ## Enabling workflows for private repository forks
 

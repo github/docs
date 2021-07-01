@@ -1,6 +1,6 @@
 ---
 title: Managing code scanning alerts for your repository
-shortTitle: Managing alerts
+shortTitle: Manage alerts
 intro: 'From the security view, you can view, fix, dismiss, or delete alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'

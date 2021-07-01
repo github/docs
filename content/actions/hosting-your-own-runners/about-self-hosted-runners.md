@@ -131,6 +131,12 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
+{% note %}
+
+**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
+
+{% endnote %}
+
 ```
 github.com
 api.github.com
@@ -160,7 +166,7 @@ You can also use self-hosted runners with a proxy server. For more information, 
 
 This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
 
-Untrusted workflows running on your self-hosted runner poses significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
+Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
 
 * Malicious programs running on the machine.
 * Escaping the machine's runner sandbox.

@@ -45,14 +45,30 @@ A time-based one-time password (TOTP) application automatically generates an aut
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-5. On the Two-factor authentication page, click **Set up using an app**.
+{%- ifversion fpt or ghes > 3.1 %}
+5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
+6. Under "Authentication verification", do one of the following:
+    - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
+    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
+    ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+7. The TOTP mobile application saves your {% data variables.product.product_name %} account and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". If your recovery codes are not automatically displayed, click **Continue**.
+![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
+{%- else %}
+5. On the Two-factor authentication page, click **Set up using an app**.
+6. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
+    - To save your recovery codes on your device, click **Download**.
+    - To save a hard copy of your recovery codes, click **Print**.
+    - To copy your recovery codes for storage in a password manager, click **Copy**.
+    ![List of recovery codes with option to download, print, or copy the codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
+7. After saving your two-factor recovery codes, click **Next**.
 8. On the Two-factor authentication page, do one of the following:
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **enter this text code** to see a code you can copy and manually enter on {% data variables.product.product_name %} instead.
     ![Click enter this code](/assets/images/help/2fa/totp-click-enter-code.png)
 9. The TOTP mobile application saves your {% data variables.product.product_name %} account and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, on the 2FA page, type the code and click **Enable**.
 	![TOTP Enable field](/assets/images/help/2fa/totp-enter-code.png)
+{%- endif %}
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt %}
@@ -72,12 +88,15 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-4. On the Two-factor authentication page, click **Set up using SMS**.
+4. Under "Two-factor authentication", select **Set up using SMS** and click **Continue**.
+5. Under "Authentication verification", select your country code and type your mobile phone number, including the area code. When your information is correct, click **Send authentication code**.
+
+  ![2FA SMS screen](/assets/images/help/2fa/2fa_wizard_sms_send.png)
+
+6. You'll receive a text message with a security code. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code sent to your phone" and click **Continue**.
+
+  ![2FA SMS continue field](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-7. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Send authentication code**.
-  ![2FA SMS screen](/assets/images/help/2fa/2fa_sms_photo.png)
-8. You'll receive a text message with a security code. Type the code on the Two-factor authentication page, and click **Enable**.
-![2FA SMS continue field](/assets/images/help/2fa/2fa-sms-code-enable.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% endif %}

@@ -75,11 +75,10 @@ As more users join {% data variables.product.product_location %}, you may need t
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. As the root user, using a text editor of your choice, edit the _/etc/fstab_ file, changing the UUID for the `/` mount point to the UUID of the new root drive. You can obtain the UUID of the new root drive with the command `sudo lsblk -f`.
-5. Shut down the appliance:
+4. Shut down the appliance:
   ```shell
   $ sudo poweroff
   ```
-6. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-7. Start the appliance.
-8. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+5. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
+6. Start the appliance.
+7. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
