@@ -247,7 +247,7 @@ defaults:
     working-directory: scripts
 ```
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `concurrency`
 
 {% data reusables.actions.concurrency-beta %}
@@ -440,7 +440,7 @@ environment:
 {% endif %}
 
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.concurrency-beta %}

@@ -284,6 +284,48 @@ on:
 
 {% endnote %}
 
+{% ifversion fpt %}
+### `discussion`
+
+Runs your workflow anytime the `discussion` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[Discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+
+{% data reusables.github-actions.branch-requirement %}
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`discussion`](/webhooks/event-payloads/#discussion) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+For example, you can run a workflow when a discussion has been `opened`, `edited`, or `answered`.
+
+```yaml
+on:
+  discussion:
+    types: [opened, edited, answered]
+```
+
+### `discussion_comment`
+
+Runs your workflow anytime the `discussion_comment` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[Discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+
+{% data reusables.github-actions.branch-requirement %}
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| --------------------- | -------------- | ------------ | -------------|
+| [`discussion_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+For example, you can run a workflow when an issue comment has been `created` or `deleted`.
+
+```yaml
+on:
+  discussion_comment:
+    types: [created, deleted]
+```
+{% endif %}
+
 ### `fork`
 
 Runs your workflow anytime when someone forks a repository, which triggers the `fork` event. For information about the REST API, see "[Create a fork](/rest/reference/repos#create-a-fork)."
