@@ -92,7 +92,7 @@ strategy:
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js ${{ matrix.node-version }}
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: ${{ matrix.node-version }}
 ```
@@ -122,7 +122,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '12.x'
       - run: npm ci
@@ -150,7 +150,7 @@ This example installs the dependencies defined in the *package.json* file. For m
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -164,7 +164,7 @@ Using `npm ci` installs the versions in the *package-lock.json* or *npm-shrinkwr
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -180,7 +180,7 @@ This example installs the dependencies defined in the *package.json* file. For m
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -193,7 +193,7 @@ Alternatively, you can pass `--frozen-lockfile` to install the versions in the *
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -215,7 +215,7 @@ Before installing dependencies, use the `setup-node` action to create the *.npmr
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     always-auth: true
     node-version: '12.x'
@@ -238,29 +238,34 @@ always-auth=true
 
 ### Example caching dependencies
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
 
-{% raw %}
+The following example caches dependencies for npm.
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- name: Use Node.js
-  uses: actions/setup-node@v1
+- uses: actions/setup-node@v2
   with:
-    node-version: '12.x'
-- name: Cache Node.js modules
-  uses: actions/cache@v2
-  with:
-    # npm cache files are stored in `~/.npm` on Linux/macOS
-    path: ~/.npm
-    key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-    restore-keys: |
-      ${{ runner.OS }}-node-
-      ${{ runner.OS }}-
-- name: Install dependencies
-  run: npm ci
+    node-version: '14'
+    cache: 'npm'
+- run: npm install
+- run: npm test
 ```
-{% endraw %}
+
+The following example caches dependencies for Yarn.
+
+```yaml{:copy}
+steps:
+- uses: actions/checkout@v2
+- uses: actions/setup-node@v2
+  with:
+    node-version: '14'
+    cache: 'yarn'
+- run: yarn
+- run: yarn test
+```
+
+To cache dependencies, you must have a `package-lock.json` or `yarn.lock` file in the root of the repository. If you need more flexible customization, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
 
 ## Building and testing your code
 
@@ -270,7 +275,7 @@ You can use the same commands that you use locally to build and test your code. 
 steps:
 - uses: actions/checkout@v2
 - name: Use Node.js
-  uses: actions/setup-node@v1
+  uses: actions/setup-node@v2
   with:
     node-version: '12.x'
 - run: npm install
