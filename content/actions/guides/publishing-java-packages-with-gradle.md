@@ -20,6 +20,7 @@ shortTitle: Java packages with Gradle
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -78,9 +79,9 @@ With this configuration, you can create a workflow that publishes your package t
 
 In the deploy step, you’ll need to set environment variables for the username and password or token that you use to authenticate to the Maven repository. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-
-{% raw %}
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -96,14 +97,13 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
         run: gradle publish
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 {% data reusables.github-actions.gradle-workflow-steps %}
 1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret.
@@ -147,6 +147,8 @@ publishing {
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command.
 
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Publish package to GitHub Packages
 on:
   release:
@@ -164,7 +166,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
         run: gradle publish
         env:
@@ -221,6 +223,8 @@ publishing {
 With this configuration, you can create a workflow that publishes your package to both the Maven Central Repository and {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
@@ -239,7 +243,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish to the Maven Central Repository
         run: gradle publish
         env: {% raw %}
