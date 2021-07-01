@@ -55483,8 +55483,8 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/maintenance \\\n  -d '{\"maintenance\":\"maintenance\"}'",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/maintenance \\\n  -d '{\"maintenance\":\"maintenance\"}'</code></pre>"
+        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/maintenance \\\n  --data-urlencode maintenance=maintenance",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/maintenance \\\n  --data-urlencode maintenance=maintenance</code></pre>"
       },
       {
         "lang": "JavaScript",
@@ -55493,7 +55493,7 @@
       }
     ],
     "summary": "Enable or disable maintenance mode",
-    "description": "The possible values for `enabled` are `true` and `false`. When it's `false`, the attribute `when` is ignored and the maintenance mode is turned off. `when` defines the time period when the maintenance was enabled.\n\nThe possible values for `when` are `now` or any date parseable by [mojombo/chronic](https://github.com/mojombo/chronic).",
+    "description": "**Note:** The request body for this operation must be submitted as `application/x-www-form-urlencoded` data. You can submit a parameter value as a string, or you can use a tool such as `curl` to submit a parameter value as the contents of a text file. For more information, see the [`curl` documentation](https://curl.se/docs/manpage.html#--data-urlencode).",
     "operationId": "enterprise-admin/enable-or-disable-maintenance-mode",
     "tags": [
       "enterprise-admin"
@@ -55504,23 +55504,26 @@
     },
     "requestBody": {
       "content": {
-        "application/json": {
+        "application/x-www-form-urlencoded": {
           "schema": {
             "type": "object",
             "properties": {
               "maintenance": {
                 "type": "string",
-                "description": "<p><strong>Required</strong>. A JSON string with the attributes <code>enabled</code> and <code>when</code>.</p>",
+                "description": "<p><strong>Required</strong>. A JSON string with the attributes <code>enabled</code> and <code>when</code>.</p>\n<p>The possible values for <code>enabled</code> are <code>true</code> and <code>false</code>. When it's <code>false</code>, the attribute <code>when</code> is ignored and the maintenance mode is turned off. <code>when</code> defines the time period when the maintenance was enabled.</p>\n<p>The possible values for <code>when</code> are <code>now</code> or any date parseable by <a href=\"https://github.com/mojombo/chronic\">mojombo/chronic</a>.</p>",
                 "name": "maintenance",
                 "in": "body",
                 "rawType": "string",
-                "rawDescription": "A JSON string with the attributes `enabled` and `when`.",
+                "rawDescription": "A JSON string with the attributes `enabled` and `when`.\n\nThe possible values for `enabled` are `true` and `false`. When it's `false`, the attribute `when` is ignored and the maintenance mode is turned off. `when` defines the time period when the maintenance was enabled.\n\nThe possible values for `when` are `now` or any date parseable by [mojombo/chronic](https://github.com/mojombo/chronic).",
                 "childParamsGroups": []
               }
             },
             "required": [
               "maintenance"
             ]
+          },
+          "example": {
+            "maintenance": "{\"enabled\":true, \"when\":\"now\"}"
           }
         }
       }
@@ -55537,26 +55540,25 @@
     "categoryLabel": "Enterprise admin",
     "subcategory": "management-console",
     "subcategoryLabel": "Management console",
-    "contentType": "application/json",
+    "contentType": "application/x-www-form-urlencoded",
     "notes": [],
-    "descriptionHTML": "<p>The possible values for <code>enabled</code> are <code>true</code> and <code>false</code>. When it's <code>false</code>, the attribute <code>when</code> is ignored and the maintenance mode is turned off. <code>when</code> defines the time period when the maintenance was enabled.</p>\n<p>The possible values for <code>when</code> are <code>now</code> or any date parseable by <a href=\"https://github.com/mojombo/chronic\">mojombo/chronic</a>.</p>",
-    "bodyParameters": [
-      {
-        "type": "string",
-        "description": "<p><strong>Required</strong>. A JSON string with the attributes <code>enabled</code> and <code>when</code>.</p>",
-        "name": "maintenance",
-        "in": "body",
-        "rawType": "string",
-        "rawDescription": "A JSON string with the attributes `enabled` and `when`.",
-        "childParamsGroups": []
-      }
-    ],
     "responses": [
       {
         "httpStatusCode": "200",
         "httpStatusMessage": "OK",
-        "description": "Response",
-        "payload": "<pre><code class=\"hljs language-json\">{\n  <span class=\"hljs-attr\">\"status\"</span>: <span class=\"hljs-string\">\"scheduled\"</span>,\n  <span class=\"hljs-attr\">\"scheduled_time\"</span>: <span class=\"hljs-string\">\"Tuesday, January 22 at 15:34 -0800\"</span>,\n  <span class=\"hljs-attr\">\"connection_services\"</span>: [\n    {\n      <span class=\"hljs-attr\">\"name\"</span>: <span class=\"hljs-string\">\"git operations\"</span>,\n      <span class=\"hljs-attr\">\"number\"</span>: <span class=\"hljs-number\">0</span>\n    },\n    {\n      <span class=\"hljs-attr\">\"name\"</span>: <span class=\"hljs-string\">\"mysql queries\"</span>,\n      <span class=\"hljs-attr\">\"number\"</span>: <span class=\"hljs-number\">233</span>\n    },\n    {\n      <span class=\"hljs-attr\">\"name\"</span>: <span class=\"hljs-string\">\"resque jobs\"</span>,\n      <span class=\"hljs-attr\">\"number\"</span>: <span class=\"hljs-number\">54</span>\n    }\n  ]\n}\n</code></pre>"
+        "description": "Response"
+      }
+    ],
+    "descriptionHTML": "<p><strong>Note:</strong> The request body for this operation must be submitted as <code>application/x-www-form-urlencoded</code> data. You can submit a parameter value as a string, or you can use a tool such as <code>curl</code> to submit a parameter value as the contents of a text file. For more information, see the <a href=\"https://curl.se/docs/manpage.html#--data-urlencode\"><code>curl</code> documentation</a>.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "description": "<p><strong>Required</strong>. A JSON string with the attributes <code>enabled</code> and <code>when</code>.</p>\n<p>The possible values for <code>enabled</code> are <code>true</code> and <code>false</code>. When it's <code>false</code>, the attribute <code>when</code> is ignored and the maintenance mode is turned off. <code>when</code> defines the time period when the maintenance was enabled.</p>\n<p>The possible values for <code>when</code> are <code>now</code> or any date parseable by <a href=\"https://github.com/mojombo/chronic\">mojombo/chronic</a>.</p>",
+        "name": "maintenance",
+        "in": "body",
+        "rawType": "string",
+        "rawDescription": "A JSON string with the attributes `enabled` and `when`.\n\nThe possible values for `enabled` are `true` and `false`. When it's `false`, the attribute `when` is ignored and the maintenance mode is turned off. `when` defines the time period when the maintenance was enabled.\n\nThe possible values for `when` are `now` or any date parseable by [mojombo/chronic](https://github.com/mojombo/chronic).",
+        "childParamsGroups": []
       }
     ]
   },
@@ -55618,8 +55620,8 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -X PUT \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings \\\n  -d '{\"settings\":\"settings\"}'",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X PUT \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings \\\n  -d '{\"settings\":\"settings\"}'</code></pre>"
+        "source": "curl \\\n  -X PUT \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings \\\n  --data-urlencode settings=settings",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X PUT \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings \\\n  --data-urlencode settings=settings</code></pre>"
       },
       {
         "lang": "JavaScript",
@@ -55628,7 +55630,7 @@
       }
     ],
     "summary": "Set settings",
-    "description": "For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).",
+    "description": "For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).\n\n**Note:** The request body for this operation must be submitted as `application/x-www-form-urlencoded` data. You can submit a parameter value as a string, or you can use a tool such as `curl` to submit a parameter value as the contents of a text file. For more information, see the [`curl` documentation](https://curl.se/docs/manpage.html#--data-urlencode).",
     "operationId": "enterprise-admin/set-settings",
     "tags": [
       "enterprise-admin"
@@ -55639,23 +55641,26 @@
     },
     "requestBody": {
       "content": {
-        "application/json": {
+        "application/x-www-form-urlencoded": {
           "schema": {
             "type": "object",
             "properties": {
               "settings": {
                 "type": "string",
-                "description": "<p><strong>Required</strong>. A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify.</p>",
+                "description": "<p><strong>Required</strong>. A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>",
                 "name": "settings",
                 "in": "body",
                 "rawType": "string",
-                "rawDescription": "A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify.",
+                "rawDescription": "A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).",
                 "childParamsGroups": []
               }
             },
             "required": [
               "settings"
             ]
+          },
+          "example": {
+            "settings": "{ \"enterprise\": { \"public_pages\": true }}"
           }
         }
       }
@@ -55672,7 +55677,7 @@
     "categoryLabel": "Enterprise admin",
     "subcategory": "management-console",
     "subcategoryLabel": "Management console",
-    "contentType": "application/json",
+    "contentType": "application/x-www-form-urlencoded",
     "notes": [],
     "responses": [
       {
@@ -55681,15 +55686,15 @@
         "description": "Response"
       }
     ],
-    "descriptionHTML": "<p>For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>",
+    "descriptionHTML": "<p>For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>\n<p><strong>Note:</strong> The request body for this operation must be submitted as <code>application/x-www-form-urlencoded</code> data. You can submit a parameter value as a string, or you can use a tool such as <code>curl</code> to submit a parameter value as the contents of a text file. For more information, see the <a href=\"https://curl.se/docs/manpage.html#--data-urlencode\"><code>curl</code> documentation</a>.</p>",
     "bodyParameters": [
       {
         "type": "string",
-        "description": "<p><strong>Required</strong>. A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify.</p>",
+        "description": "<p><strong>Required</strong>. A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>",
         "name": "settings",
         "in": "body",
         "rawType": "string",
-        "rawDescription": "A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify.",
+        "rawDescription": "A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).",
         "childParamsGroups": []
       }
     ]
@@ -55752,8 +55757,8 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  -d '{\"authorized_key\":\"authorized_key\"}'",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  -d '{\"authorized_key\":\"authorized_key\"}'</code></pre>"
+        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  --data-urlencode authorized_key=authorized_key",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  --data-urlencode authorized_key=authorized_key</code></pre>"
       },
       {
         "lang": "JavaScript",
@@ -55762,7 +55767,7 @@
       }
     ],
     "summary": "Add an authorized SSH key",
-    "description": "",
+    "description": "**Note:** The request body for this operation must be submitted as `application/x-www-form-urlencoded` data. You can submit a parameter value as a string, or you can use a tool such as `curl` to submit a parameter value as the contents of a text file. For more information, see the [`curl` documentation](https://curl.se/docs/manpage.html#--data-urlencode).",
     "operationId": "enterprise-admin/add-authorized-ssh-key",
     "tags": [
       "enterprise-admin"
@@ -55773,23 +55778,26 @@
     },
     "requestBody": {
       "content": {
-        "application/json": {
+        "application/x-www-form-urlencoded": {
           "schema": {
             "type": "object",
             "properties": {
               "authorized_key": {
                 "type": "string",
-                "description": "<p><strong>Required</strong>. The path to the public SSH key.</p>",
+                "description": "<p><strong>Required</strong>. The public SSH key.</p>",
                 "name": "authorized_key",
                 "in": "body",
                 "rawType": "string",
-                "rawDescription": "The path to the public SSH key.",
+                "rawDescription": "The public SSH key.",
                 "childParamsGroups": []
               }
             },
             "required": [
               "authorized_key"
             ]
+          },
+          "example": {
+            "authorized_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCssTL/Vtu/ODLTj0VtZoRAbvf7uiv5997GyDq0MoAZUjb5jmA5wYe2/wF6sFuhiZTnZoF1ZtCHunPp0hM/GHrn6VySBhNncx14YO8FPt1CIhEeRMSEjUK9cY3xAbS365oXY8vnUHJsS9+1tr/2bx/+4NJfcUt/Ezf1OR/0LStQXw=="
           }
         }
       }
@@ -55806,26 +55814,25 @@
     "categoryLabel": "Enterprise admin",
     "subcategory": "management-console",
     "subcategoryLabel": "Management console",
-    "contentType": "application/json",
+    "contentType": "application/x-www-form-urlencoded",
     "notes": [],
-    "descriptionHTML": "",
-    "bodyParameters": [
-      {
-        "type": "string",
-        "description": "<p><strong>Required</strong>. The path to the public SSH key.</p>",
-        "name": "authorized_key",
-        "in": "body",
-        "rawType": "string",
-        "rawDescription": "The path to the public SSH key.",
-        "childParamsGroups": []
-      }
-    ],
     "responses": [
       {
         "httpStatusCode": "201",
         "httpStatusMessage": "Created",
-        "description": "Response",
-        "payload": "<pre><code class=\"hljs language-json\">[\n  {\n    <span class=\"hljs-attr\">\"key\"</span>: <span class=\"hljs-string\">\"ssh-rsa AAAAB3NzaC1yc2EAAAAB...\"</span>,\n    <span class=\"hljs-attr\">\"pretty-print\"</span>: <span class=\"hljs-string\">\"ssh-rsa 01:14:0f:f2:0f:e2:fe:e8:f4:72:62:af:75:f7:1a:88:3e:04:92:64\"</span>\n  },\n  {\n    <span class=\"hljs-attr\">\"key\"</span>: <span class=\"hljs-string\">\"ssh-rsa AAAAB3NzaC1yc2EAAAAB...\"</span>,\n    <span class=\"hljs-attr\">\"pretty-print\"</span>: <span class=\"hljs-string\">\"ssh-rsa 01:14:0f:f2:0f:e2:fe:e8:f4:72:62:af:75:f7:1a:88:3e:04:92:64\"</span>\n  }\n]\n</code></pre>"
+        "description": "Response"
+      }
+    ],
+    "descriptionHTML": "<p><strong>Note:</strong> The request body for this operation must be submitted as <code>application/x-www-form-urlencoded</code> data. You can submit a parameter value as a string, or you can use a tool such as <code>curl</code> to submit a parameter value as the contents of a text file. For more information, see the <a href=\"https://curl.se/docs/manpage.html#--data-urlencode\"><code>curl</code> documentation</a>.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "description": "<p><strong>Required</strong>. The public SSH key.</p>",
+        "name": "authorized_key",
+        "in": "body",
+        "rawType": "string",
+        "rawDescription": "The public SSH key.",
+        "childParamsGroups": []
       }
     ]
   },
@@ -55837,8 +55844,8 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -X DELETE \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  -d '{\"authorized_key\":\"authorized_key\"}'",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X DELETE \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  -d '{\"authorized_key\":\"authorized_key\"}'</code></pre>"
+        "source": "curl \\\n  -X DELETE \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  --data-urlencode authorized_key=authorized_key",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X DELETE \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/settings/authorized-keys \\\n  --data-urlencode authorized_key=authorized_key</code></pre>"
       },
       {
         "lang": "JavaScript",
@@ -55847,7 +55854,7 @@
       }
     ],
     "summary": "Remove an authorized SSH key",
-    "description": "",
+    "description": "**Note:** The request body for this operation must be submitted as `application/x-www-form-urlencoded` data. You can submit a parameter value as a string, or you can use a tool such as `curl` to submit a parameter value as the contents of a text file. For more information, see the [`curl` documentation](https://curl.se/docs/manpage.html#--data-urlencode).",
     "operationId": "enterprise-admin/remove-authorized-ssh-key",
     "tags": [
       "enterprise-admin"
@@ -55858,23 +55865,26 @@
     },
     "requestBody": {
       "content": {
-        "application/json": {
+        "application/x-www-form-urlencoded": {
           "schema": {
             "type": "object",
             "properties": {
               "authorized_key": {
                 "type": "string",
-                "description": "<p><strong>Required</strong>. The path to the public SSH key.</p>",
+                "description": "<p><strong>Required</strong>. The public SSH key.</p>",
                 "name": "authorized_key",
                 "in": "body",
                 "rawType": "string",
-                "rawDescription": "The path to the public SSH key.",
+                "rawDescription": "The public SSH key.",
                 "childParamsGroups": []
               }
             },
             "required": [
               "authorized_key"
             ]
+          },
+          "example": {
+            "authorized_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCssTL/Vtu/ODLTj0VtZoRAbvf7uiv5997GyDq0MoAZUjb5jmA5wYe2/wF6sFuhiZTnZoF1ZtCHunPp0hM/GHrn6VySBhNncx14YO8FPt1CIhEeRMSEjUK9cY3xAbS365oXY8vnUHJsS9+1tr/2bx/+4NJfcUt/Ezf1OR/0LStQXw=="
           }
         }
       }
@@ -55891,26 +55901,25 @@
     "categoryLabel": "Enterprise admin",
     "subcategory": "management-console",
     "subcategoryLabel": "Management console",
-    "contentType": "application/json",
+    "contentType": "application/x-www-form-urlencoded",
     "notes": [],
-    "descriptionHTML": "",
-    "bodyParameters": [
-      {
-        "type": "string",
-        "description": "<p><strong>Required</strong>. The path to the public SSH key.</p>",
-        "name": "authorized_key",
-        "in": "body",
-        "rawType": "string",
-        "rawDescription": "The path to the public SSH key.",
-        "childParamsGroups": []
-      }
-    ],
     "responses": [
       {
         "httpStatusCode": "200",
         "httpStatusMessage": "OK",
-        "description": "Response",
-        "payload": "<pre><code class=\"hljs language-json\">[\n  {\n    <span class=\"hljs-attr\">\"key\"</span>: <span class=\"hljs-string\">\"ssh-rsa AAAAB3NzaC1yc2EAAAAB...\"</span>,\n    <span class=\"hljs-attr\">\"pretty-print\"</span>: <span class=\"hljs-string\">\"ssh-rsa 01:14:0f:f2:0f:e2:fe:e8:f4:72:62:af:75:f7:1a:88:3e:04:92:64\"</span>\n  },\n  {\n    <span class=\"hljs-attr\">\"key\"</span>: <span class=\"hljs-string\">\"ssh-rsa AAAAB3NzaC1yc2EAAAAB...\"</span>,\n    <span class=\"hljs-attr\">\"pretty-print\"</span>: <span class=\"hljs-string\">\"ssh-rsa 01:14:0f:f2:0f:e2:fe:e8:f4:72:62:af:75:f7:1a:88:3e:04:92:64\"</span>\n  }\n]\n</code></pre>"
+        "description": "Response"
+      }
+    ],
+    "descriptionHTML": "<p><strong>Note:</strong> The request body for this operation must be submitted as <code>application/x-www-form-urlencoded</code> data. You can submit a parameter value as a string, or you can use a tool such as <code>curl</code> to submit a parameter value as the contents of a text file. For more information, see the <a href=\"https://curl.se/docs/manpage.html#--data-urlencode\"><code>curl</code> documentation</a>.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "description": "<p><strong>Required</strong>. The public SSH key.</p>",
+        "name": "authorized_key",
+        "in": "body",
+        "rawType": "string",
+        "rawDescription": "The public SSH key.",
+        "childParamsGroups": []
       }
     ]
   },
@@ -55922,8 +55931,8 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/start \\\n  -d '{\"license\":\"license\"}'",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/start \\\n  -d '{\"license\":\"license\"}'</code></pre>"
+        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/start \\\n  --data-urlencode license=license",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/start \\\n  --data-urlencode license=license</code></pre>"
       },
       {
         "lang": "JavaScript",
@@ -55932,7 +55941,7 @@
       }
     ],
     "summary": "Create a GitHub license",
-    "description": "When you boot a GitHub instance for the first time, you can use the following endpoint to upload a license:\n\nNote that you need to POST to [`/setup/api/configure`](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#start-a-configuration-process) to start the actual configuration process.\n\nWhen using this endpoint, your GitHub instance must have a password set. This can be accomplished two ways:\n\n1.  If you're working directly with the API before accessing the web interface, you must pass in the password parameter to set your password.\n2.  If you set up your instance via the web interface before accessing the API, your calls to this endpoint do not need the password parameter.\n\nFor a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).",
+    "description": "When you boot a GitHub instance for the first time, you can use the following endpoint to upload a license.\n\nNote that you need to `POST` to [`/setup/api/configure`](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#start-a-configuration-process) to start the actual configuration process.\n\nWhen using this endpoint, your GitHub instance must have a password set. This can be accomplished two ways:\n\n1.  If you're working directly with the API before accessing the web interface, you must pass in the password parameter to set your password.\n2.  If you set up your instance via the web interface before accessing the API, your calls to this endpoint do not need the password parameter.\n\n**Note:** The request body for this operation must be submitted as `application/x-www-form-urlencoded` data. You can submit a parameter value as a string, or you can use a tool such as `curl` to submit a parameter value as the contents of a text file. For more information, see the [`curl` documentation](https://curl.se/docs/manpage.html#--data-urlencode).",
     "operationId": "enterprise-admin/create-enterprise-server-license",
     "tags": [
       "enterprise-admin"
@@ -55943,7 +55952,7 @@
     },
     "requestBody": {
       "content": {
-        "application/json": {
+        "application/x-www-form-urlencoded": {
           "schema": {
             "type": "object",
             "properties": {
@@ -55967,11 +55976,11 @@
               },
               "settings": {
                 "type": "string",
-                "description": "<p>An optional JSON string containing the installation settings.</p>",
+                "description": "<p>An optional JSON string containing the installation settings. For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>",
                 "name": "settings",
                 "in": "body",
                 "rawType": "string",
-                "rawDescription": "An optional JSON string containing the installation settings.",
+                "rawDescription": "An optional JSON string containing the installation settings. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).",
                 "childParamsGroups": []
               }
             },
@@ -55994,7 +56003,7 @@
     "categoryLabel": "Enterprise admin",
     "subcategory": "management-console",
     "subcategoryLabel": "Management console",
-    "contentType": "application/json",
+    "contentType": "application/x-www-form-urlencoded",
     "notes": [],
     "responses": [
       {
@@ -56003,7 +56012,7 @@
         "description": "Response"
       }
     ],
-    "descriptionHTML": "<p>When you boot a GitHub instance for the first time, you can use the following endpoint to upload a license:</p>\n<p>Note that you need to POST to <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#start-a-configuration-process\"><code>/setup/api/configure</code></a> to start the actual configuration process.</p>\n<p>When using this endpoint, your GitHub instance must have a password set. This can be accomplished two ways:</p>\n<ol>\n<li>If you're working directly with the API before accessing the web interface, you must pass in the password parameter to set your password.</li>\n<li>If you set up your instance via the web interface before accessing the API, your calls to this endpoint do not need the password parameter.</li>\n</ol>\n<p>For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>",
+    "descriptionHTML": "<p>When you boot a GitHub instance for the first time, you can use the following endpoint to upload a license.</p>\n<p>Note that you need to <code>POST</code> to <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#start-a-configuration-process\"><code>/setup/api/configure</code></a> to start the actual configuration process.</p>\n<p>When using this endpoint, your GitHub instance must have a password set. This can be accomplished two ways:</p>\n<ol>\n<li>If you're working directly with the API before accessing the web interface, you must pass in the password parameter to set your password.</li>\n<li>If you set up your instance via the web interface before accessing the API, your calls to this endpoint do not need the password parameter.</li>\n</ol>\n<p><strong>Note:</strong> The request body for this operation must be submitted as <code>application/x-www-form-urlencoded</code> data. You can submit a parameter value as a string, or you can use a tool such as <code>curl</code> to submit a parameter value as the contents of a text file. For more information, see the <a href=\"https://curl.se/docs/manpage.html#--data-urlencode\"><code>curl</code> documentation</a>.</p>",
     "bodyParameters": [
       {
         "type": "string",
@@ -56025,11 +56034,11 @@
       },
       {
         "type": "string",
-        "description": "<p>An optional JSON string containing the installation settings.</p>",
+        "description": "<p>An optional JSON string containing the installation settings. For a list of the available settings, see the <a href=\"https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings\">Get settings endpoint</a>.</p>",
         "name": "settings",
         "in": "body",
         "rawType": "string",
-        "rawDescription": "An optional JSON string containing the installation settings.",
+        "rawDescription": "An optional JSON string containing the installation settings. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.18/rest/reference/enterprise-admin#get-settings).",
         "childParamsGroups": []
       }
     ]
@@ -56042,8 +56051,8 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/upgrade \\\n  -d '{\"license\":\"license\"}'",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/upgrade \\\n  -d '{\"license\":\"license\"}'</code></pre>"
+        "source": "curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/upgrade \\\n  --data-urlencode license=license",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -X POST \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/setup/api/upgrade \\\n  --data-urlencode license=license</code></pre>"
       },
       {
         "lang": "JavaScript",
@@ -56052,7 +56061,7 @@
       }
     ],
     "summary": "Upgrade a license",
-    "description": "This API upgrades your license and also triggers the configuration process:",
+    "description": "This API upgrades your license and also triggers the configuration process.\n\n**Note:** The request body for this operation must be submitted as `application/x-www-form-urlencoded` data. You can submit a parameter value as a string, or you can use a tool such as `curl` to submit a parameter value as the contents of a text file. For more information, see the [`curl` documentation](https://curl.se/docs/manpage.html#--data-urlencode).",
     "operationId": "enterprise-admin/upgrade-license",
     "tags": [
       "enterprise-admin"
@@ -56063,7 +56072,7 @@
     },
     "requestBody": {
       "content": {
-        "application/json": {
+        "application/x-www-form-urlencoded": {
           "schema": {
             "type": "object",
             "properties": {
@@ -56093,7 +56102,7 @@
     "categoryLabel": "Enterprise admin",
     "subcategory": "management-console",
     "subcategoryLabel": "Management console",
-    "contentType": "application/json",
+    "contentType": "application/x-www-form-urlencoded",
     "notes": [],
     "responses": [
       {
@@ -56102,7 +56111,7 @@
         "description": "Response"
       }
     ],
-    "descriptionHTML": "<p>This API upgrades your license and also triggers the configuration process:</p>",
+    "descriptionHTML": "<p>This API upgrades your license and also triggers the configuration process.</p>\n<p><strong>Note:</strong> The request body for this operation must be submitted as <code>application/x-www-form-urlencoded</code> data. You can submit a parameter value as a string, or you can use a tool such as <code>curl</code> to submit a parameter value as the contents of a text file. For more information, see the <a href=\"https://curl.se/docs/manpage.html#--data-urlencode\"><code>curl</code> documentation</a>.</p>",
     "bodyParameters": [
       {
         "type": "string",
