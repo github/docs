@@ -12,9 +12,11 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-## Re-run a workflow using the {% data variables.product.prodname_dotcom %} UI
-
 {% data reusables.repositories.permissions-statement-write %}
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -22,7 +24,11 @@ versions:
 {% data reusables.repositories.view-run %}
 1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.{% ifversion fpt or ghes > 3.0 or ghae %}![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png){% else %}![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png){% endif %}
 
-## Re-run a workflow using {% data variables.product.prodname_cli %}
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.download-cli %}
 
 {% data reusables.actions.actions-cli %}
 
@@ -37,3 +43,5 @@ To view the progress of the workflow run, use the `run watch` subcommand and sel
 ```shell
 gh run watch
 ```
+
+{% endcli %}
