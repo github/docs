@@ -303,7 +303,7 @@ to the information provided in your repository graph. For more information, see 
 
 ## Webhooks
 
-The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository. Webhooks can be managed using the JSON HTTP API, or the [PubSubHubbub](#PubSubHubbub) API.
+The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository. {% data reusables.webhooks.webhooks-rest-api-links %} Webhooks can be managed using the JSON HTTP API, or the [PubSubHubbub](#PubSubHubbub) API.
 
 If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
 
