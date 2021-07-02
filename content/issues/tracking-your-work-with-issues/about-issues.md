@@ -49,5 +49,5 @@ You can @mention collaborators who have access to your repository in an issue to
 
 Some conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see "[Communicating on GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)."
 
-When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion. {% data reusables.discussions.you-cannot-convert-a-discussion %}
+When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.
 {% endif %}

@@ -19,15 +19,11 @@ Cloning a repository pulls down a full copy of all the repository data that {% d
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
-{% ifversion fpt or ghae or ghes %}
-{% tip %}
+## Cloning a repository
 
-**Tip**: You can also clone a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo clone`](https://cli.github.com/manual/gh_repo_clone)" in the {% data variables.product.prodname_cli %} documentation.
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-## Cloning a repository using the command line
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.copy-clone-url %}
@@ -36,13 +32,35 @@ You can clone your existing repository or clone another person's existing reposi
 {% data reusables.command_line.git-clone-url %}
 {% data reusables.command_line.local-clone-created %}
 
-## Cloning a repository to {% data variables.product.prodname_desktop %}
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.download-cli %}
+
+To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
+
+```shell
+gh repo clone <em>repository</em>
+```
+
+You can also use the GitHub URL to clone a repository.
+
+```shell
+gh repo clone <em>https://github.com/cli/cli</em>
+```
+
+{% endcli %}
+
+{% desktop %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
 
 For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
+
+{% enddesktop %}
 
 ## Cloning an empty repository
 

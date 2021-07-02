@@ -69,6 +69,8 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Webhooks
 
+{% data reusables.webhooks.webhooks-rest-api-links %}
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
