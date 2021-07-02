@@ -9,9 +9,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Visual Studio bundle
 ---
 ## About {% data variables.product.prodname_vss_ghe %}
 

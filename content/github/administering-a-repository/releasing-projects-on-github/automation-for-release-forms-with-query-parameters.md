@@ -5,11 +5,12 @@ redirect_from:
   - /articles/automation-for-release-forms-with-query-parameters
   - /github/administering-a-repository/automation-for-release-forms-with-query-parameters
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Automate release forms
 ---
 Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results, an issue template, or the release form page on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 

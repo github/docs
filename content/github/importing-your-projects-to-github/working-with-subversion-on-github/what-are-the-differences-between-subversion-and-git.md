@@ -6,8 +6,9 @@ redirect_from:
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Subversion & Git differences
 ---
 ## Directory structure
 

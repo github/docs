@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { useDetails, Details } from '@primer/components'
+import { useState, useEffect } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
@@ -10,6 +10,14 @@ import { AllProductsLink } from 'components/product/AllProductsLink'
 export const SidebarProduct = () => {
   const router = useRouter()
   const { currentProductTree } = useMainContext()
+  useEffect(() => {
+    const activeArticle = document.querySelector('.sidebar-article.active')
+    // Setting to the top doesn't give enough context of surrounding categories
+    activeArticle?.scrollIntoView({ block: 'center' })
+    // scrollIntoView affects some articles that are very low in the sidebar
+    // The content scrolls down a bit. This sets the article content back up top
+    window?.scrollTo(0, 0)
+  }, [])
 
   if (!currentProductTree) {
     return null
@@ -41,9 +49,10 @@ export const SidebarProduct = () => {
                 const isStandaloneCategory = childPage.page.documentType === 'article'
 
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
-                const isActive = routePath.includes(childPage.href)
+
+                const isActive = routePath.includes(`${childPage.href}/`)
                 const isCurrent = routePath === childPage.href
-                const defaultOpen = hasExactCategory ? isActive : i < 3
+                const defaultOpen = hasExactCategory ? isActive || isCurrent : false
                 return (
                   <li
                     key={childPage.href + i}
@@ -57,7 +66,7 @@ export const SidebarProduct = () => {
                     {isStandaloneCategory ? (
                       <Link
                         href={childPage.href}
-                        className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline"
+                        className="pl-4 pr-2 py-2 d-block flex-auto mr-3 color-text-primary no-underline text-bold"
                       >
                         {childTitle}
                       </Link>
@@ -88,35 +97,32 @@ type SectionProps = {
 }
 const CollapsibleSection = (props: SectionProps) => {
   const { routePath, defaultOpen, title, page } = props
-  const { getDetailsProps, open: isOpen } = useDetails({ defaultOpen: defaultOpen })
-  const hideChildren = !defaultOpen
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
   return (
-    <Details {...getDetailsProps()} className="details-reset">
+    <details open={defaultOpen} onToggle={(e) => setIsOpen((e.target as HTMLDetailsElement).open)}>
       <summary>
         <div className="d-flex flex-justify-between">
-          <Link
-            href={page.href}
-            className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline"
-          >
+          <div className="pl-4 pr-1 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline text-bold">
             {title}
-          </Link>
-          {!hideChildren && page.childPages.length > 0 && (
-            <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
-              <ChevronDownIcon className={cx('opacity-60', isOpen && 'rotate-180')} />
-            </span>
-          )}
+          </div>
+          <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
+            <ChevronDownIcon className={cx('opacity-60', isOpen && 'rotate-180')} />
+          </span>
         </div>
       </summary>
 
-      {!hideChildren && page.childPages.length > 0 && (
+      {
         <>
           {/* <!-- some categories have maptopics with child articles --> */}
           {page.childPages[0]?.page.documentType === 'mapTopic' ? (
             <ul className="sidebar-topics list-style-none position-relative">
               {page.childPages.map((childPage, i) => {
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+
                 const isActive = routePath.includes(childPage.href)
                 const isCurrent = routePath === childPage.href
+
                 return (
                   <li
                     key={childPage.href + i}
@@ -126,41 +132,36 @@ const CollapsibleSection = (props: SectionProps) => {
                       isCurrent && 'is-current-page'
                     )}
                   >
-                    <Link
-                      href={childPage.href}
-                      className="pl-4 pr-5 py-2 color-text-primary no-underline"
-                    >
-                      {childTitle}
-                    </Link>
-                    <ul className="sidebar-articles my-2">
-                      {childPage.childPages.map((grandchildPage, i, arr) => {
-                        const grandchildTitle =
-                          grandchildPage.renderedShortTitle || grandchildPage.renderedFullTitle
-                        const isLast = i === arr.length - 1
-                        const isActive = routePath.includes(grandchildPage.href)
-                        const isCurrent = routePath === grandchildPage.href
-                        return (
-                          <li
-                            key={grandchildPage.href + i}
-                            className={cx(
-                              'sidebar-article',
-                              isActive && 'active',
-                              isCurrent && 'is-current-page'
-                            )}
-                          >
-                            <Link
-                              href={grandchildPage.href}
-                              className={cx(
-                                'pl-6 pr-5 py-1 color-text-primary no-underline',
-                                isLast && 'pb-2'
-                              )}
+                    <details open={isActive} onToggle={(e) => e.stopPropagation()}>
+                      <summary>
+                        <div className={cx('pl-4 pr-5 py-2 no-underline')}>{childTitle}</div>
+                      </summary>
+                      <ul className="sidebar-articles my-2">
+                        {childPage.childPages.map((grandchildPage, i, arr) => {
+                          const grandchildTitle =
+                            grandchildPage.renderedShortTitle || grandchildPage.renderedFullTitle
+                          const isLast = i === arr.length - 1
+                          const isActive = routePath === grandchildPage.href
+                          return (
+                            <li
+                              key={grandchildPage.href + i}
+                              className={cx('sidebar-article', isActive && 'active')}
                             >
-                              {grandchildTitle}
-                            </Link>
-                          </li>
-                        )
-                      })}
-                    </ul>
+                              <Link
+                                href={grandchildPage.href}
+                                className={cx(
+                                  'pl-6 pr-5 py-1 no-underline',
+                                  isLast && 'pb-2',
+                                  isActive && 'color-text-link'
+                                )}
+                              >
+                                {grandchildTitle}
+                              </Link>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </details>
                   </li>
                 )
               })}
@@ -171,6 +172,7 @@ const CollapsibleSection = (props: SectionProps) => {
               {page.childPages.map((childPage, i, arr) => {
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
                 const isLast = i === arr.length - 1
+
                 const isActive = routePath.includes(childPage.href)
                 const isCurrent = routePath === childPage.href
                 return (
@@ -185,8 +187,9 @@ const CollapsibleSection = (props: SectionProps) => {
                     <Link
                       href={childPage.href}
                       className={cx(
-                        'pl-6 pr-5 py-1 color-text-primary no-underline',
-                        isLast && 'pb-2'
+                        'pl-6 pr-5 py-1 no-underline',
+                        isLast && 'pb-2',
+                        isActive && 'color-text-link'
                       )}
                     >
                       {childTitle}
@@ -197,7 +200,7 @@ const CollapsibleSection = (props: SectionProps) => {
             </ul>
           ) : null}
         </>
-      )}
-    </Details>
+      }
+    </details>
   )
 }

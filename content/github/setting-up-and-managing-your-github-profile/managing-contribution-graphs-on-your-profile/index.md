@@ -4,9 +4,9 @@ intro: 'Your contributions, including commits, proposed pull requests, and opene
 redirect_from:
   - /articles/managing-contribution-graphs-on-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
 children:
@@ -16,5 +16,6 @@ children:
   - /sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /why-are-my-contributions-not-showing-up-on-my-profile
   - /troubleshooting-commits-on-your-timeline
+shortTitle: Manage contribution graph
 ---
 

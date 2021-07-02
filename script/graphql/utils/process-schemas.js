@@ -1,8 +1,9 @@
 const { sortBy } = require('lodash')
 const { parse, buildASTSchema } = require('graphql')
 const helpers = require('./schema-helpers')
+const fs = require('fs')
 
-const externalScalars = require('../../../lib/graphql/non-schema-scalars')
+const externalScalars = JSON.parse(fs.readFileSync('./lib/graphql/non-schema-scalars.json'))
   .map(scalar => {
     scalar.id = helpers.getId(scalar.name)
     scalar.href = helpers.getFullLink('scalars', scalar.id)

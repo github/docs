@@ -8,10 +8,11 @@ redirect_from:
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Invite people to manage
 ---
 ## About inviting people to manage your enterprise account
 

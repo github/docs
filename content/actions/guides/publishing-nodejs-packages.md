@@ -6,15 +6,16 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
   - /actions/language-and-framework-guides/publishing-nodejs-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Packaging
   - Publishing
   - Node
   - JavaScript
+shortTitle: Node.js packages
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -127,7 +128,7 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -211,14 +212,14 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions: 
       contents: read
       packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
@@ -228,7 +229,7 @@ jobs:
         env:{% raw %}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file

@@ -1,12 +1,13 @@
 ---
 title: Exploring the dependencies of a repository
-intro: 'Using the dependency graph, you can see the packages your project depends on{% if currentVersion == "free-pro-team@latest" %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
+intro: 'Using the dependency graph, you can see the packages your project depends on{% ifversion fpt %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
 versions:
-  enterprise-server: <=2.22
+  ghes: <=2.22
 topics:
   - Repositories
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository
+shortTitle: Explore dependencies
 ---
 <!--See /content/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository for the latest version of this article -->
 
@@ -22,7 +23,7 @@ The dependency graph shows the dependencies of your repository. For information 
 
 ### Dependencies view
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
@@ -35,7 +36,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)

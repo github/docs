@@ -1,13 +1,13 @@
 ---
 title: About Dependabot security updates
 intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
-shortTitle: About Dependabot security updates
+shortTitle: Dependabot security updates
 redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Dependabot

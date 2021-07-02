@@ -7,7 +7,8 @@ redirect_from:
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Apply for a student pack
 ---
 {% data reusables.education.about-github-education-link %}
 

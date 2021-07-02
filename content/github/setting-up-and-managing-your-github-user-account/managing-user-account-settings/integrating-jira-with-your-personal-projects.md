@@ -5,8 +5,9 @@ redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
   - /github/setting-up-and-managing-your-github-user-account/integrating-jira-with-your-personal-projects
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Integrate Jira with projects
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
