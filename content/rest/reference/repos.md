@@ -1,5 +1,6 @@
 ---
 title: Repositories
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} respositories.' 
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
