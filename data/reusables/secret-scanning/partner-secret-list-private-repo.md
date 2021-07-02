@@ -101,6 +101,10 @@ Hubspot | Hubspot API Key | hubspot_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Intercom | Intercom Access Token | intercom_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Ionic | Ionic Personal Access Token | ionic_personal_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Ionic | Ionic Refresh Token | ionic_refresh_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Lob | Lob Live API Key | lob_live_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Lob | Lob Test API Key | lob_test_api_key{% endif %}
