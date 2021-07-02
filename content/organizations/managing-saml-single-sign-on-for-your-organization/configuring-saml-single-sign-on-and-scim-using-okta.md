@@ -81,7 +81,7 @@ After you enable SCIM, the following provisioning features are available for any
 
 ## Further reading
 
-- "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configuring SAML single sign-on for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)"
 - "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation
 - [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation

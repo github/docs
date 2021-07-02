@@ -80,7 +80,7 @@ jobs:
       matrix:
         node: [6, 8, 10]
     steps:
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 ```

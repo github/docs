@@ -17,6 +17,7 @@ shortTitle: Add label to comment on issue
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -31,6 +32,8 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
 3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
     name: Add comment
     on:
       issues:
@@ -44,7 +47,7 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
           issues: write{% endif %}
         steps:
           - name: Add comment
-            uses: peter-evans/create-or-update-comment@v1
+            uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
             with:
               issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |
