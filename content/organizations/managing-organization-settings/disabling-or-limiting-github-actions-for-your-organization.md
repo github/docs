@@ -71,6 +71,19 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% endif %}
 
+{% ifversion fpt %}
+## Configuring required approval for workflows from public forks
+
+{% data reusables.actions.workflow-run-approve-public-fork %} You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.github-actions.workflows-from-public-fork-setting %}
+
+{% data reusables.actions.workflow-run-approve-link %}
+{% endif %}
+
 {% ifversion fpt or ghes > 2.22 %}
 ## Enabling workflows for private repository forks
 

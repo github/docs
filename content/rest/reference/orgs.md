@@ -41,7 +41,9 @@ The token used to authenticate the call must have the `admin:org` scope in order
 
 ## Webhooks
 
-Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen within the organization. Subscribing to these events makes it possible to build integrations that react to events on {% data variables.product.product_name %}. For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen within the organization. Subscribing to these events makes it possible to build integrations that react to events on {% data variables.product.product_name %}. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
 
 ### Scopes & Restrictions
 
