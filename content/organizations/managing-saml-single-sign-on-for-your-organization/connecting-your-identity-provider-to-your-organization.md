@@ -25,7 +25,7 @@ You can find the SAML and SCIM implementation details for your IdP in their docu
 
 {% note %}
 
-**Note:** {% data variables.product.product_name %} supported identity providers for SCIM are Azure AD, Okta, and OneLogin. For more information about SCIM, see "[About SCIM](/articles/about-scim)."
+**Note:** {% data variables.product.product_name %} supported identity providers for SCIM are Azure AD, Okta, and OneLogin. {% data reusables.scim.enterprise-account-scim %} For more information about SCIM, see "[About SCIM](/articles/about-scim)."
 
 {% endnote %}
 

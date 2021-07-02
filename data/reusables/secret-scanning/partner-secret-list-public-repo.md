@@ -44,6 +44,8 @@ Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
 Ionic | Ionic Personal Access Token
 Ionic | Ionic Refresh Token
+Linear | Linear API Key
+Linear | Linear OAuth Access Token
 Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
 Mailgun | Mailgun API Key
