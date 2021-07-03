@@ -1,0 +1,72 @@
+---
+get_started_with_github_ae:
+  title: '{% data variables.product.prodname_ghe_managed %}を使ってみる'
+  description: '{% data variables.product.prodname_ghe_managed %}について学び、新しいEnterpriseの初期設定を完了してください。'
+  guides:
+    - /admin/overview/about-github-ae
+    - /admin/overview/about-data-residency
+    - /admin/configuration/initializing-github-ae
+    - /admin/configuration/restricting-network-traffic-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-github-ae
+deploy_an_instance:
+  title: 'インスタンスのデプロイ'
+  description: '選択したプラットフォームに{% data variables.product.prodname_ghe_server %}をインストールし、SAML認証を設定してください。'
+  featured_track: true
+  guides:
+    - /admin/overview/system-overview
+    - /admin/installation
+    - /admin/configuration/accessing-the-management-console
+    - /admin/configuration/configuring-a-hostname
+    - /admin/authentication/using-saml
+    - /admin/configuration/site-admin-dashboard
+upgrade_your_instance:
+  title: 'インスタンスのアップデート'
+  description: 'ステージングでアップグレードをテストし、ユーザにメンテナンスを通知し、最新機能とセキュリティアップデートのためにインスタンスをアップグレードしてください。'
+  guides:
+    - /admin/enterprise-management/enabling-automatic-update-checks
+    - /admin/installation/setting-up-a-staging-instance
+    - /admin/enterprise-management/upgrade-requirements
+    - /admin/user-management/customizing-user-messages-for-your-enterprise
+    - /admin/configuration/enabling-and-scheduling-maintenance-mode
+    - /admin/enterprise-management/upgrading-github-enterprise-server
+increase_fault_tolerance:
+  title: 'インスタンスの耐障害性を高めてください'
+  description: "開発者のコードをバックアップ、High Availability（HA）を設定して環境内の{% data variables.product.prodname_ghe_server %}の信頼性を保証してください。"
+  guides:
+    - /admin/configuration/accessing-the-administrative-shell-ssh
+    - /admin/configuration/configuring-backups-on-your-appliance
+    - /admin/enterprise-management/about-high-availability-configuration
+    - /admin/enterprise-management/creating-a-high-availability-replica
+    - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
+improve_security_of_your_instance:
+  title: 'インスタンスのセキュリティを向上させてください'
+  description: "ネットワーク設定とセキュリティの機能をレビューし、Enterpriseのデータを保護するために{% data variables.product.prodname_ghe_server %}を実行するインスタンスを保護してください。"
+  guides:
+    - /admin/configuration/enabling-private-mode
+    - /admin/guides/installation/configuring-tls
+    - /admin/configuration/troubleshooting-ssl-errors
+    - /admin/configuration/enabling-subdomain-isolation
+    - /admin/configuration/accessing-the-administrative-shell-ssh
+    - /admin/configuration/network-ports
+    - /admin/configuration/configuring-built-in-firewall-rules
+    - /admin/user-management/best-practices-for-user-security
+    - /admin/user-management/promoting-or-demoting-a-site-administrator
+configure_github_actions:
+  title: '{% data variables.product.prodname_actions %}の設定'
+  description: '開発者が{% data variables.product.prodname_actions %}と合わせた{% data variables.product.product_location %}の強力なソフトウェア開発ワークフローの開発、自動化、カスタマイズ、実行をできるようにしてください。'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
+    - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
+    - /admin/github-actions/high-availability-for-github-actions
+    - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+    - /admin/github-actions/using-a-staging-environment
+configure_github_advanced_security:
+  title: '{% data variables.product.prodname_GH_advanced_security %}の設定'
+  description: "{% data variables.product.prodname_GH_advanced_security %}で開発者のコードの品質とセキュリティを改善してください。"
+  guides:
+    - /admin/advanced-security/about-licensing-for-github-advanced-security
+    - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
+    - /admin/advanced-security/configuring-code-scanning-for-your-appliance
+    - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
+    - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise

@@ -6,6 +6,13 @@ permissions: 'Enterprise owners can configure authentication and provisioning fo
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### Acerca de la autenticación y el aprovisionamiento de usuarios con Azure AD

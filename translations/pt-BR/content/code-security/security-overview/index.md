@@ -6,8 +6,10 @@ product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
   github-ae: next
+topics:
+  - Security overview
+  - Advanced Security
+children:
+  - /exploring-security-alerts
 ---
 
-### Índice
-
-{% link_in_list /exploring-security-alerts %}

@@ -22,6 +22,12 @@ topics:
 
 ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 デフォルトでは、リポジトリへの書き込みアクセス権を持つユーザのみがウィキに変更を加えることができますが、{% data variables.product.product_location %} の全員が{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}リポジトリのウィキに貢献できるようにすることができます。 詳細は「[ウィキへのアクセス権限を変更する](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)」を参照してください。
 
+{% note %}
+
+**Note:** Search engines will not index the contents of wikis. To have your content indexed by search engines, you can use [{% data variables.product.prodname_pages %}](/pages) in a public repository.
+
+{% endnote %}
+
 ### 参考リンク
 
 - 「[ウィキページを追加または編集する](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)」

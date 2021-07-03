@@ -3,7 +3,7 @@ title: Getting started with your Python project in Codespaces
 shortTitle: Getting started with your Python project
 intro: 'Get started with your Python project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: tutorial
 topics:
   - Codespaces
@@ -13,16 +13,16 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to set up your Python project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
-#### Prerequisites 
+### Prerequisites 
 
 - You should have an existing Python project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.
 - You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
 
-### Step 1: Open your project in a codespace
+## Step 1: Open your project in a codespace
 
 1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
   
@@ -38,25 +38,23 @@ You can customize your codespace by adjusting the amount of vCPUs and RAM, [addi
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
-### Step 2: Add a dev container to your codespace from a template  
+## Step 2: Add a dev container to your codespace from a template  
 
 The default codespaces container comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we recommend that you set up a custom container to define the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
 To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)." 
 
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
-  !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
+{% data reusables.codespaces.command-palette-container %}
+2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgreSQL.
   ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 3. Click the recommended version of Python.
   ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
 4. Accept the default option to add Node.js to your customization.
   ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
-#### Anatomy of your dev container
+### Anatomy of your dev container
 
 Adding the Python dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
 
@@ -65,7 +63,7 @@ Adding the Python dev container template adds a `.devcontainer` folder to the ro
 
 The newly added `devcontainer.json` file defines a few properties that are described after the sample.
 
-##### devcontainer.json
+#### devcontainer.json
 
 ```json
 {
@@ -128,7 +126,7 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 - **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, like `pip3 install -r requirements`, you can do that here.
 - **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
 
-##### Dockerfile
+#### Dockerfile
 
 ```bash
 # [Choice] Python version: 3, 3.9, 3.8, 3.7, 3.6
@@ -155,9 +153,9 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 
 You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
 
-### Step 3: Modify your devcontainer.json file 
+## Step 3: Modify your devcontainer.json file 
 
-With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and your project dependancies when your codespace launches.
+With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
 
 1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it. 
 
@@ -180,9 +178,7 @@ With your dev container added and a basic understanding of what everything does,
   "postCreateCommand": "pip3 install --user -r requirements.txt",
   ```
 
-4. To rebuild your container and apply the devcontainer.json changes, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
@@ -190,7 +186,7 @@ With your dev container added and a basic understanding of what everything does,
    
     ![Extensions list](/assets/images/help/codespaces/python-extensions.png) 
    
-### Step 4: Run your application
+## Step 4: Run your application
 
 In the previous section, you used the `postCreateCommand` to install a set of packages via pip3. With your dependencies now installed, you can run your application.
 
@@ -200,11 +196,11 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
   ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
 
-### Step 5: Commit your changes
+## Step 5: Commit your changes
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Next steps
+## Next steps
 
 You should now be ready start developing your Python project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
 

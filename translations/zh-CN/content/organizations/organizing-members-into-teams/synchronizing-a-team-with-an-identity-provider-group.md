@@ -30,7 +30,7 @@ topics:
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.product_name %} according to the schedule determined by your IdP. 更改 {% data variables.product.prodname_dotcom %} 团队或组织成员资格的任何请求都将在审核日志中注册为用于配置用户预配的帐户所做的更改。 有关此帐户的更多信息，请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。 有关 SCIM 请求计划的更多信息，请参阅 Microsoft 文档中的“[检查用户预配状态](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)”。
+当 Idp 上的组成员身份发生变化时，您的 IdP 会根据 IdP 确定的时间表发送 SCIM 请求，请求更改 {% data variables.product.product_name %}。 更改 {% data variables.product.prodname_dotcom %} 团队或组织成员资格的任何请求都将在审核日志中注册为用于配置用户预配的帐户所做的更改。 有关此帐户的更多信息，请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。 有关 SCIM 请求计划的更多信息，请参阅 Microsoft 文档中的“[检查用户预配状态](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)”。
 {% endif %}
 
 父团队无法与 IdP 组同步。 如果要连接到 IdP 组的团队是父团队，我们建议您创建一个新团队或删除使团队成为父团队的嵌套关系。 更多信息请参阅“[关于团队](/articles/about-teams#nested-teams)”、“[创建团队](/organizations/organizing-members-into-teams/creating-a-team)”和“[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organizations-hierarchy)”。
@@ -47,7 +47,7 @@ When group membership changes on your IdP, your IdP sends a SCIM request with th
 - 此人已使用 {% data variables.product.product_name %} 上的用户帐户登录，并且至少一次通过 SAML 单点登录向组织或企业帐户验证。
 - 此人的 SSO 身份是 IdP 组的成员。
 
-不符合这些条件的现有团队或组成员将被从 {% data variables.product.product_name %} 团队中自动删除，并失去对仓库的访问权限。 撤销用户关联的身份也会将用户从映射到 IdP 组的任何团队中删除。 For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+不符合这些条件的现有团队或组成员将被从 {% data variables.product.product_name %} 团队中自动删除，并失去对仓库的访问权限。 撤销用户关联的身份也会将用户从映射到 IdP 组的任何团队中删除。 更多信息请参阅“[查看和管理成员对组织的 SAML 访问](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)”和“[查看和管理用户对企业的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)”。
 
 删除后的团队成员在使用 SSO 向组织或企业帐户进行身份验证后可以自动添加回团队，并移动到已连接的 IdP 组。
 
@@ -60,24 +60,24 @@ When group membership changes on your IdP, your IdP sends a SCIM request with th
 ### 基本要求
 
 {% if currentVersion == "free-pro-team@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+在连接 {% data variables.product.product_name %} 团队与身份提供程序组之前，组织或企业所有者必须为组织或企业帐户启用团队同步。 更多信息请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”和“[管理企业帐户中组织的团队同步](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
 
 为避免无意中删除团队成员，请访问 IdP 的管理门户，并确认每个当前团队成员也位于要连接到此团队的 IdP 组中。 如果您没有身份提供程序的这一访问权限，在可以联系 IdP 管理员。
 
 您必须使用 SAML SSO 进行身份验证。 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
 {% elsif currentVersion == "github-ae@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an IdP group, you must first configure user provisioning for {% data variables.product.product_location %} using a supported System for Cross-domain Identity Management (SCIM). 更多信息请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。
+在连接 {% data variables.product.product_name %} 团队与 IdP 组时，您必须先使用支持的跨域身份管理系统(SCIM) 配置 {% data variables.product.product_location %} 的用户预配。 更多信息请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。
 
-Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. 更多信息请参阅 Microsoft 文档中的[配置 GitHub AE 的自动用户预配](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae)。
+在使用 SCIM 配置 {% data variables.product.product_name %} 的用户预配后，您可以将 {% data variables.product.product_name %} 应用程序分配到您想要在 {% data variables.product.product_name %} 上使用的每个 IdP 组。 更多信息请参阅 Microsoft 文档中的[配置 GitHub AE 的自动用户预配](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae)。
 {% endif %}
 
 ### 将 IdP 组连接到团队
 
 将 IdP 组连接到 {% data variables.product.product_name %} 团队时，组中的所有用户都会自动添加到团队中。 {% if currentversion == "github-ae@latest" %}任何尚未成为父组织成员的用户也会添加到组织。{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -89,8 +89,8 @@ Once user provisioning for {% data variables.product.product_name %} is configur
 
 如果您断开 IdP 组与 {% data variables.product.prodname_dotcom %} 团队的连接，则通过 IdP 组分配给 {% data variables.product.prodname_dotcom %} 团队的团队成员将从团队中删除。 {% if currentversion == "github-ae@latest" %} 任何只是因为团队连接而成为父组织成员的用户也会从组织中删除。{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}

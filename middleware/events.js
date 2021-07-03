@@ -1,11 +1,13 @@
 const express = require('express')
 const { omit } = require('lodash')
 const Ajv = require('ajv')
+const addFormats = require('ajv-formats')
 const schema = require('../lib/schema-event')
 
-const OMIT_FIELDS = ['type', 'token']
+const OMIT_FIELDS = ['type']
 
 const ajv = new Ajv()
+addFormats(ajv)
 
 const router = express.Router()
 

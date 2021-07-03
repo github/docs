@@ -13,7 +13,9 @@ versions:
 
 {% data reusables.discussions.about-discussions %} プロジェクトを使用または貢献する場合は、ディスカッションを開始して提案を行い、計画、質問、アイデア、フィードバックについてメンテナやコミュニティメンバーと交流することができます。 詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
-{% data reusables.discussions.about-categories-and-formats %} リポジトリ管理者とプロジェクトメンテナはディスカッションを削除できます。 詳しい情報については、「[リポジトリ内のディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)」を参照してください。
+{% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
+
+Repository administrators and project maintainers can delete a discussion. 詳しい情報については、「[リポジトリ内のディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)」を参照してください。
 
 {% data reusables.discussions.github-recognizes-members %} これらのメンバーは、プロジェクトのディスカッションに最も役立つコントリビューターのリストに表示されます。 プロジェクトが成長するにつれて、コミュニティのアクティブなメンバーにより高いアクセス許可を付与できます。 詳しい情報については、「[上位貢献者により高いアクセス許可を付与する](/discussions/guides/granting-higher-permissions-to-top-contributors) 」を参照してください。
 

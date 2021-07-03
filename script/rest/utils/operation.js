@@ -1,10 +1,12 @@
 const { get, flatten, isPlainObject } = require('lodash')
 const { sentenceCase } = require('change-case')
-const slugger = new (require('github-slugger'))()
+const GitHubSlugger = require('github-slugger')
+const slugger = new GitHubSlugger()
 const httpStatusCodes = require('http-status-code')
 const renderContent = require('../../../lib/render-content')
 const createCodeSamples = require('./create-code-samples')
 const Ajv = require('ajv')
+const operationSchema = require('./operation-schema')
 
 // titles that can't be derived by sentence-casing the ID
 const categoryTitles = { scim: 'SCIM' }
@@ -35,11 +37,16 @@ module.exports = class Operation {
       this.subcategoryLabel = sentenceCase(this.subcategory)
     }
 
+    // Add content type. We only display one example and default
+    // to the first example defined.
+    const contentTypes = Object.keys(get(this, 'requestBody.content', []))
+    this.contentType = contentTypes[0]
+
     return this
   }
 
   get schema () {
-    return require('./operation-schema')
+    return operationSchema
   }
 
   async process () {
@@ -107,8 +114,8 @@ module.exports = class Operation {
        * example:
        *  '$ref': '../../components/examples/bar.yaml'
       */
-      const examplesProperty = get(rawResponse, 'content.application/json.examples')
-      const exampleProperty = get(rawResponse, 'content.application/json.example')
+      const examplesProperty = get(rawResponse, `content.${this.contentType}.examples`)
+      const exampleProperty = get(rawResponse, `content.${this.contentType}.example`)
 
       // Return early if the response doesn't have an example payload
       if (!exampleProperty && !examplesProperty) {
@@ -166,9 +173,9 @@ module.exports = class Operation {
   }
 
   async renderBodyParameterDescriptions () {
-    let bodyParamsObject = get(this, 'requestBody.content.application/json.schema.properties', {})
-    let requiredParams = get(this, 'requestBody.content.application/json.schema.required', [])
-    const oneOfObject = get(this, 'requestBody.content.application/json.schema.oneOf', undefined)
+    let bodyParamsObject = get(this, `requestBody.content.${this.contentType}.schema.properties`, {})
+    let requiredParams = get(this, `requestBody.content.${this.contentType}.schema.required`, [])
+    const oneOfObject = get(this, `requestBody.content.${this.contentType}.schema.oneOf`, undefined)
 
     // oneOf is an array of input parameter options, so we need to either
     //  use the first option or munge the options together.

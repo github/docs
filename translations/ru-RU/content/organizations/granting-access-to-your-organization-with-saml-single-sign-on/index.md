@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /managing-bots-and-service-accounts-with-saml-single-sign-on
+  - /viewing-and-managing-a-members-saml-access-to-your-organization
+  - /about-two-factor-authentication-and-saml-single-sign-on
 ---
 
-{% link_in_list /managing-bots-and-service-accounts-with-saml-single-sign-on %}
-{% link_in_list /viewing-and-managing-a-members-saml-access-to-your-organization %}
-{% link_in_list /about-two-factor-authentication-and-saml-single-sign-on %}

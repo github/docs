@@ -23,7 +23,7 @@ program
   .option('--decorate-only', '⚠️ Only used by a 🤖 to generate decorated schema files from existing dereferenced schema files.')
   .parse(process.argv)
 
-const decorateOnly = program.decorateOnly
+const decorateOnly = program.opts().decorateOnly
 
 main()
 
@@ -75,7 +75,7 @@ async function getDereferencedFiles () {
   // name of the `github/github` checkout. A CI test
   // checks the version and fails if it's not a semantic version.
   schemas.forEach(filename => {
-    const schema = require(path.join(dereferencedPath, filename))
+    const schema = JSON.parse(fs.readFileSync(path.join(dereferencedPath, filename)))
     schema.info.version = `${githubBranch} !!DEVELOPMENT MODE - DO NOT MERGE!!`
     fs.writeFileSync(path.join(dereferencedPath, filename), JSON.stringify(schema, null, 2))
   })
@@ -85,7 +85,7 @@ async function decorate () {
   console.log('\n🎄 Decorating the OpenAPI schema files in lib/rest/static/dereferenced.\n')
 
   const dereferencedSchemas = schemas.reduce((acc, filename) => {
-    const schema = require(path.join(dereferencedPath, filename))
+    const schema = JSON.parse(fs.readFileSync(path.join(dereferencedPath, filename)))
     const key = filename.replace('.deref.json', '')
     return { ...acc, [key]: schema }
   }, {})

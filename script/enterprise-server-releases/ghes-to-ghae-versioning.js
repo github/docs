@@ -4,12 +4,13 @@ const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
 const program = require('commander')
+const { escapeRegExp } = require('lodash')
 const frontmatter = require('../../lib/read-frontmatter')
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')
 const translationsPath = path.join(process.cwd(), 'translations')
-const { getEnterpriseServerNumber } = require('../../lib/patterns')
 const versionSatisfiesRange = require('../../lib/version-satisfies-range')
+const getLiquidConditionals = require('../helpers/get-liquid-conditionals')
 
 // [start-readme]
 //
@@ -27,31 +28,30 @@ program
   .option('-t, --translations', 'Run the script on content and data in translations too.')
   .parse(process.argv)
 
-if (!program.ghesRelease) {
+const { ghesRelease, products, translations } = program.opts()
+
+if (!ghesRelease) {
   console.error('Must provide an Enterprise Server release number!')
   process.exit(1)
 }
 
-console.log(`✅ Adding AE versioning based on GHES ${program.ghesRelease} versioning`)
+console.log(`✅ Adding AE versioning based on GHES ${ghesRelease} versioning`)
 
-if (program.products) {
-  console.log(`✅ Running on the following products: ${program.products}`)
+if (products) {
+  console.log(`✅ Running on the following products: ${products}`)
 } else {
   console.log('✅ Running on all products')
 }
 
-if (program.translations) {
+if (translations) {
   console.log('✅ Running on both English and translated content and data\n')
 } else {
   console.log('✅ Running on English content and data\n')
 }
 
-// The new conditional to add
-const githubAEConditional = 'currentVersion == "github-ae@latest"'
-
-// Match: currentVersion <operator> "enterprise-server@(\d+\.\d+)"
-// Example: currentVersion ver_gt "enterprise-server@2.21"
-const enterpriseServerConditionalRegex = new RegExp(`currentVersion (\\S+?) "${getEnterpriseServerNumber.source}"`)
+// Match: ghes <operator> <release>
+// Example: ghes > 2.21
+const ghesRegex = new RegExp(`ghes (<|>|=|!=) ${ghesRelease}`)
 
 console.log('Working...\n')
 
@@ -59,8 +59,8 @@ const englishContentFiles = walkContent(contentPath)
 const englishDataFiles = walkData(dataPath)
 
 function walkContent (dirPath) {
-  const products = program.products || ['']
-  return products.map(product => {
+  const productArray = products || ['']
+  return productArray.map(product => {
     dirPath = path.join(contentPath, product)
     return walk(dirPath, { includeBasePath: true, directories: false })
       .filter(file => file.includes('/content/'))
@@ -76,7 +76,7 @@ function walkData (dirPath) {
 }
 
 let allContentFiles, allDataFiles
-if (program.translations) {
+if (translations) {
   const translatedContentFiles = walkContent(translationsPath)
   const translatedDataFiles = walkData(translationsPath)
   allContentFiles = englishContentFiles.concat(translatedContentFiles)
@@ -84,13 +84,6 @@ if (program.translations) {
 } else {
   allContentFiles = englishContentFiles
   allDataFiles = englishDataFiles
-}
-
-// Map Liquid operators to semver operators
-const operators = {
-  ver_gt: '>',
-  ver_lt: '<',
-  '==': '='
 }
 
 // Update the data files
@@ -113,7 +106,7 @@ allContentFiles
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
     // Return early if the current page frontmatter does not apply to either GHAE or the given GHES release
-    if (!(data.versions['github-ae'] || versionSatisfiesRange(program.ghesRelease, data.versions['enterprise-server']))) return
+    if (!(data.versions['github-ae'] || versionSatisfiesRange(ghesRelease, data.versions['enterprise-server']))) return
 
     const conditionalsToUpdate = getConditionalsToUpdate(content)
     if (!conditionalsToUpdate.length) return
@@ -137,28 +130,20 @@ allContentFiles
   })
 
 function getConditionalsToUpdate (content) {
-  const allConditionals = content.match(/{% if .+?%}/g)
-
-  return (allConditionals || [])
-    .filter(conditional => !conditional.includes('github-ae'))
-    .filter(conditional => doesReleaseSatisfyConditional(conditional.match(enterpriseServerConditionalRegex)))
+  return getLiquidConditionals(content, 'ifversion')
+    .filter(c => !c.includes('ghae'))
+    .filter(c => doesReleaseSatisfyConditional(c.match(ghesRegex)))
 }
 
 function updateLiquid (conditionalsToUpdate, content) {
   let newContent = content
-
-  conditionalsToUpdate.forEach(conditional => {
-    let newConditional = conditional
-
-    const enterpriseServerMatch = conditional.match(enterpriseServerConditionalRegex)
-
-    // First do the replacement within the conditional
-    // Old: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    // New: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-    newConditional = newConditional.replace(enterpriseServerMatch[0], `${enterpriseServerMatch[0]} or ${githubAEConditional}`)
+  conditionalsToUpdate.forEach(cond => {
+    const oldConditional = `{% ifversion ${cond} %}`
+    const newConditional = `{% ifversion ${cond.concat(' or ghae')} %}`
+    const oldConditionalRegex = new RegExp(escapeRegExp(oldConditional), 'g')
 
     // Then replace all instances of the conditional in the content
-    newContent = newContent.replace(conditional, newConditional)
+    newContent = newContent.replace(oldConditionalRegex, newConditional)
   })
 
   return newContent
@@ -166,20 +151,14 @@ function updateLiquid (conditionalsToUpdate, content) {
 
 console.log('Done!')
 
-function doesReleaseSatisfyConditional (enterpriseServerMatch) {
-  if (!enterpriseServerMatch) return
+function doesReleaseSatisfyConditional (ghesMatch) {
+  if (!ghesMatch) return false
 
-  // Example liquid operator: ver_gt
-  const liquidOperator = enterpriseServerMatch[1]
+  // Operator (e.g., <)
+  const operator = ghesMatch[1]
 
-  // Example semver operator: >
-  const semverOperator = operators[liquidOperator]
+  // Release number (e.g., 2.21)
+  const number = ghesMatch[2]
 
-  // Example number: 2.21
-  const number = enterpriseServerMatch[2]
-
-  // Example range: >2.21
-  const range = `${semverOperator}${number}`
-
-  return versionSatisfiesRange(program.ghesRelease, range)
+  return versionSatisfiesRange(ghesRelease, `${operator}${number}`)
 }

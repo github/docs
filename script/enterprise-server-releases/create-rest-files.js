@@ -22,8 +22,8 @@ program
   .option('-o, --oldVersion <version>', 'The existing version to copy the REST files from. Must be in <plan@release> format.')
   .parse(process.argv)
 
-const newVersion = program.newVersion
-const oldVersion = program.oldVersion
+const newVersion = program.opts().newVersion
+const oldVersion = program.opts().oldVersion
 
 if (!(newVersion && oldVersion)) {
   console.log('Error! You must provide --newVersion and --oldVersion.')
@@ -63,7 +63,7 @@ async function main () {
   fs.writeFileSync(newDereferencedFile, newDereferenceContent)
   console.log(`Created ${newDereferencedFile}.`)
 
-  const dereferencedSchema = require(path.join(process.cwd(), newDereferencedFile))
+  const dereferencedSchema = JSON.parse(fs.readFileSync(path.join(process.cwd(), newDereferencedFile)))
 
   // Store all operations in an array of operation objects
   const operations = await getOperations(dereferencedSchema)

@@ -1,1 +1,1 @@
-1. Optionally, if you're sponsoring as an organization, to pay a prorated amount instead of making the full monthly payment, under "Total due now", click **Pay prorated $X.XX instead**. ![Link to pay prorated amount](/assets/images/help/sponsors/pay-prorated-amount-link.png)
+1. あるいは、Organizationとしてスポンサーをしている場合、完全な月額の支払いを行う代わりに日割りの額を支払うには、"Total due now（すぐに全額）"の下で、**Pay prorated $X.XX instead（代わりに日割りの$X.XXを支払う）**をクリックしてください。 ![日割りの額を支払うためのリンク](/assets/images/help/sponsors/pay-prorated-amount-link.png)

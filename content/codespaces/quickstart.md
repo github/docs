@@ -3,23 +3,24 @@ title: Quickstart for GitHub Codespaces
 intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-quickstart
+shortTitle: Quickstart
 ---
 
 {% data reusables.codespaces.release-stage %}
 
-### Introduction
+## Introduction
 
 In this guide, you'll create a codespace from the [sample repository](https://github.com/2percentsilk/haikus-for-codespaces) and explore some of the essential features available to you within the codespace.
 
 The following example shows you how to create a codespace, connect to a forwarded port to view your running application, and personalize your setup with additional extensions and dotfiles.
 
-### Creating your codespace
+## Creating your codespace
 
 1. Navigate to the main page of the [sample repository](https://github.com/2percentsilk/haikus-for-codespaces).
 
@@ -31,7 +32,7 @@ The following example shows you how to create a codespace, connect to a forwarde
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-### Run the application
+## Run the application
 
 With your project open in a codespace, you can now run the application and launch it in a browser.
 
@@ -45,7 +46,7 @@ With your project open in a codespace, you can now run the application and launc
 
 3. Click **Open in Browser** to view your running application in a new tab.
 
-### Personalize with a theme extension
+## Personalize with a theme extension
 
 Within a codespace, you have access to the Visual Studio Code Marketplace. For this example, you'll install an extension that alters the theme but you can install any extension that is useful for your workflow.
 
@@ -61,7 +62,7 @@ Within a codespace, you have access to the Visual Studio Code Marketplace. For t
 
 4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically to other codespaces via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync).
 
-### Personalize with dotfiles
+## Personalize with dotfiles
 
 If your user account on GitHub owns a public repository named dotfiles, GitHub automatically uses this repository to personalize your codespace environment during codespace creation.
 
@@ -77,7 +78,7 @@ This example guides you through creating a dotfiles repository for your codespac
 
   ![Custom command prompt](/assets/images/help/codespaces/custom-prompt.png)
 
-### Next Steps
+## Next Steps
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_codespaces %}.
   - "[Getting Started guides](/codespaces/getting-started-with-codespaces)" for using {% data variables.product.prodname_codespaces %} with specific languages

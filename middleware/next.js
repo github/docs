@@ -10,12 +10,14 @@ if (FEATURE_NEXTJS) {
   nextApp.prepare()
 }
 
-module.exports = function renderPageWithNext (req, res, next) {
-  if (req.path.startsWith('/_next/')) {
+function renderPageWithNext (req, res, next) {
+  if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {
     return nextHandleRequest(req, res)
   }
 
-  next()
+  return next()
 }
 
-module.exports.nextHandleRequest = nextHandleRequest
+renderPageWithNext.nextHandleRequest = nextHandleRequest
+
+module.exports = renderPageWithNext

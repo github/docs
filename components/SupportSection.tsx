@@ -1,4 +1,4 @@
-import { Helpfulness } from 'components/Helpfulness'
+import { Survey } from 'components/Survey'
 import { Contribution } from 'components/Contribution'
 import { Support } from 'components/Support'
 import { useMainContext } from './context/MainContext'
@@ -16,7 +16,7 @@ export const SupportSection = () => {
     <section className="mt-lg-9 py-7 px-3 px-md-6 no-print color-bg-tertiary">
       <div className="container-xl gutter-lg-spacious clearfix">
         <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
-          {!isDeprecated && <Helpfulness />}
+          {!isDeprecated && <Survey />}
         </div>
         <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
           {!isDeprecated && <Contribution />}

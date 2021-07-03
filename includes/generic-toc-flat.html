@@ -1,0 +1,8 @@
+{% for tocItem in genericTocFlat %}
+
+{% assign title = tocItem.title %}
+{% assign fullPath = tocItem.fullPath %}
+{% assign intro = tocItem.intro %}
+{% include liquid-tags/link-with-intro %}
+
+{% endfor %}

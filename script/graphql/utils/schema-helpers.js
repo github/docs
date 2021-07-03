@@ -1,5 +1,6 @@
 const renderContent = require('../../../lib/render-content')
-const graphqlTypes = require('../../../lib/graphql/types')
+const fs = require('fs')
+const graphqlTypes = JSON.parse(fs.readFileSync('./lib/graphql/types.json'))
 const {
   isScalarType,
   isObjectType,

@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:

@@ -1,7 +1,7 @@
 const path = require('path')
 const { isPlainObject } = require('lodash')
 const supertest = require('supertest')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
@@ -20,7 +20,7 @@ describe('redirects', () => {
 
   test('page.redirects is an array', async () => {
     const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
+      relativePath: 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
@@ -78,7 +78,7 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-search-between-github-enterprise-server-and-githubcom`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
@@ -103,7 +103,7 @@ describe('redirects', () => {
     })
 
     test('are redirected for HEAD requests (not just GET requests)', async () => {
-      const res = await supertest(app).head('/articles/closing-issues-via-commit-messages/')
+      const res = await supertest(createApp()).head('/articles/closing-issues-via-commit-messages/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/articles/closing-issues-via-commit-messages')
     })
@@ -127,7 +127,7 @@ describe('redirects', () => {
     test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
-      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop'
+      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
       expect(res.headers.location).toBe(expected)
     })
   })
@@ -191,7 +191,7 @@ describe('redirects', () => {
     test('frontmatter redirect', async () => {
       const res = await get('/enterprise/2.12/user/articles/github-flavored-markdown')
       expect(res.statusCode).toBe(301)
-      expect(res.text).toContain('location=\'/enterprise/2.12/user/categories/writing-on-github/\'')
+      expect(res.headers.location).toBe('/enterprise/2.12/user/categories/writing-on-github/')
     })
   })
 
@@ -248,7 +248,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
       expect(redirectRes.statusCode).toBe(200)
-      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/upgrading-github-enterprise-server`
+      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -300,11 +300,11 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/creating-a-strong-password`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
@@ -316,27 +316,27 @@ describe('redirects', () => {
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github/set-up-git`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/articles/creating-a-strong-password`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/user/github/getting-started-with-github/set-up-git')
+      const res = await get('/en/enterprise/user/articles/creating-a-strong-password')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/user/github/getting-started-with-github/set-up-git')
+      const res = await get('/ja/enterprise/user/articles/creating-a-strong-password')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/access-permissions-on-github`
-    const redirectFromPath = '/articles/what-are-the-different-access-permissions'
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys`
+    const redirectFromPath = '/articles/reviewing-your-ssh-keys'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {
@@ -365,7 +365,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
+    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {

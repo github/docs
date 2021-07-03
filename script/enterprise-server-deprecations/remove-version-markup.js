@@ -12,6 +12,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const contentPath = path.join(__dirname, '../../content')
 const dataPath = path.join(__dirname, '../../data')
 const removeUnusedAssetsScript = 'script/remove-unused-assets'
+const runRemoveUnusedAssetsScript = require('../remove-unused-assets')
 const elseifRegex = /{-?% elsif/
 
 // [start-readme]
@@ -26,8 +27,10 @@ program
   .option('-r, --release <NUMBER>', 'Enterprise Server release number. Example: 2.19')
   .parse(process.argv)
 
+const release = program.opts().release
+
 // verify CLI options
-if (!program.release) {
+if (!release) {
   console.log(program.description() + '\n')
   program.options.forEach(opt => {
     console.log(opt.flags)
@@ -36,13 +39,13 @@ if (!program.release) {
   process.exit(1)
 }
 
-if (!enterpriseServerReleases.all.includes(program.release)) {
-  console.log(`You specified ${program.release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`)
+if (!enterpriseServerReleases.all.includes(release)) {
+  console.log(`You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`)
   process.exit(1)
 }
 
-const versionToDeprecate = `enterprise-server@${program.release}`
-const currentIndex = indexOf(enterpriseServerReleases.all, program.release)
+const versionToDeprecate = `enterprise-server@${release}`
+const currentIndex = indexOf(enterpriseServerReleases.all, release)
 const nextOldestRelease = nth(enterpriseServerReleases.all, currentIndex - 1)
 const nextOldestVersion = `enterprise-server@${nextOldestRelease}`
 
@@ -62,7 +65,7 @@ const allFiles = contentFiles.concat(dataFiles)
 
 main()
 console.log(`\nRunning ${removeUnusedAssetsScript}...`)
-require(path.join(process.cwd(), removeUnusedAssetsScript))
+runRemoveUnusedAssetsScript()
 
 function printElseIfFoundWarning (location) {
   console.log(`${location} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`)

@@ -14,8 +14,9 @@ featuredLinks:
 redirect_from:
   - /github/installing-and-configuring-github-insights
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+children:
+  - /installing-and-configuring-github-insights
+  - /exploring-your-usage-of-github-enterprise
 ---
 
-{% link_with_intro /installing-and-configuring-github-insights %}
-{% link_with_intro /exploring-your-usage-of-github-enterprise %}

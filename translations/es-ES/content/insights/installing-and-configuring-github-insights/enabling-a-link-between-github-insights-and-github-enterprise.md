@@ -1,7 +1,6 @@
 ---
 title: Habilitar enlace entre la información de GitHub y GitHub Enterprise
 intro: 'Puedes habilitar un enlace que permitirá a los usuarios navegar desde {% data variables.product.prodname_ghe_server %} hacia {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} can enable a link between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_insights %}.'
 redirect_from:
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise

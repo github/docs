@@ -49,6 +49,8 @@ Cualquiera con acceso de lectura a un repositorio puede ver y buscar las etiquet
 
 Las etiquetas predeterminadas se incluyen en todos los repositorios nuevos cuando se crea el repositorio, pero luego puedes editarlas o eliminarlas.
 
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 Los propietarios de la organización pueden personalizar las etiquetas predeterminadas para los repositorios de la organización. Para obtener más información, consulta "[Administrar etiquetas predeterminadas para los repositorios en tu organización](/articles/managing-default-labels-for-repositories-in-your-organization)".
 {% endif %}

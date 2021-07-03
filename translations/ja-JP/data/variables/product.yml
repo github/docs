@@ -20,7 +20,7 @@ prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if enterpriseServerVersions contains currentVersion %}your GitHub Enterprise Server instance{% elsif currentVersion == "github-ae@latest" %}your enterprise{% else %}GitHub{% endif %}
+  {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Serverのインスタンス{% elsif currentVersion == "github-ae@latest" %}Enterprise{% else %}GitHub{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'GitHub Enterprise Server インスタンス'
@@ -37,7 +37,7 @@ prodname_unified_search: 'Unified Search'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
-prodname_education_community_with_url: 'the [GitHub Education Community](https://education.github.community)'
+prodname_education_community_with_url: '[GitHub Education Community](https://education.github.community)'
 prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
@@ -56,6 +56,7 @@ prodname_pages: 'GitHub Pages'
 #CodeQL
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
+prodname_codeql_cli: 'CodeQL CLI'
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
@@ -63,11 +64,11 @@ prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth App'
 prodname_oauth_apps: 'OAuth App'
 #API and developer docs
-prodname_enterprise_api: 'the {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} APIs'
+prodname_enterprise_api: '{% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} API'
 prodname_support_forum_with_url: '[GitHub API Development and Support Forum](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Content Attachments'
 #Azure AD
-ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
+ae_azure_ad_app_link: '[GitHub AEアプリケーション](https://azuremarketplace.microsoft.com/ja-jp/marketplace/apps/aad.githubenterpriseserver)'
 #GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
@@ -77,8 +78,7 @@ prodname_debug: 'GitHub デバッグ'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'GitHub Packages'
-prodname_github_container_registry: 'GitHub Container Registry'
-prodname_container_registry: 'container registry'
+prodname_container_registry: 'コンテナレジストリ'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -88,10 +88,9 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
 #Security Center
-prodname_security_center: 'Security Center'
+prodname_security_center: 'セキュリティセンター'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vs_codespaces: 'Visual Studio Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
@@ -99,7 +98,7 @@ prodname_blog: 'GitHub ブログ'
 prodname_jobs: 'GitHub Jobs'
 prodname_learning: 'GitHub Learning Lab'
 prodname_learning_link: 'https://lab.github.com/'
-prodname_roadmap: 'GitHub public roadmap'
+prodname_roadmap: 'GitHubパブリックロードマップ'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support
 premium_support_plan: 'Premium プラン'
@@ -118,19 +117,19 @@ prodname_secret_scanning: 'secret scanning'
 prodname_secret_scanning_caps: 'Secret scanning'
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'
-prodname_codeql_runner: 'CodeQL runner'
+prodname_codeql_runner: 'CodeQLランナー'
 prodname_advisory_database: 'GitHub Advisory Database'
-prodname_codeql_workflow: 'CodeQL analysis workflow'
+prodname_codeql_workflow: 'CodeQL分析ワークフロー'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscription with GitHub Enterprise'
-prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
+prodname_vss_admin_portal_with_url: '[Visual Studio subscriptions管理ポータル](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
-prodname_dependabot_alerts: 'Dependabot alerts'
-prodname_dependabot_security_updates: 'Dependabot security updates'
-prodname_dependabot_version_updates: 'Dependabot version updates'
+prodname_dependabot_alerts: 'Dependabotアラート'
+prodname_dependabot_security_updates: 'Dependabotセキュリティアップデート'
+prodname_dependabot_version_updates: 'Dependabotバージョンアップデート'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
@@ -139,9 +138,9 @@ product_url: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[サインイン](https://github.com/login){% else %}サインイン (`https://[hostname]/login`){% endif %}
 signout_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[サインアウト](https://github.com/logout){% else %}サインアウト (`https://[hostname]/logout`){% endif %}
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 #GitHub Enterprise Server past versions

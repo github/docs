@@ -3,6 +3,9 @@ title: Initializing GitHub AE
 intro: 'To get your enterprise ready to use, you can complete the initial configuration of {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### About initialization
@@ -79,11 +82,11 @@ Once this is initialized, you can reconfigure any settings after the initializat
 1. To the right of "Configure email settings", click **Configure**. !["Configure" button for email settings configuration](/assets/images/enterprise/configuration/ae-email-configure.png)
 2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)." !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Complete your email server settings:
-  - In the **Server address** field, type the address of your SMTP server.
-  - In the **Port** field, type the port that your SMTP server uses to send email.
-  - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-  - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
-  - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
+    - In the **Server address** field, type the address of your SMTP server.
+    - In the **Port** field, type the port that your SMTP server uses to send email.
+    - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
+    - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
+    - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 
 4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**. !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. Click **Test email settings**. !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)

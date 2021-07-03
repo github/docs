@@ -4,11 +4,10 @@ shortTitle: ディスカッションを使用してコラボレーションす�
 intro: コミュニティメンバーや他のメンテナと集まってプロジェクトについてディスカッションしましょう。
 versions:
   free-pro-team: '*'
+children:
+  - /about-discussions
+  - /participating-in-a-discussion
+  - /collaborating-with-maintainers-using-discussions
 ---
 
 {% data reusables.discussions.beta %}
-
-{% link_in_list /about-discussions %}
-{% link_in_list /participating-in-a-discussion %}
-{% link_in_list /collaborating-with-maintainers-using-discussions %}
-
