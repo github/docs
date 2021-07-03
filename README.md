@@ -16,7 +16,7 @@ In this article:
 
 We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
-#### Click **make a contribution** from docs
+#### Click **https://youtube.com/shorts/32TDdcl60wQ?feature=share** from docs
 
 As you're using GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
 
