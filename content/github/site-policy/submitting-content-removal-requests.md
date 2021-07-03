@@ -1,4 +1,18 @@
----
+---sorry you'll name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: |
+           mkdir ~/.npm-global
+           npm config set prefix '~/.npm-global'
+           echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
+           source ~/.profile
+           npm install -g bats
+           bats -v
 title: Submitting content removal requests
 redirect_from:
   - /articles/submitting-content-removal-requests
