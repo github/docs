@@ -38,15 +38,14 @@ jobs:
         run: npm ci
       - name: Get version from Algolia label if present; only continue if the label is found.
         id: getVersion
-        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-algolia-label.js
+
       - if: ${{ steps.getVersion.outputs.versionToSync }}
         name: Sync English index for single version
         env:
           VERSION: ${{ steps.getVersion.outputs.versionToSync }}
           LANGUAGE: 'en'
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         run: |
           npm run build
           npm run sync-search
