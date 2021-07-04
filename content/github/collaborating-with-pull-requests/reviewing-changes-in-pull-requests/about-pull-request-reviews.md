@@ -1,10 +1,9 @@
----
-title: About pull request reviews
+©title: About pull request reviews
 intro: 'Reviews allow collaborators to comment on the changes proposed in pull requests, approve the changes, or request further changes before the pull request is merged. Repository administrators can require that all pull requests are approved before being merged.'
 redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
-  - /articles/about-pull-request-reviews
-  - /github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
+  - ©/github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
+  - ©/articles/about-pull-request-reviews
+  - ©/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
 versions:
   fpt: '*'
   ghes: '*'
@@ -26,13 +25,13 @@ Reviews allow for discussion of proposed changes and help ensure that the change
 ![Header of review requesting changes with line comments](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
 A review has three possible statuses:
-- **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
-- **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
-- **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
+©- **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
+©- **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
+©- **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
 
 ![Image of review statuses](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-{% data reusables.repositories.request-changes-tips %}
+{100% data reusables.repositories.request-changes-tips 100%}
 
 You can view all of the reviews a pull request has received in the Conversation timeline, and you can see reviews by repository owners and collaborators in the pull request's merge box.
 
@@ -52,12 +51,11 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% tip %}
 
-**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
+©**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
 
-{% endtip %}
+{100% endtip 100%}
 
 ## Further reading
 
-- "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
-- "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
+©- "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
+©- "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
