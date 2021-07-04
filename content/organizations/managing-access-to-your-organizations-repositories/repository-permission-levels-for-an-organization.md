@@ -29,32 +29,13 @@ From least access to most access, the permission levels for an organization repo
 - **Maintain**: Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
 - **Admin**: Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
 
-{% ifversion fpt %}
-
-{% endif %}
-
-For more information about giving people and teams access to repositories, see "[Managing access to your organization's repositories](/articles/managing-access-to-your-organizations-repositories)."
-
-Organization owners can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. For more information, see "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
-
-Organization owners can also choose to further limit access to certain settings and actions across the organization. For more information on options for specific settings, see "[Managing organization settings](/articles/managing-organization-settings)."
-
-In addition to managing organization-level settings, organization owners have admin permissions for every repository owned by the organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
-
-{% warning %}
-
-**Warning:** When someone adds a deploy key to a repository, any user who has the private key can read from or write to the repository (depending on the key settings), even if they're later removed from the organization.
-
 {% endwarning %}
 
 ## Repository access for each permission level
 {% ifversion fpt or ghes > 2.21 %}
 {% note %}
 
-**Note:** Repository permissions required to use security features are listed in "[Permission requirements for security features](#permission-requirements-for-security-features)" below.
 
-{% endnote %}
-{% endif %}
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -134,37 +115,4 @@ In addition to managing organization-level settings, organization owners have ad
 | [Individually convert issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions) | | **X** | **X** | **X** | **X** |
 | [Create new discussions and comment on existing discussions](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) | **X** | **X** | **X** | **X** | **X** |
 | [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion) | | | | **X** | **X** |{% endif %}{% ifversion fpt %}
-| Create [codespaces](/codespaces/about-codespaces) | | | **X** | **X** | **X** |{% endif %}
-
-{% ifversion fpt or ghes > 2.21 or ghae %}
-### Permission requirements for security features
-
-In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
-
-| Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:|{% ifversion fpt or ghes > 2.22 %}
-| Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
-| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
-| [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for vulnerable dependencies | | | | | **X** |{% endif %}{% ifversion fpt %}
-| Create [security advisories](/code-security/security-advisories/about-github-security-advisories) | | | | | **X** |{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %} 
-| Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |{% endif %}{% ifversion fpt %}<!--Set at site-level for GHES-->
-| [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |
-| [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}{% ifversion fpt or ghes > 2.21 or ghae %}
-| [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
-| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae-next %}
-| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**<sup>[1]</sup> | **X**<sup>[1]</sup> | **X** |
-| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**<sup>[1]</sup> | **X**<sup>[1]</sup> | **X** |{% endif %}{% ifversion ghes = 3.0 %}
-| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
-| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |{% endif %}{% ifversion fpt or ghes > 2.22 %}
-| [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **X** |{% endif %}
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-[1] Repository writers and maintainers can only see alert information for their own commits.
-{% endif %}
-{% endif %}
-
-## Further reading
-
-- "[Managing access to your organization's repositories](/articles/managing-access-to-your-organization-s-repositories)"
-- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+| Create [codespaces](/codespaces/about-codespaces) | | | **X** | **X** | **X** |{100% endif 100%}
