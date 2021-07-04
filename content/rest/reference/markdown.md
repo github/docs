@@ -1,5 +1,6 @@
 ---
 title: Markdown
+intro: 'The Markdown API enables the plain markdown document to render in a HTML page or vice-versa.'
 redirect_from:
   - /v3/markdown
 versions:
