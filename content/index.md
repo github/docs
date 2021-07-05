@@ -44,7 +44,7 @@ externalProducts:
   atom:
     id: atom
     name: Atom
-    href: 'https://atom.io/docs'
+    href:='https://atom.io/docs'
     external: true
   electron:
     id: electron
@@ -57,4 +57,5 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
+
 
