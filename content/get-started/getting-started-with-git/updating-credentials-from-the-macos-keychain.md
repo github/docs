@@ -21,7 +21,7 @@ shortTitle: macOS Keychain credentials
    ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
 2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
 3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
-4. Edit or delete the entry accordingly. (In case of edit, use the token as the password.)
+4. Edit or delete the entry accordingly (In case of edit, replace the existing password with the generated token).
 
 ## Deleting your credentials via the command line
 
