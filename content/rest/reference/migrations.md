@@ -1,5 +1,6 @@
 ---
 title: Migrations
+intro: 'The Migration API lets you migrate the repositories and users of your {% data variables.product.product_name %} organizations.'
 redirect_from:
   - /v3/migrations
   - /v3/migration
