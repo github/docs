@@ -14,17 +14,18 @@ on:
   workflow_dispatch:
     inputs:
       pullRequestUrl:
-        description: 'Pull Request URL'
+        description: "Pull Request URL"
         required: true
-        default: 'https://github.com/github/docs/pull/1234'
+        default: "https://github.com/github/docs/pull/1234"
       forceRebuild:
-        description: 'Force the Heroku App to be rebuilt from scratch? (true/false)'
+        description: "Force the Heroku App to be rebuilt from scratch? (true/false)"
         required: false
-        default: 'false'
+        default: "false"
 
 jobs:
   validate-inputs:
-    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    if: ${{ github.repository == 'github/docs-internal' || github.repository ==
+      'github/docs' }}
     name: Validate inputs
     runs-on: ubuntu-latest
     timeout-minutes: 2
@@ -36,13 +37,14 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
-          persist-credentials: 'false'
+          persist-credentials: "false"
 
       - if: ${{ github.event_name == 'workflow_dispatch' }}
         name: Setup node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 16.x
+          cache: npm
 
       - if: ${{ github.event_name == 'workflow_dispatch' }}
         name: Get npm cache directory
@@ -95,7 +97,8 @@ jobs:
             core.setOutput('headRef', pullRequest.head.ref)
 
   deploy:
-    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    if: ${{ github.repository == 'github/docs-internal' || github.repository ==
+      'github/docs' }}
     needs: validate-inputs
     name: Deploy
     runs-on: ubuntu-latest
@@ -108,12 +111,13 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
-          persist-credentials: 'false'
+          persist-credentials: "false"
 
       - name: Setup node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 16.x
+          cache: npm
 
       - name: Get npm cache directory
         id: npm-cache

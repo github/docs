@@ -5,8 +5,7 @@ name: (Dry run) Algolia
 # **Who does it impact**: Docs engineering.
 
 on:
-  workflow_dispatch:
-
+  workflow_dispatch: null
 jobs:
   updateIndices:
     name: (Dry run) Update indices
@@ -18,6 +17,7 @@ jobs:
       - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 16.x
+          cache: npm
       - name: cache node modules
         uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:

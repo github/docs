@@ -5,12 +5,11 @@ name: Lint JS
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: null
   push:
     branches:
       - main
-  pull_request:
-
+  pull_request: null
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -22,6 +21,7 @@ jobs:
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 16.x
+          cache: npm
 
       - name: Get npm cache directory
         id: npm-cache

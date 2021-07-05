@@ -5,17 +5,17 @@ name: Lint Yaml
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: null
   push:
     branches:
       - main
     paths:
-      - '**/*.yml'
-      - '**/*.yaml'
+      - "**/*.yml"
+      - "**/*.yaml"
   pull_request:
     paths:
-      - '**/*.yml'
-      - '**/*.yaml'
+      - "**/*.yml"
+      - "**/*.yaml"
 
 jobs:
   lint:
@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 16.x
+          cache: npm
 
       - name: Get npm cache directory
         id: npm-cache

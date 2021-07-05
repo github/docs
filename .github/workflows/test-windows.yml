@@ -7,10 +7,10 @@ name: Node.js Tests - Windows
 # **Who does it impact**: Anyone working on docs on a Windows device.
 
 on:
-  workflow_dispatch:
-  pull_request:
+  workflow_dispatch: null
+  pull_request: null
   schedule:
-    - cron: '50 19 * * *' # once a day at 19:50 UTC / 11:50 PST
+    - cron: "50 19 * * *" # once a day at 19:50 UTC / 11:50 PST
 
 env:
   CI: true
@@ -18,7 +18,10 @@ env:
 jobs:
   test:
     runs-on: windows-latest
-    if: (github.event_name != 'pull_request') || (github.event_name == 'pull_request' && (contains(github.event.pull_request.labels.*.name, 'Windows') || contains(github.event.pull_request.labels.*.name, 'windows')))
+    if: (github.event_name != 'pull_request') || (github.event_name ==
+      'pull_request' && (contains(github.event.pull_request.labels.*.name,
+      'Windows') || contains(github.event.pull_request.labels.*.name,
+      'windows')))
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -29,12 +32,13 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
-          persist-credentials: 'false'
+          persist-credentials: "false"
 
       - name: Setup node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 16.x
+          cache: npm
 
       - name: Get npm cache directory
         id: npm-cache
@@ -66,4 +70,4 @@ jobs:
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: '--max_old_space_size=8192'
+          NODE_OPTIONS: "--max_old_space_size=8192"
