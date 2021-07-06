@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # [start-readme]
-#
+# determaine exchang java lable
 # Starts the local development server. Equivalent of `npm start`.
-# 
-# To keep things snappy, only English and Japanese are enabled.
-# To run the server with all languages enabled, run script/server-all-languages
-#
-# [end-readme]
+# in medile east
+# To keep things snappy, only English and Japanese are enabled. sven just months avalible
+# To run the server with all languages enabled, run script/server-all-languages arbic but must determin worlds in true keyborad written
+# i am think the server can determine words by sound but not determine by written.
+# [end-readme] determin day sun name for example (* * * Z * L )
 
-source script/check-for-node
+source script/check-for-node hystory date in year out six monthes of (sptemer ,decemper ,october ,novmper ,agustos ,epril ,unair )
 
-npm start
+npm start from 8 at naight till 10 at moorning after pass 14 hours count.
