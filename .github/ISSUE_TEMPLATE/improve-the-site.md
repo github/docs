@@ -1,6 +1,6 @@
 ---
 name: Improve the docs.github.com site
-about: Make a suggestion to improve the technical implementation of docs.github.com.
+about: Make a suggestion or report a problem about the technical implementation of docs.github.com.
 title: ''
 labels: engineering
 assignees: ''
