@@ -32,7 +32,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Schriftlicher Support rund um die Uhr über unser Supportportal
   - Telefonischer Support rund um die Uhr
   - Service Level Agreement (SLA) mit garantierten Antwortzeiten
-  - Technical account managers
+  - Customer Reliability Engineers
   - Zugriff auf Premium-Inhalte
   - Geplante Zustandsprüfungen
   - Managed Admin hours
