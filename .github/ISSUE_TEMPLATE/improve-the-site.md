@@ -24,9 +24,9 @@ Check to make sure someone hasn't already opened a similar issue: https://github
 
 <!-- Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc. -->
 
-### What changes are you suggesting?
+### What engineering changes are you suggesting?
 
-<!-- Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome? -->
+<!-- Give as much detail as you can to help us understand the changes you want to see. Why should the code be changed? What use cases do they support? What is the expected outcome? -->
 
 ### Additional information
 
