@@ -31,7 +31,7 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 ![actions select workflow](/assets/images/actions-select-workflow.png)
 1. Above the list of workflow runs, select **Run workflow**.
 ![actions workflow dispatch](/assets/images/actions-workflow-dispatch.png)
-1. Select the branch where the workflow will run and type the input parameters used by the workflow. Click **Run workflow**.
+1. Use the **Branch** dropdown to select the workflow's branch, and type the input parameters. Click **Run workflow**.
 ![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
 
 {% endwebui %}
