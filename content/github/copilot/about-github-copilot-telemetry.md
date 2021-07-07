@@ -28,6 +28,7 @@ The activity collected consists of events that are triggered when:
 * The user has acted on code suggestions and then it records whether or how they persisted in the code
 
 ## How the data is used
+## Show visual representation
 This data will only be used by {% data variables.product.company_short %} for:
 
 * Directly improving the product, including assessing different strategies in processing and predicting which suggestions users may find helpful
