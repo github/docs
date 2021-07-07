@@ -28,9 +28,9 @@ In all of the following cURL examples, replace `TOKEN` with a token that has the
 
 {% cli %}
 
-Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login` and providing an authentication token that has the `read:org` scope (for queries) or `write:org` scope (for queries and mutations). During the beta, you will not be able to authenticate using a web browser. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)." For more information about creating a token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+{% data reusables.cli.download-cli %}
 
-To download or find more information about {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/).
+Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login` and providing an authentication token that has the `read:org` scope (for queries) or `write:org` scope (for queries and mutations). During the beta, you will not be able to authenticate using a web browser. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)." For more information about creating a token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% endcli %}
 
@@ -38,7 +38,7 @@ To download or find more information about {% data variables.product.prodname_cl
 
 ## Using variables
 
-In all of the following examples, you can use variables to simplify your scripts. Use `-F` to pass a variable that is a number, Boolean, or null. Use `-f` for other variables. For example, 
+In all of the following examples, you can use variables to simplify your scripts. Use `-F` to pass a variable that is a number, Boolean, or null. Use `-f` for other variables. For example,
 
 ```shell
 my_org="octo-org"
@@ -152,7 +152,7 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
             name
             settings
           }
-        } 
+        }
       }
     }
   }'
@@ -218,7 +218,7 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
         items(first: 20) {
           nodes{
             title
-            id 
+            id
             fieldValues(first: 8) {
               nodes{
                 value
@@ -361,10 +361,10 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 
 ### Updating a single-select field
 
-The following example will update a date field. 
-- `PROJECT_ID` - Replace this with the node ID of your project. 
-- `ITEM_ID` - Replace this with the node ID of the item you want to update. 
-- `FIELD_ID` -  Replace this with the ID of the field that you want to update. 
+The following example will update a date field.
+- `PROJECT_ID` - Replace this with the node ID of your project.
+- `ITEM_ID` - Replace this with the node ID of the item you want to update.
+- `FIELD_ID` -  Replace this with the ID of the field that you want to update.
 - `OPTION_ID` - Replace this with the ID of the desired value.
 
 {% include tool-switcher %}

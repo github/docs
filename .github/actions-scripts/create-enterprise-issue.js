@@ -40,8 +40,6 @@ async function run () {
     process.exit(1)
   }
 
-  const repoToOpenIssue = milestone === 'release' ? 'docs-content' : 'docs-engineering'
-
   // Milestone-dependent values.
   const numberOfdaysBeforeMilestoneToOpenIssue = milestone === 'release'
     ? numberOfdaysBeforeReleaseToOpenIssue
@@ -73,7 +71,7 @@ async function run () {
   }
 
   const milestoneSteps = fs.readFileSync(path.join(process.cwd(), `.github/actions-scripts/enterprise-server-issue-templates/${milestone}-issue.md`), 'utf8')
-  const issueLabels = [`enterprise ${milestone}`]
+  const issueLabels = [`enterprise ${milestone}`, `engineering`]
   const issueTitle = `[${nextMilestoneDate}] Enterprise Server ${versionNumber} ${milestone} (technical steps)`
 
   const issueBody = `GHES ${versionNumber} ${milestone} occurs on ${nextMilestoneDate}.
@@ -87,7 +85,7 @@ async function run () {
   try {
     issue = await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: 'github',
-      repo: repoToOpenIssue,
+      repo: 'docs-internal',
       title: issueTitle,
       body: issueBody,
       labels: issueLabels

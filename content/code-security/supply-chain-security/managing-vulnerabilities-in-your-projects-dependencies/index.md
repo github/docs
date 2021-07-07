@@ -28,6 +28,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-shortTitle: Manage vulnerabilities
+shortTitle: Fix vulnerable dependencies
 ---
 

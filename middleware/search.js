@@ -27,10 +27,17 @@ router.get('/', async function postSearch (req, res, next) {
     const results = process.env.AIRGAP || req.cookies.AIRGAP
       ? await loadLunrResults({ version, language, query: `${query} ${filters || ''}`, limit })
       : await loadAlgoliaResults({ version, language, query, filters, limit })
-    return res.status(200).json(results)
+
+    // Only reply if the headers have not been sent and the request was not aborted...
+    if (!res.headersSent && !req.aborted) {
+      return res.status(200).json(results)
+    }
   } catch (err) {
     console.error(err)
-    return res.status(400).json([])
+    // Only reply if the headers have not been sent and the request was not aborted...
+    if (!res.headersSent && !req.aborted) {
+      return res.status(400).json([])
+    }
   }
 })
 

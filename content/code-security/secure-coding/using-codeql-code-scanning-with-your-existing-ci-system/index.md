@@ -1,6 +1,6 @@
 ---
 title: Using CodeQL code scanning with your existing CI system
-shortTitle: CodeQL CI system support
+shortTitle: Use CodeQL in CI system
 intro: 'You can run {% data variables.product.prodname_codeql %} analysis in your existing CI system and upload the results to {% data variables.product.product_name %} for display as {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:

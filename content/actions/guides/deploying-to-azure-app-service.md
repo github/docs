@@ -17,6 +17,7 @@ shortTitle: Deploy to Azure App Service
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -74,8 +75,9 @@ The following example workflow demonstrates how to build, test, and deploy the N
 
 Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created.
 
-{% raw %}
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 on:
   release:
     types: [created]
@@ -92,10 +94,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
+      - name: Use Node.js {% raw %}${{ env.NODE_VERSION }}{% endraw %}
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: {% raw %}${{ env.NODE_VERSION }}{% endraw %}
 
       - name: npm install, build, and test
         run: |
@@ -106,13 +108,12 @@ jobs:
           npm run test --if-present
 
       - name: 'Deploy to Azure WebApp'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
+          publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
+          package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
-{% endraw %}
 
 ## Additional resources
 
