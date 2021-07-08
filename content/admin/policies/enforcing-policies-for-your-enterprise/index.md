@@ -1,6 +1,6 @@
 ---
 title: Enforcing policies for your enterprise
-intro: 'This guide gives an overview on how policies can be enforced for your enterprise.'
+intro: 'You can configure policies in your enterpise account to manage repositories.'
 redirect_from:
   - /enterprise/admin/policies/enforcing-policies-for-your-enterprise
 versions:
