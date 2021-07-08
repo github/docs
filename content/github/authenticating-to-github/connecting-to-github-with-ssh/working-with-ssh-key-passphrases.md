@@ -7,7 +7,7 @@ redirect_from:
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
 versions:
-  fpt: '*'
+  fpt: '*'ed25519
   ghes: '*'
   ghae: '*'
 topics:
