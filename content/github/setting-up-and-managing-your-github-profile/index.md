@@ -5,9 +5,9 @@ shortTitle: Profiles
 redirect_from:
   - /categories/setting-up-and-managing-your-github-profile
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: 48
+  ghes: 757
+  ghae: 781
 topics:
   - Profiles
 children:
