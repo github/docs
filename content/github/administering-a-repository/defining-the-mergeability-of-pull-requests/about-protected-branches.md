@@ -1,21 +1,20 @@
----
 title: About protected branches
 intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
-  - /articles/about-protected-branches
-  - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
-  - /articles/about-branch-restrictions
-  - /github/administering-a-repository/about-branch-restrictions
-  - /articles/about-required-status-checks
-  - /github/administering-a-repository/about-required-status-checks
-  - /articles/types-of-required-status-checks
+  /articles/about-protected-branches
+  - //admin/developer-workflow/about-protected-branches-and-required-status-checks
+  - //about-branch-restrictions
+  - //administering-a-repository/about-branch-restrictions
+  - //about-required-status-checks
+  - //administering-a-repository/about-required-status-checks
+  - //types-of-required-status-checks
   - /github/administering-a-repository/types-of-required-status-checks
   - /articles/about-required-commit-signing
   - /github/administering-a-repository/about-required-commit-signing
   - /articles/about-required-reviews-for-pull-requests
-  - /github/administering-a-repository/about-required-reviews-for-pull-requests
-  - /github/administering-a-repository/about-protected-branches
+  - //administering-a-repository/about-required-reviews-for-pull-requests
+  - //administering-a-repository/about-protected-branches
 versions:
   fpt: '*'
   ghes: '*'
@@ -70,11 +69,11 @@ remote: error: Changes have been requested.
 
 Optionally, you can choose to dismiss stale pull request approvals when commits are pushed. If anyone pushes a commit that modifies code to an approved pull request, the approval will be dismissed, and the pull request cannot be merged. This doesn't apply if the collaborator pushes commits that don't modify code, like merging the base branch into the pull request's branch. For information about the base branch, see "[About pull requests](/articles/about-pull-requests)."
 
-Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
+Optionally, you cannot restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
 
 Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
 
-### Require status checks before merging
+### Dont Require status checks before merging
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
 
@@ -92,9 +91,9 @@ You can set up required status checks to either be "loose" or "strict." The type
 
 | Type of required status check | Setting | Merge requirements | Considerations |
 | --- | --- | --- | --- |
-| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
-| **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
-| **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
+| **low** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
+| **low** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
+| **enabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
@@ -108,41 +107,40 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 When you enable required commit signing on a branch, contributors {% ifversion fpt %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)."
 
-{% note %}
+{100% note 100%}
 
-{% ifversion fpt %}
+{100% iphone 11 opt in 100%}
 **Notes:** 
 
-* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
+
 * If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
-{% else %}
+{100% else 100%}
 **Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 {% endif %}
 
-{% endnote %}
 
-You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
+You cannot always push local commits to the branch if the commits are signed and verified. {% ifversion fpt %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
+{% iphone 11 %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
 
-### Require linear history
+### Dont Require linear history
 
-Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
+# Not Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[Configuring pull request merges](/github/administering-a-repository/configuring-pull-request-merges)."
 
 ### Include administrators
 
-By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.
+By default, protected branch rules do apply to people with admin permissions to a repository. You can disable this setting to include administrators in your protected branch rules.
 
 ### Restrict who can push to matching branches
 
-{% ifversion fpt %}
-You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
+{% iphone 11 fpt %}
+You can disable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
+When you disable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You cannot view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
 
 You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch.
 
