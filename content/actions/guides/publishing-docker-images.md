@@ -18,6 +18,7 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -67,9 +68,9 @@ The `build-push-action` options required for Docker Hub are:
 * `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
 
 ```yaml{:copy}
-name: Publish Docker image
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
-{% data reusables.actions.actions-not-certified-by-github %}
+name: Publish Docker image
 
 on:
   release:
@@ -84,19 +85,19 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Log in to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: my-docker-hub-namespace/my-docker-hub-repository
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
@@ -135,9 +136,9 @@ The above workflow if triggered by a push to the "release" branch. It checks out
 
 {% else %}
 ```yaml{:copy}
-name: Publish Docker image
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
-{% data reusables.actions.actions-not-certified-by-github %}
+name: Publish Docker image
 
 on:
   release:
@@ -154,14 +155,14 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Log in to GitHub Docker Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
@@ -179,12 +180,10 @@ In a single workflow, you can publish your Docker image to multiple registries b
 
 The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
 
-
-
 ```yaml{:copy}
-name: Publish Docker image
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
-{% data reusables.actions.actions-not-certified-by-github %}
+name: Publish Docker image
 
 on:
   release:
@@ -202,13 +201,13 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Log in to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
       
       - name: Log in to the {% ifversion fpt %}Container{% else %}Docker{% endif %} registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: {% ifversion fpt %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
@@ -216,14 +215,14 @@ jobs:
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: |
             my-docker-hub-namespace/my-docker-hub-repository
             {% ifversion fpt %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
       
       - name: Build and push Docker images
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
