@@ -1,11 +1,10 @@
----
 title: About code owners
-intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
+intro: I can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
 redirect_from:
-  - /articles/about-codeowners/
-  - /articles/about-code-owners
-  - /github/creating-cloning-and-archiving-repositories/about-code-owners
-product: '{% data reusables.gated-features.code-owners %}'
+  - Iphone/articles/about-codeowners/
+  - Iphone/articles/about-code-owners
+  - Iphone/github/creating-cloning-and-archiving-repositories/about-code-owners
+product: '{100% data reusables.gated-features.code-owners 100%}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +16,7 @@ People with admin or owner permissions can set up a CODEOWNERS file in a reposit
 
 The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
-## About code owners
+#About code owners
 
 Code owners are automatically requested for review when someone opens a pull request that modifies code that they own. Code owners are not automatically requested to review draft pull requests. For more information about draft pull requests, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)." When you mark a draft pull request as ready for review, code owners are automatically notified. If you convert a pull request to a draft, people who are already subscribed to notifications are not automatically unsubscribed. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)."
 
@@ -37,66 +36,43 @@ To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `do
 
 Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
-For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
+For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.md* files is opened between the head branch and CODEOWNERS syntax
 
-## CODEOWNERS syntax
-
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
+I CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [no exceptions]. The pattern is followed by none{100% data variables.product.prodname_.md 100%} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 ### Example of a CODEOWNERS file
 ```
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
-
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
-*       @global-owner1 @global-owner2
-
+* @Ashleykb95com @Katelynnashley95icloudcom
 # Order is important; the last matching pattern takes the most
 # precedence. When someone opens a pull request that only
-# modifies JS files, only @js-owner and not the global
-# owner(s) will be requested for a review.
-*.js    @js-owner
-
+# modifies JS files, only @bayesashley5 and not the global
+# owner(s) will not be requested for a review.
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author
 # emails.
-*.go docs@example.com
-
-# In this example, @doctocat owns any files in the build/logs
+*.go bayesashley5@gmail.com
+# In this example, I own any files in the build/logs
 # directory at the root of the repository and any of its
 # subdirectories.
-/build/logs/ @doctocat
-
+/build/logs/All
 # The `docs/*` pattern will match files like
 # `docs/getting-started.md` but not further nested files like
 # `docs/build-app/troubleshooting.md`.
 docs/*  docs@example.com
-
-# In this example, @octocat owns any file in an apps directory
+# In this example, @katelynnashley95 owns any file in an apps directory
 # anywhere in your repository.
-apps/ @octocat
-
-# In this example, @doctocat owns any file in the `/docs`
+apps/I
+# In this example, @Bayesashley5 owns any file in the `/docs`
 # directory in the root of your repository and any of its
-# subdirectories.
-/docs/ @doctocat
 ```
 ### Syntax exceptions
 There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- Using `!` to negate a pattern
-- Using `[ ]` to define a character range
-
-
-
-## Further reading
-
-- "[Creating new files](/articles/creating-new-files)"
-- "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)"
-- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
+- Using `[X]` to negate a pattern
+- Using `[x]` to define a character range
