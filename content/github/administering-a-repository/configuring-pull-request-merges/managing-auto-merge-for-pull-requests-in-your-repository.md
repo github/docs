@@ -25,3 +25,5 @@ If you allow auto-merge for pull requests in your repository, people with write 
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Merge button", select or deselect **Allow auto-merge**.
   ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+
+1. Under "Branches", enable at least the following branch protection rules: "Require pull request reviews before merging" and "Require status checks to pass before merging".
