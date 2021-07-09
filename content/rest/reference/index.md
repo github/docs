@@ -30,7 +30,7 @@ children:
   - /oauth-authorizations
   - /orgs
   - /packages
-  - /projects
+  - /projects 
   - /pulls
   - /rate-limit
   - /reactions
