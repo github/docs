@@ -12,6 +12,10 @@ versions:
 topics:
   - Profile
 ---
+
+## About followers on GitHub
+
+By following a people {% data variables.product.product_name %}, you can see their public activity in the activity view of your news feed. {% ifversion fpt %} When the person you follow stars a public repository, {% data variables.product.product_name %} may recommend this repository to you in your discovery view of your feed.
 When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %} To follow someone, visit their profile page and click **Follow** under their profile image.
 
 ![Follow user button](/assets/images/help/profile/follow-user-button.png)
