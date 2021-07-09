@@ -75,9 +75,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
-
-In the deploy step, you’ll need to set environment variables for the username and password or token that you use to authenticate to the Maven repository. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command. In the deploy step, you’ll also need to set environment variables for the username and password or token that you use to authenticate to the Maven repository. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -144,7 +142,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command.
+With this configuration, you can create a workflow that publishes your package to GitHub Packages by running the `gradle publish` command.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -186,7 +184,7 @@ Ensure your _build.gradle_ file includes a repository for both your {% data vari
 
 For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `name` set to `OSSRH`. If you deploy to {% data variables.product.prodname_registry %}, you might want to specify it in a distribution management repository with the `name` set to `GitHubPackages`.
 
-If your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
+If your organization is named "octocat" and your repository is named "hello-world", then the configuration in _build.gradle_ would look similar to the below example.
 
 {% raw %}
 ```groovy{:copy}
