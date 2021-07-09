@@ -1,3 +1,4 @@
+![account](https://user-images.githubusercontent.com/62203790/125016026-7f5ac900-e025-11eb-821b-cbdb4f5e0e43.gif)
 ---
 title: Upgrading GitHub Enterprise Server
 intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
