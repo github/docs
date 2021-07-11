@@ -157,7 +157,7 @@ body:
       
       Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
   validations:
-    required: false
+    required: true
 ```
 
 ## Further reading
