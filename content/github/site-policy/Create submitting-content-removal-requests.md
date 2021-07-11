@@ -1,5 +1,5 @@
 - [©]
-title:© content requests
+title:©content requests
   - /articles/submitting-content-removal-requests
 versions:
   fpt: '©'
