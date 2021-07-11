@@ -77,8 +77,12 @@ You can create an example workflow in your repository that automatically trigger
         steps:
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v2
-          - run: npm install -g bats
-          - run: bats -v
+          - run: |
+              mkdir ~/.npm-global
+              npm config set prefix '~/.npm-global'
+              export PATH=~/.npm-global/bin:$PATH
+              npm install -g bats
+              bats -v
     ```
 1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
 
@@ -181,22 +185,26 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 <td>
 
   ```yaml
-      - run: npm install -g bats
+      - run: |
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
+  The <code>run</code> keyword tells the job to execute a command on the runner. The pipe character tells the runner this is a multi-line command.
 </td>
 </tr>
 <tr>
 <td>
 
   ```yaml
-      - run: bats -v
+      mkdir ~/.npm-global
+      npm config set prefix '~/.npm-global'
+      export PATH=~/.npm-global/bin:$PATH
+      npm install -g bats
+      bats -v
   ```
 </td>
 <td>
-  Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
+  The runners may not have permissions for a global install of npm packages, so you have to change the default location for globally installed packages; see "[A Note on Permissions](http://npm.github.io/installation-setup-docs/installing/a-note-on-permissions.html)." To prevent errors, you have to use a different folder for npm installs.  First, the <code>mkdir ~/.npm-global</code> creates the new folder, and <code>npm config set prefix '~/.npm-global'</code> updates npm's configuration to use this new folder.  Next, <code>export PATH=~/.npm-global/bin:$PATH</code> creates a profile setting for subsequent npm commands.  Next, the <code>npm install -g bats</code> uses <code>npm</code> to install the <code>bats</code> software testing package. Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
 </td>
 </tr>
 </table>
