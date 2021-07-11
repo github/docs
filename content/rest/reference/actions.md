@@ -1,4 +1,4 @@
----
+BIOMETRICS_DIEGO'$_INDEX.CXX---
 title: Actions
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
