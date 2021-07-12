@@ -28,7 +28,7 @@ If you choose an enterprise account, keep in mind that some policies can be set 
 
 Once you choose the account type you would like, you can proceed to setting up your account. In each of the sections in this guide, proceed to either the single organization or enterprise account section based on your account type. 
 
-## Part 2: Account setup
+## Part 2: Setting up your account
 To get started with {% data variables.product.prodname_ghe_cloud %}, you will want to create your organization or enterprise account and set up and view billing settings, subscriptions and usage.
 ### Setting up a single organization account with {% data variables.product.prodname_ghe_cloud %}
 
@@ -43,7 +43,7 @@ Alternatively, if you have an existing organization account that you would like 
 
 When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [14-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
-If you do decide to purchase {% data variables.product.prodname_ghe_cloud %}, you'll need to set up your billing account. Your organization's billing settings page allows you to manage settings like your payment method, billing email and billing cycle, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)".
+Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)".
 
 Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)".
 
@@ -53,10 +53,12 @@ Only organization members with the *owner* or *billing manager* role can access 
 In order to get an enterprise account created for you, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
  {% endnote %}
- 
+
 #### 1. About enterprise accounts
+
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts)."
-#### 2. Adding organizations to your account
+#### 2. Adding organizations to your enterprise account
+
 You can create new organizations to manage within your enterprise account. For more information, see "[Adding organizations to your enterprise](/github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account)."
 
 Contact your {% data variables.product.prodname_dotcom %} sales account representative if you want to transfer an existing organization to your enterprise account.
@@ -76,7 +78,6 @@ Teams are groups of organization members that you can create to reflect your com
 
 You can create independent teams or have multiple levels of nested teams to reflect your group or company's hierarchy. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
 
-Teams can participate in team discussions on their team page to plan together, give status updates, or talk about any topic. Discussions can be open to all organization members or private to the team. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 #### 4. Managing team settings
 You can designate a "team maintainer" to manage team settings and discussions, among other privileges. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
 
@@ -106,7 +107,6 @@ You can view whether your organization members have two-factor authentication en
 #### 2. Configuring security features for your organization
 You can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep your organization secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-Some security features are only available for public repositories, and for private repositories owned by organizations with an Advanced Security license. For more information, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."
 #### 3. Reviewing your organization's audit log and integrations
 The audit log for your organization allows you, as an organization owner, to review the actions performed by members of the organization within the last 90 days. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
@@ -121,7 +121,9 @@ Organization owners can enable team synchronization between your identity provid
 ### Managing security for an enterprise account with multiple organizations
 
 #### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
-Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information on enforcing two-factor authentication and allowed IP address lists, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
+Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 
+
+For more information on enforcing two-factor authentication and allowed IP address lists, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
 #### 2. Enabling and enforcing SAML single sign-on for organizations in your enterprise account
 You can centrally manage access to your enterprise's resources, organization membership and team membership using your IdP and SAM single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. For more information, see "[About identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/about-identity-and-access-management-for-your-enterprise-account)".
 
@@ -161,7 +163,7 @@ You can view actions from all of the organizations owned by your enterprise acco
 You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see "[Restricting email notifications for your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/restricting-email-notifications-for-your-enterprise-account)."
 
 ## Part 6: Customizing and automating your organization or enterprise's work on {% data variables.product.prodname_dotcom %}
-{% data reusables.getting-started.customizing-and-automating %}
+Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% data variables.product.product_name %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
 
 ### 1. Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}

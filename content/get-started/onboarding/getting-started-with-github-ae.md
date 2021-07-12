@@ -52,7 +52,7 @@ As an enterprise owner, you can set repository management policies for all organ
 To make your enterprise as secure as possible, you can monitor your enterprise and configure security and analysis features for your organizations.
 
 ### 1. Monitoring your enterprise
-You can monitor your application with you activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
+You can monitor your application with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
 
 ### 2. Configuring security features for your organizations
 You can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep the organizations in your enterprise secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
@@ -66,14 +66,14 @@ You can customize and automate work in organizations in your enterprise with the
 ### 2. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
+For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
 
 ### 3. Using {% data variables.product.prodname_pages %}
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository in your enterprise and publishes a website. You can enable or disable {% data variables.product.prodname_pages %} for your users at the organization level. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise)."
 
 
 ## Part 5: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your users can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing your {% data variables.product.prodname_ghe_server %} instance with {% data variables.product.prodname_dotcom %} Enterprise Support. 
+Your users can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support. 
 
 ### 1. Learning with {% data variables.product.prodname_learning %}
 Your users can learn new skills by completing fun, realistic projects in their very own {% data variables.product.prodname_dotcom %} repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the {% data variables.product.prodname_dotcom %} community and taught by the friendly Learning Lab bot.
