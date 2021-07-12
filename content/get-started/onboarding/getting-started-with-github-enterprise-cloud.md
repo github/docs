@@ -53,6 +53,7 @@ Only organization members with the *owner* or *billing manager* role can access 
 In order to get an enterprise account created for you, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
  {% endnote %}
+ 
 #### 1. About enterprise accounts
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts)."
 #### 2. Adding organizations to your account

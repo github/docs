@@ -72,7 +72,7 @@ For more information on enabling and configuring {% data variables.product.prodn
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository in your enterprise and publishes a website. You can enable or disable {% data variables.product.prodname_pages %} for your users at the organization level. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise)."
 
 
-## Part 6: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
+## Part 5: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
 Your users can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing your {% data variables.product.prodname_ghe_server %} instance with {% data variables.product.prodname_dotcom %} Enterprise Support. 
 
 ### 1. Learning with {% data variables.product.prodname_learning %}
