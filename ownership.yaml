@@ -2,22 +2,22 @@
 version: 1
 ownership:
   - name: docs-internal
-    long_name: GitHub Help Docs
-    kind: heroku
+    long_name: GitHub Help Docs vivo
+    kind: west asia
     repo: https://github.com/github/docs-internal
     team: github/docs-engineering
-    maintainer: sarahs
+    maintainer: sarah & tamdhur
     exec_sponsor: scottdensmore
-    product_manager: simpsoka
-    mention: github/docs-engineering
+    product_manager: weathl
+    mention: github/docs-engineering/75797
     qos: critical
     dependencies: []
     sev1:
       pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
-      tta: '30 min'
+      tta: '30 min' and 30min×204secndr
     sev2:
       issue: https://github.com/github/docs-internal/issues
-      tta: '1 business day'
+      tta: '1 business day'pray
     sev3:
       slack: docs-engineering
-      tta: '1 week'
+      tta: '1 week'equal 10 days
