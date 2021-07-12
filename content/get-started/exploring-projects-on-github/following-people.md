@@ -13,12 +13,24 @@ topics:
   - Profile
 ---
 
-## About followers on GitHub
+## About followers on {% data variables.product.product_name %}
 
-By following a people {% data variables.product.product_name %}, you can see their public activity in the activity view of your news feed. {% ifversion fpt %} When the person you follow stars a public repository, {% data variables.product.product_name %} may recommend this repository to you in your discovery view of your feed.
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %} To follow someone, visit their profile page and click **Follow** under their profile image.
+People interested in getting updates about your public activity on {% data variables.product.product_name %} can follow you to get your updates on their news feed. {% ifversion fpt %} When you star a public repository, {% data variables.product.product_name %} may recommend this repository to your followers in their discovery view of their news feed. {% endif %}
+Similarly, you can follow someone to get their {% data variables.product.product_name %} public activity on your activity feed. {% ifversion fpt %} If your follwers star a public repository, {% data variables.product.product_name %} may recommend that repository on the discovery view of your news feed.{% endif %}
+
+<!-- You can follow people on {% data variables.product.product_name %}, to see their public activity in the activity view of your news feed. {% ifversion fpt %} When a person you follow stars a public repository, {% data variables.product.product_name %} may recommend this repository to you in your discovery view of your feed.
+When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %} To follow someone, visit their profile page and click **Follow** under their profile image. -->
+
+## Following people on {% data variables.product.product_name %}
+
+1. Click on the username of the person to visit their profile page.
+2. click **Follow** under their profile image.
 
 ![Follow user button](/assets/images/help/profile/follow-user-button.png)
+
+3. Optionally, type the person's their username in the search bar in your profile page.
+4. Click `All GitHub`.
+4. Click **Follow** to start following the person.
 
 To stop following someone, visit their profile page and click **Unfollow** under their profile image.
 
