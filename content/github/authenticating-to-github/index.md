@@ -1,3 +1,4 @@
+[github-recovery-codes.txt](https://github.com/github/docs/files/6804302/github-recovery-codes.txt)
 ---
 title: Authenticating to GitHub
 shortTitle: Authentication
