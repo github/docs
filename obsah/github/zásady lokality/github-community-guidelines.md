@@ -95,7 +95,8 @@ We are committed to maintaining a community where users are free to express them
   *GitHub considers the npm registry to be a platform used primarily for installation and run-time use of code, and not for research.*
 
 
-## What happens if someone breaks the rules?
+## What happens if someone breaks the rules?[抢房子.md](https://github.com/github/docs/files/6801265/default.md)
+
 
 There are a variety of actions that we may take when a user reports inappropriate behavior or content. It usually depends on the exact circumstances of a particular case. We recognize that sometimes people may say or do inappropriate things for any number of reasons. Perhaps they did not realize how their words would be perceived. Or maybe they just let their emotions get the best of them. Of course, sometimes, there are folks who just want to spam or cause trouble.
 
