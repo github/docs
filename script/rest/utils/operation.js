@@ -114,8 +114,8 @@ module.exports = class Operation {
        * example:
        *  '$ref': '../../components/examples/bar.yaml'
       */
-      const examplesProperty = get(rawResponse, `content.${this.contentType}.examples`)
-      const exampleProperty = get(rawResponse, `content.${this.contentType}.example`)
+      const examplesProperty = get(rawResponse, 'content.application/json.examples')
+      const exampleProperty = get(rawResponse, 'content.application/json.example')
 
       // Return early if the response doesn't have an example payload
       if (!exampleProperty && !examplesProperty) {
