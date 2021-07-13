@@ -5,6 +5,8 @@ versions:
   ghes: '*'
 ---
 
+This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_server %} instance as an enterprise owner or administrator.
+
 {% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
 
 - **{% data variables.product.prodname_ghe_cloud %}**
@@ -110,6 +112,6 @@ Your users can learn more about Git and {% data variables.product.prodname_dotco
 ### 1. Learning with {% data variables.product.prodname_learning %}
 Your users can learn new skills by completing fun, realistic projects in their very own {% data variables.product.prodname_dotcom %} repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the {% data variables.product.prodname_dotcom %} community and taught by the friendly Learning Lab bot.
 
-For more information, see “[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
 ### 2. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data variables.product.prodname_ghe_server %} includes access to {% data variables.product.prodname_dotcom %} Enterprise Support. {% data variables.product.prodname_dotcom %} Enterprise Support can help you troubleshoot issues that come up on {% data variables.product.prodname_ghe_server %}. You can also choose to sign up for {% data variables.product.prodname_dotcom %} Premium Support for additional features. For more information, see "[About {% data variables.product.prodname_dotcom %} Enterprise Support](/admin/enterprise-support/overview/about-github-enterprise-support)."

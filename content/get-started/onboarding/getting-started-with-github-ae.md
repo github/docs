@@ -5,6 +5,8 @@ versions:
   ghae: '*'
 ---
 
+This guide will walk you through setting up, configuring, and managing settings for your {% data variables.product.prodname_ghe_managed %} account as an enterprise owner or administrator.
+
 ## Part 1: Setting up {% data variables.product.prodname_ghe_managed %}
 To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, manage billing, and configure user authentication and provisioning for your enterprise. 
 
@@ -78,7 +80,7 @@ Your users can learn more about Git and {% data variables.product.prodname_dotco
 ### 1. Learning with {% data variables.product.prodname_learning %}
 Your users can learn new skills by completing fun, realistic projects in their very own {% data variables.product.prodname_dotcom %} repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the {% data variables.product.prodname_dotcom %} community and taught by the friendly Learning Lab bot.
 
-For more information, see “[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
 
 ### 2. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data variables.product.prodname_ghe_managed %} includes access to {% data variables.product.prodname_dotcom %} Enterprise Support. {% data variables.product.prodname_dotcom %} Enterprise Support can help you troubleshoot issues that come up on {% data variables.product.prodname_ghe_managed %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Enterprise Support](/admin/enterprise-support/overview/about-github-enterprise-support)."

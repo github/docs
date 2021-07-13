@@ -4,6 +4,9 @@ intro: 'With {% data variables.product.prodname_team %} groups of people can col
 versions:
   fpt: '*'
 ---
+
+This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
+
 ## Part 1: Configuring your {% data variables.product.product_name %} account
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing. 
 

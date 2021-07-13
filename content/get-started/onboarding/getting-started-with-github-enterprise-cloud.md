@@ -5,6 +5,8 @@ versions:
   fpt: '*'
 ---
 
+This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_cloud %} account as an organization or enterprise owner.
+
 ## Part 1: Choosing your account type
 
 {% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
@@ -26,7 +28,7 @@ Both organization and enterprise accounts are available with {% data variables.p
 
 If you choose an enterprise account, keep in mind that some policies can be set only at an organization level, while others can be enforced for all organizations in an enterprise.
 
-Once you choose the account type you would like, you can proceed to setting up your account. In each of the sections in this guide, proceed to either the single organization or enterprise account section based on your account type. 
+Once you choose the account type you would like, you can proceed to setting up your account. In each of the sections in this guide, proceed to either the single organization or enterprise account section based on your account type.
 
 ## Part 2: Setting up your account
 To get started with {% data variables.product.prodname_ghe_cloud %}, you will want to create your organization or enterprise account and set up and view billing settings, subscriptions and usage.
@@ -179,7 +181,7 @@ Members of your organization or enterprise can use GitHub's learning and support
 ### 1. Learning with {% data variables.product.prodname_learning %}
 Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
 
-For more information, see “[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
 ### 2. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
