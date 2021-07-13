@@ -8,12 +8,12 @@ versions:
 This guide will walk you through setting up, configuring, and managing settings for your {% data variables.product.prodname_ghe_managed %} account as an enterprise owner or administrator.
 
 ## Part 1: Setting up {% data variables.product.prodname_ghe_managed %}
-To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, manage billing, and configure user authentication and provisioning for your enterprise. 
+To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, manage billing, and configure user authentication and provisioning for your enterprise.
 
 ### 1. Creating your {% data variables.product.prodname_ghe_managed %} enterprise account
 You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
-After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in {% data variables.product.prodname_dotcom %} Enterprise Support to create an account. 
+After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in {% data variables.product.prodname_dotcom %} Enterprise Support to create an account.
 
 ### 2. Initializing {% data variables.product.prodname_ghe_managed %}
 When your {% data variables.product.prodname_ghe_managed %} enterprise account has been created, you will receive an email to log into {% data variables.product.prodname_ghe_managed %} and complete the initialization. During initialization, you, as the enterprise owner,  will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
@@ -75,7 +75,7 @@ For more information on enabling and configuring {% data variables.product.prodn
 
 
 ## Part 5: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your users can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support. 
+Your users can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support.
 
 ### 1. Learning with {% data variables.product.prodname_learning %}
 Your users can learn new skills by completing fun, realistic projects in their very own {% data variables.product.prodname_dotcom %} repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the {% data variables.product.prodname_dotcom %} community and taught by the friendly Learning Lab bot.
