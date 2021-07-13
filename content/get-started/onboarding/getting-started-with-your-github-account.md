@@ -14,9 +14,9 @@ This guide will walk you through setting up your {% data variables.product.prodn
 {% ifversion fpt %}
 The first steps in starting with {% data variables.product.product_name %} are to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile. 
 {% elsif ghes %}
-The first steps in starting with {% data variables.product.product_name %}, are to access your account, set up two-factor authentication, and view your profile.
+The first steps in starting with {% data variables.product.product_name %} are to access your account, set up two-factor authentication, and view your profile.
 {% elsif ghae %}
-The first steps in starting with {% data variables.product.product_name %}, are to access your account and view your profile.
+The first steps in starting with {% data variables.product.product_name %} are to access your account and view your profile.
 {% endif %}
 
 {% ifversion fpt %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
