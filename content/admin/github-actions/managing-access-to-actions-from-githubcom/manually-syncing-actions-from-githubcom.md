@@ -66,7 +66,7 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
      --cache-dir "cache" \
      --destination-token "aabbccddeeffgg" \
      --destination-url "https://my-ghes-instance" \
-     --repo-name "docker/build-push-action:synced-actions/docker-build-push-action"
+     --repo-name "actions/stale:synced-actions/actions-stale"
    ```
 
    The above command uses the following arguments:
@@ -76,13 +76,13 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
    * `--destination-url`: The URL of the destination enterprise instance.
    * `--repo-name`: The action repository to sync. This takes the format of `owner/repository:destination_owner/destination_repository`.
      
-     * The above example syncs the [`docker/build-push-action`](https://github.com/docker/build-push-action) repository to the `synced-actions/docker-build-push-action` repository on the destination enterprise instance. You must create the organization named `synced-actions` in your enterprise before running the above command.
+     * The above example syncs the [`actions/stale`](https://github.com/actions/stale) repository to the `synced-actions/actions-stale` repository on the destination enterprise instance. You must create the organization named `synced-actions` in your enterprise before running the above command.
      * If you omit `:destination_owner/destination_repository`, the tool uses the original owner and repository name for your enterprise. Before running the command, you must create a new organization in your enterprise that matches the owner name of the action. Consider using a central organization to store the synced actions in your enterprise, as this means you will not need to create multiple new organizations if you sync actions from different owners.
      * You can sync multiple actions by replacing the `--repo-name` parameter with `--repo-name-list` or `--repo-name-list-file`. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync).
 1. After the action repository is created in your enterprise, people in your enterprise can use the destination repository to reference the action in their workflows. For the example action shown above:
    
    ```yaml
-   uses: synced-actions/docker-build-push-action@v1
+   uses: synced-actions/actions-stale@v1
    ```
 
    For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."

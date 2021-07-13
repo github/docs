@@ -15,6 +15,7 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -33,8 +34,9 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 
 To get started quickly, add the template to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
-{% raw %}
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Ruby
 
 on:
@@ -51,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
       - name: Install dependencies
@@ -59,7 +61,6 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
-{% endraw %}
 
 ## Specifying the Ruby version
 
@@ -73,7 +74,7 @@ The `setup-ruby` action takes a Ruby version as an input and configures that ver
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: ruby/setup-ruby@v1
+- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
   with:
     ruby-version: 2.6 # Not needed with a .ruby-version file
 - run: bundle install
@@ -99,8 +100,9 @@ Each version of Ruby specified in the `ruby-version` array creates a job that ru
 
 The full updated workflow with a matrix strategy could look like this:
 
-{% raw %}
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Ruby CI
 
 on:
@@ -120,16 +122,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby ${{ matrix.ruby-version }}
-        uses: ruby/setup-ruby@v1
+      - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
-          ruby-version: ${{ matrix.ruby-version }}
+          ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
         run: bundle install
       - name: Run tests
         run: bundle exec rake
 ```
-{% endraw %}
 
 ## Installing dependencies with Bundler
 
@@ -139,7 +140,7 @@ The `setup-ruby` action will automatically install bundler for you. The version 
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: ruby/setup-ruby@v1
+- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
   with:
     ruby-version: 2.6
 - run: bundle install
@@ -155,7 +156,7 @@ To enable caching, set the following.
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@v1
+- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
     with:
       bundler-cache: true
 ```
@@ -205,8 +206,9 @@ steps:
 
 The following example matrix tests all stable releases and head versions of MRI, JRuby and TruffleRuby on Ubuntu and macOS.
 
-{% raw %}
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Matrix Testing
 
 on:
@@ -217,29 +219,29 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}-latest
+    runs-on: {% raw %}${{ matrix.os }}-latest{% endraw %}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu, macos]
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
-    continue-on-error: ${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}
+    continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
       - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - run: bundle install
       - run: bundle exec rake
 ```
-{% endraw %}
 
 ## Linting your code
 
 The following example installs `rubocop` and uses it to lint all files. For more information, see [Rubocop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
 
-{% raw %}
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Linting
 
 on: [push]
@@ -249,14 +251,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
       - run: bundle install
       - name: Rubocop
         run: rubocop
 ```
-{% endraw %}
 
 ## Publishing Gems
 
@@ -265,6 +266,7 @@ You can configure your workflow to publish your Ruby package to any package regi
 You can store any access tokens or credentials needed to publish your package using repository secrets. The following example creates and publishes a package to `GitHub Package Registry` and `RubyGems`.
 
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Ruby Gem
 
@@ -288,7 +290,7 @@ jobs:
     steps:{% raw %}
       - uses: actions/checkout@v2
       - name: Set up Ruby 2.6
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
       - run: bundle install
