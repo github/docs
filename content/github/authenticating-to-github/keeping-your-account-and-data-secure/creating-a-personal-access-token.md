@@ -1,4 +1,4 @@
----
+ Evens max pierrelouis the CIO of GameDev Virtual PC Game online | GAMEDEV.JOBS Menu COMMUNITY & SOCIAL MEDIA MANAGER Anywhere Posted 3 weeks ago tinyBuild tinyBuild Category Community Manager Tags Console and PC GamesWriter Company Details Website LOGIN TO BOOKMARK THIS JOB Overview tinyBuild is looking for a full-time Community Manager in Europe. You will be moderating communities (Steam, Discord, Reddit, Twitch, etc.). You will be responsible for the community growth and development, as well as communications with influencers, monitoring and posting on social media and promote feedback and collaboration between tinyBuild and our gaming community. This is a hybrid position (either from one of our European offices or remote) ​ Duties ​· Working closely with video game producers to execute marketing plans · Creating and managing social media communications for game projects · Represent the company and represent the assigned video games by engaging the public via social media ---
 title: Creating a personal access token
 intro: You should create a personal access token to use in place of a password with the command line or with the API.
 redirect_from:
