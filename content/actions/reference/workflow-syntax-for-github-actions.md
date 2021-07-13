@@ -183,7 +183,7 @@ For more information, see "[About comparing branches in pull requests](/articles
 
 ## `on.workflow_dispatch.inputs`
 
-When using `workflow_dispatch` event, you can optionally specify inputs, which will be presented as form elements in the UI. Workflow dispatch inputs are specified with the same format as action inputs. For more information about format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
 
 ```yaml
 on: 
@@ -198,7 +198,7 @@ on:
         required: false
 ```
 
-The triggered workflow receives the inputs in the [`github.event.inputs`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) context.
+The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 ## `on.schedule`
 
