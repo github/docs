@@ -2,7 +2,7 @@
 
 name: Node.js Tests - Windows
 
-# **What it does**: This runs our tests on Windows.
+
 # **Why we have it**: We want to support Windows contributors to docs.
 # **Who does it impact**: Anyone working on docs on a Windows device.
 
