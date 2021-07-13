@@ -1,3 +1,4 @@
+[LICENSE.txt](https://github.com/github/docs/files/6808618/LICENSE.txt)
 ---
 title: About SSH
 intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
