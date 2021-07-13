@@ -1,4 +1,4 @@
----
+--- 
 title: Adding a theme to your GitHub Pages site using Jekyll
 intro: You can personalize your Jekyll site by adding and customizing a theme.
 redirect_from:
