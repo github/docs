@@ -32,7 +32,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Written support through our support portal 24 hours per day, 7 days per week
   - Phone support 24 hours per day, 7 days per week
   - A Service Level Agreement (SLA) with guaranteed initial response times
-  - Technical account managers
+  - Customer Reliability Engineers 
   - Access to premium content
   - Scheduled health checks
   - Managed Admin hours
