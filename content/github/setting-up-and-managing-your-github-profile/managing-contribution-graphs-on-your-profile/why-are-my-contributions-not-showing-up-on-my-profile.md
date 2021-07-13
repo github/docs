@@ -35,7 +35,8 @@ In addition, **at least one** of the following must be true:
 - You have starred the repository.
 
 ## Common reasons that contributions are not counted
-
+Notes:
+When rebasing commits, the original authors of the commit and the person who rebased the commits, whether on the command line or on GitHub, receive contribution credit.
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Commit was made less than 24 hours ago
