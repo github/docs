@@ -1,3 +1,4 @@
+[LICENSE.txt](https://github.com/github/docs/files/6808650/LICENSE.txt)
 ---
 title: Building GitHub Apps
 intro: You can build GitHub Apps for yourself or others to use. Learn how to register and set up permissions and authentication options for GitHub Apps.
