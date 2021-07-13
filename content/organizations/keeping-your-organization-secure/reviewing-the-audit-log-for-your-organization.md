@@ -131,7 +131,7 @@ You can interact with the audit log using the GraphQL API{% ifversion fpt %} or 
 
 {% endnote %}
 
-To ensure a secure IP and maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
+To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% ifversion fpt %}
@@ -152,9 +152,8 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 {% endnote %}
 
-To ensure a secure IP and maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audit-log-api-info %}
-* Git events, such as cloning, fetching, and pushing
+To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
+{% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 
