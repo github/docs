@@ -7533,13 +7533,13 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -H \"Accept: application/vnd.github.scarlet-witch-preview+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -H \"Accept: application/vnd.github.scarlet-witch-preview+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct</code></pre>"
+        "source": "curl \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct</code></pre>"
       },
       {
         "lang": "JavaScript",
-        "source": "await octokit.request('GET /codes_of_conduct', {\n  mediaType: {\n    previews: [\n      'scarlet-witch'\n    ]\n  }\n})",
-        "html": "<pre><code class=\"hljs language-javascript\"><span class=\"hljs-keyword\">await</span> octokit.request(<span class=\"hljs-string\">'GET /codes_of_conduct'</span>, {\n  <span class=\"hljs-attr\">mediaType</span>: {\n    <span class=\"hljs-attr\">previews</span>: [\n      <span class=\"hljs-string\">'scarlet-witch'</span>\n    ]\n  }\n})\n</code></pre>"
+        "source": "await octokit.request('GET /codes_of_conduct')",
+        "html": "<pre><code class=\"hljs language-javascript\"><span class=\"hljs-keyword\">await</span> octokit.request(<span class=\"hljs-string\">'GET /codes_of_conduct'</span>)\n</code></pre>"
       }
     ],
     "summary": "Get all codes of conduct",
@@ -7555,14 +7555,6 @@
     "x-github": {
       "githubCloudOnly": false,
       "enabledForGitHubApps": true,
-      "previews": [
-        {
-          "required": true,
-          "name": "scarlet-witch",
-          "note": "The Codes of Conduct API is currently available for developers to preview.\n\nTo access the API during the preview period, you must provide a custom [media type](https://docs.github.com/enterprise-server@2.18/rest/overview/media-types) in the `Accept` header:\n```shell\napplication/vnd.github.scarlet-witch-preview+json\n```",
-          "html": "<p>The Codes of Conduct API is currently available for developers to preview.</p>\n<p>To access the API during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@2.18/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.scarlet-witch-preview+json</code></pre>"
-        }
-      ],
       "category": "codes-of-conduct",
       "subcategory": null
     },
@@ -7580,11 +7572,6 @@
         "httpStatusCode": "304",
         "httpStatusMessage": "Not Modified",
         "description": "Not modified"
-      },
-      {
-        "httpStatusCode": "415",
-        "httpStatusMessage": "Unsupported Media Type",
-        "description": "Preview header missing"
       }
     ],
     "bodyParameters": [],
@@ -7608,13 +7595,13 @@
     "x-codeSamples": [
       {
         "lang": "Shell",
-        "source": "curl \\\n  -H \"Accept: application/vnd.github.scarlet-witch-preview+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct/KEY",
-        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -H \"Accept: application/vnd.github.scarlet-witch-preview+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct/KEY</code></pre>"
+        "source": "curl \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct/KEY",
+        "html": "<pre><code class=\"hljs language-shell\">curl \\\n  -H \"Accept: application/vnd.github.v3+json\" \\\n  http(s)://{hostname}/api/v3/codes_of_conduct/KEY</code></pre>"
       },
       {
         "lang": "JavaScript",
-        "source": "await octokit.request('GET /codes_of_conduct/{key}', {\n  key: 'key',\n  mediaType: {\n    previews: [\n      'scarlet-witch'\n    ]\n  }\n})",
-        "html": "<pre><code class=\"hljs language-javascript\"><span class=\"hljs-keyword\">await</span> octokit.request(<span class=\"hljs-string\">'GET /codes_of_conduct/{key}'</span>, {\n  <span class=\"hljs-attr\">key</span>: <span class=\"hljs-string\">'key'</span>,\n  <span class=\"hljs-attr\">mediaType</span>: {\n    <span class=\"hljs-attr\">previews</span>: [\n      <span class=\"hljs-string\">'scarlet-witch'</span>\n    ]\n  }\n})\n</code></pre>"
+        "source": "await octokit.request('GET /codes_of_conduct/{key}', {\n  key: 'key'\n})",
+        "html": "<pre><code class=\"hljs language-javascript\"><span class=\"hljs-keyword\">await</span> octokit.request(<span class=\"hljs-string\">'GET /codes_of_conduct/{key}'</span>, {\n  <span class=\"hljs-attr\">key</span>: <span class=\"hljs-string\">'key'</span>\n})\n</code></pre>"
       }
     ],
     "summary": "Get a code of conduct",
@@ -7630,14 +7617,6 @@
     "x-github": {
       "githubCloudOnly": false,
       "enabledForGitHubApps": true,
-      "previews": [
-        {
-          "required": true,
-          "name": "scarlet-witch",
-          "note": "The Codes of Conduct API is currently available for developers to preview.\n\nTo access the API during the preview period, you must provide a custom [media type](https://docs.github.com/enterprise-server@2.18/rest/overview/media-types) in the `Accept` header:\n```shell\napplication/vnd.github.scarlet-witch-preview+json\n```",
-          "html": "<p>The Codes of Conduct API is currently available for developers to preview.</p>\n<p>To access the API during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@2.18/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.scarlet-witch-preview+json</code></pre>"
-        }
-      ],
       "category": "codes-of-conduct",
       "subcategory": null
     },
@@ -7660,11 +7639,6 @@
         "httpStatusCode": "404",
         "httpStatusMessage": "Not Found",
         "description": "Resource not found"
-      },
-      {
-        "httpStatusCode": "415",
-        "httpStatusMessage": "Unsupported Media Type",
-        "description": "Preview header missing"
       }
     ],
     "bodyParameters": [],
