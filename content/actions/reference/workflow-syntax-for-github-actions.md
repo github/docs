@@ -640,15 +640,15 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ### Example: Using versioned actions
 
 ```yaml
-steps:    
+steps:
   # Reference a specific commit
-  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+  - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
   # Reference the major version of a release
-  - uses: actions/setup-node@v2
+  - uses: actions/checkout@v2
   # Reference a specific version
-  - uses: actions/setup-node@v2.2.0
+  - uses: actions/checkout@v2.2.0
   # Reference a branch
-  - uses: actions/setup-node@main
+  - uses: actions/checkout@main
 ```
 
 ### Example: Using a public action
@@ -799,7 +799,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### Using a specific shell
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
+You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
