@@ -1,5 +1,5 @@
 ---
-title: GitHub Acceptable Use Policies
+title: hotboyhot90
 redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
