@@ -1,17 +1,23 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import linkinator from 'linkinator'
+import program from 'commander'
+import { pull, uniq } from 'lodash-es'
+import xRimraf from 'rimraf'
+import xMkdirp from 'mkdirp'
+import { deprecated } from '../lib/enterprise-server-releases.js'
+import got from 'got'
+import excludedLinks from '../lib/excluded-links.js'
+import xLanguages from '../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const path = require('path')
-const fs = require('fs')
-const linkinator = require('linkinator')
-const program = require('commander')
-const { pull, uniq } = require('lodash')
 const checker = new linkinator.LinkChecker()
-const rimraf = require('rimraf').sync
-const mkdirp = require('mkdirp').sync
+const rimraf = xRimraf.sync
+const mkdirp = xMkdirp.sync
 const root = 'https://docs.github.com'
 const englishRoot = `${root}/en`
-const { deprecated } = require('../lib/enterprise-server-releases')
-const got = require('got')
 
 // Links with these codes may or may not really be broken.
 const retryStatusCodes = [429, 503, 'Invalid']
@@ -34,10 +40,9 @@ program
   .parse(process.argv)
 
 // Skip excluded links defined in separate file.
-const excludedLinks = require('../lib/excluded-links')
 
 // Skip non-English content.
-const languagesToSkip = Object.keys(require('../lib/languages'))
+const languagesToSkip = Object.keys(xLanguages)
   .filter(code => code !== 'en')
   .map(code => `${root}/${code}`)
 

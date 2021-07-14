@@ -1,13 +1,14 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xMkdirp from 'mkdirp'
+import program from 'commander'
+import { execSync } from 'child_process'
+import frontmatter from '../lib/read-frontmatter.js'
+import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
+import walkFiles from './helpers/walk-files.js'
 
-const fs = require('fs')
-const path = require('path')
-const mkdirp = require('mkdirp').sync
-const program = require('commander')
-const { execSync } = require('child_process')
-const frontmatter = require('../lib/read-frontmatter')
-const addRedirectToFrontmatter = require('./helpers/add-redirect-to-frontmatter')
-const walkFiles = require('./helpers/walk-files')
+const mkdirp = xMkdirp.sync
 const contentFiles = walkFiles('content', '.md')
 const contentDir = path.posix.join(process.cwd(), 'content')
 

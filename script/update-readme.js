@@ -1,10 +1,12 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import dedent from 'dedent'
+import { difference } from 'lodash-es'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const dedent = require('dedent')
-const { difference } = require('lodash')
 const readme = path.join(__dirname, 'README.md')
 
 // [start-readme]

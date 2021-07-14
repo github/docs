@@ -1,9 +1,12 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import xGithub from './helpers/github.js'
+import { promisify } from 'util'
+import xChildProcess from 'child_process'
 
-require('dotenv').config()
-const github = require('./helpers/github')()
-const { promisify } = require('util')
-const exec = promisify(require('child_process').exec)
+xDotenv.config()
+const github = xGithub()
+const exec = promisify(xChildProcess.exec)
 
 // Check for required PAT
 if (!process.env.GITHUB_TOKEN) {

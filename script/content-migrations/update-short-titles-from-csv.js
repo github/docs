@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import readFrontmatter from '../../lib/read-frontmatter.js'
+import csv from 'csv-parse'
+import { exit } from 'process'
 
-const fs = require('fs')
-const path = require('path')
-const readFrontmatter = require('../../lib/read-frontmatter')
-const csv = require('csv-parse')
-const { exit } = require('process')
 
 main()
 

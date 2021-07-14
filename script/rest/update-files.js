@@ -1,15 +1,17 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const { execSync } = require('child_process')
-const mkdirp = require('mkdirp').sync
-const rimraf = require('rimraf').sync
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import { execSync } from 'child_process'
+import xMkdirp from 'mkdirp'
+import xRimraf from 'rimraf'
+import getOperations from './utils/get-operations.js'
+const mkdirp = xMkdirp.sync
+const rimraf = xRimraf.sync
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
 const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const schemas = fs.readdirSync(dereferencedPath)
-const getOperations = require('./utils/get-operations')
 const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
 
 // [start-readme]

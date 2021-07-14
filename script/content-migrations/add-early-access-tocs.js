@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import readFrontmatter from '../../lib/read-frontmatter.js'
+import { sentenceCase } from 'change-case'
 
-const fs = require('fs')
-const path = require('path')
-const readFrontmatter = require('../../lib/read-frontmatter')
 const earlyAccessDir = path.posix.join(process.cwd(), 'content', 'early-access')
-const { sentenceCase } = require('change-case')
 
 updateOrCreateToc(earlyAccessDir)
 

@@ -1,4 +1,4 @@
-const parse = require('../../lib/read-frontmatter')
+import parse from '../../lib/read-frontmatter.js'
 const filepath = 'path/to/file.md'
 const fixture1 = `---
 title: Hello, World

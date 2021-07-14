@@ -1,4 +1,4 @@
-const rank = require('../../../script/search/rank')
+import rank from '../../../script/search/rank.js'
 
 test('search custom rankings', () => {
   const expectedRankings = [

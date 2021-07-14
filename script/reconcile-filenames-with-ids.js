@@ -1,15 +1,15 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import GithubSlugger from 'github-slugger'
+import htmlEntities from 'html-entities'
+import frontmatter from '../lib/read-frontmatter.js'
+import { execSync } from 'child_process'
+import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const GithubSlugger = require('github-slugger')
-const htmlEntities = require('html-entities')
 const slugger = new GithubSlugger()
 const entities = new htmlEntities.XmlEntities()
-const frontmatter = require('../lib/read-frontmatter')
-const { execSync } = require('child_process')
-const addRedirectToFrontmatter = require('./helpers/add-redirect-to-frontmatter')
 
 const contentDir = path.join(process.cwd(), 'content')
 

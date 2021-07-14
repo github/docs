@@ -1,8 +1,8 @@
-const { liquid } = require('../lib/render-content')
-const layouts = require('../lib/layouts')
-const FailBot = require('../lib/failbot')
-const loadSiteData = require('../lib/site-data')
-const builtAssets = require('../lib/built-asset-urls')
+import { liquid } from '../lib/render-content/index.js'
+import layouts from '../lib/layouts.js'
+import FailBot from '../lib/failbot.js'
+import loadSiteData from '../lib/site-data.js'
+import builtAssets from '../lib/built-asset-urls.js'
 
 function shouldLogException (error) {
   const IGNORED_ERRORS = [
@@ -28,7 +28,7 @@ async function logException (error, req) {
   }
 }
 
-module.exports = async function handleError (error, req, res, next) {
+export default async function handleError (error, req, res, next) {
   try {
     // If the headers have already been sent or the request was aborted...
     if (res.headersSent || req.aborted) {

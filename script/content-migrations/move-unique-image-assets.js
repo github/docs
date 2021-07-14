@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
 
 // iterate through enterprise images from most recent to oldest
 // for each asset and move any images from /assets/enterprise,

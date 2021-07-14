@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import readFrontmatter from '../../lib/read-frontmatter.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const readFrontmatter = require('../../lib/read-frontmatter')
 const csvFile = path.join(process.cwd(), 'shortTitles.csv')
 fs.writeFileSync(csvFile, 'Product,Article Title,Short title,Relative path\n')
 

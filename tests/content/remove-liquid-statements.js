@@ -1,9 +1,11 @@
-const path = require('path')
-const cheerio = require('cheerio')
-const matter = require('gray-matter')
-const readFileAsync = require('../../lib/readfile-async')
-const removeLiquidStatements = require('../../lib/remove-liquid-statements')
-const removeDeprecatedFrontmatter = require('../../lib/remove-deprecated-frontmatter')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import cheerio from 'cheerio'
+import matter from 'gray-matter'
+import readFileAsync from '../../lib/readfile-async.js'
+import removeLiquidStatements from '../../lib/remove-liquid-statements.js'
+import removeDeprecatedFrontmatter from '../../lib/remove-deprecated-frontmatter.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const removeLiquidStatementsFixtures = path.join(__dirname, '../fixtures/remove-liquid-statements')
 
 // Hardcode values so tests don't go out of date

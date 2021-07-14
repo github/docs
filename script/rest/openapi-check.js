@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const path = require('path')
-const glob = require('glob')
-const program = require('commander')
-const getOperations = require('./utils/get-operations')
+import fs from 'fs'
+import path from 'path'
+import glob from 'glob'
+import program from 'commander'
+import getOperations from './utils/get-operations.js'
 
 // [start-readme]
 //

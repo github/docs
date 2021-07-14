@@ -1,14 +1,14 @@
 #!/usr/bin/env node
+import { flatten } from 'lodash-es'
+import path from 'path'
+import walk from 'walk-sync'
+import { execSync } from 'child_process'
+import assert from 'assert'
+import loadSiteData from '../../lib/site-data.js'
+import { loadPages } from '../../lib/page-data.js'
+import patterns from '../../lib/patterns.js'
+import getDataReferences from '../../lib/get-liquid-data-references.js'
 
-const { flatten } = require('lodash')
-const path = require('path')
-const walk = require('walk-sync')
-const { execSync } = require('child_process')
-const assert = require('assert')
-const loadSiteData = require('../../lib/site-data')
-const { loadPages } = require('../../lib/page-data')
-const patterns = require('../../lib/patterns')
-const getDataReferences = require('../../lib/get-liquid-data-references')
 const imagesPath = '/assets/images'
 
 // these paths should remain in the repo even if they are not referenced directly
@@ -31,7 +31,7 @@ const dirsToGrep = [
 
 const validArgs = ['reusables', 'variables', 'images']
 
-module.exports = async function findUnusedAssets (assetType) {
+export default async function findUnusedAssets (assetType) {
   assert(validArgs.includes(assetType), `arg must be one of: ${validArgs.join(', ')}`)
 
   const pages = await getEnglishPages()

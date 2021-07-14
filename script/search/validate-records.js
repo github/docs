@@ -1,10 +1,11 @@
-const assert = require('assert')
-const { isArray, isString, inRange } = require('lodash')
-const isURL = require('is-url')
-const countArrayValues = require('count-array-values')
-const { maxRecordLength } = require('../../lib/search/config')
+#!/usr/bin/env node
+import assert from 'assert'
+import { isArray, isString, inRange } from 'lodash-es'
+import isURL from 'is-url'
+import countArrayValues from 'count-array-values'
+import { maxRecordLength } from '../../lib/search/config.js'
 
-module.exports = function validateRecords (name, records) {
+export default function validateRecords (name, records) {
   assert(isString(name) && name.length, '`name` is required')
   assert(isArray(records) && records.length, '`records` must be a non-empty array')
 

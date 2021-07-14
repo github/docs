@@ -1,18 +1,21 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import astFromMarkdown from 'mdast-util-from-markdown'
+import visit from 'unist-util-visit'
+import { loadPages, loadPageMap } from '../lib/page-data.js'
+import loadSiteData from '../lib/site-data.js'
+import loadRedirects from '../lib/redirects/precompile.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
+import xAllVersions from '../lib/all-versions.js'
+import frontmatter from '../lib/read-frontmatter.js'
+import renderContent from '../lib/render-content/index.js'
+import patterns from '../lib/patterns.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const walk = require('walk-sync')
-const path = require('path')
-const astFromMarkdown = require('mdast-util-from-markdown')
-const visit = require('unist-util-visit')
-const { loadPages, loadPageMap } = require('../lib/page-data')
-const loadSiteData = require('../lib/site-data')
-const loadRedirects = require('../lib/redirects/precompile')
-const { getPathWithoutLanguage, getPathWithoutVersion } = require('../lib/path-utils')
-const allVersions = Object.keys(require('../lib/all-versions'))
-const frontmatter = require('../lib/read-frontmatter')
-const renderContent = require('../lib/render-content')
-const patterns = require('../lib/patterns')
+const allVersions = Object.keys(xAllVersions)
 
 const walkFiles = (pathToWalk) => {
   return walk(path.posix.join(__dirname, '..', pathToWalk), { includeBasePath: true, directories: false })

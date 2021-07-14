@@ -1,7 +1,9 @@
-const fs = require('fs')
-const path = require('path')
-const cheerio = require('cheerio')
-const parsePageSectionsIntoRecords = require('../../../script/search/parse-page-sections-into-records')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import cheerio from 'cheerio'
+import parsePageSectionsIntoRecords from '../../../script/search/parse-page-sections-into-records.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixtures = {
   pageWithSections: fs.readFileSync(path.join(__dirname, 'fixtures/page-with-sections.html'), 'utf8'),
   pageWithoutSections: fs.readFileSync(path.join(__dirname, 'fixtures/page-without-sections.html'), 'utf8')

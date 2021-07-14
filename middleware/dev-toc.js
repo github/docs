@@ -1,8 +1,8 @@
-const { liquid } = require('../lib/render-content')
-const layouts = require('../lib/layouts')
-const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
+import { liquid } from '../lib/render-content/index.js'
+import layouts from '../lib/layouts.js'
+import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
 
-module.exports = async function devToc (req, res, next) {
+export default async function devToc (req, res, next) {
   if (process.env.NODE_ENV !== 'development') return next()
   if (!req.path.endsWith('/dev-toc')) return next()
 

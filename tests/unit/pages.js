@@ -1,24 +1,26 @@
-const path = require('path')
-const { loadPages, loadPageMap } = require('../../lib/page-data')
-const languageCodes = Object.keys(require('../../lib/languages'))
-const { liquid } = require('../../lib/render-content')
-const patterns = require('../../lib/patterns')
-const GithubSlugger = require('github-slugger')
+import { jest } from '@jest/globals'
+import path from 'path'
+import { loadPages, loadPageMap } from '../../lib/page-data.js'
+import xLanguages from '../../lib/languages.js'
+import { liquid } from '../../lib/render-content/index.js'
+import patterns from '../../lib/patterns.js'
+import GithubSlugger from 'github-slugger'
+import xHtmlEntities from 'html-entities'
+import { chain, difference, pick } from 'lodash-es'
+import checkIfNextVersionOnly from '../../lib/check-if-next-version-only.js'
+import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
+const languageCodes = Object.keys(xLanguages)
 const slugger = new GithubSlugger()
-const Entities = require('html-entities').XmlEntities
+const Entities = xHtmlEntities.XmlEntities
 const entities = new Entities()
-const { chain, difference, pick } = require('lodash')
-const checkIfNextVersionOnly = require('../../lib/check-if-next-version-only')
-const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
 
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
 
   let pages
 
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     pages = await loadPages()
-    done()
   })
 
   describe('loadPages', () => {

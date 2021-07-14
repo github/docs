@@ -1,13 +1,15 @@
-const lodash = require('lodash')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head, post } = require('../helpers/supertest')
-const { describeViaActionsOnly } = require('../helpers/conditional-runs')
-const path = require('path')
-const { loadPages } = require('../../lib/page-data')
-const builtAssets = require('../../lib/built-asset-urls')
+import lodash from 'lodash-es'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { get, getDOM, head, post } from '../helpers/supertest.js'
+import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
+import path from 'path'
+import { loadPages } from '../../lib/page-data.js'
+import builtAssets from '../../lib/built-asset-urls.js'
+import CspParse from 'csp-parse'
+import { productMap } from '../../lib/all-products.js'
+import { jest } from '@jest/globals'
+
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
-const CspParse = require('csp-parse')
-const { productMap } = require('../../lib/all-products')
 const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
 
 jest.useFakeTimers()
@@ -434,14 +436,12 @@ describe('server', () => {
   describeViaActionsOnly('Early Access articles', () => {
     let hiddenPageHrefs, hiddenPages
 
-    beforeAll(async (done) => {
+    beforeAll(async () => {
       const $ = await getDOM('/early-access')
       hiddenPageHrefs = $('#article-contents ul > li > a').map((i, el) => $(el).attr('href')).get()
 
       const allPages = await loadPages()
       hiddenPages = allPages.filter(page => page.languageCode === 'en' && page.hidden)
-
-      done()
     })
 
     test('exist in the set of English pages', async () => {
@@ -779,10 +779,9 @@ describe('stylesheets', () => {
 
 describe('client-side JavaScript bundle', () => {
   let res
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     const scriptUrl = builtAssets.main.js
     res = await get(scriptUrl)
-    done()
   })
 
   it('returns a 200 response', async () => {
@@ -815,7 +814,7 @@ describe('static routes', () => {
   it('does not serve repo contents that live outside the /assets directory', async () => {
     expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
+    expect((await get('/server.mjs', { followRedirects: true })).statusCode).toBe(404)
   })
 })
 

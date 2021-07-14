@@ -1,9 +1,11 @@
+import fs from 'fs'
+import path from 'path'
+import sleep from 'await-sleep'
+import { jest } from '@jest/globals'
+import { latest } from '../../lib/enterprise-server-releases.js'
+import languages from '../../lib/languages.js'
+
 /* global page, browser */
-const fs = require('fs')
-const path = require('path')
-const sleep = require('await-sleep')
-const { latest } = require('../../lib/enterprise-server-releases')
-const languages = require('../../lib/languages')
 const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), './feature-flags.json')))
 
 describe('homepage', () => {

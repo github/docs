@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import findExtraneousFiles from './helpers/find-extraneous-translation-files.js'
 
-const fs = require('fs')
-const findExtraneousFiles = require('./helpers/find-extraneous-translation-files')
 
 // [start-readme]
 //

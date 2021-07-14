@@ -1,5 +1,5 @@
-const walkSync = require('walk-sync')
-const readFileAsync = require('../../lib/readfile-async')
+import walkSync from 'walk-sync'
+import readFileAsync from '../../lib/readfile-async.js'
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 

@@ -1,6 +1,9 @@
-const path = require('path')
-const Page = require('../../lib/page')
-const findPage = require('../../lib/find-page')
+import { jest } from '@jest/globals'
+import { fileURLToPath } from 'url'
+import path from 'path'
+import Page from '../../lib/page.js'
+import findPage from '../../lib/find-page.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('find page', () => {
   jest.setTimeout(1000 * 1000)

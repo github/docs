@@ -1,21 +1,24 @@
-const path = require('path')
-const { isPlainObject } = require('lodash')
-const supertest = require('supertest')
-const createApp = require('../../lib/app')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-const Page = require('../../lib/page')
-const { get } = require('../helpers/supertest')
-const versionSatisfiesRange = require('../../lib/version-satisfies-range')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { isPlainObject } from 'lodash-es'
+import supertest from 'supertest'
+import createApp from '../../lib/app.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import Page from '../../lib/page.js'
+import { get } from '../helpers/supertest.js'
+import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
+import { jest } from '@jest/globals'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   let redirects
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     const res = await get('/en?json=redirects')
     redirects = JSON.parse(res.text)
-    done()
   })
 
   test('page.redirects is an array', async () => {

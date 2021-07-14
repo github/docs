@@ -1,9 +1,11 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import walk from 'walk-sync'
+import imageSize from 'image-size'
+import { chain } from 'lodash-es'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const path = require('path')
-const walk = require('walk-sync')
-const imageSize = require('image-size')
-const { chain } = require('lodash')
 const imagesPath = path.join(__dirname, '../assets/images')
 const imagesExtensions = ['.jpg', '.jpeg', '.png', '.gif']
 

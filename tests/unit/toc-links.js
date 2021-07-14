@@ -1,6 +1,8 @@
-const { loadPages } = require('../../lib/page-data')
-const renderContent = require('../../lib/render-content')
-const allVersions = Object.keys(require('../../lib/all-versions'))
+import { jest } from '@jest/globals'
+import { loadPages } from '../../lib/page-data.js'
+import renderContent from '../../lib/render-content/index.js'
+import xAllVersions from '../../lib/all-versions.js'
+const allVersions = Object.keys(xAllVersions)
 
 describe('toc links', () => {
   jest.setTimeout(3 * 60 * 1000)

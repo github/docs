@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import walk from 'walk-sync'
+import { escapeRegExp, last } from 'lodash-es'
+import yaml from 'js-yaml'
+import patterns from '../../lib/patterns.js'
 
 // [start-readme]
 //
@@ -7,13 +14,6 @@
 //
 // [end-readme]
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const walk = require('walk-sync')
-const { escapeRegExp, last } = require('lodash')
-const yaml = require('js-yaml')
-const patterns = require('../../lib/patterns')
 const earlyAccessContent = path.posix.join(process.cwd(), 'content/early-access')
 const earlyAccessData = path.posix.join(process.cwd(), 'data/early-access')
 const earlyAccessImages = path.posix.join(process.cwd(), 'assets/images/early-access')

@@ -1,6 +1,7 @@
-const { diff, ChangeType } = require('@graphql-inspector/core')
-const { loadSchema } = require('@graphql-tools/load')
-const fs = require('fs')
+#!/usr/bin/env node
+import { diff, ChangeType } from '@graphql-inspector/core'
+import { loadSchema } from '@graphql-tools/load'
+import fs from 'fs'
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
@@ -9,7 +10,7 @@ const fs = require('fs')
  * @param {string} targetPath
  * @return {void}
  */
-function prependDatedEntry (changelogEntry, targetPath) {
+export function prependDatedEntry (changelogEntry, targetPath) {
   // Build a `yyyy-mm-dd`-formatted date string
   // and tag the changelog entry with it
   const todayString = new Date().toISOString().slice(0, 10)
@@ -35,7 +36,7 @@ function prependDatedEntry (changelogEntry, targetPath) {
  * @param {Array<object>} [newUpcomingChanges]
  * @return {object?}
  */
-async function createChangelogEntry (oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges) {
+export async function createChangelogEntry (oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges) {
   // Create schema objects out of the strings
   const oldSchema = await loadSchema(oldSchemaString)
   const newSchema = await loadSchema(newSchemaString)
@@ -114,7 +115,7 @@ async function createChangelogEntry (oldSchemaString, newSchemaString, previews,
  * @param {string} title
  * @return {string}
  */
-function cleanPreviewTitle (title) {
+export function cleanPreviewTitle (title) {
   if (title === 'UpdateRefsPreview') {
     title = 'Update refs preview'
   } else if (title === 'MergeInfoPreview') {
@@ -131,7 +132,7 @@ function cleanPreviewTitle (title) {
  * @param {string} [previewTitle]
  * @return {string}
 */
-function previewAnchor (previewTitle) {
+export function previewAnchor (previewTitle) {
   return previewTitle
     .toLowerCase()
     .replace(/ /g, '-')
@@ -143,7 +144,7 @@ function previewAnchor (previewTitle) {
  * @param {Array<object>} changes
  * @return {Array<string>}
  */
-function cleanMessagesFromChanges (changes) {
+export function cleanMessagesFromChanges (changes) {
   return changes.map(function (change) {
     // replace single quotes around graphql names with backticks,
     // to match previous behavior from graphql-schema-comparator
@@ -160,7 +161,7 @@ function cleanMessagesFromChanges (changes) {
  * @param {object} previews
  * @return {object}
  */
-function segmentPreviewChanges (changesToReport, previews) {
+export function segmentPreviewChanges (changesToReport, previews) {
   // Build a map of `{ path => previewTitle` }
   // for easier lookup of change to preview
   const pathToPreview = {}
@@ -262,4 +263,4 @@ const CHANGES_TO_IGNORE = [
   ChangeType.TypeDescriptionAdded
 ]
 
-module.exports = { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }
+export default { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }

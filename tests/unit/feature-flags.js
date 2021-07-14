@@ -1,5 +1,5 @@
-require('../../lib/feature-flags')
-const readJsonFile = require('../../lib/read-json-file')
+import '../../lib/feature-flags.js'
+import readJsonFile from '../../lib/read-json-file.js'
 const ffs = readJsonFile('./feature-flags.json')
 
 describe('feature flags', () => {

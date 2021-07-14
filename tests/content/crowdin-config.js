@@ -1,5 +1,8 @@
-const config = require('../helpers/crowdin-config').read()
-const { loadPages } = require('../../lib/page-data')
+import xCrowdinConfig from '../helpers/crowdin-config.js'
+import { loadPages } from '../../lib/page-data.js'
+import { jest } from '@jest/globals'
+
+const config = xCrowdinConfig.read()
 const ignoredPagePaths = config.files[0].ignore
 const ignoredDataPaths = config.files[2].ignore
 
@@ -7,9 +10,8 @@ describe('crowdin.yml config file', () => {
   jest.setTimeout(60 * 1000)
 
   let pages
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     pages = await loadPages()
-    done()
   })
 
   test('has expected file structure', async () => {

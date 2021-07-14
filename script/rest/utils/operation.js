@@ -1,17 +1,18 @@
-const { get, flatten, isPlainObject } = require('lodash')
-const { sentenceCase } = require('change-case')
-const GitHubSlugger = require('github-slugger')
+#!/usr/bin/env node
+import { get, flatten, isPlainObject } from 'lodash-es'
+import { sentenceCase } from 'change-case'
+import GitHubSlugger from 'github-slugger'
+import httpStatusCodes from 'http-status-code'
+import renderContent from '../../../lib/render-content/index.js'
+import createCodeSamples from './create-code-samples.js'
+import Ajv from 'ajv'
+import operationSchema from './operation-schema.js'
 const slugger = new GitHubSlugger()
-const httpStatusCodes = require('http-status-code')
-const renderContent = require('../../../lib/render-content')
-const createCodeSamples = require('./create-code-samples')
-const Ajv = require('ajv')
-const operationSchema = require('./operation-schema')
 
 // titles that can't be derived by sentence-casing the ID
 const categoryTitles = { scim: 'SCIM' }
 
-module.exports = class Operation {
+export default class Operation {
   constructor (verb, requestPath, props, serverUrl) {
     const defaultProps = {
       parameters: [],

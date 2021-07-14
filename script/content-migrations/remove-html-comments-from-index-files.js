@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
 const contentDir = path.join(process.cwd(), 'content')
 
 // remove legacy commented out conditionals in index.md files

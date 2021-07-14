@@ -1,5 +1,6 @@
-const languageCodes = Object.keys(require('../lib/languages'))
-const parser = require('accept-language-parser')
+import xLanguages from '../lib/languages.js'
+import parser from 'accept-language-parser'
+const languageCodes = Object.keys(xLanguages)
 
 const chineseRegions = ['CN', 'HK']
 
@@ -32,7 +33,7 @@ function getUserLanguage (browserLanguages) {
   }
 }
 
-module.exports = function detectLanguage (req, res, next) {
+export default function detectLanguage (req, res, next) {
   // determine language code from first part of URL, or default to English
   // /en/articles/foo
   //  ^^

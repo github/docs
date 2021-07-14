@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import { chain } from 'lodash-es'
+import chalk from 'chalk'
+import Heroku from 'heroku-client'
+import getOctokit from './helpers/github.js'
 
 // [start-readme]
 //
@@ -7,12 +12,8 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+xDotenv.config()
 
-const { chain } = require('lodash')
-const chalk = require('chalk')
-const Heroku = require('heroku-client')
-const getOctokit = require('./helpers/github')
 
 // Check for required Heroku API token
 if (!process.env.HEROKU_API_TOKEN) {

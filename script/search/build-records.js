@@ -1,13 +1,14 @@
-const domwaiter = require('domwaiter')
-const eventToPromise = require('event-to-promise')
-const chalk = require('chalk')
-const parsePageSectionsIntoRecords = require('./parse-page-sections-into-records')
-const languages = require('../../lib/languages')
+#!/usr/bin/env node
+import domwaiter from 'domwaiter'
+import eventToPromise from 'event-to-promise'
+import chalk from 'chalk'
+import parsePageSectionsIntoRecords from './parse-page-sections-into-records.js'
+import languages from '../../lib/languages.js'
 const pageMarker = chalk.green('|')
 const recordMarker = chalk.grey('.')
 const port = 4002
 
-module.exports = async function buildRecords (indexName, indexablePages, pageVersion, languageCode) {
+export default async function buildRecords (indexName, indexablePages, pageVersion, languageCode) {
   console.log(`\n\nBuilding records for index '${indexName}' (${languages[languageCode].name})`)
   const records = []
   const pages = indexablePages

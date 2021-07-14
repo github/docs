@@ -12,10 +12,12 @@ module.exports = {
     'prettier'
   ],
   parserOptions: {
-    ecmaVersion: 11
+    ecmaVersion: 11,
+    requireConfigFile: 'false',
+    babelOptions: { configFile: './.babelrc' }
   },
   rules: {
-    'import/no-extraneous-dependencies': ['error'],
+    'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
     'node/global-require': ['error'],
     'import/no-dynamic-require': ['error']
   },

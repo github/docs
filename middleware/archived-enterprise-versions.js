@@ -1,18 +1,18 @@
-const path = require('path')
-const slash = require('slash')
-const { firstVersionDeprecatedOnNewSite, lastVersionWithoutArchivedRedirectsFile } = require('../lib/enterprise-server-releases')
-const patterns = require('../lib/patterns')
-const versionSatisfiesRange = require('../lib/version-satisfies-range')
-const isArchivedVersion = require('../lib/is-archived-version')
-const got = require('got')
-const readJsonFile = require('../lib/read-json-file')
+import path from 'path'
+import slash from 'slash'
+import { firstVersionDeprecatedOnNewSite, lastVersionWithoutArchivedRedirectsFile } from '../lib/enterprise-server-releases.js'
+import patterns from '../lib/patterns.js'
+import versionSatisfiesRange from '../lib/version-satisfies-range.js'
+import isArchivedVersion from '../lib/is-archived-version.js'
+import got from 'got'
+import readJsonFile from '../lib/read-json-file.js'
 const archivedRedirects = readJsonFile('./lib/redirects/static/archived-redirects-from-213-to-217.json')
 const archivedFrontmatterFallbacks = readJsonFile('./lib/redirects/static/archived-frontmatter-fallbacks.json')
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions
 
-module.exports = async function archivedEnterpriseVersions (req, res, next) {
+export default async function archivedEnterpriseVersions (req, res, next) {
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived) return next()
 

@@ -1,7 +1,7 @@
-const { blockIndex } = require('../../middleware/block-robots')
-const languages = require('../../lib/languages')
-const { productMap } = require('../../lib/all-products')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+import { blockIndex } from '../../middleware/block-robots.js'
+import languages from '../../lib/languages.js'
+import { productMap } from '../../lib/all-products.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 function allowIndex (path) {
   return !blockIndex(path)

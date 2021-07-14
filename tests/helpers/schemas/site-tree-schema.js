@@ -27,4 +27,4 @@ const childPage = {
   }
 }
 
-module.exports = { childPage }
+export default { childPage }

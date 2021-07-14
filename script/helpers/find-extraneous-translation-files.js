@@ -1,9 +1,13 @@
-const path = require('path')
-const { difference } = require('lodash')
-const walk = require('walk-sync').entries
-const languages = require('../../lib/languages')
+#!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { difference } from 'lodash-es'
+import xWalkSync from 'walk-sync'
+import languages from '../../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const walk = xWalkSync.entries
 
-module.exports = function findExtraneousTranslatedFiles () {
+export default function findExtraneousTranslatedFiles () {
   const files = []
   const relativePaths = {}
 

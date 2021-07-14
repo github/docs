@@ -1,7 +1,7 @@
-const { getRssFeed, getChangelogItems } = require('../../lib/changelog')
-const getApplicableVersions = require('../../lib/get-applicable-versions')
+import { getRssFeed, getChangelogItems } from '../../lib/changelog.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
-module.exports = async function whatsNewChangelog (req, res, next) {
+export default async function whatsNewChangelog (req, res, next) {
   if (!req.context.page) return next()
   if (!req.context.page.changelog) return next()
   const label = req.context.page.changelog.label

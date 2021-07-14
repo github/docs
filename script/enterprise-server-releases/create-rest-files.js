@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import allVersions from '../../lib/all-versions.js'
+import getOperations from '../rest/utils/get-operations.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const allVersions = require('../../lib/all-versions')
-const getOperations = require('../rest/utils/get-operations')
 const dereferencedDir = 'lib/rest/static/dereferenced'
 const decoratedDir = 'lib/rest/static/decorated'
 

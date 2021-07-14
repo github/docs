@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const github = require('@actions/github')
-const enterpriseDates = require('../../lib/enterprise-dates')
-const { latest, oldestSupported } = require('../../lib/enterprise-server-releases')
+import fs from 'fs'
+import path from 'path'
+import { getOctokit } from '@actions/github'
+import enterpriseDates from '../../lib/enterprise-dates.js'
+import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
+
 const acceptedMilestones = ['release', 'deprecation']
 const teamsToCC = '/cc @github/docs-content @github/docs-engineering'
 
@@ -31,7 +32,6 @@ const numberOfdaysBeforeDeprecationToOpenIssue = 15
 run()
 
 async function run () {
-  
 
   const milestone = process.argv[2]
   if (!acceptedMilestones.includes(milestone)) {
@@ -81,7 +81,7 @@ async function run () {
   const token = process.env.GITHUB_TOKEN
 
   // Create the milestone issue
-  const octokit = github.getOctokit(token)
+  const octokit = getOctokit(token)
   try {
     issue = await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: 'github',
