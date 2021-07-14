@@ -9,22 +9,24 @@ const EXPIRES_IN_AS_SECONDS = 60
 
 export default rateLimit({
   // 1 minute (or practically unlimited outside of production)
-  windowMs: isProduction ? (EXPIRES_IN_AS_SECONDS * 1000) : 1, // Non-Redis configuration in `ms`. Used as a fallback when Redis is not working or active.
+  windowMs: isProduction ? EXPIRES_IN_AS_SECONDS * 1000 : 1, // Non-Redis configuration in `ms`. Used as a fallback when Redis is not working or active.
   // limit each IP to X requests per windowMs
   max: 250,
   // Don't rate limit requests for 200s and redirects
   // Or anything with a status code less than 400
   skipSuccessfulRequests: true,
   // When available, use Redis; if not, defaults to an in-memory store
-  store: REDIS_URL && new RedisStore({
-    client: createRedisClient({
-      url: REDIS_URL,
-      db: rateLimitDatabaseNumber,
-      name: 'rate-limit'
+  store:
+    REDIS_URL &&
+    new RedisStore({
+      client: createRedisClient({
+        url: REDIS_URL,
+        db: rateLimitDatabaseNumber,
+        name: 'rate-limit',
+      }),
+      // 1 minute (or practically unlimited outside of production)
+      expiry: isProduction ? EXPIRES_IN_AS_SECONDS : 1, // Redis configuration in `s`
+      // If Redis is not connected, let the request succeed as failover
+      passIfNotConnected: true,
     }),
-    // 1 minute (or practically unlimited outside of production)
-    expiry: isProduction ? EXPIRES_IN_AS_SECONDS : 1, // Redis configuration in `s`
-    // If Redis is not connected, let the request succeed as failover
-    passIfNotConnected: true
-  })
 })

@@ -155,5 +155,5 @@ export default [
   'Xamarin.Android',
   'Xamarin.iOS',
   'Xamarin',
-  'Xcode'
+  'Xcode',
 ]

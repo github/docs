@@ -22,7 +22,10 @@ program
   .storeOptionsAsProperties(false)
   .passCommandToAction(false)
   .option(`-a, --action <${allowedActions.join(' or ')}>`, 'Create or remove the banner.')
-  .option('-v, --version <version>', 'The version the banner applies to. Must be in <plan@release> format.')
+  .option(
+    '-v, --version <version>',
+    'The version the banner applies to. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
 const options = program.opts()
@@ -32,8 +35,10 @@ if (!allowedActions.includes(options.action)) {
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(options.version))) {
-  console.log('Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.')
+if (!Object.keys(allVersions).includes(options.version)) {
+  console.log(
+    'Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 

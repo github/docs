@@ -16,7 +16,9 @@ describe('page titles', () => {
   })
 
   test('enterprise English article', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/authenticating-to-github/authorizing-oauth-apps`)
+    const $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.latest}/user/github/authenticating-to-github/authorizing-oauth-apps`
+    )
     expect($('title').text()).toBe('Authorizing OAuth Apps - GitHub Docs')
   })
 

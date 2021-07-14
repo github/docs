@@ -28,12 +28,14 @@ describe('rendering early-access', () => {
 
   testViaActionsOnly('the top-level TOC renders locally', async () => {
     const $ = await getDOM('/en/early-access')
-    expect($.html().includes('Hello, local developer! This page is not visible on production.')).toBe(true)
+    expect(
+      $.html().includes('Hello, local developer! This page is not visible on production.')
+    ).toBe(true)
     expect($('ul a').length).toBeGreaterThan(5)
   })
 
   testViaActionsOnly('the top-level TOC does not render on production', async () => {
-    async function getEarlyAccess () {
+    async function getEarlyAccess() {
       return await got('https://docs.github.com/en/early-access')
     }
     await expect(getEarlyAccess).rejects.toThrowError('Response code 404 (Not Found)')

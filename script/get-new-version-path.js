@@ -5,7 +5,8 @@ import patterns from '../lib/patterns.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
 import { getNewVersionedPath, getOldVersionFromOldPath } from '../lib/old-versions-utils.js'
 
-const usage = 'must provide a path like "/github/getting-started" or "/enterprise/2.20/user/github/getting-started", with or without language code'
+const usage =
+  'must provide a path like "/github/getting-started" or "/enterprise/2.20/user/github/getting-started", with or without language code'
 
 // [start-readme]
 //

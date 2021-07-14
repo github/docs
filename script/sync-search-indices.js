@@ -11,12 +11,12 @@ import 'make-promises-safe'
 
 main()
 
-async function main () {
+async function main() {
   const sync = searchSync
   const opts = {
     dryRun: 'DRY_RUN' in process.env,
     language: process.env.LANGUAGE,
-    version: process.env.VERSION
+    version: process.env.VERSION,
   }
   await sync(opts)
 }

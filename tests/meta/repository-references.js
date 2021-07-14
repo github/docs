@@ -35,7 +35,7 @@ const ALLOW_LIST = new Set([
   'renaming',
   'localization-support',
   'docs',
-  'securitylab'
+  'securitylab',
 ])
 
 describe('check if a GitHub-owned private repository is referenced', () => {
@@ -69,15 +69,15 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       '**/*.pdf',
       '**/*.ico',
       '**/*.woff',
-      'script/deploy'
-    ]
+      'script/deploy',
+    ],
   })
 
   test.each(filenames)('in file %s', async (filename) => {
     const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
-      .filter(repoName => !ALLOW_LIST.has(repoName))
+      .filter((repoName) => !ALLOW_LIST.has(repoName))
     expect(matches).toHaveLength(0)
   })
 })

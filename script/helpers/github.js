@@ -14,10 +14,9 @@ if (!process.env.GITHUB_TOKEN) {
 // 3. an installation token granted via GitHub Actions
 const apiToken = process.env.GITHUB_TOKEN
 
-
 // See https://github.com/octokit/rest.js/issues/1207
-export default function github () {
+export default function github() {
   return new Octokit({
-    auth: `token ${apiToken}`
+    auth: `token ${apiToken}`,
   })
 }

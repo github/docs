@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process'
 
-
 // [start-readme]
 //
 // Use this script as part of the Crowdin merge process to output a list of parsing and rendering
@@ -30,7 +29,9 @@ try {
 
 // Reset the broken files.
 console.log('Resetting broken files...')
-execSync(`cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`)
+execSync(
+  `cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`
+)
 
 // Print a message with next steps.
 console.log(`Success!

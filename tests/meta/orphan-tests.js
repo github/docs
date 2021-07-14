@@ -13,17 +13,12 @@ describe('check for orphan tests', () => {
     const testDirectory = await fs.readdir(pathToTests)
 
     // Filter out our exceptions
-    let filteredList = testDirectory
-      .filter(item => !EXCEPTIONS.includes(item))
+    let filteredList = testDirectory.filter((item) => !EXCEPTIONS.includes(item))
 
     // Don't include directories
     filteredList = await asyncFilter(
       filteredList,
-      async item => !(
-        await fs.stat(
-          path.join(pathToTests, item)
-        )
-      ).isDirectory()
+      async (item) => !(await fs.stat(path.join(pathToTests, item))).isDirectory()
     )
 
     expect(filteredList).toHaveLength(0)

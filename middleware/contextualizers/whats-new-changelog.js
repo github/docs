@@ -1,7 +1,7 @@
 import { getRssFeed, getChangelogItems } from '../../lib/changelog.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
-export default async function whatsNewChangelog (req, res, next) {
+export default async function whatsNewChangelog(req, res, next) {
   if (!req.context.page) return next()
   if (!req.context.page.changelog) return next()
   const label = req.context.page.changelog.label
@@ -18,7 +18,7 @@ export default async function whatsNewChangelog (req, res, next) {
 
   const labelUrls = {
     education: 'https://github.blog/category/community/education',
-    enterprise: 'https://github.blog/category/enterprise/'
+    enterprise: 'https://github.blog/category/enterprise/',
   }
 
   req.context.changelogUrl = labelUrls[label] || `https://github.blog/changelog/label/${label}`

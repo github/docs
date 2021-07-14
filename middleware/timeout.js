@@ -21,7 +21,7 @@ export default timeout.handler({
 
     // Pass the error to our Express error handler for consolidated processing
     return next(timeoutError)
-  }
+  },
 
   // Can also set an `onDelayedResponse` property IF AND ONLY IF you allow for disabling methods
 })
