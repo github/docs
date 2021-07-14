@@ -15,7 +15,7 @@ topics:
 
 ## About followers on {% data variables.product.product_name %}
 
-Your {% data variables.product.product_name %} followers get updates about your public {% data variables.product.product_name %} on their news feed. {% ifversion fpt %} When you star a public repository, {% data variables.product.product_name %} may recommend this repository to your followers in their discovery view of their news feed. {% endif %}
+Your {% data variables.product.product_name %} followers get updates about your public {% data variables.product.product_name %} activity on their news feed. {% ifversion fpt %} When you star a public repository, {% data variables.product.product_name %} may recommend this repository to your followers in their discovery view of their news feed. {% endif %}
 
 Similarly, you can follow someone to get their public {% data variables.product.product_name %} activity on your news feed. {% ifversion fpt %} If a person you follow stars a public repository, {% data variables.product.product_name %} may recommend that repository on the discovery view of your news feed.{% endif %}
 
