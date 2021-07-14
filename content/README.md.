@@ -113,7 +113,7 @@ See [`contributing/redirects`](contributing/redirects.md) for more info.
 - Optional. If omitted, `title` will be used.
 
 Example:
-
+ 
 ```yaml
 title: Contributing to projects with GitHub Desktop
 shortTitle: Contributing to projects
