@@ -5,9 +5,9 @@ redirect_from:
   - /articles/error-bad-file-number
   - /github/authenticating-to-github/error-bad-file-number
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 ---
@@ -22,9 +22,9 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > ssh: connect to host {% data variables.command_line.codeblock %} port 22: Bad file number
 ```
 
-### Solving the issue
+## Solving the issue
 
-#### Use HTTPS
+### Use HTTPS
 
 Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/github/getting-started-with-github/about-remote-repositories) you're using:
 
@@ -37,21 +37,21 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 > Unpacking objects: 100% (84/84), done.
 ```
 
-#### Test from a different network
+### Test from a different network
 
 If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {% data variables.product.product_name %}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to {% data variables.product.product_name %} to succeed.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-#### Using SSH over the HTTPS port
+### Using SSH over the HTTPS port
 
 If using HTTPS is not an option, and your firewall admin refuses to allow SSH connections, you can try using [SSH over the HTTPS port](/articles/using-ssh-over-the-https-port) instead.
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Further reading
+## Further reading
 
 - "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
 

@@ -1,7 +1,7 @@
 ---
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
-shortTitle: Configuring Dependabot security updates
+shortTitle: Configure security updates
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -10,13 +10,19 @@ redirect_from:
   - /github/managing-security-vulnerabilities/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
-### About configuring {% data variables.product.prodname_dependabot_security_updates %}
+## About configuring {% data variables.product.prodname_dependabot_security_updates %}
 
 You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
@@ -24,7 +30,7 @@ You can disable {% data variables.product.prodname_dependabot_security_updates %
 
 {% data reusables.dependabot.dependabot-tos %}
 
-### Supported repositories
+## Supported repositories
 
 {% data variables.product.prodname_dotcom %} automatically enables {% data variables.product.prodname_dependabot_security_updates %} for every repository that meets these prerequisites. 
 
@@ -45,7 +51,7 @@ You can disable {% data variables.product.prodname_dependabot_security_updates %
 
 If security updates are not enabled for your repository and you don't know why, first try enabling them using the instructions given in the procedural sections below. If security updates are still not working, you can [contact support](https://support.github.com/contact).
 
-### Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
+## Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
 
 You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository (see below).
 
@@ -53,7 +59,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 
 {% data variables.product.prodname_dependabot_security_updates %} require specific repository settings. For more information, see "[Supported repositories](#supported-repositories)."
 
-#### Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository
+### Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -61,7 +67,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 1. Under "Configure security and analysis features", to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** or **Disable**.
   !["Configure security and analysis features" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
-### Further reading
+## Further reading
 
 - "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"

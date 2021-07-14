@@ -11,7 +11,8 @@ const {
 } = require('../lib/path-utils')
 const productNames = require('../lib/product-names')
 const warmServer = require('../lib/warm-server')
-const featureFlags = Object.keys(require('../feature-flags'))
+const readJsonFile = require('../lib/read-json-file')
+const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
 const builtAssets = require('../lib/built-asset-urls')
 const searchVersions = require('../lib/search/versions')
 const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
@@ -33,14 +34,15 @@ module.exports = async function contextualize (req, res, next) {
   // define each context property explicitly for code-search friendliness
   // e.g. searches for "req.context.page" will include results from this file
   req.context.currentLanguage = req.language
-  req.context.currentVersion = getVersionStringFromPath(req.path)
-  req.context.currentProduct = getProductStringFromPath(req.path)
-  req.context.currentCategory = getCategoryStringFromPath(req.path)
+  req.context.userLanguage = req.userLanguage
+  req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentProduct = getProductStringFromPath(req.pagePath)
+  req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
-  req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.path)
-  req.context.currentPath = req.path
+  req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
+  req.context.currentPath = req.pagePath
   req.context.query = req.query
   req.context.languages = languages
   req.context.productNames = productNames
@@ -50,13 +52,6 @@ module.exports = async function contextualize (req, res, next) {
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
   req.context.pages = pageMap
-
-  // TODO we should create new data directories for these example files instead of using variable files
-  if (productMap[req.context.currentProduct]) {
-    req.context.productCodeExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_code_examples`]
-    req.context.productCommunityExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_community_examples`]
-    req.context.productUserExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_user_examples`]
-  }
 
   // JS + CSS asset paths
   req.context.builtAssets = builtAssets
@@ -73,6 +68,8 @@ module.exports = async function contextualize (req, res, next) {
     airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined
   })
   if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
+  req.context.searchVersions = searchVersions
+  req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
 
   return next()
 }

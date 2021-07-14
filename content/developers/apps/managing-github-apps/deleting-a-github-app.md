@@ -6,9 +6,9 @@ redirect_from:
   - /apps/managing-github-apps/deleting-a-github-app
   - /developers/apps/deleting-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

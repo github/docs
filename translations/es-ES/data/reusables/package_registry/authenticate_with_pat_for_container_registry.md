@@ -2,7 +2,7 @@
 
 Los PAT pueden otorgar accesos amplios a tu cuenta. Puedes seleccionar solo el alcance necesario de `read:packages`, `write:packages`, o `delete:packages` cuando creas un PAT para autenticarte en el {% data variables.product.prodname_container_registry %}.
 
-To authenticate to the {% data variables.product.prodname_container_registry %} within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience.
+Para autenticarse en el {% data variables.product.prodname_container_registry %} dentro de un flujo de trabajo de {% data variables.product.prodname_actions %}, utiliza el `GITHUB_TOKEN` para tener la mejor experiencia en seguridad.
 
 Para obtener orientación sobre cómo actualizar tus flujos de trabajo que se autentican en `ghcr.io` con un token de acceso personal, consulta la sección "[Mejorar un flujo de trabajo que acceda a `ghcr.io`](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)".
 

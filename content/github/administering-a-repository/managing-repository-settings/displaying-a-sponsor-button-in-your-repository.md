@@ -6,11 +6,12 @@ redirect_from:
   - /articles/displaying-a-sponsor-button-in-your-repository
   - /github/administering-a-repository/displaying-a-sponsor-button-in-your-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+shortTitle: Display a sponsor button
 ---
-### About FUNDING files
+## About FUNDING files
 
 You can configure your sponsor button by editing a _FUNDING.yml_ file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[About GitHub Sponsors](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
 
@@ -62,7 +63,7 @@ Funding links provide a way for open source projects to receive direct financial
 
 {% endnote %}
 
-### Displaying a sponsor button in your repository
+## Displaying a sponsor button in your repository
 
 Anyone with admin permissions can enable a sponsor button in a repository.
 
@@ -78,6 +79,6 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 - "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

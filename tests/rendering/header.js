@@ -61,12 +61,64 @@ describe('header', () => {
       const $ = await getDOM('/ja/github/site-policy/github-logo-policy')
       expect($('.header-notifications.translation_notice a[href="https://github.com/github/site-policy/issues"]').length).toBe(1)
     })
+
+    test('renders a link to the same page in user\'s preferred language, if available', async () => {
+      const headers = { 'accept-language': 'ja' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
+
+    test('renders a link to the same page if user\'s preferred language is Chinese - PRC', async () => {
+      const headers = { 'accept-language': 'zh-CN' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/cn"]').length).toBe(1)
+    })
+
+    test('does not render a link when user\'s preferred language is Chinese - Taiwan', async () => {
+      const headers = { 'accept-language': 'zh-TW' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications').length).toBe(0)
+    })
+
+    test('does not render a link when user\'s preferred language is English', async () => {
+      const headers = { 'accept-language': 'en' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications').length).toBe(0)
+    })
+
+    test('renders a link to the same page in user\'s preferred language from multiple, if available', async () => {
+      const headers = { 'accept-language': 'ja, *;q=0.9' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
+
+    test('renders a link to the same page in user\'s preferred language with weights, if available', async () => {
+      const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
+
+    test('renders a link to the user\'s 2nd preferred language if 1st is not available', async () => {
+      const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
+
+    test('renders no notices if no language preference is available', async () => {
+      const headers = { 'accept-language': 'zh-TW,zh;q=0.9,zh-SG *;q=0.8' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications').length).toBe(0)
+    })
   })
 
   describe('mobile-only product dropdown links', () => {
     test('include github and admin, and emphasize the current product', async () => {
       const $ = await getDOM('/en/articles/enabling-required-status-checks')
-
       const github = $('#homepages a.active[href="/en/github"]')
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub.com')
@@ -74,13 +126,12 @@ describe('header', () => {
 
       const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
       expect(ghe.length).toBe(1)
-      expect(ghe.text().trim()).toBe('GitHub Enterprise')
+      expect(ghe.text().trim()).toBe('Enterprise administrators')
       expect(ghe.attr('class').includes('active')).toBe(false)
     })
 
     test('point to homepages in the current page\'s language', async () => {
       const $ = await getDOM('/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests')
-
       expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
       expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
     })

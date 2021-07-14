@@ -8,7 +8,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,13 +16,17 @@ topics:
 
 {% data reusables.actions.ae-beta %}
 
-### About caching workflow dependencies
+## About caching workflow dependencies
 
 Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
 
 Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
 
-To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache). If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
+To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache). 
+
+If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically). 
+
+To cache and restore dependencies for npm or Yarn, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
 
 {% warning %}
 
@@ -30,14 +34,14 @@ To cache dependencies for a job, you'll need to use {% data variables.product.pr
 
 {% endwarning %}
 
-### Comparing artifacts and dependency caching
+## Comparing artifacts and dependency caching
 
 Artifacts and caching are similar because they provide the ability to store files on {% data variables.product.prodname_dotcom %}, but each feature offers different use cases and cannot be used interchangeably.
 
 - Use caching when you want to reuse files that don't change often between jobs or workflow runs.
 - Use artifacts when you want to save files produced by a job to view after a workflow has ended. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-### Restrictions for accessing a cache
+## Restrictions for accessing a cache
 
 With `v2` of the `cache` action, you can access the cache in workflows triggered by any event that has a `GITHUB_REF`. If you are using `v1` of the `cache` action, you can only access the cache in workflows triggered by `push` and `pull_request` events, except for the `pull_request` `closed` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
@@ -45,7 +49,7 @@ A workflow can access and restore a cache created in the current branch, the bas
 
 Access restrictions provide cache isolation and security by creating a logical boundary between different workflows and branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
 
-### Using the `cache` action
+## Using the `cache` action
 
 The `cache` action will attempt to restore a cache based on the `key` you provide. When the action finds a cache, the action restores the cached files to the `path` you configure.
 
@@ -55,7 +59,7 @@ You can optionally provide a list of `restore-keys` to use when the `key` doesn'
 
 For more information, see [`actions/cache`](https://github.com/actions/cache).
 
-#### Input parameters for the `cache` action
+### Input parameters for the `cache` action
 
 - `key`: **Required** The key created when saving a cache and the key used to search for a cache. Can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
 - `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the working directory.
@@ -72,11 +76,11 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
   - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
 - `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
 
-#### Output parameters for the `cache` action
+### Output parameters for the `cache` action
 
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
-#### Example using the `cache` action
+### Example using the `cache` action
 
 This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
@@ -129,7 +133,7 @@ When `key` doesn't match an existing cache, it's called a cache miss, and a new 
 
 To cache files in more than one directory, you will need a step that uses the [`cache`](https://github.com/actions/cache) action for each directory. Once you create a cache, you cannot change the contents of an existing cache but you can create a new cache with a new key.
 
-#### Using contexts to create cache keys
+### Using contexts to create cache keys
 
 A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
@@ -147,13 +151,13 @@ npm-${{ hashFiles('package-lock.json') }}
 npm-d5ea0750
 ```
 
-### Matching a cache key
+## Matching a cache key
 
 The `cache` action first searches for cache hits for `key` and `restore-keys` in the branch containing the workflow run. If there are no hits in the current branch, the `cache` action searches for `key` and `restore-keys` in the parent branch and upstream branches.
 
 You can provide a list of restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches for `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
 
-#### Example using multiple restore keys
+### Example using multiple restore keys
 
 {% raw %}
 ```yaml
@@ -181,7 +185,7 @@ The restore key `npm-foobar-` matches any key that starts with the string `npm-f
 1. **`npm-foobar-`** matches cache keys prefixed with `npm-foobar-`.
 1. **`npm-`** matches any keys prefixed with `npm-`.
 
-##### Example of search priority
+#### Example of search priority
 
 ```yaml
 key:
@@ -200,6 +204,6 @@ For example, if a pull request contains a `feature` branch (the current scope) a
 3. Key `npm-feature-` in the `main` branch scope
 4. Key `npm-` in the `main` branch scope
 
-### Usage limits and eviction policy
+## Usage limits and eviction policy
 
 {% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 5 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 5 GB.

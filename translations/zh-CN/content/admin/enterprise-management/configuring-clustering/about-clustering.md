@@ -14,6 +14,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 ### 集群架构
 
 {% data variables.product.prodname_ghe_server %} 由一组服务组成。 在集群中，这些服务跨多个节点运行，请求在它们之间进行负载均衡。 更改会与冗余副本一起自动存储在到单独的节点上。 大多数服务与相同服务的其他实例是对等的。 这种情况的例外是 `mysql-server` 和 `redis-server` 服务。 它们使用具有一个或多个_副本_节点的单个_主_节点来操作。

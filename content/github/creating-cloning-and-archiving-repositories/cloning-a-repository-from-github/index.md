@@ -4,9 +4,9 @@ intro: 'You can clone a remote repository to your local machine. If you run into
 redirect_from:
   - /articles/cloning-a-repository-from-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -14,5 +14,6 @@ children:
   - /https-cloning-errors
   - /error-repository-not-found
   - /error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
+shortTitle: Clone a repository
 ---
 

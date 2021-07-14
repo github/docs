@@ -6,11 +6,11 @@ redirect_from:
   - /github/managing-large-files/what-is-my-disk-quota
 intro: '{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% data reusables.large_files.use_lfs_tip %}
 
-### File and repository size limitations
+## File and repository size limitations
 
 To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
 
@@ -24,24 +24,24 @@ If your repository excessively impacts our infrastructure, you might receive an 
 
 {% endnote %}
 
-### Backups
+## Backups
 
 Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
 
-### Database dumps
+## Database dumps
 
 Version control systems, such as Git, are not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
 
 Git shouldn't be used to backup your production servers. For more information, see "[Backups](/github/managing-large-files/what-is-my-disk-quota#backups)."
 
-### External dependencies
+## External dependencies
 
 External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
 
-### Packaged release versions
+## Packaged release versions
 
 We don't recommend distributing compiled code and pre-packaged releases within your repository. For more information, see "[Distributing large binaries](/github/managing-large-files/distributing-large-binaries)."
 
-### Changing history of an existing repository
+## Changing history of an existing repository
 
 If you already have a repository that's quite large, you can reduce the size of a repository by removing large files from the repository's history. For more information, see "[Removing files from a repository's history](/github/managing-large-files/removing-files-from-a-repositorys-history)."

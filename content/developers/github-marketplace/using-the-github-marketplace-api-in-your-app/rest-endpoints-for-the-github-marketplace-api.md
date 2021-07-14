@@ -7,9 +7,10 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: REST API
 ---
 Here are some useful endpoints available for Marketplace listings:
 

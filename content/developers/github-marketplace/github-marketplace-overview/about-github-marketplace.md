@@ -6,19 +6,19 @@ redirect_from:
   - /marketplace/getting-started
   - /developers/github-marketplace/about-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---
 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) connects you to developers who want to extend and improve their {% data variables.product.prodname_dotcom %} workflows. You can list free and paid tools for developers to use in {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_marketplace %} offers developers two types of tools: {% data variables.product.prodname_actions %} and Apps, and each tool requires different steps for adding it to {% data variables.product.prodname_marketplace %}.
 
-### GitHub Actions
+## GitHub Actions
 
 {% data reusables.actions.actions-not-verified %}
 
 To learn about publishing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
-### Apps
+## Apps
 
 Anyone can share their apps with other users for free on {% data variables.product.prodname_marketplace %} but only apps owned by organizations can sell their app. 
 
@@ -28,15 +28,15 @@ Once the organization meets the requirements, someone with owner permissions in 
 
 To publish apps with free plans, you only need to meet the general requirements for listing any app. For more information, see "[Requirements for all GitHub Marketplace listings](/developers/github-marketplace/requirements-for-listing-an-app#requirements-for-all-github-marketplace-listings)."
 
-#### New to apps?
+### New to apps?
 
 If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_app %}s](/developers/apps/building-oauth-apps)."
 
-#### GitHub Apps vs. OAuth Apps
+### GitHub Apps vs. OAuth Apps
 
 {% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_app %}s to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
 
-### Publishing an app to {% data variables.product.prodname_marketplace %} overview
+## Publishing an app to {% data variables.product.prodname_marketplace %} overview
 
 When you have finished creating your app, you can share it with other users by publishing it to {% data variables.product.prodname_marketplace %}. In summary, the process is:
 
@@ -52,13 +52,13 @@ When you have finished creating your app, you can share it with other users by p
 
 1. Submit your listing for publication in {% data variables.product.prodname_marketplace %}. For more information, see "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication)."
 
-### Seeing how your app is performing
+## Seeing how your app is performing
 
 You can access metrics and transactions for your listing. For more information, see:
 
 - "[Viewing metrics for your listing](/developers/github-marketplace/viewing-metrics-for-your-listing)"
 - "[Viewing transactions for your listing](/developers/github-marketplace/viewing-transactions-for-your-listing)"
 
-### Contacting Support 
+## Contacting Support 
 
 If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.

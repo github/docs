@@ -5,9 +5,10 @@ redirect_from:
   - /articles/commit-branch-and-tag-labels
   - /github/committing-changes-to-your-project/commit-branch-and-tag-labels
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Branch & tag labels
 ---
 If your commit is not on the default branch, an indicator will show the branches which contain the commit. If the commit is part of an unmerged pull request, it will show a link.
 
@@ -17,7 +18,7 @@ Once the commit is on the default branch, any tags that contain the commit will 
 
 ![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
-### Further reading
+## Further reading
 
 * "[Signing commits](/articles/signing-commits)"
 * "[Signing tags](/articles/signing-tags)"

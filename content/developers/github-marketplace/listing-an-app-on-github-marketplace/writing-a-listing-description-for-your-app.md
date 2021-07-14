@@ -12,29 +12,30 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Write listing descriptions
 ---
 Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
 
-### Naming and links
+## Naming and links
 
-#### Listing name
+### Listing name
 
 Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing {% data variables.product.product_name %} account, unless the name is your own user or organization name. 
 
-#### Very short description
+### Very short description
 
 The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
 
 ![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
 
-##### Length
+#### Length
 
 We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
 
-##### Content
+#### Content
 
 - Describe the app’s functionality. Don't use this space for a call to action. For example:
 
@@ -50,7 +51,7 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
   **DON'T:** Skycap is a container-native continuous integration tool
 
-##### Formatting
+#### Formatting
 
 - Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
 
@@ -76,15 +77,15 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
   **DON'T:** Agile task boards, estimates, and reports without leaving GitHub’s UI
 
-#### Categories
+### Categories
 
 Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
 
-#### Supported languages
+### Supported languages
 
 If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
 
-#### Listing URLs
+### Listing URLs
 
 **Required URLs**
 * **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
@@ -96,7 +97,7 @@ If your app only works with specific languages, select up to 10 programming lang
 * **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
 * **Documentation URL:** A link to documentation that teaches customers how to use your app.
 
-### Logo and feature card
+## Logo and feature card
 
 {% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
 
@@ -108,7 +109,7 @@ A feature card consists of your app's logo, name, and a custom background image 
 
 As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 
-##### Guidelines for logos
+#### Guidelines for logos
 
 You must upload a custom image for the logo. For the badge, choose a background color.
 
@@ -118,7 +119,7 @@ You must upload a custom image for the logo. For the badge, choose a background 
 - To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
 - Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
 
-##### Guidelines for feature cards
+#### Guidelines for feature cards
 
 You must upload a custom background image for the feature card. For the app's name, choose a text color.
 
@@ -126,7 +127,7 @@ You must upload a custom background image for the feature card. For the app's na
 - Background image measures 965 pixels x 482 pixels (width x height).
 - Choose a text color for your app's name that shows up clearly over the background image.
 
-### Listing details
+## Listing details
 
 To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
 
@@ -140,19 +141,19 @@ Clicking **Read more...**, displays the "Detailed description."
 
 Follow these guidelines for writing these descriptions.
 
-#### Length
+### Length
 
 We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
 
 You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
 
-#### Content
+### Content
 
 - Always begin introductory descriptions with your app's name.
 
 - Always write descriptions and value propositions using the active voice.
 
-#### Formatting
+### Formatting
 
 - Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
 
@@ -178,11 +179,11 @@ You can add more information in the optional "Detailed description" field. You s
 
 - Avoid acronyms unless they’re well established (such as API).
 
-### Product screenshots
+## Product screenshots
 
 You can upload up to five screenshot images of your app to display on your app's landing page. Add an optional caption to each screenshot to provide context. After you upload your screenshots, you can drag them into the order you want them to be displayed on the landing page.
 
-#### Guidelines for screenshots
+### Guidelines for screenshots
 
 - Images must be of high resolution (at least 1200px wide).
 - All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.

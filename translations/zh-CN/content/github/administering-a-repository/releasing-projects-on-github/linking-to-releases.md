@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. 找到要链接到的发行版，然后单击版本号。 ![发行版标记信息](/assets/images/help/releases/release_tag_name.png)

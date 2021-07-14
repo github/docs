@@ -12,6 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +33,9 @@ Expressões são comumente usadas com a condicional `if` palavra-chave em um arq
 
 {% data reusables.github-actions.expression-syntax-if %} Para obter mais informações sobre as condições `se`, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-#### Exemplo de expressão em uma condicional `if`
+{% data reusables.github-actions.context-injection-warning %}
+
+##### Exemplo de expressão em uma condicional `if`
 
 ```yaml
 steps:
@@ -40,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Exemplo de configuração de variável de ambiente
+##### Exemplo de configuração de variável de ambiente
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -86,6 +89,7 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 O contexto `github` context contém informações sobre a execução do fluxo de trabalho e sobre o evento que a acionou. Você pode ler a maioria dos dados de contexto `github` em variáveis de ambiente. Para obter mais informações sobre as variáveis de ambiente, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Nome da propriedade       | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -172,7 +176,7 @@ O contexto `needs` contém saídas de todos os trabalhos definidos como uma depe
 | `needs.<job id>.outputs.<output name>` | `string` | O valor de uma saída específica para um trabalho do qual o trabalho atual depende.                                                   |
 | `needs.<job id>.result`                      | `string` | O resultado de um trabalho do qual depende o trabalho atual. Os valores possíveis são: `sucesso`, `falha`, `cancelado`ou `ignorado`. |
 
-#### Exemplo de impressão de informações de contexto no arquivo de log
+##### Exemplo de impressão de informações de contexto no arquivo de log
 
 Para inspecionar as informações acessíveis em cada contexto, você pode usar este exemplo de arquivo de fluxo de trabalho.
 
@@ -225,7 +229,7 @@ Como parte da expressão, você pode usar os tipos de dados `boolean`, `null`, `
 | `number`      | Qualquer formato de número aceito por JSON.                                                 |
 | `string`      | Você deve usar aspas simples. Aspas simples de literal devem ter aspas simples como escape. |
 
-#### Exemplo
+##### Exemplo
 
 {% raw %}
 ```yaml

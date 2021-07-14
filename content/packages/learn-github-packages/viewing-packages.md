@@ -10,23 +10,34 @@ redirect_from:
   - /packages/manage-packages/viewing-packages
 permissions: You must have at least read permissions to view a package.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About package views
+## About package views
 
 Your ability to view a package depends on several factors. By default, you can view all packages you have published. 
 
-{% data reusables.package_registry.repo-scoped-and-granular-permissions-packages %}
+Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below use this type of permissions:{% ifversion not fpt %}
+- Docker registry (`docker.pkg.github.com`){% endif %}
+- npm registry
+- RubyGems registry
+- Apache Maven registry
+- NuGet registry
+
+{% ifversion fpt %}
+The Container registry offers you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit it's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+{% endif %}
+
+For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
 
 {% data reusables.package_registry.package-page-info %}
 
-### Viewing a repository's packages
+## Viewing a repository's packages
 
 You can find and view a package located in a particular repository.
 
@@ -34,7 +45,7 @@ You can find and view a package located in a particular repository.
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Viewing an organization's packages
+## Viewing an organization's packages
 
 You can find and view a package located in the repositories of an organization you belong to.
 
@@ -43,7 +54,7 @@ You can find and view a package located in the repositories of an organization y
 3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Viewing your packages
+## Viewing your packages
 
 You can find and view any package you've published across all organizations and repositories. 
 
@@ -52,6 +63,6 @@ You can find and view any package you've published across all organizations and 
   ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Further reading
+## Further reading
 
 - "[Searching for packages](/github/searching-for-information-on-github/searching-for-packages)"

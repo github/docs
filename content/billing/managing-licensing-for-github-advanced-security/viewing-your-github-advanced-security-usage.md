@@ -3,20 +3,22 @@ title: Viewing your GitHub Advanced Security usage
 intro: 'You can view usage of your {% data variables.product.prodname_GH_advanced_security %} license.'
 permissions: 'Enterprise owners can manage access to {% data variables.product.prodname_GH_advanced_security %} for their organization or enterprise organizations.'
 product: '{% data reusables.gated-features.ghas %}'
-redirect_from: 
+redirect_from:
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
   - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Advanced Security
   - Enterprise
+shortTitle: View your usage
 ---
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."
 
-### Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
+## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
 You can check how many seats your license includes and how many of them are currently used.
 

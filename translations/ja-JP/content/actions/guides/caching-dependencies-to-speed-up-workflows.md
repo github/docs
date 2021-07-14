@@ -60,7 +60,7 @@ topics:
 - `key`: **必須** このキーはキャッシュの保存時に作成され、キャッシュの検索に使われます。 変数、コンテキスト値、静的な文字列、関数の任意の組み合わせが使えます。 キーの長さは最大で512文字であり、キーが最大長よりも長いとアクションは失敗します。
 - `path`: **必須** ランナーがキャッシュあるいはリストアをするファイルパス。 このパスは、絶対パスでも、ワーキングディレクトリからの相対パスでもかまいません。
   - パスはディレクトリまたは単一ファイルのいずれかで、glob パターンがサポートされています。
-  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. 例:
+  - `cache` アクションの `v2` では、単一のパスを指定することも、別々の行に複数のパスを追加することもできます。 例:
     ```
     - name: Cache Gradle packages
       uses: actions/cache@v2
@@ -98,7 +98,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
+          # npm キャッシュファイルは Linux/macOS の `~/.npm` に保存される
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |

@@ -5,16 +5,17 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '>=2.22'
+  ghae: next
 topics:
   - Enterprise
+shortTitle: Tool cache for offline runners
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About the included setup actions and the runner tool cache
+## About the included setup actions and the runner tool cache
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
@@ -30,13 +31,13 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 {% endnote %}
 
-### Prerequisites
+## Prerequisites
 
 * Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
 * Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
 * Access to your self-hosted runner's file system to populate the tool cache folder.
 
-### Populating the tool cache for a self-hosted runner
+## Populating the tool cache for a self-hosted runner
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository that you can use to run a {% data variables.product.prodname_actions %} workflow.
 1. Create a new workflow file in the repository's `.github/workflows` folder that uploads an artifact containing the {% data variables.product.prodname_dotcom %}-hosted runner's tool cache.
@@ -56,11 +57,11 @@ You can populate the runner tool cache by running a {% data variables.product.pr
              mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
              mkdir -p "${{ runner.tool_cache }}"
          - name: Setup Node 10
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 12.x
          - name: Archive tool cache

@@ -7,25 +7,26 @@ redirect_from:
   - /articles/about-commit-signature-verification
   - /github/authenticating-to-github/about-commit-signature-verification
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Commit signature verification
 ---
-### About commit signature verification
+## About commit signature verification
 
-You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% if currentVersion == "free-pro-team@latest" %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
 ![Verified commit](/assets/images/help/commits/verified-commit.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-#### Default statuses
+### Default statuses
 
 | Status         | Description |
 | -------------- | ----------- |
@@ -33,7 +34,7 @@ Commits and tags have the following verification statuses, depending on whether 
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
 
-#### Statuses with vigilant mode enabled
+### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
@@ -45,11 +46,11 @@ Repository administrators can enforce required commit signing on a branch to blo
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
 {% endif %}
 
-### GPG commit signature verification
+## GPG commit signature verification
 
 You can use GPG to sign commits with a GPG key that you generate yourself.
 
@@ -64,7 +65,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 5. [Sign commits](/articles/signing-commits)
 6. [Sign tags](/articles/signing-tags)
 
-### S/MIME commit signature verification
+## S/MIME commit signature verification
 
 You can use S/MIME to sign commits with an X.509 key issued by your organization.
 
@@ -80,15 +81,15 @@ To sign commits using S/MIME and have those commits verified on {% data variable
 
 You don't need to upload your public key to {% data variables.product.product_name %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Signature verification for bots
+{% ifversion fpt %}
+## Signature verification for bots
 
 Organizations and {% data variables.product.prodname_github_app %}s that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
 
 Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Signing commits](/articles/signing-commits)"
 - "[Signing tags](/articles/signing-tags)"

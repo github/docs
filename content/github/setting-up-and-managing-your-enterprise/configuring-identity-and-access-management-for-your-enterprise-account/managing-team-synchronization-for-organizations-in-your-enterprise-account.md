@@ -4,13 +4,14 @@ intro: 'You can enable team synchronization between an identity provider (IdP) a
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
+shortTitle: Manage team synchronization
 ---
-### About team synchronization for enterprise accounts
+## About team synchronization for enterprise accounts
 
 If you use Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
 
@@ -22,7 +23,7 @@ If you use Azure AD as your IdP, you can enable team synchronization for your en
 
 You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
-### Prerequisites
+## Prerequisites
 
 You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
  
@@ -30,7 +31,7 @@ You must enable SAML single sign-on for organizations in your enterprise account
 
 You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
 
-### Managing team synchronization for Azure AD
+## Managing team synchronization for Azure AD
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 

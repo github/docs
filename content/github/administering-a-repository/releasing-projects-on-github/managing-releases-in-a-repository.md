@@ -11,24 +11,25 @@ redirect_from:
   - /github/administering-a-repository/managing-releases-in-a-repository
 permissions: 'Repository collaborators and people with write access to a repository can create, edit, and delete a release.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Manage releases
 ---
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
 
-### About release management
+## About release management
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
 {% endif %}
 
 You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 {% tip %}
 
 **Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
@@ -36,7 +37,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% endtip %}
 {% endif %}
 
-### Creating a release
+## Creating a release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -52,7 +53,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
 8. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
    ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-{%- if currentVersion == "free-pro-team@latest" %}
+{%- ifversion fpt %}
 1. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
   ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}
@@ -61,7 +62,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 You can also automatically create a release from the command line or in a script. For more information, see "[Releases](/rest/reference/repos/#create-a-release)."
 
-### Editing a release
+## Editing a release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -70,7 +71,7 @@ You can also automatically create a release from the command line or in a script
 4. Edit the details for the release in the form, then click **Update release**.
   ![Update a release](/assets/images/help/releases/update-release.png)
 
-### Deleting a release
+## Deleting a release
 
 You must remove all binary files attached to a release before you can delete a release.
 

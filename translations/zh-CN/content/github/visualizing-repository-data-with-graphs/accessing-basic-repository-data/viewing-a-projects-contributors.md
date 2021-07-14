@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于贡献者
 
 您可以在贡献者图中查看对仓库贡献最大的 100 个贡献者{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}，包括提交合作作者{% endif %}。 合并提交和空提交不会计为此图的贡献。
@@ -27,7 +28,7 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击 **Contributors（贡献者）**。 ![贡献者选项卡](/assets/images/help/graphs/contributors_tab.png)
-4. （可选）要查看特定时间段内的贡献者，单击然后拖动，直到选择时间段。 ![贡献者图中选择的时间范围](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+4. （可选）要查看特定时间段内的贡献者，单击然后拖动，直到选择时间段。 贡献者图在每个周日汇总每周提交数，因此您设置的时间段必须包括周日。 ![贡献者图中选择的时间范围](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
 ### 贡献者疑难解答
 

@@ -5,11 +5,12 @@ redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Add a new SSH key
 ---
 Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
@@ -19,15 +20,10 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% data reusables.ssh.dsa-support %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
-
-**Tip**: You can also add an SSH key using the {% data variables.product.prodname_cli %}. For more information, see "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
 {% mac %}
+
+{% include tool-switcher %}
+{% webui %}
 
 1. Copy the SSH public key to your clipboard.
 
@@ -55,9 +51,15 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
 {% data reusables.user_settings.sudo-mode-popup %}
 
+{% endwebui %}
+
 {% endmac %}
 
 {% windows %}
+
+{% include tool-switcher %}
+
+{% webui %}
 
 1. Copy the SSH public key to your clipboard.
 
@@ -86,9 +88,14 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 8. If prompted, confirm your {% data variables.product.product_name %} password.
   ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
+{% endwebui %}
+
 {% endwindows %}
 
 {% linux %}
+
+{% include tool-switcher %}
+{% webui %}
 
 1. Copy the SSH public key to your clipboard.
 
@@ -120,10 +127,30 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 8. If prompted, confirm your {% data variables.product.product_name %} password.
   ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
+{% endwebui %}
+
 {% endlinux %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+{% cli %}
+
+{% data reusables.cli.download-cli %}
+
+To add an SSH key to your GitHub account, use the `ssh-key add` subcommand.
+
+```shell
+gh ssh-key add <em>key-file</em>
+```
+
+To include a title for the new key, use the `-t` or `--title` flag.
+
+```shell
+gh ssh-key add <em>key-file</em> --title "personal laptop"
+```
+
+{% endcli %}
+
+{% ifversion fpt %}
+## Further reading
 
 - "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {% endif %}

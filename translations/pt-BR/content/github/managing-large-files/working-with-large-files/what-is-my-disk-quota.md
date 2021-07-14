@@ -8,6 +8,7 @@ intro: 'O {% data variables.product.product_name %} tenta fornecer armazenamento
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.large_files.use_lfs_tip %}
 
 ### Limites para tamanhos de arquivo e repositório

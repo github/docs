@@ -1,7 +1,7 @@
 import cx from 'classnames'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useMainContext } from './context/MainContext'
+import { Link } from 'components/Link'
 
 export type BreadcrumbT = {
   title: string
@@ -9,10 +9,12 @@ export type BreadcrumbT = {
   href?: string
 }
 
-type Props = {}
-export const Breadcrumbs = (props: Props) => {
+type Props = {
+  variant?: 'default' | 'large'
+}
+export const Breadcrumbs = ({ variant = 'default' }: Props) => {
   const router = useRouter()
-  const pathWithLocale = `/${router.locale}${router.asPath}`
+  const pathWithLocale = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
   const { breadcrumbs } = useMainContext()
 
   return (
@@ -28,16 +30,17 @@ export const Breadcrumbs = (props: Props) => {
             {breadcrumb.title}
           </span>
         ) : (
-          <Link key={title} href={breadcrumb.href}>
-            <a
-              title={title}
-              className={cx(
-                'd-inline-block',
-                pathWithLocale === breadcrumb.href && 'color-text-tertiary'
-              )}
-            >
-              {breadcrumb.title}
-            </a>
+          <Link
+            key={title}
+            href={breadcrumb.href}
+            title={title}
+            className={cx(
+              'd-inline-block',
+              variant === 'large' && 'text-uppercase text-mono',
+              pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+            )}
+          >
+            {breadcrumb.title}
           </Link>
         )
       })}

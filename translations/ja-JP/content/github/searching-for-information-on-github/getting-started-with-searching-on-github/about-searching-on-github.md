@@ -16,6 +16,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %}
 
 - {% data variables.product.product_name %} 全体にわたってグローバルに検索するには、探している内容を任意のページの上部にある検索フィールドに入力し、[All {% data variables.product.prodname_dotcom %}] を検索ドロップダウンメニューで選択します。
@@ -67,9 +68,8 @@ topics:
 双方の環境にわたる検索は、{% data variables.product.prodname_enterprise %} からしか行えません。 検索の範囲を環境で狭めるには、{% data variables.search.advanced_url %} 上のフィルタオプションを使うか、検索プレフィックス `environment:` を利用できます。 {% data variables.product.prodname_enterprise %} 上のコンテンツだけを検索するには、`environment:local` という検索構文を使います。 {% data variables.product.prodname_dotcom_the_website %} 上のコンテンツだけを検索するには`environment:github` を使います。
 
 {% data variables.product.prodname_enterprise %} サイト管理者は、接続された {% data variables.product.prodname_ghe_cloud %} Organization 中のすべてのパブリックリポジトリ、すべてのプライベートリポジトリ、あるいは特定のプライベートリポジトリのみに対して {% data variables.product.prodname_unified_search %} を有効化できます。
-サイト管理者が
 
-プライベートリポジトリで {% data variables.product.prodname_unified_search %} を有効にしている場合は、管理者が {% data variables.product.prodname_unified_search %} を有効にしていて、接続されている {% data variables.product.prodname_dotcom_the_website %} Organization でアクセスできるプライベートリポジトリ内しか検索できません。 あなたの {% data variables.product.prodname_enterprise %} 管理者と、{% data variables.product.prodname_dotcom_the_website %} 上の Organization のオーナーは、あなたのアカウントが所有しているプライベートリポジトリは検索できません。 適用可能なプライベートリポジトリを検索するには、{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_enterprise %} 上のあなたの個人アカウントに対してプライベートリポジトリ検索を有効化しなければなりません。 詳細は「[{% data variables.product.prodname_enterprise %} アカウントでのプライベートな {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。
+サイト管理者が {% data variables.product.prodname_unified_search %} をプライベートリポジトリで有効化したなら、あなたはサイト管理者が {% data variables.product.prodname_unified_search %} を有効化したプライベートリポジトリ内と、あなたがアクセスできる接続された {% data variables.product.prodname_dotcom_the_website %} Organization 内だけが検索できます。 あなたの {% data variables.product.prodname_enterprise %} 管理者と、{% data variables.product.prodname_dotcom_the_website %} 上の Organization のオーナーは、あなたのアカウントが所有しているプライベートリポジトリは検索できません。 適用可能なプライベートリポジトリを検索するには、{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_enterprise %} 上のあなたの個人アカウントに対してプライベートリポジトリ検索を有効化しなければなりません。 詳細は「[{% data variables.product.prodname_enterprise %} アカウントでのプライベートな {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。
 {% endif %}
 
 ### 参考リンク

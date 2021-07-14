@@ -6,18 +6,18 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
 ---
-### Enabling rate limits for {% data variables.product.prodname_enterprise_api %}
+## Enabling rate limits for {% data variables.product.prodname_enterprise_api %}
 
 Enabling rate limits on {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
 {% endif %}
 
@@ -34,7 +34,7 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Enabling abuse rate limits
+## Enabling abuse rate limits
 
 Setting abuse rate limits protects the overall level of service on {% data variables.product.product_location %}.
 
@@ -45,7 +45,7 @@ Setting abuse rate limits protects the overall level of service on {% data varia
 3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Enabling Git rate limits
+## Enabling Git rate limits
 
 You can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
 

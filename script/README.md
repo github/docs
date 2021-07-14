@@ -265,14 +265,6 @@ Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /ente
 ### [`graphql/utils/process-upcoming-changes.js`](graphql/utils/process-upcoming-changes.js)
 
 
-
----
-
-
-### [`graphql/utils/remove-hidden-schema-members.rb`](graphql/utils/remove-hidden-schema-members.rb)
-
-
-
 ---
 
 

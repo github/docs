@@ -1,6 +1,8 @@
 const express = require('express')
-const languages = new Set(Object.keys(require('../lib/languages')))
-const versions = new Set(Object.values(require('../lib/search/versions')))
+const libLanguages = require('../lib/languages')
+const searchVersions = require('../lib/search/versions')
+const languages = new Set(Object.keys(libLanguages))
+const versions = new Set(Object.values(searchVersions))
 const loadLunrResults = require('../lib/search/lunr-search')
 const loadAlgoliaResults = require('../lib/search/algolia-search')
 
@@ -25,10 +27,17 @@ router.get('/', async function postSearch (req, res, next) {
     const results = process.env.AIRGAP || req.cookies.AIRGAP
       ? await loadLunrResults({ version, language, query: `${query} ${filters || ''}`, limit })
       : await loadAlgoliaResults({ version, language, query, filters, limit })
-    return res.status(200).json(results)
+
+    // Only reply if the headers have not been sent and the request was not aborted...
+    if (!res.headersSent && !req.aborted) {
+      return res.status(200).json(results)
+    }
   } catch (err) {
     console.error(err)
-    return res.status(400).json([])
+    // Only reply if the headers have not been sent and the request was not aborted...
+    if (!res.headersSent && !req.aborted) {
+      return res.status(400).json([])
+    }
   }
 })
 

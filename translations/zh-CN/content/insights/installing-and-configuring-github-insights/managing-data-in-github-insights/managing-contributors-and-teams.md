@@ -9,6 +9,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于 {% data variables.product.prodname_insights %} 中的贡献者和团队
 
 {% data variables.product.prodname_insights %} 中的贡献者是与 {% data variables.product.prodname_enterprise %} 数据相关联的实体。 您可以编辑和隐藏贡献者。

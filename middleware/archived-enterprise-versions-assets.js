@@ -32,6 +32,6 @@ module.exports = async function archivedEnterpriseVersionsAssets (req, res, next
     res.set('cache-control', `public, max-age=${ONE_DAY}`)
     return res.send(r.body)
   } catch (err) {
-    return next()
+    return next(404)
   }
 }

@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Sie können eine Liste der IP-Adressen von {% data variables.product.prodname_dotcom %} über den [meta](https://api.github.com/meta)-API-Endpunkt abrufen. For more information, see "[Meta](/rest/reference/meta)."
 
 Diese Bereiche sind in [CIDR-Notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). Mit einem Online-Konvertierungstool wie zum Beispiel [CIDR/VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php) kannst Du eine Konvertierung von CIDR-Notation in IP-Adressbereiche durchführen.

@@ -7,13 +7,14 @@ redirect_from:
   - /articles/creating-and-deleting-branches-within-your-repository
   - /github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Create & delete branches
 ---
-### Creating a branch
+## Creating a branch
 
 {% data reusables.repositories.navigate-to-repo %}
 
@@ -24,7 +25,7 @@ topics:
 1. Type a unique name for your new branch, then select **Create branch**.
     ![branch creation text box](/assets/images/help/branch/branch-creation-text-box.png)
 
-### Deleting a branch
+## Deleting a branch
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
@@ -41,12 +42,12 @@ If the branch you want to delete is associated with an open pull request, you mu
 1. Scroll to the branch that you want to delete, then click {% octicon "trash" aria-label="The trash icon to delete the branch" %}.
     ![delete the branch](/assets/images/help/branches/branches-delete.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion fpt or ghae or ghes > 2.21 %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
-### Further reading
+## Further reading
 
 - "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)"
 - "[Viewing branches in your repository](/github/administering-a-repository/viewing-branches-in-your-repository)"

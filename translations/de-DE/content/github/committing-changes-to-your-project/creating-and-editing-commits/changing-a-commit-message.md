@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Die letzte Commit-Mitteilung erneut schreiben
 
 Die letzte Commit-Mitteilung kannst Du mit dem Befehl `git commit --amend` ändern.
@@ -49,9 +50,9 @@ Wir raten dringend von einem erzwungenen Push ab, da sich dadurch der Verlauf De
 **Changing the message of the most recently pushed commit**
 
 1. Führe die [obigen Schritte](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) aus, um die Commit-Mitteilung zu ändern.
-2. Erzwinge mit dem Befehl `push --force` den Push über den alten Commit hinweg.
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **Changing the message of older or multiple commit messages**

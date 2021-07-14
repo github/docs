@@ -7,9 +7,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
   - /actions/configuring-and-managing-workflows/creating-postgresql-service-containers
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Containers
@@ -20,13 +20,13 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide shows you workflow examples that configure a service container using the Docker Hub `postgres` image. The workflow runs a script that connects to the PostgreSQL service, creates a table, and then populates it with data. To test that the workflow creates and populates the PostgreSQL table, the script prints the data from the table to the console.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-### Prerequisites
+## Prerequisites
 
 {% data reusables.github-actions.service-container-prereqs %}
 
@@ -35,7 +35,7 @@ You may also find it helpful to have a basic understanding of YAML, the syntax f
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 - "[PostgreSQL tutorial](https://www.postgresqltutorial.com/)" in the PostgreSQL documentation
 
-### Running jobs in containers
+## Running jobs in containers
 
 {% data reusables.github-actions.container-jobs-intro %}
 
@@ -93,7 +93,7 @@ jobs:
 ```
 {% endraw %}
 
-#### Configuring the runner job
+### Configuring the runner job
 
 {% data reusables.github-actions.service-container-host %}
 
@@ -125,7 +125,7 @@ jobs:
           --health-retries 5
 ```
 
-#### Configuring the steps
+### Configuring the steps
 
 {% data reusables.github-actions.service-template-steps %}
 
@@ -157,7 +157,7 @@ steps:
 
 The hostname of the PostgreSQL service is the label you configured in your workflow, in this case, `postgres`. Because Docker containers on the same user-defined bridge network open all ports by default, you'll be able to access the service container on the default PostgreSQL port 5432.
 
-### Running jobs directly on the runner machine
+## Running jobs directly on the runner machine
 
 When you run a job directly on the runner machine, you'll need to map the ports on the service container to ports on the Docker host. You can access service containers from the Docker host using `localhost` and the Docker host port number.
 
@@ -217,7 +217,7 @@ jobs:
 ```
 {% endraw %}
 
-#### Configuring the runner job
+### Configuring the runner job
 
 {% data reusables.github-actions.service-container-host-runner %}
 
@@ -252,7 +252,7 @@ jobs:
           - 5432:5432
 ```
 
-#### Configuring the steps
+### Configuring the steps
 
 {% data reusables.github-actions.service-template-steps %}
 
@@ -284,7 +284,7 @@ steps:
 
 {% data reusables.github-actions.service-container-localhost %}
 
-### Testing the PostgreSQL service container
+## Testing the PostgreSQL service container
 
 You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. Your script can use any language you'd like, but this example uses Node.js and the `pg` npm module. For more information, see the [npm pg module](https://www.npmjs.com/package/pg).
 

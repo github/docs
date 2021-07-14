@@ -1,6 +1,6 @@
 ---
 title: 在代码空间中开发
-intro: 'Create a codespace to get started with developing your project inside a dedicated cloud environment. You can use forwarded ports to run your application and even use codespaces inside {% data variables.product.prodname_vscode %}'
+intro: '创建代码空间，以便在专用云环境中开始开发您的项目。 您可以使用转发端口运行应用程序，甚至可以使用 {% data variables.product.prodname_vscode %} 内的代码空间'
 versions:
   free-pro-team: '*'
 topics:
@@ -13,4 +13,5 @@ children:
   - /forwarding-ports-in-your-codespace
   - /using-codespaces-in-visual-studio-code
 ---
+
 {% data reusables.codespaces.release-stage %}

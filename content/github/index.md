@@ -6,14 +6,14 @@ redirect_from:
   - /troubleshooting-common-issues/
 intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
-  - /getting-started-with-github
   - /setting-up-and-managing-your-github-user-account
   - /setting-up-and-managing-your-github-profile
   - /authenticating-to-github
+  - /copilot
   - /managing-subscriptions-and-notifications-on-github
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github

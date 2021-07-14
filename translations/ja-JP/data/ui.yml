@@ -8,10 +8,14 @@ header:
     localization_complete: ドキュメントには頻繁に更新が加えられ、その都度公開されています。本ページの翻訳はまだ未完成な部分があることをご了承ください。最新の情報については、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>をご参照ください。本ページの翻訳に問題がある場合は<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">こちらまで</a>ご連絡ください。
     localization_in_progress: こんにちは！このページは開発中か、まだ翻訳中です。最新の正しい情報を得るには、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>にアクセスしてください。
     early_access: '📣 このURLは公に<b>共有しないで</b>ください。このページには、早期アクセスの機能に関する内容が含まれています。'
-    ghes_release_notes_use_latest: 最新のセキュリティ、パフォーマンス、バグフィックスのために、最新のリリースをお使いください。
-    ghes_release_notes_upgrade_patch_only: '📣 これはEnterprise Serverの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではありません。{% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Sererの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。{% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 これは、このリリースシリーズの<a href="#{{ latestPatch }}">最新のパッチリリース</a>ではなく、Enterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>でもありません。{% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: 最新のセキュリティ、パフォーマンス、バグフィックスのために、最新のリリースをお使いください。
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+release_notes:
+  banner_text_current: これらの変更は、次の1週間に渡って展開されます。
+  banner_text_past: これらの変更は、次の週の間にEnterpriseに展開されます：
 search:
   need_help: お困りですか？
   placeholder: トピックや製品などの検索
@@ -26,6 +30,7 @@ toc:
 pages:
   article_version: '記事のバージョン：'
   miniToc: 'ここには以下の内容があります:'
+  contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
 errors:
   oops: 問題が発生しています。
   something_went_wrong: 何か問題が生じています。
@@ -35,19 +40,22 @@ support:
   still_need_help: 問題がまだ解決していませんか？
   contact_support: サポートへの連絡
   ask_community: GitHubコミュニティで質問する
-helpfulness:
+survey:
   able_to_find: このドキュメントは役立ちましたか？
   yes: true
   no: false
-  yes_feedback: 新しいドキュメントの機能とアップデートについて学びたいですか？アップデートのためにサインアップを！
-  email_placeholder: email@example.com
+  yes_feedback: 私たちはドキュメントを継続的に改善しています。うまくできていることをお聞かせください。
   no_feedback: 私たちはドキュメントを継続的に改善しています。改善の方法をお聞かせください。
-  comment_label: 改善の方法をお知らせください。
+  comment_yes_label: うまくできていることをお知らせください。
+  comment_no_label: 改善の方法をお知らせください。
   optional: 任意
   required: 必須
+  email_placeholder: email@example.com
   email_label: さらに質問がある場合、ご連絡差し上げてもよいでしょうか？
   send: 送信
-  feedback: ありがとうございます。フィードバックが送信されました。
+  feedback: ありがとうございます！フィードバックをいただきました。
+  not_support: 返信が必要な場合は、サポートにお問い合わせください。
+  privacy_policy: プライバシーポリシー
 contribution_cta:
   title: これらのドキュメントを素晴らしいものにするのを手伝ってください！
   body: GitHubのすべてのドキュメントはオープンソースです。間違っていたり、はっきりしないところがありましたか？Pull Requestをお送りください。
@@ -162,7 +170,6 @@ product_sublanding:
 learning_track_nav:
   prevGuide: 前のガイド
   nextGuide: 次のガイド
-contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
 toggle_images:
   off: 画像はオフです。クリックして表示
   on: 画像はオンです。クリックして隠す

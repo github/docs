@@ -17,6 +17,7 @@ topics:
   - Enterprise
   - Pages
 ---
+
 ### 为 {% data variables.product.prodname_pages %} 启用公共站点
 
 {% if enterpriseServerVersions contains currentVersion %}如果您的企业启用了私有模式，则除非您启用公共站点，否则{% else %}{% endif %}公众无法访问您的企业托管的 {% data variables.product.prodname_pages %} 站点。
@@ -44,8 +45,7 @@ topics:
 ### 为企业禁用 {% data variables.product.prodname_pages %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-如果为企业禁用了子域隔离，则还应禁用
-{% data variables.product.prodname_pages %} 以保护自己免受潜在安全漏洞的威胁。 更多信息请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
+如果为企业禁用了子域隔离，则还应禁用 {% data variables.product.prodname_pages %}，以免遭受潜在安全漏洞的攻击。 更多信息请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}

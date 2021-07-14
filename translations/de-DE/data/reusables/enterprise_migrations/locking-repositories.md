@@ -1,6 +1,7 @@
 {% tip %}
 
-**Hinweis:** Wenn ein Repository gesperrt wird, werden Benutzer daran gehindert, Elemente auf das Repository zu übertragen oder die Ressourcen, beispielsweise Issues, Kennzeichnungen, Meilensteine, Wikis und Kommentare eines Repositorys zu ändern. Es ist nicht möglich, neue Teams und Mitarbeiter einem gesperrten Repository zuzuordnen.
+**Note:** Locking a repository prevents all read or write access to the repository. You cannot associate new teams or collaborators with a locked repository.
+If you're performing a trial run, you do not need to lock the repository. When you migrate data from a repository that's in use,
 
-Wenn Du einen Probelauf durchführst, musst Du die Repositorys nicht sperren. Andernfalls wird dies dringend empfohlen. Weitere Informationen finden Sie unter „[Informationen zu Migrationen](/enterprise/admin/migrations/about-migrations#types-of-migrations)“.
+{% data variables.product.company_short %} strongly recommends locking the repository. Weitere Informationen finden Sie unter „[Informationen zu Migrationen](/enterprise/admin/migrations/about-migrations#types-of-migrations)“.
 {% endtip %}

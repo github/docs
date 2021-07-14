@@ -2,13 +2,14 @@
 title: Configuring the retention period for GitHub Actions artifacts and logs in your repository
 intro: 'You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.23'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
+shortTitle: Set log retention for Actions
 ---
 {% data reusables.actions.about-artifact-log-retention %}
 

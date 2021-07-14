@@ -6,10 +6,11 @@ redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Connect an IdP
 ---
 
 Before [enabling SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in your {% data variables.product.product_name %} organization, you'll need to connect your identity provider (IdP) to your organization.
@@ -24,11 +25,11 @@ You can find the SAML and SCIM implementation details for your IdP in their docu
 
 {% note %}
 
-**Note:** {% data variables.product.product_name %} supported identity providers for SCIM are Azure AD, Okta, and OneLogin. For more information about SCIM, see "[About SCIM](/articles/about-scim)."
+**Note:** {% data variables.product.product_name %} supported identity providers for SCIM are Azure AD, Okta, and OneLogin. {% data reusables.scim.enterprise-account-scim %} For more information about SCIM, see "[About SCIM](/articles/about-scim)."
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"

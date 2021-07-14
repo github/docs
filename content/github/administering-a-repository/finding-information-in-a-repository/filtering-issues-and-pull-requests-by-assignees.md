@@ -6,11 +6,12 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-assignees
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-assignees
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter by assignee
 ---
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
@@ -26,7 +27,7 @@ To clear your filter selection, click **Clear current search query, filters, and
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 - "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"

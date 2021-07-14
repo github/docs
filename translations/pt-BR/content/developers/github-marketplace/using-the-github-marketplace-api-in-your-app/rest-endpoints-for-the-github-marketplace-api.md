@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 Aqui estão alguns pontos de extremidade úteis e disponíveis para listagens do Marketplace:
 
 * [Listar planos](/rest/reference/apps#list-plans)

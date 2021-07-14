@@ -5,11 +5,12 @@ redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Auto linked references
 ---
-### URLs
+## URLs
 
 {% data variables.product.product_name %} automatically creates links from standard URLs.
 
@@ -19,7 +20,7 @@ versions:
 
 For more information on creating links, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#links)."
 
-### Issues and pull requests
+## Issues and pull requests
 
 Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
 
@@ -37,7 +38,11 @@ Within conversations on {% data variables.product.product_name %}, references to
 | `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
 | `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
-### Commit SHAs
+{% ifversion fpt %}
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+{% endif %}
+
+## Commit SHAs
 
 References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
 
@@ -48,10 +53,10 @@ References to a commit's SHA hash are automatically converted into shortened lin
 | User@SHA | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)
 | `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-### Custom autolinks to external resources
+## Custom autolinks to external resources
 
 {% data reusables.repositories.autolink-references %}
 
-### Further reading
+## Further reading
 
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

@@ -36,11 +36,12 @@ jobs:
       - if: ${{ failure() }}
         name: Create issue from file
         id: broken-link-report
-        uses: peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326
+        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
         with:
           token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_links.md
+          repository: github/docs-content
           labels: broken link report
       - if: ${{ failure() }}
         name: Add comment to issue
