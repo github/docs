@@ -5,7 +5,7 @@ name: Check for app.json changes
 # **Who does it impact**: Docs engineering and content writers.
 
 on:
-  pull_request_target:
+  pull_request:
 
 jobs:
   check-app-json-changes:
