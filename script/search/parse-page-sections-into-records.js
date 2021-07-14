@@ -6,20 +6,13 @@ import { maxContentLength } from '../../lib/search/config.js'
 // that follows each heading becomes the content of the search record.
 
 const urlPrefix = 'https://docs.github.com'
-const ignoredHeadingSlugs = [
-  'in-this-article',
-  'further-reading'
-]
+const ignoredHeadingSlugs = ['in-this-article', 'further-reading']
 
-export default function parsePageSectionsIntoRecords (href, $) {
+export default function parsePageSectionsIntoRecords(href, $) {
   const title = $('h1').text().trim()
   const breadcrumbsArray = $('nav.breadcrumbs a')
     .map((i, el) => {
-      return $(el)
-        .text()
-        .trim()
-        .replace(/\n/g, ' ')
-        .replace(/\s+/g, ' ')
+      return $(el).text().trim().replace(/\n/g, ' ').replace(/\s+/g, ' ')
     })
     .get()
     .slice(0, -1)
@@ -67,7 +60,7 @@ export default function parsePageSectionsIntoRecords (href, $) {
           heading,
           title,
           content,
-          topics
+          topics,
         }
       })
       .get()
@@ -75,24 +68,26 @@ export default function parsePageSectionsIntoRecords (href, $) {
     // There are no sections. Treat the entire article as the record.
     const objectID = href
     const url = [urlPrefix, objectID].join('')
-    const content = $('.article-grid-body p, .article-grid-body ul, .article-grid-body ol, .article-grid-body table')
+    const content = $(
+      '.article-grid-body p, .article-grid-body ul, .article-grid-body ol, .article-grid-body table'
+    )
       .map((i, el) => $(el).text())
       .get()
       .join(' ')
       .trim()
       .slice(0, maxContentLength)
 
-    records = [{
-      objectID,
-      url,
-      breadcrumbs,
-      title,
-      content,
-      topics
-    }]
+    records = [
+      {
+        objectID,
+        url,
+        breadcrumbs,
+        title,
+        content,
+        topics,
+      },
+    ]
   }
 
-  return chain(records)
-    .uniqBy('objectID')
-    .value()
+  return chain(records).uniqBy('objectID').value()
 }

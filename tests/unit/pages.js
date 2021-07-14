@@ -30,17 +30,26 @@ describe('pages module', () => {
     })
 
     test('every page has a `languageCode`', async () => {
-      expect(pages.every(page => languageCodes.includes(page.languageCode))).toBe(true)
+      expect(pages.every((page) => languageCodes.includes(page.languageCode))).toBe(true)
     })
 
     test('every page has a non-empty `permalinks` array', async () => {
       const brokenPages = pages
-        .filter(page => !Array.isArray(page.permalinks) || page.permalinks.length === 0)
+        .filter((page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0)
         // Ignore pages that only have "next" versions specified and therefore no permalinks;
         // These pages are not broken, they just won't render in the currently supported versions.
-        .filter(page => !Object.values(page.versions).every(pageVersion => checkIfNextVersionOnly(pageVersion)))
+        .filter(
+          (page) =>
+            !Object.values(page.versions).every((pageVersion) =>
+              checkIfNextVersionOnly(pageVersion)
+            )
+        )
 
-      const expectation = JSON.stringify(brokenPages.map(page => page.fullPath), null, 2)
+      const expectation = JSON.stringify(
+        brokenPages.map((page) => page.fullPath),
+        null,
+        2
+      )
       expect(brokenPages.length, expectation).toBe(0)
     })
 
@@ -48,14 +57,14 @@ describe('pages module', () => {
       const englishPages = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
-        .map(pages => pick(pages, ['redirect_from', 'applicableVersions']))
+        .map((pages) => pick(pages, ['redirect_from', 'applicableVersions']))
         .value()
 
       const versionedRedirects = []
 
-      englishPages.forEach(page => {
-        page.redirect_from.forEach(redirect => {
-          page.applicableVersions.forEach(version => {
+      englishPages.forEach((page) => {
+        page.redirect_from.forEach((redirect) => {
+          page.applicableVersions.forEach((version) => {
             versionedRedirects.push(removeFPTFromPath(path.posix.join('/', version, redirect)))
           })
         })
@@ -66,31 +75,41 @@ describe('pages module', () => {
         return acc
       }, [])
 
-      const message = `Found ${duplicates.length} duplicate redirect_from ${duplicates.length === 1 ? 'path' : 'paths'}.\n
+      const message = `Found ${duplicates.length} duplicate redirect_from ${
+        duplicates.length === 1 ? 'path' : 'paths'
+      }.\n
   ${duplicates.join('\n')}`
       expect(duplicates.length, message).toBe(0)
     })
 
     test('every English page has a filename that matches its slugified title', async () => {
       const nonMatches = pages
-        .filter(page => {
+        .filter((page) => {
           slugger.reset()
-          return page.languageCode === 'en' && // only check English
-          !page.relativePath.includes('index.md') && // ignore TOCs
-          !page.allowTitleToDifferFromFilename && // ignore docs with override
-          slugger.slug(entities.decode(page.title)) !== path.basename(page.relativePath, '.md')
+          return (
+            page.languageCode === 'en' && // only check English
+            !page.relativePath.includes('index.md') && // ignore TOCs
+            !page.allowTitleToDifferFromFilename && // ignore docs with override
+            slugger.slug(entities.decode(page.title)) !== path.basename(page.relativePath, '.md')
+          )
         })
         // make the output easier to read
-        .map(page => {
-          return JSON.stringify({
-            file: path.basename(page.relativePath),
-            title: page.title,
-            path: page.fullPath
-          }, null, 2)
+        .map((page) => {
+          return JSON.stringify(
+            {
+              file: path.basename(page.relativePath),
+              title: page.title,
+              path: page.fullPath,
+            },
+            null,
+            2
+          )
         })
 
       const message = `
-  Found ${nonMatches.length} ${nonMatches.length === 1 ? 'file' : 'files'} that do not match their slugified titles.\n
+  Found ${nonMatches.length} ${
+        nonMatches.length === 1 ? 'file' : 'files'
+      } that do not match their slugified titles.\n
   ${nonMatches.join('\n')}\n
   To fix, run script/reconcile-filenames-with-ids.js\n\n`
 
@@ -100,11 +119,12 @@ describe('pages module', () => {
     test('every page has valid frontmatter', async () => {
       const frontmatterErrors = chain(pages)
         // .filter(page => page.languageCode === 'en')
-        .map(page => page.frontmatterErrors)
+        .map((page) => page.frontmatterErrors)
         .flatten()
         .value()
 
-      const failureMessage = JSON.stringify(frontmatterErrors, null, 2) +
+      const failureMessage =
+        JSON.stringify(frontmatterErrors, null, 2) +
         '\n\n' +
         chain(frontmatterErrors).map('filepath').join('\n').value()
 
@@ -122,7 +142,7 @@ describe('pages module', () => {
         } catch (error) {
           liquidErrors.push({
             filename: page.fullPath,
-            error: error.message
+            error: error.message,
           })
         }
       }
@@ -133,12 +153,12 @@ describe('pages module', () => {
 
     test.skip('every non-English page has a matching English page', async () => {
       const englishPaths = chain(pages)
-        .filter(page => page.languageCode === 'en')
-        .map(page => page.relativePath)
+        .filter((page) => page.languageCode === 'en')
+        .map((page) => page.relativePath)
         .value()
       const nonEnglishPaths = chain(pages)
-        .filter(page => page.languageCode !== 'en')
-        .map(page => page.relativePath)
+        .filter((page) => page.languageCode !== 'en')
+        .map((page) => page.relativePath)
         .uniq()
         .value()
 
@@ -166,7 +186,7 @@ describe('pages module', () => {
     })
 
     test('has an identical key list to the deep permalinks of the array', async () => {
-      const allPermalinks = pages.flatMap(page => page.permalinks.map(pl => pl.href)).sort()
+      const allPermalinks = pages.flatMap((page) => page.permalinks.map((pl) => pl.href)).sort()
       const allPageUrls = Object.keys(pageMap).sort()
 
       expect(allPageUrls).toEqual(allPermalinks)

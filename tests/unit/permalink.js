@@ -10,11 +10,18 @@ describe('Permalink class', () => {
   test('derives info for unversioned homepage', () => {
     const versions = {
       'free-pro-team': '*',
-      'enterprise-server': '*'
+      'enterprise-server': '*',
     }
-    const permalinks = Permalink.derive('en', 'index.md', 'Hello World', getApplicableVersions(versions))
+    const permalinks = Permalink.derive(
+      'en',
+      'index.md',
+      'Hello World',
+      getApplicableVersions(versions)
+    )
     expect(permalinks.length).toBeGreaterThan(1)
-    const homepagePermalink = permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion)
+    const homepagePermalink = permalinks.find(
+      (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion
+    )
     expect(homepagePermalink.href).toBe('/en')
   })
 
@@ -25,19 +32,34 @@ describe('Permalink class', () => {
   })
 
   test('derives info for enterprise server versioned homepage', () => {
-    const permalink = new Permalink('en', `enterprise-server@${enterpriseServerReleases.latest}`, 'index.md', 'Hello World')
+    const permalink = new Permalink(
+      'en',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'index.md',
+      'Hello World'
+    )
     expect(permalink.pageVersionTitle).toBe(`Enterprise Server ${enterpriseServerReleases.latest}`)
     expect(permalink.href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}`)
   })
 
   test('derives info for GitHub.com homepage', () => {
-    const permalink = new Permalink('en', nonEnterpriseDefaultVersion, 'github/index.md', 'Hello World')
+    const permalink = new Permalink(
+      'en',
+      nonEnterpriseDefaultVersion,
+      'github/index.md',
+      'Hello World'
+    )
     expect(permalink.pageVersionTitle).toBe('GitHub.com')
     expect(permalink.href).toBe('/en/github')
   })
 
   test('derives info for enterprise version of GitHub.com homepage', () => {
-    const permalink = new Permalink('en', `enterprise-server@${enterpriseServerReleases.latest}`, 'github/index.md', 'Hello World')
+    const permalink = new Permalink(
+      'en',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'github/index.md',
+      'Hello World'
+    )
     expect(permalink.pageVersionTitle).toBe(`Enterprise Server ${enterpriseServerReleases.latest}`)
     expect(permalink.href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })

@@ -21,12 +21,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 //
 // [end-readme]
 
-
 main()
 
-async function main () {
+async function main() {
   const fixableFmProps = Object.keys(fm.schema.properties)
-    .filter(property => !fm.schema.properties[property].translatable)
+    .filter((property) => !fm.schema.properties[property].translatable)
     .sort()
   const fixableYmlProps = ['date']
 
@@ -40,12 +39,13 @@ async function main () {
     }
 
     if (path.endsWith('yml')) {
-      let data; let errors = []
+      let data
+      let errors = []
       try {
         data = yaml.load(fileContents)
       } catch {}
       if (data && schema) {
-        ({ errors } = revalidator.validate(data, schema))
+        ;({ errors } = revalidator.validate(data, schema))
       }
       return { data, errors, content: null }
     } else {
@@ -53,7 +53,8 @@ async function main () {
     }
   }
 
-  const cmd = 'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/(content/.+.md|data/release-notes/.*.yml)$"'
+  const cmd =
+    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/(content/.+.md|data/release-notes/.*.yml)$"'
   const changedFilesRelPaths = execSync(cmd).toString().split('\n')
 
   for (const relPath of changedFilesRelPaths) {

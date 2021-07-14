@@ -23,29 +23,29 @@ if (!process.env.GITHUB_TOKEN) {
 
 main()
 
-async function main () {
+async function main() {
   // Get body text of OP from https://github.com/github/localization-support/issues/489.
-  const { data: { body } } = await github.issues.get({
+  const {
+    data: { body },
+  } = await github.issues.get({
     owner: 'github',
     repo: 'localization-support',
-    issue_number: '489'
+    issue_number: '489',
   })
 
   // Get the list of broken files from the body text.
-  const brokenFiles = body
-    .replace(/^[\s\S]*?## List of Broken Translations/m, '')
-    .trim()
+  const brokenFiles = body.replace(/^[\s\S]*?## List of Broken Translations/m, '').trim()
 
   // Turn it into a simple array of files.
-  const brokenFilesArray = brokenFiles
-    .split('\n')
-    .map(line => line.replace('- [ ] ', '').trim())
+  const brokenFilesArray = brokenFiles.split('\n').map((line) => line.replace('- [ ] ', '').trim())
 
   // Run the script to revert them.
-  await Promise.all(brokenFilesArray.map(async (file) => {
-    console.log(`resetting ${file}`)
-    await exec(`script/reset-translated-file.js --prefer-main ${file}`)
-  }))
+  await Promise.all(
+    brokenFilesArray.map(async (file) => {
+      console.log(`resetting ${file}`)
+      await exec(`script/reset-translated-file.js --prefer-main ${file}`)
+    })
+  )
 
   // Print a message with next steps.
   console.log(`

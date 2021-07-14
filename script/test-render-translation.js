@@ -23,7 +23,7 @@ const exec = promisify(xChildProcess.exec)
 
 main()
 
-async function main () {
+async function main() {
   const siteData = await loadAndPatchSiteData()
   const pages = await loadPages()
   const contextByLanguage = {}
@@ -34,16 +34,19 @@ async function main () {
     contextByLanguage[crowdinLangCode] = {
       site: siteData[langObj.code].site,
       currentLanguage: langObj.code,
-      currentVersion: 'free-pro-team@latest'
+      currentVersion: 'free-pro-team@latest',
     }
   }
 
   const rootDir = path.join(__dirname, '..')
 
-  const changedFilesRelPaths = execSync('git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"', { maxBuffer: 1024 * 1024 * 100 })
+  const changedFilesRelPaths = execSync(
+    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"',
+    { maxBuffer: 1024 * 1024 * 100 }
+  )
     .toString()
     .split('\n')
-    .filter(path => path !== '' && !path.endsWith('README.md'))
+    .filter((path) => path !== '' && !path.endsWith('README.md'))
     .sort()
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
@@ -54,8 +57,8 @@ async function main () {
     const context = {
       ...contextByLanguage[lang],
       pages,
-      page: pages.find(page => page.fullPath === fullPath),
-      redirects: {}
+      page: pages.find((page) => page.fullPath === fullPath),
+      redirects: {},
     }
     if (!context.page && !relPath.includes('data/reusables')) continue
     const fileContents = await fs.promises.readFile(fullPath, 'utf8')
@@ -69,7 +72,7 @@ async function main () {
   }
 }
 
-async function loadAndPatchSiteData (filesWithKnownIssues = {}) {
+async function loadAndPatchSiteData(filesWithKnownIssues = {}) {
   try {
     const siteData = loadSiteData()
     return siteData

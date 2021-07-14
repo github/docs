@@ -10,7 +10,7 @@ describe('data-directory', () => {
     const expected = {
       bar: { another_markup_language: 'yes' },
       foo: { meaningOfLife: 42 },
-      nested: { baz: 'I am markdown!' }
+      nested: { baz: 'I am markdown!' },
     }
     expect(data).toEqual(expected)
   })
@@ -34,9 +34,9 @@ describe('data-directory', () => {
     const ignorePatterns = []
 
     // README is ignored by default
-    expect('README' in await dataDirectory(fixturesDir)).toBe(false)
+    expect('README' in (await dataDirectory(fixturesDir))).toBe(false)
 
     // README can be included by setting empty ignorePatterns array
-    expect('README' in await dataDirectory(fixturesDir, { ignorePatterns })).toBe(true)
+    expect('README' in (await dataDirectory(fixturesDir, { ignorePatterns }))).toBe(true)
   })
 })

@@ -5,10 +5,9 @@ import walk from 'walk-sync'
 import replace from 'replace'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-
 const FINDER = /{{\s?([#/])([a-z-]+)?\s?}}/g
 
-async function rewriteFiles (dir) {
+async function rewriteFiles(dir) {
   const files = walk(dir, { includeBasePath: true })
   replace({
     regex: FINDER,
@@ -24,15 +23,15 @@ async function rewriteFiles (dir) {
       }
     },
     paths: files,
-    recursive: true
+    recursive: true,
   })
 }
 
-async function main () {
+async function main() {
   const dirs = [
     path.join(__dirname, '../../content'),
     path.join(__dirname, '../../data'),
-    path.join(__dirname, '../../translations')
+    path.join(__dirname, '../../translations'),
   ]
 
   for (const dir of dirs) {

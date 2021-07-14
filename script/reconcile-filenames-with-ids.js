@@ -13,12 +13,11 @@ const entities = new htmlEntities.XmlEntities()
 
 const contentDir = path.join(process.cwd(), 'content')
 
-const contentFiles = walk(contentDir, { includeBasePath: true, directories: false })
-  .filter(file => {
-    return file.endsWith('.md') &&
-    !file.endsWith('index.md') &&
-    !file.includes('README')
-  })
+const contentFiles = walk(contentDir, { includeBasePath: true, directories: false }).filter(
+  (file) => {
+    return file.endsWith('.md') && !file.endsWith('index.md') && !file.includes('README')
+  }
+)
 
 // [start-readme]
 //
@@ -35,7 +34,7 @@ if (process.platform.startsWith('win')) {
   process.exit()
 }
 
-contentFiles.forEach(oldFullPath => {
+contentFiles.forEach((oldFullPath) => {
   const { data, content } = frontmatter(fs.readFileSync(oldFullPath, 'utf8'))
 
   // skip pages with frontmatter flag

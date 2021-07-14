@@ -5,7 +5,7 @@ import languages from '../../lib/languages.js'
 // Examples:
 // /jp*    -> /ja*
 // /zh-TW* -> /cn*
-export default function languageCodeRedirects (req, res, next) {
+export default function languageCodeRedirects(req, res, next) {
   for (const code in languages) {
     const language = languages[code]
     const redirectPatterns = language.redirectPatterns || []

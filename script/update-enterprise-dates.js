@@ -23,13 +23,17 @@ if (!process.env.GITHUB_TOKEN) {
 
 main()
 
-async function main () {
+async function main() {
   // send owner, repo, ref, path
   let rawDates = []
   try {
-    rawDates = JSON.parse(await getContents('github', 'enterprise-releases', 'master', 'releases.json'))
+    rawDates = JSON.parse(
+      await getContents('github', 'enterprise-releases', 'master', 'releases.json')
+    )
   } catch {
-    console.log('Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.')
+    console.log(
+      'Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.'
+    )
     process.exit(1)
   }
 
@@ -37,7 +41,7 @@ async function main () {
   Object.entries(rawDates).forEach(([releaseNumber, releaseObject]) => {
     formattedDates[releaseNumber] = {
       releaseDate: releaseObject.release_candidate || releaseObject.start,
-      deprecationDate: releaseObject.end
+      deprecationDate: releaseObject.end,
     }
   })
 

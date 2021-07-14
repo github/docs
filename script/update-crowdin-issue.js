@@ -25,10 +25,14 @@ const parsingErrorsLog = '~/docs-translation-parsing-error.txt'
 const renderingErrorsLog = '~/docs-translation-rendering-error.txt'
 
 // Get just the fixable files:
-const fixable = execSync(`cat ${fixableErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | sed -e 's/^/- [ ] /' | uniq`).toString()
+const fixable = execSync(
+  `cat ${fixableErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | sed -e 's/^/- [ ] /' | uniq`
+).toString()
 
 // Get a list of files to be added to the body of the issue
-const filesToAdd = execSync(`cat ${parsingErrorsLog} ${renderingErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | sed -e 's/^/- [ ] /' | uniq`).toString()
+const filesToAdd = execSync(
+  `cat ${parsingErrorsLog} ${renderingErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | sed -e 's/^/- [ ] /' | uniq`
+).toString()
 
 // Cat the three error logs together
 const allErrors = execSync('cat ~/docs-*').toString()
@@ -61,19 +65,21 @@ const issueNumber = '489'
 
 main()
 
-async function main () {
+async function main() {
   await updateIssueBody()
   await addNewComment()
 
   console.log('Success! You can safely delete the temporary logfiles under ~/docs-*.')
 }
 
-async function updateIssueBody () {
+async function updateIssueBody() {
   // Get current body text of OP from https://github.com/github/localization-support/issues/489.
-  const { data: { body } } = await github.issues.get({
+  const {
+    data: { body },
+  } = await github.issues.get({
     owner,
     repo,
-    issue_number: issueNumber
+    issue_number: issueNumber,
   })
 
   // Update the body with the list of newly broken files
@@ -85,25 +91,29 @@ async function updateIssueBody () {
       owner,
       repo,
       issue_number: issueNumber,
-      body: newBody
+      body: newBody,
     })
 
-    console.log('Added newly found broken files to OP of https://github.com/github/localization-support/issues/489!\n')
+    console.log(
+      'Added newly found broken files to OP of https://github.com/github/localization-support/issues/489!\n'
+    )
   } catch (err) {
     console.error(err)
   }
 }
 
-async function addNewComment () {
+async function addNewComment() {
   try {
     await github.issues.createComment({
       owner,
       repo,
       issue_number: issueNumber,
-      body: comment
+      body: comment,
     })
 
-    console.log('Added comment to the end of https://github.com/github/localization-support/issues/489!\n')
+    console.log(
+      'Added comment to the end of https://github.com/github/localization-support/issues/489!\n'
+    )
   } catch (err) {
     console.error(err)
   }

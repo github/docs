@@ -15,7 +15,7 @@ describe('glossaries', () => {
   })
 
   test('every entry has a valid term', async () => {
-    function hasValidTerm (entry) {
+    function hasValidTerm(entry) {
       return entry.term && entry.term.length && !entry.term.includes('*')
     }
 
@@ -26,7 +26,7 @@ describe('glossaries', () => {
 
   test('external glossary has entries, and they all have descriptions', async () => {
     expect(glossaries.external.length).toBeGreaterThan(20)
-    glossaries.external.forEach(entry => {
+    glossaries.external.forEach((entry) => {
       const message = `entry '${entry.term}' is missing a description`
       expect(entry.description && entry.description.length > 0, message).toBe(true)
     })
@@ -34,7 +34,7 @@ describe('glossaries', () => {
 
   test('internal glossary has entries, and they all have descriptions', async () => {
     expect(glossaries.internal.length).toBeGreaterThan(20)
-    glossaries.internal.forEach(entry => {
+    glossaries.internal.forEach((entry) => {
       const message = `entry '${entry.term}' is missing a description`
       expect(entry.description && entry.description.length > 0, message).toBe(true)
     })
@@ -49,7 +49,7 @@ describe('glossaries', () => {
 
   test('candidates all have a term, but no description', async () => {
     expect(glossaries.candidates.length).toBeGreaterThan(20)
-    glossaries.candidates.forEach(entry => {
+    glossaries.candidates.forEach((entry) => {
       const message = `entry '${entry.term}' not expected to have a description`
       expect(!entry.description, message).toBe(true)
     })

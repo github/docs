@@ -12,6 +12,6 @@ export default (req, res, next) => {
     dogstatsd: statsd,
     method: true, // Track HTTP methods (GET, POST, etc)
     response_code: true, // Track response codes
-    tags
+    tags,
   })(req, res, next)
 }

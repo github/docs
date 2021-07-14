@@ -22,11 +22,11 @@ xLunrDe(lunr)
 const fs = xFs.promises
 
 export default class LunrIndex {
-  constructor (name, records) {
+  constructor(name, records) {
     this.name = name
 
     // Add custom rankings
-    this.records = records.map(record => {
+    this.records = records.map((record) => {
       record.customRanking = rank(record)
       return record
     })
@@ -36,15 +36,16 @@ export default class LunrIndex {
     return this
   }
 
-  validate () {
+  validate() {
     return validateRecords(this.name, this.records)
   }
 
-  build () {
+  build() {
     const language = this.name.split('-').pop()
     const records = this.records
 
-    this.index = lunr(function constructIndex () { // No arrow here!
+    this.index = lunr(function constructIndex() {
+      // No arrow here!
       if (['ja', 'es', 'pt', 'de'].includes(language)) {
         this.use(lunr[language])
       }
@@ -67,38 +68,40 @@ export default class LunrIndex {
     })
   }
 
-  toJSON () {
+  toJSON() {
     this.build()
     return JSON.stringify(this.index, null, 2)
   }
 
-  get recordsObject () {
-    return Object.fromEntries(
-      this.records.map(record => [record.objectID, record])
-    )
+  get recordsObject() {
+    return Object.fromEntries(this.records.map((record) => [record.objectID, record]))
   }
 
-  async write () {
+  async write() {
     this.build()
 
     // Write the parsed records
     await Promise.resolve(this.recordsObject)
       .then(JSON.stringify)
       .then(compress)
-      .then(content => fs.writeFile(
-        path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}-records.json.br`),
-        content
-        // Do not set to 'utf8'
-      ))
+      .then((content) =>
+        fs.writeFile(
+          path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}-records.json.br`),
+          content
+          // Do not set to 'utf8'
+        )
+      )
 
     // Write the index
     await Promise.resolve(this.index)
       .then(JSON.stringify)
       .then(compress)
-      .then(content => fs.writeFile(
-        path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}.json.br`),
-        content
-        // Do not set to 'utf8'
-      ))
+      .then((content) =>
+        fs.writeFile(
+          path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}.json.br`),
+          content
+          // Do not set to 'utf8'
+        )
+      )
   }
 }

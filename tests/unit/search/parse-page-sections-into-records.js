@@ -5,8 +5,14 @@ import cheerio from 'cheerio'
 import parsePageSectionsIntoRecords from '../../../script/search/parse-page-sections-into-records.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixtures = {
-  pageWithSections: fs.readFileSync(path.join(__dirname, 'fixtures/page-with-sections.html'), 'utf8'),
-  pageWithoutSections: fs.readFileSync(path.join(__dirname, 'fixtures/page-without-sections.html'), 'utf8')
+  pageWithSections: fs.readFileSync(
+    path.join(__dirname, 'fixtures/page-with-sections.html'),
+    'utf8'
+  ),
+  pageWithoutSections: fs.readFileSync(
+    path.join(__dirname, 'fixtures/page-without-sections.html'),
+    'utf8'
+  ),
 }
 
 describe('search parsePageSectionsIntoRecords module', () => {
@@ -26,7 +32,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
         heading: 'First heading',
         title: 'I am the page title',
         content: "Here's a paragraph. And another.",
-        topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions']
+        topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions'],
       },
       {
         objectID: '/example/href#second',
@@ -36,8 +42,8 @@ describe('search parsePageSectionsIntoRecords module', () => {
         heading: 'Second heading',
         title: 'I am the page title',
         content: "Here's a paragraph in the second section. And another.",
-        topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions']
-      }
+        topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions'],
+      },
     ]
 
     expect(records).toEqual(expected)
@@ -57,8 +63,8 @@ describe('search parsePageSectionsIntoRecords module', () => {
         breadcrumbs: 'Education / map topic',
         title: 'A page without sections',
         content: 'First paragraph. Second paragraph.',
-        topics: ['key1', 'key2', 'key3', 'Education']
-      }
+        topics: ['key1', 'key2', 'key3', 'Education'],
+      },
     ]
     expect(records).toEqual(expected)
   })

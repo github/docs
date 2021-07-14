@@ -15,7 +15,7 @@ describe('versions module', () => {
   })
 
   test('every version is valid', () => {
-    Object.values(allVersions).forEach(versionObj => {
+    Object.values(allVersions).forEach((versionObj) => {
       const { valid, errors } = revalidator.validate(versionObj, schema)
       const expectation = JSON.stringify({ versionObj, errors }, null, 2)
       expect(valid, expectation).toBe(true)

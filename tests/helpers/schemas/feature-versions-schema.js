@@ -3,8 +3,8 @@ import { schema } from '../../../lib/frontmatter.js'
 // Copy the properties from the frontmatter schema.
 const featureVersions = {
   properties: {
-    versions: Object.assign({}, schema.properties.versions)
-  }
+    versions: Object.assign({}, schema.properties.versions),
+  },
 }
 
 // Remove the feature versions properties.

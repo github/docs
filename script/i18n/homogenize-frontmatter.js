@@ -20,35 +20,44 @@ const fs = xFs.promises
 // Run!
 main()
 
-async function main () {
+async function main() {
   const translationDir = path.posix.join(__dirname, '../../translations')
   const translatedMarkdownFiles = walk(translationDir)
-    .filter(filename => {
-      return filename.includes('/content/') &&
-      filename.endsWith('.md') &&
-      !filename.endsWith('README.md')
+    .filter((filename) => {
+      return (
+        filename.includes('/content/') &&
+        filename.endsWith('.md') &&
+        !filename.endsWith('README.md')
+      )
     })
-    .map(filename => `translations/${filename}`)
+    .map((filename) => `translations/${filename}`)
 
   console.log(
-    (await Promise.all(
-      translatedMarkdownFiles
-        .map(async relPath => updateTranslatedMarkdownFile(relPath)
-          .catch(e => `Error in ${relPath}: ${e.message}`)
+    (
+      await Promise.all(
+        translatedMarkdownFiles.map(async (relPath) =>
+          updateTranslatedMarkdownFile(relPath).catch((e) => `Error in ${relPath}: ${e.message}`)
         )
-    )).filter(Boolean).join('\n')
+      )
+    )
+      .filter(Boolean)
+      .join('\n')
   )
 }
 
-async function extractFrontmatter (path) {
+async function extractFrontmatter(path) {
   const fileContents = await readFileAsync(path, 'utf8')
   return fm(fileContents)
 }
 
-async function updateTranslatedMarkdownFile (relPath) {
+async function updateTranslatedMarkdownFile(relPath) {
   const localisedAbsPath = path.posix.join(__dirname, '../..', relPath)
   // find the corresponding english file by removing the first 2 path segments: /translations/<language code>
-  const engAbsPath = path.posix.join(__dirname, '../..', relPath.split(path.sep).slice(2).join(path.sep))
+  const engAbsPath = path.posix.join(
+    __dirname,
+    '../..',
+    relPath.split(path.sep).slice(2).join(path.sep)
+  )
 
   // Load frontmatter from the source english file
   let englishFrontmatter
@@ -68,7 +77,11 @@ async function updateTranslatedMarkdownFile (relPath) {
   // Look for differences between the english and localised non-translatable properties
   let overwroteSomething = false
   for (const prop in localisedFrontmatter.data) {
-    if (!fm.schema.properties[prop].translatable && englishFrontmatter.data[prop] && localisedFrontmatter.data[prop] !== englishFrontmatter.data[prop]) {
+    if (
+      !fm.schema.properties[prop].translatable &&
+      englishFrontmatter.data[prop] &&
+      localisedFrontmatter.data[prop] !== englishFrontmatter.data[prop]
+    ) {
       localisedFrontmatter.data[prop] = englishFrontmatter.data[prop]
       overwroteSomething = true
     }
@@ -76,7 +89,10 @@ async function updateTranslatedMarkdownFile (relPath) {
 
   // rewrite the localised file, if it changed
   if (overwroteSomething) {
-    const toWrite = matter.stringify(localisedFrontmatter.content, localisedFrontmatter.data, { lineWidth: 10000, forceQuotes: true })
+    const toWrite = matter.stringify(localisedFrontmatter.content, localisedFrontmatter.data, {
+      lineWidth: 10000,
+      forceQuotes: true,
+    })
     await fs.writeFile(localisedAbsPath, toWrite)
 
     // return `${relPath}: updated`

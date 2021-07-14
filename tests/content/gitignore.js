@@ -6,6 +6,6 @@ const entries = gitignore.split(/\r?\n/)
 
 describe('.gitignore file', () => {
   test('includes an entry for .env', () => {
-    expect(entries.some(entry => entry === '.env')).toBe(true)
+    expect(entries.some((entry) => entry === '.env')).toBe(true)
   })
 })

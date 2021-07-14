@@ -15,7 +15,7 @@ module.exports = {
     webpack: 5,
   },
   typescript: {
-    ignoreBuildErrors: true
+    ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -23,18 +23,18 @@ module.exports = {
   i18n: {
     // locales: Object.values(languages).map(({ code }) => code),
     locales: ['en', 'cn', 'ja', 'es', 'pt', 'de'],
-    defaultLocale: 'en'
+    defaultLocale: 'en',
   },
   sassOptions: {
-    quietDeps: true
+    quietDeps: true,
   },
-  async rewrites () {
+  async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
       return {
         source: `/${productId}/:path*`,
-        destination: `/${DEFAULT_VERSION}/${productId}/:path*`
+        destination: `/${DEFAULT_VERSION}/${productId}/:path*`,
       }
     })
-  }
+  },
 }

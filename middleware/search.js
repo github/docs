@@ -8,10 +8,10 @@ const versions = new Set(Object.values(searchVersions))
 
 const router = express.Router()
 
-router.get('/', async function postSearch (req, res, next) {
+router.get('/', async function postSearch(req, res, next) {
   res.set({
     'surrogate-control': 'private, no-store',
-    'cache-control': 'private, no-store'
+    'cache-control': 'private, no-store',
   })
 
   const { query, version, language, filters, limit: limit_ } = req.query
@@ -24,9 +24,10 @@ router.get('/', async function postSearch (req, res, next) {
   }
 
   try {
-    const results = process.env.AIRGAP || req.cookies.AIRGAP
-      ? await loadLunrResults({ version, language, query: `${query} ${filters || ''}`, limit })
-      : await loadAlgoliaResults({ version, language, query, filters, limit })
+    const results =
+      process.env.AIRGAP || req.cookies.AIRGAP
+        ? await loadLunrResults({ version, language, query: `${query} ${filters || ''}`, limit })
+        : await loadAlgoliaResults({ version, language, query, filters, limit })
 
     // Only reply if the headers have not been sent and the request was not aborted...
     if (!res.headersSent && !req.aborted) {

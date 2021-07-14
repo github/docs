@@ -1,5 +1,10 @@
 import yaml from 'js-yaml'
-import { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } from '../../script/graphql/build-changelog.js'
+import {
+  createChangelogEntry,
+  cleanPreviewTitle,
+  previewAnchor,
+  prependDatedEntry,
+} from '../../script/graphql/build-changelog.js'
 import xFs from 'fs'
 import MockDate from 'mockdate'
 import readFileAsync from '../../lib/readfile-async.js'
@@ -77,7 +82,13 @@ upcoming_changes:
     date: '2021-01-01T00:00:00+00:00'
 `).upcoming_changes
 
-    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges)
+    const entry = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      previews,
+      oldUpcomingChanges,
+      newUpcomingChanges
+    )
     expect(entry).toEqual(expectedChangelogEntry)
   })
 

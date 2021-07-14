@@ -9,18 +9,20 @@ import readJsonFile from '../lib/read-json-file.js'
 import builtAssets from '../lib/built-asset-urls.js'
 import searchVersions from '../lib/search/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
-const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
+const activeProducts = Object.values(productMap).filter(
+  (product) => !product.wip && !product.hidden
+)
 const {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
-  getPathWithoutLanguage
+  getPathWithoutLanguage,
 } = xPathUtils
 const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
-export default async function contextualize (req, res, next) {
+export default async function contextualize(req, res, next) {
   // Ensure that we load some data only once on first request
   const { site, redirects, siteTree, pages: pageMap } = await warmServer()
 
@@ -28,7 +30,7 @@ export default async function contextualize (req, res, next) {
 
   // make feature flag environment variables accessible in layouts
   req.context.process = { env: {} }
-  featureFlags.forEach(featureFlagName => {
+  featureFlags.forEach((featureFlagName) => {
     req.context[featureFlagName] = process.env[featureFlagName]
   })
 
@@ -48,7 +50,9 @@ export default async function contextualize (req, res, next) {
   req.context.languages = languages
   req.context.productNames = productNames
   req.context.enterpriseServerReleases = enterpriseServerReleases
-  req.context.enterpriseServerVersions = Object.keys(allVersions).filter(version => version.startsWith('enterprise-server@'))
+  req.context.enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
+    version.startsWith('enterprise-server@')
+  )
   req.context.redirects = redirects
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
@@ -63,10 +67,10 @@ export default async function contextualize (req, res, next) {
     searchOptions: {
       languages: Object.keys(languages),
       versions: searchVersions,
-      nonEnterpriseDefaultVersion
+      nonEnterpriseDefaultVersion,
     },
     // `|| undefined` won't show at all for production
-    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined
+    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined,
   })
   if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
   req.context.searchVersions = searchVersions
