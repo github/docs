@@ -1,4 +1,4 @@
----
+Q0
 title: Changing your primary email address
 intro: You can change the email address associated with your user account at any time.
 redirect_from:
