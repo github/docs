@@ -18,6 +18,7 @@ shortTitle: Build & test Python
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -402,12 +403,8 @@ You can configure your workflow to publish your Python package to a package regi
 
 For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-{% raw %}
 ```yaml{:copy}
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Upload Python Package
 
@@ -434,8 +431,7 @@ jobs:
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
           user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

@@ -117,7 +117,7 @@ publishing {
         }
     }
     publications {
-        register<MavenPublication>("gpr") {
+        register&lt;MavenPublication>("gpr") {
             from(components["java"])
         }
     }
@@ -132,7 +132,7 @@ plugins {
 }
 subprojects {
     apply(plugin = "maven-publish")
-    configure<PublishingExtension> {
+    configure&lt;PublishingExtension> {
         repositories {
             maven {
                 name = "GitHubPackages"
@@ -144,7 +144,7 @@ subprojects {
             }
         }
         publications {
-            register<MavenPublication>("gpr") {
+            register&lt;MavenPublication>("gpr") {
                 from(components["java"])
             }
         }

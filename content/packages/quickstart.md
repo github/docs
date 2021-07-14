@@ -42,7 +42,6 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       ...    
     ```
     {% endraw %}
-
 5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
     $ npm install
@@ -64,7 +63,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
             with:
               node-version: 12
           - run: npm ci
@@ -78,7 +77,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           contents: read{% endif %}
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
             with:
               node-version: 12
               registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
@@ -88,7 +87,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
 8. Tell NPM which scope and registry to publish packages to using one of the following methods:
-   - Add an NPM configuration file for the repository by creating a `.npmrc` file, in the root directory with the contents:
+   - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
       {% raw %}
       ```shell
       <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
@@ -102,7 +101,6 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       }
       ```
       {% endraw %}
-  
 9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
     $ git add .github/workflows/release-package.yml

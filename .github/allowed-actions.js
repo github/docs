@@ -4,17 +4,14 @@
 // can be added it this list.
 
 module.exports = [
-  "actions/cache@0781355a23dac32fd3bac414512f4b903437991a", // v2.1.3
   "actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f", // v2.3.4
   "actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d", // v4.0.2
   "actions/labeler@5f867a63be70efff62b767459b009290364495eb", // v2.2.0
-  "actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e", // v2.1.4
+  "actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f", // v2.2.0
   "actions/setup-python@dc73133d4da04e56a135ae2246682783cc7c7cb6", // v2.2.2
   "actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da", // v3.0.16
   "alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9",
   "andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84",
-  "archive/github-actions-slack@d368c5a4ad757515a9344918f84c490b05777d94",
-  "ashley-taylor/regex-property-action@93a24f845cd20790924208225cc72da8b4c6d46d",
   "crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688",
   "crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c",
   "cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be",
