@@ -14,7 +14,6 @@ import createRedisClient from '../lib/redis/create-client.js'
 
 xDotenv.config()
 
-
 const { REDIS_URL, HEROKU_RELEASE_VERSION, HEROKU_PRODUCTION_APP } = process.env
 const isHerokuProd = HEROKU_PRODUCTION_APP === 'true'
 const pageCacheDatabaseNumber = 1
@@ -41,17 +40,17 @@ if (!REDIS_URL) {
 
 console.log({
   HEROKU_RELEASE_VERSION,
-  HEROKU_PRODUCTION_APP
+  HEROKU_PRODUCTION_APP,
 })
 
 purgeRenderedPageCache()
 
-function purgeRenderedPageCache () {
+function purgeRenderedPageCache() {
   const redisClient = createRedisClient({
     url: REDIS_URL,
     db: pageCacheDatabaseNumber,
     // These commands ARE important, so let's make sure they are all accounted for
-    enable_offline_queue: true
+    enable_offline_queue: true,
   })
 
   let iteration = 0
@@ -69,20 +68,26 @@ function purgeRenderedPageCache () {
   // Define other subroutines
   //
 
-  async function scan (cursor = '0') {
+  async function scan(cursor = '0') {
     try {
       // [0]: Update the cursor position for the next scan
       // [1]: Get the SCAN result for this iteration
       const [nextCursor, keys] = await scanAsync(
         cursor,
-        'MATCH', keyScanningPattern,
-        'COUNT', scanSetSize.toString()
+        'MATCH',
+        keyScanningPattern,
+        'COUNT',
+        scanSetSize.toString()
       )
 
       console.log(`\n[Iteration ${iteration++}] Received ${keys.length} keys...`)
 
       if (dryRun) {
-        console.log(`DRY RUN! This iteration might have set TTL for up to ${keys.length} keys:\n - ${keys.join('\n - ')}`)
+        console.log(
+          `DRY RUN! This iteration might have set TTL for up to ${
+            keys.length
+          } keys:\n - ${keys.join('\n - ')}`
+        )
       }
 
       // NOTE: It is possible for a SCAN cursor iteration to return 0 keys when
@@ -125,9 +130,9 @@ function purgeRenderedPageCache () {
   }
 
   // Find existing TTLs to ensure we aren't extending the TTL if it's already set
-  async function getTtls (keys) {
+  async function getTtls(keys) {
     const pttlPipeline = redisClient.batch()
-    keys.forEach(key => pttlPipeline.pttl(key))
+    keys.forEach((key) => pttlPipeline.pttl(key))
 
     const pttlPipelineExecAsync = promisify(pttlPipeline.exec).bind(pttlPipeline)
     const pttlResults = await pttlPipelineExecAsync()
@@ -139,7 +144,7 @@ function purgeRenderedPageCache () {
     return pttlResults
   }
 
-  async function updateTtls (keys) {
+  async function updateTtls(keys) {
     const pttlResults = await getTtls(keys)
 
     // Find pertinent keys to have TTLs set

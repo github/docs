@@ -3,9 +3,11 @@ import nock from 'nock'
 
 describe('FailBot', () => {
   beforeEach(() => {
-    nock('https://haystack.com').post('/').reply(200, (uri, requestBody) => {
-      return requestBody
-    })
+    nock('https://haystack.com')
+      .post('/')
+      .reply(200, (uri, requestBody) => {
+        return requestBody
+      })
   })
 
   afterEach(() => {
@@ -38,7 +40,7 @@ describe('FailBot', () => {
         created_at: expect.any(String),
         js_environment: expect.stringMatching(/^Node\.js\sv[\d.]+/),
         message: 'Kaboom',
-        rollup: expect.any(String)
+        rollup: expect.any(String),
       })
     })
   })

@@ -9,7 +9,7 @@ if (nextApp) {
   nextApp.prepare()
 }
 
-function renderPageWithNext (req, res, next) {
+function renderPageWithNext(req, res, next) {
   if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {
     return nextHandleRequest(req, res)
   }

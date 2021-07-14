@@ -20,8 +20,8 @@ if (!(labelsArray && labelsArray.length)) {
 
 // Find the relevant label
 const algoliaLabel = labelsArray
-  .map(label => label.name)
-  .find(label => label.startsWith(labelText))
+  .map((label) => label.name)
+  .find((label) => label.startsWith(labelText))
 
 // Exit early if no relevant label is found
 if (!algoliaLabel) {

@@ -3,7 +3,7 @@ import webhookPayloads from '../../lib/webhooks/index.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import allVersions from '../../lib/all-versions.js'
 
-export default function webhooksContext (req, res, next) {
+export default function webhooksContext(req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-webhook reference paths
   // and to versions that don't exist
@@ -20,9 +20,13 @@ export default function webhooksContext (req, res, next) {
   const webhookPayloadsForCurrentVersion = webhookPayloads[webhookPayloadDir]
 
   // if current version is non-dotcom, include dotcom payloads in object so we can fall back to them if needed
-  req.context.webhookPayloadsForCurrentVersion = req.context.currentVersion === nonEnterpriseDefaultVersion
-    ? webhookPayloadsForCurrentVersion
-    : defaults(webhookPayloadsForCurrentVersion, webhookPayloads[allVersions[nonEnterpriseDefaultVersion].miscVersionName])
+  req.context.webhookPayloadsForCurrentVersion =
+    req.context.currentVersion === nonEnterpriseDefaultVersion
+      ? webhookPayloadsForCurrentVersion
+      : defaults(
+          webhookPayloadsForCurrentVersion,
+          webhookPayloads[allVersions[nonEnterpriseDefaultVersion].miscVersionName]
+        )
 
   return next()
 }

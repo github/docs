@@ -17,25 +17,33 @@ describe('robots.txt', () => {
   it('allows indexing of the homepage and English content', async () => {
     expect(robots.isAllowed('https://docs.github.com/')).toBe(true)
     expect(robots.isAllowed('https://docs.github.com/en')).toBe(true)
-    expect(robots.isAllowed('https://docs.github.com/en/articles/verifying-your-email-address')).toBe(true)
+    expect(
+      robots.isAllowed('https://docs.github.com/en/articles/verifying-your-email-address')
+    ).toBe(true)
   })
 
   it('allows indexing of generally available localized content', async () => {
     Object.values(languages)
-      .filter(language => !language.wip)
-      .forEach(language => {
+      .filter((language) => !language.wip)
+      .forEach((language) => {
         expect(robots.isAllowed(`https://docs.github.com/${language.code}`)).toBe(true)
-        expect(robots.isAllowed(`https://docs.github.com/${language.code}/articles/verifying-your-email-address`)).toBe(true)
+        expect(
+          robots.isAllowed(
+            `https://docs.github.com/${language.code}/articles/verifying-your-email-address`
+          )
+        ).toBe(true)
       })
   })
 
   it('disallows indexing of herokuapp.com domains', async () => {
     const req = {
       hostname: 'docs-internal-12345--my-branch.herokuapp.com',
-      path: '/robots.txt'
+      path: '/robots.txt',
     }
     const res = new MockExpressResponse()
-    const next = () => { /* no op */ }
+    const next = () => {
+      /* no op */
+    }
 
     await robotsMiddleware(req, res, next)
     expect(res._getString()).toEqual('User-agent: *\nDisallow: /')

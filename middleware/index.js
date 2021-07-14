@@ -66,10 +66,9 @@ const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = fn =>
-  (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next)
-  }
+const asyncMiddleware = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch(next)
+}
 
 export default function (app) {
   // *** Request connection management ***
@@ -94,13 +93,15 @@ export default function (app) {
 
   // *** Security ***
   app.use(cors)
-  app.use(helmet({
-    // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
-    // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
-    referrerPolicy: {
-      policy: 'strict-origin-when-cross-origin'
-    }
-  }))
+  app.use(
+    helmet({
+      // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
+      // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
+      referrerPolicy: {
+        policy: 'strict-origin-when-cross-origin',
+      },
+    })
+  )
   app.use(csp) // Must come after helmet
   app.use(cookieParser) // Must come before csrf
   app.use(express.json()) // Must come before csrf
@@ -138,26 +139,39 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
-  app.use(asyncMiddleware(instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets'))) // Must come before static/assets
-  app.use('/dist', express.static('dist', {
-    index: false,
-    etag: false,
-    immutable: true,
-    lastModified: false,
-    maxAge: '28 days' // Could be infinite given our fingerprinting
-  }))
-  app.use('/assets', express.static('assets', {
-    index: false,
-    etag: false,
-    lastModified: false,
-    maxAge: '1 day' // Relatively short in case we update images
-  }))
-  app.use('/public', express.static('data/graphql', {
-    index: false,
-    etag: false,
-    lastModified: false,
-    maxAge: '7 days' // A bit longer since releases are more sparse
-  }))
+  app.use(
+    asyncMiddleware(
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
+    )
+  ) // Must come before static/assets
+  app.use(
+    '/dist',
+    express.static('dist', {
+      index: false,
+      etag: false,
+      immutable: true,
+      lastModified: false,
+      maxAge: '28 days', // Could be infinite given our fingerprinting
+    })
+  )
+  app.use(
+    '/assets',
+    express.static('assets', {
+      index: false,
+      etag: false,
+      lastModified: false,
+      maxAge: '1 day', // Relatively short in case we update images
+    })
+  )
+  app.use(
+    '/public',
+    express.static('data/graphql', {
+      index: false,
+      etag: false,
+      lastModified: false,
+      maxAge: '7 days', // A bit longer since releases are more sparse
+    })
+  )
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
 
@@ -166,8 +180,14 @@ export default function (app) {
 
   app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
   app.use(instrument(robots, './robots'))
-  app.use(/(\/.*)?\/early-access$/, instrument(earlyAccessLinks, './contextualizers/early-access-links'))
-  app.use('/categories.json', asyncMiddleware(instrument(categoriesForSupport, './categories-for-support')))
+  app.use(
+    /(\/.*)?\/early-access$/,
+    instrument(earlyAccessLinks, './contextualizers/early-access-links')
+  )
+  app.use(
+    '/categories.json',
+    asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
+  )
   app.use(instrument(loaderio, './loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
@@ -184,7 +204,11 @@ export default function (app) {
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(asyncMiddleware(instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')))
+  app.use(
+    asyncMiddleware(
+      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
+    )
+  )
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 

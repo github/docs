@@ -7,8 +7,8 @@ import allowedTopics from '../../../data/allowed-topics.js'
 
 const contentDir = path.join(process.cwd(), 'content')
 const topics = walk(contentDir, { includeBasePath: true })
-  .filter(filename => filename.endsWith('.md') && !filename.includes('README'))
-  .map(filename => {
+  .filter((filename) => filename.endsWith('.md') && !filename.includes('README'))
+  .map((filename) => {
     const fileContent = fs.readFileSync(filename, 'utf8')
     const { data } = readFrontmatter(fileContent)
     return data.topics || []

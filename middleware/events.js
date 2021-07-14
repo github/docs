@@ -11,7 +11,7 @@ addFormats(ajv)
 
 const router = express.Router()
 
-router.post('/', async function postEvents (req, res, next) {
+router.post('/', async function postEvents(req, res, next) {
   const isDev = process.env.NODE_ENV === 'development'
   const fields = omit(req.body, '_csrf')
 
@@ -23,10 +23,7 @@ router.post('/', async function postEvents (req, res, next) {
   if (req.hydro.maySend()) {
     // intentionally don't await this async request
     // so that the http response afterwards is sent immediately
-    req.hydro.publish(
-      req.hydro.schemas[fields.type],
-      omit(fields, OMIT_FIELDS)
-    ).catch((e) => {
+    req.hydro.publish(req.hydro.schemas[fields.type], omit(fields, OMIT_FIELDS)).catch((e) => {
       if (isDev) console.error(e)
     })
   }

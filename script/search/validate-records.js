@@ -5,18 +5,18 @@ import isURL from 'is-url'
 import countArrayValues from 'count-array-values'
 import { maxRecordLength } from '../../lib/search/config.js'
 
-export default function validateRecords (name, records) {
+export default function validateRecords(name, records) {
   assert(isString(name) && name.length, '`name` is required')
   assert(isArray(records) && records.length, '`records` must be a non-empty array')
 
   // each ID is unique
-  const objectIDs = records.map(record => record.objectID)
+  const objectIDs = records.map((record) => record.objectID)
   const dupes = countArrayValues(objectIDs)
     .filter(({ value, count }) => count > 1)
     .map(({ value }) => value)
   assert(!dupes.length, `every objectID must be unique. dupes: ${dupes.join('; ')}`)
 
-  records.forEach(record => {
+  records.forEach((record) => {
     assert(
       isString(record.objectID) && record.objectID.length,
       `objectID must be a string. received: ${record.objectID}, ${JSON.stringify(record)}`

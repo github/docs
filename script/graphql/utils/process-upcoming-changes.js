@@ -3,7 +3,7 @@ import yaml from 'js-yaml'
 import { groupBy } from 'lodash-es'
 import renderContent from '../../../lib/render-content/index.js'
 
-export default async function processUpcomingChanges (upcomingChangesYml) {
+export default async function processUpcomingChanges(upcomingChangesYml) {
   const upcomingChanges = yaml.load(upcomingChangesYml).upcoming_changes
 
   for (const change of upcomingChanges) {

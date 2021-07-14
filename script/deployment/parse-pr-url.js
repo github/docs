@@ -5,17 +5,17 @@ const PR_NUMBER_FORMAT = '(\\d+)'
 
 const ALLOWED_PR_URL_FORMAT = new RegExp(
   '^' +
-  '[\'"]?' +
-  `https://github\\.com/${USERNAME_FORMAT}/${REPO_NAME_FORMAT}/pull/${PR_NUMBER_FORMAT}` +
-  '[\'"]?' +
-  '$'
+    '[\'"]?' +
+    `https://github\\.com/${USERNAME_FORMAT}/${REPO_NAME_FORMAT}/pull/${PR_NUMBER_FORMAT}` +
+    '[\'"]?' +
+    '$'
 )
 
-export default function parsePullRequestUrl (prUrl) {
-  const [/* fullMatch */, owner, repo, pr] = ((prUrl || '').match(ALLOWED_PR_URL_FORMAT) || [])
+export default function parsePullRequestUrl(prUrl) {
+  const [, /* fullMatch */ owner, repo, pr] = (prUrl || '').match(ALLOWED_PR_URL_FORMAT) || []
   return {
     owner,
     repo,
-    pullNumber: parseInt(pr, 10) || undefined
+    pullNumber: parseInt(pr, 10) || undefined,
   }
 }

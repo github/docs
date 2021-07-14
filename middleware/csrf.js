@@ -3,5 +3,5 @@ import xCsurf from 'csurf'
 
 export default xCsurf({
   cookie: cookieSettings,
-  ignoreMethods: ['GET', 'HEAD', 'OPTIONS']
+  ignoreMethods: ['GET', 'HEAD', 'OPTIONS'],
 })
