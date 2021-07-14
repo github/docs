@@ -1,1 +1,44 @@
-translations/
+
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md.
+similarity index 99%
+rename from CONTRIBUTING.md
+rename to CONTRIBUTING.md.
+index ba27238c5c83..67b55881dd64 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md.
+@@ -23,7 +23,7 @@ If you spot something new, open an issue using a [template](https://github.com/g
+ 
+ ### Ready to make a change? Fork the repo
+ 
+-Fork using GitHub Desktop:
++Fork using GitHub Desktop: 
+ 
+ - [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop.
+ - Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
+diff --git a/SECURITY.md b/SECURITY.md
+new file mode 100644
+index 000000000000..034e84803209
+--- /dev/null
++++ b/SECURITY.md
+@@ -0,0 +1,21 @@
++# Security Policy
++
++## Supported Versions
++
++Use this section to tell people about which versions of your project are
++currently being supported with security updates.
++
++| Version | Supported          |
++| ------- | ------------------ |
++| 5.1.x   | :white_check_mark: |
++| 5.0.x   | :x:                |
++| 4.0.x   | :white_check_mark: |
++| < 4.0   | :x:                |
++
++## Reporting a Vulnerability
++
++Use this section to tell people how to report a vulnerability.
++
++Tell them where to go, how often they can expect to get an update on a
++reported vulnerability, what to expect if the vulnerability is accepted or
++declined, etc.
