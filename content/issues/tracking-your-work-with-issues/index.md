@@ -20,6 +20,7 @@ children:
   - /pinning-an-issue-to-your-repository
   - /transferring-an-issue-to-another-repository
   - /deleting-an-issue
+  - /planning-and-tracking-work-for-your-team-or-project
 redirect_from:
   - /issues/tracking-your-work-with-issues/creating-issues
   - /issues/tracking-your-work-with-issues/managing-issues

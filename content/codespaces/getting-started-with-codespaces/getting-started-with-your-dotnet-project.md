@@ -198,7 +198,7 @@ With your dev container added and a basic understanding of what everything does,
    
 ## Step 4: Run your application
 
-In the previous section, you used the `postCreateCommand` to installing a set of packages via pip3. With our dependencies now installed, we can run our application.
+In the previous section, you used the `postCreateCommand` to install a set of packages via the `dotnet restore` command. With our dependencies now installed, we can run our application.
 
 1. Run your application by pressing `F5` or entering `dotnet watch run` in your terminal.
 

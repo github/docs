@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository
 permissions: Repository administrators and organization owners can view and update dependencies.
-shortTitle: Viewing and updating vulnerable dependencies
+shortTitle: Fix vulnerable dependencies
 versions:
   fpt: '*'
   ghes: '>=3.0'

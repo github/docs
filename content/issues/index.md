@@ -11,6 +11,7 @@ featuredLinks:
     - /issues/trying-out-the-new-projects-experience/quickstart
     - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+    - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   guideCards:
     - /issues/trying-out-the-new-projects-experience/automating-projects
     - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue

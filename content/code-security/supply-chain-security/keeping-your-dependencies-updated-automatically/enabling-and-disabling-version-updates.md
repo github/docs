@@ -14,7 +14,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Enable & disable updates
+shortTitle: Enable and disable updates
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 

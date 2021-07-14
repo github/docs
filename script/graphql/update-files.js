@@ -8,7 +8,7 @@ const { execSync } = require('child_process')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const { getContents, listMatchingRefs } = require('../helpers/git-utils')
-const dataFilenames = JSON.parse(fs.readFileSync('./utils/data-filenames.json'))
+const dataFilenames = JSON.parse(fs.readFileSync('./script/graphql/utils/data-filenames.json'))
 const allVersions = require('../../lib/all-versions')
 const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
@@ -31,83 +31,88 @@ const currentLanguage = 'en'
 main()
 
 async function main () {
-  const previewsJson = {}
-  const upcomingChangesJson = {}
-  const prerenderedObjects = {}
-  const prerenderedInputObjects = {}
+  try {
+    const previewsJson = {}
+    const upcomingChangesJson = {}
+    const prerenderedObjects = {}
+    const prerenderedInputObjects = {}
 
-  const siteData = await loadData()
+    const siteData = await loadData()
 
-  // create a bare minimum context for rendering the graphql-object.html layout
-  const context = {
-    currentLanguage,
-    site: siteData[currentLanguage].site
-  }
+    // create a bare minimum context for rendering the graphql-object.html layout
+    const context = {
+      currentLanguage,
+      site: siteData[currentLanguage].site
+    }
 
-  for (const version of versionsToBuild) {
-    // Get the relevant GraphQL name  for the current version
-    // For example, free-pro-team@latest corresponds to dotcom,
-    // enterprise-server@2.22 corresponds to ghes-2.22,
-    // and github-ae@latest corresponds to ghae
-    const graphqlVersion = allVersions[version].miscVersionName
+    for (const version of versionsToBuild) {
+      // Get the relevant GraphQL name  for the current version
+      // For example, free-pro-team@latest corresponds to dotcom,
+      // enterprise-server@2.22 corresponds to ghes-2.22,
+      // and github-ae@latest corresponds to ghae
+      const graphqlVersion = allVersions[version].miscVersionName
 
-    // 1. UPDATE PREVIEWS
-    const previewsPath = getDataFilepath('previews', graphqlVersion)
-    const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
-    updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
-    previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
+      // 1. UPDATE PREVIEWS
+      const previewsPath = getDataFilepath('previews', graphqlVersion)
+      const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
+      updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
+      previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
-    // 2. UPDATE UPCOMING CHANGES
-    const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    const previousUpcomingChanges = yaml.load(fs.readFileSync(upcomingChangesPath, 'utf8'))
-    const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
-    updateFile(upcomingChangesPath, safeForPublicChanges)
-    upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
+      // 2. UPDATE UPCOMING CHANGES
+      const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
+      const previousUpcomingChanges = yaml.load(fs.readFileSync(upcomingChangesPath, 'utf8'))
+      const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
+      updateFile(upcomingChangesPath, safeForPublicChanges)
+      upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
 
-    // 3. UPDATE SCHEMAS
-    // note: schemas live in separate files per version
-    const schemaPath = getDataFilepath('schemas', graphqlVersion)
-    const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
-    const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
-    updateFile(schemaPath, latestSchema)
-    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
-    updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
+      // 3. UPDATE SCHEMAS
+      // note: schemas live in separate files per version
+      const schemaPath = getDataFilepath('schemas', graphqlVersion)
+      const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
+      const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
+      updateFile(schemaPath, latestSchema)
+      const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
+      updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
 
-    // Add some version specific data to the context
-    context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
-    context.currentVersion = version
+      // Add some version specific data to the context
+      context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
+      context.currentVersion = version
 
-    // 4. PRERENDER OBJECTS HTML
-    // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(context)
+      // 4. PRERENDER OBJECTS HTML
+      // because the objects page is too big to render on page load
+      prerenderedObjects[graphqlVersion] = await prerenderObjects(context)
 
-    // 5. PRERENDER INPUT OBJECTS HTML
-    // because the objects page is too big to render on page load
-    prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(context)
+      // 5. PRERENDER INPUT OBJECTS HTML
+      // because the objects page is too big to render on page load
+      prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(context)
 
-    // 6. UPDATE CHANGELOG
-    if (allVersions[version].nonEnterpriseDefault) {
-      // The Changelog is only build for free-pro-team@latest
-      const changelogEntry = await createChangelogEntry(
-        previousSchemaString,
-        latestSchema,
-        safeForPublicPreviews,
-        previousUpcomingChanges.upcoming_changes,
-        yaml.load(safeForPublicChanges).upcoming_changes
-      )
-      if (changelogEntry) {
-        prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))
+      // 6. UPDATE CHANGELOG
+      if (allVersions[version].nonEnterpriseDefault) {
+        // The Changelog is only build for free-pro-team@latest
+        const changelogEntry = await createChangelogEntry(
+          previousSchemaString,
+          latestSchema,
+          safeForPublicPreviews,
+          previousUpcomingChanges.upcoming_changes,
+          yaml.load(safeForPublicChanges).upcoming_changes
+        )
+        if (changelogEntry) {
+          prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))
+        }
       }
     }
+
+    updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
+    updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
+    updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+    updateStaticFile(prerenderedInputObjects, path.join(graphqlStaticDir, 'prerendered-input-objects.json'))
+
+    // Ensure the YAML linter runs before checkinging in files
+    execSync('npx prettier -w "**/*.{yml,yaml}"')
+  } catch (e) {
+    console.error(e)
+    process.exit(1)
   }
-
-  updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
-  updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
-  updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
-  updateStaticFile(prerenderedInputObjects, path.join(graphqlStaticDir, 'prerendered-input-objects.json'))
-
-  // Ensure the YAML linter runs before checkinging in files
-  execSync('npx prettier -w "**/*.{yml,yaml}"')
 }
 
 // get latest from github/github
