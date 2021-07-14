@@ -1,22 +1,26 @@
-const { isEqual, get, uniqWith } = require('lodash')
-const loadSiteData = require('../../lib/site-data')
-const { loadPages } = require('../../lib/page-data')
-const getDataReferences = require('../../lib/get-liquid-data-references')
-const frontmatter = require('../../lib/read-frontmatter')
-const fs = require('fs').promises
-const path = require('path')
-const readFileAsync = require('../../lib/readfile-async')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { isEqual, get, uniqWith } from 'lodash-es'
+import loadSiteData from '../../lib/site-data.js'
+import { loadPages } from '../../lib/page-data.js'
+import getDataReferences from '../../lib/get-liquid-data-references.js'
+import frontmatter from '../../lib/read-frontmatter.js'
+import xFs from 'fs'
+import readFileAsync from '../../lib/readfile-async.js'
+import { jest } from '@jest/globals'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const fs = xFs.promises
 
 describe('data references', () => {
   jest.setTimeout(60 * 1000)
 
   let data, pages
 
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     data = await loadSiteData()
     pages = await loadPages()
     pages = pages.filter(page => page.languageCode === 'en')
-    done()
   })
 
   test('every data reference found in English content files is defined and has a value', () => {

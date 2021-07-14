@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import xMkdirp from 'mkdirp'
+import path from 'path'
+import program from 'commander'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const mkdirp = require('mkdirp').sync
-const path = require('path')
-const program = require('commander')
-const allVersions = require('../../lib/all-versions')
+const mkdirp = xMkdirp.sync
 const payloadsDir = 'lib/webhooks/static'
 
 // [start-readme]

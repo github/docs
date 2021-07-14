@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+import linkinator from 'linkinator'
+import { deprecated, latest } from '../lib/enterprise-server-releases.js'
 
-const linkinator = require('linkinator')
 const checker = new linkinator.LinkChecker()
-const { deprecated, latest } = require('../lib/enterprise-server-releases')
 const englishRoot = 'http://localhost:4002/en'
 const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 

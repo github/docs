@@ -1,10 +1,11 @@
-const Operation = require('./operation')
+#!/usr/bin/env node
+import Operation from './operation.js'
 
 // The module accepts a JSON schema object as input
 // and returns an array of its operation objects with their
 // HTTP verb and requestPath attached as properties
 
-module.exports = async function getOperations (schema) {
+export default async function getOperations (schema) {
   const operations = []
 
   for (const [requestPath, operationsAtPath] of Object.entries(schema.paths)) {

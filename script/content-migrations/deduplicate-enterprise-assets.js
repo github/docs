@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import xJimp from 'jimp'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const jimp = require('jimp') // this is an optional dependency, install with `npm i --include=optional`
+const jimp = xJimp // this is an optional dependency, install with `npm i --include=optional`
 
 // iterate through enterprise images from most recent to oldest
 // check if the image in the /assets/enterprise/... directory

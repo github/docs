@@ -1,18 +1,20 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import matter from 'gray-matter'
+import program from 'commander'
+import { indexOf, nth } from 'lodash-es'
+import removeLiquidStatements from '../../lib/remove-liquid-statements.js'
+import removeDeprecatedFrontmatter from '../../lib/remove-deprecated-frontmatter.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import runRemoveUnusedAssetsScript from '../remove-unused-assets.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const matter = require('gray-matter')
-const program = require('commander')
-const { indexOf, nth } = require('lodash')
-const removeLiquidStatements = require('../../lib/remove-liquid-statements')
-const removeDeprecatedFrontmatter = require('../../lib/remove-deprecated-frontmatter')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const contentPath = path.join(__dirname, '../../content')
 const dataPath = path.join(__dirname, '../../data')
 const removeUnusedAssetsScript = 'script/remove-unused-assets'
-const runRemoveUnusedAssetsScript = require('../remove-unused-assets')
 const elseifRegex = /{-?% elsif/
 
 // [start-readme]

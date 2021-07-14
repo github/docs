@@ -1,8 +1,11 @@
-const fs = require('fs')
-const path = require('path')
-const yaml = require('js-yaml')
-const flat = require('flat')
-const { chain, difference, get } = require('lodash')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import yaml from 'js-yaml'
+import flat from 'flat'
+import { chain, difference, get } from 'lodash-es'
+import allowedActions from '../../.github/allowed-actions.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const workflowsDir = path.join(__dirname, '../../.github/workflows')
 const workflows = fs.readdirSync(workflowsDir)
   .filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
@@ -11,7 +14,6 @@ const workflows = fs.readdirSync(workflowsDir)
     const data = yaml.load(fs.readFileSync(fullpath, 'utf8'), { fullpath })
     return { filename, fullpath, data }
   })
-const allowedActions = require('../../.github/allowed-actions')
 
 function actionsUsedInWorkflow (workflow) {
   return Object.keys(flat(workflow))

@@ -23,7 +23,7 @@ const section = {
   ]
 }
 
-module.exports = {
+export default {
   properties: {
     intro: {
       type: 'string'

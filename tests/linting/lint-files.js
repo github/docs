@@ -1,29 +1,31 @@
-const path = require('path')
-const slash = require('slash')
-const walk = require('walk-sync')
-const { zip, groupBy } = require('lodash')
-const yaml = require('js-yaml')
-const revalidator = require('revalidator')
-const generateMarkdownAST = require('mdast-util-from-markdown')
-const visit = require('unist-util-visit')
-const readFileAsync = require('../../lib/readfile-async')
-const frontmatter = require('../../lib/frontmatter')
-const languages = require('../../lib/languages')
-const { tags } = require('../../lib/liquid-tags/extended-markdown')
-const ghesReleaseNotesSchema = require('../helpers/schemas/ghes-release-notes-schema')
-const ghaeReleaseNotesSchema = require('../helpers/schemas/ghae-release-notes-schema')
-const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema')
-const featureVersionsSchema = require('../helpers/schemas/feature-versions-schema')
-const renderContent = require('../../lib/render-content')
-const getApplicableVersions = require('../../lib/get-applicable-versions')
-const { execSync } = require('child_process')
-const allVersions = require('../../lib/all-versions')
-const { supported, next } = require('../../lib/enterprise-server-releases')
-const getLiquidConditionals = require('../../script/helpers/get-liquid-conditionals')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import slash from 'slash'
+import walk from 'walk-sync'
+import { zip, groupBy } from 'lodash-es'
+import yaml from 'js-yaml'
+import revalidator from 'revalidator'
+import generateMarkdownAST from 'mdast-util-from-markdown'
+import visit from 'unist-util-visit'
+import readFileAsync from '../../lib/readfile-async.js'
+import frontmatter from '../../lib/frontmatter.js'
+import languages from '../../lib/languages.js'
+import { tags } from '../../lib/liquid-tags/extended-markdown.js'
+import ghesReleaseNotesSchema from '../helpers/schemas/ghes-release-notes-schema.js'
+import ghaeReleaseNotesSchema from '../helpers/schemas/ghae-release-notes-schema.js'
+import learningTracksSchema from '../helpers/schemas/learning-tracks-schema.js'
+import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
+import renderContent from '../../lib/render-content/index.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import { execSync } from 'child_process'
+import allVersions from '../../lib/all-versions.js'
+import { supported, next } from '../../lib/enterprise-server-releases.js'
+import getLiquidConditionals from '../../script/helpers/get-liquid-conditionals.js'
+import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 const versionShortNames = Object.values(allVersions).map(v => v.shortName)
 const versionKeywords = versionShortNames.concat(['currentVersion', 'enterpriseServerReleases'])
-const allowedVersionOperators = require('../../lib/liquid-tags/ifversion-supported-operators')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')

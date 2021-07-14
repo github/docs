@@ -1,6 +1,6 @@
 #!/usr/bin/env node
+import { listPulls, createIssueComment } from '../helpers/git-utils.js'
 
-const { listPulls, createIssueComment } = require('../helpers/git-utils')
 
 // [start-readme]
 //

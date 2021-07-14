@@ -1,17 +1,19 @@
-const fs = require('fs')
-const path = require('path')
-const { get, isPlainObject, has } = require('lodash')
-const flat = require('flat')
-const loadSiteData = require('../../lib/site-data')
-const patterns = require('../../lib/patterns')
-const { liquid } = require('../../lib/render-content')
-const walkSync = require('walk-sync')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { get, isPlainObject, has } from 'lodash-es'
+import flat from 'flat'
+import loadSiteData from '../../lib/site-data.js'
+import patterns from '../../lib/patterns.js'
+import { liquid } from '../../lib/render-content/index.js'
+import walkSync from 'walk-sync'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('siteData module (English)', () => {
   let data
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     data = await loadSiteData()
-    done()
   })
 
   test('makes an object', async () => {

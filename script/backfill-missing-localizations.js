@@ -1,10 +1,13 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import xMkdirp from 'mkdirp'
+import languages from '../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const mkdirp = require('mkdirp').sync
-const languages = require('../lib/languages')
+const mkdirp = xMkdirp.sync
 
 const dirs = ['content', 'data']
 

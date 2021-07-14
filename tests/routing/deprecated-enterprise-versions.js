@@ -1,8 +1,10 @@
-const createApp = require('../../lib/app')
+import createApp from '../../lib/app.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { get, getDOM } from '../helpers/supertest.js'
+import supertest from 'supertest'
+import { jest } from '@jest/globals'
+
 const app = createApp()
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM } = require('../helpers/supertest')
-const supertest = require('supertest')
 
 describe('enterprise deprecation', () => {
   jest.setTimeout(60 * 1000)

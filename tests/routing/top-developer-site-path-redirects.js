@@ -1,5 +1,7 @@
-const { head } = require('../helpers/supertest')
-const readJsonFile = require('../../lib/read-json-file')
+import { head } from '../helpers/supertest.js'
+import readJsonFile from '../../lib/read-json-file.js'
+import { jest } from '@jest/globals'
+
 const topOldDeveloperSitePaths = readJsonFile('tests/fixtures/top-old-developer-site-paths.json')
 
 jest.useFakeTimers()

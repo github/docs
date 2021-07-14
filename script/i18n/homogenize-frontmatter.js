@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import xFs from 'fs'
+import matter from 'gray-matter'
+import walk from 'walk-sync'
+import readFileAsync from '../../lib/readfile-async.js'
+import fm from '../../lib/frontmatter.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -7,12 +15,7 @@
 //
 // [end-readme]
 
-const fs = require('fs').promises
-const path = require('path')
-const matter = require('gray-matter')
-const walk = require('walk-sync')
-const readFileAsync = require('../../lib/readfile-async')
-const fm = require('../../lib/frontmatter')
+const fs = xFs.promises
 
 // Run!
 main()

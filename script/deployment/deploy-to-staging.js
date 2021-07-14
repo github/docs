@@ -1,12 +1,13 @@
-const sleep = require('await-sleep')
-const got = require('got')
-const Heroku = require('heroku-client')
-const createStagingAppName = require('./create-staging-app-name')
+#!/usr/bin/env node
+import sleep from 'await-sleep'
+import got from 'got'
+import Heroku from 'heroku-client'
+import createStagingAppName from './create-staging-app-name.js'
 
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
-module.exports = async function deployToStaging ({
+export default async function deployToStaging ({
   herokuToken,
   octokit,
   pullRequest,

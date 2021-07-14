@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import yaml from 'js-yaml'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const yaml = require('js-yaml')
-const allVersions = require('../../lib/all-versions')
 const releaseCandidateFile = 'data/variables/release_candidate.yml'
 const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
 

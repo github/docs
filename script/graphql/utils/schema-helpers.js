@@ -1,6 +1,10 @@
-const renderContent = require('../../../lib/render-content')
-const fs = require('fs')
-const graphqlTypes = JSON.parse(fs.readFileSync('./lib/graphql/types.json'))
+#!/usr/bin/env node
+import renderContent from '../../../lib/render-content/index.js'
+import fs from 'fs'
+import xGraphql from 'graphql'
+import path from 'path'
+
+const graphqlTypes = JSON.parse(fs.readFileSync(path.join(process.cwd(), './lib/graphql/types.json')))
 const {
   isScalarType,
   isObjectType,
@@ -8,7 +12,7 @@ const {
   isUnionType,
   isEnumType,
   isInputObjectType
-} = require('graphql')
+} = xGraphql
 
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
@@ -179,7 +183,7 @@ function removeMarkers (str) {
     .replace(/!/g, '')
 }
 
-module.exports = {
+export default {
   getArguments,
   getDeprecationReason,
   getDeprecationStatus,

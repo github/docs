@@ -1,7 +1,7 @@
-const patterns = require('../../lib/patterns')
-const { URL } = require('url')
+import patterns from '../../lib/patterns.js'
+import { URL } from 'url'
 
-module.exports = function handleRedirects (req, res, next) {
+export default function handleRedirects (req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 

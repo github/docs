@@ -1,5 +1,5 @@
-const nock = require('nock')
-const Hydro = require('../../lib/hydro')
+import nock from 'nock'
+import Hydro from '../../lib/hydro.js'
 
 describe('hydro', () => {
   let hydro, params

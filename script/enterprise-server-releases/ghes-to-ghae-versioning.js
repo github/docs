@@ -1,16 +1,16 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import program from 'commander'
+import { escapeRegExp } from 'lodash-es'
+import frontmatter from '../../lib/read-frontmatter.js'
+import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
+import getLiquidConditionals from '../helpers/get-liquid-conditionals.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const program = require('commander')
-const { escapeRegExp } = require('lodash')
-const frontmatter = require('../../lib/read-frontmatter')
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')
 const translationsPath = path.join(process.cwd(), 'translations')
-const versionSatisfiesRange = require('../../lib/version-satisfies-range')
-const getLiquidConditionals = require('../helpers/get-liquid-conditionals')
 
 // [start-readme]
 //

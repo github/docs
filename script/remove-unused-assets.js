@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import findUnusedAssets from './helpers/find-unused-assets.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const findUnusedAssets = require('./helpers/find-unused-assets')
 
 // [start-readme]
 //

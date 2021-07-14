@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import readFrontmatter from '../../lib/read-frontmatter.js'
+import allowTopics from '../../data/allowed-topics.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const readFrontmatter = require('../../lib/read-frontmatter')
-const allowTopics = require('../../data/allowed-topics')
 
 // key is the downcased valued for comparison
 // value is the display value with correct casing

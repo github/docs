@@ -1,9 +1,10 @@
-const { sentenceCase } = require('change-case')
-const GithubSlugger = require('github-slugger')
+#!/usr/bin/env node
+import { sentenceCase } from 'change-case'
+import GithubSlugger from 'github-slugger'
 const slugger = new GithubSlugger()
 const inputOrPayload = /(Input|Payload)$/m
 
-module.exports = function processPreviews (previews) {
+export default function processPreviews (previews) {
   // clean up raw yml data
   previews.forEach(preview => {
     // remove any extra info that follows a hyphen

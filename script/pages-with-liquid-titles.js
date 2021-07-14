@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { loadPages } from '../lib/page-data.js'
+import patterns from '../lib/patterns.js'
 
 // [start-readme]
 //
@@ -7,8 +9,6 @@
 //
 // [end-readme]
 
-const { loadPages } = require('../lib/page-data')
-const patterns = require('../lib/patterns')
 
 async function main () {
   const pages = await loadPages()

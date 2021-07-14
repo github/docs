@@ -1,17 +1,17 @@
-const languages = require('../../lib/languages')
-const robotsParser = require('robots-parser')
-const robotsMiddleware = require('../../middleware/robots')
-const { get } = require('../helpers/supertest')
-const MockExpressResponse = require('mock-express-response')
+import languages from '../../lib/languages.js'
+import robotsParser from 'robots-parser'
+import robotsMiddleware from '../../middleware/robots.js'
+import { get } from '../helpers/supertest.js'
+import MockExpressResponse from 'mock-express-response'
+import { jest } from '@jest/globals'
 
 describe('robots.txt', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   let res, robots
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     res = await get('/robots.txt')
     robots = robotsParser('https://docs.github.com/robots.txt', res.text)
-    done()
   })
 
   it('allows indexing of the homepage and English content', async () => {

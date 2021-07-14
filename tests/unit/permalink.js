@@ -1,7 +1,7 @@
-const Permalink = require('../../lib/permalink')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-const getApplicableVersions = require('../../lib/get-applicable-versions')
+import Permalink from '../../lib/permalink.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
 // Permalink constructor requires: languageCode, pageVersion, relativePath, title
 // Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)

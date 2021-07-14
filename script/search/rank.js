@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // This module accepts an Algolia search record object as input and
 // returns a ranking score which influences how results are sorted.
 
@@ -10,7 +11,7 @@ const rankings = [
   '/site-policy'
 ].reverse()
 
-module.exports = function rank (record) {
+export default function rank (record) {
   for (const index in rankings) {
     const pattern = rankings[index]
     if (record.url.includes(pattern)) return Number(index)

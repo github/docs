@@ -1,17 +1,19 @@
-const revalidator = require('revalidator')
-const schema = require('../helpers/schemas/site-tree-schema')
-const latestEnterpriseRelease = require('../../lib/enterprise-server-releases').latest
-const { loadSiteTree } = require('../../lib/page-data')
-const japaneseCharacters = require('japanese-characters')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+import revalidator from 'revalidator'
+import schema from '../helpers/schemas/site-tree-schema.js'
+import xEnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { loadSiteTree } from '../../lib/page-data.js'
+import japaneseCharacters from 'japanese-characters'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { jest } from '@jest/globals'
+
+const latestEnterpriseRelease = xEnterpriseServerReleases.latest
 
 describe('siteTree', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   let siteTree
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     siteTree = await loadSiteTree()
-    done()
   })
 
   test('has language codes as top-level keys', () => {

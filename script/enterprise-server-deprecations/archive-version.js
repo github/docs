@@ -1,19 +1,24 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { execSync } from 'child_process'
+import createApp from '../../lib/app.js'
+import scrape from 'website-scraper'
+import program from 'commander'
+import xRimraf from 'rimraf'
+import xEnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import loadRedirects from '../../lib/redirects/precompile.js'
+import { loadPageMap } from '../../lib/page-data.js'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const { execSync } = require('child_process')
-const createApp = require('../../lib/app')
 const port = '4001'
 const host = `http://localhost:${port}`
-const scrape = require('website-scraper')
-const program = require('commander')
-const rimraf = require('rimraf').sync
-const version = require('../../lib/enterprise-server-releases').oldestSupported
+const rimraf = xRimraf.sync
+const version = xEnterpriseServerReleases.oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
-const loadRedirects = require('../../lib/redirects/precompile')
-const { loadPageMap } = require('../../lib/page-data')
 const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 // [start-readme]

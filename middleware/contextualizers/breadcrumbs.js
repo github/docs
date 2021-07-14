@@ -1,4 +1,4 @@
-module.exports = async function breadcrumbs (req, res, next) {
+export default async function breadcrumbs (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.hidden) return next()
 

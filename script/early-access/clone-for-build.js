@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import { execSync } from 'child_process'
+import xRimraf from 'rimraf'
+import fs from 'fs'
+import path from 'path'
+import os from 'os'
 
 // [start-readme]
 //
@@ -8,7 +14,7 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+xDotenv.config()
 const {
   DOCUBOT_REPO_PAT,
   HEROKU_PRODUCTION_APP,
@@ -21,11 +27,7 @@ if (!DOCUBOT_REPO_PAT) {
   process.exit(0)
 }
 
-const { execSync } = require('child_process')
-const rimraf = require('rimraf').sync
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
+const rimraf = xRimraf.sync
 const EA_PRODUCTION_BRANCH = 'main'
 
 // If a branch name is not provided in the environment, attempt to get

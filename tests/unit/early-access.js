@@ -1,8 +1,10 @@
-const fs = require('fs').promises
-const path = require('path')
-const { testViaActionsOnly } = require('../helpers/conditional-runs')
-const { getDOM } = require('../helpers/supertest')
-const got = require('got')
+import { jest } from '@jest/globals'
+import xFs from 'fs'
+import path from 'path'
+import { testViaActionsOnly } from '../helpers/conditional-runs.js'
+import { getDOM } from '../helpers/supertest.js'
+import got from 'got'
+const fs = xFs.promises
 
 describe('cloning early-access', () => {
   testViaActionsOnly('the content directory exists', async () => {

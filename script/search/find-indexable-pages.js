@@ -1,6 +1,7 @@
-const { loadPages } = require('../../lib/page-data')
+#!/usr/bin/env node
+import { loadPages } from '../../lib/page-data.js'
 
-module.exports = async function findIndexablePages () {
+export default async function findIndexablePages () {
   const allPages = await loadPages()
   const indexablePages = allPages
     // exclude hidden pages

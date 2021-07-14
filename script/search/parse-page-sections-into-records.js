@@ -1,16 +1,17 @@
+#!/usr/bin/env node
+import { chain } from 'lodash-es'
+import { maxContentLength } from '../../lib/search/config.js'
 // This module takes cheerio page object and divides it into sections
 // using H1,H2 heading elements as section delimiters. The text
 // that follows each heading becomes the content of the search record.
 
-const { chain } = require('lodash')
 const urlPrefix = 'https://docs.github.com'
 const ignoredHeadingSlugs = [
   'in-this-article',
   'further-reading'
 ]
-const { maxContentLength } = require('../../lib/search/config')
 
-module.exports = function parsePageSectionsIntoRecords (href, $) {
+export default function parsePageSectionsIntoRecords (href, $) {
   const title = $('h1').text().trim()
   const breadcrumbsArray = $('nav.breadcrumbs a')
     .map((i, el) => {

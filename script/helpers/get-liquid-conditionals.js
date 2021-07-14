@@ -1,6 +1,7 @@
-const { Tokenizer } = require('liquidjs')
+#!/usr/bin/env node
+import { Tokenizer } from 'liquidjs'
 
-module.exports = function getLiquidConditionals (str, tagNames) {
+export default function getLiquidConditionals (str, tagNames) {
   const tokenizer = new Tokenizer(str)
 
   tagNames = Array.isArray(tagNames) ? tagNames : [tagNames]

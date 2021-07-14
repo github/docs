@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xRimraf from 'rimraf'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const rimraf = require('rimraf').sync
-const allVersions = require('../../lib/all-versions')
+const rimraf = xRimraf.sync
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')

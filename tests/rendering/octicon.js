@@ -1,4 +1,4 @@
-const renderContent = require('../../lib/render-content')
+import renderContent from '../../lib/render-content/index.js'
 
 describe('octicon tag', () => {
   it('renders the expected octicon', async () => {

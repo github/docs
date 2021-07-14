@@ -1,8 +1,9 @@
-const revalidator = require('revalidator')
-const { productMap } = require('../../lib/all-products')
-const schema = require('../helpers/schemas/products-schema')
-const { getDOM, getJSON } = require('../helpers/supertest')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+import { jest } from '@jest/globals'
+import revalidator from 'revalidator'
+import { productMap } from '../../lib/all-products.js'
+import schema from '../helpers/schemas/products-schema.js'
+import { getDOM, getJSON } from '../helpers/supertest.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
 jest.useFakeTimers()
 

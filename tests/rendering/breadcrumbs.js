@@ -1,4 +1,5 @@
-const { getDOM, getJSON } = require('../helpers/supertest')
+import { getDOM, getJSON } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 const describeInternalOnly = process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 

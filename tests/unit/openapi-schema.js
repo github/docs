@@ -1,10 +1,12 @@
-const walk = require('walk-sync')
-const path = require('path')
-const { get, isPlainObject } = require('lodash')
-const allVersions = require('../../lib/all-versions')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-const { operations } = require('../../lib/rest')
-const dedent = require('dedent')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import walk from 'walk-sync'
+import { get, isPlainObject } from 'lodash-es'
+import allVersions from '../../lib/all-versions.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { operations } from '../../lib/rest/index.js'
+import dedent from 'dedent'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
 const nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
 

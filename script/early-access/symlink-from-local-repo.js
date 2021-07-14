@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+import xRimraf from 'rimraf'
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
 
 // [start-readme]
 //
@@ -8,10 +12,7 @@
 //
 // [end-readme]
 
-const rimraf = require('rimraf').sync
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
+const rimraf = xRimraf.sync
 
 // Early Access details
 const earlyAccessRepo = 'docs-early-access'

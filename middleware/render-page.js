@@ -1,13 +1,13 @@
-const { get } = require('lodash')
-const { liquid } = require('../lib/render-content')
-const patterns = require('../lib/patterns')
-const layouts = require('../lib/layouts')
-const getMiniTocItems = require('../lib/get-mini-toc-items')
-const Page = require('../lib/page')
-const statsd = require('../lib/statsd')
-const RedisAccessor = require('../lib/redis-accessor')
-const { isConnectionDropped } = require('./halt-on-dropped-connection')
-const { nextHandleRequest } = require('./next')
+import { get } from 'lodash-es'
+import { liquid } from '../lib/render-content/index.js'
+import patterns from '../lib/patterns.js'
+import layouts from '../lib/layouts.js'
+import getMiniTocItems from '../lib/get-mini-toc-items.js'
+import Page from '../lib/page.js'
+import statsd from '../lib/statsd.js'
+import RedisAccessor from '../lib/redis-accessor.js'
+import { isConnectionDropped } from './halt-on-dropped-connection.js'
+import { nextHandleRequest } from './next.js'
 
 const { HEROKU_RELEASE_VERSION } = process.env
 
@@ -55,7 +55,7 @@ function addColorMode (req, text) {
     .replace('$LIGHTTHEME$', lightTheme)
 }
 
-module.exports = async function renderPage (req, res, next) {
+export default async function renderPage (req, res, next) {
   const page = req.context.page
 
   // render a 404 page

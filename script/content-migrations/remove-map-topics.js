@@ -1,12 +1,12 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import stripHtmlComments from 'strip-html-comments'
+import languages from '../../lib/languages.js'
+import frontmatter from '../../lib/read-frontmatter.js'
+import addRedirectToFrontmatter from '../helpers/add-redirect-to-frontmatter.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const stripHtmlComments = require('strip-html-comments')
-const languages = require('../../lib/languages')
-const frontmatter = require('../../lib/read-frontmatter')
-const addRedirectToFrontmatter = require('../helpers/add-redirect-to-frontmatter')
 
 const relativeRefRegex = /\/[a-zA-Z0-9-]+/g
 const linkString = /{% [^}]*?link.*? \/(.*?) ?%}/m

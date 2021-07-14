@@ -1,9 +1,9 @@
-const { defaults } = require('lodash')
-const webhookPayloads = require('../../lib/webhooks')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-const allVersions = require('../../lib/all-versions')
+import { defaults } from 'lodash-es'
+import webhookPayloads from '../../lib/webhooks/index.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import allVersions from '../../lib/all-versions.js'
 
-module.exports = function webhooksContext (req, res, next) {
+export default function webhooksContext (req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-webhook reference paths
   // and to versions that don't exist

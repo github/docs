@@ -201,8 +201,8 @@ function updateFileAndDir (path, file) {
   if (!file.includes('__filename') && !file.includes('__dirname')) return file
 
   return [
-    'import { fileURLToPath } from \'node:url\'',
-    'import path from \'node:path\'',
+    'import { fileURLToPath } from \'url\'',
+    'import path from \'path\'',
     file.includes('__filename') && 'const __filename = fileURLToPath(import.meta.url)',
     file.includes('__dirname') && 'const __dirname = path.dirname(fileURLToPath(import.meta.url))',
     file
@@ -265,7 +265,7 @@ async function main () {
   jsFiles = withAllFiles(jsFiles, updateScriptDeclaration)
   jsFiles = withAllFiles(jsFiles, checkRequire)
   jsFiles = withAllFiles(jsFiles, checkExports)
-  // TBD enable await writeAllJsFiles(jsFiles)
+  await writeAllJsFiles(jsFiles)
 }
 
 main()

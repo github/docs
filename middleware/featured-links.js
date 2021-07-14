@@ -1,7 +1,7 @@
-const getLinkData = require('../lib/get-link-data')
+import getLinkData from '../lib/get-link-data.js'
 
 // this middleware adds properties to the context object
-module.exports = async function featuredLinks (req, res, next) {
+export default async function featuredLinks (req, res, next) {
   if (!req.context.page) return next()
 
   if (!(req.context.page.relativePath.endsWith('index.md') || req.context.page.layout === 'product-landing')) return next()

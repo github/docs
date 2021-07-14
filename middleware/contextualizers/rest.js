@@ -1,8 +1,8 @@
-const path = require('path')
-const rest = require('../../lib/rest')
-const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
+import path from 'path'
+import rest from '../../lib/rest/index.js'
+import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 
-module.exports = function restContext (req, res, next) {
+export default function restContext (req, res, next) {
   req.context.rest = rest
 
   // link to include in `Works with GitHub Apps` notes

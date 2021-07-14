@@ -3,7 +3,7 @@
 // CI will fail and the action will need to be audited by the docs engineering team before it
 // can be added it this list.
 
-module.exports = [
+export default [
   "actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f", // v2.3.4
   "actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d", // v4.0.2
   "actions/labeler@5f867a63be70efff62b767459b009290364495eb", // v2.2.0
@@ -17,6 +17,7 @@ module.exports = [
   "cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be",
   "dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911",
   "docker://chinthakagodawita/autoupdate-action:v1",
+  "dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58",
   "github/codeql-action/analyze@v1",
   "github/codeql-action/init@v1",
   "juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8",
@@ -34,6 +35,5 @@ module.exports = [
   "repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d",
   "someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd",
   "tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61",
-  "EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519",
-  "dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58",
-];
+  "EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519"
+]
