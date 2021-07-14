@@ -219,7 +219,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
@@ -229,7 +229,7 @@ jobs:
         env:{% raw %}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file

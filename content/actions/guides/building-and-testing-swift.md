@@ -16,6 +16,7 @@ shortTitle: Build & test Swift
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -68,31 +69,31 @@ The examples below demonstrate using the `fwal/setup-swift` action.
 
 You can configure your job to use a multiple versions of Swift in a build matrix.
 
-{% raw %}
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Swift
 
 on: [push]
 
 jobs:
   build:
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    name: {% raw %}Swift ${{ matrix.swift }} on ${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
         swift: ["5.2", "5.3"]
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@v1
+      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
         with:
-          swift-version: ${{ matrix.swift }}
-      - uses: actions/checkout@v2
+          swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
+      - uses: actions/checkout@
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
-{% endraw %}
 
 ### Using a single specific Swift version
 
@@ -101,7 +102,7 @@ You can configure your job to use a single specific version of Swift, such as `5
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@v1
+  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -117,7 +118,7 @@ You can use the same commands that you use locally to build and test your code u
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@v1
+  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
     with:
       swift-version: "5.3.3"
   - name: Build

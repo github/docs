@@ -43,7 +43,7 @@ Organization members must also have an active SAML session to authorize an {% da
 
 {% data reusables.saml.saml-supported-idps %}
 
-Some IdPs support provisioning access to a  {% data variables.product.prodname_dotcom %} organization via SCIM. For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+Some IdPs support provisioning access to a {% data variables.product.prodname_dotcom %} organization via SCIM. {% data reusables.scim.enterprise-account-scim %} For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
 
 ## Adding members to an organization using SAML SSO
 

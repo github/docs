@@ -20,15 +20,10 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% data reusables.ssh.dsa-support %}
 
-{% ifversion fpt or ghae or ghes %}
-{% tip %}
-
-**Tip**: You can also add an SSH key using the {% data variables.product.prodname_cli %}. For more information, see "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
 {% mac %}
+
+{% include tool-switcher %}
+{% webui %}
 
 1. Copy the SSH public key to your clipboard.
 
@@ -56,9 +51,15 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
 {% data reusables.user_settings.sudo-mode-popup %}
 
+{% endwebui %}
+
 {% endmac %}
 
 {% windows %}
+
+{% include tool-switcher %}
+
+{% webui %}
 
 1. Copy the SSH public key to your clipboard.
 
@@ -87,9 +88,14 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 8. If prompted, confirm your {% data variables.product.product_name %} password.
   ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
+{% endwebui %}
+
 {% endwindows %}
 
 {% linux %}
+
+{% include tool-switcher %}
+{% webui %}
 
 1. Copy the SSH public key to your clipboard.
 
@@ -121,7 +127,27 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 8. If prompted, confirm your {% data variables.product.product_name %} password.
   ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
+{% endwebui %}
+
 {% endlinux %}
+
+{% cli %}
+
+{% data reusables.cli.download-cli %}
+
+To add an SSH key to your GitHub account, use the `ssh-key add` subcommand.
+
+```shell
+gh ssh-key add <em>key-file</em>
+```
+
+To include a title for the new key, use the `-t` or `--title` flag.
+
+```shell
+gh ssh-key add <em>key-file</em> --title "personal laptop"
+```
+
+{% endcli %}
 
 {% ifversion fpt %}
 ## Further reading
