@@ -1,9 +1,9 @@
-const { liquid } = require('../../lib/render-content')
-const shortVersionsMiddleware = require('../../middleware/contextualizers/short-versions')
-const featureVersionsMiddleware = require('../../middleware/contextualizers/features')
-const allVersions = require('../../lib/all-versions')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const loadSiteData = require('../../lib/site-data')
+import { liquid } from '../../lib/render-content/index.js'
+import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
+import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
+import allVersions from '../../lib/all-versions.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import loadSiteData from '../../lib/site-data.js'
 
 const template = `
   {% if currentVersion ver_gt "enterprise-server@2.13" %}up to date{% endif %}

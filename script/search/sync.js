@@ -1,26 +1,31 @@
-const fs = require('fs')
-const path = require('path')
-const mkdirp = require('mkdirp').sync
-const rimraf = require('rimraf').sync
-const chalk = require('chalk')
-const languages = require('../../lib/languages')
-const buildRecords = require('./build-records')
-const findIndexablePages = require('./find-indexable-pages')
+#!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import xMkdirp from 'mkdirp'
+import xRimraf from 'rimraf'
+import chalk from 'chalk'
+import languages from '../../lib/languages.js'
+import buildRecords from './build-records.js'
+import findIndexablePages from './find-indexable-pages.js'
+import allVersions from '../../lib/all-versions.js'
+import { namePrefix } from '../../lib/search/config.js'
+import getRemoteIndexNames from './algolia-get-remote-index-names.js'
+import AlgoliaIndex from './algolia-search-index.js'
+import LunrIndex from './lunr-search-index.js'
+import getLunrIndexNames from './lunr-get-index-names.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const mkdirp = xMkdirp.sync
+const rimraf = xRimraf.sync
 const cacheDir = path.join(process.cwd(), './.search-cache')
-const allVersions = require('../../lib/all-versions')
-const { namePrefix } = require('../../lib/search/config')
 
 // Algolia
-const getRemoteIndexNames = require('./algolia-get-remote-index-names')
-const AlgoliaIndex = require('./algolia-search-index')
 
 // Lunr
-const LunrIndex = require('./lunr-search-index')
-const getLunrIndexNames = require('./lunr-get-index-names')
 
 // Build a search data file for every combination of product version and language
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
-module.exports = async function syncSearchIndexes (opts = {}) {
+export default async function syncSearchIndexes (opts = {}) {
   if (opts.dryRun) {
     console.log('This is a dry run! The script will build the indices locally but not upload anything.\n')
     rimraf(cacheDir)

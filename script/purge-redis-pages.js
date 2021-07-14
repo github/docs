@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import { promisify } from 'util'
+import createRedisClient from '../lib/redis/create-client.js'
 
 // [start-readme]
 //
@@ -9,10 +12,8 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+xDotenv.config()
 
-const { promisify } = require('util')
-const createRedisClient = require('../lib/redis/create-client')
 
 const { REDIS_URL, HEROKU_RELEASE_VERSION, HEROKU_PRODUCTION_APP } = process.env
 const isHerokuProd = HEROKU_PRODUCTION_APP === 'true'

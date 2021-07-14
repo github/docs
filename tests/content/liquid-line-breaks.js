@@ -1,10 +1,12 @@
-const path = require('path')
-const walk = require('walk-sync')
-const matter = require('../../lib/read-frontmatter')
-const { zip } = require('lodash')
-const yaml = require('js-yaml')
-const readFileAsync = require('../../lib/readfile-async')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import walk from 'walk-sync'
+import matter from '../../lib/read-frontmatter.js'
+import { zip } from 'lodash-es'
+import yaml from 'js-yaml'
+import readFileAsync from '../../lib/readfile-async.js'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')

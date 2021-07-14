@@ -1,9 +1,11 @@
-const { sortBy } = require('lodash')
-const { parse, buildASTSchema } = require('graphql')
-const helpers = require('./schema-helpers')
-const fs = require('fs')
+#!/usr/bin/env node
+import { sortBy } from 'lodash-es'
+import { parse, buildASTSchema } from 'graphql'
+import helpers from './schema-helpers.js'
+import fs from 'fs'
+import path from 'path'
 
-const externalScalars = JSON.parse(fs.readFileSync('./lib/graphql/non-schema-scalars.json'))
+const externalScalars = JSON.parse(fs.readFileSync(path.join(process.cwd(), './lib/graphql/non-schema-scalars.json')))
   .map(scalar => {
     scalar.id = helpers.getId(scalar.name)
     scalar.href = helpers.getFullLink('scalars', scalar.id)
@@ -12,7 +14,7 @@ const externalScalars = JSON.parse(fs.readFileSync('./lib/graphql/non-schema-sca
 
 // select and format all the data from the schema that we need for the docs
 // used in the build step by script/graphql/build-static-files.js
-module.exports = async function processSchemas (idl, previewsPerVersion) {
+export default async function processSchemas (idl, previewsPerVersion) {
   const schemaAST = parse(idl.toString())
   const schema = buildASTSchema(schemaAST)
 

@@ -1,17 +1,17 @@
-require('../../lib/feature-flags')
-const { getDOM } = require('../helpers/supertest')
+import '../../lib/feature-flags.js'
+import { getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   let $homePage, $githubPage, $enterprisePage
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     [$homePage, $githubPage, $enterprisePage] = await Promise.all([
       getDOM('/en'),
       getDOM('/en/github'),
       getDOM('/en/enterprise/admin')
     ])
-    done()
   })
 
   test('highlights active product on Enterprise pages', async () => {

@@ -1,12 +1,14 @@
+import helmet from 'helmet'
+import isArchivedVersion from '../lib/is-archived-version.js'
+import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 // This module defines a Content Security Policy (CSP) to disallow
 // inline scripts and content from untrusted sources.
 
-const { contentSecurityPolicy } = require('helmet')
-const isArchivedVersion = require('../lib/is-archived-version')
-const versionSatisfiesRange = require('../lib/version-satisfies-range')
+const { contentSecurityPolicy } = helmet
+
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
-module.exports = function csp (req, res, next) {
+export default function csp (req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],

@@ -1,8 +1,9 @@
-const { chain, chunk, difference } = require('lodash')
-const objectHash = require('object-hash')
-const rank = require('./rank')
-const validateRecords = require('./validate-records')
-const getAlgoliaClient = require('./algolia-client')
+#!/usr/bin/env node
+import { chain, chunk, difference } from 'lodash-es'
+import objectHash from 'object-hash'
+import rank from './rank.js'
+import validateRecords from './validate-records.js'
+import getAlgoliaClient from './algolia-client.js'
 
 class AlgoliaIndex {
   constructor (name, records) {
@@ -91,4 +92,4 @@ class AlgoliaIndex {
   }
 }
 
-module.exports = AlgoliaIndex
+export default AlgoliaIndex

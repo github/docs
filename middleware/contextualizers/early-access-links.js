@@ -1,6 +1,6 @@
-const { uniq } = require('lodash')
+import { uniq } from 'lodash-es'
 
-module.exports = function earlyAccessContext (req, res, next) {
+export default function earlyAccessContext (req, res, next) {
   if (process.env.NODE_ENV === 'production') {
     return next(404)
   }

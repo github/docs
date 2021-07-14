@@ -1,12 +1,15 @@
-const fs = require('fs')
-const path = require('path')
-const readJsonFile = require('../../lib/read-json-file')
+import fs from 'fs'
+import path from 'path'
+import readJsonFile from '../../lib/read-json-file.js'
+import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../../lib/graphql/validator.js'
+import revalidator from 'revalidator'
+import xAllVersions from '../../lib/all-versions.js'
+import { jest } from '@jest/globals'
+
 const previewsJson = readJsonFile('./lib/graphql/static/previews.json')
 const upcomingChangesJson = readJsonFile('./lib/graphql/static/upcoming-changes.json')
 const prerenderedObjectsJson = readJsonFile('./lib/graphql/static/prerendered-objects.json')
-const { schemaValidator, previewsValidator, upcomingChangesValidator } = require('../../lib/graphql/validator')
-const revalidator = require('revalidator')
-const allVersions = Object.values(require('../../lib/all-versions'))
+const allVersions = Object.values(xAllVersions)
 const graphqlVersions = allVersions.map(v => v.miscVersionName)
 const graphqlTypes = readJsonFile('./lib/graphql/types.json').map(t => t.kind)
 

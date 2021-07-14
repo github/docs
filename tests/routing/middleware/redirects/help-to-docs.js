@@ -1,5 +1,6 @@
-const MockExpressResponse = require('mock-express-response')
-const middleware = require('../../../../middleware/redirects/help-to-docs')
+import MockExpressResponse from 'mock-express-response'
+import middleware from '../../../../middleware/redirects/help-to-docs.js'
+import { jest } from '@jest/globals'
 
 describe('help.github.com redirect middleware', () => {
   it('redirects help.github.com homepage requests', async () => {

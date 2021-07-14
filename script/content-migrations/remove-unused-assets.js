@@ -1,13 +1,15 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import { execSync } from 'child_process'
+import { loadPages } from '../../lib/page-data.js'
+import patterns from '../../lib/patterns.js'
+import { supported } from '../../lib/enterprise-server-releases.js'
+import semver from 'semver'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const { execSync } = require('child_process')
-const { loadPages } = require('../../lib/page-data')
-const patterns = require('../../lib/patterns')
-const { supported } = require('../../lib/enterprise-server-releases')
-const semver = require('semver')
 
 const imagesPath = [
   '/assets/enterprise/3.0',

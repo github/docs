@@ -1,5 +1,6 @@
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { getDOM } = require('../helpers/supertest')
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('page titles', () => {
   jest.setTimeout(300 * 1000)

@@ -1,9 +1,12 @@
-const { difference } = require('lodash')
-const { getJSON } = require('../helpers/supertest')
-const { latest } = require('../../lib/enterprise-server-releases')
-const allVersions = Object.values(require('../../lib/all-versions'))
+import { difference } from 'lodash-es'
+import { getJSON } from '../helpers/supertest.js'
+import { latest } from '../../lib/enterprise-server-releases.js'
+import xAllVersions from '../../lib/all-versions.js'
+import webhookPayloads from '../../lib/webhooks'
+import { jest } from '@jest/globals'
+
+const allVersions = Object.values(xAllVersions)
 const payloadVersions = allVersions.map(v => v.miscVersionName)
-const webhookPayloads = require('../../lib/webhooks')
 
 // grab some values for testing
 const nonEnterpriseDefaultPayloadVersion = allVersions

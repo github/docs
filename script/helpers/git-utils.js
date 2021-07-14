@@ -1,7 +1,9 @@
-const github = require('./github')()
+#!/usr/bin/env node
+import xGithub from './github.js'
+const github = xGithub()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
-async function getCommitSha (owner, repo, ref) {
+export async function getCommitSha (owner, repo, ref) {
   try {
     const { data } = await github.git.getRef({
       owner,
@@ -16,7 +18,7 @@ async function getCommitSha (owner, repo, ref) {
 }
 
 // https://docs.github.com/rest/reference/git#list-matching-references
-async function listMatchingRefs (owner, repo, ref) {
+export async function listMatchingRefs (owner, repo, ref) {
   try {
     // if the ref is found, this returns an array of objects;
     // if the ref is not found, this returns an empty array
@@ -33,7 +35,7 @@ async function listMatchingRefs (owner, repo, ref) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-commit
-async function getTreeSha (owner, repo, commitSha) {
+export async function getTreeSha (owner, repo, commitSha) {
   try {
     const { data } = await github.git.getCommit({
       owner,
@@ -48,7 +50,7 @@ async function getTreeSha (owner, repo, commitSha) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-tree
-async function getTree (owner, repo, ref, allowedPaths = []) {
+export async function getTree (owner, repo, ref, allowedPaths = []) {
   const commitSha = await getCommitSha(owner, repo, ref)
   const treeSha = await getTreeSha(owner, repo, commitSha)
   try {
@@ -68,7 +70,7 @@ async function getTree (owner, repo, ref, allowedPaths = []) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-blob
-async function getContentsForBlob (owner, repo, blob) {
+export async function getContentsForBlob (owner, repo, blob) {
   const { data } = await github.git.getBlob({
     owner,
     repo,
@@ -79,7 +81,7 @@ async function getContentsForBlob (owner, repo, blob) {
 }
 
 // https://docs.github.com/rest/reference/repos#get-repository-content
-async function getContents (owner, repo, ref, path) {
+export async function getContents (owner, repo, ref, path) {
   try {
     const { data } = await github.repos.getContent({
       owner,
@@ -96,7 +98,7 @@ async function getContents (owner, repo, ref, path) {
 }
 
 // https://docs.github.com/en/rest/reference/pulls#list-pull-requests
-async function listPulls (owner, repo) {
+export async function listPulls (owner, repo) {
   try {
     const { data } = await github.pulls.list({
       owner,
@@ -110,7 +112,7 @@ async function listPulls (owner, repo) {
   }
 }
 
-async function createIssueComment (owner, repo, pullNumber, body) {
+export async function createIssueComment (owner, repo, pullNumber, body) {
   try {
     const { data } = await github.issues.createComment({
       owner,
@@ -123,15 +125,4 @@ async function createIssueComment (owner, repo, pullNumber, body) {
     console.log(`error creating a review comment on PR ${pullNumber} in ${owner}/${repo}`)
     throw (err)
   }
-}
-
-module.exports = {
-  getTree,
-  getTreeSha,
-  getCommitSha,
-  getContentsForBlob,
-  getContents,
-  listMatchingRefs,
-  listPulls,
-  createIssueComment
 }

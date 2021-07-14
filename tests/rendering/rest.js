@@ -1,9 +1,14 @@
-const fs = require('fs').promises
-const path = require('path')
-const { difference, isPlainObject } = require('lodash')
-const { getJSON } = require('../helpers/supertest')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const rest = require('../../lib/rest')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import xFs from 'fs'
+import { difference, isPlainObject } from 'lodash-es'
+import { getJSON } from '../helpers/supertest.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import rest from '../../lib/rest/index.js'
+import { jest } from '@jest/globals'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const fs = xFs.promises
 // list of REST markdown files that do not correspond to REST API resources
 // TODO could we get this list dynamically, say via page frontmatter?
 const excludeFromResourceNameCheck = [

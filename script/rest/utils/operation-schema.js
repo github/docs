@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 // This schema is used to validate each generated operation object at build time
 
-module.exports = {
+export default {
   type: 'object',
 
   // Every operation must have these props

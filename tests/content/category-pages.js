@@ -1,14 +1,16 @@
-const path = require('path')
-const fs = require('fs')
-const walk = require('walk-sync')
-const matter = require('../../lib/read-frontmatter')
-const { zip, difference } = require('lodash')
-const GithubSlugger = require('github-slugger')
-const { XmlEntities } = require('html-entities')
-const readFileAsync = require('../../lib/readfile-async')
-const loadSiteData = require('../../lib/site-data')
-const renderContent = require('../../lib/render-content')
-const getApplicableVersions = require('../../lib/get-applicable-versions')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import matter from '../../lib/read-frontmatter.js'
+import { zip, difference } from 'lodash-es'
+import GithubSlugger from 'github-slugger'
+import { XmlEntities } from 'html-entities'
+import readFileAsync from '../../lib/readfile-async.js'
+import loadSiteData from '../../lib/site-data.js'
+import renderContent from '../../lib/render-content/index.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const slugger = new GithubSlugger()
 const entities = new XmlEntities()

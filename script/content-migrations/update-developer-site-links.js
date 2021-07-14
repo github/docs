@@ -1,13 +1,14 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import frontmatter from '../../lib/read-frontmatter.js'
+import { loadPages, loadPageMap } from '../../lib/page-data.js'
+import patterns from '../../lib/patterns.js'
+import loadRedirects from '../../lib/redirects/precompile.js'
+import xAllVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const frontmatter = require('../../lib/read-frontmatter')
-const { loadPages, loadPageMap } = require('../../lib/page-data')
-const patterns = require('../../lib/patterns')
-const loadRedirects = require('../../lib/redirects/precompile')
-const allVersions = Object.keys(require('../../lib/all-versions'))
+const allVersions = Object.keys(xAllVersions)
 
 // get all content and data files
 const files = ['content', 'data'].map(dir => {

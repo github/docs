@@ -1,7 +1,8 @@
-const request = require('supertest')
-const nock = require('nock')
-const cheerio = require('cheerio')
-const createApp = require('../../lib/app')
+import request from 'supertest'
+import nock from 'nock'
+import cheerio from 'cheerio'
+import createApp from '../../lib/app.js'
+import { jest } from '@jest/globals'
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)

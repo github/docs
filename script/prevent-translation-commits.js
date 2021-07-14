@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import { execSync } from 'child_process'
 
 // [start-readme]
 //
@@ -8,7 +10,7 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+xDotenv.config()
 
 // Ignore this hook in GitHub Actions workflows
 if (process.env.CI) process.exit()
@@ -16,7 +18,6 @@ if (process.env.CI) process.exit()
 // Allow this hook to be overriden with an environment variable
 if (process.env.ALLOW_TRANSLATION_COMMITS) process.exit()
 
-const { execSync } = require('child_process')
 const filenames = execSync('git diff --cached --name-only').toString().trim().split('\n')
 const localizedFilenames = filenames.filter(filename => filename.startsWith('translations/'))
 

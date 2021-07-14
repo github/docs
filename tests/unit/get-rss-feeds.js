@@ -1,7 +1,7 @@
-const Parser = require('rss-parser')
-const { getChangelogItems } = require('../../lib/changelog')
-const fs = require('fs')
-const path = require('path')
+import Parser from 'rss-parser'
+import { getChangelogItems } from '../../lib/changelog.js'
+import fs from 'fs'
+import path from 'path'
 const parser = new Parser({ timeout: 5000 })
 const rssFeedContent = fs.readFileSync(path.join(process.cwd(), 'tests/fixtures/rss-feed.xml'), 'utf8')
 

@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -7,9 +12,6 @@
 //
 // [end-readme]
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
 
 const re = /^#.*\n/gm
 

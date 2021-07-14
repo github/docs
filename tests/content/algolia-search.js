@@ -1,7 +1,8 @@
-const { dates, supported } = require('../../lib/enterprise-server-releases')
-const languageCodes = Object.keys(require('../../lib/languages'))
-const { namePrefix } = require('../../lib/search/config')
-const remoteIndexNames = require('../../lib/search/cached-index-names.json')
+import { dates, supported } from '../../lib/enterprise-server-releases.js'
+import xLanguages from '../../lib/languages.js'
+import { namePrefix } from '../../lib/search/config.js'
+import remoteIndexNames from '../../lib/search/cached-index-names.json'
+const languageCodes = Object.keys(xLanguages)
 
 describe('algolia', () => {
   test('has remote indexNames in every language for every supported GHE version', () => {

@@ -1,12 +1,13 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import frontmatter from '../../lib/read-frontmatter.js'
+import getDocumentType from '../../lib/get-document-type.js'
+import languages from '../../lib/languages.js'
+import xExtendedMarkdown from '../../lib/liquid-tags/extended-markdown.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const frontmatter = require('../../lib/read-frontmatter')
-const getDocumentType = require('../../lib/get-document-type')
-const languages = require('../../lib/languages')
-const extendedMarkdownTags = Object.keys(require('../../lib/liquid-tags/extended-markdown').tags)
+const extendedMarkdownTags = Object.keys(xExtendedMarkdown.tags)
 
 const linkString = /{% [^}]*?link.*? (\/.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')

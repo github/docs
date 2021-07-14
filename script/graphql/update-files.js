@@ -1,22 +1,23 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xMkdirp from 'mkdirp'
+import yaml from 'js-yaml'
+import { execSync } from 'child_process'
+import { getContents, listMatchingRefs } from '../helpers/git-utils.js'
+import allVersions from '../../lib/all-versions.js'
+import processPreviews from './utils/process-previews.js'
+import processUpcomingChanges from './utils/process-upcoming-changes.js'
+import processSchemas from './utils/process-schemas.js'
+import prerenderObjects from './utils/prerender-objects.js'
+import prerenderInputObjects from './utils/prerender-input-objects.js'
+import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
+import loadData from '../../lib/site-data.js'
 
-const fs = require('fs')
-const path = require('path')
-const mkdirp = require('mkdirp').sync
-const yaml = require('js-yaml')
-const { execSync } = require('child_process')
+const mkdirp = xMkdirp.sync
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
-const { getContents, listMatchingRefs } = require('../helpers/git-utils')
-const dataFilenames = JSON.parse(fs.readFileSync('./script/graphql/utils/data-filenames.json'))
-const allVersions = require('../../lib/all-versions')
-const processPreviews = require('./utils/process-previews')
-const processUpcomingChanges = require('./utils/process-upcoming-changes')
-const processSchemas = require('./utils/process-schemas')
-const prerenderObjects = require('./utils/prerender-objects')
-const prerenderInputObjects = require('./utils/prerender-input-objects')
-const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
-const loadData = require('../../lib/site-data')
+const dataFilenames = JSON.parse(fs.readFileSync(path.join(process.cwd(), './script/graphql/utils/data-filenames.json')))
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {

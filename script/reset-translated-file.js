@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import program from 'commander'
+import { execSync } from 'child_process'
+import assert from 'assert'
+import fs from 'fs'
+import path from 'path'
+import chalk from 'chalk'
 
 // [start-readme]
 //
@@ -17,12 +23,6 @@
 //
 // [end-readme]
 
-const program = require('commander')
-const { execSync } = require('child_process')
-const assert = require('assert')
-const fs = require('fs')
-const path = require('path')
-const chalk = require('chalk')
 
 program
   .description('reset translated files')

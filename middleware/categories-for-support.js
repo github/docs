@@ -1,9 +1,9 @@
-const path = require('path')
+import path from 'path'
 const renderOpts = { textOnly: true, encodeEntities: true }
 
 // This middleware exposes a list of all categories and child articles at /categories.json.
 // GitHub Support uses this for internal ZenDesk search functionality.
-module.exports = async function categoriesForSupport (req, res, next) {
+export default async function categoriesForSupport (req, res, next) {
   const englishSiteTree = req.context.siteTree.en
 
   const allCategories = []

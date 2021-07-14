@@ -1,7 +1,8 @@
-const Heroku = require('heroku-client')
-const createStagingAppName = require('./create-staging-app-name')
+#!/usr/bin/env node
+import Heroku from 'heroku-client'
+import createStagingAppName from './create-staging-app-name.js'
 
-module.exports = async function undeployFromStaging ({
+export default async function undeployFromStaging ({
   herokuToken,
   octokit,
   pullRequest,

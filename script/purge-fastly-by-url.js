@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import { execSync } from 'child_process'
+import xLanguages from '../lib/languages.js'
+import { getPathWithoutLanguage } from '../lib/path-utils.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const { execSync } = require('child_process')
-const languageCodes = Object.keys(require('../lib/languages'))
-const { getPathWithoutLanguage } = require('../lib/path-utils')
+const languageCodes = Object.keys(xLanguages)
 
 // [start-readme]
 //

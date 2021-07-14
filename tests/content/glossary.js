@@ -1,10 +1,9 @@
-const loadSiteData = require('../../lib/site-data')
+import loadSiteData from '../../lib/site-data.js'
 
 describe('glossaries', () => {
   let glossaries
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     glossaries = (await loadSiteData()).en.site.data.glossaries
-    done()
   })
 
   test('are broken into external, internal, and candidates', async () => {

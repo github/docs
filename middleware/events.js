@@ -1,8 +1,8 @@
-const express = require('express')
-const { omit } = require('lodash')
-const Ajv = require('ajv')
-const addFormats = require('ajv-formats')
-const schema = require('../lib/schema-event')
+import express from 'express'
+import { omit } from 'lodash-es'
+import Ajv from 'ajv'
+import addFormats from 'ajv-formats'
+import schema from '../lib/schema-event.js'
 
 const OMIT_FIELDS = ['type']
 
@@ -34,4 +34,4 @@ router.post('/', async function postEvents (req, res, next) {
   return res.status(200).json({})
 })
 
-module.exports = router
+export default router

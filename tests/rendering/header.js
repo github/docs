@@ -1,5 +1,6 @@
-const { getDOM } = require('../helpers/supertest')
-const { oldestSupported, latest } = require('../../lib/enterprise-server-releases')
+import { getDOM } from '../helpers/supertest.js'
+import { oldestSupported, latest } from '../../lib/enterprise-server-releases.js'
+import { jest } from '@jest/globals'
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)

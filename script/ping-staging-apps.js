@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import assert from 'assert'
+import got from 'got'
+import { chain } from 'lodash-es'
+import chalk from 'chalk'
+import Heroku from 'heroku-client'
 
 // [start-readme]
 //
@@ -6,15 +12,10 @@
 //
 // [end-readme]
 
-require('dotenv').config()
-const assert = require('assert')
-const got = require('got')
+xDotenv.config()
 
 assert(process.env.HEROKU_API_TOKEN)
 
-const { chain } = require('lodash')
-const chalk = require('chalk')
-const Heroku = require('heroku-client')
 const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
 main()

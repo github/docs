@@ -1,8 +1,9 @@
-const path = require('path')
-const { eachOfLimit } = require('async')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get } = require('../helpers/supertest')
-const readJsonFile = require('../../lib/read-json-file')
+import { jest } from '@jest/globals'
+import path from 'path'
+import { eachOfLimit } from 'async'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { get } from '../helpers/supertest.js'
+import readJsonFile from '../../lib/read-json-file.js'
 const restRedirectFixtures = readJsonFile('./tests/fixtures/rest-redirects.json')
 const graphqlRedirectFixtures = readJsonFile('./tests/fixtures/graphql-redirects.json')
 const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redirects.json')

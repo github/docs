@@ -1,6 +1,6 @@
-const chalk = require('chalk')
-const stripAnsi = require('strip-ansi')
-const { groupBy } = require('lodash')
+import chalk from 'chalk'
+import stripAnsi from 'strip-ansi'
+import { groupBy } from 'lodash-es'
 
 // we don't want to print all the stack traces
 const stackTraceRegExp = /^\s+at\s.+/img
@@ -40,4 +40,4 @@ class TranslationReporter {
   }
 }
 
-module.exports = TranslationReporter
+export default TranslationReporter

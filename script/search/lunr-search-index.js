@@ -1,17 +1,27 @@
-const lunr = require('lunr')
-require('lunr-languages/lunr.stemmer.support')(lunr)
-require('lunr-languages/tinyseg')(lunr)
-require('lunr-languages/lunr.ja')(lunr)
-require('lunr-languages/lunr.es')(lunr)
-require('lunr-languages/lunr.pt')(lunr)
-require('lunr-languages/lunr.de')(lunr)
-const fs = require('fs').promises
-const path = require('path')
-const rank = require('./rank')
-const validateRecords = require('./validate-records')
-const { compress } = require('../../lib/search/compress')
+#!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import lunr from 'lunr'
+import xLunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js'
+import xTinyseg from 'lunr-languages/tinyseg.js'
+import xLunrJa from 'lunr-languages/lunr.ja.js'
+import xLunrEs from 'lunr-languages/lunr.es.js'
+import xLunrPt from 'lunr-languages/lunr.pt.js'
+import xLunrDe from 'lunr-languages/lunr.de.js'
+import xFs from 'fs'
+import rank from './rank.js'
+import validateRecords from './validate-records.js'
+import { compress } from '../../lib/search/compress.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+xLunrStemmerSupport(lunr)
+xTinyseg(lunr)
+xLunrJa(lunr)
+xLunrEs(lunr)
+xLunrPt(lunr)
+xLunrDe(lunr)
+const fs = xFs.promises
 
-module.exports = class LunrIndex {
+export default class LunrIndex {
   constructor (name, records) {
     this.name = name
 

@@ -1,8 +1,10 @@
-const slugify = require('github-slugger').slug
+#!/usr/bin/env node
+import xGithubSlugger from 'github-slugger'
+const slugify = xGithubSlugger.slug
 
 const APP_NAME_MAX_LENGTH = 30
 
-module.exports = function ({ repo, pullNumber, branch }) {
+export default function ({ repo, pullNumber, branch }) {
   return `${repo}-${pullNumber}--${slugify(branch)}`
     // Shorten the string to the max allowed length
     .slice(0, APP_NAME_MAX_LENGTH)

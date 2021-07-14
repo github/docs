@@ -1,5 +1,6 @@
-const { getDOM } = require('../helpers/supertest')
-const languages = require('../../lib/languages')
+import { getDOM } from '../helpers/supertest.js'
+import languages from '../../lib/languages.js'
+import { jest } from '@jest/globals'
 
 describe('<head>', () => {
   jest.setTimeout(5 * 60 * 1000)

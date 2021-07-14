@@ -1,9 +1,9 @@
-const path = require('path')
-const findPageInSiteTree = require('../../lib/find-page-in-site-tree')
-const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
+import path from 'path'
+import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
+import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 
 // This module adds currentProductTree to the context object for use in layouts.
-module.exports = function currentProductTree (req, res, next) {
+export default function currentProductTree (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.documentType === 'homepage') return next()
 

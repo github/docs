@@ -1,6 +1,6 @@
-const layouts = require('../../lib/layouts')
+import layouts from '../../lib/layouts.js'
 
-module.exports = function layoutContext (req, res, next) {
+export default function layoutContext (req, res, next) {
   if (!req.context.page) return next()
 
   const layoutOptsByType = {

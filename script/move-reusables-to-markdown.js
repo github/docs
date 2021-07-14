@@ -1,13 +1,17 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import flat from 'flat'
+import { get } from 'lodash-es'
+import xWalkSync from 'walk-sync'
+import yaml from 'js-yaml'
+import xMkdirp from 'mkdirp'
+import languages from '../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const flat = require('flat')
-const { get } = require('lodash')
-const walk = require('walk-sync').entries
-const yaml = require('js-yaml')
-const mkdirp = require('mkdirp').sync
-const languages = require('../lib/languages')
+const walk = xWalkSync.entries
+const mkdirp = xMkdirp.sync
 
 // [start-readme]
 //

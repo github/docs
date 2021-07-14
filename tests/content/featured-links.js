@@ -1,7 +1,8 @@
-require('../../lib/feature-flags')
-const { getDOM, getJSON } = require('../helpers/supertest')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const japaneseCharacters = require('japanese-characters')
+import '../../lib/feature-flags.js'
+import { jest } from '@jest/globals'
+import { getDOM, getJSON } from '../helpers/supertest.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import japaneseCharacters from 'japanese-characters'
 
 describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)

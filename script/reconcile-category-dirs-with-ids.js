@@ -1,14 +1,14 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import frontmatter from '../lib/read-frontmatter.js'
+import walk from 'walk-sync'
+import slash from 'slash'
+import GithubSlugger from 'github-slugger'
+import { XmlEntities } from 'html-entities'
+import loadSiteData from '../lib/site-data.js'
+import renderContent from '../lib/render-content/index.js'
 
-const fs = require('fs')
-const path = require('path')
-const frontmatter = require('../lib/read-frontmatter')
-const walk = require('walk-sync')
-const slash = require('slash')
-const GithubSlugger = require('github-slugger')
-const { XmlEntities } = require('html-entities')
-const loadSiteData = require('../lib/site-data')
-const renderContent = require('../lib/render-content')
 
 const slugger = new GithubSlugger()
 const entities = new XmlEntities()

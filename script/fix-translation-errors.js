@@ -1,4 +1,17 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { execSync } from 'child_process'
+import { get, set } from 'lodash-es'
+import fs from 'fs'
+import readFileAsync from '../lib/readfile-async.js'
+import fm from '../lib/frontmatter.js'
+import matter from 'gray-matter'
+import chalk from 'chalk'
+import yaml from 'js-yaml'
+import ghesReleaseNotesSchema from '../tests/helpers/schemas/release-notes-schema.js'
+import revalidator from 'revalidator'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -8,17 +21,6 @@
 //
 // [end-readme]
 
-const { execSync } = require('child_process')
-const { get, set } = require('lodash')
-const fs = require('fs')
-const path = require('path')
-const readFileAsync = require('../lib/readfile-async')
-const fm = require('../lib/frontmatter')
-const matter = require('gray-matter')
-const chalk = require('chalk')
-const yaml = require('js-yaml')
-const ghesReleaseNotesSchema = require('../tests/helpers/schemas/release-notes-schema')
-const revalidator = require('revalidator')
 
 main()
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { execSync as exec } from 'child_process'
+import path from 'path'
 
 // [start-readme]
 //
@@ -13,8 +15,6 @@
 process.env.GIT_AUTHOR_NAME = process.env.GIT_COMMITTER_NAME = 'Octomerger Bot'
 process.env.GIT_AUTHOR_EMAIL = process.env.GIT_COMMITTER_EMAIL = '63058869+Octomerger@users.noreply.github.com'
 
-const { execSync: exec } = require('child_process')
-const path = require('path')
 const args = process.argv.slice(2)
 const message = args[0]
 const base = args[1] || 'main'

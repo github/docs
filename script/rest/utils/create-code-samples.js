@@ -1,8 +1,9 @@
-module.exports = createCodeSamples
+#!/usr/bin/env node
+import urlTemplate from 'url-template'
+import { stringify } from 'javascript-stringify'
+import { get, mapValues, snakeCase } from 'lodash-es'
+export default createCodeSamples
 
-const urlTemplate = require('url-template')
-const { stringify } = require('javascript-stringify')
-const { get, mapValues, snakeCase } = require('lodash')
 
 const PARAMETER_EXAMPLES = {
   owner: 'octocat',

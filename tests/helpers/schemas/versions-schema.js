@@ -5,7 +5,7 @@ const releasePattern = '[a-z0-9-.]+'
 const delimiter = '@'
 const versionPattern = `${planPattern}${delimiter}${releasePattern}`
 
-module.exports = {
+export default {
   additionalProperties: false,
   properties: {
     version: {

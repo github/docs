@@ -1,6 +1,6 @@
-const languages = require('../lib/languages')
-const { productMap } = require('../lib/all-products')
-const { deprecated } = require('../lib/enterprise-server-releases.js')
+import languages from '../lib/languages.js'
+import { productMap } from '../lib/all-products.js'
+import { deprecated } from '../lib/enterprise-server-releases.js'
 
 const pathRegExps = [
   // Disallow indexing of WIP localized content
@@ -26,7 +26,7 @@ const pathRegExps = [
     ])
 ].flat()
 
-function blockIndex (path) {
+export function blockIndex (path) {
   return pathRegExps.some(pathRe => pathRe.test(path))
 }
 
@@ -37,4 +37,4 @@ const middleware = function blockRobots (req, res, next) {
 
 middleware.blockIndex = blockIndex
 
-module.exports = middleware
+export default middleware

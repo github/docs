@@ -1,6 +1,6 @@
-const getApplicableVersions = require('../../lib/get-applicable-versions')
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
-module.exports = async function productExamples (req, res, next) {
+export default async function productExamples (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'product-landing') return next()
 

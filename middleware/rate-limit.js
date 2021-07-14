@@ -1,13 +1,13 @@
-const rateLimit = require('express-rate-limit')
-const RedisStore = require('rate-limit-redis')
-const createRedisClient = require('../lib/redis/create-client')
+import rateLimit from 'express-rate-limit'
+import RedisStore from 'rate-limit-redis'
+import createRedisClient from '../lib/redis/create-client.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const { REDIS_URL } = process.env
 const rateLimitDatabaseNumber = 0
 const EXPIRES_IN_AS_SECONDS = 60
 
-module.exports = rateLimit({
+export default rateLimit({
   // 1 minute (or practically unlimited outside of production)
   windowMs: isProduction ? (EXPIRES_IN_AS_SECONDS * 1000) : 1, // Non-Redis configuration in `ms`. Used as a fallback when Redis is not working or active.
   // limit each IP to X requests per windowMs

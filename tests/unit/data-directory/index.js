@@ -1,5 +1,7 @@
-const path = require('path')
-const dataDirectory = require('../../../lib/data-directory')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import dataDirectory from '../../../lib/data-directory.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixturesDir = path.join(__dirname, 'fixtures')
 
 describe('data-directory', () => {

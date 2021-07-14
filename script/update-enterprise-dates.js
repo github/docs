@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { getContents } from './helpers/git-utils.js'
+import fs from 'fs'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const { getContents } = require('./helpers/git-utils')
-const fs = require('fs')
-const path = require('path')
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
 const enterpriseDatesString = fs.readFileSync(enterpriseDatesFile, 'utf8')
 

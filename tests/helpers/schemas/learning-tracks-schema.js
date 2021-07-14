@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   properties: {
     type: 'object',
     additionalProperties: false,

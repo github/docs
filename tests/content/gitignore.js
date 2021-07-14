@@ -1,5 +1,5 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 const gitignorePath = path.join(process.cwd(), '.gitignore')
 const gitignore = fs.readFileSync(gitignorePath, 'utf8')
 const entries = gitignore.split(/\r?\n/)

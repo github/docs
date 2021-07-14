@@ -1,7 +1,8 @@
-const { namePrefix } = require('../../lib/search/config')
-const getAlgoliaClient = require('./algolia-client')
+#!/usr/bin/env node
+import { namePrefix } from '../../lib/search/config.js'
+import getAlgoliaClient from './algolia-client.js'
 
-module.exports = async function getRemoteIndexNames () {
+export default async function getRemoteIndexNames () {
   const algoliaClient = getAlgoliaClient()
   const indices = await algoliaClient.listIndices()
 

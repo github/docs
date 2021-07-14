@@ -10,7 +10,7 @@
 // content model, add the entry to this list, and ensure you loop in the
 // content and/or content strategy team for review.
 
-module.exports = [
+export default [
   '2FA',
   'Access management',
   'Accounts',

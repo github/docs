@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import xGithub from './helpers/github.js'
+import { execSync } from 'child_process'
 
-require('dotenv').config()
-const github = require('./helpers/github')()
-const { execSync } = require('child_process')
+xDotenv.config()
+const github = xGithub()
 
 // Check for required PAT
 if (!process.env.GITHUB_TOKEN) {

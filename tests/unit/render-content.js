@@ -1,6 +1,6 @@
-const cheerio = require('cheerio')
-const renderContent = require('../../lib/render-content/renderContent')
-const { EOL } = require('os')
+import cheerio from 'cheerio'
+import renderContent from '../../lib/render-content/renderContent.js'
+import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have
 // been loaded from disk

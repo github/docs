@@ -1,15 +1,16 @@
-const { liquid } = require('../../lib/render-content')
-const { loadPageMap } = require('../../lib/page-data')
-const htmlEntities = require('html-entities')
+import { jest } from '@jest/globals'
+import { liquid } from '../../lib/render-content/index.js'
+import { loadPageMap } from '../../lib/page-data.js'
+import htmlEntities from 'html-entities'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 const entities = new htmlEntities.XmlEntities()
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('liquid helper tags', () => {
   jest.setTimeout(60 * 1000)
 
   const context = {}
   let pageMap
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     pageMap = await loadPageMap()
     context.currentLanguage = 'en'
     context.currentVersion = nonEnterpriseDefaultVersion
@@ -30,7 +31,6 @@ describe('liquid helper tags', () => {
     context.page = {
       relativePath: 'desktop/index.md'
     }
-    done()
   })
 
   test('link tag with relative path (English)', async () => {

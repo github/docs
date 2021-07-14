@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import xMkdirp from 'mkdirp'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const mkdirp = require('mkdirp').sync
-const allVersions = require('../../lib/all-versions')
+const mkdirp = xMkdirp.sync
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 

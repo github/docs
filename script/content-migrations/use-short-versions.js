@@ -1,13 +1,14 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import walk from 'walk-sync'
+import path from 'path'
+import { escapeRegExp } from 'lodash-es'
+import { Tokenizer } from 'liquidjs'
+import frontmatter from '../../lib/read-frontmatter.js'
+import xAllVersions from '../../lib/all-versions.js'
+import { deprecated, oldestSupported } from '../../lib/enterprise-server-releases.js'
 
-const fs = require('fs')
-const walk = require('walk-sync')
-const path = require('path')
-const { escapeRegExp } = require('lodash')
-const { Tokenizer } = require('liquidjs')
-const frontmatter = require('../../lib/read-frontmatter')
-const allVersions = Object.values(require('../../lib/all-versions'))
-const { deprecated, oldestSupported } = require('../../lib/enterprise-server-releases')
+const allVersions = Object.values(xAllVersions)
 const dryRun = ['-d', '--dry-run'].includes(process.argv[2])
 
 const walkFiles = (pathToWalk, ext) => {

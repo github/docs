@@ -1,7 +1,7 @@
-const path = require('path')
-const patterns = require('../lib/patterns')
-const isArchivedVersion = require('../lib/is-archived-version')
-const got = require('got')
+import path from 'path'
+import patterns from '../lib/patterns.js'
+import isArchivedVersion from '../lib/is-archived-version.js'
+import got from 'got'
 
 const ONE_DAY = 24 * 60 * 60 // 1 day in seconds
 
@@ -11,7 +11,7 @@ const ONE_DAY = 24 * 60 * 60 // 1 day in seconds
 //
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
-module.exports = async function archivedEnterpriseVersionsAssets (req, res, next) {
+export default async function archivedEnterpriseVersionsAssets (req, res, next) {
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived) return next()
 

@@ -1,7 +1,7 @@
-const connectDatadog = require('connect-datadog')
-const statsd = require('../lib/statsd')
+import connectDatadog from 'connect-datadog'
+import statsd from '../lib/statsd.js'
 
-module.exports = (req, res, next) => {
+export default (req, res, next) => {
   const tags = []
 
   if ('nextjs' in req.query) {

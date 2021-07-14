@@ -1,4 +1,4 @@
-const { schema } = require('../../../lib/frontmatter')
+import { schema } from '../../../lib/frontmatter.js'
 
 // Copy the properties from the frontmatter schema.
 const featureVersions = {
@@ -15,4 +15,4 @@ delete featureVersions.properties.versions.properties.feature
 featureVersions.additionalProperties = false
 featureVersions.properties.versions.additionalProperties = false
 
-module.exports = featureVersions
+export default featureVersions

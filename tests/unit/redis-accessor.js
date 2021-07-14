@@ -1,5 +1,8 @@
-const { RedisClient: InMemoryRedis } = require('redis-mock')
-const RedisAccessor = require('../../lib/redis-accessor')
+import { jest } from '@jest/globals'
+import redisMock from 'redis-mock'
+import RedisAccessor from '../../lib/redis-accessor.js'
+
+const { RedisClient: InMemoryRedis } = redisMock
 
 describe('RedisAccessor', () => {
   test('is a constructor', async () => {

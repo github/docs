@@ -1,4 +1,5 @@
-const { get, getDOM } = require('../helpers/supertest')
+import { get, getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('release notes', () => {
   jest.setTimeout(60 * 1000)
