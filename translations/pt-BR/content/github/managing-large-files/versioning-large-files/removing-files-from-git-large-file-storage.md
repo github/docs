@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Remover um único arquivo
 
 1.  Remova o arquivo do histórico do repositório do Git usando o comando `filter-branch` ou o BFG Repo Cleaner. Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/articles/removing-sensitive-data-from-a-repository)".
@@ -38,7 +39,7 @@ versions:
 
 Depois de remover arquivos de {% data variables.large_files.product_name_short %}, os objetos de {% data variables.large_files.product_name_short %} ainda existem no armazenamento remoto {% if currentVersion == "free-pro-team@latest" %} e continuarão a contar para a sua cota de armazenamento de {% data variables.large_files.product_name_short %}{% endif %}.
 
-Para remover objetos de {% data variables.large_files.product_name_short %} de um repositório, {% if currentVersion == "free-pro-team@latest" %}, apague e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Os objetos arquivados são excluídos após três meses.{% endif %}
+Para remover objetos de {% data variables.large_files.product_name_short %} de um repositório, {% if currentVersion == "free-pro-team@latest" %}, apague e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. Para obter mais informações, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository). " Se você precisar limpar um objeto removido e não puder excluir o repositório, [entre em contato com o suporte](/github/working-with-github-support) para obter ajuda.{% else %}entre em contato com o seu {% data variables.product.prodname_enterprise %} administrador para arquivar os objetos. Os objetos arquivados são excluídos após três meses.{% endif %}
 
 {% note %}
 

@@ -1,0 +1,19 @@
+name: Block JavaScript Change
+
+# **What it does**: Blocks JavaScript file changes.
+# **Why we have it**: We need to freeze JavaScript file changes in order to upgrade from CommonJS to ESM.
+# **Who does it impact**: Engineers.
+
+on:
+  pull_request_target:
+    paths:
+      - '**.js'
+
+jobs:
+  block:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail
+        run: |
+          echo 'JavaScript files are frozen currently. Ask in Slack for help.'
+          exit 1

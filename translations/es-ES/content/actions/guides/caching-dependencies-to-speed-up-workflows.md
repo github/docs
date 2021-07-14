@@ -60,7 +60,7 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
 - `key`: **Obligatorio** La clave que se crea cuando se guarda una memoria caché y la clave utilizada para buscar una caché. Puede ser cualquier combinación de variables, valores de contexto, cadenas estáticas y funciones. Las claves tienen una longitud máxima de 512 caracteres y las claves más largas que la longitud máxima provocarán un error en la acción.
 - `path`: **Obligatorio** La ruta del archivo en el ejecutor para almacenar en caché o restaurar. La ruta debe ser absoluta o relativa al directorio de trabajo.
   - Las rutas pueden ser tanto directorios o solo archivos, y los patrones estilo glob son compatibles.
-  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. Por ejemplo:
+  - Con la `v2` de la acción `cache`, puedes especificar una ruta sencilla o puedes agregar rutas múltiples en líneas separadas. Por ejemplo:
     ```
     - name: Cache Gradle packages
       uses: actions/cache@v2

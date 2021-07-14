@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise アカウント の {% data variables.product.prodname_actions %} 権限について
 
 デフォルトでは、Enterprise アカウントが所有するすべての Organization で {% data variables.product.prodname_actions %} が有効です。 Enterprise アカウントが所有するすべての Organization に対して {% data variables.product.prodname_actions %} を無効にすることも、特定の Organization に対して無効にすることもできます。 Organization にあるローカルのアクションだけ利用できるように、パブリックなアクションの利用を制限することもできます。
@@ -57,10 +58,10 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configuring the default `GITHUB_TOKEN` permissions
+#### デフォルトの`GITHUB_TOKEN`権限の設定
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope. ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
 1. **Save（保存）**をクリックして、設定を適用してください。

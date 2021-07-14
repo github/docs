@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 各コミットには次の情報が含まれています。
 
  - コミットメッセージ

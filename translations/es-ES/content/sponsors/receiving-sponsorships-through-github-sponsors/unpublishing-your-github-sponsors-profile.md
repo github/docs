@@ -1,6 +1,6 @@
 ---
-title: Unpublishing your GitHub Sponsors profile
-intro: 'If you don''t have any sponsors, you can unpublish your {% data variables.product.prodname_sponsors %} profile.'
+title: Dejar de publicar tu perfil de GitHub Sponsors
+intro: 'Si no tienes ningún patrocinadore, puedes dejar de publicar tu perfil de {% data variables.product.prodname_sponsors %}.'
 versions:
   free-pro-team: '*'
 type: how_to
@@ -9,13 +9,13 @@ topics:
   - Sponsors payments
 ---
 
-If you have sponsors, you'll need to contact GitHub Support to help you unpublish your {% data variables.product.prodname_sponsors %} account.
+Si tienes patrocinadores, necesitas contactar al Soporte de GitHub para ayudarte a dejar de publicar tu cuenta de {% data variables.product.prodname_sponsors %}.
 
-After your {% data variables.product.prodname_sponsors %} account is unpublished:
-- You'll no longer receive sponsorship payments.
-- You can request to re-publish your profile.
+Después de que se deja de publicar tu cuenta de {% data variables.product.prodname_sponsors %}:
+- No recibirás pagos de patrocinios.
+- Puedes solicitar volver a publicar tu perfil.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
-3. Under "Unpublish your GitHub Sponsors profile", click **Unpublish profile**. !["Unpublish profile" button](/assets/images/help/sponsors/unpublish-profile-button.png)
-4. To confirm, click "Unpublish GitHub Sponsors account". !["Unpublish GitHub Sponsors profile" button](/assets/images/help/sponsors/unpublish-profile-dialog.png)
+3. Debajo de "Dejar de publicar tu perfil de GitHub Sponsors", haz clic en **Dejar de publicar perfil**. ![Botón de "Dejar de publicar perfil"](/assets/images/help/sponsors/unpublish-profile-button.png)
+4. Para confirmar, haz clic en "Dejar de publicar la cuenta de GitHub Sponsors". ![Botón de "Dejar de publicar perfil de GitHub Sponsors"](/assets/images/help/sponsors/unpublish-profile-dialog.png)

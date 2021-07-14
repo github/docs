@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 对于 GitHub 应用程序
 
 {% data variables.product.prodname_marketplace %} 上的某些应用有 {% octicon "verified" aria-label="The verified badge" %} 徽章以及显示“发布者域名和电子邮件已验证”的工具提示。 这意味着该应用由下列组织拥有：

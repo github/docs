@@ -7,18 +7,21 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
   - /code-security/secure-coding/about-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
+type: overview
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About {% data variables.product.prodname_code_scanning %}
+## About {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
@@ -31,7 +34,7 @@ To monitor results from {% data variables.product.prodname_code_scanning %} acro
 
 To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-### About {% data variables.product.prodname_codeql %}
+## About {% data variables.product.prodname_codeql %}
 
 You can use {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, a semantic code analysis engine. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers. 
 
@@ -43,22 +46,22 @@ You can use {% data variables.product.prodname_code_scanning %} with {% data var
 
 You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### About billing for {% data variables.product.prodname_code_scanning %}
+## About billing for {% data variables.product.prodname_code_scanning %}
 
 {% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
 {% endif %}
 
-### About third-party {% data variables.product.prodname_code_scanning %} tools
+## About third-party {% data variables.product.prodname_code_scanning %} tools
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
 
-### Further reading
+## Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

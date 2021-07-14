@@ -6,15 +6,15 @@ redirect_from:
   - /articles/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/about-repository-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
-A repository's graphs give you information on {% if currentVersion == "free-pro-team@latest" %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. If you maintain a repository, you can use this data to get a better understanding of who's using your repository and why they're using it.
+A repository's graphs give you information on {% ifversion fpt %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. If you maintain a repository, you can use this data to get a better understanding of who's using your repository and why they're using it.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Some repository graphs are available only in public repositories with {% data variables.product.prodname_free_user %}:
 - Pulse
@@ -28,7 +28,7 @@ All other repository graphs are available in all repositories. Every repository 
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Accessing basic repository data](/articles/accessing-basic-repository-data)"
 - "[Analyzing changes to a repository's content](/articles/analyzing-changes-to-a-repository-s-content)"

@@ -16,6 +16,7 @@ topics:
   - Teams
   - User account
 ---
+
 每个团队都有自己单独定义的[组织所拥有仓库的访问权限](/articles/permission-levels-for-an-organization)。
 
 - 具有所有者角色的成员可以向所有团队添加成员或从中移除现有组织成员。
@@ -23,8 +24,8 @@ topics:
 
 ### 设置团队
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}

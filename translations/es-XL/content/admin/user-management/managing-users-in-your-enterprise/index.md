@@ -14,13 +14,12 @@ topics:
 children:
   - /promoting-or-demoting-a-site-administrator
   - /best-practices-for-user-security
-  - /auditing-users-across-your-instance
+  - /auditing-users-across-your-enterprise
   - /managing-dormant-users
   - /suspending-and-unsuspending-users
   - /placing-a-legal-hold-on-a-user-or-organization
   - /auditing-ssh-keys
-  - /customizing-user-messages-on-your-instance
-  - /configuring-email-for-notifications
+  - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
   - /managing-global-webhooks
 ---

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于推送更改到 {% data variables.product.prodname_dotcom %}
 
 在推送更改时，会将本地仓库中已提交的更改发送到 {% data variables.product.prodname_dotcom %} 上的远程仓库。 如果在本地更改项目，并且希望其他人也能访问这些更改，您必须将更改推送到 {% data variables.product.prodname_dotcom %}。

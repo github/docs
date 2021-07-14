@@ -1,0 +1,1 @@
+1. Optionally, delete the branch. Weitere Informationen findest Du unter „[Branches in Deinem Repository erstellen und löschen](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository).“

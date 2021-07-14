@@ -15,6 +15,7 @@ topics:
   - Repositories
   - Security
 ---
+
 ### 关于内部仓库
 
 内部仓库适用于 {% data variables.product.prodname_ghe_server %} 2.20+。 {% data reusables.repositories.about-internal-repos %} 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)。”

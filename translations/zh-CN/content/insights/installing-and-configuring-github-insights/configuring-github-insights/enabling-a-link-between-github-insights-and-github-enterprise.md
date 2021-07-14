@@ -9,6 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 在您启用该链接后，每个用户都可以直接从 {% data variables.product.prodname_ghe_server %} 导航到 {% data variables.product.prodname_insights %}。 更多信息请参阅“[在 {% data variables.product.prodname_enterprise %} 与 {% data variables.product.prodname_insights %} 之间导航](/insights/exploring-your-usage-of-github-enterprise/navigating-between-github-enterprise-and-github-insights)”。
 
 1. 连接到 {% data variables.product.prodname_ghe_server %} 的管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
@@ -16,12 +17,10 @@ versions:
   ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
-3. 返回到
-{% data variables.product.prodname_ghe_server %}.
+3. 返回到 {% data variables.product.prodname_ghe_server %}。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-7. 在
-{% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**下，单击 **{% data variables.product.prodname_insights %}**。
+7. 在 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**下，单击 **{% data variables.product.prodname_insights %}**。
   {% note %}
 
   **注：**运行配置命令后，此选项需要几分钟才会出现在 {% data variables.product.prodname_enterprise %} 中。 如果您没有看到 **{% data variables.product.prodname_insights %}**，请稍候，或者重新启动 {% data variables.product.prodname_enterprise %}。

@@ -5,13 +5,14 @@ redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
   - /developers/apps/suspending-a-github-app-installation
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Suspend app installation
 ---
-### Suspending a GitHub App
+## Suspending a GitHub App
 
 The integrator who owns and maintains a GitHub app, also called a GitHub App owner, can suspend or unsuspend a GitHub App installation using REST API endpoints with a JWT. For more information, see the [GitHub Apps REST API](/rest/reference/apps).
 

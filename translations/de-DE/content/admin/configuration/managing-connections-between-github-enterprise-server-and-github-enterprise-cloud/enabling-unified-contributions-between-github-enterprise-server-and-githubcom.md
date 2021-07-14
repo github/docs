@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - GitHub Connect
 ---
+
 Als Websiteadministrator können Sie zulassen, dass Endbenutzer anonymisierte Beitragsanzahlen für ihre Arbeit auf {% data variables.product.prodname_ghe_server %} an ihr {% data variables.product.prodname_dotcom_the_website %}-Beteiligungsdiagramm senden können.
 
 Nachdem Sie {% data variables.product.prodname_github_connect %} und {% data variables.product.prodname_unified_contributions %} in beiden Umgebungen aktiviert haben, können sich Endbenutzer auf Ihrer Instanz mit ihren {% data variables.product.prodname_dotcom_the_website %}-Konten verbinden und Beitragsanzahlen von {% data variables.product.prodname_ghe_server %} an {% data variables.product.prodname_dotcom_the_website %} senden. {% data reusables.github-connect.sync-frequency %} Weitere Informationen finden Sie unter „[Ihre {% data variables.product.prodname_ghe_server %}-Beiträge an Ihr {% data variables.product.prodname_dotcom_the_website %}-Profil senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile/)“.

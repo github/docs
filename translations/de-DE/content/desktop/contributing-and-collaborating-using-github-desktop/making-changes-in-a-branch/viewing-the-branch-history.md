@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Jeder Commit zeigt Folgendes:
 
  - Die Commit-Mitteilung

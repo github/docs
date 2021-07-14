@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### Sobre failover para seu cluster de réplicas
 
 Na hipótese de falha no seu centro de dados primário, você pode gerar falha para os nós de réplica no centro de dados secundário se você configurar um nó de réplica passiva para cada nó no seu cluster ativo.

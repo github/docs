@@ -5,9 +5,10 @@ redirect_from:
   - /articles/deleted-or-missing-ssh-keys
   - /github/authenticating-to-github/deleted-or-missing-ssh-keys
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSH
+shortTitle: Deleted or missing SSH keys
 ---
 {% data variables.product.prodname_dotcom %} automatically deletes inactive SSH keys to help keep accounts safe, such as after someone leaves a job or loses a computer.
 

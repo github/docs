@@ -8,6 +8,7 @@ permissions: 'Anyone with access to {% data variables.product.prodname_insights 
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于目标
 
 目标是指您为关键目标设定的用于衡量团队成功率的目标。 为关键指标设定目标时，可以使用图表上的目标线和成功率指标了解团队绩效与目标的对比情况。 例如，您可以将 `code review turnaround time` 的目标设定为 4 小时。 关键指标图表上的目标线可显示哪些代码审查实现了目标，哪些没有实现。 如果您的团队在 4 小时内完成了一半代码审查，`success rate` 就是 50%。

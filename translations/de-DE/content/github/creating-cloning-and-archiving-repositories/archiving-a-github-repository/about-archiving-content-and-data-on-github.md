@@ -9,6 +9,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Dauerhaftigkeit von öffentlichen Repositorys
 
 {% data variables.product.product_name %} beabsichtigt, Ihre öffentlichen Repositorys verfügbar zu lassen, es sei denn, Sie entfernen sie. In einigen Fällen entfernen wir möglicherweise öffentliche Inhalte, beispielsweise in folgenden Fällen:

@@ -12,6 +12,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% note %}
 
 **注：**这些示例仅显示 JSON 响应。

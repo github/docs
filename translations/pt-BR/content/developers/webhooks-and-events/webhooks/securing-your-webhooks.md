@@ -11,6 +11,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 Assim que seu servidor estiver configurado para receber cargas, ele ouvirá qualquer carga enviada para o ponto de extremidade que você configurou. Por motivos de segurança, você provavelmente vai querer limitar os pedidos para aqueles provenientes do GitHub. Existem algumas maneiras de fazer isso. Você poderia, por exemplo, optar por permitir solicitações do endereço IP do GitHub. No entanto, um método muito mais fácil é configurar um token secreto e validar a informação.
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
@@ -52,7 +53,8 @@ require 'sinatra'
 require 'json'
 
 post '/payload' do
-  push = JSON.parse(params[:payload])
+  request.body.rewind
+  push = JSON.parse(request.body.read)
   "I got some JSON: #{push.inspect}"
 end
 ```
@@ -64,7 +66,7 @@ post '/payload' do
   request.body.rewind
   payload_body = request.body.read
   verify_signature(payload_body)
-  push = JSON.parse(params[:payload])
+  push = JSON.parse(payload_body)
   "I got some JSON: #{push.inspect}"
 end
 

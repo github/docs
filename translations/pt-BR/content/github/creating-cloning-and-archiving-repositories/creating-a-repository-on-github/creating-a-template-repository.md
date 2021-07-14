@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% note %}
 
 **Observação**: Seu repositório de modelo não pode incluir arquivos armazenados usando {% data variables.large_files.product_name_short %}.
@@ -20,7 +21,7 @@ topics:
 
 Para criar um repositório de modelos, é preciso criar um repositório e, em seguida, torná-lo um modelo. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)".
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
+Depois de fazer o seu repositório um modelo, qualquer pessoa com acesso ao repositório poderá gerar um novo repositório com a mesma estrutura de diretório e arquivos do branch padrão.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Eles também podem optar por incluir todos os outros branches no seu repositório. Os branches criados a partir de um modelo têm histórico não relacionado. Portanto, você não pode criar pull requests ou fazer merge entre os branches.{% endif %} Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

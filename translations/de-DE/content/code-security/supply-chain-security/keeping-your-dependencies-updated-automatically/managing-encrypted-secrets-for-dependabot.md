@@ -6,7 +6,15 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
+topics:
+  - Dependabot
+  - Version updates
+  - Secret store
+  - Repositories
+  - Dependencies
 ---
+
 ### About encrypted secrets for {% data variables.product.prodname_dependabot %}
 
 {% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.

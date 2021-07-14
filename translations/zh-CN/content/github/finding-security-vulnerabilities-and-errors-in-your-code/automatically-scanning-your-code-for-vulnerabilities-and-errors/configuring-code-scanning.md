@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
@@ -296,7 +297,7 @@ paths-ignore:
 **注**：
 
 * 在 {% data variables.product.prodname_code_scanning %} 配置文件上下文中使用的 `paths` 和 `paths-ignore` 关键字，不应与用于工作流程中 `on.<push|pull_request>.paths` 的相同关键字相混淆。 当它们用于修改工作流程中的 `on.<push|pull_request>` 时，它们将决定在有人修改指定目录中的代码时是否运行操作。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)”。
-* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
+* 不支持过滤模式字符 `?`、`+`、`[`、`]` 和 `!`，将逐字匹配。
 * `**` 字符只能用在行的开头或结尾，或用斜杠包围，并且不能将 `**` 与其他字符混合在一起。 例如，`foo/**`、`**/foo` 和 `foo/**/bar` 都是允许的语法，但 `**foo` 不是。 但是，可以将单星号与其他字符一起使用，如示例中所示。 您需要引用任何包含 `*` 字符的内容。
 
 {% endnote %}

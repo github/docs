@@ -1,5 +1,6 @@
 require('../../lib/feature-flags')
-const ffs = require('../../feature-flags')
+const readJsonFile = require('../../lib/read-json-file')
+const ffs = readJsonFile('./feature-flags.json')
 
 describe('feature flags', () => {
   Object.keys(ffs).forEach(featureName => {

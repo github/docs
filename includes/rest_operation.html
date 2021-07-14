@@ -55,7 +55,7 @@
               <td class="opacity-70">{{ param.in }}</td>
               <td class="opacity-70">
                 {{ param.descriptionHTML }}
-                {% if param.schema.default %}
+                {% if param.schema.default != nil %}
                   Default: <code>{{ param.schema.default }}</code>
                 {% endif %}
               </td>
@@ -68,7 +68,7 @@
             <td class="opacity-70">{{ bodyParam.in }}</td>
             <td class="opacity-70">
               {{ bodyParam.description }}
-              {% if bodyParam.default %}
+              {% if bodyParam.default != nil %}
               Default: <code>{{ bodyParam.default }}</code>
               {% endif %}
             </td>

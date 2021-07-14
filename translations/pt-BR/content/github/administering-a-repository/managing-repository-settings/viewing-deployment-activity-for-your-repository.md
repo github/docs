@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% note %}
 
 **Observação:** o painel de implantações está disponível em beta e, portanto, sujeito a alterações.
@@ -24,7 +25,7 @@ Também é possível ver informações de implantação na guia "Conversation" (
 ### Exibir o painel de implantações
 
 {% data reusables.repositories.navigate-to-repo %}
-2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}À direita da lista de arquivos, clique em **Ambientes**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Acima da lista de arquivos, clique em **Ambientes**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
 
 
 ### Leia mais

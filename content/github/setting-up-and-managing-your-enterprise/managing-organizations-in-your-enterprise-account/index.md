@@ -5,7 +5,7 @@ redirect_from:
   - /articles/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 children:
@@ -13,5 +13,6 @@ children:
   - /managing-unowned-organizations-in-your-enterprise-account
   - /viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /configuring-webhooks-for-organization-events-in-your-enterprise-account
+shortTitle: Manage organizations
 ---
 

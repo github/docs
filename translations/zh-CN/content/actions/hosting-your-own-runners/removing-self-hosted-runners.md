@@ -32,7 +32,7 @@ type: tutorial
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### 从组织中删除运行器
@@ -51,7 +51,7 @@ type: tutorial
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### 从企业中删除运行器
@@ -73,8 +73,8 @@ type: tutorial
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 サードパーティアプリケーションが {% data variables.product.product_name %} ログインであなたを識別したい場合、そのアプリケーションの開発者の連絡先情報と、リクエストされている情報のリストのページが表示されます。
 
 ### アプリケーション開発者に連絡する

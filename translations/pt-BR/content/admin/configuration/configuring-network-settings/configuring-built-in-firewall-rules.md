@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### Sobre o firewall da {% data variables.product.product_location %}
 
 O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall (UFW) do Ubuntu no appliance virtual. Para obter mais informações, consulte "[UFW](https://help.ubuntu.com/community/UFW)" na documentação do Ubuntu. O {% data variables.product.prodname_ghe_server %} atualiza automaticamente a lista de desbloqueio de firewall dos serviços permitidos em cada versão.

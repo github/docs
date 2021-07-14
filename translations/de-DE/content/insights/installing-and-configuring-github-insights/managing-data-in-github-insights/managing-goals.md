@@ -8,6 +8,7 @@ permissions: 'Anyone with access to {% data variables.product.prodname_insights 
 versions:
   enterprise-server: '*'
 ---
+
 ### About goals
 
 Goals are targets that you can set for key metrics to measure your team's success. When you set a goal for a key metric, you can see how your team's performance compares to the goal using the goal line on charts and the success rate metric. For example, you can set the goal for `code review turnaround time` to 4 hours. A goal line on the key metric chart shows which code reviews achieved the goal and which did not. If your team completed one half of code reviews in less than 4 hours, your `success rate` will be 50%.

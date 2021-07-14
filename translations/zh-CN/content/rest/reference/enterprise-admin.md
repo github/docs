@@ -100,7 +100,7 @@ IdP 必须使用 `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
 
 {% endnote %}
 
@@ -375,7 +375,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 用户
 
-The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
+用户管理 API 允许您暂停{% if enterpriseServerVersions contains currentVersion %}、取消暂停、升级和降级{% endif %}{% if currentVersion == "github-ae@latest" %}以及取消暂停{% endif %} 企业上的用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

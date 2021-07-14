@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 {% data reusables.enterprise_installation.replica-limit %}
 
 ### Criar réplica de alta disponibilidade

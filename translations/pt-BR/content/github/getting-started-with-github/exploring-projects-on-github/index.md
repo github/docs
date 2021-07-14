@@ -1,6 +1,6 @@
 ---
 title: Explorar projetos no GitHub
-intro: ''
+intro: 'Discover interesting projects on {% data variables.product.product_name %} and contribute to open source by collaborating with other people.'
 redirect_from:
   - /categories/stars/
   - /categories/87/articles/

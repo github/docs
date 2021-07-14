@@ -5,11 +5,12 @@ redirect_from:
   - /articles/about-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/about-organization-membership
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
+shortTitle: Organization membership
 ---
 An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
 
@@ -35,7 +36,7 @@ For more information, see the <a href="/articles/github-privacy-statement/" clas
 
 By default, your organization membership visibility is set to private. You can choose to publicize individual organization memberships on your profile. For more information, see "[Publicizing or hiding organization membership](/articles/publicizing-or-hiding-organization-membership)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 If your organization belongs to an enterprise account, you are automatically a member of the enterprise account and visible to enterprise account owners. For more information, see "[About enterprise accounts](/articles/about-enterprise-accounts)."
 
@@ -43,7 +44,7 @@ If your organization belongs to an enterprise account, you are automatically a m
 
 You can leave an organization at any time. For more information, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization)."
 
-### Further reading
+## Further reading
 
 - "[About organizations](/articles/about-organizations)"
 - "[Managing your membership in organizations](/articles/managing-your-membership-in-organizations)"

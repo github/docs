@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre as assinaturas do Azure e {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obter mais informações, consulte "[Sobre a cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) e "[Sobre cobrança para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obter mais informações, consulte "[Sobre a cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) e "[Sobre cobrança para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
-Após conectar a uma assinatura do Azure, você também poderá gerenciar seu limite de gastos. Para informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)" e "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
+Após conectar a uma assinatura do Azure, você também poderá gerenciar seu limite de gastos. Para informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)" e "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)".
 
 ### Conectar a sua assinatura do Azure à sua conta corporativa
 

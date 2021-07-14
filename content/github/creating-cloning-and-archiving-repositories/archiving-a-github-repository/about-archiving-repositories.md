@@ -5,13 +5,14 @@ redirect_from:
   - /articles/about-archiving-repositories
   - /github/creating-cloning-and-archiving-repositories/about-archiving-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Repositories
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% note %}
 
 **Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
@@ -27,5 +28,5 @@ When a repository is archived, its issues, pull requests, code, labels, mileston
 
 You can search for archived repositories. For more information, see "[Searching for repositories](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."  
 
-### Further reading
+## Further reading
 - "[Archiving repositories](/articles/archiving-repositories)"

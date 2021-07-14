@@ -37,11 +37,9 @@ class AlgoliaIndex {
     const index = client.initIndex(this.name)
     let records = []
 
-    index
-      .browseObjects({
-        batch: batch => (records = records.concat(batch))
-      })
-      .catch(err => { throw err })
+    await index.browseObjects({
+      batch: batch => (records = records.concat(batch))
+    })
 
     return records
   }

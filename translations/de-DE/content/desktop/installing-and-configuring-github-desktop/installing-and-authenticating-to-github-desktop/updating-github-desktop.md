@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. Klicken Sie im Menü **GitHub Desktop** auf **About GitHub Desktop** (Informationen zu GitHub Desktop). ![Menüoption „About GitHub Desktop“ (Informationen zu GitHub Desktop)](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)

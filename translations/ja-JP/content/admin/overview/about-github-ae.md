@@ -25,7 +25,7 @@ topics:
 
 ### 指定の条件下での暗号化
 
-All customer data is encrypted at rest. 詳しい情報については、「[Enterprise 向けのデータ暗号化を設定する](/admin/configuration/configuring-data-encryption-for-your-enterprise)」を参照してください。
+すべての顧客データは保存時に暗号化されます。 詳しい情報については、「[Enterprise 向けのデータ暗号化を設定する](/admin/configuration/configuring-data-encryption-for-your-enterprise)」を参照してください。
 
 ### 分離されたアカウント
 
@@ -38,3 +38,7 @@ All customer data is encrypted at rest. 詳しい情報については、「[Ent
 ### 商用および政府環境
 
 {% data variables.product.prodname_ghe_managed %} は、Azure Government クラウドという、米国政府機関とそのパートナー向けの信頼できるクラウドで利用できます。 {% data variables.product.prodname_ghe_managed %} は商用クラウドでも利用できるため、Organization に適したホスティング環境を選択できます。
+
+### 参考リンク
+
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

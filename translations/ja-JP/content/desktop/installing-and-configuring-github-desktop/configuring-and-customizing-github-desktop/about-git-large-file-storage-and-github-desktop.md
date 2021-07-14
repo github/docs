@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} をインストールすると、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）もインストールされます。 {% data variables.large_files.product_name_short %} では、通常の制限の {% data variables.large_files.max_github_size %} を超えるファイルを {% data variables.product.prodname_dotcom %} にプッシュできます。 {% data variables.large_files.product_name_short %} の詳細については、「[{% data variables.large_files.product_name_long %} について](/github/managing-large-files/about-git-large-file-storage)」を参照してください。
 
 {% data variables.large_files.product_name_short %} を {% data variables.product.prodname_desktop %}で使用するには、コマンドラインを使用して {% data variables.large_files.product_name_short %} を設定する必要があります。 詳しい情報については、「[{% data variables.large_files.product_name_long %} を設定する](/github/managing-large-files/configuring-git-large-file-storage)」を参照してください。

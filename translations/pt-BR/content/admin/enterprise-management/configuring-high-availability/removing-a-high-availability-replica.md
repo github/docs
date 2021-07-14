@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Infrastructure
 ---
+
 ### Parar a replicação temporariamente
 
 1. Se necessário, interrompa o serviço da réplica de replicação geográfica no tráfego do usuário removendo as entradas de DNS de localização geográfica da réplica.

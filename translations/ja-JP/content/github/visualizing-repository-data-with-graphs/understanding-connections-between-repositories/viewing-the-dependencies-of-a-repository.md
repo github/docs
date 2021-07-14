@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/viewing-the-dependencies-of-a-repository
 ---
+
 ほとんどすべてのソフトウェアは、他の開発者 (サプライチェーンとして知られる) によって開発および保守されているコードに依存しています。 たとえば、ユーティリティ、ライブラリ、フレームワークなどです。 これらの依存関係はコードの不可欠な部分であり、それらのバグや脆弱性がコードに影響を与える可能性があります。 これらの依存関係をレビューして維持することが重要です。
 
 依存関係グラフは、リポジトリの依存関係を視覚化して調査するために最適な方法を提供しています。 詳しい情報については、「[依存関係グラフについて](/code-security/supply-chain-security/about-the-dependency-graph)」および「[リポジトリの依存関係を調べる](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) 」を参照してください。

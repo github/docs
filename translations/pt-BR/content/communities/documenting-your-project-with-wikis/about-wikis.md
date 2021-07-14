@@ -24,7 +24,7 @@ Você pode editar wikis diretamente no {% data variables.product.product_name %}
 
 {% note %}
 
-**Note:** Search engines will not index the contents of wikis. To have your content indexed by search engines, you can use [{% data variables.product.prodname_pages %}](/pages) in a public repository.
+**Observação:** Os mecanismos de pesquisa não indexam o conteúdo de wikis. Para que seu conteúdo seja indexado por mecanismos de busca, você pode usar [{% data variables.product.prodname_pages %}](/pages) em um repositório público.
 
 {% endnote %}
 

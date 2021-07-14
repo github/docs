@@ -18,5 +18,9 @@ children:
   - /github-actions
   - /packages
   - /enterprise-support
+  - /advanced-security
+  - /guides
+  - /release-notes
+  - /all-releases
 ---
 

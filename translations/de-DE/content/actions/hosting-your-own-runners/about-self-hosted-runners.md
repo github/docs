@@ -65,6 +65,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 - **Job queue time** (Job-Warteschlangenzeit) - Jeder Auftrag für selbst-gehostete Läufer kann maximal 24 Stunden lang in die Warteschlange gestellt werden. Wenn ein selbst-gehosteter Läufer die Ausführung des Auftrags nicht innerhalb dieses Limits startet, wird der Auftrag beendet und kann nicht abgeschlossen werden.
 {% data reusables.github-actions.usage-api-requests %}
 - **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
 ### Workflow continuity for self-hosted runners
 
@@ -76,8 +77,8 @@ The following operating systems are supported for the self-hosted runner applica
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 or later
+- CentOS 7 or later
 - Oracle Linux 7
 - Fedora 29 oder höher
 - Debian 9 oder höher

@@ -5,11 +5,12 @@ redirect_from:
   - /articles/referencing-and-citing-content
   - /github/creating-cloning-and-archiving-repositories/referencing-and-citing-content
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+shortTitle: Reference & cite content
 ---
-### Issuing a persistent identifier for your repository with Zenodo
+## Issuing a persistent identifier for your repository with Zenodo
 
 To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a {% data variables.product.product_name %} repository and issue a DOI for the archive.
 
@@ -31,6 +32,6 @@ To make your repositories easier to reference in academic literature, you can cr
 
 Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
 
-### Publicizing and citing research material with Figshare
+## Publicizing and citing research material with Figshare
 
 Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account).

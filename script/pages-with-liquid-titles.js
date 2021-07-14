@@ -7,7 +7,7 @@
 //
 // [end-readme]
 
-const { loadPages } = require('../lib/pages')
+const { loadPages } = require('../lib/page-data')
 const patterns = require('../lib/patterns')
 
 async function main () {

@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### {% data variables.product.prodname_ghe_cloud %} のトライアルについて
 
 14日間のトライアルを設定して、新しい Organization アカウントで {% data variables.product.prodname_ghe_cloud %} を評価できます。 支払方法が必要な {% data variables.product.prodname_marketplace %} アプリを Organization に追加しない限り、トライアル期間中に支払方法を指定する必要はありません。 詳しい情報については、「<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">{% data variables.product.prodname_marketplace %}の支払いについて</a>」を参照してください。

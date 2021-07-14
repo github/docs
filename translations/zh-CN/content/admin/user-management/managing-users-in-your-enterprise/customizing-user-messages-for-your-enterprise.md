@@ -1,6 +1,6 @@
 ---
 title: 自定义企业的用户消息
-shortTitle: Customizing user messages
+shortTitle: 自定义用户消息
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Maintenance
 ---
+
 ### 关于用户消息
 
 有几种类型的用户消息。
@@ -94,8 +95,7 @@ topics:
 您可以设置全局公告横幅，以便在每个页面顶部向所有用户显示。
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-您也可以
-{% if enterpriseServerVersions contains currentVersion %} 使用命令行实用工具或{% endif %} 使用 API 在管理 shell 中设置公告横幅。 更多信息请参阅 {% if enterpriseServerVersions contains currentVersion %}“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”和 {% endif %}“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)”。
+您也可以{% if enterpriseServerVersions contains currentVersion %} 使用命令行实用工具或{% endif %} 使用 API 在管理 shell 中设置公告横幅。 更多信息请参阅 {% if enterpriseServerVersions contains currentVersion %}“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”和 {% endif %}“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)”。
 {% else %}
 
 您还可以使用命令行工具在管理 shell 中设置公告横幅。 更多信息请参阅“[命令行实用程序](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”。

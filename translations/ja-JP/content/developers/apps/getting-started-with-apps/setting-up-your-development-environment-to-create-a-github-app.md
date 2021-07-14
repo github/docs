@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### はじめに
 
 このガイドは、GitHub Appを設定してサーバー上で実行するために必要なステップを案内します。 GitHub Appには、webhookイベントを管理し、GitHub上のアプリケーションの登録をコードに接続するためのセットアップのステップが必要です。 このガイドのアプリケーションは、拡張して新しいGitHub Appを構築するための基盤の役目を果たします。
@@ -421,7 +422,7 @@ $ ruby template_server.rb
 
 * **Q:** サーバーがイベントを待ち受けていません! Smeeクライアントはターミナルウィンドウで動作していて、アプリケーションをGitHubのリポジトリにインストールしていますが、サーバーを動作させているターミナルウィンドウに出力がありません。
 
-    **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"の`smee -u <unique_channel>` コマンドで使ったドメインと一致することを確認してください。 If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
+    **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"でwebhookのペイロードをリダイレクトしたポートと一致させます。 If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
 
 * **Q:** デバッグ出力に`Octokit::NotFound` 404エラーが出ます。
     ```

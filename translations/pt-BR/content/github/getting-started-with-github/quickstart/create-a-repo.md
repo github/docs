@@ -15,11 +15,12 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### Criar um repositório
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Você pode armazenar vários projetos nos repositórios do {% data variables.product.product_name %}, incluindo projetos de código aberto. Com os [projetos de código aberto](http://opensource.org/about), é possível compartilhar código para criar softwares melhores e mais confiáveis.
+Você pode armazenar vários projetos nos repositórios do {% data variables.product.product_name %}, incluindo projetos de código aberto. Com os [projetos de código aberto](http://opensource.org/about), é possível compartilhar código para criar softwares melhores e mais confiáveis. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
@@ -39,9 +40,7 @@ Você pode armazenar uma série de projetos em repositórios de {% data variable
 
 {% data reusables.repositories.create_new %}
 2. Digite um nome curto e fácil de memorizar para seu repositório. Por exemplo, "olá mundo". ![Campo para inserir um nome de repositório](/assets/images/help/repository/create-repository-name.png)
-3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no
-{% data variables.product.product_name %}."
-  ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
+3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no {% data variables.product.product_name %}". ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -79,6 +78,7 @@ Parabéns! Você criou um repositório, incluindo um arquivo *README*, assim com
 
 - "[Configurar o Git](/articles/set-up-git)"
 - **Criar um repositório**
+- "[Clone a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
 - "[Bifurcar um repositório](/articles/fork-a-repo)"
 - "[Socializar](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

@@ -12,6 +12,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% note %}
 
 **Observação:** Esses exemplos mostram apenas respostas do JSON.

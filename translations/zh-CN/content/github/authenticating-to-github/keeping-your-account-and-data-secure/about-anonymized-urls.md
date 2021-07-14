@@ -1,6 +1,6 @@
 ---
-title: About anonymized URLs
-intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
+title: 关于匿名化 URL
+intro: '如果将图像或视频上传到 {% data variables.product.product_name %}，图像或视频 URL 将会修改，这样便无法跟踪您的信息。'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls
@@ -12,11 +12,12 @@ topics:
   - Identity
   - Access management
 ---
-为托管您的图像，{% data variables.product.product_name %} 使用 [开源项目 Camo](https://github.com/atmos/camo)。 Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. URL 以 `https:///<subdomain>.githubusercontent.com/` 开头，并且根据您如何上传映像而有不同的子域。
 
-Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
+为托管您的图像，{% data variables.product.product_name %} 使用 [开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。 URL 以 `https:///<subdomain>.githubusercontent.com/` 开头，并且根据您如何上传映像而有不同的子域。
 
-Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
+视频还可以使用与图像 URL 相同的格式获得匿名化 URL，但不会通过 Camo 进行处理。 这是因为 {% data variables.product.prodname_dotcom %} 不支持外部托管的视频，所以匿名 URL 是由 {% data variables.product.prodname_dotcom %} 托管的已上传视频的链接。
+
+直接或间接收到您的匿名化 URL 的任何人都可查看您的图像或视频。 为对敏感图像文件保密，将它们限于私人网络或需要身份验证的服务器，而不使用 Camo。
 
 ### Camo 问题故障排除
 
@@ -34,7 +35,7 @@ Windows 用户需要使用 Git Powershell（随 [{% data variables.product.prodn
 
 #### 图像不显示
 
-If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
+如果图像显示于浏览器中，但未显示在 {% data variables.product.prodname_dotcom %} 上，您可以尝试本地请求该图像。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. 使用 `curl` 请求图像标头。

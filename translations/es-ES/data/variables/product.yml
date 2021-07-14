@@ -78,7 +78,7 @@ prodname_debug: 'Depuración de GitHub'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'Registro del paquete de GitHub'
-prodname_container_registry: 'Container registry'
+prodname_container_registry: 'Registro de contenedores'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors

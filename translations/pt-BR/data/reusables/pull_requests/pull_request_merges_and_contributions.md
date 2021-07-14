@@ -1,7 +1,7 @@
 {% note %}
 
-**Notes:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-- To appear on your profile contributions graph, co-authored commits must meet the same criteria as commits with one author.{% endif %}
-- When rebasing commits, the original authors of the commit and the person who rebased the commits, whether on the command line or on {% data variables.product.product_location %}, receive contribution credit.
+**Observação:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- Para aparecer no gráfico de contribuições do seu perfil, os commits de criação conjunta devem atender aos mesmos critérios que os commits com um autor.{% endif %}
+- Ao fazer rebase dos commits, os autores originais do commit e a pessoa que fez o rebase dos commits, seja na linha de comando ou em {% data variables.product.product_location %}, receberá o crédito de contribuição.
 
 {% endnote %}

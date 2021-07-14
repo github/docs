@@ -1,6 +1,6 @@
 ---
-title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+title: Organizationのメール通知の制限
+intro: Organizationの情報が個人のメールアカウントに漏れてしまうことを避けるために、メンバーがOrganizationのアクティビティに関するメール通知を受信できるドメインを制限できます。
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
@@ -21,23 +21,23 @@ topics:
 
 ### メールの制限について
 
-When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity.
+Organization で制限付きのメール通知が有効になっている場合、メンバーは Organization の検証済みあるいは承認済みドメインに関連付けられたメールアドレスのみを使用して、Organization のアクティビティに関するメール通知を受信できます。
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+詳しい情報については「[Organizationのドメインの検証もしくは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. 外部コラボレーターに関する詳しい情報については「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
+外部のコラボレーターは、検証済みあるいは承認済みドメインへのメール通知の制限の対象になりません。 外部コラボレーターに関する詳しい情報については「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
 
-If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+Enterprise アカウントがオーナーの Organization の場合、Organization のメンバーは、Organization の検証済みあるいは承認済みドメインに加えて、Enterprise アカウントの検証済みあるいは承認済みドメインから通知を受け取ることができます。 詳しい情報については「[Enterpriseアカウントのためのドメインの検証あるいは承認](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)」を参照してください。
 
-### Restricting email notifications
+### メール通知の制限
 
-Before you can restrict email notifications for your organization, you must verify or approve at least one domain for the organization, or an enterprise owner must have verified or approved at least one domain for the enterprise account.
+Organizationのメール通知を制限できるようにするには、Oraganizationに対して最低1つのドメインを検証あるいは承認するか、EnterpriseのオーナーがEnterpriseアカウントに対して最低1つのドメインを検証あるいは承認しなければなりません。
 
-For more information about verifying and approving domains for an organization, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Organizationの検証済み及び承認済みドメインに関する詳しい情報については「[Organizationのドメインの検証もしくは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -21,6 +21,7 @@ topics:
   - Privacy
   - Security
 ---
+
 {% data variables.product.product_location %}がインターネット経由でパブリックにアクセス可能になっている場合、プライベートモードを有効化しなければなりません。 プライベートモードでは、ユーザは`git://`経由でリポジトリを匿名クローンすることはできません。 ビルトイン認証も有効化されている場合、新しいユーザがインスタンスにアカウントを作成するには管理者が招待しなければなりません。 詳しい情報については"[ビルトイン認証の利用](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)"を参照してください。
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}

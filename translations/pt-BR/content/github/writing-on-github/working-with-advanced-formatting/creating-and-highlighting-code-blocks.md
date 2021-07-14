@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Blocos de código isolados
 
 Você pode criar blocos de código isolados colocando aspas triplas <code>\`\`\`</code> antes e depois do bloco de código. É recomendável colocar uma linha em branco antes e depois dos blocos de código para facilitar a leitura da formação bruta.
@@ -29,7 +30,22 @@ function test() {
 
 {% endtip %}
 
+To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
+
+
+<pre>
+```` 
+```
+Look! You can see my backticks.
+```
+````
+</pre>
+
+![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+
+
 ### Realce de sintaxe
+
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 Você pode adicionar um identificador de linguagem opcional para habilitar o realce de sintaxe no bloco de código isolado.

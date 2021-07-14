@@ -14,6 +14,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### Sobre o SNMP
 
 O protocolo Simple Network Management Protocol (SNMP) é uma forma amplamente difundida de monitorar servidores e dispositivos de rede. O SNMP fica desabilitado por padrão, mas pode ser configurado pelo painel de monitoramento do {% data variables.product.prodname_enterprise %}. A porta UDP 161 deve ficar aberta e acessível na estação de gerenciamento de rede. Para obter mais informações, consulte "[Monitorar usando SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)".

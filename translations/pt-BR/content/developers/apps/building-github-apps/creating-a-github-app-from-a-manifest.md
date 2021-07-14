@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### Sobre os manifestos do aplicativo GitHub
 
 Quando alguém cria um aplicativo GitHub a partir de um manifesto, é necessário apenas seguir uma URL e nomear o aplicativo. O manifesto inclui as permissões, eventos e URL do webhook necessários para registrar o aplicativo automaticamente. O fluxo do manifesto cria o registro do aplicativo GitHub e recupera o segredo do webhook do aplicativo, a chave privada (arquivo PEM) e o ID do aplicativo GitHub. A pessoa que cria o aplicativo a partir do manifesto será proprietária do aplicativo e poderá escolher [editar as configurações do aplicativo](/apps/managing-github-apps/modifying-a-github-app/), excluí-lo ou transferi-lo para outra pessoa no GitHub.

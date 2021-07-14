@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### はじめに
 
 このガイドは、GitHub Appをビルドしてサーバー上で実行するのに役立ちます。 ビルドするアプリケーションは、アプリケーションがインストールされたリポジトリでオープンされたすべての新しいIssueにラベルを付けます。
@@ -79,7 +80,7 @@ topics:
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. "Permissions（権限）"セクションで"Issues"を見つけ、隣の"Access（アクセス）"ドロップダウンで**Read & Write（読み書き）**を選択してください。 このオプションはIssueとラベルの両方へのアクセスを許可するものと説明されており、これはまさに必要なことです。
 1. "Subscribe to events（イベントのサブスクライブ）"セクションで、**Issues**を選択してこのイベントをサブスクライブしてください。
 {% data reusables.apps.accept_new_permissions_steps %}
@@ -128,7 +129,7 @@ end
 
 このメソッドはJSON形式のイベントペイロードを引数として受け取ります。 これは、メソッド中でペイロードをパースして、任意の必要なデータへとドリルダウンしていけるということです。 どこかの時点でペイロード全体を調べると役立つかもしれません。`logger.debug 'An issue was opened!`を`logger.debug payload`に変更してみてください。 出力されるペイロードの構造は、[`issues` webhookイベントのドキュメントに示されている](/webhooks/event-payloads/#issues)ものと一致しているはずです。
 
-これでうまくいきます! 変更をテストしてみましょう。
+これでうまくいきました。 変更をテストしてみましょう。
 
 {% data reusables.apps.sinatra_restart_instructions %}
 

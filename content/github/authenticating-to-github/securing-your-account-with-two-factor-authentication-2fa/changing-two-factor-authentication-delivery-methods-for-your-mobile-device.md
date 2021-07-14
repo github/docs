@@ -6,9 +6,10 @@ redirect_from:
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - 2fa
+  - 2FA
+shortTitle: Change 2FA delivery method
 ---
 {% note %}
 
@@ -26,7 +27,7 @@ topics:
     - To set up two-factor authentication using a TOTP mobile app, click **Set up using an app**.
     - To set up two-factor authentication using text message (SMS), click **Set up using SMS**.
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
 - "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"

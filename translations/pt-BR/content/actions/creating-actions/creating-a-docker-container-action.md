@@ -29,6 +29,8 @@ Ao terminar esse projeto, você entenderá como criar sua própria ação de con
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Pré-requisitos
 
 Pode ser útil ter um entendimento básico das variáveis do ambiente {% data variables.product.prodname_actions %} e do sistema de arquivo do contêiner Docker:

@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Você pode pesquisar repositórios globalmente no {% data variables.product.product_location %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
 
 Para incluir bifurcações nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/articles/searching-in-forks)".

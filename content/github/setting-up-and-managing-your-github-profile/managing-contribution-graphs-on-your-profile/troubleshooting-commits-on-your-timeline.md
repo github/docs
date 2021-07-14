@@ -5,13 +5,14 @@ redirect_from:
   - /articles/troubleshooting-commits-on-your-timeline
   - /github/setting-up-and-managing-your-github-profile/troubleshooting-commits-on-your-timeline
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
+shortTitle: Troubleshoot commits
 ---
-### Expected behavior to view commit details
+## Expected behavior to view commit details
 
 On your profile page's timeline, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
 
@@ -19,13 +20,13 @@ On your profile page's timeline, you can click the number of commits next to a s
 
 ![Commit details](/assets/images/help/commits/commit-details.png)
 
-### Missing commit details from commits in your timeline
+## Missing commit details from commits in your timeline
 
 If you click a commit link from your profile page and don't see all of the expected commits on the repository's commits page, then it's possible the commit history in Git was rewritten and the commit author date and the commit date are different.
 
 ![Repository page with message that says "no commits found for octocat"](/assets/images/help/repository/no-commits-found.png)
 
-### How GitHub uses the Git author date and commit date
+## How GitHub uses the Git author date and commit date
 
 In Git, the author date is when someone first creates a commit with `git commit`. The commit date is identical to the author date unless someone changes the commit date by using `git commit --amend`, a force push, a rebase, or other Git commands.
 
@@ -33,7 +34,7 @@ On your profile page, the author date is used to calculate when a commit was mad
 
 Most often, the author date and commit date are the same but you may notice that your commit sequence is out of order if the commit history is changed. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
 
-### Viewing missing commit details from commits in your timeline
+## Viewing missing commit details from commits in your timeline
 
 You can use the `git show` command with the `--pretty=fuller` flag to check if the commit author date and commit date are different.
 
@@ -60,6 +61,6 @@ When you open the URL with the modified commit date, you can see the commit deta
 
 ![Commit details](/assets/images/help/commits/commit-details.png)
 
-### Expected commits missing in your timeline
+## Expected commits missing in your timeline
 
 If you're not seeing expected commits on your timeline, it's possible the commit history in Git was rewritten and the commit author date and the commit date are different. For other possibilities, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

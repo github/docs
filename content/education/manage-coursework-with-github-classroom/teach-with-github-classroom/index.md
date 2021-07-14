@@ -2,7 +2,7 @@
 title: Teach with GitHub Classroom
 intro: Learn how to set up your classroom and assignments.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories
   - /education/manage-coursework-with-github-classroom/probot-settings
@@ -15,4 +15,6 @@ children:
   - /leave-feedback-with-pull-requests
   - /use-autograding
   - /connect-a-learning-management-system-to-github-classroom
+shortTitle: Teach
 ---
+

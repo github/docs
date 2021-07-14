@@ -1,6 +1,6 @@
 ---
 title: Iniciar con GitHub Packages para tu empresa
-shortTitle: Getting started with GitHub Packages
+shortTitle: Comenzar con los Paquetes de GitHub
 intro: 'Puedes comenzar a utilizar el {% data variables.product.prodname_registry %} en {% data variables.product.product_location %} si habilitas esta característica, configurando un almacenamiento de terceros, configurando los ecosistemas que quieras que sea compatibles y actualizando tu certificado TLS.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise

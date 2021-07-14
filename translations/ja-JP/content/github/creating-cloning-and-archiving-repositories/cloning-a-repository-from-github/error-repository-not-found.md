@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### スペルを確認する
 
 入力ミスは起こるものです。また、リポジトリ名は大文字と小文字を区別します。  `git@{% data variables.command_line.codeblock %}:user/repo.git` をクローンしようとしたが、リポジトリの実際の名前は `User/Repo` である場合、このエラーが表示されます。

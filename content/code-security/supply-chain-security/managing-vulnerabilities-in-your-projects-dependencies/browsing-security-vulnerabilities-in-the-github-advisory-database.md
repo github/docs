@@ -1,24 +1,29 @@
 ---
 title: Browsing security vulnerabilities in the GitHub Advisory Database
 intro: 'The {% data variables.product.prodname_advisory_database %} allows you to browse or search for vulnerabilities that affect open source projects  on {% data variables.product.company_short %}.'
-shortTitle: Browsing the Advisory Database
+shortTitle: Browse Advisory Database
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Alerts
+  - Dependabot
+  - Vulnerabilities
+  - CVEs
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-### About security vulnerabilities
+## About security vulnerabilities
 
 {% data reusables.repositories.a-vulnerability-is %}
 
 {% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 
-### About the {% data variables.product.prodname_advisory_database %}
+## About the {% data variables.product.prodname_advisory_database %}
 
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph. {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -34,7 +39,7 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 
 {% data reusables.repositories.github-security-lab %}
 
-### Accessing an advisory in the {% data variables.product.prodname_advisory_database %}
+## Accessing an advisory in the {% data variables.product.prodname_advisory_database %}
 
 1. Navigate to https://github.com/advisories.
 2. Optionally, to filter the list, use any of the drop-down menus.
@@ -47,7 +52,7 @@ The database is also accessible using the GraphQL API. For more information, see
 
 {% endnote %}
 
-### Searching the {% data variables.product.prodname_advisory_database %}
+## Searching the {% data variables.product.prodname_advisory_database %}
 
 You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.
 
@@ -72,7 +77,7 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
 | `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
 
-### Viewing your vulnerable repositories
+## Viewing your vulnerable repositories
 
 For any vulnerability in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories have a {% data variables.product.prodname_dependabot %} alert for that vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
 
@@ -84,6 +89,6 @@ For any vulnerability in the {% data variables.product.prodname_advisory_databas
    ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
 
-### Further reading
+## Further reading
 
 - MITRE's [definition of "vulnerability"](https://cve.mitre.org/about/terminology.html#vulnerability)

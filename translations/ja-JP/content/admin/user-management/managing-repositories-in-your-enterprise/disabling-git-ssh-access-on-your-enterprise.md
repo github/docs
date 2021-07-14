@@ -25,6 +25,7 @@ topics:
   - Security
   - SSH
 ---
+
 ### 特定のリポジトリへのGit SSHアクセスの無効化
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}

@@ -1,0 +1,44 @@
+---
+date: '2020-02-11'
+sections:
+  features:
+    - 'リポジトリのブランチでは、リポジトリ管理者は[ブランチ保護ルール]を使って`Require linear history（線形履歴を必須とする）`を有効化することによって、マージコミットを含むプッシュを拒否できます(https://help.github.com/en/github/administering-a-repository/enabling-branch-restrictions)。{% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/ {% endcomment %}'
+    - 'リポジトリ管理者は、プッシュアクセス権を持つすべてのユーザに、[ブランチ保護ルール]を使って`Allow force pushes（フォースプッシュの許可）`を有効化することによって、保護されたブランチにフォースプッシュを行えるよう許可できます(https://help.github.com/en/github/administering-a-repository/enabling-branch-restrictions)。{% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/, https://github.com/github/ce-oss-happiness/issues/42, https://github.com/github/github/pull/125950 {% endcomment %}'
+    - 'リポジトリ管理者は、プッシュアクセス権を持つすべてのユーザに、[ブランチ保護ルール]を使って`Allow deletions（削除の許可）`を有効化することによって、保護されたブランチの削除を行えるよう許可できます(https://help.github.com/en/github/administering-a-repository/enabling-branch-restrictions)。{% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/ {% endcomment %}'
+    - '管理者は、[Git LFS]内にないリポジトリに`maxobjectsize`の制限[プッシュコミットのサイズ制限](https://help.github.com/en/enterprise/admin/installation/setting-git-push-limits) を設定できます(https://help.github.com/en/enterprise/admin/installation/configuring-git-large-file-storage-on-github-enterprise-server)。{% comment %} https://github.com/github/babeld/pull/864, https://team.githubapp.com/posts/33519, https://github.com/githubcustomers/Slack/issues/27 {% endcomment %}'
+    - 'Organizationのオーナーは、新しいリポジトリを作成する際にデフォルトのラベルのセットを作成できます。{% comment %} https://github.com/github/issues-projects/issues/237, https://github.com/github/issues-projects/issues/179 {% endcomment %}'
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - 'Organizationのメンバーが、そのOrganizationのパブリックリポジトリを表示させようとすると、SSOのプロンプトがページの表示を壊すことがありました。{% comment %} https://github.com/github/github/issues/126677, https://github.com/github/github/pull/127501 {% endcomment %}'
+    - "ユーザのプロフィールを表示した場合、そのユーザのTeamへのリンクが壊れていることがありました。{% comment %} https://github.com/github/github/issues/131771, https://github.com/github/github/pull/131865 {% endcomment %}"
+    - '`maintain`ロールを持つ有ザーは、リポジトリのトピックスを編集できませんでした。 {% comment %} https://github.com/github/github/pull/129503, https://github.com/github/github/issues/119456 {% endcomment %}'
+    - "Organizationの管理者ではないユーザがサインアップページにアクセスしようとすると500エラーが返されることがありました。{% comment %} https://github.com/github/github/pull/129213, https://github.com/github/github/issues/129210, https://github.com/github/github/issues/129212 {% endcomment %}"
+    - '編集履歴のポップアップが、Gistのコメントに表示されないことがありました。{% comment %} https://github.com/github/github/pull/129134, https://github.com/github/github/issues/128496 {% endcomment %}'
+    - 'すでに登録済みのメールで新しいアカウントが登録できました。{% comment %} https://github.com/github/github/pull/127905, https://github.com/github/github/issues/127858 {% endcomment %}'
+    - 'ストレージサービスがファイルディスクプリプタの上限に達し、カーネルのハングや他のサービスでのエラーがログに残しました。{% comment %} https://github.com/github/enterprise2/pull/18775 {% endcomment %}'
+    - '自動リンクの参照がURLの一部になっていると、そのハイパーリンクが削除されることがありました。{% comment %} https://github.com/github/github/pull/126776 {% endcomment %}'
+    - 'Pull Requestにコメントを追加する際に、サイドバーの`Linked Issues`セクションが消えてしまうことがありました。{% comment %} https://github.com/github/issues-projects/issues/384, https://github.com/github/github/pull/130514 {% endcomment %}'
+    - 'ユーザに対する既存のOrganizationへの招待を編集している際に、`Teams`の表に重複したヘッダが表示されることがありました。{% comment %} https://github.com/github/github/issues/120381, https://github.com/github/github/pull/128939 {% endcomment %}'
+    - 'キューが大きくなりすぎると、`resqued`サービスがイベントのロギングを停止してしまうことがありました。 {% comment %} https://github.com/github/github/pull/130087, https://github.com/github/business-support/issues/2696 {% endcomment %}'
+    - 'クラスタ及び高可用設定に対する`ghe-config-apply` コマンドの実行時に自己署名証明書が自動的に生成されません。{% comment %} https://github.com/github/enterprise2/pull/18773 {% endcomment %}'
+  changes:
+    - '誰もアップロードしていない場合、トピックに対するロゴが表示されません。{% comment %} https://github.com/github/github/issues/130513, https://github.com/github/github/pull/130515 {% endcomment %}'
+    - 'モバイルブラウザでIssueを表示すると、Issueのメタデータがページ上部にリストされてしまいます。{% comment %} https://github.com/github/github/pull/127560 {% endcomment %}'
+    - 'Consulのトップレベルドメインが".consul"から".ghe.local"に変更されました。{% comment %} https://github.com/github/enterprise2/pull/17443, https://github.com/github/enterprise2/issues/17701 {% endcomment %}'
+    - 'hookshotがElasticsearchに依存しなくなり、データベースストアとしてはMySQLだけを使うようになりました。{% comment %} https://github.com/github/enterprise2/pull/18158, https://github.com/github/hookshot/pull/1128, https://github.com/github/enterprise2/pull/15898 {% endcomment %}'
+    - 'プロジェクトノートカードに、Issue、プロジェクト、ディスカッションの視覚的な区別の改善が実装されました。{% comment %} https://github.com/github/github/pull/132038 {% endcomment %}'
+    - 'Pull Requestのレビューにおいて、複数行コメントが切り詰められた場合に注意が表示されるようになりました。{% comment %} https://github.com/github/github/issues/125948, https://github.com/github/github/pull/128677 {% endcomment %}'
+    - 'ユーザは、個人設定ページの`Security Log`タブで監査ログを表示できます。 {% comment %} https://github.com/github/github/pull/123041{% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Gistへのプッシュの際に、post-receiveフックの間に例外がトリガーされることがあります。{% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - データベース中の重複したwebhookのエントリによって、以前のバージョンからのアップグレードが失敗することがあります。(2020-02-26に更新)
+    - 'バックグラウンドワーカーの設定がカスタマイズされていると、アップグレード及び設定の更新が失敗します。{% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '以前のバージョンからのアップグレードの際に、バックグラウンドジョブワーカーがspawnせず、Pull Requestのマージなどの重要な機能が動作しないことがあります。（2020-04-07更新）{% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。（2020-06-23更新）{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '複数のRedisノードでのクラスタ設定にデプロイされた際に、依存関係グラフが依存関係を検出しません。（2020-06-30更新）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

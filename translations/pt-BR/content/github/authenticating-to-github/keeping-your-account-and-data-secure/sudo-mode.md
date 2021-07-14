@@ -11,6 +11,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Depois que você tiver realizado uma ação protegida por sudo, só precisará autenticar novamente após algumas horas de inatividade. Toda ação protegida por sudo redefine esse temporizador.
 
 ![Caixa de diálogo Sudo Mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)

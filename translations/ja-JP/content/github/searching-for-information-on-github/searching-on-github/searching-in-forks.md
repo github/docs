@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 [リポジトリの検索](/articles/searching-for-repositories)結果でフォークを表示するには、クエリに `fork:true` または `fork:only` を追加します。
 
 フォークは、親リポジトリより Star が多い場合に限り、[コード検索](/articles/searching-code)用にインデックスされます。 親より Star が少ないフォークのコードは検索できません。 コード検索結果で親リポジトリより Star の多いフォークを表示するには、クエリに `fork:true` または `fork:only` を追加します。

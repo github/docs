@@ -1,7 +1,7 @@
 ---
-title: GitHub Enterprise Documentation
+title: GitHub Enterprise のドキュメント
 shortTitle: GitHub Enterprise
-intro: '{% data variables.product.product_name %} を{% if enterpriseServerVersions contains currentVersion %}デプロイ、{% endif %}設定{% if enterpriseServerVersions contains currentVersion %}、{% endif %}管理する Enterprise 管理者、システム管理者、およびセキュリティスペシャリスト向けのドキュメントとガイドです。'
+intro: '{% data variables.product.product_name %} を{% if enterpriseServerVersions contains currentVersion %}デプロイ、{% endif %}設定{% if enterpriseServerVersions contains currentVersion %}、{% endif %}および管理する Enterprise 管理者、システム管理者、およびセキュリティスペシャリスト向けのドキュメントとガイドです。'
 introLinks:
   overview: '{% if enterpriseServerVersions contains currentVersion %}/admin/overview/system-overview{% elsif currentVersion == "github-ae@latest" %}/admin/overview/about-github-ae{% endif %}'
 changelog:
@@ -22,7 +22,7 @@ featuredLinks:
     - '{% if currentVersion == "github-ae@latest" %}/admin/user-management/customizing-user-messages-for-your-enterprise{% endif %}'
     - '{% if currentVersion == "github-ae@latest" %}/admin/github-actions/getting-started-with-github-actions-for-github-ae{% endif %}'
   popular:
-    - '{% if currentVersion == "github-ae@latest" %}/admin/overview/github-ae-release-notes{% endif %}'
+    - '{% if currentVersion == "github-ae@latest" %}/admin/release-notes{% endif %}'
     - '{% if enterpriseServerVersions contains currentVersion %}/github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% if enterpriseServerVersions contains currentVersion %}/admin/installation{% endif %}'
     - '{% if currentVersion == "github-ae@latest" %}/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
@@ -45,16 +45,9 @@ children:
   - /github-actions
   - /packages
   - /enterprise-support
+  - /advanced-security
+  - /guides
   - /release-notes
+  - /all-releases
 ---
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
+

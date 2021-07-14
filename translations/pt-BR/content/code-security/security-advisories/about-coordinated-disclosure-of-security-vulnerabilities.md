@@ -4,6 +4,10 @@ intro: A divulgação das vulnerabilidades é um esforço coordenado entre os re
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
 ---
 
 ### Sobre a divulgação de vulnerabilidades no setor

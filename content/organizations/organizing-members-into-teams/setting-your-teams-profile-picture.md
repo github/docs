@@ -6,12 +6,13 @@ redirect_from:
   - /articles/setting-your-teams-profile-picture
   - /github/setting-up-and-managing-organizations-and-teams/setting-your-teams-profile-picture
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Team profile picture
 ---
 Unless you set a profile picture for a team, the team profile picture will match the organization's profile picture.
 

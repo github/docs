@@ -5,9 +5,10 @@ redirect_from:
   - /marketplace/github-marketplace-transactions
   - /developers/github-marketplace/viewing-transactions-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: View listing transactions
 ---
 {% note %}
 
@@ -18,7 +19,7 @@ topics:
 
 You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
 
-### Transaction data fields
+## Transaction data fields
 
 * **date:** The date of the transaction in `yyyy-mm-dd` format.
 * **app_name:** The app name.
@@ -32,7 +33,7 @@ You can view or download the transaction data to keep track of your subscription
 
 ![Marketplace insights](/assets/images/marketplace/marketplace_transactions.png)
 
-### Accessing {% data variables.product.prodname_marketplace %} transactions
+## Accessing {% data variables.product.prodname_marketplace %} transactions
 
 To access {% data variables.product.prodname_marketplace %} transactions:
 

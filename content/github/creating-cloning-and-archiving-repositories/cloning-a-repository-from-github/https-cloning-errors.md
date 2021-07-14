@@ -9,9 +9,9 @@ redirect_from:
   - /articles/https-cloning-errors
   - /github/creating-cloning-and-archiving-repositories/https-cloning-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
@@ -34,11 +34,11 @@ Here's an example of an HTTPS error you might receive:
 > update-server-info on the server?
 ```
 
-### Check your Git version
+## Check your Git version
 
 There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
 
-### Ensure the remote is correct
+## Ensure the remote is correct
 
 The repository you're trying to fetch must exist on {% data variables.product.product_location %}, and the URL is case-sensitive.
 
@@ -63,13 +63,13 @@ $ git remote -v
 Alternatively, you can change the URL through our
 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
 
-### Provide an access token
+## Provide an access token
 
 To access {% data variables.product.prodname_dotcom %}, you must authenticate with a personal access token instead of your password. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 {% data reusables.command_line.provide-an-access-token %}
 
-### Check your permissions
+## Check your permissions
 
 When prompted for a username and password, make sure you use an account that has access to the repository.
 
@@ -79,6 +79,6 @@ When prompted for a username and password, make sure you use an account that has
 
 {% endtip %}
 
-### Use SSH instead
+## Use SSH instead
 
 If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."

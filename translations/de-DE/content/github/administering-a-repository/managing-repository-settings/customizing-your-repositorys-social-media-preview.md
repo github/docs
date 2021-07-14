@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Wenn Du noch kein Bild hinzugefügt hast, werden sich Repository-Links erweitern, um grundlegende Informationen zum Repository sowie den Avatar des Inhabers anzeigen. Durch das Hinzufügen eines Bildes zu Deinem Repository vereinfachst Du die Identifizierung Deines Projekts auf den verschiedenen Social-Media-Kanälen.
 
 {% if currentVersion != "github-ae@latest" %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}

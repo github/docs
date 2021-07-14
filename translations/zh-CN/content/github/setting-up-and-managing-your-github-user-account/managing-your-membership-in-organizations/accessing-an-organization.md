@@ -14,11 +14,12 @@ versions:
 topics:
   - Accounts
 ---
+
 {% tip %}
 
 **提示：**只有组织所有者才可查看和更改组织的帐户设置。
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}

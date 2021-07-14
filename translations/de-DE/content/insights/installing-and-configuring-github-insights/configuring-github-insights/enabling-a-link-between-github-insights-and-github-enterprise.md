@@ -9,6 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 After you enable the link, each user can navigate directly from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_insights %}. For more information, see "[Navigating between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/navigating-between-github-enterprise-and-github-insights)."
 
 1. Connect to the administrative shell for {% data variables.product.prodname_ghe_server %}. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
@@ -16,12 +17,10 @@ After you enable the link, each user can navigate directly from {% data variable
   ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
-3. Return to
-{% data variables.product.prodname_ghe_server %}.
+3. Kehren Sie zu {% data variables.product.prodname_ghe_server %} zurück.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-7. Under
-{% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **{% data variables.product.prodname_insights %}**.
+7. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **{% data variables.product.prodname_insights %}**.
   {% note %}
 
   **Note:** It takes several minutes after you run the configuration command for this option to become available in {% data variables.product.prodname_enterprise %}. If you don't see **{% data variables.product.prodname_insights %}**, wait, or restart {% data variables.product.prodname_enterprise %}.

@@ -6,7 +6,15 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
+topics:
+  - Dependabot
+  - Version updates
+  - Secret store
+  - Repositories
+  - Dependencies
 ---
+
 ### Sobre os segredos criptografados para {% data variables.product.prodname_dependabot %}
 
 Os segredos de {% data variables.product.prodname_dependabot %} são credenciais criptografadas que você cria no nível de organização ou no nível do repositório.

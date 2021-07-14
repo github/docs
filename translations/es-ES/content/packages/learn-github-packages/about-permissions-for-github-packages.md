@@ -1,6 +1,6 @@
 ---
-title: About permissions for GitHub Packages
-intro: Learn about how to manage permissions for your packages.
+title: Acerca de los permisos para los Paquetes de GitHub
+intro: Aprende cómo administrar los permisos de tus paquetes.
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -9,42 +9,42 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-The permissions for packages are either repository-scoped or user/organization-scoped.
+Los permisos de los paquetes pueden ser con alcance de repositorio o de usuario/organización.
 {% endif %}
 
-### Permissions for repository-scoped packages
+### Permisos para los paquetes con alcance de repositorio
 
-A repository-scoped package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page.
+Un paquete con alcance de repositorio hereda los permisos y la visibilidad del repositorio al que pertenece el paquete. Puedes encontrar un paquete con alcance de un repositorio específico si vas a la página principal de este y haces clic en el enlace de **Paquetes** a la derecha de la página.
 
-The {% data variables.product.prodname_registry %} registries below use repository-scoped permissions:
+Los registros del {% data variables.product.prodname_registry %} que se mencionan a continuación utilizan permisos con alcance de repositorio:
 
-  - Docker registry (`docker.pkg.github.com`)
-  - npm registry
-  - RubyGems registry
-  - Apache Maven registry
-  - NuGet registry
+  - Registro de Docker (`docker.pkg.github.com`)
+  - Registro de npm
+  - Registro de RubyGems
+  - Registro de Apache maven
+  - Registro de NuGet
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Granular permissions for user/organization-scoped packages
+### Permisos granulares para paquetes con alcance de organización/usuario
 
-Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of the package separately from a repository that is connected (or linked) to a package.
+Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar el control de accesos y la visibilidad del paquete de forma separada desde un repositorio que esté conectado (o enlazado) a un paquete.
 
-Currently, only the {% data variables.product.prodname_container_registry %} offers granular permissions for your container image packages.
+Actualmente, solo el {% data variables.product.prodname_container_registry %} ofrece permisos granulares para tus paquetes de imagen de contenedor.
 
 ### Permisos de visibilidad y acceso para las imágenes de contenedor
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Para obtener más información, consulta la sección "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
 {% endif %}
 
 ### Administrar paquetes
 
-To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your user account must have appropriate permissions.
+Para utilizar o administrar un paquete que hospede un registro de paquete, debes utilizar un token con el alcance adecuado y tu cuenta de usuario debe tener los permisos adecuados.
 
 Por ejemplo:
--  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permission.
+-  Para descargar e instalar los paquetes desde un repositorio, tu token debe tener el alcance de `read:packages` y tu cuenta de usuario debe tener permisos de lectura.
 - {% if currentVersion == "free-pro-team@latest" or if currentVersion ver_gt "enterprise-server@3.0" %}Para borrar un paquete en {% data variables.product.product_name %}, tu token deberá tener por lo menos los alcances de `delete:packages` y `read:packages`. El alcance de `repo` también se requiere para los paquetes con dicho alcance.{% elsif currentVersion ver_lt "enterprise-server@3.1" %}Para borrar una versión específica de un paquete privado en {% data variables.product.product_name %}, tu token debe tener el alcance `delete:packages` y `repo`. Los paquetes públicos no se pueden borrar.{% elsif currentVersion == "github-ae@latest" %}Para borrar una versión específica de un paquete en {% data variables.product.product_name %}, tu token debe tener los alcances de `delete:packages` y `repo`.{% endif %} Para obtener más información, consulta la sección "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}".
 
 | Ámbito                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Descripción                                                                          | Permiso requerido |
@@ -54,32 +54,32 @@ Por ejemplo:
 | `delete:packages`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                      |                   |
 | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Borrar paquetes de {% data variables.product.prodname_registry %} {% elsif currentVersion ver_lt "enterprise-server@3.1" %} Borrar versiones específicas de paquetes privados en el {% data variables.product.prodname_registry %}{% elsif currentVersion == "github-ae@latest" %} Borrar versiones específicas de paquetes en el {% data variables.product.prodname_registry %} {% endif %} |                                                                                      |                   |
 | admin                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                      |                   |
-| `repo`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Carga y borra los paquetes (junto con los `write:packages`, o los `delete:packages`) | write or admin    |
+| `repo`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Carga y borra los paquetes (junto con los `write:packages`, o los `delete:packages`) | escritura o admin |
 
 Cuando creas un flujo de trabajo de {% data variables.product.prodname_actions %}, puedes usar el `GITHUB_TOKEN` para publicar e instalar paquetes en {% data variables.product.prodname_registry %} sin la necesidad de almacenar y administrar un token de acceso personal.
 
-For more information, see:{% if currentVersion == "free-pro-team@latest" %}
-- "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
-- "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
+Para obtener más información, consulta la sección:{% if currentVersion == "free-pro-team@latest" %}
+- "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
+- "[Publicar e instalar un paquete con {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
 - "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token/)"
 - Tu paquete publicado contiene datos confidenciales, como violaciones del RGPD, claves de API o información de identificación personal
 
-### Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
+### Mantener el acceso a los paquetes en los flujos de trabajo de {% data variables.product.prodname_actions %}
 
-To ensure your workflows will maintain access to your packages, ensure that you're using the right access token in your workflow and that you've enabled {% data variables.product.prodname_actions %} access to your package.
+Para garantizar que tus flujos de trabajo mantendrán el acceso a tus paquetes, asegúrate de que estás utilizando el token de acceso correcto en tu flujo de trabajo y de haber habilitado el acceso a las {% data variables.product.prodname_actions %} para tu paquete.
 
-For more conceptual background on {% data variables.product.prodname_actions %} or examples of using packages in workflows, see "[Managing GitHub Packages using GitHub Actions workflows](/packages/managing-github-packages-using-github-actions-workflows)."
+Para ver un antecedente más conceptual en {% data variables.product.prodname_actions %} o encontrar ejemplos de uso de paquetes en los flujos de trabajo, consulta la sección "[Administrar los Paquetes de GitHub utilizando flujos de trabajo de Github Actions](/packages/managing-github-packages-using-github-actions-workflows)".
 
-#### Access tokens
+#### Tokens de acceso
 
-- To publish packages associated with the workflow repository, use `GITHUB_TOKEN`.
-- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a personal access token
+- Para publicar paquetes asociados con el repositorio del flujo de trabajo, utiliza un `GITHUB_TOKEN`.
+- Para instalar paquetes asociados con otros repositorios privados a los cuales no puede acceder el `GITHUB_TOKEN`, utiliza un token de acceso personal
 
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+Para obtener más información sobre el `GITHUB_TOKEN` que se utiliza en los flujos de trabajo de {% data variables.product.prodname_actions %}, consulta la sección "[Autenticarse en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### {% data variables.product.prodname_actions %} access for container images
+#### Acceso a las {% data variables.product.prodname_actions %} para las imágenes de contenedor
 
-To ensure your workflows have access to your container image, you must enable {% data variables.product.prodname_actions %} access to the repositories where your workflow is run. You can find this setting on your package's settings page. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
+Para garantizar que tus flujos de trabajo tienen acceso a tu imagen de contenedor, debes habilitar el acceso a las {% data variables.product.prodname_actions %} para los repositorios en donde se ejecuta tu flujo de trabajo. Puedes encontrar este ajuste en la página de configuración de tu paquete. Para obtener más información, consulta la sección "[Garantizar el acceso de los flujos de trabajo a tu paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)".
 
 {% endif %}

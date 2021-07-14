@@ -20,6 +20,11 @@ need to make sure optional dependencies are installed by running:
 npm ci --include=optional
 ```
 
+If you run into the error "Could not find expected browser (chrome) locally" you may need to manually install the expected chromium version with:
+```
+node node_modules/puppeteer/install.js
+```
+
 ### Running all the tests
 
 Once you've followed the development instructions above, you can run the entire

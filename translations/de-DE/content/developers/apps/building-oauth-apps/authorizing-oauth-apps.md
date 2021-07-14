@@ -16,6 +16,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
@@ -80,7 +81,6 @@ Exchange this `code` for an access token:
 | `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}. |
 | `Code`          | `string` | **Required.** The code you received as a response to Step 1.                                                                                            |
 | `redirect_uri`  | `string` | The URL in your application where users are sent after authorization.                                                                                   |
-| `state`         | `string` | The unguessable random string you provided in Step 1.                                                                                                   |
 
 ##### Response
 
@@ -277,7 +277,7 @@ You can create multiple tokens for a user/application/scope combination to creat
 
 This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
 
-There is a limit to the number of tokens that are issued per user/application/scope combination. If your application requests enough tokens to go over one of the limits, older tokens _with the same scope being requested_ will stop working.
+{% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 

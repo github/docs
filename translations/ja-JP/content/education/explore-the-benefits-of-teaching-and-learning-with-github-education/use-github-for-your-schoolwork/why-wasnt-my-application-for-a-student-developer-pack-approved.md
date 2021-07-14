@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **ヒント:** {% data reusables.education.about-github-education-link %}
@@ -41,7 +42,7 @@ versions:
 
 ### すでに使用されている学術メールアドレス
 
-別の {% data variables.product.prodname_dotcom %} アカウントの {% data variables.product.prodname_student_pack %} をリクエストするための学術メールアドレスが既に使用されていた場合、その割引が期限切れになるまでは、学術メールアドレスを再利用して別の {% data variables.product.prodname_student_pack %} を正常に申請することはできません。
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 

@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
 
 Du kannst Code nur mit den diesen Qualifizierern der Codesuche durchsuchen. Spezifische Qualifizierer für Repositorys, Benutzer oder Commits funktionieren bei der Durchsuchung von Code nicht.
@@ -33,7 +34,7 @@ Aufgrund der Komplexität der Codesuche gelten bei der Durchführung der Suche E
 - Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
 - Deine Quellcode-Suche muss mindestens einen Suchbegriff enthalten, ausgenommen bei [`filename`-Suchen](#search-by-filename). Beispielsweise ist eine Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ungültig, [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist dagegen gültig.
 - Die Suchergebnisse können maximal zwei gefundene Fragmente der gleichen Datei anzeigen, selbst wenn die Datei mehr Treffer enthält.
-- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. Diese Zeichen werden bei der Suche schlicht ignoriert.
+- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. Diese Zeichen werden bei der Suche schlicht ignoriert.
 
 ### Suche nach Dateiinhalten oder Dateipfad
 

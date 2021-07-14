@@ -10,8 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% warning %}
@@ -43,7 +44,8 @@ Se você configurou a autenticação de dois fatores com uma chave de segurança
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Efetuar a autenticação com um dispositivo verificado, token SSH ou token de acesso pessoal
-Se você perder o acesso às credenciais da autenticação de dois fatores e não tiver seus códigos de recuperação de dois fatores, você poderá receber no seu endereço de e-mail verificado uma senha única para começar o processo de verificação e recuperar o acesso à sua conta.
+
+Se você sabe sua senha do {% data variables.product.product_name %} mas não tem credenciais de autenticação de dois fatores ou seus códigos de recuperação de autenticação de dois fatores, você pode ter uma senha única enviada para o seu endereço de e-mail verificado para começar o processo de verificação e recuperar o acesso à sua conta.
 
 {% note %}
 
@@ -53,14 +55,14 @@ Se você perder o acesso às credenciais da autenticação de dois fatores e nã
 
 Você pode usar as suas credenciais de autenticação de dois fatores ou os códigos de recuperação de dois fatores para recuperar o acesso à sua conta a qualquer momento no período de espera de 3 a 5 dias.
 
-{% data reusables.two_fa.username-password %}
+1. Digite seu nome de usuário e senha para solicitar autenticação. Se você não sabe sua senha de {% data variables.product.product_name %}, você não poderá gerar uma senha única.
 2. Em "Encontrou algum problema?", clique em **Não consegue acessar seu dispositivo de dois fatores ou códigos de recuperação válidos?** ![Faça o link, se você não tiver seu dispositivo de 2FA ou códigos de recuperação](/assets/images/help/2fa/no-access-link.png)
 3. Clique em **Eu entendo, começar** para solicitar uma redefinição das suas configurações de autenticação. ![Botão de redefinição da configuração de autenticação](/assets/images/help/2fa/reset-auth-settings.png)
 4. Clique em **Enviar senha de uso único** para enviar uma senha de uso único para todos os endereços de e-mail associados à sua conta. ![Botão para enviar a senha de uso único](/assets/images/help/2fa/send-one-time-password.png)
 5. Em "Única senha", digite a senha temporária do endereço e-mail de recuperação {% data variables.product.prodname_dotcom %} enviada. ![Campo para a senha de uso único](/assets/images/help/2fa/one-time-password-field.png)
 6. Clique **Verificar endereço de e-mail**.
 7. Escolha um fator de verificação alternativo.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
+    - Se você usou seu dispositivo atual para acessar essa conta antes e gostaria de usar o dispositivo para verificação, clique em **Verificar com este dispositivo**.
     - Se você já configurou uma chave SSH nesta conta e gostaria de usar a chave SSH para verificação, clique na **chave SSH**.
     - Se você já configurou um token de acesso pessoal anteriormente e gostaria de usar o token de acesso pessoal para verificação, clique em **Token de acesso pessoal**. ![Botões de verificação alternativa](/assets/images/help/2fa/alt-verifications.png)
 8. Um integrante do {% data variables.contact.github_support %} irá rever a sua solicitação e o seu endereço de e-mail de 3 a 5 dias úteis. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.
@@ -83,8 +85,7 @@ Se você não conseguir recuperar o acesso à sua conta, gere uma de uso único 
 1. No Facebook, acesse [Security Settings](https://www.facebook.com/settings?tab=security) (Configurações de segurança) e clique em **Recover Accounts Elsewhere** (Recuperação de contas em outro lugar). ![Página de configurações de segurança do Facebook com link Recuperação de contas em outro lugar](/assets/images/help/settings/security-facebook-security-settings-page.png)
 2. Clique no token de recuperação associado à sua conta {% data variables.product.product_name %}. ![Lista de tokens de recuperação armazenados no Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. Para acessar seu token de recuperação de conta, clique em **Recover This Account** (Recuperar esta conta). Uma nova janela abrirá, retornando ao {% data variables.product.product_name %}. ![Caixa modal com informações sobre seu token de recuperação e botão Recover This Account (Recuperar esta conta)](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Contato
-{% data variables.contact.contact_support %} para que saibam que o seu token de recuperação de conta está pronto para ser revisado.
+4. Entre em contato com o {% data variables.contact.contact_support %} para informá-los que seu token de recuperação de conta está pronto para ser verificado.
 {% endif %}
 
 ### Leia mais

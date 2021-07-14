@@ -14,6 +14,7 @@ topics:
   - GitHub Connect
   - Licensing
 ---
+
 ### ライセンスの同期について
 
 ライセンスの同期を有効にすると、{% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_ghe_cloud %} 全体で、Enterprise アカウント全体のライセンス使用状況を表示できるようになります。 {% data variables.product.prodname_github_connect %} は、{% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_ghe_cloud %} 間で毎週ライセンスを同期します。 詳しい情報については、「[{% data variables.product.prodname_enterprise %} ライセンスを管理する](/enterprise/{{currentVersion}}/admin/installation/managing-your-github-enterprise-license)」を参照してください。

@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 有关与计费相关之取消的更多信息，请参阅“[在 {% data variables.product.prodname_marketplace %} 中向客户计费](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)”。
 
 ### 步骤 1. 取消事件

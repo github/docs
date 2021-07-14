@@ -18,24 +18,24 @@ topics:
 
 ### Acerca de la creación de codespaces
 
-You can create a codespace on either {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.codespaces-are-personal %}
+Puedes crear un codespace ya sea en {% data variables.product.prodname_dotcom_the_website %} o en {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %} For more information, see "[Deleting a codespace](/github/developing-online-with-codespaces/deleting-a-codespace)."
+Los codespaces se asocian con una rama específica de un repositorio y este repositorio no puede estar vacío. {% data reusables.codespaces.concurrent-codespace-limit %} Para obtener más información, consulta la sección "[Borrar un codespace](/github/developing-online-with-codespaces/deleting-a-codespace)".
 
 
-When you create a codespace, a number of steps happen to enable full access to your development environment.
+Cuando creas un codespace, suceden ciertos pasos para habilitar el acceso completo a tu ambiente de desarrollo.
 
-- Resources such as a VM and storage for your container are assigned. A new VM is created every time you create or start a codespace to ensure that you always have the latest versions and security patches.
-- {% data variables.product.prodname_codespaces %} recieves information about your repository, branch, commits, your public dotfiles repository, and any secrets that you have created.
-- {% data variables.product.prodname_codespaces %} executes a shallow clone of the repository.
-- If you have one in your repository, {% data variables.product.prodname_codespaces %} runs the `devcontainer.json` file. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)".
-- Your Docker container, `docker-compose`, or other initialization is run.
-- At this point, the codespace is marked as available and you can connect.
-- Once the codespace is made available, depending on the commands in the devcontainer, the codespace will continue with some set up.
-  - The codespace shares ports added in the `devcontainer.json` file.
-  - The codespace runs anything specified in `postCreateCommand`.
-  - {% data variables.product.prodname_codespaces %} clones your dotfiles repository to the codespaces environment and looks for an install file. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
-  - Finally, the codespace does a full clone of the repo so you have full access to it.
+- Se asignan los recursos tales como MV y almacenamiento para tu contenedor. Se crea una MV cada vez que creas o inicias un codespace para garantizar que siempre tengas las versiones y parches de seguridad más recientes.
+- {% data variables.product.prodname_codespaces %} recibe información de tu repositorio, rama, confirmaciones, tu repositorio de dotfiles público y de cualquier secreto que hayas creado.
+- {% data variables.product.prodname_codespaces %} ejecuta un clon llano del repositorio.
+- Si tienes uno en tu repositorio, {% data variables.product.prodname_codespaces %} ejecutará el archivo `devcontainer.json`. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)".
+- Se ejecuta tu contenedor de Docker, `docker-compose` u otra inicialización.
+- En este punto, el codespace se marca como disponible y puedes conectarte.
+- Una vez que el codespace se hace disponible, dependiendo de los comandos del contenedor dev, el codespace seguirá con algunas configuraciones.
+  - El codespace comparte los puertos que se agregaron en el archivo `devcontainer.json`.
+  - El codespace ejecuta lo que sea que se haya especificado en `postCreateCommand`.
+  - Los {% data variables.product.prodname_codespaces %} clonan tu repositorio de dotfiles en el ambiente de codespaces y buscan un archivo de instalación. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
+  - Por fin, el codespace hace un clone integral del repositorio para que tengas acceso total a él.
 
 
 {% data reusables.codespaces.use-visual-studio-features %}
@@ -53,7 +53,7 @@ When you create a codespace, a number of steps happen to enable full access to y
 
   ![Botón de abrir con codespaces](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-4. To create a codespace using a Standard machine type, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+4. Para crear un codespace utilizando un tipo de máquina estándar, haz clic en {% octicon "plus" aria-label="The plus icon" %}**Codespace nuevo**.
 
   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 

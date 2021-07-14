@@ -2,15 +2,16 @@
 title: Triaging a single notification
 intro: 'When you review and investigate a single notification, you have several triaging options that are optimized for the detailed notification view.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
+shortTitle: Triage a notification
 ---
-### Saving a single notification
+## Saving a single notification
 
 To save a single notification to review later, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. You can only save one notification at a time.
 
@@ -18,7 +19,7 @@ Saved notifications are kept indefinitely and can be viewed by clicking **Saved*
 
   ![Save triaging option](/assets/images/help/notifications-v2/save-triaging-option.png)
 
-### Investigating a notification
+## Investigating a notification
 
 When you click an individual notification from your inbox, you're directed to the conversation that prompted the notification. From the top of the page, you can:
 - Mark the individual notification as done
@@ -29,7 +30,7 @@ When you click an individual notification from your inbox, you're directed to th
 
 For more information about your triage options, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)."
 
-### Customizing when to receive future updates for an issue or pull request
+## Customizing when to receive future updates for an issue or pull request
 
 You can choose how you want to receive future notifications for a specific issue or pull request.
 

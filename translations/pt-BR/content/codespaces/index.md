@@ -1,8 +1,8 @@
 ---
-title: GitHub Codespaces Documentation
+title: Documentação do GitHub Codespaces
 beta_product: true
 shortTitle: GitHub Codespaces
-intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
+intro: 'Crie um codespace para começar a desenvolver em um ambiente seguro, configurável e dedicado de desenvolvimento que funcione como e onde você desejar.'
 introLinks:
   quickstart: /codespaces/quickstart
   overview: /codespaces/about-codespaces
@@ -39,5 +39,6 @@ children:
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
+  - /guides
 ---
 

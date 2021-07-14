@@ -36,8 +36,9 @@ Você pode adicionar executores auto-hospedados a um único repositório. Para a
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Em "Self-hosted runners" (Executores auto-hospedados), clique em **Add runner** (Adicionar executor).
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Abaixo
+{% if currentVersion == "free-pro-team@latest" %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, clique **Adicionar executor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -47,8 +48,9 @@ Você pode adicionar executores auto-hospedados no nível da organização, onde
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Em "Self-hosted runners" (Executores auto-hospedados), clique em **Adicionar novo**, e depois clique em **New runner** (Novo executor).
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Abaixo
+{% if currentVersion == "free-pro-team@latest" %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, clique **Adicionar executor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -68,7 +70,7 @@ Para adicionar um executor auto-hospedado no nível de empresa de
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Clique na aba **Executores auto-hospedados**.
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. Clique em **Adicionar novo** e depois clique em **Novo executor**. Novos runners são atribuídos ao grupo padrão. Você pode modificar o grupo do executor depois de registrar o runner (executor). Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)".
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}

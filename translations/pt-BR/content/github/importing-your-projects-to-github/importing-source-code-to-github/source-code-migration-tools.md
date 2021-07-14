@@ -10,9 +10,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
-We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. Você também pode usar essas ferramentas externas para converter o projeto em Git.
+Recomendamos usar o [Importador do GitHub](/articles/about-github-importer) para importar projetos de Subversion, Mercurial, Controle de versão do Team Foundation (TFVC) ou outro repositório Git. Você também pode usar essas ferramentas externas para converter o projeto em Git.
 
 {% endif %}
 
@@ -32,9 +33,9 @@ Recomendamos estas ferramentas para converter repositórios do Subversion em Git
 
 Recomendamos o [hg-fast-export](https://github.com/frej/fast-export) para converter repositórios do Mercurial em Git.
 
-### Importing from TFVC
+### Importando do TFVC
 
-We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
+Recomendamos [git-tfs](https://github.com/git-tfs/git-tfs) para transferir alterações entre TFVC e Git.
 
 {% tip %}
 

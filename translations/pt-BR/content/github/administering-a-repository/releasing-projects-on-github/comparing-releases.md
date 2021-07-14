@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/comparing-releases
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Ao lado da versão que você deseja usar como sua base, clique em **Comparar**. ![Comparar menu de tags de versões](/assets/images/help/releases/compare-tags-menu.png)

@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 Wenn Du Dein Benutzerkonto löschst, werden alle dazugehörigen Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten Deines Kontos ebenfalls gelöscht. {% if currentVersion == "free-pro-team@latest" %} Deine Issues, Pull Requests und Kommentare in Repositorys von anderen Benutzern werden nicht gelöscht, sondern mit unserem [Ghost user](https://github.com/ghost) (Geisterbenutzer) verknüpft.{% else %}Deine Issues, Pull Requests und Kommentare in Repositorys von anderen Benutzern werden nicht gelöscht.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %} Außerdem steht der Name Deines Kontos wieder für andere Benutzer zur Verfügung, und Deine Abrechnung wird beendet. Die mit dem Konto verknüpfte E-Mail-Adresse wird für die Nutzung mit einem anderen {% data variables.product.product_name %}-Konto frei. {% endif %}

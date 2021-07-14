@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 以下是 {% data variables.product.prodname_dotcom %} 的公钥指纹：
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)

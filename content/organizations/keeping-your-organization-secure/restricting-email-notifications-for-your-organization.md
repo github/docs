@@ -9,17 +9,18 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  fpt: '*'
+  ghes: '>=3.2'
 type: how_to
 topics:
   - Enterprise
   - Notifications
   - Organizations
   - Policy
+shortTitle: Restrict email notifications
 ---
 
-### About email restrictions
+## About email restrictions
 
 When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity.
 
@@ -33,7 +34,7 @@ Outside collaborators are not subject to restrictions on email notifications for
 
 If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
 
-### Restricting email notifications
+## Restricting email notifications
 
 Before you can restrict email notifications for your organization, you must verify or approve at least one domain for the organization, or an enterprise owner must have verified or approved at least one domain for the enterprise account.
 

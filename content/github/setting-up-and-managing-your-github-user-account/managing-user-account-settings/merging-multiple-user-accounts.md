@@ -7,9 +7,10 @@ redirect_from:
   - /articles/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/merging-multiple-user-accounts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
+shortTitle: Merge multiple user accounts
 ---
 {% tip %}
 
@@ -21,6 +22,6 @@ topics:
 2. [Update the remote URLs](/github/getting-started-with-github/managing-remote-repositories) in any local clones of the repositories that were moved.
 3. [Delete the account](/articles/deleting-your-user-account) you no longer want to use.
 
-### Further reading
+## Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"

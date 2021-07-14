@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Se houver arquivos no seu repositório com os quais deseja usar o {% data variables.product.product_name %}, você precisará primeiramente removê-los do repositório e, em seguida, adicioná-los ao {% data variables.large_files.product_name_short %} no local. Para obter mais informações, consulte "[Mover um arquivo do repositório para o {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".
 
 {% data reusables.large_files.resolving-upload-failures %}

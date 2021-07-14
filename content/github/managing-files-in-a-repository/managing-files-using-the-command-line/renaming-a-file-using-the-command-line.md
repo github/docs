@@ -5,11 +5,12 @@ redirect_from:
   - /articles/renaming-a-file-using-the-command-line
   - /github/managing-files-in-a-repository/renaming-a-file-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Rename a file locally
 ---
 Many files can be [renamed directly on {% data variables.product.product_name %}](/articles/renaming-a-file), but some files, such as images, require that you rename them from the command line.
 
@@ -39,6 +40,6 @@ Many files can be [renamed directly on {% data variables.product.product_name %}
   ```
 {% data reusables.git.git-push %}
 
-### Further reading
+## Further reading
 - "[Moving a file to a new location using the command line](/articles/moving-a-file-to-a-new-location-using-the-command-line)"
 - "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)"

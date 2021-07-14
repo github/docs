@@ -8,7 +8,7 @@ const { execSync } = require('child_process')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const { getContents, listMatchingRefs } = require('../helpers/git-utils')
-const dataFilenames = require('./utils/data-filenames')
+const dataFilenames = JSON.parse(fs.readFileSync('./script/graphql/utils/data-filenames.json'))
 const allVersions = require('../../lib/all-versions')
 const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
@@ -23,18 +23,6 @@ if (!process.env.GITHUB_TOKEN) {
   console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
   process.exit(1)
 }
-
-// check for required Ruby gems (see note below about why this is needed)
-try {
-  execSync('gem which graphql')
-} catch (err) {
-  console.error('\nYou need to run: bundle install')
-  process.exit(1)
-}
-
-// TODO this step is only required as long as we support GHE versions *OLDER THAN* 2.21
-// as soon as 2.20 is deprecated on 2021-02-11, we can remove all graphql-ruby filtering
-const removeHiddenMembersScript = path.join(__dirname, './utils/remove-hidden-schema-members.rb')
 
 const versionsToBuild = Object.keys(allVersions)
 
@@ -66,7 +54,7 @@ async function main () {
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
     const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
-    updateFile(previewsPath, yaml.safeDump(safeForPublicPreviews))
+    updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
     previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
     // 2. UPDATE UPCOMING CHANGES
@@ -81,9 +69,8 @@ async function main () {
     const schemaPath = getDataFilepath('schemas', graphqlVersion)
     const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
-    const safeForPublicSchema = removeHiddenMembers(schemaPath, latestSchema)
-    updateFile(schemaPath, safeForPublicSchema)
-    const schemaJsonPerVersion = await processSchemas(safeForPublicSchema, safeForPublicPreviews)
+    updateFile(schemaPath, latestSchema)
+    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
     updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
 
     // Add some version specific data to the context
@@ -103,7 +90,7 @@ async function main () {
       // The Changelog is only build for free-pro-team@latest
       const changelogEntry = await createChangelogEntry(
         previousSchemaString,
-        safeForPublicSchema,
+        latestSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
         yaml.load(safeForPublicChanges).upcoming_changes
@@ -195,15 +182,4 @@ function updateFile (filepath, content) {
 function updateStaticFile (json, filepath) {
   const jsonString = JSON.stringify(json, null, 2)
   updateFile(filepath, jsonString)
-}
-
-// run Ruby script to remove featureFlagged directives and other hidden members
-function removeHiddenMembers (schemaPath, latestSchema) {
-  // have to write a temp file because the schema is too big to store in memory
-  const tempSchemaFilePath = `${schemaPath}-TEMP`
-  fs.writeFileSync(tempSchemaFilePath, latestSchema)
-  const remoteClean = execSync(`${removeHiddenMembersScript} ${tempSchemaFilePath}`).toString()
-  fs.unlinkSync(tempSchemaFilePath)
-
-  return remoteClean
 }

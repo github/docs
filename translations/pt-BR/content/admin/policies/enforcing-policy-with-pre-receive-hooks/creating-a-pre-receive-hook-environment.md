@@ -13,6 +13,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 Um ambiente pre-receive para o {% data variables.product.prodname_ghe_server %} é um ambiente Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot). Como são executados em todos os eventos de push, os hooks pre-receive devem ser rápidos e leves. Em geral, o ambiente necessário para tais verificações é mínimo.
 
 O {% data variables.product.prodname_ghe_server %} fornece um ambiente padrão que inclui os seguintes pacotes: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.

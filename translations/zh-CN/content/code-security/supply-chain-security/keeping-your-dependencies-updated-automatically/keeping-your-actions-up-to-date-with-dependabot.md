@@ -7,9 +7,14 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Actions
 ---
+
 ### 关于操作的 {% data variables.product.prodname_dependabot_version_updates %}
 
 操作通常使用漏洞修复和新功能进行更新，以使自动化流程更可靠、更快速、更安全。 为 {% data variables.product.prodname_actions %} 启用 {% data variables.product.prodname_dependabot_version_updates %} 时，{% data variables.product.prodname_dependabot %} 将帮助确保仓库 *workflow.yml* 文件中操作的引用保持最新。 对于文件中的每个操作，{% data variables.product.prodname_dependabot %} 根据最新版本检查操作的引用（通常是与操作关联的版本号或提交标识符）。 如果操作有更新的版本，{% data variables.product.prodname_dependabot %} 将向您发送拉取请求，要求将工作流程文件中的引用更新到最新版本。 有关 {% data variables.product.prodname_dependabot_version_updates %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)”。 有关为 {% data variables.product.prodname_actions %} 配置工作流程的更多信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。

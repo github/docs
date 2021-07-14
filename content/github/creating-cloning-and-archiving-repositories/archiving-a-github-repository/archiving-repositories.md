@@ -5,9 +5,9 @@ redirect_from:
   - /articles/archiving-repositories
   - /github/creating-cloning-and-archiving-repositories/archiving-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
@@ -22,5 +22,5 @@ topics:
   ![Archive repository warnings](/assets/images/help/repository/archive-repository-warnings.png)
 6. Click **I understand the consequences, archive this repository**.
 
-### Further reading
+## Further reading
 - "[About archiving repositories](/articles/about-archiving-repositories)"

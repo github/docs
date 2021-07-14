@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 ---
+
 <!--See /content/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies for the current version of this article -->
 
 ### 脆弱性のある依存関係について
@@ -42,13 +43,11 @@ redirect_from:
 {% data reusables.repositories.enable-security-alerts %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-ー
-{% data variables.product.product_name %} が脆弱性のある依存関係を特定すると、{% data variables.product.prodname_dependabot %} アラートを生成し、リポジトリの [Security] タブに表示します。 アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。 {% data variables.product.product_name %} は、影響を受けるリポジトリのメンテナに、通知設定に従って新しいアラートについて通知します。 詳しい情報については、「[脆弱性のある依存関係に対する通知を設定する](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)」を参照してください。
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。 {% data variables.product.product_name %} は、影響を受けるリポジトリのメンテナに、通知設定に従って新しいアラートについて通知します。 詳しい情報については、「[脆弱性のある依存関係に対する通知を設定する](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-ー
-{% data variables.product.product_name %} が脆弱性のある依存関係を特定すると、影響を受けるリポジトリのメンテナに、脆弱性の詳細、プロジェクト内の影響を受けるファイルへのリンク、および修正バージョンに関する情報を含むセキュリティアラートを送信します。
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we send a security alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version.
 {% endif %}
 
 {% warning %}
@@ -62,12 +61,10 @@ redirect_from:
 特定のプロジェクトに影響を与えるすべてのアラートは、リポジトリの依存関係グラフで確認できます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-デフォルト設定では、影響を受けるリポジトリの管理者権限を持つユーザに
-{% data variables.product.prodname_dependabot_alerts %} について通知します。{% endif %}
+By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-デフォルトでは、影響を受けるリポジトリで管理者権限を持つ人々にセキュリティアラートが送られます。
-{% data variables.product.product_name %} は、特定のリポジトリに対して特定された脆弱性を公表することはありません。
+デフォルトでは、影響を受けるリポジトリで管理者権限を持つ人々にセキュリティアラートが送られます。 {% data variables.product.product_name %} は、特定のリポジトリに対して特定された脆弱性を公表することはありません。
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}詳細については、「[通知の配信方法を選択する](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。{% endif %}{% if currentVersion ver_gt "enterprise-server@2.20" %}詳細については、「[脆弱性のある依存関係に対する通知を設定する](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)」を参照してください。{% endif %}

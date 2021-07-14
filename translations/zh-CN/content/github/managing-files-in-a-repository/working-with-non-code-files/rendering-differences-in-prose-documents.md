@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 包含散文文档的提交和拉取请求能够使用*源*视图和*呈现*视图来表示这些文档。
 
 源视图显示已输入的原始文本，而呈现的视图显示该文本在 {% data variables.product.product_name %} 上呈现后的外观。 例如，这可能是在 Markdown 中显示 `**bold**` 和在呈现的视图中显示**粗体**之间的差异。

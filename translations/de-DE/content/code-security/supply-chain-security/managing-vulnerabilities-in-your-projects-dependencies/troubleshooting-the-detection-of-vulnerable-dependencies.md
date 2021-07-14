@@ -8,9 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Alerts
+  - Troubleshooting
+  - Errors
+  - Security updates
+  - Dependencies
+  - Vulnerabilities
+  - Dependency graph
+  - Alerts
+  - CVEs
+  - Repositories
 ---
+
 The results of dependency detection reported by {% data variables.product.product_name %} may be different from the results returned by other tools. There are good reasons for this and it's helpful to understand how {% data variables.product.prodname_dotcom %} determines dependencies for your project.
 
 ### Why do some dependencies seem to be missing?

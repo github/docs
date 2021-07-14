@@ -1,6 +1,6 @@
 ---
-title: GitHub language support
-intro: 'An overview of the programming languages supported by {% data variables.product.prodname_dotcom %} features.'
+title: Suporte a linguagem do GitHub
+intro: 'Uma visão geral das linguagens de programação compatível com as funcionalidades de {% data variables.product.prodname_dotcom %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -10,21 +10,22 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-language-support
 ---
+
 <!-- If you make changes to this article, also update any feature-level articles to reflect the same changes in language support. -->
 
-### About supported languages
+### Sobre as linguagens compatíveis
 
-Most {% data variables.product.prodname_dotcom %} features work regardless of which languages your code is written in. You can search for code or enable syntax highlighting based on any language known to {% data variables.product.prodname_dotcom %}. For more information, see "[Searching code](/github/searching-for-information-on-github/searching-code#search-by-language)" or "[Creating and highlighting code blocks](/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting)."
+A maioria das funcionalidades de {% data variables.product.prodname_dotcom %} funcionam independentemente de qual linguagem seu código está escrito. Você pode procurar código ou habilitar o destaque de sintaxe com base em qualquer linguagem conhecida como {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Pesquisar código](/github/searching-for-information-on-github/searching-code#search-by-language)" ou "[Criar e destacar blocos de código](/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting)".
 
-Some {% data variables.product.prodname_dotcom %} products have features that are currently only supported for a subset of programming languages.
+Alguns produtos de {% data variables.product.prodname_dotcom %} têm funcionalidades que atualmente só são compatíveis com por um subconjunto de linguagens de programação.
 
-### Core languages supported by {% data variables.product.prodname_dotcom %} features
+### Linguagens principais compatíveis com funcionalidades de {% data variables.product.prodname_dotcom %}
 
-Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
+As linguagens principais para funcionalidades de {% data variables.product.prodname_dotcom %} incluem C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala e TypeScript. Para funcionalidades que gerenciam pacotes de suporte, os gerentes de pacotes atualmente compatíveis são incluídos na tabela com suas linguagens relevantes.
 
-Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit the [Community Forum](https://github.community/).
+Algumas linguagens são compatíveis para gerentes de linguagens ou pacotes adicionais. Se você quer saber se outra linguagem é compatível para uma funcionalidade solicitar suporte para uma linguagem, acesse o [Fórum da Comunidade](https://github.community/).
 
-| Language {% data reusables.supported-languages.products-table-header %}
+| Linguagem {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}
 {% data reusables.supported-languages.Cpp %}
 {% data reusables.supported-languages.Cs %}
@@ -37,4 +38,4 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.scala %}
 {% data reusables.supported-languages.typescript %}
 
-[1] These languages are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+[1] Essas linguagens são compatíveis com {% data variables.product.prodname_code_scanning %} por ações de terceiros.

@@ -13,9 +13,14 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
   - /code-security/secure-coding/managing-code-scanning-alerts-for-your-repository
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Alerts
+  - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -48,7 +53,7 @@ Você precisa de permissão de gravação para visualizar um resumo de todos os 
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-1. Opcionalmente, use os menus suspensos para filtrar alertas. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. Optionally, use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search box or{% endif %} the drop-down menus to filter alerts. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. Em "{% data variables.product.prodname_code_scanning_capc %}", clique no alerta que você gostaria de explorar.
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
@@ -58,11 +63,47 @@ Você precisa de permissão de gravação para visualizar um resumo de todos os 
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado. ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %}
+### Searching {% data variables.product.prodname_code_scanning %} alerts
+
+You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
+- The name of the alert
+- The alert description
+- The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
+
+ ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
+
+| Supported search                           | Syntax example      | Results                                                            |
+| ------------------------------------------ | ------------------- | ------------------------------------------------------------------ |
+| Single word search                         | `injection`         | Returns all the alerts containing the word `injection`             |
+| Multiple word search                       | `sql injection`     | Returns all the alerts containing `sql` or `injection`             |
+| Exact match search</br>(use double quotes) | `"sql injection"`   | Returns all the alerts containing the exact phrase `sql injection` |
+| OR search                                  | `sql OR injection`  | Returns all the alerts containing `sql` or `injection`             |
+| AND search                                 | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` |
+
+{% tip %}
+
+**Dicas:**
+- The multiple word search is equivalent to an OR search.
+- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name, description, or details.
+
+{% endtip %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box. ![The free text search box](/assets/images/help/repository/code-scanning-search-alerts.png)
+2. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
+
+{% endif %}
+
 ### Corrigir um alerta
 
 Qualquer pessoa com permissão de gravação para um repositório pode corrigir um alerta, fazendo o commit de uma correção do código. Se o repositório tiver {% data variables.product.prodname_code_scanning %} agendado para ser executado em pull requests, recomenda-se registrar um pull request com sua correção. Isso ativará a análise de {% data variables.product.prodname_code_scanning %} referente às alterações e irá testar se sua correção não apresenta nenhum problema novo. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" e " "[Testar alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
 Se você tem permissão de escrita em um repositório, você pode visualizar alertas corrigidos, vendo o resumo de alertas e clicando em **Fechado**. Para obter mais informações, consulte "[Visualizar os alertas de um repositório](#viewing-the-alerts-for-a-repository). A lista "Fechado" mostra alertas e alertas corrigidos que os usuários ignoraram.
+
+You can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
 Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o menu suspenso "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
@@ -102,7 +143,7 @@ Para ignorar ou excluir alertas:
 
    ![Excluir alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Opcionalmente, você pode usar os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas de correspondência de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
+   Optionally, you can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Filtrar alertas por regra](/assets/images/help/repository/code-scanning-filter-by-rule.png)

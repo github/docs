@@ -1,5 +1,5 @@
 ---
-title: Publishing and installing a package with GitHub Actions
+title: Publicar e instalar um pacote no GitHub Actions
 intro: 'É possível configurar um fluxo de trabalho no {% data variables.product.prodname_actions %} para publicar ou instalar automaticamente um pacote do {% data variables.product.prodname_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -24,7 +24,7 @@ versions:
 Você pode estender os recursos de CI e CD do seu repositório publicando ou instalando pacotes como parte do seu fluxo de trabalho.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating to the {% data variables.product.prodname_container_registry %}
+#### Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
@@ -36,7 +36,7 @@ Para um exemplo de autenticação, consulte "[Efetuar a autenticação com o {% 
 
 #### Efetuar a autenticação nos registros do pacote em {% data variables.product.prodname_dotcom %}
 
-{% if currentVersion == "free-pro-team@latest" %}Se você deseja que o fluxo de trabalho efetue a autenticação em {% data variables.product.prodname_registry %} para acessar um registro de pacotes diferentes do {% data variables.product.prodname_container_registry %} em {% data variables.product.product_name %}, {% else %}Para efetuar a autenticação nos registros de pacotes no {% data variables.product.product_name %},{% endif %} recomendamos usar o `GITHUB_TOKEN` que {% data variables.product.product_name %} cria automaticamente para o seu repositório quando você habilita {% data variables.product.prodname_actions %} em vez de um token de acesso pessoal para autenticação. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. Para obter mais informações, consulte "[Autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% if currentVersion == "free-pro-team@latest" %}Se você deseja que o fluxo de trabalho efetue a autenticação em {% data variables.product.prodname_registry %} para acessar um registro de pacotes diferentes do {% data variables.product.prodname_container_registry %} em {% data variables.product.product_name %}, {% else %}Para efetuar a autenticação nos registros de pacotes no {% data variables.product.product_name %},{% endif %} recomendamos usar o `GITHUB_TOKEN` que {% data variables.product.product_name %} cria automaticamente para o seu repositório quando você habilita {% data variables.product.prodname_actions %} em vez de um token de acesso pessoal para autenticação. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}Você deve definir as permissões para este token de acesso no arquivo de fluxo de trabalho para conceder acesso de leitura do escopo do `conteúdo` e acesso de gravação para o escopo dos `pacotes`. {% else %}tem permissões de leitura e gravação para pacotes no repositório em que o fluxo de trabalho é executado. {% endif %}Para bifurcações, o `GITHUB_TOKEN` recebe acesso de leitura para o repositório principal. Para obter mais informações, consulte "[Autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 Você pode fazer referência ao `GITHUB_TOKEN` no seu arquivo de fluxo de trabalho usando o contexto {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Para obter mais informações, consulte "[Permissões para o GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)".
 
@@ -44,7 +44,7 @@ Você pode fazer referência ao `GITHUB_TOKEN` no seu arquivo de fluxo de trabal
 
 {% note %}
 
-**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.
+**Observação:** Os pacotes que possuem repositórios incluem RubyGems, npm, Apache Maven, NuGet, Gradle e Docker que usam o namespace `docker.pkg.github.com`.
 
 {% endnote %}
 
@@ -75,7 +75,7 @@ Estes são outros exemplos de como as permissões padrão funcionam para fluxos 
 | Faça o upload de uma nova versão para um contêiner existente                 | - Se o contêiner for privado, interno ou público, somente fluxos de trabalho executados em repositórios que recebem permissões de gravação nesse contêiner podem fazer o upload de novas versões para o container.                                                                                                                                                                                                                                                                                                                                                                                             |
 | Excluir um contêiner ou versões de um contêiner                              | - Se o recipiente for privado, interno ou público, somente fluxos de trabalho executados em repositórios que recebem permissão de exclusão pode excluir versões existentes do container.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-Você também pode ajustar o acesso a contêineres de uma forma mais granular ou ajustar alguns dos comportamentos padrão de permissões. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Você também pode ajustar o acesso a contêineres de uma forma mais granular ou ajustar alguns dos comportamentos padrão de permissões. Para obter mais informações, consulte "[Configurar o controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
 {% endif %}
 
@@ -132,23 +132,27 @@ O exemplo a seguir demonstra como você pode usar {% data variables.product.prod
             CI: true
 
     build-and-push-image:
-      runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      runs-on: ubuntu-latest
+      needs: run-npm-test {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
       permissions: 
         contents: read
         packages: write {% endif %}
-      needs: run-npm-test
       steps:
         - name: Checkout
           uses: actions/checkout@v2
+        - name: Log in to GitHub Docker Registry
+          uses: docker/login-action@v1
+          with:
+            registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+            username: {% raw %}${{ github.actor }}{% endraw %}
+            password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         - name: Build container image
-          uses: docker/build-push-action@v1
-          with: {% raw %}
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
-            registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-            repository: ${{ github.repository }}/octo-image {% endraw %}
-            tag_with_sha: true
-            tag_with_ref: true 
+          uses: docker/build-push-action@v2
+          with:
+            push: true
+            tags: |
+              {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+              {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
   ```
 
   As configurações relevantes são explicadas na seguinte tabela: <table>
@@ -225,7 +229,25 @@ on:
   <td>
     Este trabalho usa <code>teste do npm</code> para testar o código. O comando <code>needs: run-npm-build</code> torna esse trabalho dependente do trabalho <code>run-npm-build</code>.
   </td>
-  </tr> {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+  </tr>
+  
+  <tr>
+  <td>
+
+{% raw %}
+```yaml
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: run-npm-test
+```
+{% endraw %}
+  </td>
+  <td>
+    Este trabalho publica o pacote. O comando <code>needs: run-npm-test</code> torna essa tarefa dependente do trabalho <code>run-npm-test</code>.
+  </td>
+  </tr>
+
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
   <tr>
   <td>
 
@@ -238,9 +260,27 @@ on:
 {% endraw %}
   </td>
   <td>
-    Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
+    Define as permissões concedidas ao <code>GITHUB_TOKEN</code> para as ações deste trabalho.
   </td>
   </tr> {% endif %}
+  <tr>
+  <td>
+
+{% raw %}
+  ```yaml
+  - name: Log in to GitHub Docker Registry
+    uses: docker/login-action@v1
+    with:
+      registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+  ```
+{% endraw %}
+  </td>
+  <td>
+    Cria uma nova etapa denominada <code>Iniciar sessão no registro do GitHub Docker</code>, que faz login no registro usando a conta e a senha que publicará os pacotes. Uma vez publicados, os pacotes pertencem à conta definida aqui.
+  </td>
+  </tr>
   <tr>
   <td>
 
@@ -251,7 +291,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    Cria uma nova etapa denominada <code>Build container image</code>. Esta etapa é executada como parte do trabalho <code>build-and-push-image</code>. O comando <code>needs: run-npm-test</code> torna essa tarefa dependente do trabalho <code>run-npm-test</code>.
+    Cria uma nova etapa denominada <code>Build container image</code>. Esta etapa é executada como parte do trabalho <code>build-and-push-image</code>.
   </td>
   </tr>
   <tr>
@@ -259,7 +299,7 @@ on:
 
 {% raw %}
   ```yaml
-uses: docker/build-push-action@v1
+uses: docker/build-push-action@v2
   ```
 {% endraw %}
   </td>
@@ -285,75 +325,25 @@ with:
 
 {% raw %}
   ```yaml
-username: ${{ github.actor }}
+push: true
   ```
 {% endraw %}
   </td>
   <td>
-    Define a conta de usuário que publicará os pacotes. Uma vez publicados, os pacotes pertencem à conta definida aqui.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-password: ${{ secrets.GITHUB_TOKEN }}
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Define a senha usada para acessar {% data variables.product.prodname_registry %}.
+    Faça push desta imagem para o registro se for construída com sucesso.
   </td>
   </tr>
   <tr>
   <td>
 
   ```yaml
-registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+tags: |
+  {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+  {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
   ```
   </td>
   <td>
-    Define o registro que hospedará os pacotes resultantes. This example uses {% data variables.product.prodname_registry %}.{% if currentVersion == "github-ae@latest" %} Replace <code>YOUR-HOSTNAME</code> with the name of your enterprise.{% endif %} {% if currentVersion == "free-pro-team@latest" %} If you're using the {% data variables.product.prodname_container_registry %}, then use <code>ghcr.io</code> as the hostname.{% endif %}
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-repository: ${{ github.repository }}/octo-image
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Define qual repositório hospedará o pacote resultante e define o nome do pacote publicado. Substitui <code>octo-image</code> pelo nome que você deseja para o seu pacote.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-tag_with_sha: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Marca o pacote publicado com os primeiros sete caracteres do SHA do commit. Por exemplo, <code>sha-2f2d842</code>.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-tag_with_ref: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Tags o pacote publicado com a referência do Git. Este pode ser o nome do branch usado para criar o pacote.
+    Marca o pacote publicado com o ref do git (por exemplo, o nome do branch usado para criar o pacote), bem como o SHA do commit.
   </td>
   </tr>
   </table>
@@ -366,29 +356,29 @@ tag_with_ref: true
 
 Você pode instalar pacotes como parte de seu fluxo de CI usando o {% data variables.product.prodname_actions %}. Por exemplo, você poderia configurar um fluxo de trabalho para que sempre que um desenvolvedor fizesse push do código para um pull request, o fluxo de trabalho resolveria as dependências, fazendo o download e instalando pacotes hospedados pelo {% data variables.product.prodname_registry %}. Em seguida, o fluxo de trabalho pode executar testes de CI que exigem as dependências.
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".{% endif %}
+A instalação de pacotes hospedados pelo {% data variables.product.prodname_registry %} através {% data variables.product.prodname_actions %} exige uma configuração mínima ou uma autenticação adicional quando você usa o `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} A transferência de dados também é gratuita quando uma ação instala um pacote. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Upgrading a workflow that accesses `ghcr.io`
+### Atualizando um fluxo de trabalho que acessa `ghcr.io`
 
 {% data reusables.package_registry.github-token-security-over-pat %}
 
-Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, increases the security of your repository as you don't need to use a long-lived PAT that offers unnecessary access to the repository where your workflow is run. Para obter mais informações sobre as melhores práticas de segurança, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)".
+O uso do `GITHUB_TOKEN` em vez de um PAT, que inclui o escopo do `repositório` aumenta a segurança do repositório, pois você não precisa usar um PAT de longa duração que oferece acesso desnecessário ao repositório em que o seu fluxo de trabalho é executado. Para obter mais informações sobre as melhores práticas de segurança, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)".
 
-1. Navigate to your package landing page.
-1. In the left sidebar, click **Actions access**. !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add. !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
+1. Acesse a página inicial do seu pacote.
+1. Na barra lateral esquerda, clique em **Acesso às ações**. ![Opção "Ações de acesso" no menu à esquerda](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. Para garantir que seu pacote de contêiner tenha acesso ao seu fluxo de trabalho, você deve adicionar o repositório em que o fluxo de trabalho é armazenado no contêiner. Clique **Adicionar repositório** e pesquise o repositório que deseja adicionar. ![Botão "Adicionar repositório"](/assets/images/help/package-registry/add-repository-button.png)
   {% note %}
 
-  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+  **Observação:** Adicionar um repositório ao seu contêiner por meio da opção de menu **Acesso às ações** é diferente de conectar seu contêiner a um repositório. Para obter mais informações, consulte "[Garantir o acesso ao fluxo de trabalho para o seu pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" "[Conectar um repositório a um pacote](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
 
   {% endnote %}
-3. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image. ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-5. Abra o arquivo do seu fluxo de trabalho. On the line where you login to `ghcr.io`, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+3. Opcionalmente, usando o menu suspenso "função", selecione o nível de acesso padrão que você gostaria que o repositório tivesse na imagem do seu contêiner. ![Níveis de acesso permitidos para repositórios](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+5. Abra o arquivo do seu fluxo de trabalho. Na linha em que você efetua o login em `ghcr.io`, substitua o seu PAT por {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-For example, this workflow publishes a Docker container using {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+Por exemplo, este fluxo de trabalho publica um contêiner do Docker usando {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} para efetuar a autenticação.
 
 ```yaml{:copy}
 name: Demo Push

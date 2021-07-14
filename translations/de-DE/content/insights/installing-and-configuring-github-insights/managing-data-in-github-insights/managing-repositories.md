@@ -9,6 +9,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 ---
+
 ### About repository management
 
 For {% data variables.product.prodname_insights %} to include data from a repository in {% data variables.product.prodname_enterprise %}, you must add the organization that owns the repository to {% data variables.product.prodname_insights %}. For more information, see "[Managing organizations](/github/installing-and-configuring-github-insights/managing-organizations)."

@@ -1,6 +1,6 @@
 ---
 title: 在设备上配置备份
-shortTitle: Configuring backups
+shortTitle: 配置备份
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores/
   - /enterprise/admin/articles/backup-and-recovery/
@@ -24,6 +24,7 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
 ### 关于 {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% data variables.product.prodname_enterprise_backup_utilities %} 是在单独主机上安装的备份系统，会通过安全的 SSH 网络连接定期生成 {% data variables.product.product_location %} 的备份快照。 您可以使用快照将现有的 {% data variables.product.prodname_ghe_server %} 实例从备份主机还原为上一个状态。

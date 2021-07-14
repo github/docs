@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Criar uma tabela
 
 Você pode criar tabelas com barras verticais `|` e hifens `-`. Os hifens são usados para criar o cabeçalho das colunas e as barras verticais, para separar as colunas. Você deve incluir uma linha em branco antes da tabela para ela ser construída corretamente.
@@ -60,7 +61,7 @@ Você pode alinhar o texto à esquerda, direita ou centralizar uma coluna inclui
 
 ![Tabela construída com alinhamento de texto à esquerda, centralizado e à direita](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-Para incluir uma barra vertical `|` como conteúdo dentro da célula, use `\` antes da barra vertical:
+Para incluir uma barra vertical `|` como conteúdo dentro de sua célula, use `\` antes da barra vertical:
 
 ```markdown
 | Nome   | Caractere |

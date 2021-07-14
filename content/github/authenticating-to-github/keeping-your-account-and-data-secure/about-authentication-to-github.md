@@ -2,28 +2,29 @@
 title: About authentication to GitHub
 intro: 'You can securely access your account''s resources by authenticating to {% data variables.product.product_name %}, using different credentials depending on where you authenticate.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
+shortTitle: Authentication to GitHub
 ---
-### About authentication to {% data variables.product.prodname_dotcom %}
+## About authentication to {% data variables.product.prodname_dotcom %}
 
-To keep your account secure, you must authenticate before you can access{% if currentVersion != "github-ae@latest" %} certain{% endif %} resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be. 
+To keep your account secure, you must authenticate before you can access{% ifversion not ghae %} certain{% endif %} resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be. 
 
 You can access your resources in {% data variables.product.product_name %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
 
-- {% if currentVersion == "github-ae@latest" %}Your identity provider (IdP){% else %}Username and password with two-factor authentication{% endif %}
+- {% ifversion ghae %}Your identity provider (IdP){% else %}Username and password with two-factor authentication{% endif %}
 - Personal access token
 - SSH key
 
-### Authenticating in your browser
+## Authenticating in your browser
 
-You can authenticate to {% data variables.product.product_name %} in your browser {% if currentVersion == "github-ae@latest" %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
+You can authenticate to {% data variables.product.product_name %} in your browser {% ifversion ghae %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
 
 - **Username and password only**
     - You'll create a password when you create your user account on {% data variables.product.product_name %}. We recommend that you use a password manager to generate a random and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/creating-a-strong-password)."
@@ -32,11 +33,11 @@ You can authenticate to {% data variables.product.product_name %} in your browse
     - In addition to authentication with a mobile application or a text message, you can optionally add a secondary method of authentication with a security key using WebAuthn. For more information, see "[Configuring two-factor authentication using a security key](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 {% endif %}
 
-### Authenticating with {% data variables.product.prodname_desktop %}
+## Authenticating with {% data variables.product.prodname_desktop %}
 
 You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
 
-### Authenticating with the API
+## Authenticating with the API
 
 You can authenticate with the API in different ways.
 
@@ -47,7 +48,7 @@ You can authenticate with the API in different ways.
 - **GitHub Apps**
     - For GitHub Apps in production, you should authenticate on behalf of the app installation. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/)."
 
-### Authenticating with the command line
+## Authenticating with the command line
 
 You can access repositories on {% data variables.product.product_name %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
@@ -55,11 +56,11 @@ You can access repositories on {% data variables.product.product_name %} from th
 
 * You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxys might refuse to allow SSH connections. Using SSH requires you to generate an SSH public/private keypair on your local machine and add the public key to your {% data variables.product.product_name %} account. Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-{% if currentVersion == "free-pro-team@latest" %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
+{% ifversion fpt %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 
-### {% data variables.product.company_short %}'s token formats
+## {% data variables.product.company_short %}'s token formats
 
 {% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
 

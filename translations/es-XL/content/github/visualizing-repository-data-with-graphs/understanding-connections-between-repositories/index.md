@@ -12,6 +12,7 @@ topics:
 children:
   - /viewing-a-repositorys-network
   - /listing-the-forks-of-a-repository
+  - /viewing-the-dependencies-of-a-repository
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
 ---

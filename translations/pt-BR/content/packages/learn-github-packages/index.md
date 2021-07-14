@@ -1,7 +1,7 @@
 ---
 title: Aprenda sobre o GitHub Pckages
 shortTitle: Aprenda sobre o GitHub Pckages
-intro: 'You can find out more about using packages in GitHub, including publishing new packages to {% data variables.product.prodname_registry %}, view and install existing packages, and, in special circumstances, delete existing packages.'
+intro: 'Você pode saber mais sobre como usar pacotes no GitHub, incluindo a publicação de novos pacotes em {% data variables.product.prodname_registry %}, visualizar e instalar pacotes existentes e, em circunstâncias especiais, excluir pacotes existentes.'
 redirect_from:
   - /packages/getting-started-with-github-container-registry
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages
@@ -23,5 +23,6 @@ children:
   - /deleting-and-restoring-a-package
   - /deleting-a-package
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}

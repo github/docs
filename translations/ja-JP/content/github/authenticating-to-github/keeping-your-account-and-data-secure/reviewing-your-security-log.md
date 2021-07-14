@@ -13,6 +13,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### セキュリティログにアクセスする
 
 セキュリティログには、過去 90 日間に実行されたすべてのアクションが{% if currentVersion ver_lt "enterprise-server@2.20" %}最大 50 件まで{% endif %}リストされます。
@@ -191,6 +192,7 @@ topics:
 | `repo_funding_links_file_action`              | リポジトリで FUNDING ファイルを変更したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)                                                                                                                                          |
 | `sponsor_sponsorship_cancel`                  | スポンサーシップをキャンセルしたときにトリガーされます (「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                                                                                        |
 | `sponsor_sponsorship_create`                  | アカウントをスポンサーするとトリガーされます (「[オープンソースコントリビューターに対するスポンサー](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)」を参照)                                                                                                                      |
+| `sponsor_sponsorship_payment_complete`        | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                     |
 | `sponsor_sponsorship_preference_change`       | スポンサード開発者からメールで最新情報を受け取るかどうかを変更するとトリガーされます (「[スポンサーシップを管理する](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)」を参照)                                                                                                                          |
 | `sponsor_sponsorship_tier_change`             | スポンサーシップをアップグレードまたはダウングレードしたときにトリガーされます (「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                |
 | `sponsored_developer_approve`                 | {% data variables.product.prodname_sponsors %} アカウントが承認されるとトリガーされます (「[ユーザアカウントに{% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照)               |

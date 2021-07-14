@@ -4,9 +4,9 @@ intro: You can customize your profile so that other people can get a better sens
 redirect_from:
   - /articles/customizing-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
 children:

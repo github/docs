@@ -12,9 +12,16 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Alerts
+  - Advanced Security
+  - Dependency graph
+  - Secret scanning
   - Repositories
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 ### パブリックリポジトリのセキュリティおよび分析機能を有効または無効にする
 
@@ -36,23 +43,18 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 The control for "
-{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% if currentVersion == "free-pro-team@latest" %}
-  ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% if currentVersion == "free-pro-team@latest" %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
-**注釈:**
 
-  {% data variables.product.prodname_GH_advanced_security %}を無効にした場合、{% if currentVersion == "free-pro-team@latest" %}依存関係レビュー、{% endif %}{% data variables.product.prodname_secret_scanning %}、および {% data variables.product.prodname_code_scanning %} が無効になります。 あらゆるワークフロー、SARIF のアップロード、{% data variables.product.prodname_code_scanning %} への API の呼び出しが失敗することになります。
+  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% if currentVersion == "free-pro-team@latest" %}dependency review, {% endif %}{% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. あらゆるワークフロー、SARIF のアップロード、{% data variables.product.prodname_code_scanning %} への API の呼び出しが失敗することになります。
   {% endnote %}
   {% endif %}
   {% if currentVersion == "enterprise-server@3.0" %}
 4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
   {% if currentVersion == "github-ae@latest" %}
-4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 「
-{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}.
-   ![リポジトリに対して {% data variables.product.prodname_GH_advanced_security %} または {% data variables.product.prodname_secret_scanning %} を有効化または無効化](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
+4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 Before you can enable "{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}. ![リポジトリに対して {% data variables.product.prodname_GH_advanced_security %} または {% data variables.product.prodname_secret_scanning %} を有効化または無効化](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 
 ### セキュリティアラートへのアクセスを許可する
@@ -92,8 +94,7 @@ Organizationのオーナーとリポジトリ管理者は、リポジトリへ�
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. [Access to alerts] で、アクセスを削除するユーザまたは Team の右側にある
-{% octicon "x" aria-label="X symbol" %}.
+4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}.
    {% if currentVersion == "free-pro-team@latest" %}
    ![リポジトリのセキュリティアラートへのアクセスを削除する "x" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
    {% endif %}
@@ -106,5 +107,5 @@ Organizationのオーナーとリポジトリ管理者は、リポジトリへ�
 
 ### 参考リンク
 
-- 「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」
+- 「[リポジトリをセキュアにする](/code-security/getting-started/securing-your-repository)」
 - 「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」

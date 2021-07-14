@@ -10,7 +10,8 @@ topics:
   - Accounts
   - Notifications
 ---
-Wenn Du Commits über die Befehlszeile freigibst, wird die E-Mail-Adresse, die Du [in Git festgelegt](/articles/setting-your-commit-email-address) hast, mit Deinen Commits verknüpft. Diese Einstellung verhindert Commit-Pushes über die Befehlszeile, die Deine private E-Mail-Adresse verwenden.
+
+Wenn Du Commits über die Befehlszeile freigibst, wird die E-Mail-Adresse, die Du [in Git festgelegt](/articles/setting-your-commit-email-address) hast, mit Deinen Commits verknüpft. If you enable this setting, each time you push to GitHub, we’ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.
 
 {% data reusables.user_settings.about-commit-email-addresses %}
 

@@ -12,6 +12,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 Se você seguir estas práticas recomendadas, elas ajudarão você a oferecer uma experiência de usuário segura.
 
 ### Autorização, autenticação e controle de acesso

@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-theme-settings
 ---
+
 Por escolha e flexibilidade sobre como e quando você usa {% data variables.product.product_name %}, você pode configurar configurações de tema para mudar como {% data variables.product.product_name %} fica para você. Você pode escolher entre temas claros e escuros ou você pode configurar {% data variables.product.product_name %} para seguir as configurações do seu sistema. Você pode querer usar um tema escuro para reduzir o consumo de energia em certos dispositivos, reduzir o cansaço da vista em condições com pouca luz, ou porque você prefere o tema.
 
 {% data reusables.user_settings.access_settings %}

@@ -9,6 +9,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta de usuário. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
 
 ### Sobre a restauração do repositório

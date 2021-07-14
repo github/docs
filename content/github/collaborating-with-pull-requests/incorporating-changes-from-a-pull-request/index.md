@@ -5,9 +5,9 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/
   - /articles/incorporating-changes-from-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 children:
@@ -16,5 +16,6 @@ children:
   - /automatically-merging-a-pull-request
   - /closing-a-pull-request
   - /reverting-a-pull-request
+shortTitle: Incorporate changes
 ---
 

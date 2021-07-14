@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **提示：** {% data reusables.education.about-github-education-link %}
@@ -41,7 +42,7 @@ versions:
 
 ### 学术电子邮件地址已占用
 
-如果您的学术电子邮件地址已用于为其他 {% data variables.product.prodname_dotcom %} 帐户申请 {% data variables.product.prodname_student_pack %}，则该折扣到期之前，您无法重复使用该学术电子邮件地址成功申请其他 {% data variables.product.prodname_student_pack %}。
+如果您的学术电子邮件地址已用于为其他 {% data variables.product.prodname_dotcom %} 帐户申请 {% data variables.product.prodname_student_pack %}，则无法重复使用该学术电子邮件地址成功申请其他 {% data variables.product.prodname_student_pack %}。
 
 {% note %}
 

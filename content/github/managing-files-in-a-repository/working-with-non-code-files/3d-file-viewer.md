@@ -5,9 +5,9 @@ redirect_from:
   - /articles/3d-file-viewer
   - /github/managing-files-in-a-repository/3d-file-viewer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---
@@ -20,7 +20,7 @@ When looking directly at an STL file on {% data variables.product.product_name %
 * Scroll to zoom in and out.
 * Click the different view modes to change the view.
 
-### Diffs
+## Diffs
 
 When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
 
@@ -30,7 +30,7 @@ By default, you'll get a view where everything unchanged is in wireframe. Additi
 
 You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
 
-### Fixing slow performance
+## Fixing slow performance
 
 If you see this icon in the corner of the viewer, then the WebGL technology is not available on your browser:
 
@@ -38,11 +38,11 @@ If you see this icon in the corner of the viewer, then the WebGL technology is n
 
 WebGL is necessary to take advantage of your computer's hardware to its fullest. We recommend you try browsers like [Chrome](https://www.google.com/intl/en/chrome/browser/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/), which ship with WebGL enabled.
 
-### Error: "Unable to display"
+## Error: "Unable to display"
 
 If your model is invalid, GitHub may not be able to display the file. In addition, files that are larger than 10 MB are too big for GitHub to display.
 
-### Embedding your model elsewhere
+## Embedding your model elsewhere
 
 To display your 3D file elsewhere on the internet, modify this template and place it on any HTML page that supports JavaScript:
 

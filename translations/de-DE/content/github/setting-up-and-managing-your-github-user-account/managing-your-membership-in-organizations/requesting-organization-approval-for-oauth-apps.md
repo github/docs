@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Von einer Organisation die Genehmigung für eine {% data variables.product.prodname_oauth_app %} anfordern, die Sie bereits für Ihr persönliches Konto zugelassen haben
 
 {% data reusables.user_settings.access_settings %}

@@ -4,14 +4,16 @@ intro: 'If you want to use {% data variables.product.prodname_actions %} beyond 
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Actions
   - Spending limits
+shortTitle: Billing for GitHub Actions
 ---
-### About billing for {% data variables.product.prodname_actions %}
+## About billing for {% data variables.product.prodname_actions %}
 
 {% data reusables.github-actions.actions-billing %}
 
@@ -55,7 +57,9 @@ The storage used by a repository is the total storage used by {% data variables.
 
 The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-### Calculating minute and storage spending
+{% data reusables.user_settings.context_switcher %}
+
+## Calculating minute and storage spending
 
 At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account. For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56, depending on the operating systems used to run jobs.
 
@@ -76,7 +80,7 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-### About spending limits
+## About spending limits
 
 {% data reusables.github-actions.actions-spending-limit-detailed %}
 

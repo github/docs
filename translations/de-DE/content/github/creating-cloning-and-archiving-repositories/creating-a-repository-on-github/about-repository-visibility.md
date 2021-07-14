@@ -10,13 +10,13 @@ topics:
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/about-repository-visibility
 ---
+
 ### Informationen zur Sichtbarkeit eines Repositorys
 
 {% if currentVersion == "github-ae@latest" %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} If you're creating the repository in an organization{% if currentVersion == "free-pro-team@latest" %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-If
-{% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. {% if currentVersion ver_gt "enterprise-server@2.19" %} Internal repositories are accessible to enterprise members. Weitere Informationen findest Du unter "[Über interne Repositorys](#about-internal-repositories)."{% endif %}
+If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. {% if currentVersion ver_gt "enterprise-server@2.19" %} Internal repositories are accessible to enterprise members. Weitere Informationen findest Du unter "[Über interne Repositorys](#about-internal-repositories)."{% endif %}
 {% elsif currentVersion == "github-ae@latest" %}
 Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {% else %}

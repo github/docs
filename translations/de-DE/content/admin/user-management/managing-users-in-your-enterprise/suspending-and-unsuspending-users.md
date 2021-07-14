@@ -18,6 +18,7 @@ topics:
   - Security
   - User account
 ---
+
 Wenn Mitarbeiter das Unternehmen verlassen, kannst Du ihre {% data variables.product.prodname_ghe_server %}-Konten sperren, um Benutzerlizenzen in Deiner {% data variables.product.prodname_enterprise %}-Lizenz freizugeben und gleichzeitig die von ihnen erstellten Problemtickets, Kommentare, Repositorys, „Gists“ (Ideen) und anderen Daten beizubehalten. Gesperrte Benutzer können sich weder bei Ihrer Instanz anmelden noch Code per Push-Vorgang übertragen oder abrufen.
 
 Wenn Sie einen Benutzer sperren, wird die Änderung sofort wirksam, ohne dass der Benutzer benachrichtigt wird. Wenn der Benutzer versucht, Inhalte aus einem Repository abzurufen oder dorthin per Push-Vorgang zu übertragen, wird der folgende Fehler angezeigt:

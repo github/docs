@@ -1,6 +1,6 @@
 ---
-title: Managing access and security for your codespaces
-intro: 'You can manage the repositories that {% data variables.product.prodname_codespaces %} can access.'
+title: 管理代码空间的访问和安全
+intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的仓库。'
 versions:
   free-pro-team: '*'
 topics:
@@ -9,7 +9,7 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-When you enable access and security for a repository owned by your user account, any codespaces that are created for that repository will have read and write permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. 您应该只对您信任的仓库启用访问和安全。
+为用户帐户拥有的仓库启用访问和安全后，为该仓库创建的任何代码空间都将对您拥有的所有其他仓库具有读取和写入权限。 如果要限制代码空间可以访问的仓库，您可以将其限制为代码空间打开的仓库或特定仓库。 您应该只对您信任的仓库启用访问和安全。
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}

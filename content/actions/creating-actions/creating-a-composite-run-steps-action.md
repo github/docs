@@ -3,19 +3,20 @@ title: Creating a composite run steps action
 intro: 'In this guide, you''ll learn how to build a composite run steps action.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Action development
+shortTitle: Composite run steps action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 In this guide, you'll learn about the basic components needed to create and use a packaged composite run steps action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
 
@@ -23,7 +24,7 @@ Once you complete this project, you should understand how to build your own comp
 
 {% data reusables.github-actions.context-injection-warning %}
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, you'll create a {% data variables.product.product_name %} repository.
 
@@ -56,7 +57,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
   git push
   ```
 
-### Creating an action metadata file
+## Creating an action metadata file
 
 1. In the `hello-world-composite-run-steps-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[`runs` for a composite run steps](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-run-steps-actions)".
 
@@ -107,7 +108,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
   git push --follow-tags
   ```
 
-### Testing out your action in a workflow
+## Testing out your action in a workflow
 
 The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 

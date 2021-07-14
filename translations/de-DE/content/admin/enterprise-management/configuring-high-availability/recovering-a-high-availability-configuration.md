@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 Sie können die vorherige primäre Appliance als neue Replikat-Appliance verwenden, sofern das Failover geplant war oder nicht mit dem Appliance-Zustand in Zusammenhang stand. Wenn das Failover mit einem Problem an der primären Appliance zusammenhing, sollten Sie ggf. eine neue Replikat-Appliance erstellen. Weitere Informationen finden Sie unter „[Hochverfügbarkeitsreplikat erstellen](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)“.
 
 ### Vorherige primäre Appliance als neues Replikat konfigurieren

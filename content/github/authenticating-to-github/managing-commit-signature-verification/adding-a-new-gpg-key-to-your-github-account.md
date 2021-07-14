@@ -5,12 +5,13 @@ redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Add a new GPG key
 ---
 Before adding a new GPG key to your {% data variables.product.product_name %} account, you should have:
 - [Checked for existing GPG keys](/articles/checking-for-existing-gpg-keys)
@@ -20,7 +21,7 @@ Before adding a new GPG key to your {% data variables.product.product_name %} ac
 
 When verifying a signature, we extract the signature and attempt to parse its key-id. We match the key-id with keys uploaded to {% data variables.product.product_name %}. Until you upload your GPG key to {% data variables.product.product_name %}, we cannot verify your signatures.
 
-### Adding a GPG key
+## Adding a GPG key
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
@@ -32,7 +33,7 @@ When verifying a signature, we extract the signature and attempt to parse its ke
    ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
 6. To confirm the action, enter your {% data variables.product.product_name %} password.
 
-### Further reading
+## Further reading
 
 * "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 * "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"

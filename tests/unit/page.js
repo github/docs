@@ -1,7 +1,8 @@
 const path = require('path')
 const cheerio = require('cheerio')
 const Page = require('../../lib/page')
-const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects')
+const readJsonFile = require('../../lib/read-json-file')
+const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
@@ -268,17 +269,17 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === 'homepage').href).toBe('/en')
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en')
       expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
     })
 
     test('permalinks for dotcom-only pages', async () => {
       const page = await Page.init({
-        relativePath: 'github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account.md',
+        relativePath: 'github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      const expectedPath = '/en/github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account'
+      const expectedPath = '/en/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
       expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(expectedPath)
       expect(page.permalinks.length).toBe(1)
     })
@@ -490,15 +491,22 @@ describe('Page class', () => {
     // There are none of these in the content at this time!
     })
 
-    // Note this test will go out of date when we deprecate 2.20
-    test('pages that apply to newer enterprise versions', async () => {
+    test.skip('pages that apply to newer enterprise versions', async () => {
+    // There are none of these in the content at this time!
+    })
+
+    test('pages that use short names in versions frontmatter', async () => {
       const page = await Page.init({
-        relativePath: 'github/administering-a-repository/releasing-projects-on-github/comparing-releases.md',
-        basePath: path.join(__dirname, '../../content'),
+        relativePath: 'short-versions.md',
+        basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-      expect(nonEnterpriseDefaultPlan in page.versions).toBe(true)
-      expect(page.versions['enterprise-server']).toBe('>=2.21')
+      expect(page.versions.fpt).toBe('*')
+      expect(page.versions.ghes).toBe('>3.0')
+      expect(page.versions.ghae).toBeUndefined()
+      expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
+      expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
+      expect(page.applicableVersions.includes(`github-ae@latest`)).toBe(false)
     })
 
     test('index page', async () => {
@@ -518,7 +526,49 @@ describe('Page class', () => {
       })
 
       expect(nonEnterpriseDefaultPlan in page.versions).toBe(false)
-      expect(page.versions['enterprise-server']).toBe('*')
+      expect(page.versions.ghes).toBe('*')
+    })
+
+    test('feature versions frontmatter', async () => {
+      // This fixture file has the frontmatter:
+      //
+      // versions:
+      //   fpt: '*'
+      //   ghes: '*'
+      //   feature: 'placeholder'
+      //
+      // and placeholder.yml has:
+      //
+      // versions:
+      //   ghes: '<2.22'
+      //   ghae: '*'
+      //
+      // So we expect to get the versioning from both.
+      const page = await Page.init({
+        relativePath: 'feature-versions-frontmatter.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+  
+      // Test the raw page data.
+      expect(page.versions.fpt).toBe('*')
+      expect(page.versions.ghes).toBe('>2.21')
+      expect(page.versions.ghae).toBeUndefined()
+      // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
+      expect(page.versions.feature).toBeUndefined()
+  
+      // Test the resolved versioning, where GHES releases specified in frontmatter and in 
+      // feature versions are combined (i.e., one doesn't overwrite the other).
+      // We can't test that GHES 2.21 is _not_ included here (which it shouldn't be), 
+      // because lib/get-applicable-versions only returns currently supported versions,
+      // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
+      // But by testing that the _latest_ GHES version is returned, we can ensure that the 
+      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<2.22`.
+      expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
+      expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
+      expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)
+      expect(page.applicableVersions.includes('feature')).toBe(false)
+      expect(page.applicableVersions.includes('placeholder')).toBe(false)
     })
   })
 

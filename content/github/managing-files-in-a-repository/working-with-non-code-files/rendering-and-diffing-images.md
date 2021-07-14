@@ -5,11 +5,12 @@ redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Render & diff images
 ---
 {% note %}
 
@@ -17,7 +18,7 @@ topics:
 
 {% endnote %}
 
-### Viewing images
+## Viewing images
 
 You can directly browse and view images in your {% data variables.product.product_name %} repository:
 
@@ -25,23 +26,23 @@ You can directly browse and view images in your {% data variables.product.produc
 
 SVGs don't currently support inline scripting or animation.
 
-### Viewing differences
+## Viewing differences
 
 You can visually compare images in three different modes: [2-up](#2-up), [swipe](#swipe), and [onion skin](#onion-skin).
 
-#### 2-up
+### 2-up
 
 **2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
 
 ![2-up](/assets/images/help/repository/images-2up-view.png)
 
-#### Swipe
+### Swipe
 
 **Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
 
 ![Swipe](/assets/images/help/repository/images-swipe-view.png)
 
-#### Onion skin
+### Onion skin
 
 **Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
 

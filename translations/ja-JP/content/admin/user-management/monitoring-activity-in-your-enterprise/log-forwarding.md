@@ -17,6 +17,7 @@ topics:
   - Logging
   - Security
 ---
+
 syslog-style 式のログストリームに対応するログ回収システムは、サポートしています。（例えば、[Logstash](http://logstash.net/) や [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)など）
 
 ### ログの転送を有効化
@@ -42,7 +43,6 @@ syslog-style 式のログストリームに対応するログ回収システム�
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### トラブルシューティング
-ログ転送で問題が発生した場合は、
 
-`http(s)://[hostname]/setup/diagnostics` からの出力ファイルをメールに添付して、{% data variables.contact.contact_ent_support %} に連絡してください。
+ログ転送で問題が発生した場合、 `http(s)://[hostname]/setup/diagnostics` のアウトプットファイルをメールに添付し、{% data variables.contact.contact_ent_support %}に連絡してください。
 {% endif %}

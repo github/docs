@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于管理仓库的访问权限
 
 对于您在 {% data variables.product.prodname_dotcom %} 上管理的每个仓库，您可以查看有权访问仓库的每个团队或人员的概览。 从概览中，您还可以邀请新的团队或人员、更改每个团队或人员的权限或删除对仓库的访问权限。

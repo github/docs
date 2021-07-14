@@ -20,7 +20,7 @@ children:
   - /restricting-repository-visibility-changes-in-your-organization
   - /managing-the-forking-policy-for-your-organization
   - /disabling-or-limiting-github-actions-for-your-organization
-  - /entering-a-data-protection-agreement-with-github-for-gdpr-compliance
+  - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
@@ -36,6 +36,8 @@ children:
   - /converting-an-organization-into-a-user
   - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-corporate-terms-of-service
+  - /disabling-project-boards-in-your-organization
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 {% endif %}

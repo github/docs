@@ -6,19 +6,20 @@ redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Review proposed changes
 ---
-### About reviewing pull requests
+## About reviewing pull requests
 
 You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-### Starting a review
+## Starting a review
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -33,8 +34,8 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Reviewing dependency changes
+{% ifversion fpt %}
+## Reviewing dependency changes
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
@@ -47,7 +48,7 @@ If the pull request contains changes to dependencies you can use the dependency 
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
-### Marking a file as viewed
+## Marking a file as viewed
 
 After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
 
@@ -55,7 +56,7 @@ After you finish reviewing a file, you can mark the file as viewed, and the file
 2. On the right of the header of the file you've finished reviewing, select **Viewed**.
   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-### Submitting your review
+## Submitting your review
 
 After you've finished reviewing all the files you want in the pull request, submit your review.
 
@@ -71,7 +72,7 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Further reading
+## Further reading
 
 - "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

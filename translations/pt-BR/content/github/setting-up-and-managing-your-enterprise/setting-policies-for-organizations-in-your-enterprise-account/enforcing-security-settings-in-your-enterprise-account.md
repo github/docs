@@ -15,6 +15,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Exigir autenticação de dois fatores para organizações na conta corporativa
 
 Os proprietários corporativos podem exigir que integrantes da organização, gerentes de cobrança e colaboradores externos em todas as organizações pertencentes a uma conta corporativa usem autenticação de dois fatores para proteger suas contas pessoais.
@@ -47,7 +48,7 @@ Os proprietários de empresas podem restringir o acesso a ativos pertencentes a 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 Você também pode configurar endereços IP permitidos para uma organização individual. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
@@ -59,6 +60,10 @@ Você também pode configurar endereços IP permitidos para uma organização in
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+
+#### Allowing access by {% data variables.product.prodname_github_apps %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 #### Habilitar endereços IP permitidos
 

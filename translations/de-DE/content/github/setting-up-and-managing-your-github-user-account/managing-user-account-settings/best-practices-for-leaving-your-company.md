@@ -9,6 +9,7 @@ versions:
 topics:
   - Accounts
 ---
+
 Bevor Du Dein Unternehmen verlässt, stelle sicher, dass Du die folgenden Angaben in Deinem Benutzerkonto aktualisierst:
 
 - Widerrufe die Verifizierung Deiner beruflichen E-Mail-Adresse, indem Du [sie in den E-Mail-Einstellungen löschst](/articles/changing-your-primary-email-address). Du kannst die Adresse dann ohne erneute Verifizierung wieder hinzufügen, damit zugehörige Commits mit Deinem Konto verknüpft bleiben.

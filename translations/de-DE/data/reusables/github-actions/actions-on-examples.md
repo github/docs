@@ -1,18 +1,18 @@
-##### Beispiel mit einem einzelnen Ereignis
+##### Example: Using a single event
 
 ```yaml
 # Triggered when code is pushed to any branch in a repository
 on: push
 ```
 
-##### Beispiel mit einer Ereignisliste
+##### Example: Using a list of events
 
 ```yaml
 # Triggers the workflow on push or pull request events
 on: [push, pull_request]
 ```
 
-##### Beispiel für die Verwendung mehrerer Ereignisse mit Aktivitätstypen oder Konfigurationen
+##### Example: Using multiple events with activity types or configuration
 
 Wenn Du Aktivitätstypen oder Konfigurationen für ein Ereignis angeben musst, musst Du jedes Ereignis separat konfigurieren. Du musst einen Doppelpunkt (`:`) an alle Ereignisse anhängen, einschließlich Ereignisse ohne Konfiguration.
 

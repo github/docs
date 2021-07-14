@@ -11,22 +11,23 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Repositories
+shortTitle: Remove a collaborator
 ---
-### Deleting forks of private repositories
+## Deleting forks of private repositories
 
 While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
-### Removing collaborator permissions from a person contributing to a repository
+## Removing collaborator permissions from a person contributing to a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
   ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
@@ -37,7 +38,7 @@ While forks of private repositories are deleted when a collaborator is removed, 
   ![Remove link](/assets/images/help/organizations/Collaborator-Remove.png)
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
 - "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

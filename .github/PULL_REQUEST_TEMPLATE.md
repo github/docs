@@ -24,7 +24,7 @@ Closes [issue link]
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**).
+- [ ] I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
 - [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/CONTRIBUTING.md#self-review).
 
 ### Writer impact (This section is for GitHub staff members only):

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/using-saved-replies
   - /github/writing-on-github/using-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -25,7 +25,7 @@ versions:
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Creating a saved reply](/articles/creating-a-saved-reply)"
 - "[Editing a saved reply](/articles/editing-a-saved-reply)"

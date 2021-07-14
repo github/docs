@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 在新增 GPG 密钥到 {% data variables.product.product_name %} 帐户之前，您应该已：
 - [检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)
 - [生成并复制新 GPG 密钥](/articles/generating-a-new-gpg-key)

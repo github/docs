@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 GitHub App がユーザの代わりに動作すると、ユーザからサーバーに対するリクエストを実行します。 こうしたリクエストは、ユーザのアクセストークンで承認される必要があります。 ユーザからサーバーに対するリクエストには、特定のユーザに対してどのリポジトリを表示するか決定するなど、ユーザに対するデータのリクエストが含まれます。 これらのリクエストには、ビルドの実行など、ユーザがトリガーしたアクションも含まれます。
@@ -47,7 +48,7 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 | 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                    |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **必須。**GitHub App のクライアント IDです。 アプリケーションを選択したときに、[GitHub App 設定](https://github.com/settings/apps)に表示されます。                                                                                                                                                                                            |
+| `client_id`    | `string` | **必須。**GitHub App のクライアント IDです。 アプリケーションを選択したときに、[GitHub App 設定](https://github.com/settings/apps)に表示されます。 **Note:** The app ID and client ID are not the same, and are not interchangeable.                                                                                                          |
 | `redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 これは、GitHub App をセットアップする際に{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}**コールバック URL** として指定された URL の １つ{% else %}[**User authorization callback URL**] フィールドで指定された URL {% endif %}と一致させる必要があり、他の追加パラメータを含めることはできません。 |
 | `state`        | `string` | これはフォージェリアタックを防ぐためにランダムな文字列を含める必要があり、あらゆる任意のデータを含めることができます。                                                                                                                                                                                                                                           |
 | `login`        | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。                                                                                                                                                                                                                                                                    |
@@ -335,7 +336,7 @@ While most of your API インタラクションのほとんどは、サーバー
 
 * [Issueのタイムラインイベントの一覧表示](/rest/reference/issues#list-timeline-events-for-an-issue)
 
-##### Issue
+##### 問題
 
 * [認証されたユーザにアサインされたIssueの一覧表示](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)
 * [アサインされた人の一覧表示](/rest/reference/issues#list-assignees)
@@ -483,7 +484,7 @@ While most of your API インタラクションのほとんどは、サーバー
 ##### Organization
 
 * [Organizationの一覧表示](/rest/reference/orgs#list-organizations)
-* [Organizationの取得](/rest/reference/orgs#get-an-organization)
+* [Organizationの取得](/rest/reference/orgs#list-organizations)
 * [Organizationの更新](/rest/reference/orgs#update-an-organization)
 * [認証されたユーザのOrganizationメンバーシップの一覧表示](/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user)
 * [認証されたユーザのOrganizationメンバーシップの取得](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user)

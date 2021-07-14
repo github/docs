@@ -1,6 +1,6 @@
 ---
-title: Managing user permissions for your organization
-intro: 'You can control which users in your organization can use {% data variables.product.prodname_codespaces %}.'
+title: Administrar los permisos de usuario para tu organización
+intro: 'Puedes controlar qué usuarios de tu organización pueden utilizar {% data variables.product.prodname_codespaces %}.'
 permissions: 'To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 versions:
   free-pro-team: '*'
@@ -13,23 +13,23 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About user permissions for {% data variables.product.prodname_codespaces %}
+### Acerca de los permisos de usuario para {% data variables.product.prodname_codespaces %}
 
-Organization owners can control which users in your organization can create and use codespaces.
+Los propietarios de organización pueden controlar qué usuarios de tu organización pueden crear y utilizar codespaces.
 
-To use codespaces in your organization, your users must have at least write access to the repositories where they want to use a codespace. You can enable codespaces for all users in your organization, or only specific users.
+Para utilizar codespaces en tu organización, tus usuarios deben tener por lo menos acceso de escritura en los repositorios en donde quieren utilizarlos. Puedes habilitar los codespaces para todos los usuarios en tu organización o solo para algunos específicos.
 
-By default, a codespace can only access the repository where it was created. If you want codespaces in your organization to be able to access other organization repositories that the codespace creator can access, see "[Managing access and security for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
+Predeterminadamente, un codespace solo puede acceer al repositorio en donde se creó. Si quieres que los codespaces de tu organización puedan acceder a otros repositorios de organización a los que puede acceder el creador de dichos codespaces, consulta la sección "[Administrar el acceso y la seguridad de los {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
 
-### Configuring which users in your organization can use {% data variables.product.prodname_codespaces %}
+### Configurar qué usuarios de tu organización pueden utilizar {% data variables.product.prodname_codespaces %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. Under "User permissions", select one of the following options:
+1. Debajo de "Permisos de usuario", selecciona una de las siguientes opciones:
 
-   * **Disabled** to not allow any organization members to use {% data variables.product.prodname_codespaces %}.
-   * **Allow for all users** to allow all your organization members to use {% data variables.product.prodname_codespaces %}.
-   * **Selected users** to select specific organization members to use {% data variables.product.prodname_codespaces %}.
+   * **Inhabilitado** para no permitir que los miembros de la organización utilicen {% data variables.product.prodname_codespaces %}.
+   * **Permitir para todos los usuarios** para permitir que todos los miembros de tu organización utilicen los {% data variables.product.prodname_codespaces %}.
+   * **Usuarios selectos** para seleccionar miembros específicos de la organización que puedan utilizar {% data variables.product.prodname_codespaces %}.
 
-   ![Radio buttons for "User permissions"](/assets/images/help/codespaces/organization-user-permission-settings.png)
+   ![Botones radiales de "Permisos de usuario"](/assets/images/help/codespaces/organization-user-permission-settings.png)

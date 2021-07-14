@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### Diagnosedateien erstellen und freigeben
 
 Die Diagnose ist eine Übersicht über die Einstellungen und die Umgebung einer {% data variables.product.prodname_ghe_server %}-Instanz. Sie enthält Folgendes:

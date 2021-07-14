@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
@@ -18,7 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.product_name %} にバンドルされます。 However, self-hosted runners without internet access require some configuration before they can use the included `actions/setup-LANGUAGE` actions, such as `setup-node`.
+ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.product_name %} にバンドルされます。 ただし、インターネットにアクセスできないセルフホストランナーは、`setup-node` などの含まれている `actions/setup-LANGUAGE` アクションを使用する前に、いくつかの設定が必要です。
 
 `actions/setup-LANGUAGE` アクションは通常、必要な環境バイナリをランナーのツールキャッシュにダウンロードするためにインターネットアクセスが必要です。 インターネットにアクセスできないセルフホストのランナーはバイナリをダウンロードできないため、ランナーのツールキャッシュに手動でデータを入力する必要があります。
 

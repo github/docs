@@ -24,6 +24,7 @@ featuredLinks:
 changelog:
   label: actions
   prefix: 'GitHub Actions: '
+examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
@@ -34,9 +35,9 @@ redirect_from:
   - /marketplace/actions
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 children:
   - /quickstart
   - /guides

@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 ### Abfrage nach Werten mit einem Vergleichsoperator
 
 Mit `>`, `>=`, `<` und `<=` kannst Du nach Werten suchen, die größer, größer oder gleich, kleiner, oder kleiner oder gleich einem anderen Wert sind.

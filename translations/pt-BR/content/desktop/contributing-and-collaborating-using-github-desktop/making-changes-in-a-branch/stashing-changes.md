@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/stashing-changes
 ---
+
 ### Sobre alterações ocultas
 
 Para aplicar as alterações ao seu repositório, você deve salvar os arquivos e, em seguida, fazer o commit das alterações em um branch. Se você salvou as alterações que ainda não estão prontas para fazer commit, você pode ocultar as alterações para mais tarde. Ao ocultar as alterações, estas serão temporariamente removidas dos arquivos e você pode optar por restaurar ou descartar as alterações posteriormente. Você só pode ocultar um conjunto de alterações por vez com {% data variables.product.prodname_desktop %}. Se você usar {% data variables.product.prodname_desktop %} para ocultar as alterações, todas as alterações não salvas serão ocultas. Depois que você ocultar alterações em um branch, você pode alterar seus branches com segurança ou fazer outras alterações no seu branch atual.

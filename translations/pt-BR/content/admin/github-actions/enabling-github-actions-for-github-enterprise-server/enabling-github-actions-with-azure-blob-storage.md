@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 ---
+
 ### Pré-requisitos
 
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:

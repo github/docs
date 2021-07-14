@@ -16,6 +16,7 @@ topics:
   - GitHub Connect
   - GitHub search
 ---
+
 Wenn Sie die gemeinsame Suche aktivieren, können Benutzer Suchergebnisse von öffentlichen und privaten Inhalten auf {% data variables.product.prodname_dotcom_the_website %} anzeigen, wenn sie auf {% data variables.product.product_location_enterprise %} suchen.
 
 Benutzer können auf {% data variables.product.prodname_dotcom_the_website %} nicht nach {% data variables.product.product_location_enterprise %} suchen, selbst wenn sie auf beide Umgebungen zugreifen können. Benutzer können nur auf die privaten Repositorys zugreifen, für die Sie {% data variables.product.prodname_unified_search %} aktiviert haben und auf die sie in den verbundenen {% data variables.product.prodname_ghe_cloud %}-Organisationen zugreifen können. Weitere Informationen finden Sie unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)“ und „[Private {% data variables.product.prodname_dotcom_the_website %}-Repository-Suche in Ihrem {% data variables.product.prodname_ghe_server %}-Konto aktivieren](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)“.

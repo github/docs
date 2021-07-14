@@ -7,9 +7,17 @@ redirect_from:
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
+  - Security updates
   - Repositories
+  - Dependencies
+  - Pull requests
+  - Vulnerabilities
 ---
+
 ### 依存関係の更新のカスタマイズについて
 
 バージョン更新を有効にしてから、*dependabot.yml* ファイルにさらにオプションを追加することで、{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。 たとえば、次のような方法を使用します。

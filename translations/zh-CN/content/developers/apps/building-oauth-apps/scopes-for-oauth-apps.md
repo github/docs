@@ -13,6 +13,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 在 GitHub 上设置 OAuth 应用程序时，请求的作用域会在授权表单上显示给用户。
 
 {% note %}
@@ -22,8 +23,7 @@ topics:
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-如果您的
-{% data variables.product.prodname_oauth_app %} 无法访问浏览器（如 CLI 工具），则无需为用户指定向应用程序验证的作用域。 更多信息请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
+如果 {% data variables.product.prodname_oauth_app %} 无法访问浏览器（如 CLI 工具），则无需为用户指定向应用程序验证的作用域。 更多信息请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
 {% endif %}
 
 检查标头以查看您拥有哪些 OAuth 作用域，以及 API 操作接受什么：
@@ -76,7 +76,7 @@ X-Accepted-OAuth-Scopes: user
 | **`admin:gpg_key`**      | 全面管理 GPG 密钥。                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | &emsp;`write:gpg_key`    | 创建、列出和查看 GPG 密钥的详细信息。                                                                                                                                                                                                                                                                                                                                                                                                               |
 | &emsp;`read:gpg_key`     | 列出和查看 GPG 密钥的详细信息。{% if currentVersion == "free-pro-team@latest" %}
-| **`工作流程`**               | 授予添加和更新 {% data variables.product.prodname_actions %} 工作流程文件的权限。 如果在同一仓库中的另一个分支上存在相同的文件(具有相同的路径和内容)，则工作流程文件可以在没有此作用域的情况下提交。 工作流程文件可能公开 `GITHUB_TOKEN`，它可能具有一组不同的作用域，更多信息请参阅 https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token。{% endif %}
+| **`工作流程`**               | 授予添加和更新 {% data variables.product.prodname_actions %} 工作流程文件的权限。 如果在同一仓库中的另一个分支上存在相同的文件(具有相同的路径和内容)，则工作流程文件可以在没有此作用域的情况下提交。 工作流程文件可以暴露可能有不同范围集的 `GITHUB_TOKEN`。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。{% endif %}
 
 {% note %}
 

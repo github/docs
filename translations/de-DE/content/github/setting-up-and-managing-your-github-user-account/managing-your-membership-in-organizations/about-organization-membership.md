@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 Ein Organisationsinhaber kann Dich einladen, seiner Organisation als Mitglied, Abrechnungsmanager oder Inhaber beizutreten. Ein Organisationsinhaber oder Mitglied mit Administratorberechtigungen für ein Repository kann Dich einladen, als externer Mitarbeiter in einem oder mehreren Repositorys zusammenzuarbeiten. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
 
 Auf Deiner Profilseite kannst Du auf Organisationen zugreifen, denen Du angehörst. Weitere Informationen findest Du unter „[Auf eine Organisation zugreifen](/articles/accessing-an-organization).“

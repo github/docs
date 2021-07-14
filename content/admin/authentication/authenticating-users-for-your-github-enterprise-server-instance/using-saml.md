@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-saml
 intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -19,13 +19,13 @@ topics:
 ---
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Supported SAML services
+## Supported SAML services
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### Username considerations with SAML
+## Username considerations with SAML
 
 Each {% data variables.product.prodname_ghe_server %} username is determined by one of the following assertions in the SAML response, ordered by priority:
 
@@ -40,7 +40,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 {% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% if currentVersion ver_gt "enterprise-server@2.21" %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes > 2.21 %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -51,13 +51,13 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### SAML metadata
+## SAML metadata
 
 Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
-### SAML attributes
+## SAML attributes
 
 These attributes are available. You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
@@ -71,7 +71,7 @@ These attributes are available. You can change the attribute names in the [manag
 | `public_keys`   | Optional | The public SSH keys for the user. More than one can be specified. |
 | `gpg_keys`   | Optional | The GPG keys for the user. More than one can be specified.  |
 
-### Configuring SAML settings
+## Configuring SAML settings
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -101,9 +101,9 @@ These attributes are available. You can change the attribute names in the [manag
 10. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
  ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 
-### Updating a user's SAML `NameID`
+## Updating a user's SAML `NameID`
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. In the left sidebar, click **All users**.
@@ -120,11 +120,11 @@ These attributes are available. You can change the attribute names in the [manag
 
 {% endif %}
 
-### Revoking access to {% data variables.product.product_location %}
+## Revoking access to {% data variables.product.product_location %}
 
 If you remove a user from your identity provider, you must also manually suspend them. Otherwise, they'll continue to be able to authenticate using access tokens or SSH keys. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 
-### Response message requirements
+## Response message requirements
 
 The response message must fulfill the following requirements:
 
@@ -152,11 +152,11 @@ The response message must fulfill the following requirements:
 </samlp:Response>
 ```
 
-### Troubleshooting SAML authentication
+## Troubleshooting SAML authentication
 
 {% data variables.product.prodname_ghe_server %} logs error messages for failed SAML authentication in the authentication log at  _/var/log/github/auth.log_. For more information about SAML response requirements, see "[Response message requirements](#response-message-requirements)."
 
-#### Error: "Another user already owns the account"
+### Error: "Another user already owns the account"
 
 When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
@@ -164,9 +164,9 @@ When the user signs in again, {% data variables.product.prodname_ghe_server %} c
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. {% if currentVersion ver_gt "enterprise-server@2.21" %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
+The message typically indicates that the person's username or email address has changed on the IdP. {% ifversion ghes > 2.21 %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
-#### Error: Recipient in SAML response was blank or not valid
+### Error: Recipient in SAML response was blank or not valid
 
 If the `Recipient` does not match the ACS URL for your {% data variables.product.prodname_ghe_server %} instance, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
@@ -180,7 +180,7 @@ Recipient in the SAML response was not valid.
 
 Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com/saml/consume`.
 
-#### Error: "SAML Response is not signed or has been modified"
+### Error: "SAML Response is not signed or has been modified"
 
 If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
@@ -190,7 +190,7 @@ SAML Response is not signed or has been modified.
 
 Ensure that you configure signed assertions for the {% data variables.product.prodname_ghe_server %} application on your IdP.
 
-#### Error: "Audience is invalid" or "No assertion found"
+### Error: "Audience is invalid" or "No assertion found"
 
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 

@@ -1,6 +1,6 @@
 ---
-title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+title: 限制组织的电子邮件通知
+intro: 为防止组织信息泄露到个人电子邮件帐户，您可以限制成员可以接收有关组织活动的电子邮件通知的域。
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
@@ -21,23 +21,23 @@ topics:
 
 ### 关于电子邮件限制
 
-When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity.
+当在组织中启用受限制的电子邮件通知时，成员只能使用与已验证或批准的域关联的电子邮件地址接收有关组织活动的电子邮件通知。
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+更多信息请参阅“[验证或批准组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. 有关外部协作者的更多信息，请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)”。
+外部协作者不受限于已验证或批准域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)”。
 
-If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+如果您的组织由企业帐户拥有，则组织成员除了能够接收来自组织的任何已验证或批准域的通知之外，还能够接收来自企业帐户的任何已验证或批准域的通知。 更多信息请参阅“[验证或批准企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)”。
 
-### Restricting email notifications
+### 限制电子邮件通知
 
-Before you can restrict email notifications for your organization, you must verify or approve at least one domain for the organization, or an enterprise owner must have verified or approved at least one domain for the enterprise account.
+在限制组织的电子邮件通知之前，您必须至少验证或批准组织的一个域名，或者企业所有者必须已验证或批准至少一个企业帐户域。
 
-For more information about verifying and approving domains for an organization, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+有关验证和批准组织域名的更多信息，请参阅“[验证或批准组织域名](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

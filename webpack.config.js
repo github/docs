@@ -6,30 +6,22 @@ const { EnvironmentPlugin, ProvidePlugin } = require('webpack')
 module.exports = {
   mode: 'development',
   devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map', // no 'eval' outside of development
-  entry: './javascripts/index.js',
+  entry: './javascripts/index.ts',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist'
   },
   stats: 'errors-only',
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.css', '.scss']
+  },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            exclude: /node_modules\/lodash/,
-            presets: [
-              ['@babel/preset-env', { targets: '> 0.25%, not dead' }]
-            ],
-            plugins: [
-              '@babel/transform-runtime'
-            ]
-          }
-        }
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.css$/i,
@@ -55,6 +47,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sassOptions: {
+                quietDeps: true,
                 includePaths: ['./stylesheets', './node_modules'],
                 options: {
                   sourceMap: true,

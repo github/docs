@@ -1,6 +1,6 @@
 ---
-title: Publishing and installing a package with GitHub Actions
-intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
+title: 使用 GitHub Actions 发布和安装包
+intro: '您可以配置 {% data variables.product.prodname_actions %} 中的工作流程以自动发布或安装 {% data variables.product.prodname_registry %} 的包。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
@@ -17,77 +17,77 @@ versions:
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-### About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
+### 关于 {% data variables.product.prodname_registry %} 与 {% data variables.product.prodname_actions %}
 
-{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
+{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)”。
 
-You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
+您可以通过在工作流程中发布或安装包来扩展仓库的 CI 和 CD 功能。
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating to the {% data variables.product.prodname_container_registry %}
+#### 向 {% data variables.product.prodname_container_registry %} 验证
 
 {% data reusables.package_registry.container-registry-beta %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
+有关身份验证示例，请参阅“[向 {% data variables.product.prodname_container_registry %} 验证](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)”。
 
 {% endif %}
 
-#### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
+#### 向 {% data variables.product.prodname_dotcom %} 上的软件包注册表验证
 
-{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% if currentVersion == "free-pro-team@latest" %}如果您希望工作流程向 {% data variables.product.prodname_registry %} 验证以访问 {% data variables.product.product_name %} 上 {% data variables.product.prodname_container_registry %} 以外的软件包注册表，则{% else %}要向 {% data variables.product.product_name %} 上的软件包注册表验证，{% endif %}我们建议使用 {% data variables.product.product_name %} 在您启用 {% data variables.product.prodname_actions %} 时自动为您的仓库创建的 `GITHUB_TOKEN` 来验证，而不是使用个人访问令牌来验证。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}您应该在工作流程文件中设置此访问令牌的权限，以授予 `contents` 范围的读取访问权限，并授予 `packages` 范围的写入访问权限。 {% else %}它对工作流程运行的仓库中的包具有读取和写入权限。 {% endif %}对于复刻，`GITHUB_TOKEN` 被授予对父仓库的读取访问权限。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+您还可以使用 {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} 上下文在工作流程文件中引用 `GITHUB_TOKEN`。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 
-### About permissions and package access for repository-owned packages
+### 关于仓库拥有的包的权限和包访问权限
 
 {% note %}
 
-**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.
+**注意：**仓库拥有的包包括 RubyGems、npm、Apache Maven、NuGet、Gradle 和 Docker 包，它们使用包命名空间 `docker.pkg.github.com`。
 
 {% endnote %}
 
-When you enable GitHub Actions, GitHub installs a GitHub App on your repository. The `GITHUB_TOKEN` secret is a GitHub App installation access token. You can use the installation access token to authenticate on behalf of the GitHub App installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)."
+启用 GitHub 操作后，GitHub 会在您的仓库中安装 GitHub 应用程序。 `GITHUB_TOKEN` 密码是一种 GitHub 应用程序安装访问令牌。 您可以使用安装访问令牌代表仓库中安装的 GitHub 应用程序进行身份验证。 令牌的权限仅限于包含您的工作流程的仓库。 更多信息请参阅“[GITHUB_TOKEN 的权限](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)”。
 
-{% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
+{% data variables.product.prodname_registry %} 允许您通过可用于 {% data variables.product.prodname_actions %} 工作流程的 `GITHUB_TOKEN` 推送和拉取包。
 
 {% if currentVersion == "free-pro-team@latest" %}
-### About permissions and package access for {% data variables.product.prodname_container_registry %}
+### 关于 {% data variables.product.prodname_container_registry %} 的权限和包访问权限
 
-The {% data variables.product.prodname_container_registry %} (`ghcr.io`) allows users to create and administer containers as free-standing resources at the organization level. Containers can be owned by an organization or personal user account and you can customize access to each of your containers separately from repository permissions.
+{% data variables.product.prodname_container_registry %} (`ghcr.io`) 允许用户创建和管理容器，作为组织一级的独立资源。 容器可以归组织或个人用户帐户所有，您可以自定义与存储库权限分开的每个容器访问权限。
 
-All workflows accessing the {% data variables.product.prodname_container_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+所有访问 {% data variables.product.prodname_container_registry %} 的工作流程都应该使用 `GITHUB_TOKEN` 而不是个人访问令牌。 有关安全最佳实践的更多信息，请参阅“[GitHub Actions 的安全强化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)”。
 
-### Default permissions and access settings for containers modified through workflows
+### 通过工作流程修改的容器的默认权限和访问设置
 
-When you create, install, modify, or delete a container through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well.
+当您通过工作流程创建、安装、修改或删除容器时，有一些默认权限和访问设置用于确保管理员能够访问工作流程。 您也可以调整这些访问设置。
 
-For example, by default if a workflow creates a container using the `GITHUB_TOKEN`, then:
-- The container inherits the visibility and permissions model of the repository where the workflow is run.
-- Repository admins where the workflow is run become the admins of the container once the container is created.
+例如，默认情况下，如果工作流程使用 `GITHUB_TOKEN` 创建容器，则：
+- 容器继承运行工作流程的仓库的可见性和权限模型。
+- 在创建容器后，工作流程运行的仓库管理员将成为容器的管理员。
 
-These are more examples of how default permissions work for workflows that manage packages.
+以下是管理包的工作流程的默认权限如何运作的更多示例。
 
-| {% data variables.product.prodname_actions %} workflow task | Default permissions and access |
-|----|----|
-| Download an existing container | - If the container is public, any workflow running in any repository can download the container. <br> - If the container is internal, then all workflows running in any repository owned by the Enterprise account can download the container. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the container is private, only workflows running in repositories that are given read permission on that container can download the container. <br>
-| Upload a new version to an existing container | - If the container is private, internal, or public, only workflows running in repositories that are given write permission on that container can upload new versions to the container.
-| Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given delete permission can delete existing versions of the container.
+| {% data variables.product.prodname_actions %} 工作流程任务 | 默认权限和访问                                                                                                                                                                             |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 下载现有容器                                               | - 如果容器是公开的，则任何仓库中运行的任何工作流程都可以下载容器。 <br> - 如果容器是内部容器，则在企业帐户拥有的任何仓库中运行的所有工作流程都可以下载容器。 对于企业拥有的组织，您可以阅读企业中的任何仓库 <br> - 如果容器是私有的，则只有在仓库中运行但在容器上获得读取权限的工作流程才可下载容器。 <br> |
+| 上传新版本到现有容器                                           | - 如果容器是私有、内部或公共的，则只有在该容器上获得写入权限的仓库中运行的工作流程才可将新版本上传到容器中。                                                                                                                             |
+| 删除容器或容器版本                                            | - 如果容器是私有、内部或公共的，则只有在该容器上获得删除权限的仓库中运行的工作流程才可删除容器的现有版本。                                                                                                                              |
 
-You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+您还可以使用更精细的方式调整对容器的访问，或调整一些默认权限行为。 更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。
 
 {% endif %}
 
-### Publishing a package using an action
+### 使用操作发布包
 
-You can use {% data variables.product.prodname_actions %} to automatically publish packages as part of your continuous integration (CI) flow. This approach to continuous deployment (CD) allows you to automate the creation of new package versions, if the code meets your quality standards. For example, you could create a workflow that runs CI tests every time a developer pushes code to a particular branch. If the tests pass, the workflow can publish a new package version to {% data variables.product.prodname_registry %}.
+您可以使用 {% data variables.product.prodname_actions %} 在持续集成 (CI) 流程中自动发布包。 如果代码符合您的质量标准，可使用这种持续部署 (CD) 方法自动创建新的包版本。 例如，您可以创建一个每当开发者向特定分支推送代码时运行 CI 测试的工作流程。 如果测试通过，则工作流程可以将新的包版本发布到 {% data variables.product.prodname_registry %}。
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build and test your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}:
+下面的示例演示如何使用 {% data variables.product.prodname_actions %} 构建和测试应用程序，然后自动创建 Docker 映像并将其发布到 {% data variables.product.prodname_registry %}：
 
-- Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
+- 在仓库中创建新的工作流程文件（例如 `.github/workflows/deploy-image.yml`），并添加以下 YAML：
   ```yaml{:copy}
   name: Create and publish a package
   on:
@@ -132,28 +132,30 @@ The following example demonstrates how you can use {% data variables.product.pro
             CI: true
 
     build-and-push-image:
-      runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      runs-on: ubuntu-latest
+      needs: run-npm-test {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
       permissions: 
         contents: read
         packages: write {% endif %}
-      needs: run-npm-test
       steps:
         - name: Checkout
           uses: actions/checkout@v2
+        - name: Log in to GitHub Docker Registry
+          uses: docker/login-action@v1
+          with:
+            registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+            username: {% raw %}${{ github.actor }}{% endraw %}
+            password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         - name: Build container image
-          uses: docker/build-push-action@v1
-          with: {% raw %}
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
-            registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-            repository: ${{ github.repository }}/octo-image {% endraw %}
-            tag_with_sha: true
-            tag_with_ref: true 
+          uses: docker/build-push-action@v2
+          with:
+            push: true
+            tags: |
+              {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+              {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
   ```
 
-  The relevant settings are explained in the following table:
-
-  <table>
+  下表介绍了相关设置： <table>
   <tr>
   <td>
 
@@ -166,7 +168,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    Configures the <code>Create and publish a package</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
+    配置 <code>Create and publish a package</code> 工作流程，以在每次向名为 <code>release</code> 的分支推送更改时运行。
   </td>
   </tr>
   <tr>
@@ -190,7 +192,7 @@ on:
   {% endraw %}
   </td>
   <td>
-    This job installs NPM and uses it to build the app.
+    此作业会安装 NPM 并使用它来构建应用程序。
   </td>
   </tr>
   <tr>
@@ -225,9 +227,27 @@ on:
 {% endraw %}
   </td>
   <td>
-    This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
+    此作业使用 <code>npm test</code> 测试代码。 <code>needs: run-npm-build</code> 命令使此作业依赖于 <code>run-npm-build</code> 作业。
   </td>
-  </tr> {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+  </tr>
+  
+  <tr>
+  <td>
+
+{% raw %}
+```yaml
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: run-npm-test
+```
+{% endraw %}
+  </td>
+  <td>
+    此作业将发布包。 <code>needs: run-npm-test</code> 命令使此作业依赖于 <code>run-npm-test</code> 作业。
+  </td>
+  </tr>
+
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
   <tr>
   <td>
 
@@ -240,9 +260,27 @@ on:
 {% endraw %}
   </td>
   <td>
-    Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
+    为此作业中的操作设置授予 <code>GITHUB_TOKEN</code> 的权限。
   </td>
   </tr> {% endif %}
+  <tr>
+  <td>
+
+{% raw %}
+  ```yaml
+  - name: Log in to GitHub Docker Registry
+    uses: docker/login-action@v1
+    with:
+      registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+  ```
+{% endraw %}
+  </td>
+  <td>
+    创建一个名为<code>登录到 GitHub Docker 注册表</code>的新步骤，以使用将发布包的帐户和密码登录到注册表。 发布后，包归此处定义的帐户所有。
+  </td>
+  </tr>
   <tr>
   <td>
 
@@ -253,7 +291,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    Creates a new step called <code>Build container image</code>. This step runs as part of the <code>build-and-push-image</code> job. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+    创建名为 <code>Build container image</code> 的新步骤。 此步骤在 <code>build-and-push-image</code> 作业中运行。
   </td>
   </tr>
   <tr>
@@ -261,12 +299,12 @@ on:
 
 {% raw %}
   ```yaml
-uses: docker/build-push-action@v1
+uses: docker/build-push-action@v2
   ```
 {% endraw %}
   </td>
   <td>
-    Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
+    使用 Docker <code>build-push-action</code> 操作构建基于仓库的 <code>Dockerfile</code> 的映像。 如果构建成功，它会将映像推送到 {% data variables.product.prodname_registry %}。
   </td>
   </tr>
   <tr>
@@ -279,7 +317,7 @@ with:
 {% endraw %}
   </td>
   <td>
-    Sends the required parameters to the <code>build-push-action</code> action. This are defined in the subsequent lines.
+    将所需参数发送到 <code>build-push-action</code> 操作。 这将在后面的行中定义。
   </td>
   </tr>
   <tr>
@@ -287,113 +325,60 @@ with:
 
 {% raw %}
   ```yaml
-username: ${{ github.actor }}
+push: true
   ```
 {% endraw %}
   </td>
   <td>
-    Defines the user account that will publish the packages. Once published, the packages are owned by the account defined here.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-password: ${{ secrets.GITHUB_TOKEN }}
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Defines the password that is used to access {% data variables.product.prodname_registry %}.
+    此映像如已成功构建，则推送至注册表。
   </td>
   </tr>
   <tr>
   <td>
 
   ```yaml
-registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+tags: |
+  {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+  {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
   ```
   </td>
   <td>
-    Defines the registry that will host the resulting packages. This example uses {% data variables.product.prodname_registry %}.{% if currentVersion == "github-ae@latest" %} Replace <code>YOUR-HOSTNAME</code> with the name of your enterprise.{% endif %} {% if currentVersion == "free-pro-team@latest" %} If you're using the {% data variables.product.prodname_container_registry %}, then use <code>ghcr.io</code> as the hostname.{% endif %}
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-repository: ${{ github.repository }}/octo-image
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Defines which repository will host the resulting package, and sets the name of the published package. Replace <code>octo-image</code> with the name you want for your package.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-tag_with_sha: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Tags the published package with the first seven characters of the commit's SHA. For example, <code>sha-2f2d842</code>.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-tag_with_ref: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Tags the published package with the git ref. This can be the name of the branch used to create the package.
+    使用 git ref 标记已发布的软件包（例如用于创建包的分支名称）以及提交 SHA 。
   </td>
   </tr>
   </table>
 
-- This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
-- A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+- 每次将更改推送至仓库中名为 `release` 的分支时，这个新工作流程都会自动运行。 您可以在 **Actions（操作）**选项卡中查看进度。
+- 工作流程完成几分钟后，新包将在您的仓库中可见。 要查找可用的包，请参阅“[查看仓库的包](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)”。
 
 
-### Installing a package using an action
+### 使用操作安装包
 
-You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
+您可以使用 {% data variables.product.prodname_actions %} 将安装包作为 CI 流程的一部分。 例如，您可以配置一个工作流程：每当开发者向拉取请求推送代码时，该工作流程就会通过下载并安装 {% data variables.product.prodname_registry %} 托管的包来解析依赖项。 然后，该工作流程就可以运行需要这些依赖项的 CI 测试。
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
+使用 `GITHUB_TOKEN` 时，通过 {% data variables.product.prodname_actions %} 安装 {% data variables.product.prodname_registry %} 托管的包只需极少的配置或额外身份验证。{% if currentVersion == "free-pro-team@latest" %} 使用操作安装包时，数据传输也是免费的。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Upgrading a workflow that accesses `ghcr.io`
+### 升级访问 `ghcr.io`的工作流程
 
 {% data reusables.package_registry.github-token-security-over-pat %}
 
-Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, increases the security of your repository as you don't need to use a long-lived PAT that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+使用 `GITHUB_TOKEN` 而不是 PAT（包括 `repo` 范围），可提高仓库的安全性，因为您不需要使用长期 PAT，以免对运行工作流程的仓库提供不必要的访问权限。 有关安全最佳实践的更多信息，请参阅“[GitHub Actions 的安全强化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)”。
 
-1. Navigate to your package landing page.
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
+1. 导航到包登陆页面。
+1. 在左侧边栏中，单击 **Actions access（操作访问）**。 ![左侧菜单中的"Actions access（操作访问）"选项](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. 为了确保您的容器包能够访问您的工作流程，您必须添加仓库，其中工作流程存储到您的容器。 单击 **Add repository（添加仓库）**并搜索要添加的仓库。 !["添加仓库"按钮](/assets/images/help/package-registry/add-repository-button.png)
   {% note %}
 
-  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+  **注意：**通过 **Actions access（操作访问）**菜单选项将仓库添加到容器不同于将容器连接到仓库。 更多信息请参阅“[确保工作流程访问您的包](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)”和“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。
 
   {% endnote %}
-3. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-5. Open your workflow file. On the line where you login to `ghcr.io`, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+3. （可选）使用“role（角色）”下拉菜单，选择您希望仓库访问您的容器映像所必须拥有的默认访问权限。 ![授予仓库的权限访问级别](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+5. 打开工作流程文件。 在您登录到 `ghcr.io` 的行上，将 PAT 替换为 {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}。
 
-For example, this workflow publishes a Docker container using {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+例如，此工作流程发布使用 {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} 进行身份验证的 Docker 容器。
 
 ```yaml{:copy}
 name: Demo Push

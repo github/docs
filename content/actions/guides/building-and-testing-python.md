@@ -5,28 +5,30 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - CI
   - Python
+shortTitle: Build & test Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
-### Introduction
+## Introduction
 
 This guide shows you how to build, test, and publish a Python package.
 
-{% if currentVersion == "github-ae@latest" %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
 {% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-### Prerequisites
+## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
@@ -37,7 +39,7 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. For m
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-### Starting with the Python workflow template
+## Starting with the Python workflow template
 
 {% data variables.product.prodname_dotcom %} provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
@@ -55,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+        python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -80,7 +82,7 @@ jobs:
 ```
 {% endraw %}
 
-### Specifying a Python version
+## Specifying a Python version
 
 To use a pre-installed version of Python or PyPy on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `setup-python` action. This action finds a specific version of Python or PyPy from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. If a specific version of Python is not pre-installed in the tools cache, the `setup-python` action will download and set up the appropriate version from the [`python-versions`](https://github.com/actions/python-versions) repository.
 
@@ -98,7 +100,7 @@ If you are using a self-hosted runner, you can configure the runner to use the `
 
 {% data variables.product.prodname_dotcom %} supports semantic versioning syntax. For more information, see "[Using semantic versioning](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" and the "[Semantic versioning specification](https://semver.org/)."
 
-#### Using multiple Python versions
+### Using multiple Python versions
 
 {% raw %}
 ```yaml{:copy}
@@ -114,7 +116,7 @@ jobs:
       # You can use PyPy versions in python-version.
       # For example, pypy2 and pypy3
       matrix:
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -128,7 +130,7 @@ jobs:
 ```
 {% endraw %}
 
-#### Using a specific Python version
+### Using a specific Python version
 
 You can configure a specific version of python. For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
@@ -158,7 +160,7 @@ jobs:
 ```
 {% endraw %}
 
-#### Excluding a version
+### Excluding a version
 
 If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.4 with arch x64 not found`. The error message includes the available versions.
 
@@ -177,7 +179,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [2.7, 3.6, 3.7, 3.8, pypy2, pypy3]
+        python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
         exclude:
           - os: macos-latest
             python-version: 3.6
@@ -186,7 +188,7 @@ jobs:
 ```
 {% endraw %}
 
-#### Using the default Python version
+### Using the default Python version
 
 We recommend using `setup-python` to configure the version of Python used in your workflows because it helps make your dependencies explicit. If you don't use `setup-python`, the default version of Python set in `PATH` is used in any shell when you call `python`. The default version of Python varies between {% data variables.product.prodname_dotcom %}-hosted runners, which may cause unexpected changes or use an older version than expected.
 
@@ -196,7 +198,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 | Windows | Excluding the versions of Python that are in the tools cache, Windows does not ship with an equivalent version of system Python. To maintain consistent behavior with other runners and to allow Python to be used out-of-the-box without the `setup-python` action, {% data variables.product.prodname_dotcom %} adds a few versions from the tools cache to `PATH`.|
 | macOS | The macOS runners have more than one version of system Python installed, in addition to the versions that are part of the tools cache. The system Python versions are located in the `/usr/local/Cellar/python/*` directory. |
 
-### Installing dependencies
+## Installing dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
@@ -215,7 +217,7 @@ steps:
 ```
 {% endraw %}
 
-#### Requirements file
+### Requirements file
 
 After you update `pip`, a typical next step is to install dependencies from *requirements.txt*.
 
@@ -234,7 +236,7 @@ steps:
 ```
 {% endraw %}
 
-#### Caching Dependencies
+### Caching Dependencies
 
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
@@ -269,11 +271,11 @@ steps:
 
 {% endnote %}
 
-### Testing your code
+## Testing your code
 
 You can use the same commands that you use locally to build and test your code.
 
-#### Testing with pytest and pytest-cov
+### Testing with pytest and pytest-cov
 
 This example installs or upgrades `pytest` and `pytest-cov`. Tests are then run and output in JUnit format while code coverage results are output in Cobertura. For more information, see [JUnit](https://junit.org/junit5/) and [Cobertura](https://cobertura.github.io/cobertura/).
 
@@ -297,7 +299,7 @@ steps:
 ```
 {% endraw %}
 
-#### Using Flake8 to lint code
+### Using Flake8 to lint code
 
 The following example installs or upgrades `flake8` and uses it to lint all files. For more information, see [Flake8](http://flake8.pycqa.org/en/latest/).
 
@@ -320,7 +322,7 @@ steps:
 ```
 {% endraw %}
 
-#### Running tests with tox
+### Running tests with tox
 
 With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
@@ -336,7 +338,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [2.7, 3.7, 3.8]
+        python: [3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -352,7 +354,7 @@ jobs:
 ```
 {% endraw %}
 
-### Packaging workflow data as artifacts
+## Packaging workflow data as artifacts
 
 You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
@@ -370,7 +372,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+        python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -395,19 +397,20 @@ jobs:
 ```
 {% endraw %}
 
-### Publishing to package registries
+## Publishing to package registries
 
-You can configure your workflow to publish your Python package to any package registry you'd like when your CI tests pass.
+You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/github/administering-a-repository/managing-releases-in-a-repository). 
 
-You can store any access tokens or credentials needed to publish your package using secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-{% raw %}
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Upload Python Package
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   deploy:
@@ -421,15 +424,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install setuptools wheel twine
-      - name: Build and publish
-        env:
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: |
-          python setup.py sdist bdist_wheel
-          twine upload dist/*
+          pip install build
+      - name: Build package
+        run: python -m build
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

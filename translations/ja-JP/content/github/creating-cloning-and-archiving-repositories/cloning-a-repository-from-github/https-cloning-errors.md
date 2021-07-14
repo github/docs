@@ -15,6 +15,7 @@ versions:
 topics:
   - Repositories
 ---
+
 HTTPS エラーの例を次に示します:
 
 ```shell

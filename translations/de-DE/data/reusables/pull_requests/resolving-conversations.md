@@ -11,3 +11,13 @@ Die gesamte Unterhaltung wird reduziert und als aufgelöst markiert. Dadurch las
 ![Aufgelöste Unterhaltung](/assets/images/help/pull_requests/resolved-conversation.png)
 
 Wenn der Vorschlag in einem Kommentar nicht in den Geltungsbereich Deines Pull Requests fällt, kannst Du einen neuen Issue öffnen, das das Feedback nachverfolgt und zum ursprünglichen Kommentar zurück verknüpft. Weitere Informationen findest Du unter „[Öffnen eines Issue aus einem Kommentar](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+#### Discovering and navigating conversations
+
+You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.
+
+From this view, you can see which conversations are unresolved, resolved, and outdated. This makes it easy to discover and resolve conversations.
+
+![Showing the conversations menu](/assets/images/help/pull_requests/conversations-menu.png)
+{% endif %}

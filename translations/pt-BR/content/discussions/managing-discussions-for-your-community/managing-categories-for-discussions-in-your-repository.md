@@ -12,14 +12,17 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Cada categoria deve ter um nome e um pareamento de emojis únicos e pode ser acompanhada de uma descrição detalhada que informa o seu propósito. As categorias ajudam os mantenedores a organizar como as conversas são arquivadas e são personalizáveis para ajudar a distinguir categorias que são Q&A (perguntas e respostas) ou conversas mais abertas. {% data reusables.discussions.repository-category-limit %} Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
 ### Categorias-padrão
 
-| Categoria          | Finalidade                                                                 | Tipo                |
+| Categoria          | Finalidade                                                                 | Formato             |
 |:------------------ |:-------------------------------------------------------------------------- |:------------------- |
+| 📣 Anúncios         | Atualizações e notícias de mantenedores do projeto                         | Anúncio             |
 | #️⃣ Geral          | Tudo que for relevante para o projeto                                      | Discussão aberta    |
-| 💡Ideias            | Ideias para alterar ou melhorar o projeto                                  | Discussão aberta    |
+| 💡 Ideias           | Ideias para alterar ou melhorar o projeto                                  | Discussão aberta    |
 | 🙏 Q&A              | Perguntas para a comunidade responder, com um formato de pergunta/resposta | Pergunta e resposta |
 | 🙌 Mostrar e contar | Criações, experimentos ou testes relevantes para o projeto                 | Discussão aberta    |
 

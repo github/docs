@@ -1,19 +1,20 @@
 ---
 title: About authentication with SAML single sign-on
-intro: 'You can access {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% if currentVersion == "github-ae@latest" %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% if currentVersion == "free-pro-team@latest" %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
+intro: 'You can access {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% ifversion ghae %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% ifversion fpt %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghae: '*'
 topics:
   - SSO
+shortTitle: SAML single sign-on
 ---
-### About authentication with SAML SSO
+## About authentication with SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 SAML SSO allows an enterprise owner to centrally control and secure access to {% data variables.product.product_name %} from a SAML IdP. When you visit {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect you to your IdP to authenticate. After you successfully authenticate with an account on the IdP, the IdP redirects you back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access.
 
@@ -23,7 +24,7 @@ If you can't access {% data variables.product.product_name %}, contact your loca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your user account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
 
@@ -41,7 +42,7 @@ If you don't have a personal access token or an SSH key, you can create a person
 
 To use a new or existing personal access token or SSH key with an organization that uses or enforces SAML SSO, you will need to authorize the token or authorize the SSH key for use with a SAML SSO organization. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
-### About {% data variables.product.prodname_oauth_apps %} and SAML SSO
+## About {% data variables.product.prodname_oauth_apps %} and SAML SSO
 
 You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} to access an organization that uses or enforces SAML SSO.
 
@@ -49,7 +50,7 @@ After an enterprise or organization owner enables or enforces SAML SSO for an or
 
 {% endif %}
 
-### Further reading
+## Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
-{% if currentVersion == "github-ae@latest" %}- "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}
+{% ifversion fpt %}- "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% ifversion ghae %}- "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

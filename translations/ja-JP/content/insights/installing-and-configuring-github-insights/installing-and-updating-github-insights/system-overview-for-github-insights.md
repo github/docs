@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### {% data variables.product.prodname_insights %}を動作させるための必要条件
 
 {% data variables.product.prodname_insights %}は、サポートされているバージョンの{% data variables.product.prodname_ghe_server %}を必要とします。

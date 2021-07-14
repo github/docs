@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-### Escolher a licença ideal
+  ### Escolher a licença ideal
 
 Nós criamos o [choosealicense.com](https://choosealicense.com), para ajudá-lo a compreender como licenciar seu código. Uma licença de software descreve o que pode e não pode ser feito com seu código-fonte, assim é importante tomar uma decisão fundamentada.
 

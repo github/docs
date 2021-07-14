@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data variables.product.prodname_dotcom %}のIPアドレスのリストは、[メタ](https://api.github.com/meta)APIエンドポイントから取得できます。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。
 
 これらの範囲は[CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php)のようなツールを使って、CIDR表記をIPアドレスの範囲に変換できます。

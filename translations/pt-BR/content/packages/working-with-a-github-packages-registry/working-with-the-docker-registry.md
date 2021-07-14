@@ -1,6 +1,6 @@
 ---
-title: Working with the Docker registry
-intro: 'You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.'
+title: Trabalhando com o registro do Docker
+intro: 'Você pode fazer push e pull das suas imagens do Docker usando o registro do Docker de {% data variables.product.prodname_registry %}, que usa o namespace `https://docker.pkg.github.com` do pacote.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -22,9 +22,9 @@ versions:
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### About Docker support
+### Sobre o suporte ao Docker
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
+Ao instalar ou publicar uma imagem do Docker, o registro do Docker atualmente não é compatível com camadas externas como, por exemplo, as imagens do Windows.
 
 {% if currentVersion == "enterprise-server@2.22" %}
 

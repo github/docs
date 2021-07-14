@@ -7,10 +7,11 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
 intro: You can convert your user account into an organization. This allows more granular permissions for repositories that belong to the organization.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Accounts
+shortTitle: User into an organization
 ---
 {% warning %}
 
@@ -24,7 +25,7 @@ topics:
 
 {% endwarning %}
 
-### Keep your personal user account and create a new organization manually
+## Keep your personal user account and create a new organization manually
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal user account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your user account into an organization.
 
@@ -32,12 +33,12 @@ If you want your organization to have the same name that you are currently using
 2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal user account.
 3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.
 
-### Convert your personal account into an organization automatically
+## Convert your personal account into an organization automatically
 
 You can also convert your personal user account directly into an organization. Converting your account:
  - Preserves the repositories as they are without the need to transfer them to another account manually
  - Automatically invites collaborators to teams with permissions equivalent to what they had before
- {% if currentVersion == "free-pro-team@latest" %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
+ {% ifversion fpt %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
 1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
 2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the user account you're converting has joined.
@@ -59,7 +60,7 @@ You can also convert your personal user account directly into an organization. C
 
 {% endtip %}
 
-### Further reading
+## Further reading
 - "[Setting up teams](/articles/setting-up-teams)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% ifversion fpt %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - "[Accessing an organization](/articles/accessing-an-organization)"

@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Firefox の延長サポートリリース
 
 弊社は Firefox の最新の[拡張サポートサービス](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) をサポートするのに最善を尽くしています。 Firefox の古いバージョンは、{% data variables.product.product_name %} のいくつかの機能を作動させなくする可能性がありますので、Firefox の最新バージョンが必要です。

@@ -1,5 +1,5 @@
 ---
-title: Managing encrypted secrets for your codespaces
+title: Gerenciar segredos criptografados para seus codespaces
 intro: 'Você pode armazenar informações confidenciais, como tokens, que você deseja acessar nos seus codespaces por meio de variáveis de ambiente.'
 versions:
   free-pro-team: '*'
@@ -31,13 +31,13 @@ Você pode escolher quais repositórios devem ter acesso a cada segredo. Em segu
 
 #### Nomeando segredos
 
-{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
+{% data reusables.codespaces.secrets-naming %} Por exemplo, um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório.
 
   {% data reusables.codespaces.secret-precedence %}
 
 #### Limites para segredos
 
-You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
+Você pode armazenar até 100 segredos para {% data variables.product.prodname_codespaces %}.
 
 Os segredos são limitados a 64 kB.
 

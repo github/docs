@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### 创建和共享诊断文件
 
 诊断是 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的概览，其中包含：

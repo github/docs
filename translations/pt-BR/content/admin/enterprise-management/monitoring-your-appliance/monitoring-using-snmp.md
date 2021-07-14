@@ -15,6 +15,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 O SNMP é um padrão comum para monitorar dispositivos em uma rede. É altamente recomendável ativar o SNMP para monitorar a integridade da {% data variables.product.product_location %} e saber quando adicionar mais memória, armazenamento ou potência do processador à máquina host.
 
 O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP padrão que permite aproveitar [vários plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponíveis para Nagios ou qualquer outro sistema de monitoramento.

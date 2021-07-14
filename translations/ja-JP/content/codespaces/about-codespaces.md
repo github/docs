@@ -58,7 +58,7 @@ Developers and organization administrators can also configure settings to add en
 
 ### ベータに参加する
 
-限られたユーザのみがベータ参加のために招待されます。 待ちリストに参加するには、「[Codespaces ベータのサインアップ](https://github.com/features/codespaces/signup)」を参照してください。
+限られたユーザのみがベータ参加のために招待されます。 To join the waitlist, see [Sign up for the Codespaces beta](https://github.com/features/codespaces/signup).
 
 ### {% data variables.product.prodname_codespaces %} について問い合わせる
 

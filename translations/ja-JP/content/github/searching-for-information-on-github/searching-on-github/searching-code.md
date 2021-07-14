@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %} 詳細については、「[GitHub での検索](/articles/about-searching-on-github)」を参照してください。
 
 これらのコード検索の修飾子を使わなければ、コードを検索できません。 リポジトリ、ユーザまたはコミットの特定の修飾子での検索は、コードを検索する場合、うまくいきません。
@@ -33,7 +34,7 @@ topics:
 - 昨年アクティビティがあった、または検索結果に返されたリポジトリのみが検索可能です。{% endif %}
 - [`filename`](#search-by-filename) の検索を除き、ソースコードを検索する場合、常に少なくとも検索単語を 1 つ含める必要があります。 たとえば[`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) は有効な検索ではありませんが、[`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) は有効な検索です。
 - 検索結果では、同一ファイルから取り出される部分は 2 つまでです。そのファイルはさらに多くの部分でヒットしている可能性があります。
-- クエリの一部として次のワイルドカード文字を用いることはできません: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>。 検索では、これらのシンボルは単に無視されます。
+- クエリの一部として次のワイルドカード文字を用いることはできません: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. 検索では、これらのシンボルは単に無視されます。
 
 ### ファイルの内容またはファイルパスで検索
 

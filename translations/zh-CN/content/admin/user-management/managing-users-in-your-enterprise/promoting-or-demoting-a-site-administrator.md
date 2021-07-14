@@ -15,6 +15,7 @@ topics:
   - User account
   - Enterprise
 ---
+
 {% tip %}
 
 **注**：如果已[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)并且在[为用户配置 LDAP 访问](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)时设置了 `Administrators group` 属性，这些用户将自动获得您的实例的站点管理员访问权限。 在这种情况下，您无法按照下面的步骤手动升级用户；您必须将其添加到 LDAP 管理员组中。

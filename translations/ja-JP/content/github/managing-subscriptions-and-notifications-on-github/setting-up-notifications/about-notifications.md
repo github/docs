@@ -13,6 +13,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -61,8 +62,7 @@ topics:
 特定のプルリクエストやプルリクエストの更新の受信方法をカスタマイズするには、Issue またはプルリクエスト内で設定できます。 詳しい情報については、「[単一の通知をトリアージする](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
-プッシュ通知をカスタマイズしてスケジュールすることができます。
-{% data variables.product.prodname_mobile %} アプリケーションでプッシュ通知を有効にできます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)」を参照してください。
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)」を参照してください。
 {% endif %}
 
 ### 通知の受信理由

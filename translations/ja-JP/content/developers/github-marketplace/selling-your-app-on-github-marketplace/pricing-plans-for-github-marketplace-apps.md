@@ -10,6 +10,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 {% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にできます。 価格は米ドルで設定、表示、処理されます。 Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
 顧客は{% data variables.product.prodname_dotcom_the_website %}を離れることなく、{% data variables.product.product_name %}アカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払いトランザクションを実行するためにコードを書く必要はありませんが、{% data variables.product.prodname_marketplace %} APIからのイベントは処理しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。

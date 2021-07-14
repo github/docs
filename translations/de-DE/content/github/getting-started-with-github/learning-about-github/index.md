@@ -1,6 +1,6 @@
 ---
 title: Informationen zu GitHub
-intro: '{% data variables.product.prodname_dotcom %} has a variety of products and account types to help you build software and collaborate with other people.'
+intro: 'Learn how you can use {% data variables.product.company_short %} products to improve your software management process and collaborate with other people.'
 redirect_from:
   - /articles/learning-about-github
 versions:

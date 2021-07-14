@@ -23,6 +23,7 @@ topics:
   - LFS
   - Storage
 ---
+
 ### Sobre o {% data variables.large_files.product_name_long %}
 
 {% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} Você pode usar {% data variables.large_files.product_name_long %} com um único repositório, todos os seus repositórios pessoais ou organizacionais, ou com cada repositório na sua empresa. Antes de habilitar {% data variables.large_files.product_name_short %} para repositórios ou organizações específicos, você deve habilitar {% data variables.large_files.product_name_short %} para a sua empresa.

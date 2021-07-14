@@ -23,6 +23,7 @@ children:
   - /enabling-improved-container-support-with-the-container-registry
   - /migrating-to-the-container-registry-from-the-docker-registry
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -30,4 +31,3 @@ children:
 {% else %}
 ![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 {% endif %}
-### Inhaltsverzeichnis

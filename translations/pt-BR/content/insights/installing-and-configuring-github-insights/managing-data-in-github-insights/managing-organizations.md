@@ -8,6 +8,7 @@ permissions: 'People with admin permissions in {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 ### Sobre a gestão da organização
 
 Ao adicionar uma organização ao {% data variables.product.prodname_insights %}, os repositórios pertencentes à organização estão incluídos nas métricas. Você pode optar por adicionar todos os repositórios ou selecionar repositórios específicos para serem adicionados.

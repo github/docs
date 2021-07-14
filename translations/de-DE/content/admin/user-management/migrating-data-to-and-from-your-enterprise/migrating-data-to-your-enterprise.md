@@ -19,6 +19,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
 Once you have [prepared your migration](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) you can use the following steps to complete the migration.

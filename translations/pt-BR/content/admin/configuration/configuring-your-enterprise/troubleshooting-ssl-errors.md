@@ -18,6 +18,7 @@ topics:
   - Security
   - Troubleshooting
 ---
+
 ### Remover a frase secreta do arquivo de chave
 
 Se você tiver uma máquina Linux com OpenSSL instalado, será possível remover a frase secreta.

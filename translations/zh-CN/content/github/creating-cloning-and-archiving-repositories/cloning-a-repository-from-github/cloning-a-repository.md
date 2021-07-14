@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于克隆仓库
 
 您可以将仓库从 {% data variables.product.product_location %} 克隆到本地计算机，以便修复合并冲突、添加或删除文件以及推送较大的提交。 克隆仓库时，将仓库从 {% data variables.product.product_location %} 复制到本地计算机。

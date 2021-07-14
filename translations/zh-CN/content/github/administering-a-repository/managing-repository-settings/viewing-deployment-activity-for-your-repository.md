@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% note %}
 
 **注：**部署仪表板目前处于测试阶段，可能会发生变化。
@@ -24,7 +25,7 @@ topics:
 ### 查看部署仪表板
 
 {% data reusables.repositories.navigate-to-repo %}
-2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}在文件列表的右侧，单击 **Environments（环境）**。 ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}在文件列表的上方，单击 **Environments（环境）**。 ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
 
 
 ### 延伸阅读

@@ -9,13 +9,14 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for repositories
 ---
 For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 
-### Enforcing a policy on default repository permissions
+## Enforcing a policy on default repository permissions
 
 Across all organizations owned by your enterprise account, you can set a default repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
@@ -25,7 +26,7 @@ Across all organizations owned by your enterprise account, you can set a default
 5. Under "Default permissions", use the drop-down menu and choose a policy.
   ![Drop-down menu with repository permissions policy options](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
 
-### Enforcing a policy on creating repositories
+## Enforcing a policy on creating repositories
 
 Across all organizations owned by your enterprise account, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level. If you allow members to create repositories, you can choose whether members can create any combination of public, private, and internal repositories. {% data reusables.repositories.internal-repo-default %} For more information about internal repositories, see "[Creating an internal repository](/articles/creating-an-internal-repository)."
 
@@ -36,7 +37,7 @@ Across all organizations owned by your enterprise account, you can allow members
 {% data reusables.enterprise-accounts.repo-creation-types %}
 6. Click **Save**.
 
-### Enforcing a policy on forking private or internal repositories
+## Enforcing a policy on forking private or internal repositories
 
 Across all organizations owned by your enterprise account, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
 
@@ -46,7 +47,7 @@ Across all organizations owned by your enterprise account, you can allow people 
 4. Under "Repository forking", use the drop-down menu and choose a policy.
   ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
-### Enforcing a policy on inviting outside collaborators to repositories
+## Enforcing a policy on inviting outside collaborators to repositories
 
 Across all organizations owned by your enterprise account, you can allow members to invite outside collaborators to repositories, restrict outside collaborator invitations to organization owners, or allow owners to administer the setting on the organization level.
 
@@ -56,7 +57,7 @@ Across all organizations owned by your enterprise account, you can allow members
 4. Under "Repository invitations", use the drop-down menu and choose a policy.
   ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
 
-### Enforcing a policy on changing repository visibility
+## Enforcing a policy on changing repository visibility
 
 Across all organizations owned by your enterprise account, you can allow members with admin permissions to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level.
 
@@ -65,7 +66,7 @@ Across all organizations owned by your enterprise account, you can allow members
 3. On the **Repository policies** tab, under "Repository visibility change", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repository-visibility-policy %}
 
-### Enforcing a policy on deleting or transferring repositories
+## Enforcing a policy on deleting or transferring repositories
 
 Across all organizations owned by your enterprise account, you can allow members with admin permissions to delete or transfer a repository, restrict repository deletion and transfers to organization owners, or allow owners to administer the setting on the organization level.
 
@@ -74,7 +75,7 @@ Across all organizations owned by your enterprise account, you can allow members
 3. On the **Repository policies** tab, under "Repository deletion and transfer", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-### Enforcing a policy on deleting issues
+## Enforcing a policy on deleting issues
 
 Across all organizations owned by your enterprise account, you can allow members with admin permissions to delete issues in a repository, restrict issue deletion to organization owners, or allow owners to administer the setting on the organization level.
 
@@ -84,7 +85,7 @@ Across all organizations owned by your enterprise account, you can allow members
 4. Under "Repository issue deletion", use the drop-down menu and choose a policy.
   ![Drop-down menu with issue deletion policy options](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
-### Enforcing a policy on the default branch name
+## Enforcing a policy on the default branch name
 
 Across all organizations owned by your enterprise account, you can set the default branch name for any new repositories that members create. You can choose to enforce that default branch name across all organizations or allow individual organizations to set a different one.
 

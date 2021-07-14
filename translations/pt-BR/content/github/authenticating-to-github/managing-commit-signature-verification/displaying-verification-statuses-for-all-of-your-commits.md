@@ -1,7 +1,7 @@
 ---
-title: Displaying verification statuses for all of your commits
-shortTitle: Displaying verification for all commits
-intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
+title: Exibindo status de verificação para todos os seus commits
+shortTitle: Exibindo verificação para todos os commits
+intro: Você pode habilitar o modo vigilante para verificação de assinatura de commit para marcar todos os seus commits e tags com um status de verificação de assinatura.
 versions:
   free-pro-team: '*'
 topics:
@@ -10,28 +10,29 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
 ---
+
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-### About vigilant mode
+### Sobre modo vigilante
 
-When you work locally on your computer, Git allows you to set the author of your changes and the identity of the committer. This, potentially, makes it difficult for other people to be confident that commits and tags you create were actually created by you. To help solve this problem you can sign your commits and tags. For more information, see "[Signing commits](/github/authenticating-to-github/signing-commits)" and "[Signing tags](/github/authenticating-to-github/signing-tags)." {% data variables.product.prodname_dotcom %} marks signed commits and tags with a verification status.
+Ao trabalhar localmente no seu computador, o Git permite que você defina o autor das suas alterações e a identidade do autor do autor do autor do committer. Isso torna potencialmente difícil para outras pessoas estarem confiantes de que os commits e tags que você cria foram realmente criados por você. Para ajudar a resolver esse problema, você pode assinar seus commits e tags. Para obter mais informações, consulte "[Assinar commits](/github/authenticating-to-github/signing-commits)" e "[Assinar tags](/github/authenticating-to-github/signing-tags)". {% data variables.product.prodname_dotcom %} marca commits e tags assinadas com um status de verificação.
 
-By default commits and tags are marked "Verified" if they are signed with a GPG or S/MIME key that was successfully verified. If a commit or tag has a signature that can't be verified, {% data variables.product.prodname_dotcom %} marks the commit or tag "Unverified." In all other cases no verification status is displayed.
+Por padrão, os commits e tags são marcados como "Verificados" se forem assinadas com uma chave GPG ou S/MIME que foi verificada com sucesso. Se um commit ou tag tiver uma assinatura que não pode ser verificada, {% data variables.product.prodname_dotcom %} marca o commit ou a tag "não verificada". Em todos os outros casos, não se exibe nenhum status de verificação.
 
-However, you can give other users increased confidence in the identity attributed to your commits and tags by enabling vigilant mode in your {% data variables.product.prodname_dotcom %} settings. With vigilant mode enabled, all of your commits and tags are marked with one of three verification statuses.
+No entanto, você pode dar a outros usuários maior confiança na identidade atribuída aos seus commits e tags, habilitando o modo vigilante nas configurações do seu {% data variables.product.prodname_dotcom %} Com o modo vigilante habilitado, todos os seus commits e tags são marcados com um de três status de verificação.
 
-![Signature verification statuses](/assets/images/help/commits/signature-verification-statuses.png)
+![Status de verificação de assinatura](/assets/images/help/commits/signature-verification-statuses.png)
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
-You should only enable vigilant mode if you sign all of your commits and tags. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.prodname_dotcom %} will be marked "Unverified."
+Você só deve habilitar o modo vigilante se assinar todos os seus commits e tags. Depois de habilitar este modo, todos commits ou tags não assinados que você gerar localmente e fizer push em {% data variables.product.prodname_dotcom %} serão marcados como "não verificados".
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-### Enabling vigilant mode
+### Habilitando o modo vigilante
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. On the SSH Settings page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
+3. Na página de configurações de SSH, em "Modo Vigilante", selecione **Sinalizar commits não assinados como não verificados**.
 
-   ![Flag unsigned commits as unverified checkbox](/assets/images/help/commits/vigilant-mode-checkbox.png)
+   ![Sinalizar commits não assinados como caixa de seleção não verificada](/assets/images/help/commits/vigilant-mode-checkbox.png)

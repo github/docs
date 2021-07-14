@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. Finder ウィンドウで Applications フォルダに移動します。 ![Finder ウィンドウのアプリケーションフォルダ](/assets/images/help/desktop/applications-folder.png)

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. 在菜单栏中，选择 **{% data variables.product.prodname_desktop %}** 菜单，然后单击 **Install Command Line Tool（安装命令行工具）**。 ![在 {% data variables.product.prodname_desktop %} 下拉菜单中安装命令行工具选项](/assets/images/help/desktop/mac-install-command-line-tool.png)

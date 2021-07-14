@@ -1,7 +1,7 @@
 ---
-title: Managing access and security for your organization's codespaces
-shortTitle: Managing access and security for your organization
-intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_codespaces %} can access.'
+title: Administrar el acceso y la seguridad para los codespaces de tu organización
+shortTitle: Administrar el acceso y la seguridad para tu organización
+intro: 'Puedes administrar los repositorios de tu organización a los cuales pueden acceder los {% data variables.product.prodname_codespaces %}.'
 permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
 versions:
   free-pro-team: '*'
@@ -17,11 +17,11 @@ redirect_from:
 
 {% data reusables.codespaces.release-stage %}
 
-Organization owners can manage which repositories a codespace can access.
+Los propietarios de la organización pueden administrar a qué repositorios pueden acceder los codespaces.
 
-By default, a codespace can only access the repository where it was created. When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read and write permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository where the codespace was created, or to specific repositories. Solo debes habilitar el acceso y la seguridad para los repositorios en los cuales confíes.
+Predeterminadamente, un codespace solo puede acceer al repositorio en donde se creó. Cuando habilitas el acceso y la seguridad de un repositorio que pertenece a tu orgnización, cualquier codespace que se cree para dicho repositorio también tendrá permisos de lectura y escritura en el resto de los repositorios que pertenezcan a esa misma organización y a los cuales pueda acceder el creador de dicho codespace. Si quieres restringir los repositorios a los cuales puede acceder un codespace, puedes limitarlos a ya sea el repositorio en donde se creó el codespace o a algunos repositorios específicos. Solo debes habilitar el acceso y la seguridad para los repositorios en los cuales confíes.
 
-To manage which users in your organization can use {% data variables.product.prodname_codespaces %}, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
+Para administrar qué usuarios de tu organización pueden utilizar {% data variables.product.prodname_codespaces %}, consulta la sección "[Administrar permisos de usuarios para tu organización](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

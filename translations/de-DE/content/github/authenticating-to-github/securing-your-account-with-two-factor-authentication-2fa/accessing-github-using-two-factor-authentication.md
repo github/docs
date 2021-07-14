@@ -11,8 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)."
 
 ### Einen 2FA-Code bei der Anmeldung in die Website bereitstellen

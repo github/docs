@@ -27,22 +27,23 @@ redirect_from:
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Security
+shortTitle: Enforce repository policies
 ---
-### Configuring the default visibility of new repositories in your enterprise
+## Configuring the default visibility of new repositories in your enterprise
 
 Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. For more information on repository visibility, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -53,7 +54,7 @@ If an enterprise owner disallows members from creating certain types of reposito
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-### Setting a policy for changing a repository's visibility
+## Setting a policy for changing a repository's visibility
 
 When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
 
@@ -66,7 +67,7 @@ If an enterprise owner has restricted repository creation to organization owners
 
 {% data reusables.enterprise-accounts.repository-visibility-policy %}
 
-### Setting a policy for repository creation
+## Setting a policy for repository creation
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -74,7 +75,7 @@ If an enterprise owner has restricted repository creation to organization owners
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. Under "Repository creation", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
@@ -82,7 +83,7 @@ If an enterprise owner has restricted repository creation to organization owners
   ![Drop-down menu with repository creation policies](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
-### Enforcing a policy on forking private or internal repositories
+## Enforcing a policy on forking private or internal repositories
 
 Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
 
@@ -92,7 +93,7 @@ Across all organizations owned by your enterprise, you can allow people with acc
 4. Under "Repository forking", use the drop-down menu and choose a policy.
   ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
-### Setting a policy for repository deletion and transfer
+## Setting a policy for repository deletion and transfer
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -101,22 +102,14 @@ Across all organizations owned by your enterprise, you can allow people with acc
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-### Setting a policy for Git push limits
+## Setting a policy for Git push limits
 
 To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
 
 By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
 
-{% if currentVersion ver_lt "enterprise-server@2.20" %}
-{% tip %}
-
-**Note:** Only files larger than {% data variables.large_files.warning_size %} will be checked against the Git push limit. If you need to set a lower push limit, contact {% data variables.contact.contact_ent_support %} for assistance.
-
-{% endtip %}
-{% endif %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -127,12 +120,12 @@ By default, when you enforce repository upload limits, people cannot add or upda
 5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
 ![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
-### Configuring the merge conflict editor for pull requests between repositories
+## Configuring the merge conflict editor for pull requests between repositories
 
 Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -141,14 +134,14 @@ Requiring users to resolve merge conflicts locally on their computer can prevent
 1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
  ![Drop-down menu with option to disable the merge conflict editor](/assets/images/enterprise/settings/conflict-editor-settings.png)
 
-### Configuring force pushes
+## Configuring force pushes
 
 Each repository inherits a default force push setting from the settings of the user account or organization to which it belongs. Likewise, each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, it will change for all repositories owned by any user or organization.
 
-#### Blocking all force pushes on your appliance
+### Blocking all force pushes on your appliance
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -158,7 +151,7 @@ Each repository inherits a default force push setting from the settings of the u
 ![Force pushes dropdown](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
 5. Optionally, select **Enforce on all repositories**, which will override organization and repository level settings for force pushes.
 
-#### Blocking force pushes to a specific repository
+### Blocking force pushes to a specific repository
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -171,7 +164,7 @@ Each repository inherits a default force push setting from the settings of the u
 4. Select **Block** or **Block to the default branch** under **Push and Pull**.
    ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
 
-#### Blocking force pushes to repositories owned by a user account or organization
+### Blocking force pushes to repositories owned by a user account or organization
 
 Repositories inherit force push settings from the user account or organization to which they belong. User accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
 
@@ -190,13 +183,13 @@ You can override the default inherited settings by configuring the settings for 
 6. Optionally, select **Enforce on all repositories** to override repository-specific settings. Note that this will **not** override an enterprise-wide policy.
    ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-### Configuring anonymous Git read access
+## Configuring anonymous Git read access
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% if enterpriseServerVersions contains currentVersion %}If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) on your enterprise, you {% else %}You {% endif %}can allow repository administrators to enable anonymous Git read access to public repositories.
+{% ifversion ghes %}If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) on your enterprise, you {% else %}You {% endif %}can allow repository administrators to enable anonymous Git read access to public repositories.
 
 Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.product_name %}) will have read access to the repository without authentication.
 
@@ -206,10 +199,10 @@ If necessary, you can prevent repository administrators from changing anonymous 
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}
 
-#### Setting anonymous Git read access for all repositories
+### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -220,7 +213,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.
 ![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
-#### Setting anonymous Git read access for a specific repository
+### Setting anonymous Git read access for a specific repository
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.repository-search %}
@@ -236,8 +229,8 @@ If necessary, you can prevent repository administrators from changing anonymous 
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Enforcing a policy on the default branch name
+{% ifversion ghes > 2.22 or ghae %}
+## Enforcing a policy on the default branch name
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

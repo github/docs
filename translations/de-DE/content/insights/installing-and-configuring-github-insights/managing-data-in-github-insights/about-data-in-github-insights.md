@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /insights/installing-and-configuring-github-insights/about-data-in-github-insights
 ---
+
 {% data variables.product.prodname_insights %} displays data about your team's work in key metrics and reports. You can choose which of these metrics are displayed. Weitere Informationen finden Sie unter „[Verwalten verfügbarer Metriken und Berichte](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)."
 
 You can manage which organizations in {% data variables.product.prodname_enterprise %} are included in metrics. For more information, see "[Managing organizations](/insights/installing-and-configuring-github-insights/managing-organizations)."

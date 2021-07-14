@@ -6,17 +6,18 @@ redirect_from:
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Code migration tools
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. You can also use these external tools to convert your project to Git.
 
 {% endif %}
 
-### Importing from Subversion
+## Importing from Subversion
 
 In a typical Subversion environment, multiple projects are stored in a single root repository. On GitHub, each of these projects will usually map to a separate Git repository for a user account or organization. We suggest importing each part of your Subversion repository to a separate GitHub repository if:
 
@@ -28,11 +29,11 @@ We recommend these tools for converting Subversion repositories to Git:
 - [`git-svn`](https://git-scm.com/docs/git-svn)
 - [svn2git](https://github.com/nirvdrum/svn2git)
 
-### Importing from Mercurial
+## Importing from Mercurial
 
 We recommend [hg-fast-export](https://github.com/frej/fast-export) for converting Mercurial repositories to Git.
 
-### Importing from TFVC
+## Importing from TFVC
 
 We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
 
@@ -42,9 +43,9 @@ We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes be
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Further reading
+## Further reading
 
 - "[About GitHub Importer](/articles/about-github-importer)"
 - "[Importing a repository with GitHub Importer](/articles/importing-a-repository-with-github-importer)"

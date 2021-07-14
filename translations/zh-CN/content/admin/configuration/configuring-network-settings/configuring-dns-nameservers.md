@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 指定的域名服务器必须解析 {% data variables.product.product_location %} 的主机名。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}

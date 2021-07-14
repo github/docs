@@ -13,4 +13,4 @@ children:
   - /viewing-and-comparing-commits
   - /troubleshooting-commits
 ---
-### Índice
+

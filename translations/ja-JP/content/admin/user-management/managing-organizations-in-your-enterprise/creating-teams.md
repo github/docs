@@ -13,6 +13,7 @@ topics:
   - Teams
   - User account
 ---
+
 Teamは、team@メンションのように適切なグループに入力や注目を求めたい場合に通知をするような、{% data variables.product.prodname_dotcom %}のコラボレーションの機能の多くにおいて中心的な役割を果たします。 詳しい情報については[Organizationのリポジトリの権限レベル](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)を参照してください。
 
 Teamは、企業内のグループを表したり、特定の関心や専門分野を持つ人々を含めたりできます。 たとえば{% data variables.product.product_location %}のアクセシビリティの専門家のTeamは、様々な部署からの人々で構成されるといったことがあります。 Teamは、企業の既存の部門階層を補完する機能的な関心事項を表します。
@@ -23,8 +24,8 @@ Organizationには、企業やグループの階層構造を反映させた入�
 
 Teamの良く考えられた組み合わせは、リポジトリへのアクセスを制御する強力な方法です。 たとえば、Organization が、任意のリポジトリのデフォルトブランチにコードのプッシュすることを、 リリースエンジニアリングの Team にのみ許可する場合、Organization のリポジトリに対する**管理者**権限をリリースエンジニアリングの Team にのみ与え、他のすべての Team には**読み取り**権限だけを与えることができます。
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
@@ -48,13 +49,11 @@ Teamの良く考えられた組み合わせは、リポジトリへのアクセ�
 {% endwarning %}
 
 1. [LDAP Syncが有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)されていることを確認してください。
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. TeamをマッピングするLDAPグループのDNを検索してください。 DNが分からないなら、LDAPグループの名前を入力してください。
-{% data variables.product.prodname_ghe_server %} は検索を行い、マッチがあればオートコンプリートします。
-![LDAP グループ DN へのマッピング](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
+6. TeamをマッピングするLDAPグループのDNを検索してください。 DNが分からないなら、LDAPグループの名前を入力してください。 {% data variables.product.prodname_ghe_server %} は検索を行い、マッチがあればオートコンプリートします。 ![LDAP グループ DN へのマッピング](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}

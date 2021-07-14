@@ -15,6 +15,7 @@ topics:
   - Organizations
   - Policies
 ---
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}

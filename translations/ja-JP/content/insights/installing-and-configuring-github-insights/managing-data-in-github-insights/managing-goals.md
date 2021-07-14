@@ -8,6 +8,7 @@ permissions: 'Anyone with access to {% data variables.product.prodname_insights 
 versions:
   enterprise-server: '*'
 ---
+
 ### 目標について
 
 目標は、主要なメトリクスに対して設定し、チームの成功度合いを計測できるターゲットです。 主要なメトリクスに目標を設定すると、グラフ上の目標ラインと成功レートメトリクスを使い、チームのパフォーマンスを目標と比較してみることができます。 たとえば`code review turnaround time`の目標を4時間に設定できます。 主要なメトリクスのグラフ上の目標ラインは、この目標を達成したコードレビューと達成しなかったコードレビューを示してくれます。 チームがコードレビューの半分を4時間以内に終えているなら、`success rate`は50%になります。

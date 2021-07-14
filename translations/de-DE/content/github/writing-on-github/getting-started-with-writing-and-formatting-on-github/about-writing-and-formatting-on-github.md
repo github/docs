@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 [Markdown](http://daringfireball.net/projects/markdown/) ist eine einfach zu lesende, leicht zu schreibende Syntax zur Formatierung von Klartext.
 
 Wir haben einige benutzerdefinierte Funktionen hinzugefügt, um {% data variables.product.prodname_dotcom %} Flavored Markdown zu erstellen, das verwendet wird, um Fließtext und Code auf unserer Website zu formatieren.

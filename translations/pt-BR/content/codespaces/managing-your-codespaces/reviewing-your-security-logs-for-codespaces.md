@@ -1,7 +1,7 @@
 ---
-title: Reviewing your security logs for Codespaces
-shortTitle: Reviewing your security logs
-intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_codespaces %}.'
+title: Revisando os logs de segurança dos codespaces
+shortTitle: Revisando seus logs de segurança
+intro: 'Você pode usar o log de segurança para revisar todas as ações relacionadas a {% data variables.product.prodname_codespaces %}.'
 versions:
   free-pro-team: '*'
 topics:
@@ -12,10 +12,10 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About security logs for {% data variables.product.prodname_codespaces %}
+### Sobre os logs de segurança de {% data variables.product.prodname_codespaces %}
 
-When you perform an action related to {% data variables.product.prodname_codespaces %} in repositories owned by your user account, you can review the actions in the security log. Para obter informações sobre acesso ao registro, consulte "[Revisar seu log de segurança](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
+Quando você executar uma ação relacionada a {% data variables.product.prodname_codespaces %} em repositórios pertencentes à sua conta de usuário, você poderá revisar as ações no log de segurança. Para obter informações sobre acesso ao registro, consulte "[Revisar seu log de segurança](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
 
-![security log with Codespaces information](/assets/images/help/settings/codespaces-audit-log.png)
+![log de segurança com informações de codespaces](/assets/images/help/settings/codespaces-audit-log.png)
 
 O log de segurança inclui detalhes sobre qual ação ocorreu e quando você a executou. Para obter informações sobre ações de {% data variables.product.prodname_codespaces %}, consulte "[ações de categoria de {% data variables.product.prodname_codespaces %}](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".

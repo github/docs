@@ -1,7 +1,7 @@
 ---
-title: GitHub Sponsors guides
+title: GitHub Sponsors ガイド
 shortTitle: ガイド
-intro: 'Learn how to make the most of {% data variables.product.prodname_sponsors %}.'
+intro: '{% data variables.product.prodname_sponsors %} を最大限に活用する方法を学びましょう。'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:

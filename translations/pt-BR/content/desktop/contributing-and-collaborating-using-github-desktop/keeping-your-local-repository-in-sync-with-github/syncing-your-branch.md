@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre a sincronização do branch
 
 Você pode sincronizar o seu branch local com o repositório remoto, puxando quaisquer commits adicionados ao branch no {% data variables.product.product_name %} desde a última vez que você sincronizou. Se você fizer commits de outro dispositivo ou se várias pessoas contribuem para um projeto, você precisará sincronizar seu branch local para mantê-lo atualizado.

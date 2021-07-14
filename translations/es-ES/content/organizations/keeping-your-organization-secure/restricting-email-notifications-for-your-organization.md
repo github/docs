@@ -1,6 +1,6 @@
 ---
-title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+title: Restringir las notificaciones por correo electrónico para tu organización
+intro: 'Para prevenir que se fugue la información de la organización en la scuentas personales de correo electrónico, puedes restringir los dominios en donde los miembros pueden recibir este tipo de notificaciones sobre la actividad de la organización.'
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
@@ -21,23 +21,23 @@ topics:
 
 ### Acerca de las restricciones de correo electrónico
 
-When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity.
+Cuando se habilitan las notificaciones por correo electrónico restringidas en una organización, los miembros solo pueden utilizar direcciones de correco electrónico asociadas con un dominio aprobado o verificado para recibir este tipo de notificaciones sobre la actividad de la organización.
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. For more information about outside collaborators, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)."
+Los colabores externos no están sujetos a las restricciones en las notificaciones por correo electrónico para los dominios verificados o aprobados. Para obtener más información sobre los colaboradores externos, consulta la sección "[Niveles de permiso para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)".
 
-If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+Si tu organización pertenece a una cuenta empresarial, los miembros de dicha organización podrán recibir notificaciones de cualquier dominio que verifique o apruebe esta cuenta, adicionalmente a cualquier dominio que la misma organización verifique o apruebe. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)".
 
-### Restricting email notifications
+### Restringir las notificciones por correo electrónico
 
-Before you can restrict email notifications for your organization, you must verify or approve at least one domain for the organization, or an enterprise owner must have verified or approved at least one domain for the enterprise account.
+Antes de que puedas restringir las notificaciones por correo electrónico para tu organización, debes verificar o aprobar por lo menos un dominio para la organización o un propietario de la empresa debe haber verificado o aprobado por lo menos un dominio para la cuenta empresarial.
 
-For more information about verifying and approving domains for an organization, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Para obtener más información acerca de verificar y aprobar los dominios para una organización, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

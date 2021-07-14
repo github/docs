@@ -1,20 +1,30 @@
 ---
 title: Configuring CodeQL runner in your CI system
-shortTitle: Configuring CodeQL runner
+shortTitle: Configure CodeQL runner
 intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system
   - /code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system
   - /code-security/secure-coding/configuring-codeql-runner-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Integration
+  - CI
+  - Repositories
+  - Pull requests
+  - C/C++
+  - C#
+  - Java
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
@@ -22,7 +32,7 @@ topics:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
+## About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
 To integrate {% data variables.product.prodname_code_scanning %} into your CI system, you can use the {% data variables.product.prodname_codeql_runner %}. For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 
@@ -37,7 +47,7 @@ There are three versions of the {% data variables.product.prodname_codeql_runner
 
 To customize the way the {% data variables.product.prodname_codeql_runner %} scans your code, you can use flags, such as `--languages` and `--queries`, or you can specify custom settings in a separate configuration file.
 
-### Scanning pull requests
+## Scanning pull requests
 
 Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
 
@@ -53,7 +63,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% endnote %}
 
-### Overriding automatic language detection
+## Overriding automatic language detection
 
 The {% data variables.product.prodname_codeql_runner %} automatically detects and scans code written in the supported languages.
 
@@ -67,7 +77,7 @@ To override automatic language detection, run the `init` command with the `--lan
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-### Running additional queries
+## Running additional queries
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -86,7 +96,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-### Using a custom configuration file
+## Using a custom configuration file
 
 Instead of passing additional information to the {% data variables.product.prodname_codeql_runner %} commands, you can specify custom settings in a separate configuration file.
 
@@ -100,11 +110,11 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-#### Example configuration files
+### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
 For the compiled languages C/C++, C#, and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
 
@@ -118,7 +128,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 If the `autobuild` command can't build your code, you can run the build steps yourself, between the `init` and `analyze` steps. For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example)."
 
-### Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 
 By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
 
@@ -126,18 +136,18 @@ Once you've uploaded the data, {% data variables.product.prodname_dotcom %} disp
 - If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 - If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
-### {% data variables.product.prodname_codeql_runner %} command reference
+## {% data variables.product.prodname_codeql_runner %} command reference
 
 The {% data variables.product.prodname_codeql_runner %} supports the following commands and flags.
 
-#### `init`
+### `init`
 
 Initializes the {% data variables.product.prodname_codeql_runner %} and creates a {% data variables.product.prodname_codeql %} database for each language to be analyzed.
 
 | Flag | Required | Input value |
 | ---- |:--------:| ----------- |
 | `--repository` | ✓ | Name of the repository to initialize. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% if currentVersion ver_lt "enterprise-server@3.1" %}
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% ifversion ghes < 3.1 %}
 | `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
 | <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
 | `--languages` | | Comma-separated list of languages to analyze. By default, the {% data variables.product.prodname_codeql_runner %} detects and analyzes all supported languages in the repository. |
@@ -152,7 +162,7 @@ Initializes the {% data variables.product.prodname_codeql_runner %} and creates 
 | <nobr>`--trace-process-level`</nobr> | | Advanced, Windows only. Number of levels up of the parent process where a Windows tracer of this process is injected. |
 | `-h`, `--help` | | None. Displays help for the command. |
 
-#### `autobuild`
+### `autobuild`
 
 Attempts to build the code for the compiled languages C/C++, C#, and Java. For those languages, {% data variables.product.prodname_codeql %} builds the code before analyzing it. Run `autobuild` between the `init` and `analyze` steps.
 
@@ -163,7 +173,7 @@ Attempts to build the code for the compiled languages C/C++, C#, and Java. For t
 | `--debug` | | None. Prints more verbose output. |
 | <nobr> `-h`, `--help`</nobr> | | None. Displays help for the command. |
 
-#### `analyze`
+### `analyze`
 
 Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
 
@@ -172,21 +182,21 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--repository` | ✓ | Name of the repository to analyze. |
 | `--commit` | ✓ | SHA of the commit to analyze. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
 | `--ref` | ✓ | Name of the reference to analyze, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% if currentVersion ver_lt "enterprise-server@3.1" %}
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% ifversion ghes < 3.1 %}
 | `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
 | <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
 | `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% if currentVersion == "free-pro-team@latest" %}
+| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% ifversion fpt %}
 | <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |{% endif %}
 | `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
 | `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
 | `--debug` | | None. Prints more verbose output. |
 | `-h`, `--help` | | None. Displays help for the command. |
 
-#### `upload`
+### `upload`
 
 Uploads SARIF files to {% data variables.product.product_name %}.
 
@@ -202,7 +212,7 @@ Uploads SARIF files to {% data variables.product.product_name %}.
 | `--repository` | ✓ | Name of the repository that was analyzed. |
 | `--commit` | ✓ | SHA of the commit that was analyzed. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
 | `--ref` | ✓ | Name of the reference that was analyzed, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% if currentVersion ver_lt "enterprise-server@3.1" %}
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% ifversion ghes < 3.1 %}
 | `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
 | <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |

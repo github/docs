@@ -21,8 +21,8 @@ Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma l
 Se a sua organização [exigir que os integrantes usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), os usuários {% if currentVersion == "free-pro-team@latest" %}que você convidar devem [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes que possam aceitar o convite.{% else %}devem [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de adicioná-la à organização.{% endif %}
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. 在 **GitHub Desktop** 菜单中，单击 **About GitHub Desktop（关于 GitHub Desktop）**。 ![关于 GitHub Desktop 菜单选项](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)

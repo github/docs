@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise アカウントについて
 
 Enterprise アカウントでは、複数の {% data variables.product.prodname_dotcom %} Organization と {% data variables.product.prodname_ghe_server %} インスタンスを管理できます。 Enterprise アカウントは、{% data variables.product.prodname_dotcom %} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。 Enterprise 管理者は、以下のような設定やプリファレンスを管理できます:

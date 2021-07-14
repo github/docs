@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/archive-a-classroom
   - /education/manage-coursework-with-github-classroom/manage-classrooms
 ---
+
 ### Sobre as salas de aula
 
 {% data reusables.classroom.about-classrooms %}
@@ -44,7 +45,7 @@ Você deve autorizar o aplicativo OAuth {% data variables.product.prodname_class
 1. Clique em **Nova sala de aula**. ![Botão "Nova sala de aula"](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" ou "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. Para obter mais informações, consulte "[Use a atividade inicial do Git e {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment), "[Crie uma tarefa individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" ou "[Crie uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
 ### Criando uma lista para sua sala de aula
 
@@ -56,7 +57,9 @@ Se o seu curso já tem uma lista, você pode atualizar os alunos na lista ou exc
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
 1. Para conectar {% data variables.product.prodname_classroom %} ao seu LMS e importar uma lista, clique em {% octicon "mortar-board" aria-label="The mortar board icon" %} **Importar de um sistema de gerenciamento de aprendizagem** e siga as instruções. Para obter mais informações, consulte "[Conectar um sistema de gerenciamento de aprendizagem a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)". ![Botão "Importar de um sistema de gerenciamento de aprendizagem"](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. Para criar uma lista manualmente, digite os identificadores do aluno. Opcionalmente, clique em **Enviar um arquivo CSV ou de texto** para fazer upload de um arquivo que contém os identificadores. ![Campo de texto para digitar identificadores de aluno e botão "Fazer upload de um arquivo CSV ou texto"](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
+1. Forneça os identificadores dos alunos para a sua lista.
+     - Para importar uma lista de participantes fazendo o upload de um arquivo que contém identificadores de alunos, clique no **upload de um arquivo CSV ou texto**.
+     - Para criar uma lista manualmente, digite os identificadores do aluno. ![Campo de texto para digitar identificadores de aluno e botão "Fazer upload de um arquivo CSV ou texto"](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
 1. Clique **Criar lista**. ![Botão "Criar lista"](/assets/images/help/classroom/click-create-roster-button.png)
 
 ### Adicionar alunos à lista de participantes para sua sala de aula

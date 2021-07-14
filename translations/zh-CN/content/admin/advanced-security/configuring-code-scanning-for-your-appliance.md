@@ -23,17 +23,17 @@ topics:
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The table below summarizes all the options available to users when you configure {% data variables.product.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
+您可以配置 {% data variables.product.prodname_code_scanning %} 以运行 {% data variables.product.prodname_codeql %} 分析和第三方分析。 {% data variables.product.prodname_code_scanning_capc %} 还支持使用 {% data variables.product.prodname_actions %} 在本地运行分析，或使用现有 CI/CD 基础架构在外部运行分析。 下表总结了用户在配置 {% data variables.product.product_location %} 以允许 {% data variables.product.prodname_code_scanning %} 使用操作时用户可用的所有选项。
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Prerequisites for {% data variables.product.prodname_code_scanning %}
+### {% data variables.product.prodname_code_scanning %} 的前提条件
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion ver_gt "enterprise-server@3.0" %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
+- {% data variables.product.prodname_GH_advanced_security %} 的许可{% if currentVersion ver_gt "enterprise-server@3.0" %}（请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的许可](/admin/advanced-security/about-licensing-for-github-advanced-security)”）{% endif %}
 
-- {% data variables.product.prodname_code_scanning_capc %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- 在管理控制台中启用的 {% data variables.product.prodname_code_scanning_capc %}（请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”）
 
-- A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
+- 用于运行 {% data variables.product.prodname_code_scanning %} 分析的 VM 或容器。
 
 ### 使用 {% data variables.product.prodname_actions %} 运行 {% data variables.product.prodname_code_scanning %}
 
@@ -43,10 +43,10 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 您必须确保 Git 在用于运行 {% data variables.product.prodname_codeql %} 操作的任何自托管运行器上的 PATH 变量中。
 
-#### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
+#### 预配 {% data variables.product.prodname_code_scanning %} 的操作
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
+如果您要使用操作在 {% data variables.product.prodname_ghe_server %} 上运行 {% data variables.product.prodname_code_scanning %}，操作必须在您的设备上可用。
 
 {% data variables.product.prodname_codeql %} 操作包含在您安装的 {% data variables.product.prodname_ghe_server %} 中。 如果 {% data variables.product.prodname_ghe_server %} 可以访问互联网，操作将自动下载进行分析所需的 {% data variables.product.prodname_codeql %} 包。 或者，您也可以使用同步工具使 {% data variables.product.prodname_codeql %} 分析包在本地可用。 更多信息请参阅下面的“[在没有互联网接入的服务器上配置 {% data variables.product.prodname_codeql %} 分析](#configuring-codeql-analysis-on-a-server-without-internet-access)”。
 

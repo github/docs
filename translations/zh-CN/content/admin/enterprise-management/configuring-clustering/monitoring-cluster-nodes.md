@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### 手动检查集群状态
 
 {% data variables.product.prodname_ghe_server %} 有一个内置的命令行实用程序，用于监视集群的状态。 在管理 shell 中，运行 `ghe-cluster-status` 命令会对每个节点执行一系列状态检查，包括验证连接和服务状态。 输出会显示所有测试结果，包括文本 `ok` 或 `error`。 例如，要仅显示失败的测试，请运行：

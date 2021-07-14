@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre o gerenciamento de branches
 Você pode usar os branches para experimentar com segurança as alterações no seu projeto. Os branches isolam seu trabalho de desenvolvimento de outros branches do repositório. Por exemplo, você poderia usar um branch para desenvolver um novo recurso ou corrigir um erro.
 

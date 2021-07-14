@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
 ---
+
 ### 关于用户的预定提醒
 
 预定提醒用于确保用户将重点放在需要他们关注的最重要审查请求上。 拉取请求的预定提醒将会在指定的时间在 Slack 中向您发送一条消息，提醒已经打开、需要您审查的拉取请求。 例如，您可以设置预定提醒，以便每天早上 10 点在 Slack 中向您发送消息，提醒需要由您或您的一个团队审查的拉取请求。

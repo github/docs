@@ -1,0 +1,24 @@
+name: Site Policy Reminder
+
+# **What it does**: Automated comment reminder on a PR to change the title for public consumption before merging
+# **Why we have it**: Titles of merged PRs to Site Policies are sent to the public site-policy repo
+# **Who does it impact**: Docs team merging changes to Site Policies
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  run:
+    if: |
+      github.event.label.name == 'Site Policy' &&
+      github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Before merging, please remember to change the title of this PR to a description of its changes that is suitable for public viewing on github/site-policy.

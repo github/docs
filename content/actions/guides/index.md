@@ -15,9 +15,9 @@ redirect_from:
   - /actions/publishing-packages-with-github-actions
   - /actions/building-and-testing-code-with-continuous-integration
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 learningTracks:
   - getting_started
   - continuous_integration
@@ -73,6 +73,8 @@ includeGuides:
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /actions/guides/managing-github-actions-with-github-cli
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
 children:
   - /about-continuous-integration
   - /setting-up-continuous-integration-using-workflow-templates
@@ -99,7 +101,6 @@ children:
   - /creating-postgresql-service-containers
   - /deploying-to-amazon-elastic-container-service
   - /deploying-to-azure-app-service
-  - /deploying-to-google-kubernetes-engine
   - /deploying-to-google-kubernetes-engine
   - /using-github-actions-for-project-management
   - /closing-inactive-issues

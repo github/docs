@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
 const port = '4001'
 const host = `http://localhost:${port}`
 const scrape = require('website-scraper')
@@ -13,7 +13,7 @@ const version = require('../../lib/enterprise-server-releases').oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
 const loadRedirects = require('../../lib/redirects/precompile')
-const { loadPageMap } = require('../../lib/pages')
+const { loadPageMap } = require('../../lib/page-data')
 const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 // [start-readme]
@@ -155,7 +155,7 @@ async function main () {
     plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)]
   }
 
-  app.listen(port, async () => {
+  createApp().listen(port, async () => {
     console.log(`started server on ${host}`)
 
     await scrape(scraperOptions).catch(err => {

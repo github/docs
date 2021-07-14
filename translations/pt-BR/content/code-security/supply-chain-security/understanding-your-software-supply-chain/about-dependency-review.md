@@ -3,11 +3,17 @@ title: Sobre revisão de dependências
 intro: 'A revisão de dependências permite que você capture dependências vulneráveis antes de introduzi-las no seu ambiente e fornece informações sobre licença, dependências e idade das dependências.'
 versions:
   free-pro-team: '*'
+type: overview
 topics:
+  - Advanced Security
+  - Dependency review
+  - Vulnerabilities
+  - Dependencies
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
+
 {% note %}
 
 **Observação:** A revisão de dependências está atualmente em fase beta e sujeita a alterações.

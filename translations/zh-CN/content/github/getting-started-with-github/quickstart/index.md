@@ -1,6 +1,6 @@
 ---
 title: 快速入门
-intro: '快速开始处理 {% data variables.product.prodname_dotcom %} 上的常见任务。'
+intro: '开始使用 {% data variables.product.product_name %} 来管理 Git 仓库并与他人合作。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,6 +16,7 @@ children:
   - /fork-a-repo
   - /github-flow
   - /be-social
+  - /communicating-on-github
   - /github-glossary
   - /git-cheatsheet
   - /git-and-github-learning-resources

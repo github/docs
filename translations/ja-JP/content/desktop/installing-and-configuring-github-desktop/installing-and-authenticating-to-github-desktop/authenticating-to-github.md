@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 認証について
 
 アカウントを安全に保つには、{% data variables.product.prodname_desktop %} を使用して {% data variables.product.prodname_dotcom %} のリソースにアクセスする前に認証する必要があります。
@@ -37,9 +38,7 @@ versions:
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 次に、
-{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
-  ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] に認証情報を入力して [**Continue**] をクリックします。 ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
@@ -67,9 +66,7 @@ versions:
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 次に、
-{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
-  ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] に認証情報を入力して [**Continue**] をクリックします。 ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}

@@ -8,8 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 {% note %}
 
 **Hinweis:** Durch das Ändern der Zwei-Faktor-Authentifizierungsmethode wird die aktuelle Konfiguration der Zwei-Faktor-Methode ungültig. Deine Wiederherstellungscodes oder die Fallback-SMS-Konfiguration sind davon jedoch nicht betroffen. Du kannst Deine Wiederherstellungscodes oder die Fallback-SMS-Konfiguration bei Bedarf in den Sicherheitseinstellungen Deines persönlichen Kontos aktualisieren.

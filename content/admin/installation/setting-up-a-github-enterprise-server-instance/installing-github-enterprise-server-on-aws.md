@@ -6,11 +6,12 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on AWS
 ---
-### Prerequisites
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
@@ -27,11 +28,11 @@ This guide assumes you are familiar with the following AWS concepts:
 
  This guide recommends the principle of least privilege when setting up {% data variables.product.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
-### Hardware considerations
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Determining the instance type
+## Determining the instance type
 
 Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
@@ -39,13 +40,13 @@ Before launching {% data variables.product.product_location %} on AWS, you'll ne
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-### Selecting the {% data variables.product.prodname_ghe_server %} AMI
+## Selecting the {% data variables.product.prodname_ghe_server %} AMI
 
 You can select an Amazon Machine Image (AMI) for {% data variables.product.prodname_ghe_server %} using the {% data variables.product.prodname_ghe_server %} portal or the AWS CLI.
 
 AMIs for {% data variables.product.prodname_ghe_server %} are available in the AWS GovCloud (US-East and US-West) region. This allows US customers with specific regulatory requirements to run {% data variables.product.prodname_ghe_server %} in a federally compliant cloud environment. For more information on AWS's compliance with federal and other standards, see [AWS's GovCloud (US) page](http://aws.amazon.com/govcloud-us/) and [AWS's compliance page](https://aws.amazon.com/compliance/).
 
-#### Using the {% data variables.product.prodname_ghe_server %} portal to select an AMI
+### Using the {% data variables.product.prodname_ghe_server %} portal to select an AMI
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-appliance %}
@@ -53,7 +54,7 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
 4. In the Select your AWS region drop-down menu, choose your desired region.
 5. Take note of the AMI ID that is displayed.
 
-#### Using the AWS CLI to select an AMI
+### Using the AWS CLI to select an AMI
 
 1. Using the AWS CLI, get a list of {% data variables.product.prodname_ghe_server %} images published by {% data variables.product.prodname_dotcom %}'s AWS owner IDs (`025577942450` for GovCloud, and `895557238572` for other regions). For more information, see "[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" in the AWS documentation.
   ```shell
@@ -64,7 +65,7 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
   ```
 2. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
 
-### Creating a security group
+## Creating a security group
 
 If you're setting up your AMI for the first time, you will need to create a security group and add a new security group rule for each port in the table below. For more information, see the AWS guide "[Using Security Groups](http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)."
 
@@ -83,7 +84,7 @@ If you're setting up your AMI for the first time, you will need to create a secu
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-### Creating the {% data variables.product.prodname_ghe_server %} instance
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
 To create the instance, you'll need to launch an EC2 instance with your {% data variables.product.prodname_ghe_server %} AMI and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
@@ -100,7 +101,7 @@ To create the instance, you'll need to launch an EC2 instance with your {% data 
 
 {% endwarning %}
 
-#### Launching an EC2 instance
+### Launching an EC2 instance
 
 In the AWS CLI, launch an EC2 instance using your AMI and the security group you created. Attach a new block device to use as a storage volume for your instance data, and configure the size based on your user license count. For more information, see "[run-instances](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html)" in the AWS documentation.
 
@@ -114,13 +115,13 @@ aws ec2 run-instances \
   --ebs-optimized
 ```
 
-#### Allocating an Elastic IP and associating it with the instance
+### Allocating an Elastic IP and associating it with the instance
 
 If this is a production instance, we strongly recommend allocating an Elastic IP (EIP) and associating it with the instance before proceeding to {% data variables.product.prodname_ghe_server %} configuration. Otherwise, the public IP address of the instance will not be retained after instance restarts. For more information, see "[Allocating an Elastic IP Address](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" and "[Associating an Elastic IP Address with a Running Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" in the Amazon documentation.  
 
 Both primary and replica instances should be assigned separate EIPs in production High Availability configurations. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 
-### Configuring the {% data variables.product.prodname_ghe_server %} instance
+## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -128,7 +129,7 @@ Both primary and replica instances should be assigned separate EIPs in productio
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Further reading
+## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

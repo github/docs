@@ -1,7 +1,7 @@
 const path = require('path')
 const { isPlainObject } = require('lodash')
 const supertest = require('supertest')
-const app = require('../../lib/app')
+const createApp = require('../../lib/app')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
@@ -103,7 +103,7 @@ describe('redirects', () => {
     })
 
     test('are redirected for HEAD requests (not just GET requests)', async () => {
-      const res = await supertest(app).head('/articles/closing-issues-via-commit-messages/')
+      const res = await supertest(createApp()).head('/articles/closing-issues-via-commit-messages/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/articles/closing-issues-via-commit-messages')
     })
@@ -191,7 +191,7 @@ describe('redirects', () => {
     test('frontmatter redirect', async () => {
       const res = await get('/enterprise/2.12/user/articles/github-flavored-markdown')
       expect(res.statusCode).toBe(301)
-      expect(res.text).toContain('location=\'/enterprise/2.12/user/categories/writing-on-github/\'')
+      expect(res.headers.location).toBe('/enterprise/2.12/user/categories/writing-on-github/')
     })
   })
 
@@ -300,17 +300,11 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/quickstart/set-up-git`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(userArticle)
-    })
-
-    test('no product redirects to GitHub.com product on the latest version', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/creating-a-strong-password`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
@@ -322,27 +316,27 @@ describe('redirects', () => {
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github/set-up-git`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/articles/creating-a-strong-password`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/user/github/getting-started-with-github/set-up-git')
+      const res = await get('/en/enterprise/user/articles/creating-a-strong-password')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/user/github/getting-started-with-github/set-up-git')
+      const res = await get('/ja/enterprise/user/articles/creating-a-strong-password')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/learning-about-github/access-permissions-on-github`
-    const redirectFromPath = '/articles/what-are-the-different-access-permissions'
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys`
+    const redirectFromPath = '/articles/reviewing-your-ssh-keys'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {

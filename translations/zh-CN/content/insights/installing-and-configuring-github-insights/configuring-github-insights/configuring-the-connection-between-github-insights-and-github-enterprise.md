@@ -7,10 +7,9 @@ versions:
 redirect_from:
   - /insights/installing-and-configuring-github-insights/configuring-the-connection-between-github-insights-and-github-enterprise
 ---
+
 {% data reusables.github-insights.settings-tab %}
-2. 在
-{% octicon "gear" aria-label="The gear icon" %} Settings（设置）下，单击 **Enterprise（企业）**。
-  ![Enterprise（企业）选项卡](/assets/images/help/insights/enterprise-tab.png)
+2. 在 {% octicon "gear" aria-label="The gear icon" %} Settings（设置）下，单击 **Enterprise（企业）**。 ![Enterprise（企业）选项卡](/assets/images/help/insights/enterprise-tab.png)
 {% data reusables.github-insights.enterprise-api-url %}
 {% data reusables.github-insights.app-id %}
 {% data reusables.github-insights.client-id %}

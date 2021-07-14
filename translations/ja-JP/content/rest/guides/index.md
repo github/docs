@@ -23,7 +23,5 @@ children:
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
 ---
-ドキュメンテーションのこのセクションは、実際の{% data variables.product.product_name %} APIアプリケーションを使う準備を整えることを目的としています。 認証から結果の操作、結果を他のアプリケーションと組み合わせる方法に至るまで、必要な情報をすべて網羅しています。
-ここに挙げる各チュートリアルにはプロジェクトがあり、各プロジェクトはパブリックの[platform-samples](https://github.com/github/platform-samples)に保存・文書化されます。
-![Electrocat](/assets/images/electrocat.png)
-### 目次
+
+ドキュメンテーションのこのセクションは、実際の{% data variables.product.product_name %} APIアプリケーションを使う準備を整えることを目的としています。 認証から結果の操作、結果を他のアプリケーションと組み合わせる方法に至るまで、必要な情報をすべて網羅しています。 ここに挙げる各チュートリアルにはプロジェクトがあり、各プロジェクトはパブリックの[platform-samples](https://github.com/github/platform-samples)に保存・文書化されます。 ![Electrocat](/assets/images/electrocat.png)

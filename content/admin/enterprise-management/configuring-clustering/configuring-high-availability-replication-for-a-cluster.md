@@ -1,20 +1,21 @@
 ---
 title: Configuring high availability replication for a cluster
 intro: 'You can configure a passive replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a different location, allowing your cluster to fail over to redundant nodes.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '>2.21'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Configure HA replication
 ---
-### About high availability replication for clusters
+## About high availability replication for clusters
 
 You can configure a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.
 
@@ -22,9 +23,9 @@ In high availability mode, each active node syncs regularly with a corresponding
 
 We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %}. We also recommend performing regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)."
 
-### Prerequisites
+## Prerequisites
 
-#### Hardware and software
+### Hardware and software
 
 For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage.
 
@@ -36,19 +37,19 @@ On each new virtual machine, install the same version of {% data variables.produ
 
 {% endnote %}
 
-#### Network
+### Network
 
 You must assign a static IP address to each new node that you provision, and you must configure a load balancer to accept connections and direct them to the nodes in your cluster's front-end tier.
 
 We don't recommend configuring a firewall between the network with your active cluster and the network with your passive cluster. The latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. For more information about network connectivity between nodes in the passive cluster, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration)."
 
-### Creating a high availability replica for a cluster
+## Creating a high availability replica for a cluster
 
 - [Assigning active nodes to the primary datacenter](#assigning-active-nodes-to-the-primary-datacenter)
 - [Adding passive nodes to the cluster configuration file](#adding-passive-nodes-to-the-cluster-configuration-file)
 - [Example configuration](#example-configuration)
 
-#### Assigning active nodes to the primary datacenter
+### Assigning active nodes to the primary datacenter
 
 Before you define a secondary datacenter for your passive nodes, ensure that you assign your active nodes to the primary datacenter.
 
@@ -100,7 +101,7 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
 After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
 
-#### Adding passive nodes to the cluster configuration file
+### Adding passive nodes to the cluster configuration file
 
 To configure high availability, you must define a corresponding passive node for every active node in your cluster. The following instructions create a new cluster configuration that defines both active and passive nodes. You will:
 
@@ -234,7 +235,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
 
 You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding passive node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
 
-#### Example configuration
+### Example configuration
 
 The top-level `[cluster]` configuration should look like the following example.
 
@@ -302,7 +303,7 @@ The configuration for the corresponding passive node in the storage tier should 
 ...
 ```
 
-### Monitoring replication between active and passive cluster nodes
+## Monitoring replication between active and passive cluster nodes
 
 Initial replication between the active and passive nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
 
@@ -334,11 +335,11 @@ You can monitor the progress on any node in the cluster, using command-line tool
 
 You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see  "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)."
 
-### Reconfiguring high availability replication after a failover
+## Reconfiguring high availability replication after a failover
 
 After you fail over from the cluster's active nodes to the cluster's passive nodes, you can reconfigure high availability replication in two ways.
 
-#### Provisioning and configuring new passive nodes
+### Provisioning and configuring new passive nodes
 
 After a failover, you can reconfigure high availability in two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
 
@@ -349,7 +350,7 @@ After a failover, you can reconfigure high availability in two ways. The method 
 The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
 
 
-### Disabling high availability replication for a cluster
+## Disabling high availability replication for a cluster
 
 You can stop replication to the passive nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}.
 

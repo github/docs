@@ -4,11 +4,12 @@ intro: You can configure the self-hosted runner application as a service to auto
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
 defaultPlatform: linux
+shortTitle: Run runner app on startup
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -56,7 +57,7 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 {% linux %}
 
-### Installing the service
+## Installing the service
 
 {{ service_first_step }}
 1. Install the service with the following command:
@@ -68,7 +69,7 @@ You can manage the runner service in the Windows **Services** application, or yo
 {% endlinux %}
 {% mac %}
 
-### Installing the service
+## Installing the service
 
 {{ service_first_step }}
 1. Install the service with the following command:
@@ -78,7 +79,7 @@ You can manage the runner service in the Windows **Services** application, or yo
    ```
 {% endmac %}
 
-### Starting the service
+## Starting the service
 
 Start the service with the following command:
 
@@ -98,7 +99,7 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Checking the status of the service
+## Checking the status of the service
 
 Check the status of the service with the following command:
 
@@ -120,7 +121,7 @@ Get-Service "{{ service_win_name }}"
 
  For more information on viewing the status of your self-hosted runner, see  "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
-### Stopping the service
+## Stopping the service
 
 Stop the service with the following command:
 
@@ -140,7 +141,7 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Uninstalling the service
+## Uninstalling the service
 
 1. Stop the service if it is currently running.
 1. Uninstall the service with the following command:
@@ -164,7 +165,7 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### Customizing the self-hosted runner service
+## Customizing the self-hosted runner service
 
 If you don't want to use the above default `systemd` service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `serviced` template at `actions-runner/bin/actions.runner.service.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
 
@@ -172,7 +173,7 @@ If you don't want to use the above default `systemd` service configuration, you 
 
 {% mac %}
 
-### Customizing the self-hosted runner service
+## Customizing the self-hosted runner service
 
 If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
 

@@ -8,21 +8,21 @@ redirect_from:
   - /admin/user-management/customizing-user-messages-for-your-enterprise
 intro: 'You can create custom messages that users will see on {% data variables.product.product_location %}.'
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Maintenance
 ---
-### About user messages
+## About user messages
 
 There are several types of user messages.
-- Messages that appear on the {% if enterpriseServerVersions contains currentVersion %}sign in or {% endif %}sign out page{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page{% ifversion ghes > 2.22 or ghae %}
+- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes > 2.21 or ghae %}
 - Announcement banners, which appear at the top of every page{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** If you are using SAML for authentication, the sign in page is presented by your identity provider and is not customizable via {% data variables.product.prodname_ghe_server %}.
@@ -31,15 +31,15 @@ There are several types of user messages.
 
 You can use Markdown to format your message. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github/)."
 
-### Creating a custom sign in message
+## Creating a custom sign in message
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% if currentVersion ver_gt "enterprise-server@2.22" %}To the right of{% else %}Under{% endif %} "Sign in page", click **Add message** or **Edit message**.
-![{% if currentVersion ver_gt "enterprise-server@2.22" %}Add{% else %}Edit{% endif %} message button](/assets/images/enterprise/site-admin-settings/edit-message.png)
+5. {% ifversion ghes > 2.22 %}To the right of{% else %}Under{% endif %} "Sign in page", click **Add message** or **Edit message**.
+![{% ifversion ghes > 2.22 %}Add{% else %}Edit{% endif %} message button](/assets/images/enterprise/site-admin-settings/edit-message.png)
 6. Under **Sign in message**, type the message you'd like users to see.
-![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% if currentVersion ver_gt "enterprise-server@2.22" %}
+![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes > 2.22 %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
   ![Preview button](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
@@ -48,15 +48,15 @@ You can use Markdown to format your message. For more information, see "[About w
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 {% endif %}
 
-### Creating a custom sign out message
+## Creating a custom sign out message
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
+5. {% ifversion ghes > 2.22 or ghae %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
 ![Add message button](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
 6. Under **Sign out message**, type the message you'd like users to see.
-![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes > 2.22 or ghae %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
   ![Preview button](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
@@ -64,8 +64,8 @@ You can use Markdown to format your message. For more information, see "[About w
 ![Sign out message rendered](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Creating a mandatory message
+{% ifversion ghes > 2.22 or ghae %}
+## Creating a mandatory message
 
 You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}. 
 
@@ -96,13 +96,13 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-### Creating a global announcement banner
+{% ifversion ghes > 2.21 or ghae %}
+## Creating a global announcement banner
 
 You can set a global announcement banner to be displayed to all users at the top of every page.
 
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can also set an announcement banner{% if enterpriseServerVersions contains currentVersion %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+{% ifversion ghae or ghes > 2.22 %}
+You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
 {% else %}
 
 You can also set an announcement banner in the administrative shell using a command line utility. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)."
@@ -112,7 +112,7 @@ You can also set an announcement banner in the administrative shell using a comm
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}To the right of{% else %}Under{% endif %} "Announcement", click **Add announcement**.
+1. {% ifversion ghes > 2.22 or ghae %}To the right of{% else %}Under{% endif %} "Announcement", click **Add announcement**.
   ![Add announcement button](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
   ![Text field to enter announcement](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)

@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ブラウザを介してリポジトリに追加できるファイルのサイズは、1 ファイルあたり {% data variables.large_files.max_github_browser_size %}までです。 コマンドラインからは、より大きいサイズのファイルを追加でき、1 ファイルあたり {% data variables.large_files.max_github_size %}までです。 詳しい情報については[コマンドラインを使用してリポジトリにファイルを追加する](/articles/adding-a-file-to-a-repository-using-the-command-line)を参照してください。
 
 {% tip %}

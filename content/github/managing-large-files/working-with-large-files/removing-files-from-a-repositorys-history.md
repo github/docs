@@ -6,9 +6,10 @@ redirect_from:
   - /articles/removing-files-from-a-repositorys-history
   - /github/managing-large-files/removing-files-from-a-repositorys-history
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Remove repository history
 ---
 {% warning %}
 
@@ -16,7 +17,7 @@ versions:
 
 {% endwarning %}
 
-### Removing a file added in the most recent unpushed commit
+## Removing a file added in the most recent unpushed commit
 
 If the file was added with your most recent commit, and you have not pushed to {% data variables.product.product_location %}, you can delete the file and amend the commit:
 
@@ -40,6 +41,6 @@ If the file was added with your most recent commit, and you have not pushed to {
   # Push our rewritten, smaller commit
   ```
 
-### Removing a file that was added in an earlier commit
+## Removing a file that was added in an earlier commit
 
 If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-branch` command. For more information see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."

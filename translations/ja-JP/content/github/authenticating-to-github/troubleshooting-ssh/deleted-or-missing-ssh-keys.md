@@ -9,6 +9,7 @@ versions:
 topics:
   - SSH
 ---
+
 {% data variables.product.prodname_dotcom %}は使われていない SSH キーを自動的に削除し、アカウントを安全に保ちます。たとえば退職者が出たときやコンピューターを紛失したときです。
 
 アカウントのセキュリティログを見ると、SSH キーが 1 年間使われていないか確認できます。 詳細は「[セキュリティ ログをレビューする](/articles/reviewing-your-security-log/)」を参照してください。

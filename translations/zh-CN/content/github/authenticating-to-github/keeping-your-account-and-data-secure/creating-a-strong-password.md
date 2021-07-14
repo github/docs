@@ -12,12 +12,13 @@ topics:
   - Identity
   - Access management
 ---
+
 您必须为 {% data variables.product.product_name %} 帐户选择或生成密码，密码至少应满足以下条件：
-- 至少 8 个字符，包含数字和小写字母；或者
+- {% if enterpriseServerVersions contains currentVersion %}七{% else %}八{% endif %}个字符且包含数字和小写字母，或
 - 至少 15 个字符，任意字符组合
 
 为确保您的帐户安全，我们建议您遵循以下最佳实践：
-- 使用 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/) 等密码管理器生成至少 15 个字符的密码。
+- 使用 [LastPass](https://lastpass.com/)、[1Password](https://1password.com/) 或 [Keeper](https://keepersecurity.com/) 等密码管理器生成至少 15 个字符的密码。
 - 为 {% data variables.product.product_name %} 生成唯一的密码。 如果您在别处使用 {% data variables.product.product_name %} 密码，并且该服务遭到入侵，则攻击者或其他恶意行为者可能使用该信息访问您的 {% data variables.product.product_name %} 帐户。
 - 为您的帐户配置双重身份验证。 更多信息请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
 - 不与任何人分享您的密码，即使是潜在协作者。 在 {% data variables.product.product_name %} 上每个人都应使用自己的个人帐户。 有关协作方式的更多信息，请参阅：“[邀请协作者参与个人仓库](/articles/inviting-collaborators-to-a-personal-repository)”、“[关于协作开发模式](/articles/about-collaborative-development-models/)”或“[与组织中的团体协作](/organizations/collaborating-with-groups-in-organizations/)”。

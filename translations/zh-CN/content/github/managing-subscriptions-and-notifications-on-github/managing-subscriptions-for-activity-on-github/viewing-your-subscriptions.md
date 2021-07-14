@@ -22,6 +22,7 @@ versions:
 topics:
   - Notifications
 ---
+
 接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 有很多原因可能导致您订阅对话。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
 
 我们建议将审核订阅和取消订阅作为健康通知工作流程的一部分。 有关取消订阅选项的更多信息，请参阅“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。
@@ -75,7 +76,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+  **提示：**不关注仓库，而是考虑仅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}当 {% data reusables.notifications-v2.custom-notification-types %}（如果已对仓库启用）或这些选项的任何组合有更新、{% else %}仓库中有发布{% endif %}或完全取消关注仓库时才接收通知。
 
   取消关注仓库后，当您被@提及或参与帖子时仍然会收到通知。 当您配置接收某些事件类型的通知时，仅在仓库中有这些事件类型的更新、您参与了线程或者您或您所在团队被 @提及时才收到通知。
 

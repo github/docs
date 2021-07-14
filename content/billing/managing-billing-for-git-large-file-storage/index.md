@@ -9,10 +9,11 @@ redirect_from:
   - /articles/managing-storage-and-bandwidth-usage/
   - /articles/managing-billing-for-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-billing-for-git-large-file-storage
   - /viewing-your-git-large-file-storage-usage
   - /upgrading-git-large-file-storage
   - /downgrading-git-large-file-storage
 ---
+

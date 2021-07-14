@@ -14,6 +14,7 @@ topics:
 redirect_from:
   - /admin/policies/restricting-email-notifications-for-your-enterprise
 ---
+
 ### Enterprise アカウントのメール制限について
 
 {% data reusables.enterprise-accounts.email-restrictions-about %}

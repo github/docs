@@ -41,11 +41,23 @@ function toShellExample ({ route, serverUrl }) {
     ? `application/vnd.github.${requiredPreview.name}-preview+json`
     : 'application/vnd.github.v3+json'
 
+  let requestBodyParams = `-d '${JSON.stringify(params)}'`
+  // If the content type is application/x-www-form-urlencoded the format of
+  // the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
+  if (route.operation.contentType === 'application/x-www-form-urlencoded') {
+    requestBodyParams = ''
+    const paramNames = Object.keys(params)
+    paramNames.forEach(elem => {
+      requestBodyParams = `${requestBodyParams} --data-urlencode ${elem}=${params[elem]}`
+    })
+    requestBodyParams = requestBodyParams.trim()
+  }
+
   const args = [
     method !== 'GET' && `-X ${method}`,
     defaultAcceptHeader ? `-H "Accept: ${defaultAcceptHeader}"` : '',
     `${serverUrl}${path}`,
-    Object.keys(params).length && `-d '${JSON.stringify(params)}'`
+    Object.keys(params).length && requestBodyParams
   ].filter(Boolean)
   return `curl \\\n  ${args.join(' \\\n  ')}`
 }
@@ -102,9 +114,10 @@ function getExamplePathParams ({ operation }) {
 }
 
 function getExampleBodyParams ({ operation }) {
+  const contentType = Object.keys(get(operation, 'requestBody.content', []))[0]
   let schema
   try {
-    schema = operation.requestBody.content['application/json'].schema
+    schema = operation.requestBody.content[contentType].schema
     if (!schema.properties) return {}
   } catch (noRequestBody) {
     return {}

@@ -11,6 +11,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 一旦服务器配置为接收有效负载，它将侦听发送到您配置的端点的任何有效负载。 出于安全原因，您可能需要将请求限制为来自 GitHub 的请求。 有几种方法可以做到这一点，例如，您可以选择允许来自 GitHub 的 IP 地址的请求，但更简单的方法是设置一个密钥令牌并验证信息。
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
@@ -52,7 +53,8 @@ require 'sinatra'
 require 'json'
 
 post '/payload' do
-  push = JSON.parse(params[:payload])
+  request.body.rewind
+  push = JSON.parse(request.body.read)
   "I got some JSON: #{push.inspect}"
 end
 ```
@@ -64,7 +66,7 @@ post '/payload' do
   request.body.rewind
   payload_body = request.body.read
   verify_signature(payload_body)
-  push = JSON.parse(params[:payload])
+  push = JSON.parse(payload_body)
   "I got some JSON: #{push.inspect}"
 end
 

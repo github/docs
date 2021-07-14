@@ -16,6 +16,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %}
 
 - 要全局搜索所有 {% data variables.product.product_name %}，请在页面顶部的搜索字段中输入您要查找的内容，然后在搜索下拉菜单中选择“所有{% data variables.product.prodname_dotcom %}”。
@@ -67,9 +68,8 @@ topics:
 只能从 {% data variables.product.prodname_enterprise %} 搜索这两个环境。 要按环境限制搜索范围，可以使用 {% data variables.search.advanced_url %} 上的过滤选项，或者使用 `environment:` 搜索前缀。 若只搜索 {% data variables.product.prodname_enterprise %} 上的内容，请使用搜索语法 `environment:local`。 若只搜索 {% data variables.product.prodname_dotcom_the_website %} 上的内容，则使用 `environment:github`。
 
 {% data variables.product.prodname_enterprise %} 网站管理员可对连接的 {% data variables.product.prodname_ghe_cloud %} 组织中的所有公共仓库、私有仓库或特定私有仓库启用 {% data variables.product.prodname_unified_search %}。
-如果站点管理员
 
-在私有仓库中启用 {% data variables.product.prodname_unified_search %}，您只能在连接的 {% data variables.product.prodname_dotcom_the_website %} 组织中搜索管理员启用了 {% data variables.product.prodname_unified_search %} 并且您具有访问权限的私有仓库。 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_enterprise %} 管理员和组织所有者无法搜索您的帐户所拥有的私有仓库。 要搜索相关的私有仓库，必须在 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.prodname_enterprise %} 上对您的个人帐户启用私有仓库搜索。 更多信息请参阅“[在 {% data variables.product.prodname_enterprise %} 帐户中启用私有 {% data variables.product.prodname_dotcom_the_website %} 仓库搜索](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)”。
+如果网站管理员在私有仓库中启用 {% data variables.product.prodname_unified_search %}，您只能在连接的 {% data variables.product.prodname_dotcom_the_website %} 组织中搜索管理员启用了 {% data variables.product.prodname_unified_search %} 并且您具有访问权限的私有仓库。 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_enterprise %} 管理员和组织所有者无法搜索您的帐户所拥有的私有仓库。 要搜索相关的私有仓库，必须在 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.prodname_enterprise %} 上对您的个人帐户启用私有仓库搜索。 更多信息请参阅“[在 {% data variables.product.prodname_enterprise %} 帐户中启用私有 {% data variables.product.prodname_dotcom_the_website %} 仓库搜索](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)”。
 {% endif %}
 
 ### 延伸阅读

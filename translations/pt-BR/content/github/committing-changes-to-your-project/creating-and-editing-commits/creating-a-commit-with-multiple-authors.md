@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Informações obrigatórias do coautor
 
 Para poder adicionar um coautor a um commit, você deve saber o e-mail adequado a ser usado para cada coautor. Para que o commit do coautor conte como uma contribuição, você deve usar o e-mail associado à conta do {% data variables.product.product_name %} dele.

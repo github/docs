@@ -15,6 +15,10 @@ ul.release-notes-list li.release-notes-list-item {
 
 .release-notes-section-heading {
   font-size: 15px !important;
+  scroll-margin-top: 280px !important;
+  @include breakpoint(sm) {
+    scroll-margin-top: 200px !important;
+  }
 }
 
 details[open].release-notes-version-picker
@@ -36,7 +40,7 @@ $colors-list: (
   security_fixes: var(--color-auto-pink-5),
   changes: var(--color-auto-green-5),
   deprecations: var(--color-auto-purple-5),
-  backups: var(--color-auto-orange-5)
+  backups: var(--color-auto-orange-5),
 );
 
 @each $key, $val in $colors-list {

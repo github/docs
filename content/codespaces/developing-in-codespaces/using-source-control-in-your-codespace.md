@@ -1,18 +1,19 @@
 ---
 title: Using source control in your codespace
-intro: 'After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.'
+intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Source control
 ---
 
 {% data reusables.codespaces.release-stage %}
 
-### About source control in {% data variables.product.prodname_codespaces %}
+## About source control in {% data variables.product.prodname_codespaces %}
 
 You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from the remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
 
@@ -26,7 +27,7 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 * Commit the change.
 * Raise a pull request.
 
-### Creating or switching branches
+## Creating or switching branches
 
 1. If the current branch is not shown in the status bar, at the bottom of your codespace, right-click the status bar and select **Source control**.
 1. Click the branch name in the status bar.
@@ -40,7 +41,7 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 {% endtip %}
 
-### Pulling changes from the remote repository
+## Pulling changes from the remote repository
 
 You can pull changes from the remote repository into your codespace at any time. 
 
@@ -51,7 +52,7 @@ You can pull changes from the remote repository into your codespace at any time.
 
 If a dev container has been changed since you created the codespace you can apply the changes by rebuilding the container for the codespace. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
-### Setting your codespace to automatically fetch new changes 
+## Setting your codespace to automatically fetch new changes 
 
 You can set your codespace to automatically fetch details of any new commits that have been made to the remote repository. This allows you to see whether your local copy of the repository is out of date, in which case you may choose to pull in the new changes. 
 
@@ -66,7 +67,7 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 ![Enable Git autofetch](/assets/images/help/codespaces/autofetch-all.png)
 1. If you want to change the number of seconds between each automatic fetch, edit the value of **Git: Autofetch Period**.
 
-### Committing your changes 
+## Committing your changes 
 
 {% data reusables.codespaces.source-control-display-dark %}
 1. To stage your changes, click  **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
@@ -76,7 +77,7 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 1. To commit your staged changes, click the check mark at the top the source control side bar.
 ![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
 
-### Raising a pull request
+## Raising a pull request
 
 1. After you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. 
 ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
@@ -84,7 +85,7 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 
-### Pushing changes to your remote repository
+## Pushing changes to your remote repository
 
 You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
 

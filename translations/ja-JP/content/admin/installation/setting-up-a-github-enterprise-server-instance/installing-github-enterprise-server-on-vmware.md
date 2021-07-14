@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}

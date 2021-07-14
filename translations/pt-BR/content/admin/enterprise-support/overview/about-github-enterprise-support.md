@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 {% note %}
 
 **Observação**: {% data reusables.support.data-protection-and-privacy %}
@@ -23,8 +24,7 @@ topics:
 {% data variables.product.product_name %} inclui {% data variables.contact.enterprise_support %} em inglês{% if enterpriseServerVersions contains currentVersion %} e japonês{% endif %}.
 
 {% if enterpriseServerVersions contains currentVersion %}
-Você pode entrar em contato com
-{% data variables.contact.enterprise_support %} por meio de {% data variables.contact.contact_enterprise_portal %} para obter ajuda com:
+Você pode entrar em contato {% data variables.contact.enterprise_support %} através de {% data variables.contact.contact_enterprise_portal %} para obter ajuda:
  - Instalar e usar o {% data variables.product.product_name %};
  - Identificar e verificar as causas dos erros.
 

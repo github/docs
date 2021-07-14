@@ -6,21 +6,22 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on GCP
 ---
-### Prerequisites
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform Documentation](https://cloud.google.com/docs/).
 - Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the "[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)" installation and setup guide in the Google documentation.
 
-### Hardware considerations
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Determining the machine type
+## Determining the machine type
 
 Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
@@ -28,7 +29,7 @@ Before launching {% data variables.product.product_location %} on Google Cloud P
 
 {% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
 
-### Selecting the {% data variables.product.prodname_ghe_server %} image
+## Selecting the {% data variables.product.prodname_ghe_server %} image
 
 1. Using the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) command-line tool, list the public {% data variables.product.prodname_ghe_server %} images:
    ```shell
@@ -37,7 +38,7 @@ Before launching {% data variables.product.product_location %} on Google Cloud P
 
 2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
 
-### Configuring the firewall
+## Configuring the firewall
 
 GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. For more information about firewall rules on Google Cloud Platform, see the Google guide "[Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls)."
 
@@ -55,13 +56,13 @@ GCE virtual machines are created as a member of a network, which has a firewall.
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-### Allocating a static IP and assigning it to the VM
+## Allocating a static IP and assigning it to the VM
 
 If this is a production appliance, we strongly recommend reserving a static external IP address and assigning it to the {% data variables.product.prodname_ghe_server %} VM. Otherwise, the public IP address of the VM will not be retained after restarts. For more information, see the Google guide "[Reserving a Static External IP Address](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)."
 
 In production High Availability configurations, both primary and replica appliances should be assigned separate static IP addresses.
 
-### Creating the {% data variables.product.prodname_ghe_server %} instance
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
 To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
@@ -82,7 +83,7 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
    --image-project github-enterprise-public
    ```
 
-### Configuring the instance
+## Configuring the instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -90,7 +91,7 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Further reading
+## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -9,6 +9,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
+
 ### Sobre a avaliação automática
 
 {% data reusables.classroom.about-autograding %}

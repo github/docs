@@ -12,6 +12,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -119,8 +120,7 @@ topics:
 - `is:discussions`{% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-有关减少
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
+有关减少{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
 您还可以使用 `is:` 查询来描述如何对通知进行分类。
@@ -166,22 +166,18 @@ topics:
 ### {% data variables.product.prodname_dependabot %} 自定义过滤器
 
 {% if currentVersion == "free-pro-team@latest" %}
-如果您使用
-{% data variables.product.prodname_dependabot %} 来保持依赖项更新，您可以使用并保存这些自定义过滤器：
+如果您使用 {% data variables.product.prodname_dependabot %} 来保持依赖项更新，您可以使用并保存这些自定义过滤器：
 - `is:repository_vulnerability_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
 - `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
 - `author:app/dependabot`，显示 {% data variables.product.prodname_dependabot %} 生成的通知。 这包括 {% data variables.product.prodname_dependabot_alerts %}、安全更新拉取请求和版本更新拉取请求。
-有关
 
-{% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞的依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-如果您使用
-{% data variables.product.prodname_dependabot %} 以保持依赖项更新，您可以使用并保存 `is:repository_vulnerability_alert` 自定义过滤器以显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
-有关
+如果您使用 {% data variables.product.prodname_dependabot %} 以保持依赖项更新，您可以使用并保存 `is:repository_vulnerability_alert` 自定义过滤器以显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
 
-{% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% endif %}

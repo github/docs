@@ -11,9 +11,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Actions
+  - Repositories
+  - Pull requests
+  - JavaScript
+  - Python
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -71,6 +79,17 @@ O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pu
 Para obter mais informações sobre o evento `pull_request` , consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
 
 Se você realizar uma varredura de pull requests, os resultados aparecerão como alertas em uma verificação de pull request. Para obter mais informações, consulte "[Alertas de varredura de código de triagem em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+#### Defining the alert severities causing pull request check failure
+
+By default, only alerts with the severity level of `error` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities that will cause a pull request check failure in your repository settings.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure. ![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+{% endif %}
 
 #### Evitar varreduras desnecessárias de pull requests
 
@@ -145,6 +164,24 @@ jobs:
 O {% data variables.product.prodname_code_scanning_capc %} é compatível com as versões mais recentes do macOS, Ubuntu, e Windows. Portanto, os valores típicos para essa configuração são `ubuntu-latest`, `windows-latest` e `macos-latest`. Para obter mais informações, consulte {% if currentVersion ver_gt "enterprise-server@2.21" %}" %}"[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" e "[Usando rótulos com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}Você deve garantir que o Git esteja na variável do PATH em seus executores auto-hospedados.{% else %}Se você usa um executor auto-hospedado, você deve garantir que o Git esteja na variável de PATH.{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### Especificar o local para bancos de dados de {% data variables.product.prodname_codeql %}
+
+Em geral você não precisa se preocupar com o lugar em que {% data variables.product.prodname_codeql_workflow %} coloca bancos de dados de {% data variables.product.prodname_codeql %}, uma vez que as etapas posteriores encontrarão automaticamente bancos de dados criados nas etapas anteriores. No entanto, se estiver escrevendo um fluxo de trabalho personalizado que exige que o banco de dados de {% data variables.product.prodname_codeql %} esteja em um local específico do disco, por exemplo, para fazer o upload do banco de dados como um artefato de fluxo de trabalho você pode especificar essa localização usando o parâmetro `db-location` na ação `init`.
+
+{% raw %}
+``` yaml
+- uses: github/codeql-action/init@v1
+  with:
+    db-location: '${{ github.workspace }}/codeql_dbs'
+```
+{% endraw %}
+
+O {% data variables.product.prodname_codeql_workflow %} esperará que o caminho fornecido no `db-location` tenha permissão de gravação, e não exista ou seja um diretório vazio. Ao usar este parâmetro em um trabalho em execução em um executor auto-hospedado ou usando um contêiner Docker, é responsabilidade do usuário garantir que o diretório escolhido seja limpo entre execuções, ou que os bancos de dados sejam removidos depois de deixarem de ser necessários. Isto não é necessário para trabalhos em execução em executores auto-hospedados {% data variables.product.prodname_dotcom %}, que obtêm uma instância nova e um sistema de arquivos limpo toda vez que forem executados. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+
+Se este parâmetro não for usado, o {% data variables.product.prodname_codeql_workflow %} criará bancos de dados em um local temporário da sua própria escolha.
+{% endif %}
 
 ### Alterar as linguagens que são analisadas
 
@@ -223,11 +260,11 @@ jobs:
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Configuring a category for the analysis
+### Configurar uma categoria para a análise
 
-Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
+Use a `categoria` para distinguir entre múltiplas análises para a mesma ferramenta e commit, mas executada em diferentes linguagens ou diferentes partes do código. A categoria especificada no seu fluxo de trabalho será incluída no arquivo de resultados SARIF.
 
-This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
+Esse parâmetro é particularmente útil se você trabalhar com monorepos e tiver vários arquivos SARIF para diferentes componentes do monorepo.
 
 {% raw %}
 ``` yaml
@@ -241,13 +278,13 @@ This parameter is particularly useful if you work with monorepos and have multip
 ```
 {% endraw %}
 
-If you don't specify a `category` parameter in your workflow, {% data variables.product.prodname_dotcom %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. Por exemplo:
-- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
+Se você não especificar um parâmetro da `categoria` no seu fluxo de trabalho, {% data variables.product.prodname_dotcom %} irá gerar um nome de categoria para você, com base no nome do arquivo de fluxo de trabalho que ativa a ação, o nome da ação e todas as variáveis de matrizes. Por exemplo:
+- O fluxo de trabalho `.github/workflows/codeql-analyis.yml` e a ação `analyze` produzirão a categoria `.github/workflows/codeql.yml:analyze`.
+- O fluxo de trabalho `.github/workflows/codeql-analyis.yml`, a ação `analyze` e as variáveis da matriz `{language: javascript, os: linux}` irão produzir a categoria `.github/workflows/codeql-analyis.yml:analyze/language:javascript/os:linux`.
 
-The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. Para obter mais informações, consulte "[Suporte SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)".
+A `categoria` será exibida como a propriedade `<run>.automationDetails.id` no SARIF v2.1.0. Para obter mais informações, consulte "[Suporte SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)".
 
-Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
+Sua categoria especificada não substituirá os detalhes do objeto `runAutomationDetails` no arquivo SARIF, se incluído.
 
 {% endif %}
 
@@ -347,7 +384,7 @@ paths-ignore:
 **Observação**:
 
 * As palavras-chave `caminhos` e `paths-ignore`, usados no contexto do arquivo de configuração do {% data variables.product.prodname_code_scanning %}, não deve ser confundido com as mesmas palavras-chave usadas para `on.<push|pull_request>.paths` em um fluxo de trabalho. Quando estão acostumados a modificar `on.<push|pull_request>` em um fluxo de trabalho, eles determinam se as ações serão executadas quando alguém modifica o código nos diretórios especificados. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
-* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
+* Os caracteres de filtros padrão `?`, `+`, `[`, `]` e `!` não são compatíveis e serão correspondidos literalmente.
 * `**` **Note**: `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. Por exemplo, `foo/**`, `**/foo` e `foo/**/bar` são todos de sintaxe permitida, mas `**foo` não é. No entanto, você pode usar estrelas únicas junto com outros caracteres, conforme mostrado no exemplo. Você precisará colocar entre aspas qualquer coisa que contenha um caractere `*`.
 
 {% endnote %}

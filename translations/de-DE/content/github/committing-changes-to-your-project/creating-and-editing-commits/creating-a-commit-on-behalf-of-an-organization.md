@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% note %}
 
 **Hinweis:** Die Möglichkeit, einen Commit im Namen einer Organisation zu erstellen, liegt derzeit als öffentliche Beta-Version vor und kann geändert werden.

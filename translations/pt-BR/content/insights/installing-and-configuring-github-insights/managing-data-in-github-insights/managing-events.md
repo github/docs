@@ -8,6 +8,7 @@ permissions: 'People with admin permissions to {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 ### Sobre eventos
 
 Os eventos adicionam contexto às métricas. Por exemplo, férias ou datas de lançamento podem causar mudanças nos padrões de trabalho. Portanto, saber quando ocorreram esses eventos pode alterar sua avaliação de métricas. Você pode criar eventos para a reorganização de equipes, iniciar datas para novos funcionários, alterações no âmbito de competências das equipes e qualquer outra coisa que afete o trabalho da sua equipe.

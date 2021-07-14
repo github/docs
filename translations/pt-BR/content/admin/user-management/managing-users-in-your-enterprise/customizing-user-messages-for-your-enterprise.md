@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Maintenance
 ---
+
 ### Sobre mensagens de usuário
 
 Existem vários tipos de mensagens de usuário.
@@ -94,8 +95,7 @@ Cada vez que um usuário vê uma mensagem obrigatória, um evento de log de audi
 Você pode definir um banner de anúncio global para ser exibido para todos os usuários na parte superior de cada página.
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Você também pode definir um banner de anúncio
-{% if enterpriseServerVersions contains currentVersion %} no shell administrativo usando um utilitário de linha de comando ou{% endif %} usando a API. Para obter mais informações, consulte {% if enterpriseServerVersions contains currentVersion %}"[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" e {% endif %}"[Administração de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
+Você também pode definir um banner de anúncio{% if enterpriseServerVersions contains currentVersion %} no shell administrativo usando um utilitário de linha de comando ou{% endif %} usando a API. Para obter mais informações, consulte {% if enterpriseServerVersions contains currentVersion %}"[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" e {% endif %}"[Administração de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
 {% else %}
 
 Você também pode definir um banner de anúncio no shell administrativo usando um utilitário de linha de comando. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-announce)".

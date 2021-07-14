@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
 {% if currentVersion == "free-pro-team@latest" %}
 

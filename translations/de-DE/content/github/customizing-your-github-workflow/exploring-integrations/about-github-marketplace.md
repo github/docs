@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
 Wenn Sie ein kostenpflichtiges Tool erwerben, bezahlen Sie für Ihr Tool-Abonnement mit den gleichen Abrechnungsinformationen, mit denen Sie für Ihr {% data variables.product.product_name %}-Abonnement bezahlen, und erhalten an Ihrem regulären Abrechnungsdatum eine Rechnung. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“

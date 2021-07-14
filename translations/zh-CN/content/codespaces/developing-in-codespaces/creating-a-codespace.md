@@ -18,24 +18,24 @@ topics:
 
 ### 关于代码空间的创建
 
-You can create a codespace on either {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.codespaces-are-personal %}
+您可以在 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_vscode %} 中创建代码。 {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %} For more information, see "[Deleting a codespace](/github/developing-online-with-codespaces/deleting-a-codespace)."
+代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %} 更多信息请参阅“[删除代码空间](/github/developing-online-with-codespaces/deleting-a-codespace)”。
 
 
-When you create a codespace, a number of steps happen to enable full access to your development environment.
+创建代码空间时，需要执行一些步骤来实现对开发环境的完全访问。
 
-- Resources such as a VM and storage for your container are assigned. A new VM is created every time you create or start a codespace to ensure that you always have the latest versions and security patches.
-- {% data variables.product.prodname_codespaces %} recieves information about your repository, branch, commits, your public dotfiles repository, and any secrets that you have created.
-- {% data variables.product.prodname_codespaces %} executes a shallow clone of the repository.
-- If you have one in your repository, {% data variables.product.prodname_codespaces %} runs the `devcontainer.json` file. 更多信息请参阅“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)”。
-- Your Docker container, `docker-compose`, or other initialization is run.
-- At this point, the codespace is marked as available and you can connect.
-- Once the codespace is made available, depending on the commands in the devcontainer, the codespace will continue with some set up.
-  - The codespace shares ports added in the `devcontainer.json` file.
-  - The codespace runs anything specified in `postCreateCommand`.
-  - {% data variables.product.prodname_codespaces %} clones your dotfiles repository to the codespaces environment and looks for an install file. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
-  - Finally, the codespace does a full clone of the repo so you have full access to it.
+- 分配了 VM 和容器存储等资源。 每次创建或启动代码空间时都会创建新的 VM，以确保您始终有最新的版本和安全补丁。
+- {% data variables.product.prodname_codespaces %} 接收有关您的仓库、分支、提交、公共 dotfiles 仓库以及您创建的所有密钥的信息。
+- {% data variables.product.prodname_codespaces %} 执行仓库的浅表克隆。
+- 如果仓库中有 `devcontainer.json` 文件，{% data variables.product.prodname_codespaces %} 将运行它。 更多信息请参阅“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)”。
+- Docker 容器、`docker-compose` 或其他其他初始化将运行。
+- 此时，代码空间标记为可用，您可以连接。
+- 一旦代码空间可用，根据开发容器中的命令，代码空间将继续进行一些设置。
+  - 代码空间共享 `devcontainer.json` 文件中添加的端口。
+  - 代码空间运行 `postCreateCommand` 中指定的任何操作。
+  - {% data variables.product.prodname_codespaces %} 将 dotfiles 仓库克隆到代码空间并查找安装文件。 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)”。
+  - 最后，代码空间对仓库进行完整克隆，使您可以完全访问它。
 
 
 {% data reusables.codespaces.use-visual-studio-features %}
@@ -53,7 +53,7 @@ When you create a codespace, a number of steps happen to enable full access to y
 
   ![使用 Codespaces 打开按钮](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-4. To create a codespace using a Standard machine type, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+4. 要使用标准机器类型创建代码空间，请单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。
 
   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 

@@ -14,6 +14,7 @@ permissions: 'People with write permissions can delete files{% if currentVersion
 topics:
   - Repositories
 ---
+
 ### About file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} and directory{% endif %} deletion
 
 You can delete an individual file in your repository{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or an entire directory, including all the files in the directory{% endif %}.
@@ -25,8 +26,7 @@ If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_
 ### Deleting a file
 
 1. Navigiere zu der Datei in Deinem Repository, die Du löschen möchtest.
-2. At the top of the file, click
-{% octicon "trash" aria-label="The trash icon" %}.
+2. Klicke oben in der Datei auf {% octicon "trash" aria-label="The trash icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

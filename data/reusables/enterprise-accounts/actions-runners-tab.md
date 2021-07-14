@@ -1,1 +1,1 @@
-1. Click the {% if currentVersion == "free-pro-team@latest" %}**Runners**{% else %}**Self-hosted runners**{% endif %} tab.
+1. Click the {% ifversion fpt %}**Runners**{% else %}**Self-hosted runners**{% endif %} tab.

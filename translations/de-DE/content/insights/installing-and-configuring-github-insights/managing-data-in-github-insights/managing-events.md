@@ -8,6 +8,7 @@ permissions: 'People with admin permissions to {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 ### About events
 
 Events add context to metrics. For example, holidays or release dates can cause changes in work patterns, so knowing when those events occurred can change your evaluation of metrics. You can create events for the reorganization of teams, start dates of new employees, changes in scope for teams, and anything else that would affect your team's work.

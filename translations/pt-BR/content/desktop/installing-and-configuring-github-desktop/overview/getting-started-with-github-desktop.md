@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
 ---
+
 ### Introdução
 O {% data variables.product.prodname_desktop %} é um aplicativo que permite que você interaja com o {% data variables.product.prodname_dotcom %} usando uma GUI em vez da linha de comando ou de um navegador web. {% data variables.product.prodname_desktop %} incentiva você e sua equipe a colaborar usando as melhores práticas com Git e {% data variables.product.prodname_dotcom %}. Você pode usar {% data variables.product.prodname_desktop %} para realizar a maioria dos comandos do Git a partir de seu computador com a confirmação visual das mudanças. Você pode fazer subir, extrair e clonar repositórios remotos com o {% data variables.product.prodname_desktop %} e usar ferramentas colaborativas como atribuir commits e criar pull requests.
 

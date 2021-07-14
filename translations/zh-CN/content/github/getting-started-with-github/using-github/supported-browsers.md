@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Firefox Extended Support Release
 
 我们尽最大努力支持 Firefox 的最新 [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR)。 较旧版本的 Firefox 可能会禁用 {% data variables.product.product_name %} 上的某些功能，因此需要最新版本的 Firefox。

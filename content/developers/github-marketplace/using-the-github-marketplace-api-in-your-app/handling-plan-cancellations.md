@@ -7,17 +7,18 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /developers/github-marketplace/handling-plan-cancellations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Plan cancellations
 ---
 For more information about cancelling as it relates to billing, see "[Billing customers in {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)."
 
-### Step 1. Cancellation event
+## Step 1. Cancellation event
 
 If a customer chooses to cancel a {% data variables.product.prodname_marketplace %} order, GitHub sends a [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook with the action `cancelled` to your app when the cancellation takes effect. If the customer cancels during a free trial, your app will receive the event immediately. When a customer cancels a paid plan, the cancellation will occur at the end of the customer's billing cycle.
 
-### Step 2. Deactivating customer accounts
+## Step 2. Deactivating customer accounts
 
 When a customer cancels a free or paid plan, your app must perform these steps to complete cancellation:
 

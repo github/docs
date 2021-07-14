@@ -3,9 +3,9 @@ title: Configuring code scanning
 intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans the code in your project for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -16,7 +16,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### About {% data variables.product.prodname_code_scanning %} configuration
+## About {% data variables.product.prodname_code_scanning %} configuration
 
 You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system, using the {% data variables.product.prodname_codeql_runner %}. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)." For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 
@@ -28,7 +28,7 @@ Before you can configure {% data variables.product.prodname_code_scanning %} for
 
 {% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %} on {% data variables.product.prodname_dotcom_the_website %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. The specific examples given in this article relate to the {% data variables.product.prodname_codeql_workflow %} file.
 
-### Editing a {% data variables.product.prodname_code_scanning %} workflow
+## Editing a {% data variables.product.prodname_code_scanning %} workflow
 
 {% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
 
@@ -40,23 +40,23 @@ Before you can configure {% data variables.product.prodname_code_scanning %} for
 
 For more information about editing workflow files, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-### Configuring frequency
+## Configuring frequency
 
 You can configure the {% data variables.product.prodname_codeql_workflow %} to scan code on a schedule or when specific events occur in a repository.
 
 Scanning code when someone pushes a change, and whenever a pull request is created, prevents developers from introducing new vulnerabilities and errors into the code. Scanning code on a schedule informs you about the latest vulnerabilities and errors that {% data variables.product.company_short %}, security researchers, and the community discover, even when developers aren't actively maintaining the repository.
 
-#### Scanning on push
+### Scanning on push
 
 By default, the {% data variables.product.prodname_codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)."
 
-#### Scanning pull requests
+### Scanning pull requests
 
 The default {% data variables.product.prodname_codeql_workflow %} uses the `pull_request` event to trigger a code scan on pull requests targeted against the default branch. The `pull_request` event is not triggered if the pull request was opened from a private fork.
 
 For more information about the `pull_request` event, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)."
 
-#### Avoiding unnecessary scans of pull requests
+### Avoiding unnecessary scans of pull requests
 
 You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
 
@@ -82,7 +82,7 @@ on:
 
 For more information about using `on:pull_request:paths-ignore` and `on:pull_request:paths` to determine when a workflow will run for a pull request, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)."
 
-#### Scanning on a schedule
+### Scanning on a schedule
 
 If you use the default {% data variables.product.prodname_codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)."
 
@@ -92,7 +92,7 @@ If you use the default {% data variables.product.prodname_codeql_workflow %}, th
 
 {% endnote %}
 
-#### Example
+### Example
 
 The following example shows a {% data variables.product.prodname_codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
 
@@ -111,7 +111,7 @@ This workflow scans:
 * Every pull request to the default branch
 * The default branch every Tuesday at 7:40 UTC
 
-### Specifying an operating system
+## Specifying an operating system
 
 If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.product.prodname_codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.
 
@@ -126,7 +126,7 @@ jobs:
 
 You must ensure that Git is in the PATH variable on your self-hosted runners.
 
-### Changing the languages that are analyzed
+## Changing the languages that are analyzed
 
 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
 
@@ -156,8 +156,8 @@ If your workflow does not contain a matrix called `language`, then {% data varia
   with:
     languages: cpp, csharp, python
 ```
-{% if currentVersion == "free-pro-team@latest" %}
-### Analyzing Python dependencies
+{% ifversion fpt %}
+## Analyzing Python dependencies
 
 For GitHub-hosted runners that use Linux only, the {% data variables.product.prodname_codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
@@ -171,7 +171,7 @@ Alternatively, you can install Python dependencies manually on any operating sys
 jobs:
   CodeQL-Build:
 
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write
       actions: read{% endif %}
@@ -202,7 +202,7 @@ jobs:
 ```
 {% endif %}
 
-### Running additional queries
+## Running additional queries
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -236,7 +236,7 @@ In the following example, the `+` symbol ensures that the specified additional q
 ```
 {% endraw %}
 
-### Using a custom configuration file
+## Using a custom configuration file
 
 As an alternative to specifying which queries to run in the workflow file, you can do this in a separate configuration file. You can also use a configuration file to disable the default queries and to specify which directories to scan during analysis.
 
@@ -262,7 +262,7 @@ with:
 
 The settings in the configuration file are written in YAML format.
 
-#### Specifying additional queries
+### Specifying additional queries
 
 You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
 
@@ -277,11 +277,11 @@ Optionally, you can give each array element a name, as shown in the example conf
 
 For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
 
-#### Disabling the default queries
+### Disabling the default queries
 
 If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
 
-#### Specifying directories to scan
+### Specifying directories to scan
 
 For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
 
@@ -307,16 +307,16 @@ For compiled languages, if you want to limit {% data variables.product.prodname_
 
 You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) in your workflow.
 
-#### Example configuration files
+### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages)."
 
-### Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.prodname_dotcom %} can display code analysis data generated externally by a third-party tool. You can upload code analysis data with the `upload-sarif` action. For more information, see "[Uploading a SARIF file to GitHub](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)."

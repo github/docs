@@ -29,7 +29,9 @@ Para segredos armazenados no nível do ambiente, você pode habilitar os revisor
 
 #### Nomear os seus segredos
 
-{% data reusables.codespaces.secrets-naming %}. Por exemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}um segredo criado a nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
+{% data reusables.codespaces.secrets-naming %}
+
+  Por exemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}um segredo criado a nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
 
   {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Da mesma forma, se uma organização, repositório e o ambiente tiverem um segredo com o mesmo nome, o segredo ambiental terá prioridade.{% endif %}
 
@@ -184,7 +186,13 @@ etapas:
 
 ### Limites para segredos
 
-Você pode armazenar até 1.000 segredos por organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 segredos por repositório e 100 segredos por ambiente{% else %} e 100 segredos por repositório{% endif %}. Um fluxo de trabalho pode usar até 100 segredos da organização e 100 segredos de repositórios.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Além disso, um trabalho que faz referência a um ambiente pode usar até 100 segredos de ambiente.{% endif %}
+You can store up to 1,000 organization secrets{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+
+A workflow created in a repository can access the following number of secrets:
+
+* All 100 repository secrets.
+* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}* All 100 environment secrets.{% endif %}
 
 Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você pode armazenar segredos criptografados no seu repositório e salvar a frase secreta de descodificação como um segredo no {% data variables.product.prodname_dotcom %}. Por exemplo, você pode usar `gpg` para criptografar suas credenciais localmente antes de colocar o arquivo no repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a "[página do manual gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 

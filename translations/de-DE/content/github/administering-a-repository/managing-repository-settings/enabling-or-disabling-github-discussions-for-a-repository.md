@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
 ---
+
 {% data reusables.discussions.beta %}
 
 ### Enabling or disabling discussions for your repository

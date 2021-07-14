@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 GitHub 导入工具查找其电子邮件地址匹配您所导入仓库中提交作者的 GitHub 用户。 然后，您可以使用其电子邮件地址或作者的 GitHub 用户名将提交连接到其作者。
 
 ### 更新提交作者

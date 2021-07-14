@@ -1,24 +1,25 @@
 ---
 title: Reviewing your security log
 intro: You can review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
   - /github/authenticating-to-github/reviewing-your-security-log
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Security log
 ---
-### Accessing your security log
+## Accessing your security log
 
-The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
+The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user_settings.access_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 2. In the user settings sidebar, click **Security log**.
   ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
@@ -29,52 +30,52 @@ The security log lists all actions performed within the last 90 days{% if curren
   ![Security log](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Searching your security log
+{% ifversion fpt or ghae or ghes %}
+## Searching your security log
 
 {% data reusables.audit_log.audit-log-search %}
 
-#### Search based on the action performed
+### Search based on the action performed
 {% else %}
-### Understanding events in your security log
+## Understanding events in your security log
 {% endif %}
 
 The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
 
 | Category name | Description
-|------------------|-------------------{% if currentVersion == "free-pro-team@latest" %}
+|------------------|-------------------{% ifversion fpt %}
 | [`account_recovery_token`](#account_recovery_token-category-actions) | Contains all activities related to [adding a recovery token](/articles/configuring-two-factor-authentication-recovery-methods).
 | [`billing`](#billing-category-actions) | Contains all activities related to your billing information.
 | [`codespaces`](#codespaces-category-actions) | Contains all activities related to {% data variables.product.prodname_codespaces %}. For more information, see "[About {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)."
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
 | [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
-| [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
+| [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% ifversion fpt %}
 | [`payment_method`](#payment_method-category-actions) | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}
 | [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your profile picture.
 | [`project`](#project-category-actions) | Contains all activities related to project boards.
 | [`public_key`](#public_key-category-actions) | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).
-| [`repo`](#repo-category-actions) | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| [`sponsors`](#sponsors-category-actions) | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| [`team`](#team-category-actions) | Contains all activities related to teams you are a part of.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| [`repo`](#repo-category-actions) | Contains all activities related to the repositories you own.{% ifversion fpt %}
+| [`sponsors`](#sponsors-category-actions) | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes or ghae %}
+| [`team`](#team-category-actions) | Contains all activities related to teams you are a part of.{% endif %}{% ifversion not ghae %}
 | [`two_factor_authentication`](#two_factor_authentication-category-actions) | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
 | [`user`](#user-category-actions) | Contains all activities related to your account.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Exporting your security log
+## Exporting your security log
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 {% endif %}
 
-### Security log actions
+## Security log actions
 
 An overview of some of the most common actions that are recorded as events in the security log.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-#### `account_recovery_token` category actions
+### `account_recovery_token` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -82,14 +83,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `recover` | Triggered when you successfully [redeem an account recovery token](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).
 | `recover_error` | Triggered when a token is used but {% data variables.product.prodname_dotcom %} is not able to validate it.
 
-#### `billing` category actions
+### `billing` category actions
 
 | Action | Description
 |------------------|-------------------
 | `change_billing_type` | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {% data variables.product.prodname_dotcom %}.
 | `change_email` | Triggered when you [change your email address](/articles/changing-your-primary-email-address).
 
-#### `codespaces` category actions
+### `codespaces` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -99,13 +100,13 @@ An overview of some of the most common actions that are recorded as events in th
 | `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 | `trusted_repositories_access_update` | Triggered when you change your user account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 
-#### `marketplace_agreement_signature` category actions
+### `marketplace_agreement_signature` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
 
-#### `marketplace_listing` category actions
+### `marketplace_listing` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -117,16 +118,16 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `oauth_access` category actions
+### `oauth_access` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/articles/authorizing-oauth-apps).
 | `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations).
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-#### `payment_method` category actions
+### `payment_method` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -136,13 +137,13 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `profile_picture` category actions
+### `profile_picture` category actions
 
 | Action | Description
 |------------------|-------------------
 | `update` | Triggered when you [set or update your profile picture](/articles/setting-your-profile-picture/).
 
-#### `project` category actions
+### `project` category actions
 
 | Action | Description
 |--------------------|---------------------
@@ -155,28 +156,28 @@ An overview of some of the most common actions that are recorded as events in th
 | `unlink` | Triggered when a repository is unlinked from a project board.
 | `update_user_permission` | Triggered when an outside collaborator is added to or removed from a project board or has their permission level changed.
 
-#### `public_key` category actions
+### `public_key` category actions
 
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you [add a new public SSH key to your {% data variables.product.product_name %} account](/articles/adding-a-new-ssh-key-to-your-github-account).
 | `delete` | Triggered when you [remove a public SSH key to your {% data variables.product.product_name %} account](/articles/reviewing-your-ssh-keys).
 
-#### `repo` category actions
+### `repo` category actions
 
 | Action | Description
 |------------------|-------------------
 | `access` | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
-| `add_member` | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
+| `add_member` | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
 | `add_topic` | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| `archived` | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
+| `archived` | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% ifversion ghes %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
 | `config.unlock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
 | `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).
-| `destroy` |  Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
-| `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `destroy` |  Triggered when [a repository is deleted](/articles/deleting-a-repository).{% ifversion fpt %}
+| `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt %}
 | `enable` | Triggered when a repository is re-enabled.{% endif %}
 | `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
 | `remove_topic` | Triggered when a repository owner removes a topic from a repository.
@@ -185,8 +186,8 @@ An overview of some of the most common actions that are recorded as events in th
 | `transfer_start` | Triggered when a repository transfer is about to occur.
 | `unarchived` | Triggered when a repository owner unarchives a repository.
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### `sponsors` category actions
+{% ifversion fpt %}
+### `sponsors` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -209,8 +210,8 @@ An overview of some of the most common actions that are recorded as events in th
 | `waitlist_join` | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### `successor_invitation` category actions
+{% ifversion fpt %}
+### `successor_invitation` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -221,9 +222,9 @@ An overview of some of the most common actions that are recorded as events in th
 | `revoke` | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 
-#### `team` category actions
+### `team` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -236,8 +237,8 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-{% if currentVersion != "github-ae@latest" %}
-#### `two_factor_authentication` category actions
+{% ifversion not ghae %}
+### `two_factor_authentication` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -245,27 +246,27 @@ An overview of some of the most common actions that are recorded as events in th
 | `disabled` | Triggered when two-factor authentication is disabled.
 {% endif %}
 
-#### `user` category actions
+### `user` category actions
 
 | Action | Description
 |--------------------|---------------------
-| `add_email` | Triggered when you {% if currentVersion != "github-ae@latest" %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% if currentVersion == "free-pro-team@latest" %}
+| `add_email` | Triggered when you {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt %}
 | `codespaces_trusted_repo_access_granted` | Triggered when you [allow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces.
 | `codespaces_trusted_repo_access_revoked` | Triggered when you [disallow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. {% endif %}
-| `create` | Triggered when you create a new user account.{% if currentVersion != "github-ae@latest" %}
+| `create` | Triggered when you create a new user account.{% ifversion not ghae %}
 | `change_password` | Triggered when you change your password.
 | `forgot_password` | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
 | `hide_private_contributions_count` | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
-| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes > 2.22 or ghae %}
 `mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
 | `failed_login` | Triggered when you failed to log in successfully.
 | `remove_email` | Triggered when you remove an email address.
-| `rename` | Triggered when you rename your account.{% if currentVersion == "free-pro-team@latest" %}
+| `rename` | Triggered when you rename your account.{% ifversion fpt %}
 | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %}
-| `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %}
+| `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %}
 | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
-#### `user_status` category actions
+### `user_status` category actions
 
 | Action | Description
 |--------------------|---------------------

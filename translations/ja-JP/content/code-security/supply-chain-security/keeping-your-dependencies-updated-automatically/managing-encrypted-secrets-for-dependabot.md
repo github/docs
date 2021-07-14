@@ -6,7 +6,15 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
+topics:
+  - Dependabot
+  - Version updates
+  - Secret store
+  - Repositories
+  - Dependencies
 ---
+
 ### {% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットについて
 
 {% data variables.product.prodname_dependabot %} シークレットとは、Organization レベルまたはリポジトリレベルで作成する、暗号化された資格情報のことです。

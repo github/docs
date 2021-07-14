@@ -16,6 +16,7 @@ topics:
   - Teams
   - User account
 ---
+
 Cada equipe tem suas próprias [ permissões de acesso definidas individualmente para os repositórios pertencentes à organização](/articles/permission-levels-for-an-organization).
 
 - Integrantes com função de Proprietário podem adicionar ou remover os integrantes atuais de todas as equipes da organização.
@@ -23,8 +24,8 @@ Cada equipe tem suas próprias [ permissões de acesso definidas individualmente
 
 ### Configurar uma equipe
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}

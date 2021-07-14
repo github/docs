@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de tu codespace
-intro: Use this guide to help you troubleshoot common issues with your codespace.
+intro: Utiliza esta guía para ayudarte a solucionar los problemas comunes de tu codespace.
 redirect_from:
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace
   - /github/developing-online-with-codespaces/troubleshooting-your-codespace
@@ -14,18 +14,18 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### Known Limitations
+### Limitantes conocidas
 
 {% data reusables.codespaces.beta-functionality-limited %}
 
 {% data reusables.codespaces.unsupported-repos %}
 
-### {% data variables.product.prodname_vscode %} troubleshooting
+### Solución de problemas de {% data variables.product.prodname_vscode %}
 
-Use **Issues** in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues) repository to check for known issues or to log issues about the {% data variables.product.prodname_vscode %} experience.
+Utiliza las **Propuestas** en el repositorio [`microsoft/vscode`](https://github.com/microsoft/vscode/issues) para registrar o conocer las propuestas que hay sobre la experiencia con {% data variables.product.prodname_vscode %}.
 
 
-### Configuration troubleshooting
+### Solución de problemas para la configuración
 
 {% data reusables.codespaces.recovery-mode %}
 
@@ -33,35 +33,35 @@ Use **Issues** in the [`microsoft/vscode`](https://github.com/microsoft/vscode/i
 Este codespace se ejecuta acutalmente en modo de recuperación debido a un error del contenedor.
 ```
 
-Review the creation logs, update the configuration as needed, and run **Codespaces: Rebuild Container** in the command palette to retry. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
+Revisa las bitácoras de creación, actualiza la configuración como lo requieras y ejecuta **Codespaces: Rebuild Container** en la paleta de comandos para volver a intentarlo. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
 
-### dotfiles troubleshooting
+### Solución de problemas de dotfiles
 
-- Make sure your dotfiles repository is public. If you have secrets or sensitive data you want to use in your codespace, use [Codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) instead of private dotfiles.
-- Check `/workspaces/.codespaces/.persistedshare/dotfiles` to see if your dotfiles were cloned.
-  - If your dotfiles were cloned, try manually re-running your install script to verify it's executable.
-  - If your dotfiles weren't cloned, check `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` to see if there was a problem cloning them.
-- Check `/workspaces/.codespaces/.persistedshare/creation.log` for possible issues. Alternatively, you can view the `creation.log` by navigating to the command palette and entering **Codespaces: View Creation Log**.
+- Asegúrate que tu repositorio de dotfiles sea público. Si tienes secretos o datos sensibles que quieras utilizar en tu codespace, utiliza los [Secretos de codespace](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) en vez de los dotfiles privados.
+- Verifica `/workspaces/.codespaces/.persistedshare/dotfiles` para ver si se clonaron tus dotfiles.
+  - Si se clonaron tus dotfiles, intenta volver a ejecutar tu script de instalación manualmente para verificar si es ejecutable.
+  - Si tus dotfiles ni se clonaron, verifica `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` para ver si hubo un problema al clonarlos.
+- Verifica `/workspaces/.codespaces/.persistedshare/creation.log` para encontrar problemas posibles. Como alternativa, puedes ver el `creation.log` si navegas a la paleta de comandos e ingresas **Codespaces: View Creation Log**.
 
 
-### Browser troubleshooting
+### Solución de problemas del buscador
 
 Si encuentras problemas al utilizar un buscador que no se base en Chromium, intenta cambiar a uno que sí se base en él, o revisa los problemas conocidos de tu buscador en el repositorio `microsoft/vscode` buscando los problemas etiquetados con el nombre del buscador, tales como [`firefox`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+label%3Afirefox) o [`safari`](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Asafari).
 
 Si encuentras problemas al utilizar un buscador basado en Chromium, puedes revisar si estás experimentando otro problema conocido con {% data variables.product.prodname_vscode %} en el repositorio [`microsoft/vscode`](https://github.com/microsoft/vscode/issues).
 
-### Container storage troubleshooting
+### Solución de problemas el almacenamiento de contenedores
 
-When you create a codespace, it has a finite amount of storage and over time it may be necessary for you to free up space. Try any of the following items to free up storage space.
+Cuando creas un codespace, este tiene una cantidad de almacenamiento finita y, con el tiempo, podría que necesites liberar espacio. Intenta cualquiera de los siguientes elementos para liberar espacio de almacenamiento.
 
-- Remove packages that are no longer by using `sudo apt autoremove`
-- Clean the apt cache by using `sudo apt clean`
-- Delete unneeded files like build artifacts and logs (these are very project-dependent)
-- See the top 10 largest files in the codespace: `sudo find / -printf '%s %p\n'| sort -nr | head -10`
+- Elimina los paquetes que ya no se utilizan con `sudo apt autoremove`
+- Limpia el caché de apt utilizando `sudo apt clean`
+- Borra los archivos innecesarios como artefactos de compilación y bitácoras (estos dependen mucho del proyecto)
+- Consulta los 10 archivos más grandes en el codespace: `sudo find / -printf '%s %p\n'| sort -nr | head -10`
 
-More destructive options:
-- Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes)
-- Remove untracked files from working tree: `git clean -i`
+Más opciones destructivas:
+- Elimina las imágenes de Docker, redes y contenedores sin utilizar con `docker system prune` (adjunta una `-a` si quieres eliminar todas las imágenes, y `--volumes` si quieres eliminar todos los volúmenes)
+- Elimina los archivos no rastreados del árbol de trabajo: `git clean -i`
 
 ### Contáctanos
 

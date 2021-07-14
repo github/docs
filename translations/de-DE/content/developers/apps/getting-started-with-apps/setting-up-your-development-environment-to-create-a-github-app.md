@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### Einführung
 
 This guide will walk through the steps needed to configure a GitHub App and run it on a server. GitHub Apps require some setup steps to manage webhook events and connect the app registration on GitHub to your code. The app in this guide serves as a foundation that you can use to extend and build new GitHub Apps.

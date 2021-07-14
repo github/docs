@@ -13,9 +13,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 每次按键盘上的 <kbd>return</kbd> 时，会插入一个称为行结束符的不可见字符。 不同的操作系统处理行结束符的方式不同。
 
-When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
+在使用 Git 和 {% data variables.product.product_name %} 协作处理项目时，Git 可能产生意外结果，例如，您在 Windows 计算机上操作，而您的协作者是在 macOS 中做的更改。
 
 您可以将 Git 配置为自动处理行结束符，以便与使用不同操作系统的人员有效地协作。
 
@@ -25,7 +26,7 @@ When you're collaborating on projects with Git and {% data variables.product.pro
 
 {% mac %}
 
-On macOS, you simply pass `input` to the configuration. 例如：
+在 macOS 上，只需将 `input（输入）`传递给配置。 例如：
 
 ```shell
 $ git config --global core.autocrlf input

@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - High availability
 ---
+
 Usar várias réplicas ativas diminui a distância até a réplica mais próxima. Por exemplo, uma organização com escritórios em San Francisco, Nova York e Londres pode executar o appliance primário em um datacenter próximo a Nova York e duas réplicas em datacenters próximos a San Francisco e Londres. Ao usar um DNS compatível com localização geográfica, os usuários podem ser direcionados para o servidor mais próximo disponível e acessar os dados do repositório em menos tempo. Definir o appliance próximo a Nova York como o primário ajuda a reduzir a latência entre os hosts, em comparação a definir o appliance próximo a San Francisco como o principal, que tem maior latência para Londres.
 
 Os proxies de réplica ativos informam que não podem processar a si mesmos para a instância principal. As réplicas funcionam como ponto de presença, encerrando todas as conexões SSL. O tráfego entre hosts é enviado por meio de uma conexão VPN criptografada, semelhante a uma configuração de alta disponibilidade de dois nós sem replicação geográfica.

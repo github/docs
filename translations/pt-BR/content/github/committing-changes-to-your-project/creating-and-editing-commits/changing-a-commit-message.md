@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Reescrever a mensagem do commit mais recente
 
 Você pode alterar a mensagem do commit mais recente usando o comando `git commit --amend`.
@@ -49,9 +50,9 @@ O recomendável é evitar tanto quanto possível o push forçado, uma vez que is
 **Alterar a mensagem do commit enviado mais recentemente**
 
 1. Siga as [etapas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para corrigir a mensagem do commit.
-2. Use o comando `push --force` para forçar o push sobre o commit antigo.
+2. Use o comando `push --force-with-lease` para fazer push forçado sobre o commit antigo.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **Alterar a mensagem das mensagens mais antigas ou múltiplas do commit**

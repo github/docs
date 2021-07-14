@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### クラスタの High Availability レプリケーションについて
 
 High Availability を実現するために、{% data variables.product.prodname_ghe_server %} のクラスタデプロイメントを設定できます。この場合、パッシブノードの同一のセットがアクティブクラスタ内のノードと同期されます。 ハードウェアまたはソフトウェアの障害がアクティブなクラスタのデータセンターに影響を与える場合は、手動でレプリカノードにフェイルオーバーし、ユーザリクエストの処理を続行して、停止の影響を最小限に抑えることができます。

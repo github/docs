@@ -15,6 +15,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.notifications.outbound_email_tip %}
 
 Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits. Na notificação de e-mail, você verá:

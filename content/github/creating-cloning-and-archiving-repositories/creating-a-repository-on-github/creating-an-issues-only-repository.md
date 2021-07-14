@@ -7,11 +7,12 @@ redirect_from:
   - /articles/creating-an-issues-only-repository
   - /github/creating-cloning-and-archiving-repositories/creating-an-issues-only-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Issues-only repository
 ---
 1. Create a **private** repository to host the source code from your project.
 2. Create a second repository with the permissions you desire to host the issue tracker.

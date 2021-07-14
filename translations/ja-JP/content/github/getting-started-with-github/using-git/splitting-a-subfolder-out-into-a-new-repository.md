@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 リポジトリの新しいクローンを作成した場合でも、フォルダを別のリポジトリに分割したとき、Git の履歴や変更を失うことはありません。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

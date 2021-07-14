@@ -1,4 +1,4 @@
-Before you can restrict email notifications for your enterprise account, you must verify or approve at least one domain for the enterprise account. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+在限制企业帐户的电子邮件通知之前，必须至少验证或批准企业帐户的一个域。 更多信息请参阅“[验证或批准企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

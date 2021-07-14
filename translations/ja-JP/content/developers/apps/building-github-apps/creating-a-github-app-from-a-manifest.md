@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### GitHub App Manifest について
 
 GitHub App をマニフェストから作成する場合、URL とアプリケーションの名前をフォローするだけで済みます。 マニフェストには、アプリケーションを自動的に登録するために必要な権限、イベント、webhook URL が含まれています。 マニフェストフローは、GitHub App の登録を作成し、アプリケーションの webhook シークレット、秘密鍵 (PEM ファイル)、および GitHub App ID を取得します。 マニフェストからアプリケーションを作成した人はそのアプリケーションを所有し、[アプリケーションの構成設定を編集](/apps/managing-github-apps/modifying-a-github-app/)、削除、または GitHub 上の他のユーザに移譲することを選択できます。

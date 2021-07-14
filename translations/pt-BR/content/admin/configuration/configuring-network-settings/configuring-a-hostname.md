@@ -14,6 +14,7 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
 Se configurar um nome de host em vez de um endereço IP codificado, você poderá alterar o hardware físico em que a {% data variables.product.product_location %} é executada sem afetar os usuários ou o software cliente.
 
 A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.nomedaempresa.com.` Também recomendamos habilitar o isolamento de subdomínio para o nome do host escolhido a fim de mitigar várias vulnerabilidades no estilo de script entre sites. Para obter mais informações sobre as configurações de nome de host, consulte a [Seção 2.1 em HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).

@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Options for getting changes
 
 これらのコマンドは[リモートリポジトリ](/github/getting-started-with-github/about-remote-repositories)の操作時に非常に便利です。 `clone` および `fetch` は、リポジトリのリモート URL からお使いのローカルのコンピュータにリモートコードをダウンロードします。`merge` は、他のユーザの作業を自分のものとマージするために使用します。`pull` は、`fetch` と `merge` の組み合わせです。

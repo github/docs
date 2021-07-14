@@ -14,16 +14,17 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Git
   - Enterprise
   - LFS
   - Storage
+shortTitle: Configure Git LFS
 ---
-### About {% data variables.large_files.product_name_long %}
+## About {% data variables.large_files.product_name_long %}
 
 {% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} You can use {% data variables.large_files.product_name_long %} with a single repository, all of your personal or organization repositories, or with every repository in your enterprise. Before you can enable {% data variables.large_files.product_name_short %} for specific repositories or organizations, you need to enable {% data variables.large_files.product_name_short %} for your enterprise.
 
@@ -34,10 +35,10 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
-### Configuring {% data variables.large_files.product_name_long %} for your enterprise
+## Configuring {% data variables.large_files.product_name_long %} for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -46,7 +47,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 4. Under "{% data variables.large_files.product_name_short %} access", use the drop-down menu, and click **Enabled** or **Disabled**.
 ![Git LFS Access](/assets/images/enterprise/site-admin-settings/git-lfs-admin-center.png)
 
-### Configuring {% data variables.large_files.product_name_long %} for an individual repository
+## Configuring {% data variables.large_files.product_name_long %} for an individual repository
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -57,7 +58,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-### Configuring {% data variables.large_files.product_name_long %} for every repository owned by a user account or organization
+## Configuring {% data variables.large_files.product_name_long %} for every repository owned by a user account or organization
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -66,8 +67,8 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Configuring Git Large File Storage to use a third party server
+{% ifversion ghes %}
+## Configuring Git Large File Storage to use a third party server
 
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
@@ -104,7 +105,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
   ```
 3. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
 
-### Migrating to a different Git Large File Storage server
+## Migrating to a different Git Large File Storage server
 
 Before migrating to a different {% data variables.large_files.product_name_long %} server, you must configure {% data variables.large_files.product_name_short %} to use a third party server. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
 
@@ -139,6 +140,6 @@ Before migrating to a different {% data variables.large_files.product_name_long 
   ```
 {% endif %}
 
-### Further reading
+## Further reading
 
 - [{% data variables.large_files.product_name_long %} project site](https://git-lfs.github.com/)

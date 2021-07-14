@@ -18,6 +18,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 ### 删除私有仓库的复刻
 
 尽管删除协作者时将删除私有仓库的复刻，但此人员将仍保留您仓库的任何本地克隆。
@@ -28,9 +29,7 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. 在要删除的协作者右边，单击
-{% octicon "trash" aria-label="The trash icon" %}.
-  ![用于删除协作者的按钮](/assets/images/help/repository/collaborator-remove.png)
+4. 在要要删除的协作者的右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。 ![用于删除协作者的按钮](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. 在左侧边栏中，单击 **Collaborators & teams（协作者和团队）**。 ![协作者选项卡](/assets/images/help/repository/repo-settings-collaborators.png)
 4. 在要删除的协作者旁边，单击 **X** 图标。 ![删除链接](/assets/images/help/organizations/Collaborator-Remove.png)

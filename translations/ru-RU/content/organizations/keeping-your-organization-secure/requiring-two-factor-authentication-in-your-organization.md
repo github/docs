@@ -57,8 +57,8 @@ To view people who were automatically removed from your organization for non-com
 
 ![Audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Enter your search query. To search for:
     - Organization members removed, use `action:org.remove_member` in your search query

@@ -15,6 +15,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Informationen zu Remote-Repositorys
 
 Eine Remote-URL ist die offizielle Ausdrucksweise von Git für „der Ort, an dem Dein Code gespeichert ist“. That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.

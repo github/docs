@@ -12,6 +12,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ### 推奨する最小のハードウェア構成

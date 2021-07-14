@@ -82,6 +82,7 @@ versions:
 
 - {% data variables.product.prodname_classroom %}についてのビデオを見てみましょう。 詳しい情報については、「[{% data variables.product.prodname_classroom %}のセットアップの基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
 - クラスルームおよびクラスルームの管理者を管理し、クラスルームの学生名簿を作成しましょう。 詳しい情報については、「[クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms)」を参照してください。
+- Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)."
 - 個々の学生またはチームの課題を作成しましょう。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 - 課題リポジトリで直接、学生へのフィードバックをすみやかに行うため、自動テストを作成して実装しましょう。 詳しい情報については「[自動採点の利用](/education/manage-coursework-with-github-classroom/use-autograding)」を参照してください。
 - {% data variables.product.prodname_education_community_with_url %}に参加しましょう。

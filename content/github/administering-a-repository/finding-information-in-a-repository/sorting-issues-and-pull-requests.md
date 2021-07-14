@@ -6,11 +6,12 @@ redirect_from:
   - /articles/sorting-issues-and-pull-requests
   - /github/managing-your-work-on-github/sorting-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Sort issues & PRs
 ---
 You can sort any filtered view by:
 
@@ -29,7 +30,7 @@ You can sort any filtered view by:
 
 To clear your sort selection, click **Sort** > **Newest**.
 
-### Further reading
+## Further reading
 
 * "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 * "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"

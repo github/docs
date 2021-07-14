@@ -2,13 +2,14 @@
 title: Managing your scheduled reminders
 intro: Get reminders in Slack when you or your team have pull requests waiting for review.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
+shortTitle: Manage scheduled reminders
 ---
-### About scheduled reminders for users
+## About scheduled reminders for users
 
 Scheduled reminders are used to make sure that users focus on the most important review requests that require their attention. Scheduled reminders for pull requests will send a message to you in Slack with open pull requests needing your review at a specified time. For example, you can setup scheduled reminders to send you a message in Slack every morning at 10 AM with pull requests needing to be reviewed by you or one of your teams.
 
@@ -18,7 +19,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Creating scheduled reminders for your user account
+## Creating scheduled reminders for your user account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -37,7 +38,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 ![Enable real-time alerts checkbox](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
 {% data reusables.reminders.create-reminder %}
 
-### Managing scheduled reminders for your user account
+## Managing scheduled reminders for your user account
 {% data reusables.user_settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/profile/scheduled-reminders-profile.png)
@@ -46,7 +47,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Deleting scheduled reminders for your user account
+## Deleting scheduled reminders for your user account
 {% data reusables.user_settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/profile/scheduled-reminders-profile.png)
@@ -54,7 +55,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 ![Scheduled reminders edit button](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.delete %}
 
-### Further reading
+## Further reading
 
 - "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
 - "[Managing scheduled reminders for your team](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

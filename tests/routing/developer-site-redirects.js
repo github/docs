@@ -2,9 +2,10 @@ const path = require('path')
 const { eachOfLimit } = require('async')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get } = require('../helpers/supertest')
-const restRedirectFixtures = require('../fixtures/rest-redirects')
-const graphqlRedirectFixtures = require('../fixtures/graphql-redirects')
-const developerRedirectFixtures = require('../fixtures/developer-redirects')
+const readJsonFile = require('../../lib/read-json-file')
+const restRedirectFixtures = readJsonFile('./tests/fixtures/rest-redirects.json')
+const graphqlRedirectFixtures = readJsonFile('./tests/fixtures/graphql-redirects.json')
+const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redirects.json')
 
 const MAX_CONCURRENT_REQUESTS = 50
 

@@ -1,6 +1,6 @@
 ---
-title: Managing access and security for your codespaces
-intro: 'You can manage the repositories that {% data variables.product.prodname_codespaces %} can access.'
+title: Administrar el acceso y la seguridad de tus codespaces
+intro: 'Puedes administrar los repositorios a los cuales pueden acceder los {% data variables.product.prodname_codespaces %}.'
 versions:
   free-pro-team: '*'
 topics:
@@ -9,7 +9,7 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-When you enable access and security for a repository owned by your user account, any codespaces that are created for that repository will have read and write permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. Solo debes habilitar el acceso y la seguridad para los repositorios en los cuales confíes.
+Cuando habilitas el acceso y la seguridad de un repositorio que pertenezca a tu cuenta de usuario, cualquier codespace que se cree para este tendrá permisos de escritura en el resto de los repositorios que te pertenezcan. Si quieres restringir los repositorios a los que puede acceder un codespace, puedes limitarlos a ya sea el repositorio para el cual se abrió el codespace o a repositorios específicos. Solo debes habilitar el acceso y la seguridad para los repositorios en los cuales confíes.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}

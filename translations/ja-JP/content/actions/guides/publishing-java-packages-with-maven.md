@@ -32,7 +32,7 @@ MavenでのJavaプロジェクトのためのCIワークフローの作成に関
 
 また、以下の基本的な理解があれば役立ちます。
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- 「[npm レジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)」
 - 「[環境変数](/actions/reference/environment-variables)」
 - 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
 - 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
@@ -112,7 +112,7 @@ jobs:
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{% data variables.product.prodname_registry %}にパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{% data variables.product.prodname_registry %}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。 The `GITHUB_TOKEN` environment variable is assigned the value of the special `GITHUB_TOKEN` secret.
+このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{% data variables.product.prodname_registry %}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。 `GITHUB_TOKEN` 環境変数には、特別な `GITHUB_TOKEN` シークレットの値が割り当てられます。
 
 {% data reusables.github-actions.github-token-permissions %}
 

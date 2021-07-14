@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variables.product.product_location %} auflösen.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}

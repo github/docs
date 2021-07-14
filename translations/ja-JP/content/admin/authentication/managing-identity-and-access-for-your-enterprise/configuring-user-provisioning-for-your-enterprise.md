@@ -16,6 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
+
 ### Enterprise 向けのユーザプロビジョニングについて
 
 {% data reusables.saml.ae-uses-saml-sso %}詳しい情報については、「[Enterprise 向けの SAML シングルサインオンを設定する](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
@@ -52,9 +53,7 @@ IdP から {% data variables.product.product_location %} へのアクセスを�
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. Enterprise オーナーとして
-
-{% data variables.product.product_location %} にサインインしているときに、**admin:enterprise** スコープで個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+1. While signed into {% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
   {% note %}
 
   設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。

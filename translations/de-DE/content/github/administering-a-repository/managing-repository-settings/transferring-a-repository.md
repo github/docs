@@ -20,6 +20,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Informationen zur Übertragung von Repositorys
 
 Wenn Du ein Repository auf einen neuen Inhaber überträgst, kann dieser die Inhalte, Issues, Pull Requests, Releases, Projektboards und Einstellungen des Repositorys sofort verwalten.

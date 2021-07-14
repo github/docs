@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### {% data variables.product.prodname_vss_ghe %} について
 
 {% data variables.product.prodname_vss_ghe %} は、サブスクライバーが {% data variables.product.prodname_enterprise %} と {% data variables.product.prodname_vs %} の両方を使用できるように組み合わせて販売されている Microsoft の製品です。 {% data variables.product.prodname_vss_ghe %} は、Microsoft Enterprise Agreement の条件に基づいて Microsoft から入手できます。 詳しい情報については、「{% data variables.product.prodname_vs %} Web サイトの [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/)」を参照してください。

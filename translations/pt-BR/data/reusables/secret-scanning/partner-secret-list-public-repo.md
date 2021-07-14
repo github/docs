@@ -77,3 +77,4 @@
 | Tencent Cloud             | ID de segredot de Tencent Cloud                           |
 | Twilio                    | Identificador de string de conta de Twilio                |
 | Twilio                    | Chave da API de Twilio                                    |
+| Valour                    | Valour Access Token                                       |

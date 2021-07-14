@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 3. 在左侧边栏中，单击 **{% data variables.product.prodname_oauth_app %}**。 ![左侧边栏中的 {% data variables.product.prodname_oauth_app %} 选项卡](/assets/images/help/settings/developer-settings-oauth-apps.png)

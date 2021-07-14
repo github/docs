@@ -9,6 +9,7 @@ versions:
 topics:
   - Early access
 ---
+
 ### Release-Zyklus von {% data variables.product.prodname_dotcom %}
 
 Die Produkte und Funktionen von {% data variables.product.product_name %} können mehrere Release-Phasen durchlaufen.

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 インテグレーションは、個人アカウントおよび自分が所有する Organization にインストールできます。 サードパーティの {% data variables.product.prodname_github_app %} を、自分が管理者権限を持っているか、自分の Organization が所有している特定のリポジトリに対してインストールすることもできます。
 
 ### {% data variables.product.prodname_github_app %}と{% data variables.product.prodname_oauth_app %}の違い

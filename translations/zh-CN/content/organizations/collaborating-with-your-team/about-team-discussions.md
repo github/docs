@@ -43,7 +43,7 @@ topics:
 
 ### 延伸阅读
 
-- "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
+- "[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - "[关于团队](/articles/about-teams)"
 - "[创建团队讨论](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
 - "[编辑或删除团队讨论](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

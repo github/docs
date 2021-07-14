@@ -6,13 +6,13 @@
 // It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
 //
 // [end-readme]
-
+const searchSync = require('./search/sync')
 require('make-promises-safe')
 
 main()
 
 async function main () {
-  const sync = require('./search/sync')
+  const sync = searchSync
   const opts = {
     dryRun: 'DRY_RUN' in process.env,
     language: process.env.LANGUAGE,

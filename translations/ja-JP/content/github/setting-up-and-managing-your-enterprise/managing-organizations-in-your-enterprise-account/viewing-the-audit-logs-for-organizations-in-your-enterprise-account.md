@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 各 Audit log エントリには、次のようなイベントに関する適切な情報が表示されます:
 
 - アクションが実行された Organization

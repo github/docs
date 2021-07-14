@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Na barra lateral esquerda, clique em **Deploy keys** (Chaves de implantação). ![Configuração das chaves de implantação](/assets/images/help/settings/settings-sidebar-deploy-keys.png)

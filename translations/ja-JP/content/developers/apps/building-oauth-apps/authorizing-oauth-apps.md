@@ -16,6 +16,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% data variables.product.product_name %} のOAuthの実装は、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}およびWebブラウザを利用できないアプリケーションのためのOAuth 2.0の[Device Authorization Grant](https://tools.ietf.org/html/rfc8628){% endif %}をサポートしています。
 
 アプリケーションをテストする場合のように、標準的な方法でのアプリケーションの認可をスキップしたい場合には[非Webアプリケーションフロー](#non-web-application-flow)を利用できます。
@@ -60,11 +61,11 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 | `client_id`    | `string` | **必須**。 ユーザが{% if currentVersion == "free-pro-team@latest" %}[登録](https://github.com/settings/applications/new){% else %}登録{% endif %}されたときに受け取るクライアントID。                                                                                                                                                                                                                                                     |
 | `redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 [リダイレクトURL](#redirect-urls)に関する詳細については下を参照してください。                                                                                                                                                                                                                                                                                                                                 |
 | `login`        | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。                                                                                                                                                                                                                                                                                                                                                                            |
-| `scope`        | `string` | スペース区切りの[スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)のリスト。 渡されなかった場合、ユーザの`スコープ`のデフォルトは空のリストになり、アプリケーションにはどのスコープも認可されません。 アプリケーションに対して認可したスコープがあるユーザに対しては、スコープのリストを含むOAuthの認可ページは示されません。 その代わりに、フローのこのステップはユーザがアプリケーションに認可したスコープ群で自動的に完了します。 たとえば、ユーザがすでにWebフローを2回行っており、1つのトークンで`user`スコープを、もう1つのトークンで`repo`スコープを認可している場合、3番目のWebフローで`scope`が渡されなければ、`user`及び`repo`スコープを持つトークンが返されます。 |
+| `スコープ`         | `string` | スペース区切りの[スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)のリスト。 渡されなかった場合、ユーザの`スコープ`のデフォルトは空のリストになり、アプリケーションにはどのスコープも認可されません。 アプリケーションに対して認可したスコープがあるユーザに対しては、スコープのリストを含むOAuthの認可ページは示されません。 その代わりに、フローのこのステップはユーザがアプリケーションに認可したスコープ群で自動的に完了します。 たとえば、ユーザがすでにWebフローを2回行っており、1つのトークンで`user`スコープを、もう1つのトークンで`repo`スコープを認可している場合、3番目のWebフローで`scope`が渡されなければ、`user`及び`repo`スコープを持つトークンが返されます。 |
 | `state`        | `string` | {% data reusables.apps.state_description %}
 | `allow_signup` | `string` | OAuthフローの間に、認証されていないユーザに対してGitHubへのサインアップの選択肢が提示されるかどうか。 デフォルトは `true` です。 ポリシーでサインアップが禁止されている場合は`false`を使ってください。                                                                                                                                                                                                                                                                                             |
 
-#### 2. GitHubによるサイトへのユーザのリダイレクト
+#### 2. ユーザはGitHubによってサイトにリダイレクトして戻されます
 
 ユーザがリクエストを受け付けると、{% data variables.product.product_name %}は一時的な`コード`をcodeパラメータに、そして前のステップで渡された状態を`state`パラメータに入れてリダイレクトさせ、サイトに戻します。 一時コードは10分後に期限切れになります。 状態が一致しない場合は、リクエストを作成したサードパーティとユーザはこのプロセスを中止しなければなりません。
 
@@ -78,9 +79,8 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 | --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`     | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントID。     |
 | `client_secret` | `string` | **必須。** {% data variables.product.prodname_oauth_app %}に対して{% data variables.product.product_name %}から受け取ったクライアントシークレット。 |
-| `code`          | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                            |
+| `コード`           | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                            |
 | `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。                                                                                                |
-| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                  |
 
 ##### レスポンス
 
@@ -143,7 +143,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 | 名前          | 種類       | 説明                                                                           |
 | ----------- | -------- | ---------------------------------------------------------------------------- |
 | `client_id` | `string` | **必須。** {% data variables.product.product_name %}から受け取るアプリケーションのためのクライアントID。 |
-| `scope`     | `string` | アプリケーションがアクセスをリクエストしているスコープ。                                                 |
+| `スコープ`      | `string` | アプリケーションがアクセスをリクエストしているスコープ。                                                 |
 
 ##### レスポンス
 
@@ -277,7 +277,7 @@ http://localhost:1234/path
 
 OAuthアプリケーションが、サインインにGitHubを利用し、基本的なユーザ情報しか必要としないワークフローを1つサポートするだけであれば、これは有益です。 別のワークフローはユーザのプライベートリポジトリへのアクセスを必要としていてもかまいません。 複数のトークンを使えば、OAuthアプリケーションはそれぞれのユースケースに対してWebフローを実行でき、必要なスコープだけをリクエストします。 ユーザがサインインにアプリケーションだけを使うなら、ユーザは自分のプライベートリポジトリへのアクセスをOAuthアプリケーションに許可する必要はありません。
 
-ユーザ／アプリケーション／スコープの組み合わせごとに、発行できるトークン数には制限があります。 アプリケーションが制限のいずれかを超えるトークンをリクエストした場合、_リクエストされたのと同じスコープを持つ_古いトークンは働かなくなります。
+{% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 

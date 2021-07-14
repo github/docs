@@ -10,9 +10,16 @@ shortTitle: 脆弱性のある依存関係を表示して更新する
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
+
 Your repository's {% data variables.product.prodname_dependabot %} alerts tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% if currentVersion == "free-pro-team@latest" %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. ドロップダウンメニューを使用してアラートのリストを並べ替えることができます。また、特定のアラートをクリックしてその詳細を表示することもできます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}

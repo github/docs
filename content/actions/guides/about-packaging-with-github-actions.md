@@ -6,12 +6,13 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
   - /actions/publishing-packages-with-github-actions/about-packaging-with-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: overview
 topics:
   - Packaging
+shortTitle: Packaging with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,6 +21,6 @@ topics:
 
 {% data reusables.package_registry.about-packaging-and-actions %}
 
-### Further reading
+## Further reading
 
 - "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"

@@ -10,15 +10,16 @@ redirect_from:
   - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - GitHub Connect
   - Infrastructure
   - Networking
+shortTitle: Connect to GHEC
 ---
-### About {% data variables.product.prodname_github_connect %}
+## About {% data variables.product.prodname_github_connect %}
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure the connection in both {% data variables.product.product_location_enterprise %} and in your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account.
 
@@ -44,7 +45,7 @@ Enabling {% data variables.product.prodname_github_connect %} also creates a {% 
 Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.prodname_ghe_server %}.
 
 For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
-### Enabling {% data variables.product.prodname_github_connect %}
+## Enabling {% data variables.product.prodname_github_connect %}
 
 1. Sign in to {% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -55,7 +56,7 @@ For more information about managing enterprise accounts using the GraphQL API, s
 6. Next to the enterprise account or organization you'd like to connect, click **Connect**.
   ![Connect button next to an enterprise account or business](/assets/images/enterprise/business-accounts/choose-enterprise-or-org-connect.png)
 
-### Disconnecting a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account from {% data variables.product.product_location_enterprise %}
+## Disconnecting a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account from {% data variables.product.product_location_enterprise %}
 
 When you disconnect from {% data variables.product.prodname_ghe_cloud %}, the {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} is deleted from your enterprise account or organization and credentials stored on {% data variables.product.product_location_enterprise %} are deleted.
 

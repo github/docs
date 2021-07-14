@@ -5,6 +5,13 @@ product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
   github-ae: next
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.security-center.beta %}
@@ -13,7 +20,7 @@ versions:
 
 Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
-A visão geral de segurança indica se as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão habilitadas para repositórios pertencentes à sua organização e consolida alertas das funcionalidades de {% data variables.product.prodname_advanced_security %}, incluindo alertas de {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot_alerts %} e alertas de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações, consulte "[Sobre proteger seu repositório](/code-security/getting-started/about-securing-your-repository).
+A visão geral de segurança indica se as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão habilitadas para repositórios pertencentes à sua organização e consolida alertas das funcionalidades de {% data variables.product.prodname_advanced_security %}, incluindo alertas de {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot_alerts %} e alertas de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações, consulte "[Protegendo seu repositório](/code-security/getting-started/securing-your-repository)" e "[Protegendo sua organização](/code-security/getting-started/securing-your-organization)."
 
 No resumo da segurança, é possível visualizar, ordenar e filtrar alertas para entender os riscos de segurança na sua organização e nos repositórios específicos. Você pode aplicar vários filtros para concentrar-se em áreas de interesse. Por exemplo, você pode identificar repositórios privados que têm um número elevado de {% data variables.product.prodname_dependabot_alerts %} ou repositórios que não têm alertas {% data variables.product.prodname_code_scanning %}.
 
@@ -48,8 +55,8 @@ Os proprietários da organização podem ver a visão geral de segurança para u
 
 Os integrantes de uma equipe podem visualizar a visão geral de segurança dos repositórios para os quais a equipe tem privilégios de administrador.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

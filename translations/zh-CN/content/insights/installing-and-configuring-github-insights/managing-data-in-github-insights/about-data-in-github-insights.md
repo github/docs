@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /insights/installing-and-configuring-github-insights/about-data-in-github-insights
 ---
+
 {% data variables.product.prodname_insights %} 在关键指标和报告中显示关于您团队工作的数据。 您可以选择显示这些指标中的哪一个。 更多信息请参阅“[管理可用的指标和报告](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)”。
 
 您可以管理指标中包含 {% data variables.product.prodname_enterprise %} 中的哪些组织。 更多信息请参阅“[管理组织](/insights/installing-and-configuring-github-insights/managing-organizations)”。

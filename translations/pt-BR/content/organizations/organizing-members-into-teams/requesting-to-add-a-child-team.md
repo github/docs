@@ -19,8 +19,8 @@ Se você for proprietário da organização ou tiver permissões de mantenedor d
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Na lista de equipes, clique no nome da equipe na qual deseja adicionar a equipe secundária. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
 5. Na parte superior da página da equipe, clique em {% octicon "people" aria-label="The people icon" %} **Teams** (Equipes). ![Guia Teams (Equipes) na página de uma equipe](/assets/images/help/teams/team-teams-tab.png)

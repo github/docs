@@ -4,7 +4,7 @@ intro: 'You can set the email address that is used to author commits on {% data 
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
-  - /article/about-commit-email-addresses/
+  - /articles/about-commit-email-addresses/
   - /articles/git-email-settings/
   - /articles/setting-your-email-in-git/
   - /articles/set-your-user-name-email-and-github-token/
@@ -12,22 +12,23 @@ redirect_from:
   - /articles/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Notifications
+shortTitle: Set commit email address
 ---
-### About commit email addresses
+## About commit email addresses
 
 {% data variables.product.product_name %} uses your commit email address to associate commits with your {% data variables.product.product_name %} account. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
 
 For web-based Git operations, you can set your commit email address on {% data variables.product.product_name %}. For commits you push from the command line, you can set your commit email address in Git.
 
-{% if currentVersion == "free-pro-team@latest" %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. Any commits you made prior to changing your commit email address are still associated with your previous email address.{% endif %}
+{% ifversion fpt %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. Any commits you made prior to changing your commit email address are still associated with your previous email address.{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -37,13 +38,13 @@ For web-based Git operations, you can set your commit email address on {% data v
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}If you'd like to keep your personal email address private, you can use a {% data variables.product.product_name %}-provided `no-reply` email address as your commit email address. To use your `noreply` email address for commits you push from the command line, use that email address when you set your commit email address in Git. To use your `noreply` address for web-based Git operations, set your commit email address on GitHub and choose to **Keep my email address private**.
+{% ifversion fpt %}If you'd like to keep your personal email address private, you can use a {% data variables.product.product_name %}-provided `no-reply` email address as your commit email address. To use your `noreply` email address for commits you push from the command line, use that email address when you set your commit email address in Git. To use your `noreply` address for web-based Git operations, set your commit email address on GitHub and choose to **Keep my email address private**.
 
 You can also choose to block commits you push from the command line that expose your personal email address. For more information, see "[Blocking command line pushes that expose your personal email](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)."{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% if currentVersion != "github-ae@latest" %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your {% data variables.product.product_name %} account{% ifversion fpt %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% ifversion not ghae %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -53,21 +54,21 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 If you use your {% data variables.product.product_name %}-provided `noreply` email address to make commits and then [change your username](/articles/changing-your-github-username), those commits will not be associated with your {% data variables.product.product_name %} account. This does not apply if you're using the ID-based {% data variables.product.product_name %}-provided `noreply` address. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username)."{% endif %}
 
-### Setting your commit email address on {% data variables.product.prodname_dotcom %}
+## Setting your commit email address on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.files.commit-author-email-options %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
 {% data reusables.user_settings.add_and_verify_email %}
-{% data reusables.user_settings.select_primary_email %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.user_settings.select_primary_email %}{% ifversion fpt %}
 {% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
 
-### Setting your commit email address in Git
+## Setting your commit email address in Git
 
 You can use the `git config` command to change the email address you associate with your Git commits. The new email address you set will be visible in any future commits you push to {% data variables.product.product_name %} from the command line. Any commits you made prior to changing your commit email address are still associated with your previous email address.
 
-#### Setting your email address for every repository on your computer
+### Setting your email address for every repository on your computer
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. {% data reusables.user_settings.set_your_email_address_in_git %}
@@ -81,7 +82,7 @@ You can use the `git config` command to change the email address you associate w
    ```
 4. {% data reusables.user_settings.link_email_with_your_account %}
 
-#### Setting your email address for a single repository
+### Setting your email address for a single repository
 
 {% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your {% data variables.product.product_name %} account.
 

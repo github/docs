@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)

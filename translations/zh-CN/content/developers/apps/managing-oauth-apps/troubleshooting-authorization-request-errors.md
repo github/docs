@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### 应用程序已挂起
 
 如果您设置的 OAuth 应用程序已挂起（由于报告的滥用、垃圾邮件或 API 使用不当），GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：

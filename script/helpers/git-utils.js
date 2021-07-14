@@ -81,7 +81,7 @@ async function getContentsForBlob (owner, repo, blob) {
 // https://docs.github.com/rest/reference/repos#get-repository-content
 async function getContents (owner, repo, ref, path) {
   try {
-    const { data } = await github.repos.getContents({
+    const { data } = await github.repos.getContent({
       owner,
       repo,
       ref,

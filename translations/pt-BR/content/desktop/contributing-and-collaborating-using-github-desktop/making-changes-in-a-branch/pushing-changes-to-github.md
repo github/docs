@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre o envio de alterações para {% data variables.product.prodname_dotcom %}
 
 Quando você faz push das alterações, você envia as alterações confirmadas em seu repositório local para o repositório remoto no {% data variables.product.prodname_dotcom %}. Se você alterar seu projeto localmente e desejar que outras pessoas tenham acesso às alterações, você deve fazer push das alterações para {% data variables.product.prodname_dotcom %}.

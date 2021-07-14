@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Performance
 ---
+
 ### 为 {% data variables.product.prodname_enterprise_api %} 启用速率限制
 
 在 {% data variables.product.prodname_enterprise_api %} 上启用速率限制可以防止个别用户或未通过身份验证的用户过度使用资源。 更多信息请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)”。

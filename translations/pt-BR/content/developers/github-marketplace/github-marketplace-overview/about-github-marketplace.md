@@ -10,6 +10,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) conecta você a desenvolvedores que querem estender e melhorar seus fluxos de trabalho do {% data variables.product.prodname_dotcom %}. Você pode listar ferramentas gratuitas e pagas para os desenvolvedores usarem no {% data variables.product.prodname_marketplace %}. O {% data variables.product.prodname_marketplace %} oferece aos desenvolvedores dois tipos de ferramenta: {% data variables.product.prodname_actions %} e aplicativos, e cada ferramenta exige etapas diferentes para adicioná-lo ao {% data variables.product.prodname_marketplace %}.
 
 ### GitHub Actions

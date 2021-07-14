@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 您可以在所有 {% data variables.product.product_location %} 内全局搜索仓库，也可以在特定组织内搜索仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
 
 要在搜索结果中包括复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/articles/searching-in-forks)”。

@@ -13,6 +13,7 @@ redirect_from:
 topics:
   - Repositories
 ---
+
 ### 关于更改默认分支
 
 您可以选择仓库的默认分支。 默认分支是拉取请求和代码提交的基础分支。 有关默认分支的更多信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
@@ -25,7 +26,7 @@ topics:
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
 您也可以重命名默认分支。 更多信息请参阅“[重命名分支](/github/administering-a-repository/renaming-a-branch)”。
 

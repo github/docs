@@ -7,11 +7,12 @@ redirect_from:
   - /articles/editing-files-in-another-users-repository
   - /github/managing-files-in-a-repository/editing-files-in-another-users-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Edit another user's files
 ---
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.
 2. Above the file content, click {% octicon "pencil" aria-label="The edit icon" %}. At this point, GitHub forks the repository for you.
@@ -27,6 +28,6 @@ topics:
 8. Click **Create pull request**.
 ![Pull Request button](/assets/images/help/pull_requests/pullrequest-send.png)
 
-### Further reading
+## Further reading
 
 * "[Editing files in your repository](/articles/editing-files-in-your-repository)"

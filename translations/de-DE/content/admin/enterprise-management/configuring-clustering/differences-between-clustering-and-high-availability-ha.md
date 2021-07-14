@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### Fehlerszenarien
 
 Hochverfügbarkeit und Clustering bieten Redundanz, indem der einzelne Knoten als ein Point of Failure beseitigt wird. In den folgenden Szenarien können sie Verfügbarkeit bieten:

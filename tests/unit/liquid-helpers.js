@@ -1,6 +1,7 @@
 const { liquid } = require('../../lib/render-content')
-const { loadPageMap } = require('../../lib/pages')
-const entities = new (require('html-entities').XmlEntities)()
+const { loadPageMap } = require('../../lib/page-data')
+const htmlEntities = require('html-entities')
+const entities = new htmlEntities.XmlEntities()
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('liquid helper tags', () => {

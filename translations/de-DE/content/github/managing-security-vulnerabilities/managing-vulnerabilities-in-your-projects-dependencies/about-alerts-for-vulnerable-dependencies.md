@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 ---
+
 <!--See /content/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies for the current version of this article -->
 
 ### About vulnerable dependencies
@@ -42,13 +43,11 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 {% data reusables.repositories.enable-security-alerts %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-When
-{% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. The alert includes a link to the affected file in the project, and information about a fixed version. {% data variables.product.product_name %} also notifies the maintainers of affected repositories about the new alert according to their notification preferences. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. The alert includes a link to the affected file in the project, and information about a fixed version. {% data variables.product.product_name %} also notifies the maintainers of affected repositories about the new alert according to their notification preferences. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-When
-{% data variables.product.product_name %} identifies a vulnerable dependency, we send a security alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version.
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we send a security alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version.
 {% endif %}
 
 {% warning %}
@@ -62,12 +61,10 @@ When
 You can see all of the alerts that affect a particular project in the repository's dependency graph.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-By default, we notify people with admin permissions in the affected repositories about new
-{% data variables.product.prodname_dependabot_alerts %}.{% endif %}
+By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-Standardmäßig senden wir Sicherheitsmeldungen an Personen mit Administratorrechten in den betroffenen Repositorys.
-{% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository.
+Standardmäßig senden wir Sicherheitsmeldungen an Personen mit Administratorrechten in den betroffenen Repositorys. {% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository.
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %} For more information, see "[Choosing the delivery method for your notifications](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."{% endif %}{% if currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."{% endif %}

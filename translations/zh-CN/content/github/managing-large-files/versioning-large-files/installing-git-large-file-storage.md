@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% mac %}
 
 1. 导航到 [git-lfs.github.com](https://git-lfs.github.com) 并单击 **Download（下载）**。 也可以使用包管理器安装 {% data variables.large_files.product_name_short %}：
@@ -58,8 +59,7 @@ versions:
 
   {% endtip %}
 2. 在计算机上，找到下载的文件。
-3. 双击文件 *git-lfs-windows-1.X.X.exe*，其中 1.X.X 替换为您下载的 Git LFS 版本。 当您打开此文件时，Windows 将运行安装向导以安装
-{% data variables.large_files.product_name_short %}.
+3. 双击文件 *git-lfs-windows-1.X.X.exe*，其中 1.X.X 替换为您下载的 Git LFS 版本。 打开此文件时，Windows 将运行安装程序向导以安装 {% data variables.large_files.product_name_short %}。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. 验证安装成功：
   ```shell

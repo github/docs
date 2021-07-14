@@ -8,12 +8,13 @@ versions:
   enterprise-server: '*'
 type: how_to
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies
   - Security
 ---
+
 LDAP またはビルトイン認証を使用している場合、{% data variables.product.product_location %} で 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
@@ -36,9 +37,8 @@ Organizationのメンバーと外部のコラボレータに2FAの利用を求�
 
 2要素認証の利用を要求する前に、Organizationのメンバーと外部のコラボレータに通知をして、アカウントに2FAをセットアップしてもらうよう頼むことをおすすめします。 [メンバー及び外部のコラボレータがすでに2FAを利用しているかの確認](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)は、OrganizationのPeopleタブから行えます。
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}

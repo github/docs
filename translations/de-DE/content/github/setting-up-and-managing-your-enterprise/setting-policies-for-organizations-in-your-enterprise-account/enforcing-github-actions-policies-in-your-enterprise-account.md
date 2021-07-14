@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### About {% data variables.product.prodname_actions %} permissions for your enterprise account
 
 By default, {% data variables.product.prodname_actions %} is enabled in all organizations owned by an enterprise account. You can choose to disable {% data variables.product.prodname_actions %} for all organizations owned by an enterprise account, or only allow specified organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your organization.

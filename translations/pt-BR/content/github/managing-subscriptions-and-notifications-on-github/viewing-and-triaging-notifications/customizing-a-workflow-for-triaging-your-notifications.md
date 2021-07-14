@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
 ---
+
 ### Iniciando sua triagem de caixa de entrada
 
 Antes de começar a fazer a triagem de sua caixa de entrada, considere se você prefere primeiro encontrar e responder às atualizações mais importantes ou limpar sua caixa de entrada de atualizações sem importância que são fáceis de remover ou fazer triagem.

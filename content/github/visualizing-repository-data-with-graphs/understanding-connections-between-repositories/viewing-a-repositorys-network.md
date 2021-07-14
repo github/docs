@@ -7,11 +7,12 @@ redirect_from:
   - /articles/viewing-a-repositorys-network
   - /github/visualizing-repository-data-with-graphs/viewing-a-repositorys-network
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: View repository network
 ---
 ![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -21,7 +22,7 @@ topics:
 
 {% endtip %}
 
-### Accessing the network graph
+## Accessing the network graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

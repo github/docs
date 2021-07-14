@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### Informationen zu {% data variables.product.prodname_insights %}
 
 {% data variables.product.prodname_insights %} is a standalone application that provides analytic reports based on data from {% data variables.product.product_location %} to help you understand and improve your software delivery process. You can use these metrics to remove bottlenecks in process, improve collaboration, and deliver projects faster, with higher quality.

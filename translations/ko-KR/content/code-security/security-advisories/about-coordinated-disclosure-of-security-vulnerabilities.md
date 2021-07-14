@@ -4,6 +4,10 @@ intro: Vulnerability disclosure is a coordinated effort between security reporte
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
 ---
 
 ### About disclosing vulnerabilities in the industry

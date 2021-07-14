@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### {% data variables.product.prodname_github_connect %} について
 
 {% data variables.product.prodname_github_connect %}を有効化するには、{% data variables.product.product_location_enterprise %}と{% data variables.product.prodname_ghe_cloud %} のOrganizationまたはEnterpriseアカウントの両方で接続を設定しなければなりません。
@@ -46,9 +47,7 @@ topics:
 GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/graphql/guides/managing-enterprise-accounts)」を参照してください。
 ### {% data variables.product.prodname_github_connect %} の有効化
 
-1. まず、
-
-{% data variables.product.product_location_enterprise %} および {% data variables.product.prodname_dotcom_the_website %} にサインインします。
+1. {% data variables.product.product_location_enterprise %}と{% data variables.product.prodname_dotcom_the_website %}にサインインしてください。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}

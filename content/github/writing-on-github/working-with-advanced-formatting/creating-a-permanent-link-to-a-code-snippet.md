@@ -6,12 +6,15 @@ redirect_from:
   - /articles/creating-a-permanent-link-to-a-code-snippet
   - /github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Permanent links to code
 ---
+## Linking to code
+
 This type of permanent link will render as a code snippet only in the repository it originated in. In other repositories, the permalink code snippet will render as a URL.
 
 ![Code snippet rendered in a comment](/assets/images/help/repository/rendered-code-snippet.png)
@@ -33,7 +36,13 @@ This type of permanent link will render as a code snippet only in the repository
 6. Paste your permalink into a comment, and click **Comment**.
   ![Pasted permalink in a comment in the same repository](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### Further reading
+## Linking to Markdown
+
+You can link to specific lines in Markdown files by loading the Markdown file without Markdown rendering. To load a Markdown file without rendering, you can use the `?plain=1` parameter at the end of the url for the file. For example, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1`.
+
+You can link to a specific line in the Markdown file the same way you can in code. Append `#L` with the line number or numbers at the end of the url. For example, `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1#L14` will highlight line 14 in the plain README.md file.
+
+## Further reading
 
 - "[Creating an issue](/articles/creating-an-issue/)"
 - "[Opening an issue from code](/articles/opening-an-issue-from-code/)"

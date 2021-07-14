@@ -1,6 +1,6 @@
 ---
 title: GitHub 词汇表
-intro: '以下是我们在网站和文档中使用的一些 Git 和 {% data variables.product.prodname_dotcom %} 专用术语列表。'
+intro: '此词汇表介绍了通用 Git 和 {% data variables.product.prodname_dotcom %} 术语。'
 redirect_from:
   - /articles/github-glossary
   - /github/getting-started-with-github/github-glossary
@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% for term in site.data.glossaries.external %}
   ### {% data glossaries.external[forloop.index0].term %}
   {% data glossaries.external[forloop.index0].description %}

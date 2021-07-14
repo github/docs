@@ -10,7 +10,8 @@ topics:
   - Accounts
   - Notifications
 ---
-Quando você faz push de commits usando a linha de comando, o endereço de e-mail [definido no Git](/articles/setting-your-commit-email-address) é associado aos seus commits. Essa configuração impede você de fazer push de commits na linha de comando que usa seu endereço de e-mail pessoal.
+
+Quando você faz push de commits usando a linha de comando, o endereço de e-mail [definido no Git](/articles/setting-your-commit-email-address) é associado aos seus commits. Se você habilitar essa configuração, cada vez que você fizer push para o GitHub, verificaremos o commit mais recente. Se o e-mail do autor nesse commit for um e-mail privado na sua conta do GitHub, nós iremos bloquear o push e avisá-lo sobre como expor seu e-mail privado.
 
 {% data reusables.user_settings.about-commit-email-addresses %}
 

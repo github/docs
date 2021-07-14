@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 如果您的提交不在默认分支上，则指示符将显示包含提交的分支。 如果提交是未合并拉取请求的一部分，它将显示一个链接。
 
 ![提交分支标签](/assets/images/help/commits/Commit-branch-label.png)

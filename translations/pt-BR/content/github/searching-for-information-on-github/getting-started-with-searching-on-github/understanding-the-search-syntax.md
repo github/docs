@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 ### Consultar por valores maiores ou menores que outro valor
 
 Você pode usar `>`, `>=`, `<` e `<=` para pesquisar valores que sejam maiores, maiores ou iguais, menores e menores ou iguais a outro valor.

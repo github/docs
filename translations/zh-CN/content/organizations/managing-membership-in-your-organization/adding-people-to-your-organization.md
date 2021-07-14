@@ -14,8 +14,8 @@ permissions: Organization owners can add people to an organization.
 如果您的组织[要求成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后您才可将他们添加到组织。
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}
