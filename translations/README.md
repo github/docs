@@ -2,7 +2,7 @@
 
 This directory contains translations of the site's source English content.
 
-:hand: The contents of this directory should not be touched by humans.
+:hand: The contents of this directory should not be touched by humans. 
 
 With the exception of this README file, the files in this directory are managed by 
 our Crowdin integration. See [`crowdin.yml`](../crowdin.yml) for a list of the 
