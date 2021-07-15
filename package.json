@@ -147,6 +147,7 @@
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
     "linkinator": "^2.13.6",
+    "lint-staged": "^11.0.1",
     "make-promises-safe": "^5.1.0",
     "mini-css-extract-plugin": "^1.6.0",
     "mkdirp": "^1.0.4",
@@ -206,7 +207,8 @@
     "pa11y-ci": "pa11y-ci",
     "pa11y-test": "start-server-and-test browser-test-server 4001 pa11y-ci",
     "prebrowser-test": "npm run build",
-    "prettier": "prettier -w \"**/*.{ts,tsx,js,jsx,mjs,scss,yml,yaml}\"",
+    "prepare": "husky install",
+    "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prevent-pushes-to-main": "node script/prevent-pushes-to-main.js",
     "rest-dev": "script/rest/update-files.js && npm run dev",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.mjs",
@@ -219,5 +221,9 @@
     "test": "npm run lint && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
     "webpack-build": "cross-env NODE_ENV=production npx webpack --mode production"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
+    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write"
   }
 }
