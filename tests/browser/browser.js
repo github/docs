@@ -1,9 +1,11 @@
+import fs from 'fs'
+import path from 'path'
+import sleep from 'await-sleep'
+import { jest } from '@jest/globals'
+import { latest } from '../../lib/enterprise-server-releases.js'
+import languages from '../../lib/languages.js'
+
 /* global page, browser */
-const fs = require('fs')
-const path = require('path')
-const sleep = require('await-sleep')
-const { latest } = require('../../lib/enterprise-server-releases')
-const languages = require('../../lib/languages')
 const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), './feature-flags.json')))
 
 describe('homepage', () => {
@@ -65,7 +67,7 @@ describe('browser search', () => {
     await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
 
     await newPage.setRequestInterception(true)
-    newPage.on('request', interceptedRequest => {
+    newPage.on('request', (interceptedRequest) => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('2.22')
@@ -75,7 +77,9 @@ describe('browser search', () => {
     })
 
     await newPage.click('[data-testid=mobile-menu-button]')
-    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    const searchInput = await newPage.$(
+      '[data-testid=mobile-header] [data-testid=site-search-input]'
+    )
     await searchInput.click()
     await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
@@ -88,7 +92,7 @@ describe('browser search', () => {
     await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
 
     await newPage.setRequestInterception(true)
-    newPage.on('request', interceptedRequest => {
+    newPage.on('request', (interceptedRequest) => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('ghae')
@@ -98,7 +102,9 @@ describe('browser search', () => {
     })
 
     await newPage.click('[data-testid=mobile-menu-button]')
-    const searchInput = await newPage.$('[data-testid=mobile-header] [data-testid=site-search-input]')
+    const searchInput = await newPage.$(
+      '[data-testid=mobile-header] [data-testid=site-search-input]'
+    )
     await searchInput.click()
     await searchInput.type('test')
     await newPage.waitForSelector('.search-result')
@@ -108,18 +114,20 @@ describe('browser search', () => {
 describe('survey', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
-    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
+    await page.goto(
+      'http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions'
+    )
 
     // Track network requests
     await page.setRequestInterception(true)
-    page.on('request', request => {
+    page.on('request', (request) => {
       // Ignore GET requests
       if (!/\/events$/.test(request.url())) return request.continue()
       expect(request.method()).toMatch(/POST|PUT/)
       request.respond({
         contentType: 'application/json',
         body: JSON.stringify({ id: 'abcd1234' }),
-        status: 200
+        status: 200,
       })
     })
 
@@ -143,7 +151,9 @@ describe('survey', () => {
 
 describe('csrf meta', () => {
   it('should have a csrf-token meta tag on the page', async () => {
-    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
+    await page.goto(
+      'http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions'
+    )
     await page.waitForSelector('meta[name="csrf-token"]')
   })
 })
@@ -151,14 +161,28 @@ describe('csrf meta', () => {
 describe('platform specific content', () => {
   // from tests/javascripts/user-agent.js
   const userAgents = [
-    { name: 'Mac', id: 'mac', ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9' },
-    { name: 'Windows', id: 'windows', ua: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36' },
-    { name: 'Linux', id: 'linux', ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1' }
+    {
+      name: 'Mac',
+      id: 'mac',
+      ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9',
+    },
+    {
+      name: 'Windows',
+      id: 'windows',
+      ua: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36',
+    },
+    {
+      name: 'Linux',
+      id: 'linux',
+      ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
+    },
   ]
   const linuxUserAgent = userAgents[2]
-  const pageWithSwitcher = 'http://localhost:4001/en/github/using-git/configuring-git-to-handle-line-endings'
+  const pageWithSwitcher =
+    'http://localhost:4001/en/github/using-git/configuring-git-to-handle-line-endings'
   const pageWithoutSwitcher = 'http://localhost:4001/en/github/using-git'
-  const pageWithDefaultPlatform = 'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
+  const pageWithDefaultPlatform =
+    'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
 
   it('should have a platform switcher', async () => {
     await page.goto(pageWithSwitcher)
@@ -185,7 +209,7 @@ describe('platform specific content', () => {
       await page.setUserAgent(agent.ua)
       await page.goto(pageWithSwitcher)
       const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate(el => el.textContent, selectedPlatformElement)
+      const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
       expect(selectedPlatform).toBe(agent.name)
     }
   })
@@ -194,9 +218,12 @@ describe('platform specific content', () => {
     for (const agent of userAgents) {
       await page.setUserAgent(agent.ua)
       await page.goto(pageWithDefaultPlatform)
-      const defaultPlatform = await page.$eval('[data-default-platform]', el => el.dataset.defaultPlatform)
+      const defaultPlatform = await page.$eval(
+        '[data-default-platform]',
+        (el) => el.dataset.defaultPlatform
+      )
       const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate(el => el.textContent, selectedPlatformElement)
+      const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
       expect(defaultPlatform).toBe(linuxUserAgent.id)
       expect(selectedPlatform).toBe(linuxUserAgent.name)
     }
@@ -217,7 +244,7 @@ describe('platform specific content', () => {
       expect(selectedSwitch).toHaveLength(1)
 
       // content for NOT selected platforms is expected to become hidden
-      const otherPlatforms = platforms.filter(e => e !== platform)
+      const otherPlatforms = platforms.filter((e) => e !== platform)
       for (const other of otherPlatforms) {
         await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
       }
@@ -266,10 +293,10 @@ describe('filter cards', () => {
     await page.goto('http://localhost:4001/en/actions/guides')
     await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
     const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
-      cardTypes.map(cardType => cardType.textContent)
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
+      cardTypes.map((cardType) => cardType.textContent)
     )
-    shownCardTypes.map(type => expect(type).toBe('Overview'))
+    shownCardTypes.map((type) => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 
@@ -277,17 +304,17 @@ describe('filter cards', () => {
     await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
     await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
     const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', cardTypes =>
-      cardTypes.map(cardType => cardType.textContent)
+    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
+      cardTypes.map((cardType) => cardType.textContent)
     )
-    shownCardTypes.map(type => expect(type).toBe('Overview'))
+    shownCardTypes.map((type) => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
   })
 })
 
 describe('language banner', () => {
   it('directs user to the English version of the article', async () => {
-    const wipLanguageKey = Object.keys(languages).find(key => languages[key].wip)
+    const wipLanguageKey = Object.keys(languages).find((key) => languages[key].wip)
 
     // This kinda sucks, but if we don't have a WIP language, we currently can't
     // run a reliable test. But hey, on the bright side, if we don't have a WIP
@@ -295,7 +322,7 @@ describe('language banner', () => {
     if (wipLanguageKey) {
       const res = await page.goto(`http://localhost:4001/${wipLanguageKey}/actions`)
       expect(res.ok()).toBe(true)
-      const href = await page.$eval('a#to-english-doc', el => el.href)
+      const href = await page.$eval('a#to-english-doc', (el) => el.href)
       expect(href.endsWith('/en/actions')).toBe(true)
     }
   })
@@ -351,9 +378,8 @@ describe.skip('next/link client-side navigation', () => {
     await page.goto('http://localhost:4001/en/actions/guides')
 
     const [response] = await Promise.all([
-      page.waitForResponse(
-        (response) =>
-          response.url().startsWith('http://localhost:4001/_next/data') 
+      page.waitForResponse((response) =>
+        response.url().startsWith('http://localhost:4001/_next/data')
       ),
       page.waitForNavigation({ waitUntil: 'networkidle2' }),
       page.click('.sidebar-articles:nth-child(2) .sidebar-article:nth-child(1) a'),

@@ -1,64 +1,64 @@
-const express = require('express')
-const instrument = require('../lib/instrument-middleware')
-const haltOnDroppedConnection = require('./halt-on-dropped-connection')
-const abort = require('./abort')
-const timeout = require('./timeout')
-const morgan = require('morgan')
-const datadog = require('./connect-datadog')
-const rateLimit = require('./rate-limit')
-const cors = require('./cors')
-const helmet = require('helmet')
-const csp = require('./csp')
-const cookieParser = require('./cookie-parser')
-const csrf = require('./csrf')
-const handleCsrfErrors = require('./handle-csrf-errors')
-const compression = require('compression')
-const disableCachingOnSafari = require('./disable-caching-on-safari')
-const setFastlySurrogateKey = require('./set-fastly-surrogate-key')
-const setFastlyCacheHeaders = require('./set-fastly-cache-headers')
-const catchBadAcceptLanguage = require('./catch-bad-accept-language')
-const reqUtils = require('./req-utils')
-const recordRedirect = require('./record-redirect')
-const connectSlashes = require('connect-slashes')
-const handleErrors = require('./handle-errors')
-const handleInvalidPaths = require('./handle-invalid-paths')
-const handleNextDataPath = require('./handle-next-data-path')
-const detectLanguage = require('./detect-language')
-const context = require('./context')
-const shortVersions = require('./contextualizers/short-versions')
-const redirectsExternal = require('./redirects/external')
-const helpToDocs = require('./redirects/help-to-docs')
-const languageCodeRedirects = require('./redirects/language-code-redirects')
-const handleRedirects = require('./redirects/handle-redirects')
-const findPage = require('./find-page')
-const blockRobots = require('./block-robots')
-const archivedEnterpriseVersionsAssets = require('./archived-enterprise-versions-assets')
-const events = require('./events')
-const search = require('./search')
-const archivedEnterpriseVersions = require('./archived-enterprise-versions')
-const robots = require('./robots')
-const earlyAccessLinks = require('./contextualizers/early-access-links')
-const categoriesForSupport = require('./categories-for-support')
-const loaderio = require('./loaderio-verification')
-const triggerError = require('./trigger-error')
-const releaseNotes = require('./contextualizers/release-notes')
-const whatsNewChangelog = require('./contextualizers/whats-new-changelog')
-const graphQL = require('./contextualizers/graphql')
-const rest = require('./contextualizers/rest')
-const webhooks = require('./contextualizers/webhooks')
-const layout = require('./contextualizers/layout')
-const currentProductTree = require('./contextualizers/current-product-tree')
-const genericToc = require('./contextualizers/generic-toc')
-const breadcrumbs = require('./contextualizers/breadcrumbs')
-const earlyAccessBreadcrumbs = require('./contextualizers/early-access-breadcrumbs')
-const features = require('./contextualizers/features')
-const productExamples = require('./contextualizers/product-examples')
-const devToc = require('./dev-toc')
-const featuredLinks = require('./featured-links')
-const learningTrack = require('./learning-track')
-const isNextRequest = require('./is-next-request')
-const next = require('./next')
-const renderPage = require('./render-page')
+import express from 'express'
+import instrument from '../lib/instrument-middleware.js'
+import haltOnDroppedConnection from './halt-on-dropped-connection.js'
+import abort from './abort.js'
+import timeout from './timeout.js'
+import morgan from 'morgan'
+import datadog from './connect-datadog.js'
+import rateLimit from './rate-limit.js'
+import cors from './cors.js'
+import helmet from 'helmet'
+import csp from './csp.js'
+import cookieParser from './cookie-parser.js'
+import csrf from './csrf.js'
+import handleCsrfErrors from './handle-csrf-errors.js'
+import compression from 'compression'
+import disableCachingOnSafari from './disable-caching-on-safari.js'
+import setFastlySurrogateKey from './set-fastly-surrogate-key.js'
+import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
+import catchBadAcceptLanguage from './catch-bad-accept-language.js'
+import reqUtils from './req-utils.js'
+import recordRedirect from './record-redirect.js'
+import connectSlashes from 'connect-slashes'
+import handleErrors from './handle-errors.js'
+import handleInvalidPaths from './handle-invalid-paths.js'
+import handleNextDataPath from './handle-next-data-path.js'
+import detectLanguage from './detect-language.js'
+import context from './context.js'
+import shortVersions from './contextualizers/short-versions.js'
+import redirectsExternal from './redirects/external.js'
+import helpToDocs from './redirects/help-to-docs.js'
+import languageCodeRedirects from './redirects/language-code-redirects.js'
+import handleRedirects from './redirects/handle-redirects.js'
+import findPage from './find-page.js'
+import blockRobots from './block-robots.js'
+import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
+import events from './events.js'
+import search from './search.js'
+import archivedEnterpriseVersions from './archived-enterprise-versions.js'
+import robots from './robots.js'
+import earlyAccessLinks from './contextualizers/early-access-links.js'
+import categoriesForSupport from './categories-for-support.js'
+import loaderio from './loaderio-verification.js'
+import triggerError from './trigger-error.js'
+import releaseNotes from './contextualizers/release-notes.js'
+import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
+import graphQL from './contextualizers/graphql.js'
+import rest from './contextualizers/rest.js'
+import webhooks from './contextualizers/webhooks.js'
+import layout from './contextualizers/layout.js'
+import currentProductTree from './contextualizers/current-product-tree.js'
+import genericToc from './contextualizers/generic-toc.js'
+import breadcrumbs from './contextualizers/breadcrumbs.js'
+import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
+import features from './contextualizers/features.js'
+import productExamples from './contextualizers/product-examples.js'
+import devToc from './dev-toc.js'
+import featuredLinks from './featured-links.js'
+import learningTrack from './learning-track.js'
+import isNextRequest from './is-next-request.js'
+import next from './next.js'
+import renderPage from './render-page.js'
 
 const { NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -66,12 +66,11 @@ const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = fn =>
-  (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next)
-  }
+const asyncMiddleware = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch(next)
+}
 
-module.exports = function (app) {
+export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
@@ -94,13 +93,15 @@ module.exports = function (app) {
 
   // *** Security ***
   app.use(cors)
-  app.use(helmet({
-    // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
-    // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
-    referrerPolicy: {
-      policy: 'strict-origin-when-cross-origin'
-    }
-  }))
+  app.use(
+    helmet({
+      // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
+      // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
+      referrerPolicy: {
+        policy: 'strict-origin-when-cross-origin',
+      },
+    })
+  )
   app.use(csp) // Must come after helmet
   app.use(cookieParser) // Must come before csrf
   app.use(express.json()) // Must come before csrf
@@ -138,26 +139,39 @@ module.exports = function (app) {
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
-  app.use(asyncMiddleware(instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets'))) // Must come before static/assets
-  app.use('/dist', express.static('dist', {
-    index: false,
-    etag: false,
-    immutable: true,
-    lastModified: false,
-    maxAge: '28 days' // Could be infinite given our fingerprinting
-  }))
-  app.use('/assets', express.static('assets', {
-    index: false,
-    etag: false,
-    lastModified: false,
-    maxAge: '1 day' // Relatively short in case we update images
-  }))
-  app.use('/public', express.static('data/graphql', {
-    index: false,
-    etag: false,
-    lastModified: false,
-    maxAge: '7 days' // A bit longer since releases are more sparse
-  }))
+  app.use(
+    asyncMiddleware(
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
+    )
+  ) // Must come before static/assets
+  app.use(
+    '/dist',
+    express.static('dist', {
+      index: false,
+      etag: false,
+      immutable: true,
+      lastModified: false,
+      maxAge: '28 days', // Could be infinite given our fingerprinting
+    })
+  )
+  app.use(
+    '/assets',
+    express.static('assets', {
+      index: false,
+      etag: false,
+      lastModified: false,
+      maxAge: '1 day', // Relatively short in case we update images
+    })
+  )
+  app.use(
+    '/public',
+    express.static('data/graphql', {
+      index: false,
+      etag: false,
+      lastModified: false,
+      maxAge: '7 days', // A bit longer since releases are more sparse
+    })
+  )
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
 
@@ -166,8 +180,14 @@ module.exports = function (app) {
 
   app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
   app.use(instrument(robots, './robots'))
-  app.use(/(\/.*)?\/early-access$/, instrument(earlyAccessLinks, './contextualizers/early-access-links'))
-  app.use('/categories.json', asyncMiddleware(instrument(categoriesForSupport, './categories-for-support')))
+  app.use(
+    /(\/.*)?\/early-access$/,
+    instrument(earlyAccessLinks, './contextualizers/early-access-links')
+  )
+  app.use(
+    '/categories.json',
+    asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
+  )
   app.use(instrument(loaderio, './loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
@@ -184,7 +204,11 @@ module.exports = function (app) {
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(asyncMiddleware(instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')))
+  app.use(
+    asyncMiddleware(
+      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
+    )
+  )
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 

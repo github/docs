@@ -3,7 +3,7 @@ const defaultResponse = 'User-agent: *'
 const disallowAll = `User-agent: *
 Disallow: /`
 
-module.exports = function robots (req, res, next) {
+export default function robots(req, res, next) {
   if (req.path !== '/robots.txt') return next()
 
   res.type('text/plain')
