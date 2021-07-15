@@ -52,7 +52,7 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 Before you can sponsor an account, you must have a verified email address. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."
 
-1. On {% data variables.product.product_name %}, navigate to the profile of the (/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile) or (/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile) you want to sponsor.
+1. On {% data variables.product.product_name %}, navigate to the profile of the (/content/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)[user] or (/content/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)[organization] you want to sponsor.
 1. Navigate to your sponsorship dashboard for the account.
    - To sponsor a developer, under the developer's name, click **Sponsor**.
      ![Sponsor button](/assets/images/help/profile/sponsor-button.png)
