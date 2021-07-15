@@ -29,7 +29,7 @@ children:
   - insights
   - discussions
   - codespaces
-  - sponsors
+  - sponsors 
   - communities
   - pages
   - education
