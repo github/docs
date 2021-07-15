@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xRimraf from 'rimraf'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const rimraf = require('rimraf').sync
-const allVersions = require('../../lib/all-versions')
+const rimraf = xRimraf.sync
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
@@ -17,31 +18,33 @@ const restDereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenc
 //
 // [end-readme]
 
-const supportedEnterpriseVersions = Object.values(allVersions).filter(v => v.plan === 'enterprise-server')
+const supportedEnterpriseVersions = Object.values(allVersions).filter(
+  (v) => v.plan === 'enterprise-server'
+)
 
 // webhooks and GraphQL
-const supportedMiscVersions = supportedEnterpriseVersions.map(v => v.miscVersionName)
+const supportedMiscVersions = supportedEnterpriseVersions.map((v) => v.miscVersionName)
 // The miscBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
-const miscBaseName = supportedEnterpriseVersions.map(v => v.miscBaseName)[0]
+const miscBaseName = supportedEnterpriseVersions.map((v) => v.miscBaseName)[0]
 
-;[graphqlDataDir, graphqlStaticDir, webhooksStaticDir].forEach(dir => {
+;[graphqlDataDir, graphqlStaticDir, webhooksStaticDir].forEach((dir) => {
   removeFiles(dir, miscBaseName, supportedMiscVersions)
 })
 
 // REST
-const supportedOpenApiVersions = supportedEnterpriseVersions.map(v => v.openApiVersionName)
+const supportedOpenApiVersions = supportedEnterpriseVersions.map((v) => v.openApiVersionName)
 // The openApiBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
-const openApiBaseName = supportedEnterpriseVersions.map(v => v.openApiBaseName)[0]
+const openApiBaseName = supportedEnterpriseVersions.map((v) => v.openApiBaseName)[0]
 
-;[restDecoratedDir, restDereferencedDir].forEach(dir => {
+;[restDecoratedDir, restDereferencedDir].forEach((dir) => {
   removeFiles(dir, openApiBaseName, supportedOpenApiVersions)
 })
 
-function removeFiles (dir, baseName, supportedVersions) {
+function removeFiles(dir, baseName, supportedVersions) {
   fs.readdirSync(dir)
-    .filter(file => file.includes(baseName))
-    .filter(file => supportedVersions.every(version => !file.includes(version)))
-    .forEach(file => {
+    .filter((file) => file.includes(baseName))
+    .filter((file) => supportedVersions.every((version) => !file.includes(version)))
+    .forEach((file) => {
       const fullPath = path.join(dir, file)
       console.log(`removing ${fullPath}`)
       rimraf(fullPath)

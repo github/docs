@@ -1,13 +1,17 @@
-const fs = require('fs')
-const path = require('path')
-const cheerio = require('cheerio')
-const { liquid } = require('../../../lib/render-content')
-const getMiniTocItems = require('../../../lib/get-mini-toc-items')
-const rewriteLocalLinks = require('../../../lib/rewrite-local-links')
+#!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import cheerio from 'cheerio'
+import { liquid } from '../../../lib/render-content/index.js'
+import getMiniTocItems from '../../../lib/get-mini-toc-items.js'
+import rewriteLocalLinks from '../../../lib/rewrite-local-links.js'
 const includes = path.join(process.cwd(), 'includes')
-const inputObjectIncludeFile = fs.readFileSync(path.join(includes, 'graphql-input-object.html'), 'utf8')
+const inputObjectIncludeFile = fs.readFileSync(
+  path.join(includes, 'graphql-input-object.html'),
+  'utf8'
+)
 
-module.exports = async function prerenderInputObjects (context) {
+export default async function prerenderInputObjects(context) {
   const inputObjectsArray = []
 
   // render the graphql-object.html layout for every object
@@ -24,6 +28,6 @@ module.exports = async function prerenderInputObjects (context) {
 
   return {
     html: inputObjectsHtml,
-    miniToc: getMiniTocItems(inputObjectsHtml)
+    miniToc: getMiniTocItems(inputObjectsHtml),
   }
 }
