@@ -9,7 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-topics:
+topics: 
   - Organizations
   - Teams
 shortTitle: Transfer ownership
