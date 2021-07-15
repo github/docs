@@ -13,7 +13,7 @@ children:
   - /activity
   - /apps
   - /billing
-  - /checks
+  - /checks 
   - /codes-of-conduct
   - /code-scanning
   - /emojis
