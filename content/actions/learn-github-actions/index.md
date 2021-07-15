@@ -28,7 +28,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=2.22'
-  ghae: '*'
+  ghae: '*' 
 children:
   - /introduction-to-github-actions
   - /finding-and-customizing-actions
