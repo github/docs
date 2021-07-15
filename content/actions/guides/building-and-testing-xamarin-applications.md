@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '>=2.22'
-  ghae: '*'
+  ghae: '*' 
 type: tutorial
 topics:
   - CI
@@ -32,7 +32,7 @@ For a full list of available Xamarin SDK versions on the {% data variables.produ
 
 {% data reusables.github-actions.macos-runner-preview %}
 
-## Prerequisites
+## Prerequisites 
 
 We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
