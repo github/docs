@@ -41,7 +41,7 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 **Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
 
 ![Swipe](/assets/images/help/repository/images-swipe-view.png)
-
+ 
 ### Onion skin
 
 **Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
