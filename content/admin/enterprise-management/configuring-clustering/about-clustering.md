@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
   - /admin/enterprise-management/about-clustering
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering

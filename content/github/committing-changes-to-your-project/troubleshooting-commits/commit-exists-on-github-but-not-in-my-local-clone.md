@@ -5,9 +5,10 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Commit missing in local clone
 ---
 When you use `git show` to view a specific commit on the command line, you may get a fatal error.
 

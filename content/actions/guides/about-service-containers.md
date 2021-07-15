@@ -6,9 +6,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: overview
 topics:
   - Containers

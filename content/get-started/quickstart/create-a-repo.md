@@ -7,9 +7,9 @@ redirect_from:
   - /github/getting-started-with-github/quickstart/create-a-repo
 intro: 'To put your project up on {% data variables.product.product_location %}, you''ll need to create a repository for it to live in.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
   - Issues
@@ -18,17 +18,17 @@ topics:
 ---
 ## Create a repository
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
-{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% elsif ghes or ghae %}
 
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -49,7 +49,7 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 {% tip %}
 
 **Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
@@ -79,11 +79,12 @@ Let's commit a change to the *README* file.
 
 ## Celebrate
 
-Congratulations! You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}. What do you want to do next?
+Congratulations! You have now created a repository, including a *README* file, and created your first commit on {% data variables.product.product_location %}.
 
-- "[Set up Git](/articles/set-up-git)"
-- **Create a repository**
-- "[Clone a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
-- "[Fork a repository](/articles/fork-a-repo)"
-- "[Be social](/articles/be-social)"
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+You can now clone a {% data variables.product.product_name %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" and "[Set up Git](/articles/set-up-git)."
+
+You can find interesting projects and repositories on {% data variables.product.product_name %} and make changes to them by creating a fork of the repository. For more information see, "[Fork a repository](/articles/fork-a-repo)."
+
+Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+
+{% data reusables.support.connect-in-the-forum-bootcamp %}

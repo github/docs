@@ -1,8 +1,9 @@
 ---
 title: Granting higher permissions to top contributors
-intro: 'Repository administrators can promote any community member to a moderator and maintainer.'
+intro: Repository administrators can promote any community member to a moderator and maintainer.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Grant higher permissions
 ---
 
 {% data reusables.discussions.beta %}

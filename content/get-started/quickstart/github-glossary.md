@@ -6,9 +6,9 @@ redirect_from:
   - /github/getting-started-with-github/github-glossary
   - /github/getting-started-with-github/quickstart/github-glossary
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% for term in site.data.glossaries.external %}
   ### {% data glossaries.external[forloop.index0].term %}

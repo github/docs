@@ -736,6 +736,36 @@ type App implements Node {
   id: ID!
 
   """
+  The IP addresses of the app.
+  """
+  ipAllowListEntries(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for IP allow list entries returned.
+    """
+    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+  ): IpAllowListEntryConnection!
+
+  """
   The hex color code, without the leading '#', for the logo background.
   """
   logoBackgroundColor: String!
@@ -5599,7 +5629,7 @@ input CreateIpAllowListEntryInput {
   """
   The ID of the owner for which to create the new IP allow list entry.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 }
 
 """
@@ -12851,7 +12881,7 @@ enum IpAllowListForInstalledAppsEnabledSettingValue {
 """
 Types that can own an IP allow list.
 """
-union IpAllowListOwner = Enterprise | Organization
+union IpAllowListOwner = App | Enterprise | Organization
 
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
@@ -26788,6 +26818,31 @@ type ReactionGroup {
   createdAt: DateTime
 
   """
+  Reactors to the reaction subject with the emotion represented by this reaction group.
+  """
+  reactors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ReactorConnection!
+
+  """
   The subject that was reacted to.
   """
   subject: Reactable!
@@ -26816,6 +26871,9 @@ type ReactionGroup {
     """
     last: Int
   ): ReactingUserConnection!
+    @deprecated(
+      reason: "Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC."
+    )
 
   """
   Whether or not the authenticated user has left a reaction on the subject.
@@ -26846,6 +26904,56 @@ enum ReactionOrderField {
   Allows ordering a list of reactions by when they were created.
   """
   CREATED_AT
+}
+
+"""
+Types that can be assigned to reactions.
+"""
+union Reactor = Bot | Mannequin | Organization | User
+
+"""
+The connection type for Reactor.
+"""
+type ReactorConnection {
+  """
+  A list of edges.
+  """
+  edges: [ReactorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Reactor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+Represents an author of a reaction.
+"""
+type ReactorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The author of the reaction.
+  """
+  node: Reactor!
+
+  """
+  The moment when the user made the reaction.
+  """
+  reactedAt: DateTime!
 }
 
 """
@@ -33666,6 +33774,11 @@ enum SecurityAdvisoryEcosystem {
   NUGET
 
   """
+  Applications, runtimes, operating systems and other kinds of software
+  """
+  OTHER
+
+  """
   Python packages hosted at PyPI.org
   """
   PIP
@@ -38548,7 +38661,7 @@ input UpdateIpAllowListEnabledSettingInput {
   """
   The ID of the owner on which to set the IP allow list enabled setting.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list enabled setting.
@@ -38628,7 +38741,7 @@ input UpdateIpAllowListForInstalledAppsEnabledSettingInput {
   """
   The ID of the owner.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list configuration for installed GitHub Apps setting.

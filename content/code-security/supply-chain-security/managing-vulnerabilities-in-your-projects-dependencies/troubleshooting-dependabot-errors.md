@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Dependabot errors
 intro: 'Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.'
-shortTitle: Troubleshooting errors
+shortTitle: Troubleshoot errors
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot

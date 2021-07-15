@@ -9,7 +9,7 @@ export const SubLandingHero = () => {
   const { t } = useTranslation('product_sublanding')
 
   const guideItems = featuredTrack?.guides?.map((guide) => (
-    <li className="px-2 d-flex flex-shrink-0">
+    <li className="px-2 d-flex flex-shrink-0" key={guide.href}>
       <Link
         href={`${guide.href}?learn=${featuredTrack.trackName}`}
         className="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline"
@@ -26,7 +26,7 @@ export const SubLandingHero = () => {
             )}
           </div>
           <div className="color-text-tertiary h6 text-uppercase">
-            {t('guide_types')[guide.page.type]}
+            {t('guide_types')[guide.page?.type || '']}
           </div>
         </div>
         <h3 className="font-mktg h3-mktg my-4 color-text-primary">{guide.title}</h3>

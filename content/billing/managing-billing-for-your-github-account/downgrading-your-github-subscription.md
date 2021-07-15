@@ -18,13 +18,14 @@ redirect_from:
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - Repositories
   - User account
+shortTitle: Downgrade subscription
 ---
 ## Downgrading your {% data variables.product.product_name %} subscription
 

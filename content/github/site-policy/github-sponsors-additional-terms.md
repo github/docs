@@ -3,7 +3,7 @@ title: GitHub Sponsors Additional Terms
 redirect_from:
   - /articles/github-sponsors-additional-terms
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -23,7 +23,7 @@ Your participation in the GitHub Sponsors Program (the "Program") is subject to 
 
 "**Sponsorship**" means a payment paid to you through the Program and the Service.
 
-"**Subscription**" means a recurring monthly Sponsorship in exchange for goods, services, or other offers you provide to Sponsors.
+"**Subscription**" means a recurring or one-time Sponsorship in exchange for goods, services, or other offers you provide to Sponsors.
 
 "**Sponsored Developer Payment**" means the net of one hundred percent (100%) of GitHub's gross monthly payments received from Sponsorships and Subscriptions to Sponsored Developer Accounts, plus any applicable Matching Funds, and other proceeds from monetization options that the Sponsored Developer elects to use, as applicable, less any discounts, taxes, fees, amounts that GitHub did not collect or which were refunded or charged back, amounts owed to any third-party in connection with the Program with respect to a Sponsored Developer Account, and other Exclusions as outlined in Section 4.
 

@@ -4,6 +4,73 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `SponsorsActivity` was added",
+          "Type `SponsorsActivityAction` was added",
+          "Type `SponsorsActivityConnection` was added",
+          "Type `SponsorsActivityEdge` was added",
+          "Type `SponsorsActivityOrder` was added",
+          "Type `SponsorsActivityOrderField` was added",
+          "Type `SponsorsActivityPeriod` was added",
+          "Field `sponsorsActivities` was added to object type `Organization`",
+          "Enum value `OTHER` was added to enum `SecurityAdvisoryEcosystem`",
+          "Field `sponsorsActivities` was added to interface `Sponsorable`",
+          "Field `sponsorsActivities` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-07-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `ipAllowListEntries` was added to object type `App`",
+          "Member `App` was added to Union type `IpAllowListOwner`"
+        ]
+      }
+    ],
+    "previewChanges": [
+      {
+        "title": "The [Access to a repositories dependency graph preview](/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview) includes these changes:",
+        "changes": [
+          "Field `packageLabel` was added to object type `DependencyGraphDependency`"
+        ]
+      }
+    ],
+    "upcomingChanges": [],
+    "date": "2021-06-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `Reactor` was added",
+          "Type `ReactorConnection` was added",
+          "Type `ReactorEdge` was added",
+          "Field `reactors` was added to object type `ReactionGroup`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `ReactionGroup.users`:`users` will be removed. Use the `reactors` field instead. **Effective 2021-10-01**."
+        ]
+      }
+    ],
+    "date": "2021-06-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `IpAllowListForInstalledAppsEnabledSettingValue` was added",
           "Type `UpdateIpAllowListForInstalledAppsEnabledSettingInput` was added",
           "Type `UpdateIpAllowListForInstalledAppsEnabledSettingPayload` was added",

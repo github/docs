@@ -1,19 +1,20 @@
 ---
 title: Viewing contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
   - /articles/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
+shortTitle: View contributions
 ---
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+{% ifversion fpt or ghes %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 
@@ -30,18 +31,18 @@ On your profile page, certain actions count as contributions:
 - Opening a discussion
 - Answering a discussion
 - Proposing a pull request
-- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- Submitting a pull request review{% ifversion ghes or ghae %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ## Popular repositories
 
-This section displays your repositories with the most watchers. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
+This section displays your repositories with the most watchers. {% ifversion fpt or ghes %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![Popular repositories](/assets/images/help/profile/profile_popular_repositories.png)
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 ## Pinned repositories
 
@@ -88,7 +89,7 @@ The contribution activity section includes a detailed timeline of your work, inc
 
 ![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 ## Viewing contributions from {% data variables.product.product_location_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
 If your site administrator has enabled {% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending your {% data variables.product.prodname_ghe_server %} contributions to your {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."

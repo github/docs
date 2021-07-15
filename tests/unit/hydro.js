@@ -1,5 +1,5 @@
-const nock = require('nock')
-const Hydro = require('../../lib/hydro')
+import nock from 'nock'
+import Hydro from '../../lib/hydro.js'
 
 describe('hydro', () => {
   let hydro, params
@@ -11,22 +11,27 @@ describe('hydro', () => {
       reqheaders: {
         Authorization: /^Hydro [\d\w]{64}$/,
         'Content-Type': 'application/json',
-        'X-Hydro-App': 'docs-production'
-      }
+        'X-Hydro-App': 'docs-production',
+      },
     })
       // Respond with a 200 and store the body we sent
-      .post('/').reply(200, (_, body) => { params = body })
+      .post('/')
+      .reply(200, (_, body) => {
+        params = body
+      })
   })
 
   describe('#publish', () => {
     it('publishes a single event to Hydro', async () => {
       await hydro.publish('event-name', { pizza: true })
       expect(params).toEqual({
-        events: [{
-          schema: 'event-name',
-          value: JSON.stringify({ pizza: true }),
-          cluster: 'potomac'
-        }]
+        events: [
+          {
+            schema: 'event-name',
+            value: JSON.stringify({ pizza: true }),
+            cluster: 'potomac',
+          },
+        ],
       })
     })
   })
@@ -35,19 +40,22 @@ describe('hydro', () => {
     it('publishes multiple events to Hydro', async () => {
       await hydro.publishMany([
         { schema: 'event-name', value: { pizza: true } },
-        { schema: 'other-name', value: { salad: false } }
+        { schema: 'other-name', value: { salad: false } },
       ])
 
       expect(params).toEqual({
-        events: [{
-          schema: 'event-name',
-          value: JSON.stringify({ pizza: true }),
-          cluster: 'potomac'
-        }, {
-          schema: 'other-name',
-          value: JSON.stringify({ salad: false }),
-          cluster: 'potomac'
-        }]
+        events: [
+          {
+            schema: 'event-name',
+            value: JSON.stringify({ pizza: true }),
+            cluster: 'potomac',
+          },
+          {
+            schema: 'other-name',
+            value: JSON.stringify({ salad: false }),
+            cluster: 'potomac',
+          },
+        ],
       })
     })
   })

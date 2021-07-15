@@ -11,7 +11,7 @@ import { useTranslation } from './hooks/useTranslation'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
-  const { builtAssets, page, error, isHomepageVersion } = useMainContext()
+  const { page, error, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('errors')
   return (
     <div className="d-lg-flex">
@@ -21,8 +21,6 @@ export const DefaultLayout = (props: Props) => {
         ) : !isHomepageVersion && page.fullTitle ? (
           <title>{page.fullTitle}</title>
         ) : null}
-
-        <script src={builtAssets.main.js} />
 
         {/* For Google and Bots */}
         {page.introPlainText && <meta name="description" content={page.introPlainText} />}

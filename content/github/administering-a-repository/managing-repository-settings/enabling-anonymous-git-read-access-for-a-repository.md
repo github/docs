@@ -5,7 +5,8 @@ redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
   - /github/administering-a-repository/enabling-anonymous-git-read-access-for-a-repository
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Anonymous Git read access
 ---
 Repository administrators can change the anonymous Git read access setting for a specific repository if:
 - A site administrator has enabled private mode and anonymous Git read access.

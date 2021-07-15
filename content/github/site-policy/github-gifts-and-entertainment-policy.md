@@ -3,7 +3,7 @@ title: GitHub Gifts and Entertainment Policy
 redirect_from:
   - /articles/github-gifts-and-entertainment-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

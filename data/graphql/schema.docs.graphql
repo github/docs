@@ -826,6 +826,36 @@ type App implements Node {
   id: ID!
 
   """
+  The IP addresses of the app.
+  """
+  ipAllowListEntries(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for IP allow list entries returned.
+    """
+    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+  ): IpAllowListEntryConnection!
+
+  """
   The hex color code, without the leading '#', for the logo background.
   """
   logoBackgroundColor: String!
@@ -5754,7 +5784,7 @@ input CreateIpAllowListEntryInput {
   """
   The ID of the owner for which to create the new IP allow list entry.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 }
 
 """
@@ -7316,12 +7346,19 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
   hasDependencies: Boolean!
 
   """
+  The original name of the package, as it appears in the manifest.
+  """
+  packageLabel: String!
+
+  """
   The dependency package manager
   """
   packageManager: String
 
   """
-  The required package name
+  The name of the package in the canonical form used by the package manager.
+  This may differ from the original textual form (see packageLabel), for example
+  in a package manager that uses case-insensitive comparisons.
   """
   packageName: String!
 
@@ -13597,7 +13634,7 @@ enum IpAllowListForInstalledAppsEnabledSettingValue {
 """
 Types that can own an IP allow list.
 """
-union IpAllowListOwner = Enterprise | Organization
+union IpAllowListOwner = App | Enterprise | Organization
 
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
@@ -22605,6 +22642,41 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   samlIdentityProvider: OrganizationIdentityProvider
 
   """
+  Events involving this sponsorable, such as new sponsorships.
+  """
+  sponsorsActivities(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for activity returned from the connection.
+    """
+    orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
+
+    """
+    Filter activities returned to only those that occurred in a given time range.
+    """
+    period: SponsorsActivityPeriod = MONTH
+  ): SponsorsActivityConnection!
+
+  """
   The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
@@ -28983,6 +29055,31 @@ type ReactionGroup {
   createdAt: DateTime
 
   """
+  Reactors to the reaction subject with the emotion represented by this reaction group.
+  """
+  reactors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ReactorConnection!
+
+  """
   The subject that was reacted to.
   """
   subject: Reactable!
@@ -29011,6 +29108,9 @@ type ReactionGroup {
     """
     last: Int
   ): ReactingUserConnection!
+    @deprecated(
+      reason: "Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC."
+    )
 
   """
   Whether or not the authenticated user has left a reaction on the subject.
@@ -29041,6 +29141,56 @@ enum ReactionOrderField {
   Allows ordering a list of reactions by when they were created.
   """
   CREATED_AT
+}
+
+"""
+Types that can be assigned to reactions.
+"""
+union Reactor = Bot | Mannequin | Organization | User
+
+"""
+The connection type for Reactor.
+"""
+type ReactorConnection {
+  """
+  A list of edges.
+  """
+  edges: [ReactorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Reactor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+Represents an author of a reaction.
+"""
+type ReactorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The author of the reaction.
+  """
+  node: Reactor!
+
+  """
+  The moment when the user made the reaction.
+  """
+  reactedAt: DateTime!
 }
 
 """
@@ -36226,6 +36376,11 @@ enum SecurityAdvisoryEcosystem {
   NUGET
 
   """
+  Applications, runtimes, operating systems and other kinds of software
+  """
+  OTHER
+
+  """
   Python packages hosted at PyPI.org
   """
   PIP
@@ -36738,6 +36893,41 @@ interface Sponsorable {
   isSponsoringViewer: Boolean!
 
   """
+  Events involving this sponsorable, such as new sponsorships.
+  """
+  sponsorsActivities(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for activity returned from the connection.
+    """
+    orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
+
+    """
+    Filter activities returned to only those that occurred in a given time range.
+    """
+    period: SponsorsActivityPeriod = MONTH
+  ): SponsorsActivityConnection!
+
+  """
   The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
@@ -36896,6 +37086,167 @@ enum SponsorableOrderField {
 }
 
 """
+An event related to sponsorship activity.
+"""
+type SponsorsActivity implements Node {
+  """
+  What action this activity indicates took place.
+  """
+  action: SponsorsActivityAction!
+  id: ID!
+
+  """
+  The tier that the sponsorship used to use, for tier change events.
+  """
+  previousSponsorsTier: SponsorsTier
+
+  """
+  The user or organization who triggered this activity and was/is sponsoring the sponsorable.
+  """
+  sponsor: Sponsor
+
+  """
+  The user or organization that is being sponsored, the maintainer.
+  """
+  sponsorable: Sponsorable!
+
+  """
+  The associated sponsorship tier.
+  """
+  sponsorsTier: SponsorsTier
+
+  """
+  The timestamp of this event.
+  """
+  timestamp: DateTime
+}
+
+"""
+The possible actions that GitHub Sponsors activities can represent.
+"""
+enum SponsorsActivityAction {
+  """
+  The activity was cancelling a sponsorship.
+  """
+  CANCELLED_SPONSORSHIP
+
+  """
+  The activity was starting a sponsorship.
+  """
+  NEW_SPONSORSHIP
+
+  """
+  The activity was scheduling a downgrade or cancellation.
+  """
+  PENDING_CHANGE
+
+  """
+  The activity was funds being refunded to the sponsor or GitHub.
+  """
+  REFUND
+
+  """
+  The activity was disabling matching for a previously matched sponsorship.
+  """
+  SPONSOR_MATCH_DISABLED
+
+  """
+  The activity was changing the sponsorship tier, either directly by the sponsor or by a scheduled/pending change.
+  """
+  TIER_CHANGE
+}
+
+"""
+The connection type for SponsorsActivity.
+"""
+type SponsorsActivityConnection {
+  """
+  A list of edges.
+  """
+  edges: [SponsorsActivityEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SponsorsActivity]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SponsorsActivityEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SponsorsActivity
+}
+
+"""
+Ordering options for GitHub Sponsors activity connections.
+"""
+input SponsorsActivityOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order activity by.
+  """
+  field: SponsorsActivityOrderField!
+}
+
+"""
+Properties by which GitHub Sponsors activity connections can be ordered.
+"""
+enum SponsorsActivityOrderField {
+  """
+  Order activities by when they happened.
+  """
+  TIMESTAMP
+}
+
+"""
+The possible time periods for which Sponsors activities can be requested.
+"""
+enum SponsorsActivityPeriod {
+  """
+  Don't restrict the activity to any date range, include all activity.
+  """
+  ALL
+
+  """
+  The previous calendar day.
+  """
+  DAY
+
+  """
+  The previous thirty days.
+  """
+  MONTH
+
+  """
+  The previous seven days.
+  """
+  WEEK
+}
+
+"""
 A goal associated with a GitHub Sponsors listing, representing a target the sponsored maintainer would like to attain.
 """
 type SponsorsGoal {
@@ -37023,8 +37374,8 @@ type SponsorsTier implements Node {
 
   """
   Get a different tier for this tier's maintainer that is at the same frequency
-  as this tier but with a lesser cost. Returns the published tier with the
-  monthly price closest to this tier's without going over.
+  as this tier but with an equal or lesser cost. Returns the published tier with
+  the monthly price closest to this tier's without going over.
   """
   closestLesserValueTier: SponsorsTier
 
@@ -41872,7 +42223,7 @@ input UpdateIpAllowListEnabledSettingInput {
   """
   The ID of the owner on which to set the IP allow list enabled setting.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list enabled setting.
@@ -41952,7 +42303,7 @@ input UpdateIpAllowListForInstalledAppsEnabledSettingInput {
   """
   The ID of the owner.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list configuration for installed GitHub Apps setting.
@@ -43725,6 +44076,41 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     orderBy: SavedReplyOrder = {field: UPDATED_AT, direction: DESC}
   ): SavedReplyConnection
+
+  """
+  Events involving this sponsorable, such as new sponsorships.
+  """
+  sponsorsActivities(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for activity returned from the connection.
+    """
+    orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
+
+    """
+    Filter activities returned to only those that occurred in a given time range.
+    """
+    period: SponsorsActivityPeriod = MONTH
+  ): SponsorsActivityConnection!
 
   """
   The GitHub Sponsors listing for this user or organization.

@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
   - /admin/enterprise-management/about-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering

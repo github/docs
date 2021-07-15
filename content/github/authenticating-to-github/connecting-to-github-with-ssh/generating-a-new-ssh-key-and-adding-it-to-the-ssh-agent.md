@@ -7,17 +7,18 @@ redirect_from:
   - /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Generate new SSH key
 ---
 ## About SSH key generation
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
@@ -177,7 +178,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% endlinux %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1"  %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## Generating a new SSH key for a hardware security key
 
 If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
@@ -236,6 +237,6 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
 - "[About SSH](/articles/about-ssh)"
 - "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)"
-{%- if currentVersion == "free-pro-team@latest" %}
+{%- ifversion fpt %}
 - "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {%- endif %}

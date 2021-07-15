@@ -7,6 +7,7 @@ import {
 } from 'components/context/MainContext'
 import { Breadcrumbs } from 'components/Breadcrumbs'
 import { DefaultLayout } from 'components/DefaultLayout'
+import { useEffect, useRef } from 'react'
 
 type Props = {
   mainContext: MainContextT
@@ -14,6 +15,14 @@ type Props = {
 }
 export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) {
   const { page, airGap } = mainContext
+  const graphiqlRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.search) {
+      graphiqlRef.current?.contentWindow?.postMessage(window.location.search, graphqlExplorerUrl)
+    }
+  }, [])
+
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
@@ -33,12 +42,7 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
                   <p>GraphQL explorer is not available on this environment.</p>
                 ) : (
                   /* eslint-disable-next-line jsx-a11y/iframe-has-title */
-                  <iframe
-                    id="graphiql"
-                    className="graphql-explorer"
-                    scrolling="no"
-                    src={graphqlExplorerUrl}
-                  >
+                  <iframe ref={graphiqlRef} id="graphiql" scrolling="no" src={graphqlExplorerUrl}>
                     <p>You must have iframes enabled to use this feature.</p>
                   </iframe>
                 )}

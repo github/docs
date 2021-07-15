@@ -5,7 +5,7 @@ intro: 'You can choose which metrics are displayed in {% data variables.product.
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-data-in-github-insights
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 children:
   - /about-data-in-github-insights
   - /managing-available-metrics-and-reports

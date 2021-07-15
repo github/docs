@@ -10,9 +10,9 @@ redirect_from:
   - /actions/reference/development-tools-for-github-actions
   - /actions/reference/logging-commands-for-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,7 +23,7 @@ versions:
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
 {% else %}
 Workflow commands use the `echo` command in a specific format.
@@ -69,11 +69,11 @@ The following table shows which toolkit functions are available within a workflo
 
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
-| `core.addPath`    | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |
+| `core.addPath`    | {% ifversion fpt or ghes > 2.22 or ghae %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |
 | `core.debug`      | `debug` |
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
-| `core.exportVariable` | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %} |
+| `core.exportVariable` | {% ifversion fpt or ghes > 2.22 or ghae %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %} |
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
@@ -84,7 +84,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.startGroup` | `group` |
 | `core.warning`    | `warning file` |
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% ifversion ghes < 3.0 %}
 ## Setting an environment variable
 
 `::set-env name={name}::{value}`
@@ -112,7 +112,7 @@ Optionally, you can also declare output parameters in an action's metadata file.
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% ifversion ghes < 3.0 %}
 ## Adding a system path
 
 `::add-path::{path}`
@@ -246,7 +246,7 @@ The `STATE_processID` variable is then exclusively available to the cleanup scri
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Environment Files
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.

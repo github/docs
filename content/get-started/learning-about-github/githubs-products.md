@@ -7,9 +7,9 @@ redirect_from:
   - /github/getting-started-with-github/githubs-products
   - /github/getting-started-with-github/learning-about-github/githubs-products
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - CLI
@@ -88,7 +88,7 @@ In addition to the features available with {% data variables.product.prodname_te
 - Additional security, compliance, and deployment controls
 - Authentication with SAML single sign-on
 - Access provisioning with SAML or SCIM
-- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- {% data variables.product.prodname_github_connect %}{% ifversion fpt or ghae or ghes > 2.22 %}
 - The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} also includes:
