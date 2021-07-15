@@ -1,15 +1,15 @@
-const { liquid } = require('../lib/render-content')
-const layouts = require('../lib/layouts')
-const FailBot = require('../lib/failbot')
-const loadSiteData = require('../lib/site-data')
-const builtAssets = require('../lib/built-asset-urls')
+import { liquid } from '../lib/render-content/index.js'
+import layouts from '../lib/layouts.js'
+import FailBot from '../lib/failbot.js'
+import loadSiteData from '../lib/site-data.js'
+import builtAssets from '../lib/built-asset-urls.js'
 
-function shouldLogException (error) {
+function shouldLogException(error) {
   const IGNORED_ERRORS = [
     // avoid sending CSRF token errors (from bad-actor POST requests)
     'EBADCSRFTOKEN',
     // Client connected aborted
-    'ECONNRESET'
+    'ECONNRESET',
   ]
 
   if (IGNORED_ERRORS.includes(error.code)) {
@@ -20,15 +20,15 @@ function shouldLogException (error) {
   return true
 }
 
-async function logException (error, req) {
+async function logException(error, req) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
     await FailBot.report(error, {
-      path: req.path
+      path: req.path,
     })
   }
 }
 
-module.exports = async function handleError (error, req, res, next) {
+export default async function handleError(error, req, res, next) {
   try {
     // If the headers have already been sent or the request was aborted...
     if (res.headersSent || req.aborted) {
@@ -53,9 +53,7 @@ module.exports = async function handleError (error, req, res, next) {
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      return res
-        .status(404)
-        .send(await liquid.parseAndRender(layouts['error-404'], req.context))
+      return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
     }
 
     // If the error contains a status code, just send that back. This is usually

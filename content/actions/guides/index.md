@@ -73,6 +73,8 @@ includeGuides:
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /actions/guides/managing-github-actions-with-github-cli
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
 children:
   - /about-continuous-integration
   - /setting-up-continuous-integration-using-workflow-templates

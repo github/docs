@@ -304,9 +304,11 @@ to the information provided in your repository graph. For more information, see 
 
 ## Webhooks
 
-The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository. {% data reusables.webhooks.webhooks-rest-api-links %} Webhooks can be managed using the JSON HTTP API, or the [PubSubHubbub](#pubsubhubbub) API.
+Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
+
+In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

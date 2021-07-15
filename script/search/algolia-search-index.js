@@ -1,35 +1,35 @@
-const { chain, chunk, difference } = require('lodash')
-const objectHash = require('object-hash')
-const rank = require('./rank')
-const validateRecords = require('./validate-records')
-const getAlgoliaClient = require('./algolia-client')
+#!/usr/bin/env node
+import { chain, chunk, difference } from 'lodash-es'
+import objectHash from 'object-hash'
+import rank from './rank.js'
+import validateRecords from './validate-records.js'
+import getAlgoliaClient from './algolia-client.js'
 
 class AlgoliaIndex {
-  constructor (name, records) {
+  constructor(name, records) {
     this.name = name
-    this.records = records
-      .map(record => {
-        record.customRanking = rank(record)
-        return record
-      })
+    this.records = records.map((record) => {
+      record.customRanking = rank(record)
+      return record
+    })
     this.validate()
     return this
   }
 
-  validate () {
+  validate() {
     return validateRecords(this.name, this.records)
   }
 
   // This method consumes Algolia's `browseObjects` event emitter,
   // aggregating results into an array of all the records
   // https://www.algolia.com/doc/api-client/getting-started/upgrade-guides/javascript/#the-browse-and-browsefrom-methods
-  async fetchExistingRecords () {
+  async fetchExistingRecords() {
     const client = getAlgoliaClient()
 
     // return an empty array if the index does not exist yet
     const { items: indices } = await client.listIndices()
 
-    if (!indices.find(index => index.name === this.name)) {
+    if (!indices.find((index) => index.name === this.name)) {
       console.log(`index '${this.name}' does not exist!`)
       return []
     }
@@ -38,13 +38,13 @@ class AlgoliaIndex {
     let records = []
 
     await index.browseObjects({
-      batch: batch => (records = records.concat(batch))
+      batch: (batch) => (records = records.concat(batch)),
     })
 
     return records
   }
 
-  async syncWithRemote () {
+  async syncWithRemote() {
     const client = getAlgoliaClient()
 
     console.log('\n\nsyncing %s with remote', this.name)
@@ -59,11 +59,11 @@ class AlgoliaIndex {
 
     // Create a hash of every existing record, to compare to the new records
     // The `object-hash` module is indifferent to object key order by default. :+1:
-    const existingHashes = existingRecords.map(record => objectHash(record))
+    const existingHashes = existingRecords.map((record) => objectHash(record))
 
     // If a hash is found, that means the existing Algolia record contains the
     // same data as new record, and the record doesn't need to be updated.
-    const recordsToUpdate = this.records.filter(record => {
+    const recordsToUpdate = this.records.filter((record) => {
       return !existingHashes.includes(objectHash(record))
     })
 
@@ -91,4 +91,4 @@ class AlgoliaIndex {
   }
 }
 
-module.exports = AlgoliaIndex
+export default AlgoliaIndex

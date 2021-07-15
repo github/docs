@@ -1,9 +1,9 @@
-const { liquid } = require('../../lib/render-content')
-const shortVersionsMiddleware = require('../../middleware/contextualizers/short-versions')
-const featureVersionsMiddleware = require('../../middleware/contextualizers/features')
-const allVersions = require('../../lib/all-versions')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const loadSiteData = require('../../lib/site-data')
+import { liquid } from '../../lib/render-content/index.js'
+import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
+import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
+import allVersions from '../../lib/all-versions.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import loadSiteData from '../../lib/site-data.js'
 
 const template = `
   {% if currentVersion ver_gt "enterprise-server@2.13" %}up to date{% endif %}
@@ -72,7 +72,7 @@ describe('liquid template parser', () => {
         currentVersion: 'free-pro-team@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
@@ -85,7 +85,7 @@ describe('liquid template parser', () => {
         currentVersion: 'github-ae@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
@@ -97,11 +97,13 @@ describe('liquid template parser', () => {
         currentVersion: 'enterprise-server@2.22',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am FTP or GHES < 3.0')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
+        'I am GHES I am GHES < 3.1 I am FTP or GHES < 3.0'
+      )
     })
 
     test('AND statements work as expected', async () => {
@@ -109,7 +111,7 @@ describe('liquid template parser', () => {
         currentVersion: 'enterprise-server@3.0',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
@@ -121,7 +123,7 @@ describe('liquid template parser', () => {
         currentVersion: 'github-ae@latest',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
@@ -133,7 +135,7 @@ describe('liquid template parser', () => {
         currentVersion: 'enterprise-server@3.0',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
@@ -145,7 +147,7 @@ describe('liquid template parser', () => {
         currentVersion: 'enterprise-server@3.1',
         page: {},
         allVersions,
-        enterpriseServerReleases
+        enterpriseServerReleases,
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
@@ -169,7 +171,7 @@ describe('liquid template parser', () => {
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData
+        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
@@ -182,7 +184,7 @@ describe('liquid template parser', () => {
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData
+        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
@@ -195,7 +197,7 @@ describe('liquid template parser', () => {
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData
+        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)

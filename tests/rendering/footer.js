@@ -1,6 +1,7 @@
-const { getDOM } = require('../helpers/supertest')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+import { getDOM } from '../helpers/supertest.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { jest } from '@jest/globals'
 
 describe('footer', () => {
   jest.setTimeout(10 * 60 * 1000)
