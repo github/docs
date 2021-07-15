@@ -19,7 +19,7 @@ You can configure two-factor authentication using a mobile app{% ifversion fpt %
 We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
 {% warning %}
-
+ 
 **Warning:**
 - If you're a member{% ifversion fpt %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
 - If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
