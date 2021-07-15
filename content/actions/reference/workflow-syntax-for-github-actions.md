@@ -51,7 +51,7 @@ on:
 
 When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
 
-The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one branch or tag name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including branches and tags
 
