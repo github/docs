@@ -112,7 +112,11 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
 
 The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
+### Example using a public action
+
+This example demonstrates how your new public action can be run from within an external repository.
+
+Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `hello-world-composite-run-steps-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -125,12 +129,43 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v2
-      - id: foo
-        uses: actions/hello-world-composite-run-steps-action@v1
+      - id: hello
+        uses: hello-world-composite-run-steps-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number ${{ steps.hello.outputs.random-number }}
         shell: bash
+```
+{% endraw %}
+
+When this workflow is triggered, the runner will download the `hello-world-composite-run-steps-action@v1` action from your public repository and then execute it.
+
+### Example using a private action
+
+Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
+
+{% raw %}
+**.github/workflows/main.yml**
+```yaml
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
