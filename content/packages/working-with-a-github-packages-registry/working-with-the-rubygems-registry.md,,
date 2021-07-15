@@ -125,7 +125,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 
   ```ruby
   source "https://rubygems.org"
-
+ 
   gem "rails"
 
   source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
