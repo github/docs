@@ -181,6 +181,25 @@ The filter determines if a workflow should run by evaluating the changed files a
 
 For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
 
+## `on.workflow_dispatch.inputs`
+
+When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+
+```yaml
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+        required: false
+```
+
+The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+
 ## `on.schedule`
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
@@ -621,15 +640,15 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ### Example: Using versioned actions
 
 ```yaml
-steps:    
+steps:
   # Reference a specific commit
-  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+  - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
   # Reference the major version of a release
-  - uses: actions/setup-node@v2
+  - uses: actions/checkout@v2
   # Reference a specific version
-  - uses: actions/setup-node@v2.2.0
+  - uses: actions/checkout@v2.2.0
   # Reference a branch
-  - uses: actions/setup-node@main
+  - uses: actions/checkout@main
 ```
 
 ### Example: Using a public action
@@ -780,7 +799,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### Using a specific shell
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
+You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|

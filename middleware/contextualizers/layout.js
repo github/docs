@@ -1,6 +1,6 @@
-const layouts = require('../../lib/layouts')
+import layouts from '../../lib/layouts.js'
 
-module.exports = function layoutContext (req, res, next) {
+export default function layoutContext(req, res, next) {
   if (!req.context.page) return next()
 
   const layoutOptsByType = {
@@ -10,10 +10,10 @@ module.exports = function layoutContext (req, res, next) {
     // A `layout: false` value means use no layout.
     boolean: '',
     // For all other files (like articles and the homepage), use the `default` layout.
-    undefined: 'default'
+    undefined: 'default',
   }
 
-  const layoutName = layoutOptsByType[typeof (req.context.page.layout)]
+  const layoutName = layoutOptsByType[typeof req.context.page.layout]
 
   // Attach to the context object
   req.context.currentLayoutName = layoutName
