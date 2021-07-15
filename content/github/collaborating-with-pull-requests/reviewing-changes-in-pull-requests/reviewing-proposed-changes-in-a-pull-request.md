@@ -9,7 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-topics:
+topics: 
   - Pull requests
 shortTitle: Review proposed changes
 ---
