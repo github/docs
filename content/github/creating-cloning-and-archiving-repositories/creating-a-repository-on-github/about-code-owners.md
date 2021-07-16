@@ -52,9 +52,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
-# review when someone opens a pull request. When multiple
-# owners are specified, a review from only one of them is
-# required.
+# review when someone opens a pull request.
 *       @global-owner1 @global-owner2
 
 # Order is important; the last matching pattern takes the most
@@ -87,17 +85,40 @@ apps/ @octocat
 # subdirectories.
 /docs/ @doctocat
 
-# In this example, @octocat owns any file in an apps directory
-# anywhere in your repository except for the apps/github 
-# repository.
-apps/ @octocat
-apps/github @ghost
+# In this example, @octocat owns any file in the `/apps` 
+# directory in the root of your repository except for the `/apps/github` 
+# repository, as it's owners are left empty.
+/apps/ @octocat
+/apps/github 
 ```
 ### Syntax exceptions
 There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
 - Using `[ ]` to define a character range
+
+## CODEOWNERS and branch protection
+It is possible to add a branch protection rule to ensure that changed code is reviewed by the owners of the changed files, see "[About protected branches](/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." 
+
+
+### Example of a CODEOWNERS file
+```
+# In this example, any change inside `/apps` directory
+# will require an approval from @doctocat.
+/apps/ @doctocat
+
+# In this example, any change inside `/apps` directory
+# will require an approval from @doctocat or @octocat.
+/apps/ @doctocat @octocat
+
+
+# In this example, assuming @doctocat is a member 
+# of @Github/content-team and @doctocat introduces a 
+# change inside `/apps` directory, the approval 
+# can be done by anyone else, including the users 
+# that are not in @Github/content-team
+/apps/ @Github/content-team
+```
 
 
 
