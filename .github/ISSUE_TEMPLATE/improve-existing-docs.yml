@@ -1,0 +1,25 @@
+name: Improve existing content
+description: Make a suggestion to improve the content in an existing article
+title: ''
+labels: 
+  - content
+assignees: ''
+body:
+# HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+- type: markdown
+  attributes:
+    value: |
+          For questions, ask in [Discussions](https://github.com/github/docs/discussions)
+          Before you file an issue read the
+          - [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+          - [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
+
+- type: checkboxes
+  attributes:
+      label: Is there an existing issue for this?
+      description: Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
+      options:
+      - label: I have searched the existing issues
+        required: true
+
+    
