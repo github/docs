@@ -5,10 +5,10 @@ versions:
   ghae: '*'
 ---
 
-This guide will walk you through setting up, configuring, and managing settings for your {% data variables.product.prodname_ghe_managed %} account as an enterprise owner or administrator.
+This guide will walk you through setting up, configuring, and managing settings for {% data variables.product.product_location %} on {% data variables.product.product_name %} as an enterprise owner.
 
 ## Part 1: Setting up {% data variables.product.prodname_ghe_managed %}
-To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, manage billing, and configure user authentication and provisioning for your enterprise.
+To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, configure user authentication and provisioning, and manage billing for your enterprise.
 
 ### 1. Creating your {% data variables.product.prodname_ghe_managed %} enterprise account
 You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
@@ -16,22 +16,22 @@ You will first need to purchase {% data variables.product.prodname_ghe_managed %
 After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in {% data variables.product.prodname_dotcom %} Enterprise Support to create an account.
 
 ### 2. Initializing {% data variables.product.prodname_ghe_managed %}
-When your {% data variables.product.prodname_ghe_managed %} enterprise account has been created, you will receive an email to log into {% data variables.product.prodname_ghe_managed %} and complete the initialization. During initialization, you, as the enterprise owner,  will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+After {% data variables.product.company_short %} creates the owner account for your enterprise on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 
 ### 3. Restricting network traffic
 You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
 
 ### 4. Managing identity and access for your enterprise
-You can centrally manage access to {% data variables.product.prodname_ghe_managed %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure it, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
 
 ### 5. Managing billing for your enterprise
-Enterprise owners can view billing information for {% data variables.product.prodname_ghe_managed %}. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+Owners of the subscription for your enterprise on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
-## Part 2: Organizing and managing your users
-As an enterprise owner for {% data variables.product.prodname_ghe_managed %}, you can manage settings on user, repository, team and organization levels. You can manage users in your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
+## Part 2: Organizing and managing enterprise members
+As an enterprise owner for {% data variables.product.prodname_ghe_managed %}, you can manage settings on user, repository, team, and organization levels. You can manage users in your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
 
-### 1. Managing and auditing users of your enterprise
-You can manage user settings and audit user activity in your enterprise, including managing dormant users, viewing the audit log for user activity in your enterprise, and customizing messages that users will see on your enterprise. For more information, see "[Managing users in your enterprise](/admin/user-management/managing-users-in-your-enterprise)."
+### 1. Managing and auditing enterprise members
+You can manage settings and audit activity for the members of {% data variables.product.product_location %}. You can manage dormant users, view the audit log for user activity in {% data variables.product.product_location %}, and customize messages that users will see on {% data variables.product.product_location %}. For more information, see "[Managing users in your enterprise](/admin/user-management/managing-users-in-your-enterprise)."
 
 ### 2. Creating organizations
 You can create new organizations in your enterprise to reflect your company or group's structure. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
@@ -51,15 +51,15 @@ For organizations where you have admin permissions, you can also customize acces
 As an enterprise owner, you can set repository management policies for all organizations in your enterprise, or allow policies to be set in each organization. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 
 ## Part 3: Building securely
-To make your enterprise as secure as possible, you can monitor your enterprise and configure security and analysis features for your organizations.
+To increase the security of {% data variables.product.product_location %}, you can monitor {% data variables.product.product_location %} and configure security and analysis features for your organizations.
 
 ### 1. Monitoring your enterprise
-You can monitor your application with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
+You can monitor {% data variables.product.product_location %} with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
 
 ### 2. Configuring security features for your organizations
 You can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep the organizations in your enterprise secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-## Part 4: Customizing and automating your enterprise's work on {% data variables.product.prodname_dotcom %}
+## Part 4: Customizing and automating work on {% data variables.product.product_location %}
 You can customize and automate work in organizations in your enterprise with the {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
 
 ### 1. Using the {% data variables.product.prodname_dotcom %} API

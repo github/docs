@@ -1,44 +1,42 @@
 ---
 title: Getting started with GitHub Enterprise Server
-intro: 'Get started with setting up and managing your {% data variables.product.prodname_ghe_server %} instance.'
+intro: 'Get started with setting up and managing {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
 ---
 
-This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_server %} instance as an enterprise owner or administrator.
+This guide will walk you through setting up, configuring and managing {% data variables.product.product_location %} as an enterprise administrator.
 
-{% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
+{% data variables.product.company_short %} provides two ways to deploy {% data variables.product.prodname_enterprise %}.
 
 - **{% data variables.product.prodname_ghe_cloud %}**
 - **{% data variables.product.prodname_ghe_server %}**
 
-The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted. 
+{% data variables.product.company %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
 
-For an overview of how {% data variables.product.prodname_ghe_server %} works, see "[System overview](/admin/overview/system-overview?learn=deploy_an_instance)."
+For an overview of how {% data variables.product.prodname_ghe_server %} works, see "[System overview](/admin/overview/system-overview)."
 
 ## Part 1: Installing {% data variables.product.prodname_ghe_server %}
 To get started with {% data variables.product.prodname_ghe_server %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 
 ### 1. Creating your enterprise account
 Before you install {% data variables.product.prodname_ghe_server %}, you will first need to create an enterprise account on GitHub by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
-### 2. Installing a {% data variables.product.prodname_ghe_server %} instance
-To get started with {% data variables.product.prodname_ghe_server %}, you will need to install your instance on a virtualization platform of your choice. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+### 2. Installing {% data variables.product.prodname_ghe_server %}
+To get started with {% data variables.product.prodname_ghe_server %}, you will need to install the appliance on a virtualization platform of your choice. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
 ### 3. Using the Management Console
-You will use the Management Console to walk through the initial setup process when first launching your instance. You can also use the  Management Console to manage virtual appliance settings such as the domain, authentication and SSL. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+You will use the Management Console to walk through the initial setup process when first launching your instance. You can also use the  Management Console to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
 
-### 4. Configuring your {% data variables.product.prodname_ghe_server %} instance
-In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage your enterprise. You can configure applications and rate limits, view reports, use command-line utilities, and much more. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+### 4. Configuring {% data variables.product.product_location %}
+In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.product.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 
 You can use the default network settings used by {% data variables.product.prodname_ghe_server %} via the dynamic host configuration protocol (DHCP), or you can also configure the network settings using the virtual machine console. You can also configure a proxy server or firewall rules. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
 
 ### 5. Configuring high availability
-You can configure your {% data variables.product.prodname_ghe_server %} instance for high availability so that any hardware failures or major network outages don't disrupt service. For more information, see "[Configuring high availability](/admin/enterprise-management/configuring-high-availability)."
+You can configure your {% data variables.product.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[Configuring high availability](/admin/enterprise-management/configuring-high-availability)."
 
 ### 6. Designating backups and disaster recovery
-You can use {% data variables.product.prodname_ghe_server %} Backup Utilities to configure automated backups of your {% data variables.product.prodname_ghe_server %} instance, so that you can protect your production data. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+To protect your production data, you can configure automated backups of {% data variables.product.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-### 7. Geo-replication
-{% data variables.product.prodname_ghe_server %} can help to reduce latency between different hosts and locations, if your organization has offices in multiple locations. For more information, see "[About geo-replication](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
 ### 8. Managing billing for your enterprise
 Billing for all the organizations and {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom %}.com services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
