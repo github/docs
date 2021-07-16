@@ -59,4 +59,4 @@ jobs:
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: '--max_old_space_size=8192'
+          NODE_OPTIONS: '--max_old_space_size=8192 --experimental-vm-modules'
