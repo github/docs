@@ -41,7 +41,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 
 ## CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`. If an author modifies the files under their ownership, then the review is not required, but still appointed. 
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 ### Example of a CODEOWNERS file
@@ -116,7 +116,10 @@ It is possible to add a branch protection rule to ensure that changed code is re
 # of @Github/content-team and @doctocat introduces a 
 # change inside `/apps` directory, the approval 
 # can be done by anyone else, including the users 
-# that are not in @Github/content-team
+# that are not in @Github/content-team. 
+# @Github/content-team will be still appointed
+# to the review, but it's member's approval
+# is not required. 
 /apps/ @Github/content-team
 ```
 
