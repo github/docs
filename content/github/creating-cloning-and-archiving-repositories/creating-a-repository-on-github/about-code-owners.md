@@ -111,7 +111,6 @@ It is possible to add a branch protection rule to ensure that changed code is re
 # will require approval from @doctocat or @octocat.
 /apps/ @doctocat @octocat
 
-
 # In this example, assuming @doctocat is a member 
 # of @Github/content-team and @doctocat introduces a 
 # change inside `/apps` directory, the approval 
