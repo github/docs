@@ -36,6 +36,10 @@ Azure | Azure Service Management Certificate | azure_management_certificate{% en
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Clojars | Clojars Deploy Token | clojars_deploy_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}

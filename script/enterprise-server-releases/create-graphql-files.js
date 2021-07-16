@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import xMkdirp from 'mkdirp'
+import allVersions from '../../lib/all-versions.js'
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const mkdirp = require('mkdirp').sync
-const allVersions = require('../../lib/all-versions')
+const mkdirp = xMkdirp.sync
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 
@@ -16,8 +17,14 @@ const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 
 program
   .description('Create GraphQL files in lib/graphql/static based on an existing version.')
-  .option('-n, --newVersion <version>', 'The version to copy the files to. Must be in <plan@release> format.')
-  .option('-o, --oldVersion <version>', 'The version to copy the files from. Must be in <plan@release> format.')
+  .option(
+    '-n, --newVersion <version>',
+    'The version to copy the files to. Must be in <plan@release> format.'
+  )
+  .option(
+    '-o, --oldVersion <version>',
+    'The version to copy the files from. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
 const newVersion = program.opts().newVersion
@@ -28,8 +35,12 @@ if (!(newVersion && oldVersion)) {
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).includes(oldVersion))) {
-  console.log('Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.')
+if (
+  !(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).includes(oldVersion))
+) {
+  console.log(
+    'Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 
@@ -60,10 +71,11 @@ const inputObjects = JSON.parse(fs.readFileSync(inputObjectsFile))
 // The prerendered objects file for the "old version" contains hardcoded links with the old version number.
 // We need to update those links to include the new version to prevent a test from failing.
 const regexOldVersion = new RegExp(oldVersion, 'gi')
-const stringifiedObject = JSON.stringify(objects[oldVersionId])
-  .replace(regexOldVersion, newVersion)
-const stringifiedInputObject = JSON.stringify(inputObjects[oldVersionId])
-  .replace(regexOldVersion, newVersion)
+const stringifiedObject = JSON.stringify(objects[oldVersionId]).replace(regexOldVersion, newVersion)
+const stringifiedInputObject = JSON.stringify(inputObjects[oldVersionId]).replace(
+  regexOldVersion,
+  newVersion
+)
 
 previews[newVersionId] = previews[oldVersionId]
 changes[newVersionId] = changes[oldVersionId]
@@ -103,7 +115,7 @@ const destDir = path.join(graphqlDataDir, newVersionId)
 mkdirp(destDir)
 
 // copy the files
-fs.readdirSync(srcDir).forEach(file => {
+fs.readdirSync(srcDir).forEach((file) => {
   const srcFile = path.join(srcDir, file)
   const destFile = path.join(destDir, file)
   fs.copyFileSync(srcFile, destFile)
