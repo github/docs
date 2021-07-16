@@ -262,7 +262,7 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% note %}
 
-**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
+**Note:** You must pull the image by `IMAGE_NAME:VERSION` and not by `IMAGE_NAME:SHA`.
 
 {% endnote %}
 
