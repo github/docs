@@ -87,7 +87,7 @@ apps/ @octocat
 
 # In this example, @octocat owns any file in the `/apps` 
 # directory in the root of your repository except for the `/apps/github` 
-# repository, as it's owners are left empty.
+# repository, as its owners are left empty.
 /apps/ @octocat
 /apps/github 
 ```
@@ -104,11 +104,11 @@ It is possible to add a branch protection rule to ensure that changed code is re
 ### Example of a CODEOWNERS file
 ```
 # In this example, any change inside `/apps` directory
-# will require an approval from @doctocat.
+# will require approval from @doctocat.
 /apps/ @doctocat
 
 # In this example, any change inside `/apps` directory
-# will require an approval from @doctocat or @octocat.
+# will require approval from @doctocat or @octocat.
 /apps/ @doctocat @octocat
 
 
