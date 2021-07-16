@@ -87,7 +87,7 @@ apps/ @octocat
 
 # In this example, @octocat owns any file in the `/apps` 
 # directory in the root of your repository except for the `/apps/github` 
-# repository, as its owners are left empty.
+# subdirectory, as its owners are left empty.
 /apps/ @octocat
 /apps/github 
 ```
