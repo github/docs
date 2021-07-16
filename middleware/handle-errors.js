@@ -1,5 +1,6 @@
+import fs from 'fs'
+import path from 'path'
 import { liquid } from '../lib/render-content/index.js'
-import layouts from '../lib/layouts.js'
 import FailBot from '../lib/failbot.js'
 import loadSiteData from '../lib/site-data.js'
 import builtAssets from '../lib/built-asset-urls.js'
@@ -53,7 +54,8 @@ export default async function handleError(error, req, res, next) {
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
+      // Again, we can remove this once the 404/500 pages are ready
+      return res.status(404).send(await liquid.parseAndRender(fs.readFileSync(path.join(process.cwd(), './layouts/error-404.html'), 'utf8'), req.context))
     }
 
     // If the error contains a status code, just send that back. This is usually
@@ -66,8 +68,8 @@ export default async function handleError(error, req, res, next) {
       console.error('500 error!', req.path)
       console.error(error)
     }
-
-    res.status(500).send(await liquid.parseAndRender(layouts['error-500'], req.context))
+    // Again, we can remove this once the 404/500 pages are ready
+    res.status(500).send(await liquid.parseAndRender(fs.readFileSync(path.join(process.cwd(), './layouts/error-500.html'), 'utf8'), req.context))
 
     // Report to Failbot AFTER responding to the user
     await logException(error, req)

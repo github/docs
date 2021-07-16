@@ -2,6 +2,8 @@ import { getDOM } from '../helpers/supertest.js'
 import languages from '../../lib/languages.js'
 import { jest } from '@jest/globals'
 
+jest.useFakeTimers()
+
 describe('<head>', () => {
   jest.setTimeout(5 * 60 * 1000)
 
@@ -11,7 +13,7 @@ describe('<head>', () => {
     expect($hreflangs.length).toEqual(Object.keys(languages).length)
     expect($('link[href="https://docs.github.com/cn"]').length).toBe(1)
     expect($('link[href="https://docs.github.com/ja"]').length).toBe(1)
-    expect($('link[hreflang="en"]').length).toBe(1)
+    expect($('link[hrefLang="en"]').length).toBe(1)
   })
 
   test('includes page intro in `description` meta tag', async () => {
