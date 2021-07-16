@@ -1,13 +1,13 @@
-const { get } = require('lodash')
-const { liquid } = require('../lib/render-content')
-const patterns = require('../lib/patterns')
-const layouts = require('../lib/layouts')
-const getMiniTocItems = require('../lib/get-mini-toc-items')
-const Page = require('../lib/page')
-const statsd = require('../lib/statsd')
-const RedisAccessor = require('../lib/redis-accessor')
-const { isConnectionDropped } = require('./halt-on-dropped-connection')
-const { nextHandleRequest } = require('./next')
+import { get } from 'lodash-es'
+import { liquid } from '../lib/render-content/index.js'
+import patterns from '../lib/patterns.js'
+import layouts from '../lib/layouts.js'
+import getMiniTocItems from '../lib/get-mini-toc-items.js'
+import Page from '../lib/page.js'
+import statsd from '../lib/statsd.js'
+import RedisAccessor from '../lib/redis-accessor.js'
+import { isConnectionDropped } from './halt-on-dropped-connection.js'
+import { nextHandleRequest } from './next.js'
 
 const { HEROKU_RELEASE_VERSION } = process.env
 
@@ -21,21 +21,21 @@ const pageCache = new RedisAccessor({
   allowSetFailures: true,
   // Allow for graceful failures if a Redis GET operation fails
   allowGetFailures: true,
-  name: 'page-cache'
+  name: 'page-cache',
 })
 
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
-function modifyOutput (req, text) {
+function modifyOutput(req, text) {
   return addColorMode(req, addCsrf(req, text))
 }
 
-function addCsrf (req, text) {
+function addCsrf(req, text) {
   return text.replace('$CSRFTOKEN$', req.csrfToken())
 }
 
-function addColorMode (req, text) {
+function addColorMode(req, text) {
   let colorMode = 'auto'
   let darkTheme = 'dark'
   let lightTheme = 'light'
@@ -55,20 +55,19 @@ function addColorMode (req, text) {
     .replace('$LIGHTTHEME$', lightTheme)
 }
 
-module.exports = async function renderPage (req, res, next) {
+export default async function renderPage(req, res, next) {
   const page = req.context.page
 
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
-      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
-    }
-    return res.status(404).send(
-      modifyOutput(
-        req,
-        await liquid.parseAndRender(layouts['error-404'], req.context)
+      console.error(
+        `\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`
       )
-    )
+    }
+    return res
+      .status(404)
+      .send(modifyOutput(req, await liquid.parseAndRender(layouts['error-404'], req.context)))
   }
 
   if (req.method === 'HEAD') {
@@ -95,7 +94,7 @@ module.exports = async function renderPage (req, res, next) {
   const isGraphQLExplorer = req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
 
   // Serve from the cache if possible
-  const isCacheable = (
+  const isCacheable =
     // Skip for CI
     !process.env.CI &&
     // Skip for tests
@@ -110,7 +109,6 @@ module.exports = async function renderPage (req, res, next) {
     !isAirgapped &&
     // Skip for the GraphQL Explorer page
     !isGraphQLExplorer
-  )
 
   if (isCacheable) {
     // Stop processing if the connection was already dropped
@@ -149,15 +147,21 @@ module.exports = async function renderPage (req, res, next) {
   // handle special-case prerendered GraphQL objects page
   if (req.pagePath.endsWith('graphql/reference/objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
+    context.miniTocItems = context.miniTocItems.concat(
+      req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc
+    )
+    context.renderedPage =
+      context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
   // handle special-case prerendered GraphQL input objects page
   if (req.pagePath.endsWith('graphql/reference/input-objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
+    context.miniTocItems = context.miniTocItems.concat(
+      req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc
+    )
+    context.renderedPage =
+      context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
   }
 
   // Create string for <title> tag
@@ -165,7 +169,8 @@ module.exports = async function renderPage (req, res, next) {
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(req.pagePath)) {
-    context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
+    context.page.fullTitle =
+      context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
   }
 
   // `?json` query param for debugging request context
@@ -176,8 +181,9 @@ module.exports = async function renderPage (req, res, next) {
     } else {
       // dump all the keys: ?json
       return res.json({
-        message: 'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
-        keys: Object.keys(context)
+        message:
+          'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
+        keys: Object.keys(context),
       })
     }
   }

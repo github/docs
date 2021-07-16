@@ -1,18 +1,20 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import matter from 'gray-matter'
+import program from 'commander'
+import { indexOf, nth } from 'lodash-es'
+import removeLiquidStatements from '../../lib/remove-liquid-statements.js'
+import removeDeprecatedFrontmatter from '../../lib/remove-deprecated-frontmatter.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import runRemoveUnusedAssetsScript from '../remove-unused-assets.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const matter = require('gray-matter')
-const program = require('commander')
-const { indexOf, nth } = require('lodash')
-const removeLiquidStatements = require('../../lib/remove-liquid-statements')
-const removeDeprecatedFrontmatter = require('../../lib/remove-deprecated-frontmatter')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const contentPath = path.join(__dirname, '../../content')
 const dataPath = path.join(__dirname, '../../data')
 const removeUnusedAssetsScript = 'script/remove-unused-assets'
-const runRemoveUnusedAssetsScript = require('../remove-unused-assets')
 const elseifRegex = /{-?% elsif/
 
 // [start-readme]
@@ -23,7 +25,9 @@ const elseifRegex = /{-?% elsif/
 // [end-readme]
 
 program
-  .description('Remove Liquid conditionals and update versions frontmatter for a given Enterprise Server release.')
+  .description(
+    'Remove Liquid conditionals and update versions frontmatter for a given Enterprise Server release.'
+  )
   .option('-r, --release <NUMBER>', 'Enterprise Server release number. Example: 2.19')
   .parse(process.argv)
 
@@ -32,7 +36,7 @@ const release = program.opts().release
 // verify CLI options
 if (!release) {
   console.log(program.description() + '\n')
-  program.options.forEach(opt => {
+  program.options.forEach((opt) => {
     console.log(opt.flags)
     console.log(opt.description + '\n')
   })
@@ -40,7 +44,9 @@ if (!release) {
 }
 
 if (!enterpriseServerReleases.all.includes(release)) {
-  console.log(`You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`)
+  console.log(
+    `You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`
+  )
   process.exit(1)
 }
 
@@ -54,12 +60,12 @@ console.log(`Next oldest version: ${nextOldestVersion}\n`)
 
 // gather content and data files
 const contentFiles = walk(contentPath, { includeBasePath: true, directories: false })
-  .filter(file => file.endsWith('.md'))
-  .filter(file => !(file.endsWith('README.md') || file === 'LICENSE' || file === 'LICENSE-CODE'))
+  .filter((file) => file.endsWith('.md'))
+  .filter((file) => !(file.endsWith('README.md') || file === 'LICENSE' || file === 'LICENSE-CODE'))
 
 const dataFiles = walk(dataPath, { includeBasePath: true, directories: false })
-  .filter(file => file.includes('data/reusables') || file.includes('data/variables'))
-  .filter(file => !file.endsWith('README.md'))
+  .filter((file) => file.includes('data/reusables') || file.includes('data/variables'))
+  .filter((file) => !file.endsWith('README.md'))
 
 const allFiles = contentFiles.concat(dataFiles)
 
@@ -67,12 +73,14 @@ main()
 console.log(`\nRunning ${removeUnusedAssetsScript}...`)
 runRemoveUnusedAssetsScript()
 
-function printElseIfFoundWarning (location) {
-  console.log(`${location} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`)
+function printElseIfFoundWarning(location) {
+  console.log(
+    `${location} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`
+  )
 }
 
-function main () {
-  allFiles.forEach(file => {
+function main() {
+  allFiles.forEach((file) => {
     const oldContents = fs.readFileSync(file, 'utf8')
     const { content, data } = matter(oldContents)
 
@@ -82,7 +90,7 @@ function main () {
       process.exit()
     }
 
-    Object.keys(data).forEach(key => {
+    Object.keys(data).forEach((key) => {
       if (elseifRegex.test(data[key])) {
         printElseIfFoundWarning(`frontmatter '${key}' in ${file}`)
         process.exit()
@@ -106,5 +114,7 @@ function main () {
     fs.writeFileSync(file, newContents)
   })
 
-  console.log(`Removed ${versionToDeprecate} markup from content and data files! Review and run script/test.`)
+  console.log(
+    `Removed ${versionToDeprecate} markup from content and data files! Review and run script/test.`
+  )
 }

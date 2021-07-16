@@ -63,7 +63,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
             with:
               node-version: 12
           - run: npm ci
@@ -77,7 +77,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           contents: read{% endif %}
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
             with:
               node-version: 12
               registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}

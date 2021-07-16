@@ -20,14 +20,6 @@ You can specify which branch you'd like to merge your changes into when you crea
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-{% ifversion fpt or ghae or ghes %}
-{% tip %}
-
-**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
 ## Changing the branch range and destination repository
 
 By default, pull requests are based on the parent repository's default branch. For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
@@ -52,11 +44,9 @@ When you change any of the information in the branch range, the Commit and Files
 
 ## Creating the pull request
 
-{% tip %}
+{% include tool-switcher %}
 
-**Tip**: You can also use {% data variables.product.prodname_desktop %} to create a pull request. For more information, see “[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" in the {% data variables.product.prodname_desktop %} documentation.
-
-{% endtip %}
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the "Branch" menu, choose the branch that contains your commits.
@@ -70,6 +60,96 @@ When you change any of the information in the branch range, the Commit and Files
 {% data reusables.repositories.asking-for-review %}
 
 After your pull request has been reviewed, it can be [merged into the repository](/articles/merging-a-pull-request).
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.download-cli %}
+
+To create a pull request, use the `gh pr create` subcommand.
+
+```shell
+gh pr create
+```
+
+To assign a pull request to an individual, use the `--assignee` or `-a` flags. You can use `@me` to self-assign the pull request.
+
+```shell
+gh pr create --assignee "@octocat"
+```
+
+To specify the branch into which you want the pull request merged, use the `--base` or `-B` flags. To specify the branch that contains commits for your pull request, use the `--head` or `-H` flags.
+
+```shell
+gh pr create --base my-base-branch --head my-changed-branch
+```
+
+To include a title and body for the new pull request, use the `--title` and `--body` flags.
+
+```shell
+gh pr create --title "The bug is fixed" --body "Everything works again"
+```
+
+To mark a pull request as a draft, use the `--draft` flag.
+
+```shell
+gh pr create --draft
+```
+
+To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
+
+```shell
+gh pr create --label "bug,help wanted" --milestone octocat-milestone
+```
+
+To add the new pull request to a specific project, use the `--project` flag.
+
+```shell
+gh pr create --project octocat-project
+```
+
+To assign an individual or team as reviewers, use the `--reviewer` flag.
+
+```shell
+gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
+```
+
+To create the pull request in your default web browser, use the `--web` flag.
+
+```shell
+gh pr create --web
+```
+
+{% endcli %}
+
+{% desktop %}
+
+{% mac %}
+
+1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
+2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
+  ![The Create Pull Request button](/assets/images/help/desktop/mac-create-pull-request.png)
+4. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% endmac %}
+
+{% windows %}
+
+1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
+2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
+  ![The Create Pull Request button](/assets/images/help/desktop/windows-create-pull-request.png)
+3. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% endwindows %}
+
+{% enddesktop %}
 
 ## Further reading
 

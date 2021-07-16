@@ -17,6 +17,7 @@ shortTitle: Deploy to Kubernetes (GKE)
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -104,8 +105,9 @@ Once you've completed the prerequisites, you can proceed with creating the workf
 
 The following example workflow demonstrates how to build a container image and push it to GCR. It then uses the Kubernetes tools (such as `kubectl` and `kustomize`) to pull the image into the cluster deployment.
 
-{% raw %}
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 name: Build and Deploy to GKE
 
 on:
@@ -113,7 +115,7 @@ on:
     types: [created]
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
   GKE_CLUSTER: cluster-1    # Add your cluster name here.
   GKE_ZONE: us-central1-c   # Add your cluster zone here.
   DEPLOYMENT_NAME: gke-test # Add your deployment name here.
@@ -129,21 +131,21 @@ jobs:
       uses: actions/checkout@v2
 
     # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@v0.2.0
+    - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
       with:
-        service_account_key: ${{ secrets.GKE_SA_KEY }}
-        project_id: ${{ secrets.GKE_PROJECT }}
+        service_account_key: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
+        project_id: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
 
     # Configure docker to use the gcloud command-line tool as a credential helper
     - run: |-
         gcloud --quiet auth configure-docker
 
     # Get the GKE credentials so we can deploy to the cluster
-    - uses: google-github-actions/get-gke-credentials@v0.2.1
+    - uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
       with:
-        cluster_name: ${{ env.GKE_CLUSTER }}
-        location: ${{ env.GKE_ZONE }}
-        credentials: ${{ secrets.GKE_SA_KEY }}
+        cluster_name: {% raw %}${{ env.GKE_CLUSTER }}{% endraw %}
+        location: {% raw %}${{ env.GKE_ZONE }}{% endraw %}
+        credentials: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
 
     # Build the Docker image
     - name: Build
@@ -173,7 +175,6 @@ jobs:
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
 ```
-{% endraw %}
 
 ## Additional resources
 

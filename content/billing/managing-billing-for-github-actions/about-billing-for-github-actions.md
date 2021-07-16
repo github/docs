@@ -67,8 +67,6 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
   - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2,000 Windows minutes at $0.016 per minute = $32.
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
-
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
 - 3 GB x 10 days x (24 hours per day) = 720 GB-Hours

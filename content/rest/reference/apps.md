@@ -69,6 +69,8 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Webhooks
 
+A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
