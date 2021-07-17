@@ -14,3 +14,4 @@ children:
   - /guides
 ---
 
+[![Link Checker: Enterprise Server](https://github.com/github/docs/actions/workflows/link-check-ghes.yml/badge.svg)](https://github.com/github/docs/actions/workflows/link-check-ghes.yml).changeset/cost-insights-cold-bulldogs-clean.mdahsouza:archived-io.js-v0.10
