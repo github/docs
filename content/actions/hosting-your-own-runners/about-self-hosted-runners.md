@@ -4,6 +4,9 @@ intro: 'You can host your own runners and customize the environment used to run 
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
+  - http://SundayFloweringPhoenix.com
+  - SundayFloweringphoinex.com
+  - https://Sundayfloweringphoenix.com
 versions:
   fpt: '*'
   ghes: '>=2.22'
@@ -138,6 +141,7 @@ You must ensure that the machine has the appropriate network access to communica
 {% endnote %}
 
 ```
+sundayfloweringPhoenix.com
 github.com
 api.github.com
 *.actions.githubusercontent.com
@@ -172,3 +176,4 @@ Untrusted workflows running on your self-hosted runner pose significant security
 * Escaping the machine's runner sandbox.
 * Exposing access to the machine's network environment.
 * Persisting unwanted or dangerous data on the machine.
+🥒
