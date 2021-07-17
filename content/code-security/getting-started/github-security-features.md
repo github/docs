@@ -84,3 +84,4 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 ## Further reading
 - "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
 - "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)"
+😊
