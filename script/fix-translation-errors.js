@@ -1,4 +1,17 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { execSync } from 'child_process'
+import { get, set } from 'lodash-es'
+import fs from 'fs'
+import readFileAsync from '../lib/readfile-async.js'
+import fm from '../lib/frontmatter.js'
+import matter from 'gray-matter'
+import chalk from 'chalk'
+import yaml from 'js-yaml'
+import ghesReleaseNotesSchema from '../tests/helpers/schemas/release-notes-schema.js'
+import revalidator from 'revalidator'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -8,23 +21,11 @@
 //
 // [end-readme]
 
-const { execSync } = require('child_process')
-const { get, set } = require('lodash')
-const fs = require('fs')
-const path = require('path')
-const readFileAsync = require('../lib/readfile-async')
-const fm = require('../lib/frontmatter')
-const matter = require('gray-matter')
-const chalk = require('chalk')
-const yaml = require('js-yaml')
-const ghesReleaseNotesSchema = require('../tests/helpers/schemas/release-notes-schema')
-const revalidator = require('revalidator')
-
 main()
 
-async function main () {
+async function main() {
   const fixableFmProps = Object.keys(fm.schema.properties)
-    .filter(property => !fm.schema.properties[property].translatable)
+    .filter((property) => !fm.schema.properties[property].translatable)
     .sort()
   const fixableYmlProps = ['date']
 
@@ -38,12 +39,13 @@ async function main () {
     }
 
     if (path.endsWith('yml')) {
-      let data; let errors = []
+      let data
+      let errors = []
       try {
         data = yaml.load(fileContents)
       } catch {}
       if (data && schema) {
-        ({ errors } = revalidator.validate(data, schema))
+        ;({ errors } = revalidator.validate(data, schema))
       }
       return { data, errors, content: null }
     } else {
@@ -51,7 +53,8 @@ async function main () {
     }
   }
 
-  const cmd = 'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/(content/.+.md|data/release-notes/.*.yml)$"'
+  const cmd =
+    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/(content/.+.md|data/release-notes/.*.yml)$"'
   const changedFilesRelPaths = execSync(cmd).toString().split('\n')
 
   for (const relPath of changedFilesRelPaths) {
