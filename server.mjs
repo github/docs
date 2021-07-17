@@ -1,16 +1,16 @@
-require('dotenv').config()
+import xDotenv from 'dotenv'
+import './lib/feature-flags.js'
+import './lib/check-node-version.js'
+import './lib/handle-exceptions.js'
+import throng from 'throng'
+import os from 'os'
+import portUsed from 'port-used'
+import prefixStreamWrite from './lib/prefix-stream-write.js'
+import createApp from './lib/app.js'
+import warmServer from './lib/warm-server.js'
+import http from 'http'
+xDotenv.config()
 // Intentionally require these for both cluster primary and workers
-require('./lib/feature-flags')
-require('./lib/check-node-version')
-require('./lib/handle-exceptions')
-
-const throng = require('throng')
-const os = require('os')
-const portUsed = require('port-used')
-const prefixStreamWrite = require('./lib/prefix-stream-write')
-const createApp = require('./lib/app')
-const warmServer = require('./lib/warm-server')
-const http = require('http')
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
@@ -22,21 +22,21 @@ if (NODE_ENV === 'production') {
   nonClusteredMain()
 }
 
-function clusteredMain () {
+function clusteredMain() {
   // Spin up a cluster!
   throng({
     master: setupPrimary,
     worker: setupWorker,
-    count: calculateWorkerCount()
+    count: calculateWorkerCount(),
   })
 }
 
-async function nonClusteredMain () {
+async function nonClusteredMain() {
   await checkPortAvailability()
   await startServer()
 }
 
-async function checkPortAvailability () {
+async function checkPortAvailability() {
   // Check that the development server is not already running
   const portInUse = await portUsed.check(port)
   if (portInUse) {
@@ -47,7 +47,7 @@ async function checkPortAvailability () {
   }
 }
 
-async function startServer () {
+async function startServer() {
   const app = createApp()
 
   // If in a deployed environment...
@@ -66,7 +66,7 @@ async function startServer () {
 }
 
 // This function will only be run in the primary process
-async function setupPrimary () {
+async function setupPrimary() {
   process.on('beforeExit', () => {
     console.log('Shutting down primary...')
     console.log('Exiting!')
@@ -78,7 +78,7 @@ async function setupPrimary () {
 }
 
 // IMPORTANT: This function will be run in a separate worker process!
-async function setupWorker (id, disconnect) {
+async function setupWorker(id, disconnect) {
   let exited = false
 
   // Wrap stdout and stderr to include the worker ID as a static prefix
@@ -99,7 +99,7 @@ async function setupWorker (id, disconnect) {
   // Load the server in each worker process and share the port via sharding
   await startServer()
 
-  function shutdown () {
+  function shutdown() {
     if (exited) return
     exited = true
 
@@ -108,7 +108,7 @@ async function setupWorker (id, disconnect) {
   }
 }
 
-function calculateWorkerCount () {
+function calculateWorkerCount() {
   // Heroku's recommended WEB_CONCURRENCY count based on the WEB_MEMORY config,
   // or explicitly configured by us
   const { WEB_CONCURRENCY } = process.env

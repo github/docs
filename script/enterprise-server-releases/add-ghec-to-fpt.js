@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import program from 'commander'
+import { escapeRegExp } from 'lodash-es'
+import frontmatter from '../../lib/read-frontmatter.js'
+import getLiquidConditionals from '../helpers/get-liquid-conditionals.js'
 
 // [start-readme]
 //
@@ -8,19 +15,17 @@
 //
 // [end-readme]
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const program = require('commander')
-const { escapeRegExp } = require('lodash')
-const frontmatter = require('../../lib/read-frontmatter')
-const getLiquidConditionals = require('../helpers/get-liquid-conditionals')
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')
 
 program
-  .description('Add versions frontmatter and Liquid conditionals for GitHub EC based on FPT. Runs on all content by default.')
-  .option('-p, --products [OPTIONAL PRODUCT_IDS...]', 'Optional list of space-separated product IDs. Example: admin github developers')
+  .description(
+    'Add versions frontmatter and Liquid conditionals for GitHub EC based on FPT. Runs on all content by default.'
+  )
+  .option(
+    '-p, --products [OPTIONAL PRODUCT_IDS...]',
+    'Optional list of space-separated product IDs. Example: admin github developers'
+  )
   .parse(process.argv)
 
 const { products } = program.opts()
@@ -40,78 +45,78 @@ console.log('Working...\n')
 const englishContentFiles = walkContent(contentPath)
 const englishDataFiles = walkData(dataPath)
 
-function walkContent (dirPath) {
+function walkContent(dirPath) {
   const productArray = products || ['']
-  return productArray.map(product => {
-    dirPath = path.join(contentPath, product)
-    return walk(dirPath, { includeBasePath: true, directories: false })
-      .filter(file => file.includes('/content/'))
-      .filter(file => file.endsWith('.md'))
-      .filter(file => !file.endsWith('README.md'))
-  }).flat()
+  return productArray
+    .map((product) => {
+      dirPath = path.join(contentPath, product)
+      return walk(dirPath, { includeBasePath: true, directories: false })
+        .filter((file) => file.includes('/content/'))
+        .filter((file) => file.endsWith('.md'))
+        .filter((file) => !file.endsWith('README.md'))
+    })
+    .flat()
 }
 
-function walkData (dirPath) {
+function walkData(dirPath) {
   return walk(dirPath, { includeBasePath: true, directories: false })
-    .filter(file => file.includes('/data/reusables') || file.includes('/data/variables'))
-    .filter(file => !file.endsWith('README.md'))
+    .filter((file) => file.includes('/data/reusables') || file.includes('/data/variables'))
+    .filter((file) => !file.endsWith('README.md'))
 }
 
 const allContentFiles = englishContentFiles
 const allDataFiles = englishDataFiles
 
 // Update the data files
-allDataFiles
-  .forEach(file => {
-    const dataContent = fs.readFileSync(file, 'utf8')
+allDataFiles.forEach((file) => {
+  const dataContent = fs.readFileSync(file, 'utf8')
 
-    const conditionalsToUpdate = getConditionalsToUpdate(dataContent)
-    if (!conditionalsToUpdate.length) return
+  const conditionalsToUpdate = getConditionalsToUpdate(dataContent)
+  if (!conditionalsToUpdate.length) return
 
-    // Update Liquid in data files
-    const newDataContent = updateLiquid(conditionalsToUpdate, dataContent)
+  // Update Liquid in data files
+  const newDataContent = updateLiquid(conditionalsToUpdate, dataContent)
 
-    fs.writeFileSync(file, newDataContent)
-  })
+  fs.writeFileSync(file, newDataContent)
+})
 
 // Update the content files
-allContentFiles
-  .forEach(file => {
-    const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
+allContentFiles.forEach((file) => {
+  const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
-    // Return early if the current page frontmatter does not apply to either GHEC or the given fpt release
-    if (!data.versions.fpt) return
+  // Return early if the current page frontmatter does not apply to either GHEC or the given fpt release
+  if (!data.versions.fpt) return
 
-    const conditionalsToUpdate = getConditionalsToUpdate(content)
-    if (!conditionalsToUpdate.length) return
+  const conditionalsToUpdate = getConditionalsToUpdate(content)
+  if (!conditionalsToUpdate.length) return
 
-    // Update Liquid in content files
-    const newContent = updateLiquid(conditionalsToUpdate, content)
+  // Update Liquid in content files
+  const newContent = updateLiquid(conditionalsToUpdate, content)
 
-    // Add frontmatter version
-    data.versions.ghec = '*'
+  // Add frontmatter version
+  data.versions.ghec = '*'
 
-    // Update Liquid in frontmatter props
-    Object.keys(data)
-      .filter(key => typeof data[key] === 'string')
-      .forEach(key => {
-        const conditionalsToUpdate = getConditionalsToUpdate(data[key])
-        if (!conditionalsToUpdate.length) return
-        data[key] = updateLiquid(conditionalsToUpdate, data[key])
-      })
+  // Update Liquid in frontmatter props
+  Object.keys(data)
+    .filter((key) => typeof data[key] === 'string')
+    .forEach((key) => {
+      const conditionalsToUpdate = getConditionalsToUpdate(data[key])
+      if (!conditionalsToUpdate.length) return
+      data[key] = updateLiquid(conditionalsToUpdate, data[key])
+    })
 
-    fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
-  })
+  fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+})
 
-function getConditionalsToUpdate (content) {
+function getConditionalsToUpdate(content) {
   return getLiquidConditionals(content, 'ifversion')
-    .filter(c => c.includes('fpt'))
-    .filter(c => !c.includes('ghec'))
+    .filter((c) => c.includes('fpt'))
+    .filter((c) => !c.includes('ghec'))
 }
 
-function updateLiquid (conditionalsToUpdate, content) {
+function updateLiquid(conditionalsToUpdate, content) {
   let newContent = content
-  conditionalsToUpdate.forEach(cond => {
+  conditionalsToUpdate.forEach((cond) => {
     const oldConditional = `{% ifversion ${cond} %}`
     const newConditional = `{% ifversion ${cond.concat(' or ghec')} %}`
     const oldConditionalRegex = new RegExp(escapeRegExp(oldConditional), 'g')

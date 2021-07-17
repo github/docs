@@ -1,22 +1,24 @@
-require('../../lib/feature-flags')
-const { getDOM } = require('../helpers/supertest')
+import '../../lib/feature-flags.js'
+import { getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   let $homePage, $githubPage, $enterprisePage
-  beforeAll(async (done) => {
-    [$homePage, $githubPage, $enterprisePage] = await Promise.all([
+  beforeAll(async () => {
+    ;[$homePage, $githubPage, $enterprisePage] = await Promise.all([
       getDOM('/en'),
       getDOM('/en/github'),
-      getDOM('/en/enterprise/admin')
+      getDOM('/en/enterprise/admin'),
     ])
-    done()
   })
 
   test('highlights active product on Enterprise pages', async () => {
     expect($enterprisePage('.sidebar-products li.sidebar-product').length).toBe(1)
-    expect($enterprisePage('.sidebar-products li.sidebar-product > a').text().trim()).toBe('Enterprise administrators')
+    expect($enterprisePage('.sidebar-products li.sidebar-product > a').text().trim()).toBe(
+      'Enterprise administrators'
+    )
   })
 
   test('highlights active product on GitHub pages', async () => {
@@ -32,7 +34,8 @@ describe('sidebar', () => {
   })
 
   test('adds an `is-current-page` class to the sidebar link to the current page', async () => {
-    const url = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
+    const url =
+      '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
     const $ = await getDOM(url)
     expect($('.sidebar-products .is-current-page').length).toBe(1)
     expect($('.sidebar-products .is-current-page a').attr('href')).toContain(url)

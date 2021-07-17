@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-
-const { execSync } = require('child_process')
+import { execSync } from 'child_process'
 
 // [start-readme]
 //
@@ -30,7 +29,9 @@ try {
 
 // Reset the broken files.
 console.log('Resetting broken files...')
-execSync(`cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`)
+execSync(
+  `cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`
+)
 
 // Print a message with next steps.
 console.log(`Success!
