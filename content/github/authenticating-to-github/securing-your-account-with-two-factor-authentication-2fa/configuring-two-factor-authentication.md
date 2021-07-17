@@ -124,7 +124,7 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. If you lose access to your account, you can use your recovery codes to get back into your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
 	![Download recovery codes button](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
-
+🐍
 ## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
