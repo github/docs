@@ -1,4 +1,4 @@
----
+--- 
 title: Encrypted secrets
 intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes > 3.0 %}, repository, or repository environments{% else %} or repository{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
