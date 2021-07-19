@@ -1,9 +1,12 @@
 ---
-title: Getting started with your Python project in Codespaces
-shortTitle: Getting started with your Python project
+title: Setting up your Python project for Codespaces
+shortTitle: Setting up your Python project
 intro: 'Get started with your Python project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
   fpt: '*'
+redirect_from:
+  - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
+  
 type: tutorial
 topics:
   - Codespaces

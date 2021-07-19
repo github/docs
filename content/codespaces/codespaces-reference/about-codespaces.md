@@ -5,6 +5,7 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
   - /github/developing-online-with-codespaces/about-codespaces
   - /codespaces/getting-started-with-codespaces/about-codespaces
+  - /codespaces/about-codespaces
 versions:
   fpt: '*'
 type: overview

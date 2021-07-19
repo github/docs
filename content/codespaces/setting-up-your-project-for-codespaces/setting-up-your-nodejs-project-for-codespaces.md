@@ -1,9 +1,11 @@
 ---
-title: Getting started with your Node.js project in Codespaces
-shortTitle: Getting started with your Node.js project
+title: Setting up your Node.js project for Codespaces
+shortTitle: Setting up your Node.js project
 intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
   fpt: '*'
+redirect_from:
+  - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces 
 type: tutorial
 topics:
   - Codespaces

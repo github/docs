@@ -1,8 +1,10 @@
 ---
-title: Getting started with your C# (.NET) project in Codespaces
-shortTitle: Getting started with your C# (.NET) project
+title: Setting up your C# (.NET) project for Codespaces
+shortTitle: Setting up your C# (.NET) project
 allowTitleToDifferFromFilename: true
 intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+redirect_from:
+  - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
   fpt: '*'
 topics:

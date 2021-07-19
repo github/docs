@@ -5,6 +5,7 @@ permissions: 'Anyone can personalize {% data variables.product.prodname_codespac
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
+  - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
 versions:
   fpt: '*'
 type: how_to

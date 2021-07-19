@@ -4,6 +4,7 @@ intro: 'You can use a `devcontainer.json` file to define a {% data variables.pro
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
+  - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
@@ -67,7 +68,7 @@ For more information on using a Dockerfile in a dev container, see [Create a dev
 
 If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the url that the command outputs.
 
-Alternatively, for more information about everything that is included in the base Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers) repository. 
+Alternatively, for more information about everything that is included in the base Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository. 
 
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_codespaces %} provides.
 

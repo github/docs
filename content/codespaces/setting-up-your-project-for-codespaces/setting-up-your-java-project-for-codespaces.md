@@ -1,7 +1,9 @@
 ---
-title: Getting started with your Java project in Codespaces
-shortTitle: Getting started with your Java project
+title: Setting up your Java project for Codespaces
+shortTitle: Setting up with your Java project
 intro: 'Get started with your Java project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+redirect_from:
+  - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
 versions:
   fpt: '*'
 topics:
