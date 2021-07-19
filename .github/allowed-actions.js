@@ -23,7 +23,6 @@ export default [
   'juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8',
   'juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51', // v1.5.0
   'juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512',
-  'lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8',
   'lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb',
   'pascalgn/automerge-action@c9bd1823770819dc8fb8a5db2d11a3a95fbe9b07', // v0.12.0
   'peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e',
