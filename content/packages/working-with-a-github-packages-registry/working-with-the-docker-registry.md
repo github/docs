@@ -13,7 +13,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
-shortTitle: Docker registry
+shortTitle: Docker registry 
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
