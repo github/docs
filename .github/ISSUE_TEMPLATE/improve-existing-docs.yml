@@ -1,9 +1,8 @@
 name: Improve existing content
 description: Make a suggestion to improve the content in an existing article
-title: ''
+title: 'Improve existing content'
 labels: 
   - content
-assignees: ''
 body:
 # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
 - type: markdown
@@ -20,6 +19,27 @@ body:
       description: Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
       options:
       - label: I have searched the existing issues
-        required: true  (checking push access)
+        required: true
 
-    
+- type: textarea
+  attributes:
+    - label: ### What is the current behavior?
+      placeholder: |
+      Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    - label: ### What changes are you suggesting?
+      placeholder: |
+      Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+  validations:
+  required: true
+
+- type: textarea
+  attributes:
+    - label: ### Additional information
+      placeholder: |
+      Any additional information, configuration, or data that might be necessary to reproduce the issue.
+  validations:
+  required: false
