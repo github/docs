@@ -19,7 +19,8 @@ For more information, see:
 - "[Differences between {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/)"
 - "[About apps](/apps/about-apps/)"
 - "[User-level permissions](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)"
-- "[Authorizing {% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps/)"
+- "[Authorizing {% data variables.product.prodname_oauth_app %}s](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
+- "[Authorizing {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
 - "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations/)"
 
 You can install a preconfigured {% data variables.product.prodname_github_app %}, if the integrators or app creators have created their app with the {% data variables.product.prodname_github_app %} manifest flow. For information about how to  run your {% data variables.product.prodname_github_app %} with automated configuration, contact the integrator or app creator.

@@ -86,6 +86,7 @@ If you belong to any organizations that enforce SAML single sign-on, you must ha
 ## Further reading
 
 - "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
+- "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
 - "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
 
 {% endif %}

@@ -58,4 +58,4 @@ If an organization disables {% data variables.product.prodname_oauth_app %} acce
 - "[Denying access to a previously approved {% data variables.product.prodname_oauth_app %} for your organization](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
 - "[Disabling {% data variables.product.prodname_oauth_app %} access restrictions for your organization](/articles/disabling-oauth-app-access-restrictions-for-your-organization)"
 - "[Requesting organization approval for {% data variables.product.prodname_oauth_app %}s](/articles/requesting-organization-approval-for-oauth-apps)"
-- "[Authorizing {% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps)"
+- "[Authorizing {% data variables.product.prodname_oauth_app %}s](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
