@@ -5,9 +5,10 @@ redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
   - /github/setting-up-and-managing-your-github-user-account/what-does-the-available-for-hire-checkbox-do
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
+shortTitle: Available for hire checkbox
 ---
 
 {% warning %}

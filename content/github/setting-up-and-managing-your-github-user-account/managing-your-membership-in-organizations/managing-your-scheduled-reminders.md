@@ -2,11 +2,12 @@
 title: Managing your scheduled reminders
 intro: Get reminders in Slack when you or your team have pull requests waiting for review.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
+shortTitle: Manage scheduled reminders
 ---
 ## About scheduled reminders for users
 

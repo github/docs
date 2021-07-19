@@ -5,9 +5,10 @@ redirect_from:
   - /articles/moving-a-file-in-your-repository-to-git-large-file-storage
   - /github/managing-large-files/moving-a-file-in-your-repository-to-git-large-file-storage
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Move a file to Git LFS
 ---
 After installing {% data variables.large_files.product_name_short %} and configuring {% data variables.large_files.product_name_short %} tracking, you can move files from Git's regular tracking to {% data variables.large_files.product_name_short %}. For more information, see "[Installing {% data variables.large_files.product_name_long %}](/github/managing-large-files/installing-git-large-file-storage)" and "[Configuring {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
 

@@ -6,11 +6,12 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Actions
   - Spending limits
+shortTitle: Billing for GitHub Actions
 ---
 ## About billing for {% data variables.product.prodname_actions %}
 
@@ -65,8 +66,6 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
 - 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 ($24 + $32).
   - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2,000 Windows minutes at $0.016 per minute = $32.
-
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
 
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 

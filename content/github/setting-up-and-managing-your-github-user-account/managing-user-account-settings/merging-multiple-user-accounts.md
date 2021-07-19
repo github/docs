@@ -7,9 +7,10 @@ redirect_from:
   - /articles/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/merging-multiple-user-accounts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
+shortTitle: Merge multiple user accounts
 ---
 {% tip %}
 

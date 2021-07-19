@@ -5,11 +5,12 @@ redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
+shortTitle: Permission user project boards
 ---
 ## Permissions overview
 
@@ -24,7 +25,7 @@ There are three levels of permissions for project board collaborators:
 The project board owner and collaborators with admin access have full control of the project board. In addition to all the permissions allowed by project board collaborators, a project board owner and collaborator with admin access can:
 
 - [Manage, view, and add collaborators](/articles/managing-access-to-your-user-account-s-project-boards)
-- [Configure a project board as {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or private](/articles/changing-project-board-visibility)
+- [Configure a project board as {% ifversion ghae %}internal{% else %}public{% endif %} or private](/articles/changing-project-board-visibility)
 - [Delete a project board](/articles/deleting-a-project-board/)
 - [Close a project board](/articles/closing-a-project-board/)
 - [Reopen a closed project board](/articles/reopening-a-closed-project-board)
@@ -53,7 +54,7 @@ Collaborators with write access to a user-owned project board can:
 
 ## Project board visibility
 
-You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. By default, user-owned project boards are private. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
+You can change the project board's visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. By default, user-owned project boards are private. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
 
 ## Further reading
 

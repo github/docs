@@ -3,7 +3,7 @@ title: Interactions
 redirect_from:
   - /v3/interactions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

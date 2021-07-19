@@ -2,15 +2,16 @@
 title: Migrating from GitLab CI/CD to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - GitLab
   - Migration
   - CI
   - CD
+shortTitle: Migrate from GitLab CI/CD
 ---
 
 {% data reusables.actions.enterprise-beta %}

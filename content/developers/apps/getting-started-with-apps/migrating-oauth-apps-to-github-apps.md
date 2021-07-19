@@ -5,11 +5,12 @@ redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps
   - /developers/apps/migrating-oauth-apps-to-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Migrate to OAuth Apps
 ---
 This article provides guidelines for existing integrators who are considering migrating from an OAuth App to a GitHub App.
 
@@ -29,7 +30,7 @@ This article provides guidelines for existing integrators who are considering mi
 
 ## Converting an OAuth App to a GitHub App
 
-These guidelines assume that you have a registered OAuth App{% if currentVersion == "free-pro-team@latest" %} that may or may not be listed in GitHub Marketplace{% endif %}. At a high level, you'll need to follow these steps:
+These guidelines assume that you have a registered OAuth App{% ifversion fpt %} that may or may not be listed in GitHub Marketplace{% endif %}. At a high level, you'll need to follow these steps:
 
 1. [Review the available API endpoints for GitHub Apps](#review-the-available-api-endpoints-for-github-apps)
 1. [Design to stay within API rate limits](#design-to-stay-within-api-rate-limits)

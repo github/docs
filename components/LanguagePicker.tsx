@@ -33,6 +33,7 @@ export const LanguagePicker = ({ variant }: Props) => {
                 key={lang.code}
                 href={router.asPath}
                 locale={lang.code}
+                disableClientTransition={true}
                 className={cx(
                   'd-block py-2',
                   lang.code === router.locale
@@ -71,7 +72,7 @@ export const LanguagePicker = ({ variant }: Props) => {
         {langs.map((lang) => {
           return (
             <Dropdown.Item key={lang.code}>
-              <Link href={router.asPath} locale={lang.code}>
+              <Link href={router.asPath} locale={lang.code} disableClientTransition={true}>
                 {lang.nativeName ? (
                   <>
                     {lang.nativeName} ({lang.name})

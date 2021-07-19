@@ -6,10 +6,11 @@ redirect_from:
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community
+shortTitle: Limit interactions in repo
 ---
 
 ## About temporary interaction limits

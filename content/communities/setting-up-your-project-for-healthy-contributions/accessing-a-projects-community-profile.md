@@ -6,9 +6,10 @@ redirect_from:
   - /articles/accessing-a-projects-community-profile
   - /github/building-a-strong-community/accessing-a-projects-community-profile
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Access community profiles
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

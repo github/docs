@@ -6,7 +6,7 @@ redirect_from:
   - /articles/about-billing-on-github
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Fundamentals

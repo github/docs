@@ -5,11 +5,12 @@ redirect_from:
   - /articles/error-permission-denied-publickey
   - /github/authenticating-to-github/error-permission-denied-publickey
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Permission denied (publickey)
 ---
 ## Should the `sudo` command be used with Git?
 
@@ -30,7 +31,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% if currentVersion == "free-pro-team@latest" %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+The connection should be made on port 22{% ifversion fpt %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
 ## Always use the "git" user
 
@@ -54,7 +55,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -89,7 +90,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
@@ -111,7 +112,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -189,7 +190,7 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+3. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -221,7 +222,7 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+3. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

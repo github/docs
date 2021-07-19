@@ -5,12 +5,13 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
 product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Code review assignment
 ---
 
 Team maintainers and organization owners can configure code review assignments.
