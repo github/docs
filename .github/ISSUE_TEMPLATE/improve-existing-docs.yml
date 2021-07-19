@@ -20,6 +20,6 @@ body:
       description: Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
       options:
       - label: I have searched the existing issues
-        required: true  (checking push access)
+        required: true  (checking push access) 
 
     
