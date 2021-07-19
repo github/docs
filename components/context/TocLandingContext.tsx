@@ -38,7 +38,7 @@ export const getTocLandingContextFromRequest = (req: any): TocLandingContextT =>
     introPlainText: req.context.page.introPlainText,
     isEarlyAccess: req.context.page?.documentType === 'early-access',
     tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
-      pick(obj, ['fullPath', 'title', 'intro'])
+      pick(obj, ['fullPath', 'title', 'intro', 'childTocItems'])
     ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
 

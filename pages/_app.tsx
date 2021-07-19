@@ -9,14 +9,12 @@ import '../stylesheets/index.scss'
 
 import events from 'javascripts/events'
 import experiment from 'javascripts/experiment'
-import setNextEnv from 'javascripts/set-next-env'
 
 type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
   useEffect(() => {
     events()
     experiment()
-    setNextEnv()
   }, [])
 
   return (
