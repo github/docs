@@ -8,9 +8,10 @@ redirect_from:
   - /github/working-with-github-pages/getting-started-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: 50
+  ghes: 59007
+  ghae: 8008
+
 topics:
   - Pages
 children:
