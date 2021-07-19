@@ -3,6 +3,8 @@ title: GitHub Codespaces overview
 shortTitle: Overview
 intro: 'This guide introduces {% data variables.product.prodname_codespaces %} and provides details on how it works and how to use it.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /codespaces/codespaces-reference/about-codespaces
 versions:
   free-pro-team: '*'
 type: quick_start
@@ -12,7 +14,7 @@ topics:
 
 ## What is a codespace?
 
-A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_codespaces %} by commiting [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
+A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
 
 {% data variables.product.prodname_codespaces %} run on a variety of VM-based compute options hosted by {% data variables.product.product_location %}, that you can configure from 2 core machines up to 32 core machines. You can connect to your codespaces from the browser or locally using {% data variables.product.prodname_vscode %}.
 
