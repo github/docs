@@ -47,15 +47,22 @@ export default async function handleError(error, req, res, next) {
       req.context = { site: site[req.language || 'en'].site, builtAssets }
     }
 
-    // display error on the page in development, but not in production
-    if (process.env.NODE_ENV !== 'production' && req.context) {
+    // display error on the page in development and staging, but not in production
+    if (req.context && process.env.HEROKU_PRODUCTION_APP !== 'true') {
       req.context.error = error
     }
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
       // Again, we can remove this once the 404/500 pages are ready
-      return res.status(404).send(await liquid.parseAndRender(fs.readFileSync(path.join(process.cwd(), './layouts/error-404.html'), 'utf8'), req.context))
+      return res
+        .status(404)
+        .send(
+          await liquid.parseAndRender(
+            fs.readFileSync(path.join(process.cwd(), './layouts/error-404.html'), 'utf8'),
+            req.context
+          )
+        )
     }
 
     // If the error contains a status code, just send that back. This is usually
@@ -69,7 +76,14 @@ export default async function handleError(error, req, res, next) {
       console.error(error)
     }
     // Again, we can remove this once the 404/500 pages are ready
-    res.status(500).send(await liquid.parseAndRender(fs.readFileSync(path.join(process.cwd(), './layouts/error-500.html'), 'utf8'), req.context))
+    res
+      .status(500)
+      .send(
+        await liquid.parseAndRender(
+          fs.readFileSync(path.join(process.cwd(), './layouts/error-500.html'), 'utf8'),
+          req.context
+        )
+      )
 
     // Report to Failbot AFTER responding to the user
     await logException(error, req)
