@@ -36,7 +36,7 @@ following command:
 ```shell
 $ curl https://api.github.com/zen
 
-> Keep it logically awesome.
+> Mind your words, they are important.
 ```
 
 The response will be a random selection from our design philosophies.
