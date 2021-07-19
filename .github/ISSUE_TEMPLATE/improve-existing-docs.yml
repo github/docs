@@ -25,14 +25,14 @@ body:
   attributes:
     - label: ### What is the current behavior?
       placeholder: |
-        Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
+      Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
   validations:
     required: true
 - type: textarea
   attributes:
     - label: ### What changes are you suggesting?
       placeholder: |
-        Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+      Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
   validations:
   required: true
 
@@ -40,6 +40,5 @@ body:
   attributes:
     - label: ### Additional information
       placeholder: |
-        Any additional information, configuration, or data that might be necessary to reproduce the issue.
-  validations:
+      Any additional information, configuration, or data that might be necessary to reproduce the issue.  validations:
   required: false
