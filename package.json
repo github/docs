@@ -74,7 +74,7 @@
     "rehype-stringify": "^6.0.1",
     "remark-code-extra": "^1.0.1",
     "remark-gemoji-to-emoji": "^1.1.0",
-    "remark-parse": "^7.0.2",
+    "remark-parse": "npm:remark-parse-no-trim@^8.0.4",
     "remark-rehype": "^6.0.0",
     "revalidator": "^0.3.1",
     "rss-parser": "^3.12.0",
