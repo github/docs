@@ -57,9 +57,7 @@ Reference your Dockerfile in your `devcontainer.json` file by using the `dockerf
 
 ```json
 {
-  ...
   "build": { "dockerfile": "Dockerfile" },
-  ...
 }
 ```
 
