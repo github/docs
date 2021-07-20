@@ -1,7 +1,8 @@
+import fs from 'fs'
+import path from 'path'
 import { get } from 'lodash-es'
 import { liquid } from '../lib/render-content/index.js'
 import patterns from '../lib/patterns.js'
-import layouts from '../lib/layouts.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
 import statsd from '../lib/statsd.js'
@@ -12,7 +13,6 @@ import { nextHandleRequest } from './next.js'
 const { HEROKU_RELEASE_VERSION } = process.env
 
 const pageCacheDatabaseNumber = 1
-const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
 
 const pageCache = new RedisAccessor({
   databaseNumber: pageCacheDatabaseNumber,
@@ -57,7 +57,6 @@ function addColorMode(req, text) {
 
 export default async function renderPage(req, res, next) {
   const page = req.context.page
-
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
@@ -67,7 +66,8 @@ export default async function renderPage(req, res, next) {
     }
     return res
       .status(404)
-      .send(modifyOutput(req, await liquid.parseAndRender(layouts['error-404'], req.context)))
+      // We can get rid of reading the layout for 404 once we have the 404 page up and running
+      .send(modifyOutput(req, await liquid.parseAndRender(fs.readFileSync(path.join(process.cwd(), './layouts/error-404.html'), 'utf8'), req.context)))
   }
 
   if (req.method === 'HEAD') {
@@ -103,8 +103,6 @@ export default async function renderPage(req, res, next) {
     req.method === 'GET' &&
     // Skip for JSON debugging info requests
     !isRequestingJsonForDebugging &&
-    // Skip for NextJS rendering
-    !req.renderWithNextjs &&
     // Skip for airgapped sessions
     !isAirgapped &&
     // Skip for the GraphQL Explorer page
@@ -188,22 +186,8 @@ export default async function renderPage(req, res, next) {
     }
   }
 
-  // Hand rendering over to NextJS when appropriate
-  if (req.renderWithNextjs) {
-    req.context.renderedPage = context.renderedPage
-    req.context.miniTocItems = context.miniTocItems
-    return nextHandleRequest(req, res)
-  }
-
-  // currentLayout is added to the context object in middleware/contextualizers/layouts
-  const output = await liquid.parseAndRender(req.context.currentLayout, context)
-
-  // First, send the response so the user isn't waiting
-  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-  res.send(modifyOutput(req, output))
-
-  // Finally, save output to cache for the next time around
-  if (isCacheable) {
-    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
-  }
+  // Hand rendering over to NextJS
+  req.context.renderedPage = context.renderedPage
+  req.context.miniTocItems = context.miniTocItems
+  return nextHandleRequest(req, res)
 }

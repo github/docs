@@ -20,7 +20,7 @@ import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
 import allVersions from '../../lib/all-versions.js'
 import { supported, next } from '../../lib/enterprise-server-releases.js'
-import getLiquidConditionals from '../../script/helpers/get-liquid-conditionals.js'
+import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
