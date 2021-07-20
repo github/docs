@@ -40,7 +40,8 @@ These guidelines assume that you have a registered OAuth App{% ifversion fpt %} 
 1. [Understand the different methods of authentication](#understand-the-different-methods-of-authentication)
 1. [Direct users to install your GitHub App on repositories](#direct-users-to-install-your-github-app-on-repositories)
 1. [Remove any unnecessary repository hooks](#remove-any-unnecessary-repository-hooks)
-1. [Encourage users to revoke access to your OAuth app](#encourage-users-to-revoke-access-to-your-oauth-app)
+1. [Encourage users to revoke access to your OAuth App](#encourage-users-to-revoke-access-to-your-oauth-app)
+1. [Delete the OAuth App](#delete-the-oauth-app)
 
 ### Review the available API endpoints for GitHub Apps
 
@@ -101,3 +102,7 @@ Once your GitHub App has been installed on a repository, you should remove any u
 ### Encourage users to revoke access to your OAuth app
 
 As your GitHub App installation base grows, consider encouraging your users to [revoke access](/articles/authorizing-oauth-apps/) to the legacy OAuth integration.
+
+### Delete the OAuth App
+
+To avoid the OAuth App's credentials being abused, consider [deleting the OAuth App](https://docs.github.com/en/developers/apps/managing-oauth-apps/deleting-an-oauth-app). This action will also revoke all of the OAuth App's remaining authorizations.
