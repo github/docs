@@ -67,9 +67,9 @@ Contact your {% data variables.product.prodname_dotcom %} sales account represen
 #### 3. Viewing the subscription and usage for your enterprise account
 You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[Viewing the subscription and usage for your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
-## Part 3: Managing users and teams with {% data variables.product.prodname_ghe_cloud %}
+## Part 3: Managing your organization or enterprise members and teams with {% data variables.product.prodname_ghe_cloud %}
 
-### Managing users and teams for an organization
+### Managing members and teams in your organization
 You can set permissions and member roles, create and manage teams, and give people access to repositories in your organization. 
 #### 1. Managing members of your organization
 You can invite anyone to be a member of your organization, as long as they have a personal account on {% data variables.product.prodname_dotcom %}. You can also remove members and reinstate former members. For more information, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)."
@@ -90,7 +90,7 @@ You can give organization members, teams, and outside collaborators different le
 You can also customize access to your organization's project boards and allow individual organization members to manage your organization's {% data variables.product.prodname_github_apps %}. For more information, see "[Managing access to your organization's project boards](/organizations/managing-access-to-your-organizations-project-boards)" and "[Managing access to your organization's apps](/organizations/managing-access-to-your-organizations-apps)."
 
 ### Managing members of an enterprise account
-Managing members of an enterprise is separate from managing members or teams in an organization. It is important to note that enterprise owners or administrators cannot access organization-level settings or manage users for organizations in their enterprise unless they are made an organization owner. For more information on managing users and teams for organizations, see the above section, "[Managing users and teams for an organization](#managing-users-and-teams-for-an-organization)."
+Managing members of an enterprise is separate from managing members or teams in an organization. It is important to note that enterprise owners or administrators cannot access organization-level settings or manage members for organizations in their enterprise unless they are made an organization owner. For more information, see the above section, "[Managing members and teams in your organization](#managing-members-and-teams-in-your-organization)."
 #### 1. Assigning roles in an enterprise
 By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 #### 2. Inviting people to manager your enterprise
@@ -114,7 +114,7 @@ The audit log for your organization allows you, as an organization owner, to rev
 
 You can also review and configure the permission levels for your organization's installed integrations. For more information, see "[Reviewing your organization's installed integrations](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)."
 #### 4. Enabling and enforcing SAML single sign-on for your organization
-If you manage your users' identities and applications with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+If you manage your applications and the identities of your organization members with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
 Organization owners can choose to disable, enable but not enforce, or enable and enforce SAML SSO. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
 #### 5. Managing team synchronization for your organization
@@ -151,7 +151,7 @@ You can configure permissions for creating, transferring and deleting repositori
 
 You can also restrict or grant the ability to change repository visibility. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 #### 3. Using organization-level community health files and moderation tools
-You can create default community health files, such as a CONTRIBUTING.md file, a CODE_OF_CONDUCT.md file, or even issue and pull request templates, for your organization. These default files will be used for any repository owned by your organization that does not contain its own file of that type. 
+You can create default community health files, such as a CONTRIBUTING.md file, a CODE_OF_CONDUCT.md file, or even issue and pull request templates, for your organization. These default files will be used for any repository owned by your organization that does not contain its own file of that type.
 
 {% data variables.product.prodname_dotcom %} offers multiple tools for moderating and managing your community. For more information, see "[Tools for moderating your community](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation#tools-for-moderating-your-community)."
 
@@ -175,6 +175,8 @@ Members of your organization or enterprise can use tools from the {% data variab
 {% data reusables.getting-started.actions %}
 ### 4. Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
+### 5. Using {% data variables.product.prodname_pages %}
+{% data reusables.getting-started.github-pages %}
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 

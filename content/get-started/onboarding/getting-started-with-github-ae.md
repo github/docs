@@ -1,66 +1,64 @@
 ---
 title: Getting started with GitHub AE
-intro: 'Get started with setting up and configuring {% data variables.product.prodname_ghe_managed %} for your enterprise.'
+intro: 'Get started with setting up and configuring {% data variables.product.product_name %} for {% data variables.product.product_location %}.'
 versions:
   ghae: '*'
 ---
 
 This guide will walk you through setting up, configuring, and managing settings for {% data variables.product.product_location %} on {% data variables.product.product_name %} as an enterprise owner.
 
-## Part 1: Setting up {% data variables.product.prodname_ghe_managed %}
-To get started with {% data variables.product.prodname_ghe_managed %}, you can create your enterprise account, initialize {% data variables.product.prodname_ghe_managed %}, configure an IP allow list, configure user authentication and provisioning, and manage billing for your enterprise.
+## Part 1: Setting up {% data variables.product.product_name %}
+To get started with {% data variables.product.product_name %}, you can create your enterprise account, initialize {% data variables.product.product_name %}, configure an IP allow list, configure user authentication and provisioning, and manage billing for {% data variables.product.product_location %}.
 
-### 1. Creating your {% data variables.product.prodname_ghe_managed %} enterprise account
-You will first need to purchase {% data variables.product.prodname_ghe_managed %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+### 1. Creating your {% data variables.product.product_name %} enterprise account
+You will first need to purchase {% data variables.product.product_name %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
-After you purchase {% data variables.product.prodname_ghe_managed %}, we will ask you for email address and username details for the person you want to initialize the enterprise, which will then be used by your dedicated technical account manager in {% data variables.product.prodname_dotcom %} Enterprise Support to create an account.
+{% data reusables.github-ae.initialize-enterprise %}
 
-### 2. Initializing {% data variables.product.prodname_ghe_managed %}
-After {% data variables.product.company_short %} creates the owner account for your enterprise on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+### 2. Initializing {% data variables.product.product_name %}
+After {% data variables.product.company_short %} creates the owner account for {% data variables.product.product_location %} on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name {% data variables.product.product_location %}, configure SAML SSO, create policies for all organizations in {% data variables.product.product_location %}, and configure a support contact for your enterprise members. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 
 ### 3. Restricting network traffic
 You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
 
-### 4. Managing identity and access for your enterprise
+### 4. Managing identity and access for {% data variables.product.product_location %}
 You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
 
-### 5. Managing billing for your enterprise
-Owners of the subscription for your enterprise on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+### 5. Managing billing for {% data variables.product.product_location %}
+Owners of the subscription for {% data variables.product.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 ## Part 2: Organizing and managing enterprise members
-As an enterprise owner for {% data variables.product.prodname_ghe_managed %}, you can manage settings on user, repository, team, and organization levels. You can manage users in your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
+As an enterprise owner for {% data variables.product.product_name %}, you can manage settings on user, repository, team, and organization levels. You can manage members of {% data variables.product.product_location %}, create and manage organizations, set policies for repository management, and create and manage teams.
 
-### 1. Managing and auditing enterprise members
-You can manage settings and audit activity for the members of {% data variables.product.product_location %}. You can manage dormant users, view the audit log for user activity in {% data variables.product.product_location %}, and customize messages that users will see on {% data variables.product.product_location %}. For more information, see "[Managing users in your enterprise](/admin/user-management/managing-users-in-your-enterprise)."
+### 1. Managing members of {% data variables.product.product_location %}
+{% data reusables.getting-started.managing-enterprise-members %}
 
 ### 2. Creating organizations
-You can create new organizations in your enterprise to reflect your company or group's structure. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+{% data reusables.getting-started.creating-organizations %}
 
 ### 3. Adding members to organizations
-You can add members to organizations in your enterprise as long as you are an organization owner in the organizations you want to manage. You can also configure visibility of organization membership. For more information, see "[Adding people to your organization](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)" and "[Configuring visibility for organization membership](/admin/user-management/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership)."
+{% data reusables.getting-started.adding-members-to-organizations %}
 
 ### 4. Creating teams
-Teams are groups of organization members that can be granted permissions to specific repositories as a group. You can create individual teams or multiple levels of nested teams in each of your organizations. For more information, see "[Creating teams](/organizations/organizing-members-into-teams/creating-a-team)" and "[Adding people to teams](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
+{% data reusables.getting-started.creating-teams %}
 
 ### 5. Setting organization and repository permission levels
-We recommend giving a limited number of members in each organization an organization owner role, which provides complete administrative access for that organization. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)."
-
-For organizations where you have admin permissions, you can also customize access to each repository with granular permission levels. For more information, see "[Repository permissions levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
+{% data reusables.getting-started.setting-org-and-repo-permissions %}
 
 ### 6. Enforcing repository management policies
-As an enterprise owner, you can set repository management policies for all organizations in your enterprise, or allow policies to be set in each organization. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+{% data reusables.getting-started.enforcing-repo-management-policies %}
 
 ## Part 3: Building securely
 To increase the security of {% data variables.product.product_location %}, you can monitor {% data variables.product.product_location %} and configure security and analysis features for your organizations.
 
-### 1. Monitoring your enterprise
+### 1. Monitoring {% data variables.product.product_location %}
 You can monitor {% data variables.product.product_location %} with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
 
 ### 2. Configuring security features for your organizations
-You can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep the organizations in your enterprise secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% data reusables.getting-started.configuring-security-features %}
 
 ## Part 4: Customizing and automating work on {% data variables.product.product_location %}
-You can customize and automate work in organizations in your enterprise with the {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
+You can customize and automate work in organizations in {% data variables.product.product_location %} with the {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
 
 ### 1. Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
@@ -68,19 +66,15 @@ You can customize and automate work in organizations in your enterprise with the
 ### 2. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
+For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
 
 ### 3. Using {% data variables.product.prodname_pages %}
-{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository in your enterprise and publishes a website. You can enable or disable {% data variables.product.prodname_pages %} for your users at the organization level. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise)."
-
-
+{% data reusables.getting-started.github-pages-enterprise %}
 ## Part 5: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your users can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support.
+Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support.
 
 ### 1. Learning with {% data variables.product.prodname_learning %}
-Your users can learn new skills by completing fun, realistic projects in their very own {% data variables.product.prodname_dotcom %} repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the {% data variables.product.prodname_dotcom %} community and taught by the friendly Learning Lab bot.
-
-For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+{% data reusables.getting-started.learning-lab-enterprise %}
 
 ### 2. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
-{% data variables.product.prodname_ghe_managed %} includes access to {% data variables.product.prodname_dotcom %} Enterprise Support. {% data variables.product.prodname_dotcom %} Enterprise Support can help you troubleshoot issues that come up on {% data variables.product.prodname_ghe_managed %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Enterprise Support](/admin/enterprise-support/overview/about-github-enterprise-support)."
+{% data reusables.getting-started.contact-support-enterprise %}

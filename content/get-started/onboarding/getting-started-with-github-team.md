@@ -23,9 +23,7 @@ You must manage billing settings, payment method, and paid features and products
 
 Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
 
-{% data variables.product.prodname_dotcom %} sends receipts and other billing-related information to your organization's billing email. For more information, see "[Setting your organization's billing email](/billing/managing-your-github-billing-settings/setting-your-billing-email#setting-your-organizations-billing-email)."
-
-Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is someone  who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
 
 
 ## Part 2: Adding members and setting up teams
@@ -42,8 +40,6 @@ Each person in your organization has a role that defines their level of access t
 Teams are groups of organization members that you can create to reflect your company or group's structure with cascading access permissions and mentions. Organization members can send notifications to a team or request reviews, and teams can be visible or secret. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 You can create independent teams or have multiple levels of nested teams to reflect your group or company's hierarchy. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
-
-Teams can participate in team discussions on their team page to plan together, give status updates, or talk about any topic. Discussions can be open to all organization members or private to the team. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 ### 4. Managing team settings
 You can designate a "team maintainer" to manage team settings and discussions, among other privileges. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
 
@@ -71,9 +67,7 @@ You can also review and configure the permission levels for your organization's 
 ### 1. Managing organization policies
 You can manage permissions and policies for a number of different actions and features in your organization.
 
-For example, to protect your organization's data and number of paid licenses, you can choose to allow only organization owners to invite outside collaborators to organization repositories. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
-
-You can also manage the forking policy for the organization, choosing to allow or prevent the forking of private repositories owned by your organization. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+For example, to protect your organization's data and number of paid licenses, you can choose to allow only organization owners to invite outside collaborators to organization repositories. You can also choose to allow or prevent the forking of private repositories owned by your organization. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" and "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 For the full list of settings you can configure for your organization, see "[Managing organization settings](/organizations/managing-organization-settings)."
 ### 2. Managing repository changes
@@ -87,19 +81,19 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 ## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
 
 {% data reusables.getting-started.customizing-and-automating %}
-
-{% ifversion fpt %}
 ### 1. Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-{% endif %}
-### {% ifversion fpt %}2.{% else %}1.{% endif %} Using the {% data variables.product.prodname_dotcom %} API
+### 2. Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
-### {% ifversion fpt %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
+### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### {% ifversion fpt %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
+
+### 5. Using {% data variables.product.prodname_pages %}
+{% data reusables.getting-started.github-pages %}
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
 {% data reusables.getting-started.participating-in-community %}
@@ -112,15 +106,11 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 ### 3. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
-{% ifversion fpt %}
 ### 4. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
 ### 5. Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
-{% endif %}
-
-{% ifversion fpt %}
 ## Further reading
+
 - "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"
-{% endif %}

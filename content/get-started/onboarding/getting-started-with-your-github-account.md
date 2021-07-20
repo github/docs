@@ -156,6 +156,9 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 ### {% ifversion fpt %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
+### {% ifversion fpt %}5.{% else %}4.{% endif %} Using {% data variables.product.prodname_pages %} 
+{% data reusables.getting-started.github-pages %}
+
 ## Part 5: Building securely on {% data variables.product.product_name %}
 {% data variables.product.product_name %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of {% data variables.product.product_name %} security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 ### 1. Securing your repository
