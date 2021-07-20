@@ -46,7 +46,7 @@ These guidelines assume that you have a registered OAuth App{% ifversion fpt %} 
 
 While the majority of [REST API](/rest) endpoints and [GraphQL](/graphql) queries are available to GitHub Apps today, we are still in the process of enabling some endpoints. Review the [available REST endpoints](/rest/overview/endpoints-available-for-github-apps) to ensure that the endpoints you need are compatible with GitHub Apps. Note that some of the API endpoints enabled for GitHub Apps allow the app to act on behalf of the user. See "[User-to-server requests](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" for a list of endpoints that allow a GitHub App to authenticate as a user.
 
-We recommend reviewing the list of API endpoints you need as early as possible. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_app %}s.
+We recommend reviewing the list of API endpoints you need as early as possible. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_apps %}.
 
 ### Design to stay within API rate limits
 
