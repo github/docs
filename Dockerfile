@@ -93,11 +93,11 @@ COPY --chown=node:node layouts ./layouts
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node translations ./translations
-COPY --chown=node:node server.js ./server.js
+COPY --chown=node:node server.mjs ./server.mjs
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node feature-flags.json ./
 
 EXPOSE 80
 EXPOSE 443
 EXPOSE 4000
-CMD ["node", "server.js"]
+CMD ["node", "server.mjs"]

@@ -27,7 +27,7 @@ To see if there are currently any incidents affecting services on {% data variab
 
 You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}. 
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}.
+To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}. Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
 
 ## Granting {% data variables.contact.github_support %} temporary access to a private repository
 
