@@ -1,13 +1,9 @@
-import fs from 'fs'
-import path from 'path'
 import sleep from 'await-sleep'
 import { jest } from '@jest/globals'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
 
 /* global page, browser */
-const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), './feature-flags.json')))
-
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
@@ -352,19 +348,6 @@ describe('GraphQL Explorer', () => {
     await page.waitForSelector('#search-results-container')
     const searchResult = await page.$('#search-results-container.js-open')
     expect(searchResult).toBeNull()
-  })
-})
-
-describe('nextjs query param', () => {
-  jest.setTimeout(60 * 1000)
-
-  it('landing page renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
-    const flagVal = featureFlags.FEATURE_NEXTJS
-    await page.goto('http://localhost:4001/en/actions?nextjs=')
-    const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
-    const nextWrapper = await page.$('#__next')
-    flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
-    flagVal === true ? expect(IS_NEXTJS_PAGE).toBe(true) : expect(IS_NEXTJS_PAGE).toBe(false)
   })
 })
 

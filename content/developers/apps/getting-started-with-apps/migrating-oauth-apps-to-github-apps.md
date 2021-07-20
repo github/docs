@@ -100,4 +100,4 @@ Once your GitHub App has been installed on a repository, you should remove any u
 
 ### Encourage users to revoke access to your OAuth app
 
-As your GitHub App installation base grows, consider encouraging your users to [revoke access](/articles/authorizing-oauth-apps/) to the legacy OAuth integration.
+As your GitHub App installation base grows, consider encouraging your users to revoke access to the legacy OAuth integration. For more information, see [Authorizing OAuth Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)
