@@ -79,4 +79,4 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
+        run: npx jest tests/${{ matrix.test-group }} hashFiles(format(startsWith(steps, searchValue), replaceValueN))
