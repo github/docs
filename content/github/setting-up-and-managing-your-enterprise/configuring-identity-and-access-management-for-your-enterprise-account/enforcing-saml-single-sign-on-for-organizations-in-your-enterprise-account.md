@@ -1,15 +1,16 @@
 ---
-title: Enabling SAML single sign-on for organizations in your enterprise account
-intro: 'You can control and secure access to resources like repositories, issues, and pull requests by enabling SAML single sign-on (SSO) and centralized authentication through an IdP across all organizations owned by an enterprise account.'
+title: Enforcing SAML single sign-on for organizations in your enterprise account
+intro: 'You can control and secure access to resources like repositories, issues, and pull requests by enforcing SAML single sign-on (SSO) and centralized authentication through an IdP across all organizations owned by an enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
+permissions: Enterprise owners can enforce SAML single sign-on for organizations in an enterprise account.
 versions:
   fpt: '*'
 topics:
   - Enterprise
 redirect_from:
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
-shortTitle: Enable SSO for organizations
+shortTitle: Enforce SSO for organizations
 ---
 ## About SAML single sign-on for enterprise accounts
 
@@ -23,7 +24,7 @@ shortTitle: Enable SSO for organizations
 
 {% data reusables.scim.enterprise-account-scim %}
 
-## Enabling SAML single-sign on for organizations in your enterprise account
+## Enforcing SAML single-sign on for organizations in your enterprise account
 
 {% note %}
 
@@ -37,7 +38,7 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "SAML single sign-on", select **Enable SAML authentication**.
+5. Under "SAML single sign-on", select **Require SAML authentication**.
   ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
 6. In the **Sign on URL** field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
 ![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
