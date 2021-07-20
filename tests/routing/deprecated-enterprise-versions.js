@@ -4,6 +4,8 @@ import { get, getDOM } from '../helpers/supertest.js'
 import supertest from 'supertest'
 import { jest } from '@jest/globals'
 
+jest.useFakeTimers()
+
 const app = createApp()
 
 describe('enterprise deprecation', () => {
@@ -112,12 +114,12 @@ describe('deprecation banner', () => {
 describe('does not render survey prompt or contribution button', () => {
   test('does not render survey prompt', async () => {
     let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('.js-survey').length).toBeGreaterThan(0)
+    expect($('[data-testid="survey-form"]').length).toBeGreaterThan(0)
     $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('.js-survey').length).toBe(0)
+      expect($('[data-testid="survey-form"]').length).toBe(0)
     } else {
-      expect($('.js-survey').length).toBeGreaterThan(0)
+      expect($('[data-testid="survey-form"]').length).toBeGreaterThan(0)
     }
   })
 

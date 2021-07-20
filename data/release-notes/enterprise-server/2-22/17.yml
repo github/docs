@@ -6,7 +6,7 @@ sections:
   bugs:
     - '`ghe-cluster-config-node-init` would fail during cluster setup if HTTP proxy is enabled.'
     - Collectd would not resolve the forwarding destination hostname after the initial startup.
-    - The job that purged stale archived repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
+    - The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
     - Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.
     - A significant number of 503 errors were logged every time a user visited a repository's `/settings` page if the dependency graph was not enabled.
   changes:
