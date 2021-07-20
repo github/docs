@@ -1,4 +1,4 @@
----
+Open source guides future vision ---
 title: About READMEs
 intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
 redirect_from:
@@ -12,7 +12,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
----
+---future vision 
 ## About READMEs
 
 You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
@@ -38,7 +38,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% endif %}
 
-![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
+![README file on your @shafiul2s/shafiul2s repository](/assets/images/help/repository/username-repo-with-readme.png)
 
 {% endif %}
 
