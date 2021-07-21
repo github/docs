@@ -127,7 +127,7 @@ For a list of REST API endpoints you can use to get high-level information about
 
 ## Authenticating as an installation
 
-Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_app %}s to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
 
 By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
 
@@ -193,7 +193,7 @@ $ curl -i \
 
 ## Accessing API endpoints as an installation
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_app %}s using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
 
 For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
 
