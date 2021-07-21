@@ -18,6 +18,9 @@ on:
       - 'lib/webhooks/**'
       - 'scripts/**'
       - 'translations/**'
+      - 'package*.json'
+      - 'app.json'
+      - 'Procfile'
 
 jobs:
   triage:
@@ -76,6 +79,9 @@ jobs:
               - 'lib/webhooks/**'
               - 'scripts/**'
               - 'translations/**'
+              - 'package*.json'
+              - 'app.json'
+              - 'Procfile'
 
       # When there are changes to files we can't accept
       # and no review exists,leave a REQUEST_CHANGES review
@@ -97,7 +103,10 @@ jobs:
               'lib/rest/**',
               'lib/webhooks/**',
               'scripts/**',
-              'translations/**'
+              'translations/**',
+              'package*.json',
+              'app.json',
+              'Procfile'
             ]
 
             const badFiles = badFilesArr.join('\n')
