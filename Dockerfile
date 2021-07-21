@@ -50,10 +50,7 @@ COPY webpack.config.js ./webpack.config.js
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
 
-RUN npx tsc
-
-# We need to copy data in order to do the build
-COPY --chown=node:node data ./data
+RUN npx tsc --noEmit
 
 RUN npm run build
 
@@ -88,6 +85,7 @@ ENV AIRGAP true
 # Copy only what's needed to run the server
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
+COPY --chown=node:node data ./data
 COPY --chown=node:node includes ./includes
 COPY --chown=node:node layouts ./layouts
 COPY --chown=node:node lib ./lib
@@ -96,6 +94,7 @@ COPY --chown=node:node translations ./translations
 COPY --chown=node:node server.mjs ./server.mjs
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node feature-flags.json ./
+COPY --chown=node:node next.config.js ./
 
 EXPOSE 80
 EXPOSE 443
