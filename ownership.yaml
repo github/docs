@@ -8,7 +8,7 @@ ownership:
     team: github/docs-engineering
     maintainer: chiedo
     exec_sponsor: scottdensmore
-    product_manager: simpsoka
+    product_manager: emilyistoofunky
     mention: github/docs-engineering
     qos: critical
     dependencies: []
