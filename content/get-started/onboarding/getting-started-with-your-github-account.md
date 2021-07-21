@@ -176,7 +176,7 @@ For more information, see "[Securing your software supply chain](/code-security/
 ### 1. Contributing to open source projects
 {% data reusables.getting-started.open-source-projects %}
 
-### 2. Interacting with the {% data variables.product.prodname_gcf %}
+### 2. Interacting with {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
 ### 3. Learning with {% data variables.product.prodname_learning %}
