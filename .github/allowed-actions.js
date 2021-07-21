@@ -14,7 +14,7 @@ export default [
   'andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84',
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
-  'cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be',
+  'cschleiden/actions-linter@5f9827c6b731d2c2480cd3bccf82079bbba832fc',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58',

@@ -24,6 +24,6 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Run linter
-        uses: cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be
+        uses: cschleiden/actions-linter@5f9827c6b731d2c2480cd3bccf82079bbba832fc
         with:
-          workflows: '[".github/workflows/*.yml", "!.github/workflows/staging-deploy-pr.yml", "!.github/workflows/staging-undeploy-pr.yml"]'
+          workflows: '[".github/workflows/*.yml"]'
