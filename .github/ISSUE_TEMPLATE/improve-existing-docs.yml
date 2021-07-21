@@ -3,14 +3,13 @@ description: Make a suggestion to improve the content in an existing article
 title: 'Improve existing content'
 labels: 'Improve existing content'
 body:
-  # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
   - type: markdown
     attributes:
       value: |
         For questions, ask in [Discussions](https://github.com/github/docs/discussions)
         Before you file an issue read the
-        - [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
-        - [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
+        [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+        [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
 
   - type: checkboxes
     attributes:
