@@ -1,4 +1,4 @@
-module.exports = async function breadcrumbs (req, res, next) {
+export default async function breadcrumbs(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.hidden) return next()
 
@@ -9,7 +9,8 @@ module.exports = async function breadcrumbs (req, res, next) {
     return next()
   }
 
-  const currentSiteTree = req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
+  const currentSiteTree =
+    req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
 
   await createBreadcrumb(
     // Array of child pages on the root, i.e., the product level.
@@ -20,20 +21,22 @@ module.exports = async function breadcrumbs (req, res, next) {
   return next()
 }
 
-async function createBreadcrumb (pageArray, context) {
+async function createBreadcrumb(pageArray, context) {
   // Find each page in the siteTree's array of child pages that starts with the requested path.
-  let childPage = pageArray.find(page => context.currentPath.startsWith(page.href))
+  let childPage = pageArray.find((page) => context.currentPath.startsWith(page.href))
 
   // Fall back to English if needed
   if (!childPage) {
-    childPage = pageArray.find(page => context.currentPath.startsWith(page.href.replace(`/${context.currentLanguage}`, '/en')))
+    childPage = pageArray.find((page) =>
+      context.currentPath.startsWith(page.href.replace(`/${context.currentLanguage}`, '/en'))
+    )
     if (!childPage) return
   }
 
   context.breadcrumbs.push({
     documentType: childPage.page.documentType,
     href: childPage.href,
-    title: childPage.renderedShortTitle || childPage.renderedFullTitle
+    title: childPage.renderedShortTitle || childPage.renderedFullTitle,
   })
 
   // Recursively loop through the siteTree and create each breadcrumb, until we reach the

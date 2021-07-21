@@ -1,22 +1,25 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xMkdirp from 'mkdirp'
+import yaml from 'js-yaml'
+import { execSync } from 'child_process'
+import { getContents, listMatchingRefs } from '../helpers/git-utils.js'
+import allVersions from '../../lib/all-versions.js'
+import processPreviews from './utils/process-previews.js'
+import processUpcomingChanges from './utils/process-upcoming-changes.js'
+import processSchemas from './utils/process-schemas.js'
+import prerenderObjects from './utils/prerender-objects.js'
+import prerenderInputObjects from './utils/prerender-input-objects.js'
+import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
+import loadData from '../../lib/site-data.js'
 
-const fs = require('fs')
-const path = require('path')
-const mkdirp = require('mkdirp').sync
-const yaml = require('js-yaml')
-const { execSync } = require('child_process')
+const mkdirp = xMkdirp.sync
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
-const { getContents, listMatchingRefs } = require('../helpers/git-utils')
-const dataFilenames = JSON.parse(fs.readFileSync('./script/graphql/utils/data-filenames.json'))
-const allVersions = require('../../lib/all-versions')
-const processPreviews = require('./utils/process-previews')
-const processUpcomingChanges = require('./utils/process-upcoming-changes')
-const processSchemas = require('./utils/process-schemas')
-const prerenderObjects = require('./utils/prerender-objects')
-const prerenderInputObjects = require('./utils/prerender-input-objects')
-const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
-const loadData = require('../../lib/site-data')
+const dataFilenames = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), './script/graphql/utils/data-filenames.json'))
+)
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -30,7 +33,7 @@ const currentLanguage = 'en'
 
 main()
 
-async function main () {
+async function main() {
   try {
     const previewsJson = {}
     const upcomingChangesJson = {}
@@ -42,7 +45,7 @@ async function main () {
     // create a bare minimum context for rendering the graphql-object.html layout
     const context = {
       currentLanguage,
-      site: siteData[currentLanguage].site
+      site: siteData[currentLanguage].site,
     }
 
     for (const version of versionsToBuild) {
@@ -54,7 +57,9 @@ async function main () {
 
       // 1. UPDATE PREVIEWS
       const previewsPath = getDataFilepath('previews', graphqlVersion)
-      const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
+      const safeForPublicPreviews = yaml.load(
+        await getRemoteRawContent(previewsPath, graphqlVersion)
+      )
       updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
       previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
@@ -72,7 +77,10 @@ async function main () {
       const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
       updateFile(schemaPath, latestSchema)
       const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
-      updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
+      updateStaticFile(
+        schemaJsonPerVersion,
+        path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
+      )
 
       // Add some version specific data to the context
       context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
@@ -97,7 +105,10 @@ async function main () {
           yaml.load(safeForPublicChanges).upcoming_changes
         )
         if (changelogEntry) {
-          prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))
+          prependDatedEntry(
+            changelogEntry,
+            path.join(process.cwd(), 'lib/graphql/static/changelog.json')
+          )
         }
       }
     }
@@ -105,7 +116,10 @@ async function main () {
     updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
     updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
     updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
-    updateStaticFile(prerenderedInputObjects, path.join(graphqlStaticDir, 'prerendered-input-objects.json'))
+    updateStaticFile(
+      prerenderedInputObjects,
+      path.join(graphqlStaticDir, 'prerendered-input-objects.json')
+    )
 
     // Ensure the YAML linter runs before checkinging in files
     execSync('npx prettier -w "**/*.{yml,yaml}"')
@@ -116,10 +130,10 @@ async function main () {
 }
 
 // get latest from github/github
-async function getRemoteRawContent (filepath, graphqlVersion) {
+async function getRemoteRawContent(filepath, graphqlVersion) {
   const options = {
     owner: 'github',
-    repo: 'github'
+    repo: 'github',
   }
 
   // find the relevant branch in github/github and set it as options.ref
@@ -132,7 +146,7 @@ async function getRemoteRawContent (filepath, graphqlVersion) {
 }
 
 // find the relevant filepath in script/graphql/utils/data-filenames.json
-function getDataFilepath (id, graphqlVersion) {
+function getDataFilepath(id, graphqlVersion) {
   const versionType = getVersionType(graphqlVersion)
 
   // for example, dataFilenames['schema']['ghes'] = schema.docs-enterprise.graphql
@@ -145,7 +159,7 @@ function getDataFilepath (id, graphqlVersion) {
   return path.join(graphqlDataDir, dataSubdir, filename)
 }
 
-async function setBranchAsRef (options, graphqlVersion, branch = false) {
+async function setBranchAsRef(options, graphqlVersion, branch = false) {
   const versionType = getVersionType(graphqlVersion)
   const defaultBranch = 'master'
 
@@ -153,7 +167,7 @@ async function setBranchAsRef (options, graphqlVersion, branch = false) {
     dotcom: defaultBranch,
     ghes: `enterprise-${graphqlVersion.replace('ghes-', '')}-release`,
     // TODO confirm the below is accurate after the release branch is created
-    ghae: 'github-ae-release'
+    ghae: 'github-ae-release',
   }
 
   // the first time this runs, it uses the branch found for the version above
@@ -174,17 +188,17 @@ async function setBranchAsRef (options, graphqlVersion, branch = false) {
 
 // given a GraphQL version like `ghes-2.22`, return `ghes`;
 // given a GraphQL version like `ghae` or `dotcom`, return as is
-function getVersionType (graphqlVersion) {
+function getVersionType(graphqlVersion) {
   return graphqlVersion.split('-')[0]
 }
 
-function updateFile (filepath, content) {
+function updateFile(filepath, content) {
   console.log(`fetching latest data to ${filepath}`)
   mkdirp(path.dirname(filepath))
   fs.writeFileSync(filepath, content, 'utf8')
 }
 
-function updateStaticFile (json, filepath) {
+function updateStaticFile(json, filepath) {
   const jsonString = JSON.stringify(json, null, 2)
   updateFile(filepath, jsonString)
 }
