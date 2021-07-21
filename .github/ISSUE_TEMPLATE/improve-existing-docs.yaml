@@ -1,6 +1,6 @@
 name: Improve existing content
 description: Make a suggestion to improve the content in an existing article
-title: 'Improve existing content'
+title: "['Improve existing content']: "
 labels: 'Improve existing content'
 body:
   - type: markdown
