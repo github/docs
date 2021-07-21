@@ -2,7 +2,6 @@ import lodash from 'lodash-es'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM, head, post } from '../helpers/supertest.js'
 import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
-import path from 'path'
 import { loadPages } from '../../lib/page-data.js'
 import builtAssets from '../../lib/built-asset-urls.js'
 import CspParse from 'csp-parse'
@@ -178,7 +177,7 @@ describe('server', () => {
     const $ = await getDOM('/not-a-real-page')
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
-    expect($.text().includes('Still need help?')).toBe(true)
+    expect($.text().includes('We track these errors automatically, but if the problem persists please feel free to contact us.')).toBe(true)
     expect($.res.statusCode).toBe(404)
   })
 
@@ -201,11 +200,8 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500')
     expect($('h1').text()).toBe('Ooops!')
-    expect($('code').text().startsWith('Error: Intentional error')).toBe(true)
-    expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(
-      true
-    )
-    expect($.text().includes('Still need help?')).toBe(true)
+    expect($.text().includes("It looks like something went wrong.")).toBe(true)
+    expect($.text().includes("We track these errors automatically, but if the problem persists please feel free to contact us.")).toBe(true)
     expect($.res.statusCode).toBe(500)
   })
 
