@@ -22,6 +22,7 @@ shortTitle: User into an organization
  - An organization **cannot** be converted back to a user.
  - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.
  - Any commits made with the converted user account **will no longer be linked** to that account. The commits themselves **will** remain intact.
+ - Any forks of private repositories made with the converted user account will be deleted.
 
 {% endwarning %}
 
