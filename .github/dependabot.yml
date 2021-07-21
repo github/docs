@@ -7,6 +7,6 @@ updates:
     versioning-strategy: increase
   - package-ecosystem: "npm"
     directory: "/"
-    schedule:
+    schedule: "now"
       interval: "daily"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 1000000000000
