@@ -38,13 +38,13 @@ The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool tha
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
 ```
 
-To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
+1. To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
 
 ```shell
 $ bfg --replace-text passwords.txt
 ```
 
-After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
+2. After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
 
 ```shell
 $ git push --force
@@ -128,9 +128,14 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-9. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}.
-10. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
-11. After some time has passed and you're confident that `git filter-branch` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+
+After using either the BFG tool or `git filter-repo` to remove the sensitive data from your repository, and you've pushed your changes:
+
+1. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.
+
+2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+
+3. After some time has passed and you're confident that `git filter-branch` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
   ```shell
   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
   $ git reflog expire --expire=now --all
