@@ -1,14 +1,11 @@
-import fs from 'fs'
-import path from 'path'
 import { get } from 'lodash-es'
-import { liquid } from '../lib/render-content/index.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
 import statsd from '../lib/statsd.js'
 import RedisAccessor from '../lib/redis-accessor.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
-import { nextHandleRequest } from './next.js'
+import { nextApp, nextHandleRequest } from './next.js'
 
 const { HEROKU_RELEASE_VERSION } = process.env
 
@@ -64,10 +61,7 @@ export default async function renderPage(req, res, next) {
         `\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`
       )
     }
-    return res
-      .status(404)
-      // We can get rid of reading the layout for 404 once we have the 404 page up and running
-      .send(modifyOutput(req, await liquid.parseAndRender(fs.readFileSync(path.join(process.cwd(), './layouts/error-404.html'), 'utf8'), req.context)))
+    return nextApp.render404(req, res)
   }
 
   if (req.method === 'HEAD') {
