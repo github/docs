@@ -1,8 +1,7 @@
 name: Improve existing content
 description: Make a suggestion to improve the content in an existing article
 title: 'Improve existing content'
-labels:
-  - content
+labels: 'Improve existing content'
 body:
   # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
   - type: markdown
@@ -21,24 +20,27 @@ body:
         - label: I have searched the existing issues
           required: true
 
-  - type: textarea
+  - type: input
     attributes:
-      - label: ### What is the current behavior?
+      - label: What article on docs.github.com is affected?
         placeholder: |
-          Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
+          Please link to the article you'd like to see updated
     validations:
       required: true
-  - type: textarea
+  - type: input
     attributes:
-      - label: ### What changes are you suggesting?
+      - label: What part(s) of the article would you like to see updated?
         placeholder: |
-          Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+          Give as much detail as you can to help us understand the change you want to see. 
+          Why should the docs be changed? What use cases does it support? 
+          What is the expected outcome?
     validations:
     required: true
 
-  - type: textarea
+  - type: input
     attributes:
-      - label: ### Additional information
+      - label: Additional information
         placeholder: |
-          Any additional information, configuration, or data that might be necessary to reproduce the issue.  validations:
+          Add any other context or screenshots about the feature request here.
+    validations:
     required: false
