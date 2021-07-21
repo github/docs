@@ -20,7 +20,7 @@ describe('breadcrumbs', () => {
       const $breadcrumbs = $('.breadcrumbs a')
 
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
       expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
       expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Troubleshooting SSH')
       expect($breadcrumbs[3].attribs.title).toBe('article: Use SSH over HTTPS port')
@@ -33,7 +33,7 @@ describe('breadcrumbs', () => {
       const $breadcrumbs = $('.breadcrumbs a')
 
       expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
       expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
       expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Account security')
       expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
@@ -45,8 +45,7 @@ describe('breadcrumbs', () => {
       )
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs).toHaveLength(4)
-      // The product is still GitHub.com on an Enterprise Server version
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
     })
 
     test('parses Liquid variables inside titles', async () => {
@@ -85,7 +84,7 @@ describe('breadcrumbs', () => {
       expect($breadcrumbSpans).toHaveLength(2)
       expect($breadcrumbLinks).toHaveLength(2)
       expect($breadcrumbSpans[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub.com')
+      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'category: Enforcing best practices with GitHub Policies'
       )
@@ -101,7 +100,7 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com',
+          title: 'GitHub',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -113,7 +112,7 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com',
+          title: 'GitHub',
         },
         {
           documentType: 'category',
@@ -132,7 +131,7 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com',
+          title: 'GitHub',
         },
         {
           documentType: 'category',
@@ -156,7 +155,7 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com',
+          title: 'GitHub',
         },
         {
           documentType: 'category',
@@ -185,7 +184,7 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com',
+          title: 'GitHub',
         },
         {
           documentType: 'category',
