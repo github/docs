@@ -1,6 +1,6 @@
 ---
 title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-branch` command or the BFG Repo-Cleaner open source tool.'
+intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.'
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -16,7 +16,7 @@ topics:
   - Access management
 shortTitle: Remove sensitive data
 ---
-The `git filter-branch` command and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
+The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
 You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[Removing files from a repository's history](/articles/removing-files-from-a-repository-s-history)."
 
@@ -52,17 +52,19 @@ $ git push --force
 
 See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
 
-### Using filter-branch
+### Using filter-repo
 
 {% warning %}
 
-**Warning:** If you run `git filter-branch` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-branch`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools Stashing](https://git-scm.com/book/en/v1/Git-Tools-Stashing).
+**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools Stashing](https://git-scm.com/book/en/v1/Git-Tools-Stashing).
 
 {% endwarning %}
 
-To illustrate how `git filter-branch` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
+To illustrate how `git filter-repo` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
 
-1. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
+1. Install the latest release of the [git filter-branch](1241367) tool.
+
+2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
   > Initialized empty Git repository in /Users/<em>YOUR-FILE-PATH</em>/<em>YOUR-REPOSITORY</em>/.git/
@@ -72,11 +74,11 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > Receiving objects: 100% (1301/1301), 164.39 KiB, done.
   > Resolving deltas: 100% (724/724), done.
   ```
-2. Navigate into the repository's working directory.
+3. Navigate into the repository's working directory.
   ```shell
   $ cd <em>YOUR-REPOSITORY</em>
   ```
-3. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
+4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag
     - Remove the specified file, as well as any empty commits generated as a result
     - **Overwrite your existing tags**
@@ -94,7 +96,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
 
   {% endnote %}
 
-4. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
+5. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
 
   ```shell
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
@@ -103,8 +105,8 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
-5. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
-6. Once you're happy with the state of your repository, force-push your local changes to overwrite your {% data variables.product.product_name %} repository, as well as all the branches you've pushed up:
+6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
+7. Once you're happy with the state of your repository, force-push your local changes to overwrite your {% data variables.product.product_name %} repository, as well as all the branches you've pushed up:
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -115,7 +117,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-7. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
+8. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
   ```shell
   $ git push origin --force --tags
   > Counting objects: 321, done.
@@ -126,9 +128,9 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-8. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}.
-9. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
-10. After some time has passed and you're confident that `git filter-branch` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+9. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}.
+10. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+11. After some time has passed and you're confident that `git filter-branch` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
   ```shell
   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
   $ git reflog expire --expire=now --all
