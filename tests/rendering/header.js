@@ -7,7 +7,7 @@ describe('header', () => {
 
   test('includes localized meta tags', async () => {
     const $ = await getDOM('/en')
-    expect($('meta[name="site.data.ui.search.placeholder"]').length).toBe(1)
+    expect($('meta[name="next-head-count"]').length).toBe(1)
   })
 
   test("includes a link to the homepage (in the current page's language)", async () => {
@@ -24,24 +24,22 @@ describe('header', () => {
       const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
       expect(
         $(
-          '#languages-selector a[href="/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          '[data-testid=language-picker] a[href="/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
-      expect($('#languages-selector a[href="/en"]').text().trim()).toBe('English')
-      expect($('#languages-selector a[href="/cn"]').text().trim()).toBe(
-        '简体中文 (Simplified Chinese)'
-      )
-      expect($('#languages-selector a[href="/ja"]').text().trim()).toBe('日本語 (Japanese)')
+      expect($('[data-testid=language-picker] a[href="/en/"]').text().trim()).toBe('English')
+      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe('简体中文 (Simplified Chinese)')
+      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe('日本語 (Japanese)')
     })
 
     test('emphasize the current language', async () => {
       const $ = await getDOM('/en')
-      expect($('#languages-selector a.active[href="/en"]').length).toBe(1)
-      expect($('#languages-selector a[href="/ja"]').length).toBe(1)
+      expect($('[data-testid=language-picker] a[href="/en/"]').length).toBe(1)
+      expect($('[data-testid=language-picker] a[href="/ja/"]').length).toBe(1)
     })
   })
 
@@ -132,7 +130,7 @@ describe('header', () => {
       const $ = await getDOM('/en/articles/enabling-required-status-checks')
       const github = $('#homepages a.active[href="/en/github"]')
       expect(github.length).toBe(1)
-      expect(github.text().trim()).toBe('GitHub.com')
+      expect(github.text().trim()).toBe('GitHub')
       expect(github.attr('class').includes('active')).toBe(true)
 
       const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
