@@ -1,13 +1,14 @@
-const { dates, supported } = require('../../lib/enterprise-server-releases')
-const languageCodes = Object.keys(require('../../lib/languages'))
-const { namePrefix } = require('../../lib/search/config')
-const remoteIndexNames = require('../../lib/search/cached-index-names.json')
+import { dates, supported } from '../../lib/enterprise-server-releases.js'
+import xLanguages from '../../lib/languages.js'
+import { namePrefix } from '../../lib/search/config.js'
+import remoteIndexNames from '../../lib/search/cached-index-names.json'
+const languageCodes = Object.keys(xLanguages)
 
 describe('algolia', () => {
   test('has remote indexNames in every language for every supported GHE version', () => {
     expect(supported.length).toBeGreaterThan(1)
-    supported.forEach(version => {
-      languageCodes.forEach(languageCode => {
+    supported.forEach((version) => {
+      languageCodes.forEach((languageCode) => {
         const indexName = `${namePrefix}-${version}-${languageCode}`
 
         // workaround for GHES release branches not in production yet
@@ -27,14 +28,14 @@ describe('algolia', () => {
 
   test('has remote indexNames in every language for dotcom', async () => {
     expect(languageCodes.length).toBeGreaterThan(0)
-    languageCodes.forEach(languageCode => {
+    languageCodes.forEach((languageCode) => {
       const indexName = `${namePrefix}-dotcom-${languageCode}`
       expect(remoteIndexNames.includes(indexName)).toBe(true)
     })
   })
 })
 
-function getDate (date) {
+function getDate(date) {
   const dateObj = date ? new Date(date) : new Date()
   return dateObj.toISOString().slice(0, 10)
 }
