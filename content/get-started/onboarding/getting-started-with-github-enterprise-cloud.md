@@ -93,7 +93,7 @@ You can also customize access to your organization's project boards and allow in
 Managing members of an enterprise is separate from managing members or teams in an organization. It is important to note that enterprise owners or administrators cannot access organization-level settings or manage members for organizations in their enterprise unless they are made an organization owner. For more information, see the above section, "[Managing members and teams in your organization](#managing-members-and-teams-in-your-organization)."
 #### 1. Assigning roles in an enterprise
 By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)."
-#### 2. Inviting people to manager your enterprise
+#### 2. Inviting people to manage your enterprise
 You can invite people to manage your enterprise as enterprise owners or billing managers, as well as remove those who no longer need access. For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[Managing support entitlements for your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
@@ -103,11 +103,12 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 ## Part 4: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
 ### Managing security for a single organization
+You can help keep your organization secure by requiring two-factor authentication, configuring security features, reviewing your organization's audit log and integrations, and enabling SAML single sign-on and team synchronization.
 #### 1. Requiring two-factor authentication
 You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."
 
 #### 2. Configuring security features for your organization
-You can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates, to keep your organization secure. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+To keep your organization secure, you can use a variety of {% data variables.product.prodname_dotcom %} security features, including security policies, dependency graphs, secret scanning and Dependabot security and version updates. For more information, see "[Securing your organization](/code-security/getting-started/securing-your-organization)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 #### 3. Reviewing your organization's audit log and integrations
 The audit log for your organization allows you, as an organization owner, to review the actions performed by members of the organization within the last 90 days. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
@@ -121,7 +122,7 @@ Organization owners can choose to disable, enable but not enforce, or enable and
 Organization owners can enable team synchronization between your identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
 ### Managing security for an enterprise account with multiple organizations
-
+To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features. 
 #### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
 Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 
 
@@ -138,16 +139,15 @@ If you have a GitHub Advanced Security license for your enterprise account, you 
 ## Part 5: Managing organization and enterprise level policies and settings
 
 ### Managing settings for a single organization
+To manage and moderate your organization, you can set organization policies, manage permissions for repository changes, and use organization-level community health files.
 #### 1. Managing organization policies
 You can manage permissions and policies for a number of different actions and features in your organization.
 
-For example, to protect your organization's data and number of paid licenses, you can choose to allow only organization owners to invite outside collaborators to organization repositories. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
-
-You can also manage the forking policy for the organization, choosing to allow or prevent the forking of private repositories owned by your organization. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+For example, to protect your organization's data and number of paid licenses, you can choose to allow only organization owners to invite outside collaborators to organization repositories. You can also choose to allow or prevent the forking of private repositories owned by your organization. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" and "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 For the full list of settings you can configure for your organization, see "[Managing organization settings](/organizations/managing-organization-settings)."
 #### 2. Managing repository changes
-You can configure permissions for creating, transferring and deleting repositories in your organization, including which types can be created by members. For more information, see "[Restricting repository creation in your organization](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)" and "[Setting permissions for deleting or transferring repositories](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)."
+You can configure permissions for creating, transferring and deleting repositories in your organization, including which types members can create. For more information, see "[Restricting repository creation in your organization](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)" and "[Setting permissions for deleting or transferring repositories](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)."
 
 You can also restrict or grant the ability to change repository visibility. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 #### 3. Using organization-level community health files and moderation tools
@@ -156,6 +156,7 @@ You can create default community health files, such as a CONTRIBUTING.md file, a
 {% data variables.product.prodname_dotcom %} offers multiple tools for moderating and managing your community. For more information, see "[Tools for moderating your community](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation#tools-for-moderating-your-community)."
 
 ### Managing settings for an enterprise account
+To manage and moderate your enterprise, you can set policies for organizations within the enterprise, view audit logs, configure webhooks, and restrict email notifications.
 #### 1. Managing policies for organizations in your enterprise account
 
 You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[Set organization policies](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."

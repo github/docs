@@ -43,7 +43,7 @@ You can create independent teams or have multiple levels of nested teams to refl
 ### 4. Managing team settings
 You can designate a "team maintainer" to manage team settings and discussions, among other privileges. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
 
-You can manage code review assignments for your team, change team visibility, manage scheduled reminders for your team, and more in your team's settings. For more information, see "[Organizing members into teams](/organizations/organizing-members-into-teams)."
+In your team's settings, you can manage code review assignments for your team, change team visibility, manage scheduled reminders for your team, and more. For more information, see "[Organizing members into teams](/organizations/organizing-members-into-teams)."
 
 ### 5. Giving people and teams access to repositories, project boards and apps
 You can give organization members, teams, and outside collaborators different levels of access to repositories owned by your organization with granular permission levels. For more information, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
