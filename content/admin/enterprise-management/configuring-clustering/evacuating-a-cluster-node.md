@@ -44,7 +44,7 @@ If you're taking a node offline that has any data services (like git, pages, or 
     For Git
 
     ```shell
-    ghe-spokes server evacuate git-server-<em>UUID</em> '<em>REASON FOR EVACUATION</em>'
+    ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
     ```
    
     For {% data variables.product.prodname_pages %}
