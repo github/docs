@@ -92,9 +92,6 @@ GitHub offers multiple tools for moderating and managing your community. For mor
 ### 4. Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
-### 5. Using {% data variables.product.prodname_pages %}
-{% data reusables.getting-started.github-pages %}
-
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
 {% data reusables.getting-started.participating-in-community %}
 ### 1. Contributing to open source projects
