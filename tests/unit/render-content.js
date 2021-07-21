@@ -1,47 +1,39 @@
-const cheerio = require('cheerio')
-const renderContent = require('../../lib/render-content/renderContent')
-const { EOL } = require('os')
+import cheerio from 'cheerio'
+import renderContent from '../../lib/render-content/renderContent.js'
+import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have
 // been loaded from disk
-const nl = str => str.replace(/\n/g, EOL)
+const nl = (str) => str.replace(/\n/g, EOL)
 
 describe('renderContent', () => {
-  test(
-    'takes a template and a context and returns a string (async)',
-    async () => {
-      const template = 'my favorite color is {{ color }}.'
-      const context = { color: 'orange' }
-      const output = await renderContent(template, context)
-      expect(output, '<p>my favorite color is orange.</p>')
-    }
-  )
+  test('takes a template and a context and returns a string (async)', async () => {
+    const template = 'my favorite color is {{ color }}.'
+    const context = { color: 'orange' }
+    const output = await renderContent(template, context)
+    expect(output, '<p>my favorite color is orange.</p>')
+  })
 
   test('preserves content within {% raw %} tags', async () => {
-    const template = nl(
-      'For example: {% raw %}{% include cool_header.html %}{% endraw %}.'
-    )
+    const template = nl('For example: {% raw %}{% include cool_header.html %}{% endraw %}.')
     const expected = '<p>For example: {% include cool_header.html %}.</p>'
     const output = await renderContent(template)
     expect(output).toBe(expected)
   })
 
-  test(
-    'removes extra newlines to prevent lists from breaking',
-    async () => {
-      const template = nl(`
+  test('removes extra newlines to prevent lists from breaking', async () => {
+    const template = nl(`
 1. item one
 1. item two
 
 
 1. item three`)
 
-      const html = await renderContent(template)
-      const $ = cheerio.load(html, { xmlMode: true })
-      expect($('ol').length).toBe(1)
-      expect($('ol > li').length).toBe(3)
-    }
-  )
+    const html = await renderContent(template)
+    const $ = cheerio.load(html, { xmlMode: true })
+    expect($('ol').length).toBe(1)
+    expect($('ol > li').length).toBe(3)
+  })
 
   test('removes extra newlines from lists of links', async () => {
     const template = nl(`- <a>item</a>
@@ -75,32 +67,29 @@ describe('renderContent', () => {
     expect(err).toBeTruthy()
   })
 
-  test(
-    'warns and throws on rendering errors when the file name is passed',
-    async () => {
-      const template = 1
-      const context = {}
+  test('warns and throws on rendering errors when the file name is passed', async () => {
+    const template = 1
+    const context = {}
 
-      let err
-      let warned = false
+    let err
+    let warned = false
 
-      const error = console.error
-      console.error = message => {
-        expect(message, 'renderContent failed on file: name')
-        console.error = error
-        warned = true
-      }
-
-      try {
-        await renderContent(template, context, { filename: 'name' })
-      } catch (_err) {
-        err = _err
-      }
-
-      expect(err).toBeTruthy()
-      expect(warned).toBeTruthy()
+    const error = console.error
+    console.error = (message) => {
+      expect(message, 'renderContent failed on file: name')
+      console.error = error
+      warned = true
     }
-  )
+
+    try {
+      await renderContent(template, context, { filename: 'name' })
+    } catch (_err) {
+      err = _err
+    }
+
+    expect(err).toBeTruthy()
+    expect(warned).toBeTruthy()
+  })
 
   test('renders empty templates', async () => {
     const template = ''
@@ -113,7 +102,7 @@ describe('renderContent', () => {
     const template = '<beep></beep>'
     const context = {}
     const output = await renderContent(template, context, {
-      encodeEntities: true
+      encodeEntities: true,
     })
     expect(output).toBe('&lt;p&gt;&lt;beep&gt;&lt;/beep&gt;&lt;/p&gt;')
   })
@@ -128,29 +117,22 @@ describe('renderContent', () => {
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
     expect(
-      $.html().includes(
-        '&quot;<a href="/articles/about-issues">About issues</a>.&quot;'
-      )
+      $.html().includes('&quot;<a href="/articles/about-issues">About issues</a>.&quot;')
     ).toBeTruthy()
   })
 
-  test(
-    'does not render newlines around inline code in tables',
-    async () => {
-      const template = nl(`
+  test('does not render newlines around inline code in tables', async () => {
+    const template = nl(`
 | Package manager | formats |
 | --- | --- |
 | Python | \`requirements.txt\`, \`pipfile.lock\`
     `)
-      const html = await renderContent(template)
-      const $ = cheerio.load(html, { xmlMode: true })
-      expect(
-        $.html().includes(
-          '<code>requirements.txt</code>, <code>pipfile.lock</code>'
-        )
-      ).toBeTruthy()
-    }
-  )
+    const html = await renderContent(template)
+    const $ = cheerio.load(html, { xmlMode: true })
+    expect(
+      $.html().includes('<code>requirements.txt</code>, <code>pipfile.lock</code>')
+    ).toBeTruthy()
+  })
 
   test('does not render newlines around emphasis in code', async () => {
     const template = nl(`
@@ -253,18 +235,15 @@ some code
     )
   })
 
-  test(
-    'renders a copy button for code blocks with {:copy} annotation',
-    async () => {
-      const template = nl(`
+  test('renders a copy button for code blocks with {:copy} annotation', async () => {
+    const template = nl(`
 \`\`\`js{:copy}
 some code
 \`\`\`\
     `)
-      const html = await renderContent(template)
-      const $ = cheerio.load(html)
-      const el = $('button.js-btn-copy')
-      expect(el.data('clipboard-text')).toBe('some code')
-    }
-  )
+    const html = await renderContent(template)
+    const $ = cheerio.load(html)
+    const el = $('button.js-btn-copy')
+    expect(el.data('clipboard-text')).toBe('some code')
+  })
 })

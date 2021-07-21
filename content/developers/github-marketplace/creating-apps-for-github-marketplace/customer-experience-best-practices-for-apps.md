@@ -3,7 +3,7 @@ title: Customer experience best practices for apps
 intro: Guidelines for creating an app that will be easy to use and understand.
 shortTitle: Customer experience best practice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 redirect_from:

@@ -14,14 +14,15 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Git
   - Enterprise
   - LFS
   - Storage
+shortTitle: Configure Git LFS
 ---
 ## About {% data variables.large_files.product_name_long %}
 
@@ -37,7 +38,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 ## Configuring {% data variables.large_files.product_name_long %} for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -66,7 +67,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Configuring Git Large File Storage to use a third party server
 
 {% data reusables.large_files.storage_assets_location %}

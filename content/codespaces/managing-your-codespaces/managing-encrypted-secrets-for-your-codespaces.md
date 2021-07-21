@@ -2,7 +2,7 @@
 title: Managing encrypted secrets for your codespaces
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -11,6 +11,7 @@ topics:
   - Codespaces
   - Developer
   - Security
+shortTitle: Encrypted secrets
 ---
 
 {% data reusables.codespaces.release-stage %}

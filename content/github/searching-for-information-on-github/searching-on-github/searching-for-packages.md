@@ -4,9 +4,9 @@ intro: 'You can search for packages on {% data variables.product.product_name %}
 product: '{% data reusables.gated-features.packages %}'
 permissions: Anyone can search for packages they have access to.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -18,7 +18,7 @@ redirect_from:
 
 You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 You can only search for packages on {% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
 {% endif %}
 

@@ -6,14 +6,15 @@ redirect_from:
   - /categories/24/articles/
   - /categories/creating-cloning-and-archiving-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
   - /creating-a-repository-on-github
   - /cloning-a-repository-from-github
   - /archiving-a-github-repository
+shortTitle: 'Create, clone & archive'
 ---
 

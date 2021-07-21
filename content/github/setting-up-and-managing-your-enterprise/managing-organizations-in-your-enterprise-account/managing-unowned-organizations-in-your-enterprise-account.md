@@ -7,12 +7,11 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Manage unowned organizations
 ---
-If you enable user deprovisioning to manage organization membership in your enterprise account, you could end up with an organization that has no organization owners. For more information, see "[About user provisioning for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)."
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. To the right of the search field, click **X unowned**.
   ![Button to view unowned organizations](/assets/images/help/business-accounts/unowned-organizations-button.png)

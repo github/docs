@@ -5,11 +5,12 @@ redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '>=2.22'
 type: how_to
 topics:
   - Enterprise
   - Packages
+shortTitle: Configure package ecosystems
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -18,7 +19,7 @@ topics:
 
 To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 To use {% data variables.product.prodname_registry %} with Docker, you must have subdomain isolation enabled for your instance. For more information, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)."
 {% endif %}
 
@@ -29,7 +30,7 @@ To use {% data variables.product.prodname_registry %} with Docker, you must have
   ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion ghes = 3.0 or ghes > 3.0 %}
 ## Connecting to the official npm registry
 
 If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.

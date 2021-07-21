@@ -1,5 +1,6 @@
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { getDOM } = require('../helpers/supertest')
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('page titles', () => {
   jest.setTimeout(300 * 1000)
@@ -15,7 +16,9 @@ describe('page titles', () => {
   })
 
   test('enterprise English article', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/authenticating-to-github/authorizing-oauth-apps`)
+    const $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.latest}/user/github/authenticating-to-github/authorizing-oauth-apps`
+    )
     expect($('title').text()).toBe('Authorizing OAuth Apps - GitHub Docs')
   })
 

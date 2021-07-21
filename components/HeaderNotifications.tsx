@@ -52,7 +52,7 @@ export const HeaderNotifications = () => {
     if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: `This article is also available in your language of choice. Click <a href="/${userLanguage}${currentPathWithoutLanguage}">here</a>`,
+        content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage].name}</a>.`,
       })
     }
   }

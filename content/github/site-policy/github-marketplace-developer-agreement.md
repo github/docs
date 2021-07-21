@@ -3,7 +3,7 @@ title: GitHub Marketplace Developer Agreement
 redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

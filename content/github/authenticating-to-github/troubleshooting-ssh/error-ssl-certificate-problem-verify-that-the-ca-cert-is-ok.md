@@ -5,9 +5,10 @@ redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
   - /github/authenticating-to-github/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSH
+shortTitle: SSL certificate problem
 ---
 The error you receive may look like the following:
 

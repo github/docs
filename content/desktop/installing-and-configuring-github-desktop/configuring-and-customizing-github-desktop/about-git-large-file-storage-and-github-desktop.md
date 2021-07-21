@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop
   - /desktop/installing-and-configuring-github-desktop/about-git-large-file-storage-and-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 When you install {% data variables.product.prodname_desktop %}, {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) is installed, too. {% data variables.large_files.product_name_short %} lets you push files to {% data variables.product.prodname_dotcom %} that exceed the normal limit of {% data variables.large_files.max_github_size %}. For more information about {% data variables.large_files.product_name_short %}, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage)."
 

@@ -8,7 +8,7 @@ redirect_from:
   - /developers/github-marketplace/security-best-practices-for-apps
 shortTitle: Security best practice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---

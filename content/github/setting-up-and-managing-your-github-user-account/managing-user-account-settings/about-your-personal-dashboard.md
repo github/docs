@@ -7,11 +7,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
 intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
+shortTitle: Your personal dashboard
 ---
 ## Accessing your personal dashboard
 
@@ -41,17 +42,17 @@ In the "All activity" section of your news feed, you can view updates from repos
 
 You'll see updates in your news feed when a user you follow:
 - Stars a repository.
-- Follows another user.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Follows another user.{% ifversion fpt or ghes %}
 - Creates a public repository.{% endif %}
 - Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
-- Pushes commits to a repository you watch.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Pushes commits to a repository you watch.{% ifversion fpt or ghes %}
 - Forks a public repository.{% endif %}
 
 For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
 
 ## Exploring recommended repositories
 
-In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Further reading
 

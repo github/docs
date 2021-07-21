@@ -6,10 +6,11 @@ redirect_from:
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-cloud
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Accounts
+shortTitle: Enterprise Cloud trial
 ---
 ## About trials of {% data variables.product.prodname_ghe_cloud %}
 

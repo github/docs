@@ -6,7 +6,7 @@ redirect_from:
   - /articles/github-supplemental-terms-for-microsoft-volume-licensing
   - /github/site-policy/github-supplemental-terms-for-microsoft-volume-licensing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._

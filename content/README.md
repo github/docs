@@ -61,8 +61,8 @@ Example that applies to GitHub.com and recent versions of GitHub Enterprise Serv
 ```yaml
 title: About your personal dashboard
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
+  fpt: '*'
+  ghes: '>=2.20'
 ```
 
 Example that applies to all supported versions of GitHub Enterprise Server:
@@ -71,15 +71,15 @@ Example that applies to all supported versions of GitHub Enterprise Server:
 ```yaml
 title: Downloading your license
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for GitHub Enterprise Server 2.22 and 3.0 only:
+You can also version a page for a range of releases. This would version the page for GitHub.com, and GitHub Enterprise Server versions 2.22 and 3.0 only:
 
 ```yaml
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22 <3.1'
+  fpt: '*'
+  ghes: '>=2.22 <3.1'
 ```
 
 ### `redirect_from`
@@ -310,7 +310,7 @@ When using Liquid conditionals in lists or tables, you can use [whitespace contr
 Just add a hyphen on either the left, right, or both sides to indicate that there should be no newline on that side. For example, this statement removes a newline on the left side:
 
 ```
-{%- if currentVersion == 'free-pro-team@latest' %}
+{%- ifversion fpt %}
 ```
 
 ## Links and image paths

@@ -3,12 +3,13 @@ title: Creating a composite run steps action
 intro: 'In this guide, you''ll learn how to build a composite run steps action.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Action development
+shortTitle: Composite run steps action
 ---
 
 {% data reusables.actions.enterprise-beta %}

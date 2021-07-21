@@ -1,4 +1,4 @@
-module.exports = function abort (req, res, next) {
+export default function abort(req, res, next) {
   // If the client aborts the connection, send an error
   req.once('aborted', () => {
     // ignore aborts from next, usually has to do with webpack-hmr

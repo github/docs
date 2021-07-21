@@ -4,7 +4,7 @@ redirect_from:
   - /v3/oauth_authorizations
   - /v3/oauth-authorizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 miniTocMaxHeadingLevel: 3
 ---
 

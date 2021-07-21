@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   properties: {
     type: 'object',
     additionalProperties: false,
@@ -8,22 +8,22 @@ module.exports = {
         properties: {
           title: {
             type: 'string',
-            required: true
+            required: true,
           },
           description: {
             type: 'string',
-            required: true
+            required: true,
           },
           guides: {
             type: 'array',
             items: { type: 'string' },
-            required: true
+            required: true,
           },
           featured_track: {
-            type: 'boolean'
-          }
-        }
-      }
-    }
-  }
+            type: 'boolean',
+          },
+        },
+      },
+    },
+  },
 }

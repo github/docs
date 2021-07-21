@@ -6,11 +6,12 @@ redirect_from:
   - /articles/limits-for-viewing-content-and-diffs-in-a-repository
   - /github/creating-cloning-and-archiving-repositories/limits-for-viewing-content-and-diffs-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Content & diffs limits
 ---
 Most of the limits below affect both {% data variables.product.product_name %} and the API.
 
@@ -25,7 +26,7 @@ Text files over **5 MB** are only available through their raw URLs, which are se
 Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
 - No single file's diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
-- The maximum number of files in a single diff is limited to *3,000*.
+- The maximum number of files in a single diff is limited to *300*.
 - The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to *25*.
 
 Some portions of a limited diff may be displayed, but anything exceeding the limit is not shown.

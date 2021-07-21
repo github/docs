@@ -6,7 +6,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-events
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage events.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 ## About events
 

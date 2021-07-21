@@ -6,10 +6,10 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'how_to'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}

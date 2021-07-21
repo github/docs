@@ -6,11 +6,12 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors profile
+shortTitle: Manage payment tiers
 ---
 
 ## About sponsorship tiers

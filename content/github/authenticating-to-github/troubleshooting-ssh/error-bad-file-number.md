@@ -5,9 +5,9 @@ redirect_from:
   - /articles/error-bad-file-number
   - /github/authenticating-to-github/error-bad-file-number
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
 ---
@@ -41,7 +41,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {% data variables.product.product_name %}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to {% data variables.product.product_name %} to succeed.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ### Using SSH over the HTTPS port
 
@@ -49,7 +49,7 @@ If using HTTPS is not an option, and your firewall admin refuses to allow SSH co
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Further reading
 

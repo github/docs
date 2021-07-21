@@ -1,0 +1,35 @@
+name: Check for app.json changes
+
+# **What it does**: If someone changes app.json, we fail the check.
+# **Why we have it**: app.json should rarely be edited, so we'll require an admin merge if the file really needs to be changed.
+# **Who does it impact**: Docs engineering and content writers.
+
+on:
+  pull_request:
+
+jobs:
+  check-app-json-changes:
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: ${{ github.event.pull_request.base.ref }}
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            notAllowed:
+              - 'app.json'
+
+      - name: Fail if app.json was changed
+        if: ${{ steps.filter.outputs.notAllowed == 'true' }}
+        run: |
+          echo "Please admin merge if you really need to update app.json!"
+          exit 1

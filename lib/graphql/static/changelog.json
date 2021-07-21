@@ -4,6 +4,29 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `SponsorsActivity` was added",
+          "Type `SponsorsActivityAction` was added",
+          "Type `SponsorsActivityConnection` was added",
+          "Type `SponsorsActivityEdge` was added",
+          "Type `SponsorsActivityOrder` was added",
+          "Type `SponsorsActivityOrderField` was added",
+          "Type `SponsorsActivityPeriod` was added",
+          "Field `sponsorsActivities` was added to object type `Organization`",
+          "Enum value `OTHER` was added to enum `SecurityAdvisoryEcosystem`",
+          "Field `sponsorsActivities` was added to interface `Sponsorable`",
+          "Field `sponsorsActivities` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-07-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `ipAllowListEntries` was added to object type `App`",
           "Member `App` was added to Union type `IpAllowListOwner`"
         ]

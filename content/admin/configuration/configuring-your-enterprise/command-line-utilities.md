@@ -9,7 +9,7 @@ redirect_from:
   - /admin/configuration/command-line-utilities
 miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -23,7 +23,7 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
 {% endif %}
 
@@ -83,7 +83,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
@@ -471,7 +471,7 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -484,7 +484,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -530,7 +530,7 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 ### ghe-cluster-failover
 
 Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."

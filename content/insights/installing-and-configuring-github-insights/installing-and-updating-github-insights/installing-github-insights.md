@@ -6,7 +6,8 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/installing-github-insights
 permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Install GitHub Insights
 ---
 ## Prerequisites
 

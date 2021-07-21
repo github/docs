@@ -10,11 +10,12 @@ redirect_from:
   - /articles/setting-your-billing-email
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/setting-your-billing-email
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - User account
+shortTitle: Billing email
 ---
 ## Setting your personal account's billing email
 

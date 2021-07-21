@@ -2,7 +2,7 @@
 title: Upgrading from Dependabot.com to GitHub-native Dependabot
 intro: You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to continue being updated.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories
@@ -11,6 +11,7 @@ topics:
   - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot
+shortTitle: Dependabot.com upgrades
 ---
 {% warning %}
 

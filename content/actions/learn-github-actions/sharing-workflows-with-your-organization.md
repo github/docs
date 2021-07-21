@@ -5,10 +5,10 @@ intro: 'Learn how you can use organization features to collaborate with your tea
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'how_to'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -74,7 +74,7 @@ Each custom tag has the following:
 
 The class and the template should have corresponding names, like `lib/liquid-tags/my-tag.js` and `includes/liquid-tags/my-tag.html`
 
-You must also register the new tag in `lib/render-content.js` with a line like this:
+You must also register the new tag in `lib/render-content/index.js` with a line like this:
 
 ```
 renderContent.liquid.registerTag('my_tag', require('./liquid-tags/my-tag'))

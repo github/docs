@@ -5,13 +5,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '>2.21'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate a failover to replica
 ---
 ## About failover to your replica cluster
 

@@ -3,7 +3,7 @@ title: GitHub Pre-release Program
 redirect_from:
   - /articles/github-pre-release-program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

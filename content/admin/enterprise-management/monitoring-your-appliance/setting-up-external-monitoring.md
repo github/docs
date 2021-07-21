@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/setting-up-external-monitoring
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Set up external monitoring
 ---
 ## About SNMP
 

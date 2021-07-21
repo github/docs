@@ -1,7 +1,7 @@
 ---
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
-shortTitle: Configuring Dependabot security updates
+shortTitle: Configure security updates
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -10,7 +10,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot

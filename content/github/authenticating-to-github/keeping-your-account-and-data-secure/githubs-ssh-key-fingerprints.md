@@ -7,10 +7,11 @@ redirect_from:
   - /articles/githubs-ssh-key-fingerprints
   - /github/authenticating-to-github/githubs-ssh-key-fingerprints
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Identity
   - Access management
+shortTitle: SSH key fingerprints
 ---
 These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
 

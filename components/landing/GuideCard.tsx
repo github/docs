@@ -13,7 +13,7 @@ export const GuideCard = ({ guide }: Props) => {
         className="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-text-primary p-5"
         href={guide.href}
       >
-        <h2>{guide.title}</h2>
+        <h2 dangerouslySetInnerHTML={{__html: guide.title}} />
         <p className="mt-2 mb-4 color-text-tertiary">{guide.intro}</p>
 
         <footer className="d-flex">

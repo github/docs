@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-
-const { listPulls, createIssueComment } = require('../helpers/git-utils')
+import { listPulls, createIssueComment } from '../helpers/git-utils.js'
 
 // [start-readme]
 //
@@ -18,7 +17,7 @@ if (!process.env.GITHUB_TOKEN) {
 
 const options = {
   owner: 'github',
-  repo: 'docs-internal'
+  repo: 'docs-internal',
 }
 
 const comment = `
@@ -38,17 +37,19 @@ For a 5min demo of what the scripts do and why they're needed, check out [this s
 
 main()
 
-async function main () {
+async function main() {
   const allPulls = await listPulls(options.owner, options.repo)
 
   // get the number of open PRs only
   const openPullNumbers = allPulls
-    .filter(pull => pull.state === 'open')
-    .map(pull => pull.number)
+    .filter((pull) => pull.state === 'open')
+    .map((pull) => pull.number)
 
   // for every open PR, create a review comment
-  await Promise.all(openPullNumbers.map(async (pullNumber) => {
-    await createIssueComment(options.owner, options.repo, pullNumber, comment)
-    console.log(`Added a comment to PR #${pullNumber}`)
-  }))
+  await Promise.all(
+    openPullNumbers.map(async (pullNumber) => {
+      await createIssueComment(options.owner, options.repo, pullNumber, comment)
+      console.log(`Added a comment to PR #${pullNumber}`)
+    })
+  )
 }

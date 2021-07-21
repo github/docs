@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
   - /admin/policies/about-pre-receive-hooks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise

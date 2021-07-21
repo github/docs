@@ -2,13 +2,14 @@
 title: Managing the default branch name for your repositories
 intro: 'You can set the default branch name new repositories that you create on {% data variables.product.product_location %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.23'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
+shortTitle: Manage default branch name
 ---
 ## About management of the default branch name
 

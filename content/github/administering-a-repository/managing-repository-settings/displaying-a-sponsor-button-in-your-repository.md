@@ -6,9 +6,10 @@ redirect_from:
   - /articles/displaying-a-sponsor-button-in-your-repository
   - /github/administering-a-repository/displaying-a-sponsor-button-in-your-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+shortTitle: Display a sponsor button
 ---
 ## About FUNDING files
 

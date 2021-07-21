@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '>=2.22'
+  ghae: next
 type: how_to
 topics:
   - Actions
   - Enterprise
   - GitHub Connect
+shortTitle: Use GitHub Connect for actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

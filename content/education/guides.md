@@ -3,7 +3,8 @@ title: Guides for GitHub Education
 intro: 'These guides for {% data variables.product.prodname_education %} help you teach and learn both {% data variables.product.product_name %} and software development.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Guides
 ---
 
 ## Get started with {% data variables.product.product_name %}

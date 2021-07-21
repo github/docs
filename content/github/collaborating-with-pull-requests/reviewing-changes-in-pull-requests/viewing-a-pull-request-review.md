@@ -6,11 +6,12 @@ redirect_from:
   - /articles/viewing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/viewing-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: View a PR review
 ---
 {% data reusables.search.requested_reviews_search %}
 

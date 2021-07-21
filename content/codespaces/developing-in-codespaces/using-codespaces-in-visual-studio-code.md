@@ -6,12 +6,13 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+shortTitle: Visual Studio Code
 ---
 
 {% data reusables.codespaces.release-stage %}

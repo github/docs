@@ -1,6 +1,6 @@
 ---
 title: Types of GitHub accounts
-intro: 'Your user account is your identity on {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
+intro: 'Your user account is your identity on {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% ifversion fpt %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,9 +10,9 @@ redirect_from:
   - /github/getting-started-with-github/types-of-github-accounts
   - /github/getting-started-with-github/learning-about-github/types-of-github-accounts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - CLI
@@ -20,7 +20,7 @@ topics:
   - Desktop
   - Security
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 For a full list of features for each {% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
@@ -28,7 +28,7 @@ For a full list of features for each {% data variables.product.product_name %} p
 
 Every person who uses {% data variables.product.product_location %} has their own user account, which includes:
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 - Unlimited public and private repositories with {% data variables.product.prodname_free_user %}
 - Unlimited collaborators with {% data variables.product.prodname_free_user %}
@@ -42,7 +42,7 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% tip %}
 
@@ -69,7 +69,7 @@ Organizations are shared accounts where groups of people can collaborate across 
 
 {% data reusables.organizations.organizations_include %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Enterprise accounts
 
@@ -79,6 +79,6 @@ With enterprise accounts, you can centrally manage policy and billing for multip
 
 ## Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
+{% ifversion fpt %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)"{% endif %}
 - "[Creating a new organization account](/articles/creating-a-new-organization-account)"

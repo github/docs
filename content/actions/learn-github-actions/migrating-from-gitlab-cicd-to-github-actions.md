@@ -2,15 +2,16 @@
 title: Migrating from GitLab CI/CD to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - GitLab
   - Migration
   - CI
   - CD
+shortTitle: Migrate from GitLab CI/CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -112,7 +113,7 @@ linux_job:
 {% raw %}
 ```yaml
 windows_job:
-  runs-on : windows-latest
+  runs-on: windows-latest
   steps:
     - run: echo Hello, %USERNAME%!
 
@@ -342,6 +343,8 @@ test_async:
 ```yaml
 jobs:
   test_async:
+    runs-on: ubuntu-latest
+    steps:
     - name: Cache node modules
       uses: actions/cache@v2
       with:

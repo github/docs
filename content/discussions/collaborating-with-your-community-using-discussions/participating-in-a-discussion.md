@@ -1,9 +1,10 @@
 ---
 title: Participating in a discussion
-intro: You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.
+intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Participate in discussion
 ---
 
 {% data reusables.discussions.beta %}
@@ -18,7 +19,7 @@ You can block users and report disruptive content to maintain a safe and pleasan
 
 ## Prerequisites
 
-Discussions must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+{% data variables.product.prodname_discussions %} must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
 ## Creating a discussion
 

@@ -5,7 +5,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/about-github-insights
   - /insights/installing-and-configuring-github-insights/about-github-insights
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 ## About {% data variables.product.prodname_insights %}
 
@@ -19,7 +19,7 @@ People with admin permissions to {% data variables.product.prodname_insights %} 
 
 ## Contacting support
 
-You can receive support for {% data variables.product.prodname_insights %} from {% data variables.contact.github_support %}. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Submitting a ticket](/github/working-with-github-support/submitting-a-ticket)."{% else %}"[Reaching {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)."{% endif %}
+You can receive support for {% data variables.product.prodname_insights %} from {% data variables.contact.github_support %}. For more information, see {% ifversion fpt %}"[Submitting a ticket](/github/working-with-github-support/submitting-a-ticket)."{% else %}"[Reaching {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)."{% endif %}
 
 ## Further reading
 

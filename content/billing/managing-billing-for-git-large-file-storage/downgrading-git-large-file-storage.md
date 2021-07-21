@@ -8,13 +8,14 @@ redirect_from:
   - /articles/downgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Downgrades
   - LFS
   - Organizations
-  - User account 
+  - User account
+shortTitle: Downgrade Git LFS storage
 ---
 When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."
 

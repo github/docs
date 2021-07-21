@@ -7,7 +7,7 @@ redirect_from:
   - /github-terms-of-service-draft/
   - /articles/github-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

@@ -2,11 +2,12 @@
 title: Using the Command Palette in Codespaces
 intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in Codespaces.'
 versions:
-  free-pro-team: '*'
-type: reference  
+  fpt: '*'
+type: reference
 topics:
   - Codespaces
   - Visual Studio Code
+shortTitle: Command Palette
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -31,7 +32,7 @@ You can access the Command Palette in a number of ways.
 
 To see all commands related to {% data variables.product.prodname_github_codespaces %} access the Command Palette, then start typing "Codespaces".
 
-![A list of all commands that relate to Codespaces](/assets/images/help/codespaces/codespaces-commad-palette.png)
+![A list of all commands that relate to Codespaces](/assets/images/help/codespaces/codespaces-command-palette.png)
 
 ### Suspending or stopping a codespace
 

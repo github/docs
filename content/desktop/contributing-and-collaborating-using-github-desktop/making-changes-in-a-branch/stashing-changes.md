@@ -2,7 +2,7 @@
 title: Stashing changes
 intro: You can temporarily save your changes without committing them to a branch by stashing the changes.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/stashing-changes
 ---

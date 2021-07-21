@@ -2,9 +2,9 @@
 title: Getting started with apps
 intro: Learn about building apps and setting up your development environment.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 children:

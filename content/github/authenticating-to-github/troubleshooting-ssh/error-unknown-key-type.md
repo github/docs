@@ -2,9 +2,9 @@
 title: 'Error: Unknown key type'
 intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
-  github-ae: next
+  fpt: '*'
+  ghes: '>=3.2'
+  ghae: next
 topics:
   - SSH
 redirect_from:

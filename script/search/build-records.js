@@ -1,29 +1,30 @@
-const domwaiter = require('domwaiter')
-const eventToPromise = require('event-to-promise')
-const chalk = require('chalk')
-const parsePageSectionsIntoRecords = require('./parse-page-sections-into-records')
-const languages = require('../../lib/languages')
+#!/usr/bin/env node
+import domwaiter from 'domwaiter'
+import eventToPromise from 'event-to-promise'
+import chalk from 'chalk'
+import parsePageSectionsIntoRecords from './parse-page-sections-into-records.js'
+import languages from '../../lib/languages.js'
 const pageMarker = chalk.green('|')
 const recordMarker = chalk.grey('.')
 const port = 4002
 
-module.exports = async function buildRecords (indexName, indexablePages, pageVersion, languageCode) {
+export default async function buildRecords(indexName, indexablePages, pageVersion, languageCode) {
   console.log(`\n\nBuilding records for index '${indexName}' (${languages[languageCode].name})`)
   const records = []
   const pages = indexablePages
     // exclude pages that are not in the current language
-    .filter(page => page.languageCode === languageCode)
+    .filter((page) => page.languageCode === languageCode)
     // exclude pages that don't have a permalink for the current product version
-    .filter(page => page.permalinks.some(permalink => permalink.pageVersion === pageVersion))
+    .filter((page) => page.permalinks.some((permalink) => permalink.pageVersion === pageVersion))
 
   // Find the approve permalink for the given language and GitHub product variant (dotcom v enterprise)
   const permalinks = pages
-    .map(page => {
-      return page.permalinks.find(permalink => {
+    .map((page) => {
+      return page.permalinks.find((permalink) => {
         return permalink.languageCode === languageCode && permalink.pageVersion === pageVersion
       })
     })
-    .map(permalink => {
+    .map((permalink) => {
       permalink.url = `http://localhost:${port}${permalink.href}`
       return permalink
     })

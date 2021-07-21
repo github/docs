@@ -2,11 +2,12 @@
 title: Searching GitHub Marketplace
 intro: 'You can search for apps and actions that are available on {% data variables.product.prodname_marketplace %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
+shortTitle: Search GitHub Marketplace
 ---
 ## About searching {% data variables.product.prodname_marketplace %}
 

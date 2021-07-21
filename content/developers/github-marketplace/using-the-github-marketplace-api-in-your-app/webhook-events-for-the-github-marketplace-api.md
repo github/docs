@@ -7,9 +7,10 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Webhook events
 ---
 ## {% data variables.product.prodname_marketplace %} purchase webhook payload
 

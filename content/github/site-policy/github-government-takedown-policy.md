@@ -1,7 +1,7 @@
 ---
 title: GitHub Government Takedown Policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

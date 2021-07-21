@@ -4,9 +4,9 @@ shortTitle: Code scanning in your CI
 intro: 'You can analyze your code with {% data variables.product.prodname_codeql %} in a third-party continuous integration system and upload the results to {% data variables.product.product_location %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -31,7 +31,7 @@ redirect_from:
 You can run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %} using {% data variables.product.prodname_actions %}. Alternatively, if you use a third-party continuous integration or continuous delivery/deployment (CI/CD) system, you can run {% data variables.product.prodname_codeql %} analysis in your existing system and upload the results to {% data variables.product.product_location %}.
 
 <!--Content for GitHub.com, GHAE next, and GHES 3.2. Both CodeQL CLI and CodeQL runner are available, but CodeQL CLI preferred -->
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 
 You add the {% data variables.product.prodname_codeql_cli %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
@@ -56,7 +56,7 @@ For more information, see "[Installing {% data variables.product.prodname_codeql
 {% endif %}
 
 <!--Content for GHES 3.1 only. Both CodeQL CLI and CodeQL runner are available -->
-{% if currentVersion == "enterprise-server@3.1" %}
+{% ifversion ghes = 3.1 %}
 You add the {% data variables.product.prodname_codeql_cli %} or the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
@@ -83,7 +83,7 @@ For more information, see "[Running {% data variables.product.prodname_codeql_ru
 {% endif %}
 
 <!--Content for GHAE and GHES 3.0 only. Only CodeQL runner is available -->
-{% if currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes = 3.0 or ghae %}
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 You add the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.

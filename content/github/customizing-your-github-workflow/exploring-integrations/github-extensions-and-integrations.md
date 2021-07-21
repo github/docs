@@ -6,7 +6,8 @@ redirect_from:
   - /articles/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Extensions & integrations
 ---
 ## Editor tools
 

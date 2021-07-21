@@ -4,10 +4,11 @@ intro: 'As you make changes to your project locally, you can keep them up-to-dat
 redirect_from:
   - /desktop/contributing-to-projects/working-with-your-remote-repository-on-github-or-github-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /creating-an-issue-or-pull-request
   - /viewing-a-pull-request-in-github-desktop
   - /changing-a-remotes-url-from-github-desktop
+shortTitle: Work with your remote repo
 ---
 

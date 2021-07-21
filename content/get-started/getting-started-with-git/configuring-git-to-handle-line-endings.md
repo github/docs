@@ -10,10 +10,12 @@ redirect_from:
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/getting-started-with-git/configuring-git-to-handle-line-endings
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Handle line endings
 ---
+## About line endings
 Every time you press <kbd>return</kbd> on your keyboard you insert an invisible character called a line ending. Different operating systems handle line endings differently.
 
 When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.

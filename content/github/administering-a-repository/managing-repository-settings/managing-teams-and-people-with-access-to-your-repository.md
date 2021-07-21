@@ -6,9 +6,10 @@ redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
   - /github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+shortTitle: Teams & people
 ---
 ## About managing access to your repository
 

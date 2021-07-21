@@ -4,16 +4,16 @@ intro: 'You can run queries on real {% data variables.product.prodname_dotcom %}
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
 ## About the GraphQL Explorer
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 [GraphQL Explorer](/graphql/overview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
 

@@ -19,9 +19,10 @@ redirect_from:
   - /github/getting-started-with-github/managing-remote-repositories
   - /github/getting-started-with-github/getting-started-with-git/managing-remote-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Manage remote repositories
 ---
 ## Adding a remote repository
 

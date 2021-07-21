@@ -7,7 +7,7 @@ redirect_from:
   - /github/teaching-and-learning-with-github-education
   - /categories/teaching-and-learning-with-github-education
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /use-github-at-your-educational-institution
   - /use-github-for-your-schoolwork

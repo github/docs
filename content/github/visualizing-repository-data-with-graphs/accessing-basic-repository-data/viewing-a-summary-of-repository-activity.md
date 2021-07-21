@@ -6,11 +6,12 @@ redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
   - /github/visualizing-repository-data-with-graphs/viewing-a-summary-of-repository-activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: View repository activity
 ---
 Commit co-authors are included in the commit activity summary if their commits were merged into the repository's default branch and they're in the top 15 users who have contributed the most commits.
 

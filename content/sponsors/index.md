@@ -27,7 +27,7 @@ featuredLinks:
     - /sponsors/about-github-sponsors-for-open-source-contributors
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /getting-started-with-github-sponsors
   - /sponsoring-open-source-contributors

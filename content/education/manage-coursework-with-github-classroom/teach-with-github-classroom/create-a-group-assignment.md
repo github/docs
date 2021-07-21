@@ -2,7 +2,7 @@
 title: Create a group assignment
 intro: You can create a collaborative assignment for teams of students who participate in your course.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment

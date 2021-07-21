@@ -3,10 +3,11 @@ title: Leave feedback with pull requests
 intro: You can leave feedback for your students in a special pull request within the repository for each assignment.
 permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/leaving-feedback-in-github
   - /education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests
+shortTitle: Pull requests
 ---
 ## About feedback pull requests for assignments
 

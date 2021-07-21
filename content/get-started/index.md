@@ -17,9 +17,9 @@ redirect_from:
   - /github/using-git
   - /github/getting-started-with-github/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 layout: product-landing
 introLinks:
   quickstart: /github/getting-started-with-github/quickstart

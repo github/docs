@@ -61531,6 +61531,10 @@
           "description": "<p>.NET packages hosted at the NuGet Gallery.</p>"
         },
         {
+          "name": "OTHER",
+          "description": "<p>Applications, runtimes, operating systems and other kinds of software.</p>"
+        },
+        {
           "name": "PIP",
           "description": "<p>Python packages hosted at PyPI.org.</p>"
         },

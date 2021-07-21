@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -16,7 +16,7 @@ topics:
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
 ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 
 ## Search
 
@@ -170,7 +170,7 @@ This controls how the [Issues][] index is repaired. You can
 - start a new index repair job
 - reset all index repair state
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes > 2.21 %}
 
 ## Enterprise overview
 

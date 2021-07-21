@@ -6,10 +6,11 @@ redirect_from:
   - /articles/can-i-create-accounts-for-people-in-my-organization
   - /github/setting-up-and-managing-organizations-and-teams/can-i-create-accounts-for-people-in-my-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Create accounts for people
 ---
 
 Because you access an organization by logging in to a personal account, each of your team members needs a personal account. Once you have user names for each person you'd like to add to your organization, you can add them to teams.

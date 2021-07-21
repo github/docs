@@ -2,7 +2,7 @@
 title: Amending a commit
 intro: 'You can use {% data variables.product.prodname_desktop %} to amend your last commit.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 ## About amending a commit

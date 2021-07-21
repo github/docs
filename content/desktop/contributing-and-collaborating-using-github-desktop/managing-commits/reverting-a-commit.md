@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 When you revert to a previous commit, the revert is also a commit. The original commit also remains in the repository's history.
 

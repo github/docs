@@ -28,10 +28,11 @@ examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /quickstart
   - /guides
   - /collaborating-with-your-community-using-discussions
   - /managing-discussions-for-your-community
 ---
+

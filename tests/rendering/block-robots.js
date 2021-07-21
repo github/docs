@@ -1,9 +1,9 @@
-const { blockIndex } = require('../../middleware/block-robots')
-const languages = require('../../lib/languages')
-const { productMap } = require('../../lib/all-products')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+import { blockIndex } from '../../middleware/block-robots.js'
+import languages from '../../lib/languages.js'
+import { productMap } from '../../lib/all-products.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
-function allowIndex (path) {
+function allowIndex(path) {
   return !blockIndex(path)
 }
 
@@ -16,8 +16,8 @@ describe('block robots', () => {
 
   it('allows crawling of generally available localized content', async () => {
     Object.values(languages)
-      .filter(language => !language.wip)
-      .forEach(language => {
+      .filter((language) => !language.wip)
+      .forEach((language) => {
         expect(allowIndex(`/${language.code}`)).toBe(true)
         expect(allowIndex(`/${language.code}/articles/verifying-your-email-address`)).toBe(true)
       })
@@ -25,8 +25,8 @@ describe('block robots', () => {
 
   it('disallows crawling of WIP localized content', async () => {
     Object.values(languages)
-      .filter(language => language.wip)
-      .forEach(language => {
+      .filter((language) => language.wip)
+      .forEach((language) => {
         expect(allowIndex(`/${language.code}`)).toBe(false)
         expect(allowIndex(`/${language.code}/articles/verifying-your-email-address`)).toBe(false)
       })
@@ -34,10 +34,10 @@ describe('block robots', () => {
 
   it('disallows crawling of WIP products', async () => {
     const wipProductIds = Object.values(productMap)
-      .filter(product => product.wip)
-      .map(product => product.id)
+      .filter((product) => product.wip)
+      .map((product) => product.id)
 
-    wipProductIds.forEach(id => {
+    wipProductIds.forEach((id) => {
       const { href } = productMap[id]
       const blockedPaths = [
         // English
@@ -52,10 +52,10 @@ describe('block robots', () => {
         `/ja${href}/overview`,
         `/ja${href}/overview/intro`,
         `/ja/enterprise/${enterpriseServerReleases.latest}/user${href}`,
-        `/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user${href}`
+        `/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user${href}`,
       ]
 
-      blockedPaths.forEach(path => {
+      blockedPaths.forEach((path) => {
         expect(allowIndex(path)).toBe(false)
       })
     })
@@ -63,23 +63,25 @@ describe('block robots', () => {
 
   it('disallows crawling of early access "hidden" products', async () => {
     const hiddenProductIds = Object.values(productMap)
-      .filter(product => product.hidden)
-      .map(product => product.id)
+      .filter((product) => product.hidden)
+      .map((product) => product.id)
 
-    hiddenProductIds.forEach(id => {
+    hiddenProductIds.forEach((id) => {
       const { versions } = productMap[id]
-      const blockedPaths = versions.map(version => {
-        return [
-          // English
-          `/en/${version}/${id}`,
-          `/en/${version}/${id}/some-early-access-article`,
-          // Japanese
-          `/ja/${version}/${id}`,
-          `/ja/${version}/${id}/some-early-access-article`
-        ]
-      }).flat()
+      const blockedPaths = versions
+        .map((version) => {
+          return [
+            // English
+            `/en/${version}/${id}`,
+            `/en/${version}/${id}/some-early-access-article`,
+            // Japanese
+            `/ja/${version}/${id}`,
+            `/ja/${version}/${id}/some-early-access-article`,
+          ]
+        })
+        .flat()
 
-      blockedPaths.forEach(path => {
+      blockedPaths.forEach((path) => {
         expect(allowIndex(path)).toBe(false)
       })
     })
@@ -91,11 +93,13 @@ describe('block robots', () => {
     expect(allowIndex('/en/actions/overview')).toBe(true)
     expect(allowIndex('/en/actions/overview/intro')).toBe(true)
     expect(allowIndex(`/en/enterprise/${enterpriseServerReleases.latest}/user/actions`)).toBe(true)
-    expect(allowIndex(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`)).toBe(true)
+    expect(
+      allowIndex(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`)
+    ).toBe(true)
   })
 
   it('disallows crawling of deprecated enterprise releases', async () => {
-    enterpriseServerReleases.deprecated.forEach(version => {
+    enterpriseServerReleases.deprecated.forEach((version) => {
       const blockedPaths = [
         // English
         `/en/enterprise-server@${version}/actions`,
@@ -106,10 +110,10 @@ describe('block robots', () => {
         `/ja/enterprise-server@${version}/actions`,
         `/ja/enterprise/${version}/actions`,
         `/ja/enterprise-server@${version}/actions/overview`,
-        `/ja/enterprise/${version}/actions/overview`
+        `/ja/enterprise/${version}/actions/overview`,
       ]
 
-      blockedPaths.forEach(path => {
+      blockedPaths.forEach((path) => {
         expect(allowIndex(path)).toBe(false)
       })
     })

@@ -6,10 +6,10 @@ redirect_from:
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
-intro: 'A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}'
+intro: 'A user account is considered to be dormant if it has not been active for at least a month.{% ifversion ghes %} You may choose to suspend dormant users to free up user licenses.{% endif %}'
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -20,7 +20,7 @@ topics:
 - Signing in to {% data variables.product.product_name %}.
 - Commenting on issues and pull requests.
 - Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- Pushing commits.{% ifversion ghes > 2.21 or ghae %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
 ## Viewing dormant users
@@ -29,7 +29,7 @@ You can view a list of all dormant users who have not been suspended and who are
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. In the left sidebar, click **Dormant users**.
-![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% if enterpriseServerVersions contains currentVersion %}
+![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
 4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
@@ -47,7 +47,7 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes > 2.21 or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

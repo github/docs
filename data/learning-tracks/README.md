@@ -25,7 +25,7 @@ Learning track data for a product is defined in two places:
 
     One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product sublanding page. A test will fail if this property is missing.
 
-    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
+    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
 
 ## Versioning
 
@@ -40,7 +40,7 @@ learning_track_name:
   description: 'Learning track description'
   featured_track: true
   versions:
-    enterprise-server: '>=3.0'
+    ghes: '>=3.0'
   guides:
    - /path/to/guide1
    - /path/to/guide2

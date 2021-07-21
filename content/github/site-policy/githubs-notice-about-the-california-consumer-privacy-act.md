@@ -1,7 +1,7 @@
 ---
 title: GitHub's Notice about the California Consumer Privacy Act
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

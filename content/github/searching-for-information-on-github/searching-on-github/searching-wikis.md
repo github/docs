@@ -5,9 +5,9 @@ redirect_from:
   - /articles/searching-wikis
   - /github/searching-for-information-on-github/searching-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---

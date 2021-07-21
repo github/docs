@@ -3,9 +3,9 @@ title: Comparing releases
 intro: You can compare release tags to see changes to your repository between different releases.
 permissions: People with read access to a repository can view and compare releases.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 redirect_from:

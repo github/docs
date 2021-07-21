@@ -11,9 +11,9 @@ redirect_from:
   - /github/using-git/changing-author-info
   - /github/getting-started-with-github/using-git/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /pushing-commits-to-a-remote-repository
   - /getting-changes-from-a-remote-repository

@@ -4,7 +4,7 @@ redirect_from:
   - /responsible-disclosure/
   - /articles/responsible-disclosure-of-security-vulnerabilities
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

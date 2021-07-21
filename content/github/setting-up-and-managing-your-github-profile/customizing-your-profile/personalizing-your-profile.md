@@ -10,11 +10,12 @@ redirect_from:
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
+shortTitle: Personalize
 ---
 ## Changing your profile picture
 
@@ -58,7 +59,7 @@ You can change the name that is displayed on your profile. This name may also be
 
 Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion fpt or ghes > 2.21 %}
 
 For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 
@@ -94,7 +95,7 @@ You can set a status to display information about your current availability on {
 
 When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
 
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availibilty-text.png)
+![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
 
 ![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
@@ -115,7 +116,7 @@ If you select the "Busy" option, when people @mention your username, assign you 
 7. Click **Set status**.
   ![Button to set status](/assets/images/help/profile/set-status-button.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Displaying badges on your profile
 
 When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.

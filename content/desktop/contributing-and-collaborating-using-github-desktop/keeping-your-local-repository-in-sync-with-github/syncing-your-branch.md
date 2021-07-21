@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About branch synchronization
 

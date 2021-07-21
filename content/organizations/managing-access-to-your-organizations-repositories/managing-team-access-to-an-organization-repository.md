@@ -6,12 +6,13 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage team access
 ---
 
 People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.

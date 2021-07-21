@@ -1,8 +1,10 @@
-require('dotenv').config()
+#!/usr/bin/env node
+import xDotenv from 'dotenv'
+import algoliasearch from 'algoliasearch'
+xDotenv.config()
 
-const algoliasearch = require('algoliasearch')
 const { ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY } = process.env
 
-module.exports = function () {
+export default function () {
   return algoliasearch(ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY)
 }

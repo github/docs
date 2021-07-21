@@ -6,9 +6,9 @@ ownership:
     kind: heroku
     repo: https://github.com/github/docs-internal
     team: github/docs-engineering
-    maintainer: sarahs
+    maintainer: chiedo
     exec_sponsor: scottdensmore
-    product_manager: simpsoka
+    product_manager: emilyistoofunky
     mention: github/docs-engineering
     qos: critical
     dependencies: []

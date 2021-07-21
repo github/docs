@@ -5,7 +5,8 @@ redirect_from:
   - /articles/installing-an-app-in-your-personal-account
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Install app user account
 ---
 {% data reusables.marketplace.marketplace-apps-only %}
 

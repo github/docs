@@ -5,9 +5,10 @@ redirect_from:
   - /articles/using-ssh-over-the-https-port
   - /github/authenticating-to-github/using-ssh-over-the-https-port
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSH
+shortTitle: Use SSH over HTTPS port
 ---
 {% tip %}
 

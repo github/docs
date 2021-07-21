@@ -5,13 +5,14 @@ redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories
   - Dependabot
   - Version updates
   - Dependencies
+shortTitle: List configured dependencies
 ---
 ## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
 

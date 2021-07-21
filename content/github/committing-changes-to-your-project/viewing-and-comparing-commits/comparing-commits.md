@@ -1,14 +1,14 @@
 ---
 title: Comparing commits
-intro: You can compare the state of your repository across branches, tags, commits, forks, and dates.
+intro: 'You can compare the state of your repository across branches, tags, commits, forks, and dates.'
 redirect_from:
   - /articles/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 To compare different versions of your repository, append `/compare` to your repository's path.
 
@@ -28,10 +28,10 @@ Here's an example of a [comparison between two branches](https://github.com/octo
 
 ## Comparing tags
 
-Comparing release tags will show you changes to your repository since the last release. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+Comparing release tags will show you changes to your repository since the last release. {% ifversion fpt or ghae or ghes %}
 For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
+{% ifversion fpt or ghae or ghes %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
 
 Here's an example of a [comparison between two tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 

@@ -5,11 +5,12 @@ redirect_from:
   - /articles/tracking-changes-in-a-comment
   - /github/building-a-strong-community/tracking-changes-in-a-comment
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Track comment changes
 ---
 
 ## Viewing a comment's edit history details
@@ -33,5 +34,5 @@ When you delete sensitive information from the comment's edit history, the perso
 
 ## Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
+{% ifversion fpt %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
 - "[Editing a comment](/articles/editing-a-comment)"

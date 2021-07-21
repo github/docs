@@ -5,7 +5,7 @@ redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Repositories
@@ -14,6 +14,7 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: Manage Dependabot PRs
 ---
 ## About {% data variables.product.prodname_dependabot %} pull requests
 

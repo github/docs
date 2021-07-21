@@ -6,7 +6,7 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -26,7 +26,7 @@ Codespaces are associated with a specific branch of a repository and the reposit
 When you create a codespace, a number of steps happen to enable full access to your development environment.
 
 - Resources such as a VM and storage for your container are assigned. A new VM is created every time you create or start a codespace to ensure that you always have the latest versions and security patches.
-- {% data variables.product.prodname_codespaces %} recieves information about your repository, branch, commits, your public dotfiles repository, and any secrets that you have created.
+- {% data variables.product.prodname_codespaces %} receives information about your repository, branch, commits, your public dotfiles repository, and any secrets that you have created.
 - {% data variables.product.prodname_codespaces %} executes a shallow clone of the repository.
 - If you have one in your repository, {% data variables.product.prodname_codespaces %} runs the `devcontainer.json` file. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)."
 - Your Docker container, `docker-compose`, or other initialization is run.
@@ -56,6 +56,3 @@ When you create a codespace, a number of steps happen to enable full access to y
 4. To create a codespace using a Standard machine type, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-
-   

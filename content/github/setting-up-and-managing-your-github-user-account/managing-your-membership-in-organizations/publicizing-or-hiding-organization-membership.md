@@ -6,11 +6,12 @@ redirect_from:
   - /articles/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
+shortTitle: Show or hide membership
 ---
 ![Profile organizations box](/assets/images/help/profile/profile_orgs_box.png)
 

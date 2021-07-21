@@ -6,7 +6,8 @@ redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Connect a repository
 ---
 
 By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.

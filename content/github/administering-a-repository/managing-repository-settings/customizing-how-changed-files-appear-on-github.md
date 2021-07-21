@@ -5,11 +5,12 @@ redirect_from:
   - /articles/customizing-how-changed-files-appear-on-github
   - /github/administering-a-repository/customizing-how-changed-files-appear-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: How changed files appear
 ---
 Use a *.gitattributes* file to mark files that match a given "pattern" with the specified attributes. A *.gitattributes* file uses the same rules for matching as _.gitignore_ files. For more information, see [PATTERN FORMAT](https://www.git-scm.com/docs/gitignore#_pattern_format) in the Git documentation.
 

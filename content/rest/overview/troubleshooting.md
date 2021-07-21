@@ -4,9 +4,9 @@ intro: Learn how to resolve the most common problems people encounter in the RES
 redirect_from:
   - /v3/troubleshooting
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -38,7 +38,7 @@ API call uses the same structure. Instead, extract the pagination information fr
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Basic authentication errors
 
 On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.

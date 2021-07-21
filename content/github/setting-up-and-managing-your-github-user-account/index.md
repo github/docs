@@ -5,9 +5,9 @@ shortTitle: User accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
 children:

@@ -3,7 +3,7 @@ title: Verifying or approving a domain for your enterprise account
 intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of organizations owned by your enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain
@@ -16,6 +16,7 @@ topics:
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verify or approve a domain
 ---
 ## About domain verification
 

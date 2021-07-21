@@ -103,8 +103,13 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
 
     ...props,
   }
-  const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-  navigator.sendBeacon('/events', blob)
+
+  // Only send the beacon if the feature is not disabled in the user's browser
+  if (navigator?.sendBeacon) {
+    const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
+    navigator.sendBeacon('/events', blob)
+  }
+
   return body
 }
 
