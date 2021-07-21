@@ -87,7 +87,7 @@ jobs:
       # and no review exists,leave a REQUEST_CHANGES review
       - name: Request pull request changes
         # Check for no reviews or reviews that aren't CHANGES_REQUESTED
-        if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJSON(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -126,7 +126,7 @@ jobs:
       - name: Dismiss pull request review
         # Check that unallowed files aren't modified and that a
         # CHANGES_REQUESTED review already exists
-        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
+        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJSON(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -134,6 +134,6 @@ jobs:
             await github.pulls.dismissReview({
               ...context.repo,
               pull_number: context.payload.number,
-              review_id: ${{fromJson(steps.requested-change.outputs.result).id}},
+              review_id: ${{fromJSON(steps.requested-change.outputs.result).id}},
               message: `✨Looks like you reverted all files we don't accept contributions for. 🙌 A member of the docs team will review your PR soon. 🚂`
             })
