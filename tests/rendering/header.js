@@ -130,7 +130,7 @@ describe('header', () => {
       const $ = await getDOM('/en/articles/enabling-required-status-checks')
       const github = $('#homepages a.active[href="/en/github"]')
       expect(github.length).toBe(1)
-      expect(github.text().trim()).toBe('GitHub.com')
+      expect(github.text().trim()).toBe('GitHub')
       expect(github.attr('class').includes('active')).toBe(true)
 
       const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
