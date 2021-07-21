@@ -1,5 +1,6 @@
 ---
 title: Issues
+intro: 'The Issues API enables the authenticated user to list and manage the issues created on different levels of repositories.'
 redirect_from:
   - /v3/issues
 versions:
