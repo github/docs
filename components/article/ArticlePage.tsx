@@ -55,9 +55,10 @@ export const ArticlePage = () => {
               )}
 
               {intro && (
-                <div className="lead-mktg">
-                  <p>{intro}</p>
-                </div>
+                <div 
+                  className="lead-mktg"
+                  dangerouslySetInnerHTML={{ __html: intro }}
+                />
               )}
 
               {permissions && (
