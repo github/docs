@@ -176,7 +176,7 @@ Members of your organization or enterprise can use tools from the {% data variab
 ### 4. Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 ### 5. Using {% data variables.product.prodname_pages %}
-{% data reusables.getting-started.github-pages %}
+{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
