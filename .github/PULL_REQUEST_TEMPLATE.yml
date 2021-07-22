@@ -12,7 +12,7 @@ body:
   # We cannot accept changes to our translated content right now. See the [contributing.md](/main/CONTRIBUTING.md#earth_asia-translations) for more information.
   # Thanks again!
 
-  - type: input
+  - type: textarea
     attributes:
       label: Why?
       # If there's an existing issue for your change, please link to it.
