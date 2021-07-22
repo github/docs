@@ -2,10 +2,10 @@ import supportedOperators from '../../lib/liquid-tags/ifversion-supported-operat
 
 // Turn an array of Liquid conditional objects that results from ./get-liquid-conditionals.js into a more
 // detailed array of objects that includes GHES versioning information.
-export default function getVersionBlocks (rawBlocks) {
+export default function getVersionBlocks(rawBlocks) {
   const versionBlocks = []
 
-  rawBlocks.forEach(block => {
+  rawBlocks.forEach((block) => {
     const condKeyword = block.conditional.includes('ifversion') ? 'ifversion' : 'elsif'
     const condOnly = block.conditional.replace(/{%-? /, '').replace(/ -?%}/, '')
     const condWithLiquid = block.conditional
@@ -14,17 +14,17 @@ export default function getVersionBlocks (rawBlocks) {
     const condArgs = condOnly
       .replace('ifversion ', '')
       .replace('elsif ', '')
-       // Obfuscate with an arbitrary character we don't want to preserve, so we can split on that character.
-       // TODO: If preserving `or` and `and` turns out NOT to be important, we can split on those words instead.
+      // Obfuscate with an arbitrary character we don't want to preserve, so we can split on that character.
+      // TODO: If preserving `or` and `and` turns out NOT to be important, we can split on those words instead.
       .replaceAll(/ (or|and) /g, ' ~$1 ')
       .split('~')
-      .map(arg => arg.trim())
+      .map((arg) => arg.trim())
 
     // E.g., [ 'ghes', '<', '2.21' ]
     const ranges = condArgs
-      .map(arg => arg.split(' '))
-      .filter(args => args.some(arg => supportedOperators.includes(arg)))
-      .map(args => args.filter(arg => !(arg === 'or' || arg === 'and' | arg === '')))
+      .map((arg) => arg.split(' '))
+      .filter((args) => args.some((arg) => supportedOperators.includes(arg)))
+      .map((args) => args.filter((arg) => !(arg === 'or' || (arg === 'and') | (arg === ''))))
 
     // Remove the start tag and the end tag so we are left with the inner text.
     // We don't need to do anything with this inner text other than check for nested conds.
@@ -33,8 +33,7 @@ export default function getVersionBlocks (rawBlocks) {
     innerText = innerText.slice(0, indexOfLastEndif)
 
     // Remove any nested conditional content so we can check the top-level only.
-    const topLevelContent = innerText
-      .replace(/{%-? ifversion[\S\s]+?{%-? endif -?%}/g, '')
+    const topLevelContent = innerText.replace(/{%-? ifversion[\S\s]+?{%-? endif -?%}/g, '')
 
     versionBlocks.push({
       condKeyword,
@@ -47,9 +46,9 @@ export default function getVersionBlocks (rawBlocks) {
       hasElse: /{%-? else -?%}/.test(topLevelContent),
       endIfText: block.endIfText,
       startTagColumn1: block.positionStart[1] === 1,
-      endTagColumn1: block.positionEnd[1] === 1
+      endTagColumn1: block.positionEnd[1] === 1,
     })
   })
-  
+
   return versionBlocks
 }

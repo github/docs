@@ -24,22 +24,26 @@ export const TableOfContents = (props: Props) => {
         return variant === 'compact' ? (
           <li key={href} className="f4 my-1">
             <Link href={href}>{title}</Link>
-            <ul className={cx(variant === 'compact' ? 'list-style-circle pl-5 my-3' : 'list-style-none')}>
-            {(childTocItems || []).map((childItem) => {
-              if (!childItem) {
-                return null
-              }
-              return (
-                <li key={childItem.fullPath} className="f4 mt-1">
-                  <Link
-                    href={childItem.fullPath}
-                    className="Bump-link--hover no-underline py-1 color-border-primary"
-                  >
-                    {childItem.title}
-                  </Link>
-                </li>
-              )
-            })}
+            <ul
+              className={cx(
+                variant === 'compact' ? 'list-style-circle pl-5 my-3' : 'list-style-none'
+              )}
+            >
+              {(childTocItems || []).map((childItem) => {
+                if (!childItem) {
+                  return null
+                }
+                return (
+                  <li key={childItem.fullPath} className="f4 mt-1">
+                    <Link
+                      href={childItem.fullPath}
+                      className="Bump-link--hover no-underline py-1 color-border-primary"
+                    >
+                      {childItem.title}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </li>
         ) : (
