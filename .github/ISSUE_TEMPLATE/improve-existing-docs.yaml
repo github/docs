@@ -21,14 +21,14 @@ body:
         - label: I have searched the existing issues
           required: true
 
-  - type: input
+  - type: textarea
     attributes:
       label: What article on docs.github.com is affected?
       placeholder: |
         Please link to the article you'd like to see updated
     validations:
       required: true
-  - type: input
+  - type: textarea
     attributes:
       label: What part(s) of the article would you like to see updated?
       placeholder: |
@@ -38,7 +38,7 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     attributes:
       label: Additional information
       placeholder: |
