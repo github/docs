@@ -42,3 +42,4 @@ Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% e
 ## Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+access-permissions-on-github.md
