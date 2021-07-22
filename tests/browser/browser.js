@@ -46,8 +46,8 @@ describe('browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
     await page.setViewport(initialViewport)
   })
-
-  it('works on 404 error page', async () => {
+  // 404 page is statically generated with next, so search is not available, but may possibly be brought back
+  it.skip('works on 404 error page', async () => {
     await page.goto('http://localhost:4001/en/404')
     await page.click('#search-input-container input[type="search"]')
     await page.type('#search-input-container input[type="search"]', 'actions')
