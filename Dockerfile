@@ -87,7 +87,6 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node data ./data
 COPY --chown=node:node includes ./includes
-COPY --chown=node:node layouts ./layouts
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node translations ./translations
