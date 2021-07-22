@@ -9,13 +9,11 @@ import { loadPages, loadPageMap } from '../lib/page-data.js'
 import loadSiteData from '../lib/site-data.js'
 import loadRedirects from '../lib/redirects/precompile.js'
 import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
-import xAllVersions from '../lib/all-versions.js'
+import { allVersionKeys } from '../lib/all-versions.js'
 import frontmatter from '../lib/read-frontmatter.js'
 import renderContent from '../lib/render-content/index.js'
 import patterns from '../lib/patterns.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const allVersions = Object.keys(xAllVersions)
 
 const walkFiles = (pathToWalk) => {
   return walk(path.posix.join(__dirname, '..', pathToWalk), {
@@ -120,7 +118,7 @@ async function main() {
       let foundPage, fragmentMatch, versionMatch
 
       // Run through all supported versions...
-      for (const version of allVersions) {
+      for (const version of allVersionKeys) {
         context.currentVersion = version
         // Render the link for each version using the renderContent pipeline, which includes the rewrite-local-links plugin.
         const $ = await renderContent(oldMarkdownLink, context, { cheerioObject: true })

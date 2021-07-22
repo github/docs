@@ -30,7 +30,7 @@ const frontmatter1 = path.join(removeLiquidStatementsFixtures, 'frontmatter1.md'
 const frontmatter2 = path.join(removeLiquidStatementsFixtures, 'frontmatter2.md')
 
 // process frontmatter
-function processFrontmatter (contents, file) {
+function processFrontmatter(contents, file) {
   const { content, data } = matter(contents)
   removeDeprecatedFrontmatter(file, data.versions, versionToDeprecate, nextOldestVersion)
   return matter.stringify(content, data, { lineWidth: 10000 })
@@ -68,8 +68,11 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes > 2.16 %}\n\nCharlie\n
     let contents = await readFileAsync(andGreaterThan1, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
-    expect($('.example1').text().trim()).toBe('{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% endif %}')
-    expect($('.example2').text().trim()).toBe(`{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% else %}\n
+    expect($('.example1').text().trim()).toBe(
+      '{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% endif %}'
+    )
+    expect($('.example2').text().trim())
+      .toBe(`{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% else %}\n
 Bravo\n\n{% endif %}`)
     expect($('.example3').text().trim()).toBe(`{% ifversion ghes > 2.16 %}\n
 Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion not fpt and ghes %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
@@ -104,7 +107,8 @@ Alpha\n\n{% ifversion not fpt %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharli
 Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion fpt %}\n
 Alpha\n\n{% ifversion ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
-    expect($('.example5').text().trim()).toBe(`{% ifversion ghes %}\n\nAlpha\n\n{% ifversion fpt %}\n
+    expect($('.example5').text().trim())
+      .toBe(`{% ifversion ghes %}\n\nAlpha\n\n{% ifversion fpt %}\n
 Bravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example6').text().trim()).toBe(`{% ifversion not fpt and ghes %}\n
 Alpha\n\n{% endif %}`)
@@ -123,7 +127,9 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion fpt %}\n
 Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe('Charlie')
-    expect($('.example6').text().trim()).toBe('Charlie\n\n{% ifversion fpt or ghes %}\n\nBravo\n\n{% endif %}')
+    expect($('.example6').text().trim()).toBe(
+      'Charlie\n\n{% ifversion fpt or ghes %}\n\nBravo\n\n{% endif %}'
+    )
   })
 
   test('removes interior content and liquid statements that specify "less than next oldest than version to deprecate"', async () => {
@@ -131,7 +137,9 @@ Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('Alpha')
-    expect($('.example2').text().trim()).toBe('Alpha\n\n{% ifversion fpt %}\n\nBravo\n\n{% endif %}')
+    expect($('.example2').text().trim()).toBe(
+      'Alpha\n\n{% ifversion fpt %}\n\nBravo\n\n{% endif %}'
+    )
     expect($('.example3').text().trim()).toBe(`{% ifversion fpt %}\n
 Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion fpt %}\n
@@ -151,16 +159,16 @@ describe('updating frontmatter', () => {
     let contents = await readFileAsync(frontmatter1, 'utf8')
     contents = processFrontmatter(contents, frontmatter1)
     const $ = cheerio.load(contents)
-    expect($.text().includes('ghes: \'*\'')).toBe(true)
-    expect($.text().includes('ghes: \'>=2.13\'')).toBe(false)
+    expect($.text().includes("ghes: '*'")).toBe(true)
+    expect($.text().includes("ghes: '>=2.13'")).toBe(false)
   })
 
   test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to next oldest version', async () => {
     let contents = await readFileAsync(frontmatter2, 'utf8')
     contents = processFrontmatter(contents, frontmatter2)
     const $ = cheerio.load(contents)
-    expect($.text().includes('ghes: \'*\'')).toBe(true)
-    expect($.text().includes('ghes: \'>=2.14\'')).toBe(false)
+    expect($.text().includes("ghes: '*'")).toBe(true)
+    expect($.text().includes("ghes: '>=2.14'")).toBe(false)
   })
 })
 
@@ -180,11 +188,13 @@ describe('whitespace', () => {
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example5').text()).toBe('\n{% ifversion ghes %}\n  Alpha\n{% endif %}\n')
-    expect($('.example6').text()).toBe('\n  Alpha\n{% ifversion fpt or ghes %}\n  Bravo\n{% endif %}\n  Charlie\n')
+    expect($('.example6').text()).toBe(
+      '\n  Alpha\n{% ifversion fpt or ghes %}\n  Bravo\n{% endif %}\n  Charlie\n'
+    )
     expect($('.example7').text()).toBe('\nAlpha{% ifversion fpt or ghes %}\nBravo{% endif %}\n')
   })
 
-  test('only remove newlines when tag starts at beginning of line', async() =>{
+  test('only remove newlines when tag starts at beginning of line', async () => {
     let contents = await readFileAsync(whitespace, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
