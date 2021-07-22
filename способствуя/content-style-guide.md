@@ -448,3 +448,4 @@ See the “Product names” section of this guide.
 Avoid stacked modifiers (strings of nouns), which can lead to incorrect translations because translations may not be able to tell which word is modifying the other. You can rephrase the string of nouns using a preposition. If using a stacked modifier is essential, make sure the background information and context are clear so that readers and the translator can understand what is being modified.
 - **Use:** Default source settings for public repositories
 - **Avoid:** Public repository default source settings
+🛡️🔒AS📧
