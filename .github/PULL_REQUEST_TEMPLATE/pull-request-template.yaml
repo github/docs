@@ -1,45 +1,47 @@
-name: Pull Request Form
-description: Make a pull request for an existing issue
+name: Improve existing content
+description: Make a suggestion to improve the content in an existing article
 title: "['Improve existing content']: "
 labels:
   - content
 body:
+  # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
   - type: markdown
     attributes:
       value: |
-        - Thank you for contributing to this project! Fill out the information below before we can review this pull request.
-        - By explaining why you're making a change (or linking to a pull request) and what changes you've made, we can triage your pull request to the best possible team for review.
-        - See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribute.
-        - For changes to content in [site policy](https://github.com/github/docs/tree/main/content/github/site-policy), see the [CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
-        - We cannot accept changes to our translated content right now. See the [contributing.md](/main/CONTRIBUTING.md#earth_asia-translations) for more information.
+        For questions, ask in [Discussions](https://github.com/github/docs/discussions)
+        Before you file an issue read the
+        - [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+        - [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
 
-  - type: markdown
+  - type: checkboxes
     attributes:
-      value: |
-        - If there's an existing issue for your change, please link to it.
-        - If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose.
+      label: Is there an existing issue for this?
+      description: Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
+      options:
+        - label: I have searched the existing issues
+          required: true
 
   - type: textarea
     attributes:
-      label: Why?
-      value: Closes
-      placeholder: [issue link]
+      label: What article on docs.github.com is affected?
+      placeholder: |
+        Please link to the article you'd like to see updated
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What part(s) of the article would you like to see updated?
+      placeholder: |
+        - Give as much detail as you can to help us understand the change you want to see. 
+        - Why should the docs be changed? What use cases does it support? 
+        - What is the expected outcome?
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: What's being changed?
+      label: Additional information
       placeholder: |
-        - Share artifacts of the changes, be they code snippets, GIFs or screenshots; whatever shares the most context.
+        Add any other context or screenshots about the feature request here.
     validations:
       required: false
-
-  - type: checkboxes
-    attributes:
-      label: Check off the following before submitting
-      options:
-        - label: I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
-          required: true
-        - label: For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/CONTRIBUTING.md#self-review).
-          required: true
