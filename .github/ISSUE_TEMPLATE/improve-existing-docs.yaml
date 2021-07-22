@@ -1,15 +1,17 @@
 name: Improve existing content
 description: Make a suggestion to improve the content in an existing article
 title: "['Improve existing content']: "
-labels: 'Improve existing content'
+labels:
+  - content
 body:
+  # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
   - type: markdown
     attributes:
       value: |
         For questions, ask in [Discussions](https://github.com/github/docs/discussions)
         Before you file an issue read the
-        [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
-        [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
+        - [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+        - [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
 
   - type: checkboxes
     attributes:
@@ -21,25 +23,25 @@ body:
 
   - type: input
     attributes:
-      - label: What article on docs.github.com is affected?
-        placeholder: |
-          Please link to the article you'd like to see updated
+      label: What article on docs.github.com is affected?
+      placeholder: |
+        Please link to the article you'd like to see updated
     validations:
       required: true
   - type: input
     attributes:
-      - label: What part(s) of the article would you like to see updated?
-        placeholder: |
-          Give as much detail as you can to help us understand the change you want to see. 
-          Why should the docs be changed? What use cases does it support? 
-          What is the expected outcome?
+      label: What part(s) of the article would you like to see updated?
+      placeholder: |
+        - Give as much detail as you can to help us understand the change you want to see. 
+        - Why should the docs be changed? What use cases does it support? 
+        - What is the expected outcome?
     validations:
-    required: true
+      required: true
 
   - type: input
     attributes:
-      - label: Additional information
-        placeholder: |
-          Add any other context or screenshots about the feature request here.
+      label: Additional information
+      placeholder: |
+        Add any other context or screenshots about the feature request here.
     validations:
-    required: false
+      required: false
