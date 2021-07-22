@@ -34,5 +34,5 @@ export default [
   'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
   'tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61',
-  'EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519',
+  'EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87',
 ]
