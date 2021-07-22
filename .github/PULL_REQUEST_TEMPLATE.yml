@@ -30,16 +30,16 @@ body:
     validations:
       required: false
 
-  - type: checkboxes
-    attributes:
-      label: I have reviewed my changes in staging.
-      description: Look for the latest deployment event in your pull request's timeline, then click **View deployment**
-      validations:
-        required: false
+  # - type: checkboxes
+  #   attributes:
+  #     label: I have reviewed my changes in staging.
+  #     description: Look for the latest deployment event in your pull request's timeline, then click **View deployment**
+  #     validations:
+  #       required: false
 
-  - type: checkboxes
-    attributes:
-      label: Check the following
-      options:
-        - label: I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
-          required: true
+  # - type: checkboxes
+  #   attributes:
+  #     label: Check the following
+  #     options:
+  #       - label: I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
+  #         required: true
