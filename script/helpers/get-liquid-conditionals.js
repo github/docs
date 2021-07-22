@@ -71,7 +71,6 @@ function groupTokens (tokens, tagName, endTagName, newArray = []) {
   const startIndex = tokens.findIndex(token => token.conditional === tagName)
   // The end tag name is currently in a separate token, but we want to group it with the start tag and content.
   const endIndex = tokens.findIndex(token => token.conditional === endTagName)
-
   // Once all tags are grouped and removed from `tokens`, this findIndex will not find anything, 
   // so we can return the grouped result at this point.
   if (startIndex === -1) return newArray
@@ -123,7 +122,12 @@ function handleNestedTags (condBlockArr, endIndex, tagName, endTagName, tokens) 
 }
 
 function hasUnhandledNestedTags (condBlockArr, tagName, endTagName) {
-  const startTags = condBlockArr.filter(t => t.conditional === tagName)
+  const startTags = condBlockArr.filter(t => {
+    // some blocks that start with ifversion still have if tags nested inside
+    return tagName === 'ifversion' 
+      ? t.conditional === tagName || t.conditional === 'if' 
+      : t.conditional === tagName
+  })
   const endTags = condBlockArr.filter(t => t.conditional === endTagName)
   const hasMoreStartTagsThanEndTags = startTags.length > endTags.length
 
