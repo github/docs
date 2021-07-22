@@ -6,7 +6,7 @@ versions:
   fpt: '*'
 shortTitle: Approve public fork runs
 ---
-
+approving-workflow-runs-from-public-forks.md
 ## About workflow runs from public forks
 
 {% data reusables.actions.workflow-run-approve-public-fork %} However, you can configure this behavior for a [repository](/github/administering-a-repository/managing-repository-settings/disabling-or-limiting-github-actions-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks), or [enterprise](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account#configuring-required-approval-for-workflows-from-public-forks).
