@@ -1,6 +1,5 @@
 import FailBot from '../lib/failbot.js'
 import loadSiteData from '../lib/site-data.js'
-import builtAssets from '../lib/built-asset-urls.js'
 import { nextApp } from './next.js'
 
 function shouldLogException(error) {
@@ -42,9 +41,8 @@ export default async function handleError(error, req, res, next) {
     // set req.context.site here so we can pass data/ui.yml text to the 500 layout
     if (!req.context) {
       const site = await loadSiteData()
-      req.context = { site: site[req.language || 'en'].site, builtAssets }
+      req.context = { site: site[req.language || 'en'].site }
     }
-
     // display error on the page in development and staging, but not in production
     if (req.context && process.env.HEROKU_PRODUCTION_APP !== 'true') {
       req.context.error = error
