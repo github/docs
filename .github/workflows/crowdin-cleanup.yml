@@ -31,3 +31,7 @@ jobs:
 
           # The message for the commit
           message: 'Run script/i18n/homogenize-frontmatter.js'
+
+        env:
+          # Disable pre-commit hooks; they don't play nicely with add-and-commit
+          HUSKY: 0
