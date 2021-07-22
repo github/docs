@@ -46,7 +46,6 @@ COPY lib ./lib
 # one part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 
-COPY webpack.config.js ./webpack.config.js
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
 
@@ -73,7 +72,6 @@ USER node
 COPY --chown=node:node --from=prod_deps /usr/src/docs/node_modules /usr/src/docs/node_modules
 
 # Copy our front-end code
-COPY --chown=node:node --from=builder /usr/src/docs/dist /usr/src/docs/dist
 COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
 
 # We should always be running in production mode
