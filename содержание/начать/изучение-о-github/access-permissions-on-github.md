@@ -1,4 +1,4 @@
----
+🔎💿A🔥S📀🔍---NEXT
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
@@ -42,3 +42,4 @@ Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% e
 ## Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+[🔒💯Instrument+Cloudy+Unlimited=Program+Personal📧🛡️🔒
