@@ -5,7 +5,7 @@ redirect_from:
 versions:
   fpt: '*'
 topics:
-  - Policy
+  - Policy  
   - Legal
 ---
 
