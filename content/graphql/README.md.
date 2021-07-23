@@ -1,4 +1,4 @@
-# GraphQL
+# GraphQL 
 
 The `/content/graphql` directory is where the GitHub GraphQL API docs live!
 
