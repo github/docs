@@ -43,7 +43,7 @@ For information about renewing your {% data variables.product.prodname_student_p
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-## Expiration and renewals
+## Expiration and renewals 
 
 Once your {% data variables.product.prodname_student_pack %} access expires, you may reapply if you're still eligible, although some of our partner offers cannot renew. Most of the timed offers from our partners start once you set them up. For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
