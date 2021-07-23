@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-
-const fs = require('fs')
-const path = require('path')
-const findUnusedAssets = require('./helpers/find-unused-assets')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import findUnusedAssets from './helpers/find-unused-assets.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -16,7 +17,7 @@ const findUnusedAssets = require('./helpers/find-unused-assets')
 const dryRun = process.argv.slice(2).includes('--dry-run')
 main()
 
-async function main () {
+async function main() {
   if (dryRun) {
     console.log('This is a dry run! The script will report unused files without deleting anything.')
   }
@@ -26,61 +27,64 @@ async function main () {
   printUnusedVariables(await findUnusedAssets('variables'))
 }
 
-function removeUnusedReusables (reusables) {
+function removeUnusedReusables(reusables) {
   logMessage(reusables, 'reusable')
 
-  reusables.forEach(reusable => {
-    const reusablePath = path.join(__dirname, '..', reusable
-      .replace('site', '')
-      .replace(/\./g, '/')
-      .replace(/$/, '.md'))
-    dryRun
-      ? console.log(reusable)
-      : fs.unlinkSync(reusablePath)
+  reusables.forEach((reusable) => {
+    const reusablePath = path.join(
+      __dirname,
+      '..',
+      reusable.replace('site', '').replace(/\./g, '/').replace(/$/, '.md')
+    )
+    dryRun ? console.log(reusable) : fs.unlinkSync(reusablePath)
   })
 }
 
-function removeUnusedImages (images) {
+function removeUnusedImages(images) {
   logMessage(images, 'image')
 
-  images.forEach(image => {
+  images.forEach((image) => {
     const imagePath = path.join(__dirname, '..', image)
-    dryRun
-      ? console.log(image)
-      : fs.unlinkSync(imagePath)
+    dryRun ? console.log(image) : fs.unlinkSync(imagePath)
   })
 }
 
 // multiple variables are embedded in within the same YML file
 // so we can't just delete the files, and we can't parse/modify
 // them either because js-yaml does not preserve whitespace :[
-function printUnusedVariables (variables) {
+function printUnusedVariables(variables) {
   logMessage(variables, 'variable')
 
-  variables.forEach(variable => {
+  variables.forEach((variable) => {
     const variableKey = variable.split('.').pop()
-    const variablePath = path.join(process.cwd(), variable
-      .replace('site', '')
-      .replace(`.${variableKey}`, '')
-      .replace(/\./g, '/')
-      .replace(/$/, '.yml'))
+    const variablePath = path.join(
+      process.cwd(),
+      variable
+        .replace('site', '')
+        .replace(`.${variableKey}`, '')
+        .replace(/\./g, '/')
+        .replace(/$/, '.yml')
+    )
     dryRun
       ? console.log(variable)
-      : console.log(`* found but did not delete '${variableKey}' in ${variablePath.replace(process.cwd(), '')}`)
+      : console.log(
+          `* found but did not delete '${variableKey}' in ${variablePath.replace(
+            process.cwd(),
+            ''
+          )}`
+        )
   })
 
   if (!dryRun) console.log('\nYou will need to manually delete any variables you want to remove.')
 }
 
-function logMessage (list, type) {
+function logMessage(list, type) {
   let action
 
   if (dryRun) {
     action = '\n**Found'
   } else {
-    action = type === 'variable'
-      ? ':eyes: **Found'
-      : ':scissors: **Removed'
+    action = type === 'variable' ? ':eyes: **Found' : ':scissors: **Removed'
   }
 
   console.log(`${action} ${list.length} unused ${type} ${list.length === 1 ? 'file' : 'files'}**\n`)

@@ -7,13 +7,13 @@ npm-debug.log
 coverage/
 .linkinator
 /assets/images/early-access
+/assets/fonts/inter
 /content/early-access
 /data/early-access
-dist
 .next
+.eslintcache
 
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
-/dist/
 broken_links.md
