@@ -45,7 +45,7 @@ All community leaders are obligated to respect the privacy and security of the r
 
 Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
 
-### 1. Correction
+### 1. Correction 
 
 **Community Impact**: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.
 
