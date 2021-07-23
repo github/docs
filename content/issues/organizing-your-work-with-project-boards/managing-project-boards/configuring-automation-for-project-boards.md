@@ -30,7 +30,7 @@ shortTitle: Configure automation
 1. Navigate to the project board you want to automate.
 2. In the column you want to automate, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 ![Edit icon](/assets/images/help/projects/edit-column-button.png)
-3. Click **Manage automation**.
+3. Click **Manage automation**. 
 ![Manage automation button](/assets/images/help/projects/manage-automation-button.png)
 4. Using the Preset drop-down menu, select an automation preset.
 ![Select preset automation from menu](/assets/images/help/projects/select-automation.png)
