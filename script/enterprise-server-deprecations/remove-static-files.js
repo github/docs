@@ -2,7 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import xRimraf from 'rimraf'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 
 const rimraf = xRimraf.sync
 

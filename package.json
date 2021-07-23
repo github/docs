@@ -26,6 +26,7 @@
     "connect-datadog": "0.0.9",
     "connect-slashes": "^1.4.0",
     "cookie-parser": "^1.4.5",
+    "copy-webpack-plugin": "^9.0.1",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dayjs": "^1.10.4",
@@ -118,7 +119,6 @@
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
-    "copy-webpack-plugin": "^8.1.1",
     "count-array-values": "^1.2.1",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
@@ -173,8 +173,6 @@
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.2",
     "url-template": "^2.0.8",
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0",
     "website-scraper": "^4.2.3"
   },
   "engines": {
@@ -196,7 +194,7 @@
     "browser-test": "start-server-and-test browser-test-server 4001 browser-test-tests",
     "browser-test-server": "cross-env NODE_ENV=production WEB_CONCURRENCY=1 PORT=4001 node server.mjs",
     "browser-test-tests": "cross-env BROWSER=1 NODE_OPTIONS=--experimental-vm-modules jest tests/browser/browser.js",
-    "build": "npm run webpack-build && next build",
+    "build": "next build",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.mjs",
     "dev": "npm start",
     "heroku-postbuild": "node script/early-access/clone-for-build.js && npm run build",
@@ -220,8 +218,7 @@
     "sync-search-indices": "script/sync-search-indices.js",
     "sync-search-server": "cross-env NODE_ENV=production WEB_CONCURRENCY=1 PORT=4002 node server.mjs",
     "test": "npm run lint && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
-    "webpack-build": "cross-env NODE_ENV=production npx webpack --mode production"
+    "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
