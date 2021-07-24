@@ -4,6 +4,7 @@ intro: 'This section contains references that will allow you to be successful wi
 versions:
   fpt: '*'
 children:
+  - /about-codespaces
   - /about-billing-for-codespaces
   - /troubleshooting-your-codespace
   - /allowing-your-codespace-to-access-a-private-image-registry

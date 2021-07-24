@@ -6,7 +6,7 @@ import program from 'commander'
 import { escapeRegExp } from 'lodash-es'
 import frontmatter from '../../lib/read-frontmatter.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
-import getLiquidConditionals from '../helpers/get-liquid-conditionals.js'
+import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
 
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')

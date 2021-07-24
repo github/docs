@@ -6,7 +6,7 @@ intro: Remove liquid only
 ## 1
 <div class="example1">
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Alpha
 
@@ -17,7 +17,7 @@ Alpha
 ## 2
 <div class="example2">
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion fpt or ghes > 2.13 %}
 
 Alpha
 
@@ -28,7 +28,7 @@ Alpha
 ## 3
 <div class="example3">
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Alpha
 
@@ -43,7 +43,7 @@ Bravo
 ## 4
 <div class="example4">
 
-{% if currentVersion ver_gt "enterprise-server@2.16" %}
+{% ifversion ghes > 2.16 %}
 
 Alpha
 
@@ -51,11 +51,12 @@ Alpha
 
 Bravo
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Charlie
 
 {% endif %}
+
 {% endif %}
 
 </div>
@@ -63,11 +64,11 @@ Charlie
 ## 5
 <div class="example5">
 
-{% if currentVersion ver_lt "enterprise-server@2.16" %}
+{% ifversion ghes < 2.16 %}
 
 Alpha
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Bravo
 
@@ -84,11 +85,11 @@ Charlie
 ## 6
 <div class="example6">
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Alpha
 
-{% if currentVersion ver_lt "enterprise-server@2.16" %}
+{% ifversion ghes < 2.16 %}
 
 Bravo
 
@@ -105,11 +106,11 @@ Charlie
 ## 7
 <div class="example7">
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Alpha
 
-{% if currentVersion ver_gt "enterprise-server@2.16" %}
+{% ifversion ghes > 2.16 %}
 
 Bravo
 
@@ -125,7 +126,7 @@ Charlie
 ## 8
 <div class="example8">
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Alpha
 
@@ -133,7 +134,7 @@ Alpha
 
 Bravo
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% ifversion not fpt %}
 
 Charlie
 
@@ -148,7 +149,7 @@ Delta
 ## 9
 <div class="example9">
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Alpha
 
@@ -156,13 +157,13 @@ Alpha
 
 Bravo
 
-{% if currentVersion ver_gt "enterprise-server@2.16" %}
+{% ifversion ghes > 2.16 %}
 
 Charlie
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Delta
 
@@ -175,13 +176,13 @@ Delta
 ## 10
 <div class="example10">
 
-{% if currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion ghes > 2.13 %}
 
 Alpha
 
 {% else %}
 
-Security alerts for vulnerable dependencies are available in {{ site.data.variables.product.prodname_ghe_server }} 2.17+. For more information, see "[Enabling security alerts for vulnerable dependencies on {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+Bravo
 
 {% endif %}
 

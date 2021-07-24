@@ -11,6 +11,7 @@ module.exports = {
     ecmaVersion: 11,
     requireConfigFile: 'false',
     babelOptions: { configFile: './.babelrc' },
+    sourceType: 'module',
   },
   rules: {
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],

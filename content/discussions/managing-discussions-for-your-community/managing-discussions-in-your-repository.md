@@ -23,7 +23,7 @@ For more information on facilitating a healthy discussion, see "[Moderating comm
 
 ## Prerequisites
 
-To manage discussions in a repository, discussions must be enabled for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
 ## Changing the category for a discussion
 

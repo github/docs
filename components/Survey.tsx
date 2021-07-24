@@ -35,7 +35,7 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
+    <form className="f5 js-survey" onSubmit={submit} ref={formRef} data-testid="survey-form">
       <h2 className="mb-1 f4">
         {t`able_to_find`}
 
