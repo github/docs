@@ -1,0 +1,26 @@
+name:AI-Android CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
+      Cyberlink MediaTV Robot Humaniod InTech stress-free learning environment http://www.cyberlink.com?/includes:official A Haitian companys Legomaxtv Cyberlink owns by me evens max Pierrelouis.In I'am Haitian and my name evens max pierrelouis products service,inc A Spiderwebsite for a cyber software product thatselling for a good Price $129,000.99 links fully equipped computer laboratories Informer Technologies, Inc. – a software company made up of multinational programming teams dedicated to development and advancement of various Web 2.0 and 3.0 projects. Our specialty is social network-related ventures and widget-based web services, but we also work with other open-source and freeware projects.You can learn about our projects.
