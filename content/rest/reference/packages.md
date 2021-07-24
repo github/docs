@@ -1,4 +1,4 @@
----
+--- 
 title: Packages
 intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
 product: '{% data reusables.gated-features.packages %}'
@@ -23,3 +23,4 @@ If you want to use the {% data variables.product.prodname_registry %} API to acc
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
+ 
