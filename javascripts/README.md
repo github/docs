@@ -1,4 +1,4 @@
-# Javascripts
+# Javascripts 
 
 The code in this directory is destined to run in a web browser!
 
