@@ -85,7 +85,7 @@ To download an artifact from a separate workflow run, you can use the `actions/d
 
 ```yaml
 jobs:
-  example-job:
+  example-job: 
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v2
