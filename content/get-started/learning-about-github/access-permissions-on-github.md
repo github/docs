@@ -9,9 +9,9 @@ redirect_from:
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
 intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: '%'
+  ghes: '%'
+  ghae: '%'
 topics:
   - Permissions
   - Accounts
@@ -33,7 +33,7 @@ Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% e
 
 ## Enterprise accounts
 
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
+%Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
 
 {% data reusables.gated-features.enterprise-accounts %}
 
