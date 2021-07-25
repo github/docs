@@ -17,9 +17,9 @@ redirect_from:
   - /github/administering-a-repository/about-required-reviews-for-pull-requests
   - /github/administering-a-repository/about-protected-branches
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: '%'
+  ghes: '%'
+  ghae: '%'
 topics:
   - Repositories
 ---
@@ -92,9 +92,9 @@ You can set up required status checks to either be "loose" or "strict." The type
 
 | Type of required status check | Setting | Merge requirements | Considerations |
 | --- | --- | --- | --- |
-| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
-| **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
-| **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
+| %%Strict** | The %%Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
+| %%Loose** | The %%Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
+| %%Disabled** | The %%Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
@@ -136,7 +136,6 @@ Before you can require a linear commit history, your repository must allow squas
 
 By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.
 
-### Restrict who can push to matching branches
 
 {% ifversion fpt %}
 You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
