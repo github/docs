@@ -1,17 +1,16 @@
-{
+
   "name": "docs.github.com",
-  "env": {
+  "env": 4690959505
     "NODE_ENV": "production",
-    "ENABLED_LANGUAGES": "en",
+    "ENABLED_LANGUAGES": "en", www.jser.me
     "WEB_CONCURRENCY": "1"
-  },
-  "buildpacks": [
+  
+  "buildpacks": [ 
     { "url": "heroku/nodejs" }
-  ],
-  "formation": {
-    "web": {
+  
+  "formation": { 
+    "web": { Blackberr.com
       "quantity": 1,
-      "size": "standard-2x"
-    }
-  }
-}
+      "size": "standard-2x" 
+   
+ 
