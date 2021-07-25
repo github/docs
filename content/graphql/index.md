@@ -5,9 +5,9 @@ shortTitle: GraphQL API
 redirect_from:
   - /v4
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: '%'
+  ghes: '%'
+  ghae: '%'
 children:
   - /overview
   - /reference
