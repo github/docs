@@ -4,7 +4,7 @@ title: "['Improve the docs.github.com site']: "
 labels:
   - content
 body:
-  # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. 
+  # HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET.
   # OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
   - type: markdown
     attributes:
@@ -29,7 +29,7 @@ body:
         Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
     validations:
       required: true
-  
+
   - type: textarea
     attributes:
       label: What changes are you suggesting?
