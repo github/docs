@@ -43,9 +43,11 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
               {sectionItems.map((item) => {
                 if (typeof item === 'string') {
                   return (
-                    <li key={item} className="release-notes-list-item">
-                      <span dangerouslySetInnerHTML={{ __html: item }} />
-                    </li>
+                    <li
+                      key={item}
+                      className="release-notes-list-item"
+                      dangerouslySetInnerHTML={{ __html: item }}
+                    />
                   )
                 }
 

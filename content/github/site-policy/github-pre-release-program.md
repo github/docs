@@ -60,7 +60,7 @@ If we give you access to any software, pre-release software or related documenta
 
 ## 9. Government Users
 
-  If you are a Government entity, this Section applies to you.  Certain of our Confidential Information may be considered “Commercial Items”, as that term is defined at 48 C.F.R. §2.101, consisting of “Commercial Computer Software” and “Commercial Computer Software Documentation”, as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein.  GitHub, Inc. 88 Colin P. Kelly Street, San Francisco, CA 94107.
+  If you are a Government entity, this Section applies to you.  Certain of our Confidential Information may be considered “Commercial Items”, as that term is defined at 48 C.F.R. §2.101, consisting of “Commercial Computer Software” and “Commercial Computer Software Documentation”, as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein.  GitHub, Inc. 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107.
 
 ## 10. Independent Development
 

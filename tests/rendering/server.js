@@ -2,9 +2,7 @@ import lodash from 'lodash-es'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM, head, post } from '../helpers/supertest.js'
 import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
-import path from 'path'
 import { loadPages } from '../../lib/page-data.js'
-import builtAssets from '../../lib/built-asset-urls.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { jest } from '@jest/globals'
@@ -178,7 +176,11 @@ describe('server', () => {
     const $ = await getDOM('/not-a-real-page')
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
-    expect($.text().includes('Still need help?')).toBe(true)
+    expect(
+      $.text().includes(
+        'We track these errors automatically, but if the problem persists please feel free to contact us.'
+      )
+    ).toBe(true)
     expect($.res.statusCode).toBe(404)
   })
 
@@ -201,11 +203,12 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500')
     expect($('h1').text()).toBe('Ooops!')
-    expect($('code').text().startsWith('Error: Intentional error')).toBe(true)
-    expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(
-      true
-    )
-    expect($.text().includes('Still need help?')).toBe(true)
+    expect($.text().includes('It looks like something went wrong.')).toBe(true)
+    expect(
+      $.text().includes(
+        'We track these errors automatically, but if the problem persists please feel free to contact us.'
+      )
+    ).toBe(true)
     expect($.res.statusCode).toBe(500)
   })
 
@@ -502,9 +505,7 @@ describe('server', () => {
       const $ = await getDOM(
         `${latestEnterprisePath}/github/getting-started-with-github/set-up-git`
       )
-      expect(
-        $('a[href="/en/desktop/installing-and-configuring-github-desktop"]').length
-      ).toBe(1)
+      expect($('a[href="/en/desktop/installing-and-configuring-github-desktop"]').length).toBe(1)
     })
 
     test('admin articles that link to non-admin articles have Enterprise user links', async () => {
@@ -530,16 +531,16 @@ describe('server', () => {
         `${latestEnterprisePath}/admin/installation/upgrading-github-enterprise-server`
       )
       expect(
-        $(
-          'a[href="https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm"]'
-        ).length
+        $('a[href="https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm"]')
+          .length
       ).toBe(1)
     })
   })
 
   describe('article versions', () => {
     test('includes links to all versions of each article', async () => {
-      const articlePath = 'github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard'
+      const articlePath =
+        'github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard'
       const $ = await getDOM(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
       )
@@ -549,7 +550,10 @@ describe('server', () => {
         ).length
       ).toBe(2)
       // 2.13 predates this feature, so it should be excluded:
-      expect($(`[data-testid=article-version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length).toBe(0)
+      expect(
+        $(`[data-testid=article-version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`)
+          .length
+      ).toBe(0)
     })
 
     test('is not displayed if article has only one version', async () => {
@@ -856,8 +860,9 @@ describe('GitHub Desktop URLs', () => {
 
 describe('static assets', () => {
   test('fonts', async () => {
-    expect((await get('/dist/fonts/Inter-Medium.woff')).statusCode).toBe(200)
-    expect((await get('/dist/fonts/Inter-Regular.woff')).statusCode).toBe(200)
+    expect((await get('/assets/fonts/inter/Inter-Bold.woff')).statusCode).toBe(200)
+    expect((await get('/assets/fonts/inter/Inter-Medium.woff')).statusCode).toBe(200)
+    expect((await get('/assets/fonts/inter/Inter-Regular.woff')).statusCode).toBe(200)
   })
 })
 
@@ -950,37 +955,6 @@ describe('?json query param for context debugging', () => {
     expect(context.keys.includes('pages')).toBe(true)
     expect(context.keys.includes('redirects')).toBe(true)
   })
-})
-
-describe('stylesheets', () => {
-  it('compiles and sets the right content-type header', async () => {
-    const stylesheetUrl = builtAssets.main.css
-    const res = await get(stylesheetUrl)
-    expect(res.statusCode).toBe(200)
-    expect(res.headers['content-type']).toBe('text/css; charset=UTF-8')
-  })
-})
-
-describe('client-side JavaScript bundle', () => {
-  let res
-  beforeAll(async () => {
-    const scriptUrl = builtAssets.main.js
-    res = await get(scriptUrl)
-  })
-
-  it('returns a 200 response', async () => {
-    expect(res.statusCode).toBe(200)
-  })
-
-  it('sets the right content-type header', async () => {
-    expect(res.headers['content-type']).toBe('application/javascript; charset=UTF-8')
-  })
-
-  // TODO: configure webpack to create production bundle in the test env
-  // it('is not too big', async () => {
-  //   const tooBig = 10 * 1000
-  //   expect(res.text.length).toBeLessThan(tooBig)
-  // })
 })
 
 describe('static routes', () => {

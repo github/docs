@@ -18,7 +18,8 @@ export const DefaultLayout = (props: Props) => {
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
-        ) : (!isHomepageVersion && page.fullTitle) || (currentPathWithoutLanguage.includes('enterprise-server') && page.fullTitle) ? (
+        ) : (!isHomepageVersion && page.fullTitle) ||
+          (currentPathWithoutLanguage.includes('enterprise-server') && page.fullTitle) ? (
           <title>{page.fullTitle}</title>
         ) : null}
 
