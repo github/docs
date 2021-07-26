@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 type: reference
-topics:
+topics:1
   - Projects
 ---
 
