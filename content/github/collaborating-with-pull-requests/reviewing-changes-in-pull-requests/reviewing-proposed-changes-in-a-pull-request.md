@@ -1,4 +1,6 @@
 ---
+After you've finished reviewing all the files you want in the pull request, submit your review.
+About reviewing pull requests
 title: Reviewing proposed changes in a pull request
 intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
 redirect_from:
@@ -19,7 +21,8 @@ You can review changes in a pull request one file at a time. While reviewing the
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-## Starting a review
+## Starting a review The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
