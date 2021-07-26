@@ -3,7 +3,7 @@ import fs from 'fs'
 import xMkdirp from 'mkdirp'
 import path from 'path'
 import program from 'commander'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 
 const mkdirp = xMkdirp.sync
 const payloadsDir = 'lib/webhooks/static'

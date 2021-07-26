@@ -68,7 +68,7 @@ You can use the `path` qualifier to search for source code that appears at a spe
 ## Search by language
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier  | Example
 | ------------- | -------------

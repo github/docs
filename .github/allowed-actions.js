@@ -14,7 +14,7 @@ export default [
   'andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84',
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
-  'cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be',
+  'cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa', // uses github-actions-parser v0.23.0
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58',
@@ -34,5 +34,5 @@ export default [
   'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
   'tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61',
-  'EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519',
+  'EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87',
 ]

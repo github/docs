@@ -32,8 +32,12 @@ describe('header', () => {
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
       expect($('[data-testid=language-picker] a[href="/en/"]').text().trim()).toBe('English')
-      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe('简体中文 (Simplified Chinese)')
-      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe('日本語 (Japanese)')
+      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe(
+        '简体中文 (Simplified Chinese)'
+      )
+      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe(
+        '日本語 (Japanese)'
+      )
     })
 
     test('emphasize the current language', async () => {
@@ -130,7 +134,7 @@ describe('header', () => {
       const $ = await getDOM('/en/articles/enabling-required-status-checks')
       const github = $('#homepages a.active[href="/en/github"]')
       expect(github.length).toBe(1)
-      expect(github.text().trim()).toBe('GitHub.com')
+      expect(github.text().trim()).toBe('GitHub')
       expect(github.attr('class').includes('active')).toBe(true)
 
       const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
