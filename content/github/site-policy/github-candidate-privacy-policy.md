@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub Candidate Privacy Policy
 versions:
   fpt: '*'
