@@ -2,6 +2,7 @@
 title: Re-running a workflow
 intro: You can re-run an instance of a workflow up to 30 days after the initial run. 
 product: '{% data reusables.gated-features.actions %}'
+permissions: People with write permissions to a repository can re-run workflows in the repository.
 versions:
   fpt: '*'
   ghes: '>=2.22'
@@ -13,8 +14,6 @@ versions:
 {% data reusables.actions.ae-beta %}
 
 Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow up tp 30 days after the initial run. 
-
-{% data reusables.repositories.permissions-statement-write %}
 
 {% include tool-switcher %}
 
