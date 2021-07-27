@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { sendEvent, EventType } from '../javascripts/events'
+import { sendEvent, EventType } from 'components/lib/events'
 
 enum ViewState {
   START = 'START',
