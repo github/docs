@@ -37,7 +37,6 @@ FROM all_deps as builder
 
 ENV NODE_ENV production
 
-COPY javascripts ./javascripts
 COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
