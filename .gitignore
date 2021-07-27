@@ -12,7 +12,6 @@ coverage/
 dist
 .next
 
-
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log

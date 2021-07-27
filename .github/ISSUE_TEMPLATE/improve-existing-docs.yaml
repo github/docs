@@ -7,10 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        **HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.**
+        **HUBBERS!! THIS IS GITHUB/DOCS OPEN SOURCE REPO. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.**
         For questions, ask in [Discussions](https://github.com/github/docs/discussions)
         Before you file an issue read the
-        - [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
         - [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
 
   - type: checkboxes
