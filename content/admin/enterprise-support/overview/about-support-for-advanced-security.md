@@ -49,21 +49,9 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays.
 
-| U.S. holiday                | Date observed       |
-| ---                         | ---                         |
-| New Year's Day              | January 1                   |
-| Martin Luther King, Jr. Day | Third Monday in January     |
-| Presidents' Day             | Third Monday in February    |
-| Memorial Day                | Last Monday in May          |
-| Independence Day            | July 4                      |
-| Labor Day                   | First Monday in September   |
-| Veterans Day                | November 12                 |
-| Thanksgiving Day            | Fourth Thursday in November |
-| Day after Thanksgiving      | Fourth Friday in November   |
-| Christmas Eve               | December 24                 |
-| Christmas Day               | December 25                 |
-| Day after Christmas         | December 28                 |
-| New Year's Eve              | December 31                 |
+
+{% data reusables.enterprise_enterprise_support.support-holiday-availability %}
+
 
 ## Installing {% data variables.product.prodname_advanced_security %} updates
 

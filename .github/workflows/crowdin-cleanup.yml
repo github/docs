@@ -24,10 +24,14 @@ jobs:
         run: script/i18n/homogenize-frontmatter.js
 
       - name: Check in homogenized files
-        uses: EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519
+        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
         with:
           # The arguments for the `git add` command
           add: 'translations'
 
           # The message for the commit
           message: 'Run script/i18n/homogenize-frontmatter.js'
+
+        env:
+          # Disable pre-commit hooks; they don't play nicely with add-and-commit
+          HUSKY: 0
