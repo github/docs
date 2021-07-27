@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Argument `membersOnly: Boolean` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Argument `membersOnly: Boolean` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Field `mentions` was added to object type `Release`",
+          "Field `isPublic` was added to object type `SponsorsListing`",
+          "Field `nextPayoutDate` was added to object type `SponsorsListing`",
+          "Field `sponsorable` was added to object type `SponsorsListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-07-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `SponsorsActivity` was added",
           "Type `SponsorsActivityAction` was added",
           "Type `SponsorsActivityConnection` was added",
