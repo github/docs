@@ -7,16 +7,14 @@ import { defaultThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
 import '../stylesheets/index.scss'
 
-import events from 'javascripts/events'
-import experiment from 'javascripts/experiment'
-import setNextEnv from 'javascripts/set-next-env'
+import events from 'components/lib/events'
+import experiment from 'components/lib/experiment'
 
 type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
   useEffect(() => {
     events()
     experiment()
-    setNextEnv()
   }, [])
 
   return (

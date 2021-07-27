@@ -9,7 +9,7 @@ sections:
     - '`ghe-cluster-config-node-init` would fail during cluster setup if HTTP proxy is enabled.'
     - Pre-receive hooks could encounter an error `Failed to resolve full path of the current executable` due to `/proc` not being mounted on the container.
     - Collectd would not resolve the forwarding destination hostname after the initial startup.
-    - The job that purged stale archived repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
+    - The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
     - Background jobs were being queued to the `spam` queue which were not being processed.
     - The preferred merge method would be reset when retrying after a failed PR merge.
     - Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.
