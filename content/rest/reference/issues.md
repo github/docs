@@ -1,6 +1,6 @@
 ---
 title: Issues
-intro: 'The Issues API enables the authenticated user to list and manage the issues created on different levels of repositories.'
+intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
 redirect_from:
   - /v3/issues
 versions:

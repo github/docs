@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: "The Gitignore API fetches all the available [.gitignore templates](https://github.com/github/gitignore) that can be used to ignore the dependencies from adding in your project's repositories."
+intro: "The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories."
 redirect_from:
   - /v3/gitignore
 versions:
