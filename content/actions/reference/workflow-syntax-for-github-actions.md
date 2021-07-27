@@ -990,6 +990,8 @@ The maximum number of minutes to run the step before killing the process.
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
+
 ## `jobs.<job_id>.strategy`
 
 A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
