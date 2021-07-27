@@ -32,8 +32,12 @@ describe('header', () => {
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
       expect($('[data-testid=language-picker] a[href="/en/"]').text().trim()).toBe('English')
-      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe('简体中文 (Simplified Chinese)')
-      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe('日本語 (Japanese)')
+      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe(
+        '简体中文 (Simplified Chinese)'
+      )
+      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe(
+        '日本語 (Japanese)'
+      )
     })
 
     test('emphasize the current language', async () => {

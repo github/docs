@@ -1,12 +1,11 @@
 import languages from '../lib/languages.js'
 import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
-import allVersions from '../lib/all-versions.js'
+import { allVersions } from '../lib/all-versions.js'
 import { productMap } from '../lib/all-products.js'
 import xPathUtils from '../lib/path-utils.js'
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
 import readJsonFile from '../lib/read-json-file.js'
-import builtAssets from '../lib/built-asset-urls.js'
 import searchVersions from '../lib/search/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
 const activeProducts = Object.values(productMap).filter(
@@ -57,9 +56,6 @@ export default async function contextualize(req, res, next) {
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
   req.context.pages = pageMap
-
-  // JS + CSS asset paths
-  req.context.builtAssets = builtAssets
 
   // Object exposing selected variables to client
   req.context.expose = JSON.stringify({

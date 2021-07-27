@@ -6,9 +6,7 @@ import frontmatter from '../../lib/read-frontmatter.js'
 import { loadPages, loadPageMap } from '../../lib/page-data.js'
 import patterns from '../../lib/patterns.js'
 import loadRedirects from '../../lib/redirects/precompile.js'
-import xAllVersions from '../../lib/all-versions.js'
-
-const allVersions = Object.keys(xAllVersions)
+import { allVersionKeys } from '../../lib/all-versions.js'
 
 // get all content and data files
 const files = ['content', 'data']
@@ -58,7 +56,7 @@ async function main() {
         // remove language code segment
         .replace(patterns.getLanguageCode, '')
         // remove version segment
-        .replace(new RegExp(`/(${allVersions.join('|')})`), '')
+        .replace(new RegExp(`/(${allVersionKeys.join('|')})`), '')
 
       // re-add the fragment after removing any fragment added via the redirect
       // otherwise /v3/git/refs/#create-a-reference will become /rest/reference/git#refs#create-a-reference
