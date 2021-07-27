@@ -13,7 +13,7 @@ topics:
   - Project management
 ---
 
-## Introduction
+## Introduction 
 
 This guide demonstrates how to use {% data variables.product.prodname_github_issues %} to plan and track a piece of work. In this guide, you will create a new issue and add a task list to track sub-tasks. You'll also learn how to add labels, milestones, assignees, and projects to communicate metadata about your issue.
 
@@ -98,3 +98,4 @@ Here are some helpful resources for taking your next steps with {% data variable
 - To learn more about issues, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
 - To learn more about how projects can help you with planning and tracking, see {% ifversion fpt %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" or {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
 - To learn more about using issue templates{% ifversion fpt %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+ 
