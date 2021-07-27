@@ -38,5 +38,5 @@ The nameservers you specify must resolve {% data variables.product.product_locat
 5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
   ```shell
   $ sudo service resolvconf restart
-  $ sudo service sudo service dnsmasq restart
+  $ sudo service dnsmasq restart
   ```
