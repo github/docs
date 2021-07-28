@@ -101,7 +101,7 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 
 ### Code files
 
-- [javascripts/search.js](javascripts/search.js) - The browser-side code that enables search.
+- [components/lib/search.ts](components/lib/search.ts) - The browser-side code that enables search.
 - [lib/search/algolia-client.js](lib/search/algolia-client.js) - A thin wrapper around the [algoliasearch](https://ghub.io/algoliasearch) Node.js module for interacting with the Algolia API.
 - [lib/search/algolia-search-index.js](lib/search/algolia-search-index.js) - A class for generating structured search data from repository content and syncing it with the remote Algolia service. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
 - [script/sync-search-indices.js](script/sync-search-indices.js) - The script used by the Actions workflow to update search indices on our Algolia account. This can also be [run in the development environment](#development).

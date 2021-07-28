@@ -37,7 +37,6 @@ FROM all_deps as builder
 
 ENV NODE_ENV production
 
-COPY javascripts ./javascripts
 COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
@@ -46,7 +45,6 @@ COPY lib ./lib
 # one part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 
-COPY webpack.config.js ./webpack.config.js
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
 
@@ -73,7 +71,6 @@ USER node
 COPY --chown=node:node --from=prod_deps /usr/src/docs/node_modules /usr/src/docs/node_modules
 
 # Copy our front-end code
-COPY --chown=node:node --from=builder /usr/src/docs/dist /usr/src/docs/dist
 COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
 
 # We should always be running in production mode
@@ -87,7 +84,6 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node data ./data
 COPY --chown=node:node includes ./includes
-COPY --chown=node:node layouts ./layouts
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node translations ./translations
