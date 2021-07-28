@@ -46,7 +46,7 @@ body:
       label: Pull Request
       description: Please be sure to complete each of the following
       options:
-        - label: MUST reference this issue, e.g. via `closes #<this issue number>`
+        - label: MUST reference this issue, e.g. via `closes [this issue number]`
           required: true
         - label: MUST pass the automated CI checks
           required: true
