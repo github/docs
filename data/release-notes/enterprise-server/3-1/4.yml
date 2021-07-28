@@ -1,0 +1,34 @@
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - The counts on packages pages were not being incremented when a package was downloaded.
+    - '`ghe-config-apply` would timeout, ask for a prompt or fail for a customer that had {% data variables.product.prodname_secret_scanning %} enabled, and had either disabled or never enabled {% data variables.product.prodname_actions %} on their instance.'
+    - Log files were not reopened after rotation in some cases leading to high disk space usage on instances with high uptime.
+    - Upgrade could fail from older version of {% data variables.product.prodname_ghe_server %} due to a missing job in {% data variables.product.prodname_actions %}.
+    - 'Custom pre-receive hooks could lead to an error like `error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates`.'
+    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
+    - A significant number of 503 errors were logged every time a user visited a repository's `/settings` page if the dependency graph was not enabled.
+    - Internal repositories were only returned when a user had affiliations with the repository through a team or through collaborator status, or queried with the `?type=internal` parameter.
+    - Failed background jobs had unlimited retries which could cause large queue depths.
+    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
+    - |
+      When {% data variables.product.prodname_actions %}  is enabled without running regular scheduled backups, the MSSQL transaction log could grow unbounded and can consume all available space on the appliance's data disk, causing a possible outage.
+
+      If you have configured regularly scheduled MSSQL backups, no further actions is required. Otherwise, if you have {% data variables.product.prodname_actions %} previously enabled, run the following commands after installing this patch.
+
+      ```
+      ghe-actions-console -s Mps -c 'Update-Service -Force'
+      ghe-actions-console -s Token -c 'Update-Service -Force'
+      ghe-actions-console -s Actions -c 'Update-Service -Force'
+      ```
+  changes:
+    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
+  known_issues:
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
