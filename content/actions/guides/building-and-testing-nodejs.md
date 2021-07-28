@@ -268,10 +268,7 @@ steps:
 The following example caches dependencies for pnpm (v6.10+).
 
 ```yaml{:copy}
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
 # NOTE: pnpm caching support requires pnpm version >= 6.10.0
 
