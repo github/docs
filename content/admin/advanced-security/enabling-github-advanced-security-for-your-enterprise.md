@@ -32,6 +32,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
+    - {% data variables.product.prodname_dependabot %}, see "[Enabling alerts for vulnerable dependencies on GitHub Enterprise Server](admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)." 
 
 ## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
@@ -76,34 +77,34 @@ For example, you can enable {% data variables.product.prodname_code_scanning %} 
 1. SSH into {% data variables.product.product_location %}.
 1. Enable feature.
 
-    * Code scanning: 
+    - {% data variables.product.prodname_code_scanning_capc %}: 
 
     ```shell
     ghe-config app.minio.enabled true
   ghe-config app.code-scanning.enabled true
     ```
-    * Secret scanning:
+    - {% data variables.product.prodname_secret_scanning_caps %}:
 
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    * Dependency review:
+    - {% data variables.product.prodname_dependabot %}:
     ```shell
     ghe-config app.github.dependency-graph-enabled true
     ghe-config app.github.vulnerability-alerting-and-settings-enabled true
     ```
 2. Optionally, disable feature.
 
-    * Code scanning: 
+    - {% data variables.product.prodname_code_scanning_capc %}: 
     ```shell
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
     ```
-    * Secret scanning:
+    - {% data variables.product.prodname_secret_scanning_caps %}:
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    * Dependency review:
+    - {% data variables.product.prodname_dependabot %}:
     ```shell
     ghe-config app.github.dependency-graph-enabled false
     ghe-config app.github.vulnerability-alerting-and-settings-enabled false
