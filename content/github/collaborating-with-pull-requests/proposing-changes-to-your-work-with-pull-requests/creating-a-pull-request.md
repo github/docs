@@ -1,3 +1,4 @@
+![_300](https://user-images.githubusercontent.com/87622104/127345646-0215f885-242a-4995-8801-56be96977bfd.jpg)
 ---
 title: Creating a pull request
 intro: 'Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
