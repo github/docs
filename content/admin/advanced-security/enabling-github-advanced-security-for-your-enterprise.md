@@ -74,19 +74,42 @@ You can enable or disable features programmatically on {% data variables.product
 For example, you can enable {% data variables.product.prodname_code_scanning %} with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
 1. SSH into {% data variables.product.product_location %}.
-1. Enable {% data variables.product.prodname_code_scanning %}.
+1. Enable feature.
+
+    * Code scanning: 
+
     ```shell
     ghe-config app.minio.enabled true
-    ghe-config app.code-scanning.enabled true
+  ghe-config app.code-scanning.enabled true
     ```
-2. Optionally, disable {% data variables.product.prodname_code_scanning %}.
+    * Secret scanning:
+
+    ```shell
+    ghe-config app.secret-scanning.enabled true
+    ```
+    * Dependency review:
+    ```shell
+    ghe-config app.github.dependency-graph-enabled true
+    ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```
+2. Optionally, disable feature.
+
+    * Code scanning: 
     ```shell
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
     ```
+    * Secret scanning:
+    ```shell
+    ghe-config app.secret-scanning.enabled false
+    ```
+    * Dependency review:
+    ```shell
+    ghe-config app.github.dependency-graph-enabled false
+    ghe-config app.github.vulnerability-alerting-and-settings-enabled false
+    ```
+
 3. Apply the configuration.
     ```shell
-  ghe-config-apply
-  ```
-
-{% ifversion ghes > 2.22 %}To enable and disable {% data variables.product.prodname_secret_scanning %} in the same way, set: `ghe-config app.secret-scanning.enabled` true or false and apply the configuration.{% endif %}
+    ghe-config-apply
+    ```
