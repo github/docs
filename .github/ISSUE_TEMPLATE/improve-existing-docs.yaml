@@ -8,10 +8,10 @@ body:
     attributes:
       value: |
         **HUBBERS!! THIS IS GITHUB/DOCS OPEN SOURCE REPO. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.**
-        For questions, ask in [Discussions](https://github.com/github/docs/discussions)
-        Before you file an issue read the
-        - [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
 
+        * For questions, ask in [Discussions](https://github.com/github/docs/discussions)
+        * Before you file an issue read the Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
+        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
   - type: checkboxes
     id: terms
     attributes:
@@ -20,10 +20,6 @@ body:
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
-
-  - type: markdown
-    attributes:
-      value: Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
 
   - type: textarea
     attributes:
