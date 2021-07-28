@@ -2,7 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import program from 'commander'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import getOperations from '../rest/utils/get-operations.js'
 
 const dereferencedDir = 'lib/rest/static/dereferenced'

@@ -18,7 +18,7 @@ import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import { supported, next } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'

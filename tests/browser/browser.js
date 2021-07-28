@@ -46,8 +46,8 @@ describe('browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
     await page.setViewport(initialViewport)
   })
-
-  it('works on 404 error page', async () => {
+  // 404 page is statically generated with next, so search is not available, but may possibly be brought back
+  it.skip('works on 404 error page', async () => {
     await page.goto('http://localhost:4001/en/404')
     await page.click('#search-input-container input[type="search"]')
     await page.type('#search-input-container input[type="search"]', 'actions')
@@ -249,10 +249,13 @@ describe('platform specific content', () => {
 })
 
 describe('tool specific content', () => {
-  const pageWithSingleSwitcher = 'http://localhost:4001/en/actions/managing-workflow-runs/manually-running-a-workflow'
-  const pageWithoutSwitcher = 'http://localhost:4001/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
-  const pageWithMultipleSwitcher = 'http://localhost:4001/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
-  
+  const pageWithSingleSwitcher =
+    'http://localhost:4001/en/actions/managing-workflow-runs/manually-running-a-workflow'
+  const pageWithoutSwitcher =
+    'http://localhost:4001/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
+  const pageWithMultipleSwitcher =
+    'http://localhost:4001/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
+
   it('should have a tool switcher if a tool switcher is included', async () => {
     await page.goto(pageWithSingleSwitcher)
     const nav = await page.$$('nav#tool-switcher')
@@ -287,14 +290,14 @@ describe('tool specific content', () => {
   it('should use cli if no defaultTool is specified and if webui is not one of the tools', async () => {
     await page.goto(pageWithMultipleSwitcher)
     const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
-    const selectedTool = await page.evaluate(el => el.textContent, selectedToolElement)
+    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
     expect(selectedTool).toBe('GitHub CLI')
   })
 
   it('should use webui if no defaultTool is specified and if webui is one of the tools', async () => {
     await page.goto(pageWithSingleSwitcher)
     const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
-    const selectedTool = await page.evaluate(el => el.textContent, selectedToolElement)
+    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
     expect(selectedTool).toBe('GitHub.com')
   })
 
@@ -302,7 +305,7 @@ describe('tool specific content', () => {
     // With no user data, the selected tool is GitHub.com
     await page.goto(pageWithSingleSwitcher)
     let selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
-    let selectedTool = await page.evaluate(el => el.textContent, selectedToolElement)
+    let selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
     expect(selectedTool).toBe('GitHub.com')
 
     await page.click(`.tool-switcher[data-tool="cli"]`)
@@ -310,7 +313,7 @@ describe('tool specific content', () => {
     // Revisiting the page after CLI is selected results in CLI as the selected tool
     await page.goto(pageWithSingleSwitcher)
     selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
-    selectedTool = await page.evaluate(el => el.textContent, selectedToolElement)
+    selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
     expect(selectedTool).toBe('GitHub CLI')
   })
 
@@ -329,7 +332,7 @@ describe('tool specific content', () => {
       expect(selectedSwitch).toHaveLength(1)
 
       // content for NOT selected tools is expected to become hidden
-      const otherTools = tools.filter(e => e !== tool)
+      const otherTools = tools.filter((e) => e !== tool)
       for (const other of otherTools) {
         await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
       }
@@ -352,7 +355,7 @@ describe('tool specific content', () => {
       expect(selectedSwitch).toHaveLength(toolSelector.length)
 
       const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
-      const selectedTool = await page.evaluate(el => el.textContent, selectedToolElement)
+      const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
       expect(selectedTool).toBe(toolName)
     }
   })
