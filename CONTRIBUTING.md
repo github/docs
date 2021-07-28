@@ -23,6 +23,8 @@ If you spot something new, open an issue using a [template](https://github.com/g
 
 ### Ready to make a change? Fork the repo
 
+You'll want to [install Git LFS](https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage).
+
 Fork using GitHub Desktop:
 
 - [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop.
