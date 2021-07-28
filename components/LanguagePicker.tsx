@@ -28,6 +28,10 @@ export const LanguagePicker = ({ variant }: Props) => {
         </summary>
         <div>
           {langs.map((lang) => {
+            if (lang.wip) {
+              return null
+            }
+
             return (
               <Link
                 key={lang.code}
@@ -63,6 +67,7 @@ export const LanguagePicker = ({ variant }: Props) => {
           width: unset;
         }
       `}
+      data-testid="language-picker"
     >
       <summary>
         {selectedLang.nativeName || selectedLang.name}
@@ -70,6 +75,10 @@ export const LanguagePicker = ({ variant }: Props) => {
       </summary>
       <Dropdown.Menu direction="sw">
         {langs.map((lang) => {
+          if (lang.wip) {
+            return null
+          }
+
           return (
             <Dropdown.Item key={lang.code}>
               <Link href={router.asPath} locale={lang.code} disableClientTransition={true}>

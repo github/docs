@@ -71,9 +71,9 @@ If you want your app to use non-expiring user-to-server access tokens, you can d
 
 ![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_app %}s using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_app %}s requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 

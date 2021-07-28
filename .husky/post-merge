@@ -1,0 +1,3 @@
+#!/bin/sh
+[ -n "$CI" ] && exit 0
+command -v git-lfs >/dev/null 2>&1 && git lfs post-merge "$@" || { echo >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"; }
