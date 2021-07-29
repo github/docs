@@ -1,19 +1,19 @@
 #!/usr/bin/env node
-import fs from 'fs/promises'
-import path from 'path'
-import program from 'commander'
-import xMkdirp from 'mkdirp'
-import { allVersions } from '../../lib/all-versions.js'
-
-const mkdirp = xMkdirp.sync
-const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
-const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 
 // [start-readme]
 //
 // This script creates the static GraphQL files for a new version.
 //
 // [end-readme]
+
+import fs from 'fs/promises'
+import path from 'path'
+import program from 'commander'
+import mkdirp from 'mkdirp'
+import { allVersions } from '../../lib/all-versions.js'
+
+const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 
 program
   .description('Create GraphQL files in lib/graphql/static based on an existing version.')
@@ -114,7 +114,7 @@ await fs.writeFile(inputObjectsFile, JSON.stringify(inputObjects, null, 2))
 // now create the new version directory in data/graphql
 const srcDir = path.join(graphqlDataDir, oldVersionId)
 const destDir = path.join(graphqlDataDir, newVersionId)
-mkdirp(destDir)
+await mkdirp(destDir)
 
 // copy the files
 const files = await fs.readdir(srcDir)

@@ -1,15 +1,16 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import glob from 'glob'
-import program from 'commander'
-import getOperations from './utils/get-operations.js'
 
 // [start-readme]
 //
 // Run this script to check if OpenAPI files can be decorated successfully.
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import glob from 'glob'
+import program from 'commander'
+import getOperations from './utils/get-operations.js'
 
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')

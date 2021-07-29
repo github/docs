@@ -1,4 +1,17 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// An automated test checks for discrepancies between category directory names and
+// slugified category titles as IDs.
+//
+// If the test fails, a human needs to run this script to update the directory
+// names and add appropriate redirects.
+//
+// **This script is not currently supported on Windows.**
+//
+// [end-readme]
+
 import fs from 'fs'
 import path from 'path'
 import frontmatter from '../lib/read-frontmatter.js'
@@ -13,18 +26,6 @@ const slugger = new GithubSlugger()
 const entities = new XmlEntities()
 
 const contentDir = path.join(process.cwd(), 'content')
-
-// [start-readme]
-//
-// An automated test checks for discrepancies between category directory names and
-// slugified category titles as IDs.
-//
-// If the test fails, a human needs to run this script to update the directory
-// names and add appropriate redirects.
-//
-// **This script is not currently supported on Windows.**
-//
-// [end-readme]
 
 // TODO fix path separators in the redirect
 if (process.platform.startsWith('win')) {

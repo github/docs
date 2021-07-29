@@ -1,13 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs/promises'
-import walk from 'walk-sync'
-import dedent from 'dedent'
-import { difference } from 'lodash-es'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const readme = path.join(__dirname, 'README.md')
 
 // [start-readme]
 //
@@ -15,6 +6,17 @@ const readme = path.join(__dirname, 'README.md')
 // in each script, and adds the comment to `script/README.md`.
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs/promises'
+import walk from 'walk-sync'
+import dedent from 'dedent'
+import { difference } from 'lodash-es'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const readme = path.join(__dirname, 'README.md')
 
 const startComment = 'start-readme'
 const endComment = 'end-readme'

@@ -1,12 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs/promises'
-import path from 'path'
-import program from 'commander'
-import { execSync } from 'child_process'
-import xLanguages from '../lib/languages.js'
-import { getPathWithoutLanguage } from '../lib/path-utils.js'
-
-const languageCodes = Object.keys(xLanguages)
 
 // [start-readme]
 //
@@ -15,6 +7,15 @@ const languageCodes = Object.keys(xLanguages)
 // not require authentication.
 //
 // [end-readme]
+
+import fs from 'fs/promises'
+import path from 'path'
+import program from 'commander'
+import { execSync } from 'child_process'
+import libLanguages from '../lib/languages.js'
+import { getPathWithoutLanguage } from '../lib/path-utils.js'
+
+const languageCodes = Object.keys(libLanguages)
 
 const requiredUrlPrefix = 'https://docs.github.com'
 const purgeCommand = 'curl -s -X PURGE -H "Fastly-Soft-Purge:1"'

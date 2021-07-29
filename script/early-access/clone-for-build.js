@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-import xDotenv from 'dotenv'
-import { execSync } from 'child_process'
-import xRimraf from 'rimraf'
-import fs from 'fs'
-import path from 'path'
-import os from 'os'
 
 // [start-readme]
 //
@@ -14,7 +8,14 @@ import os from 'os'
 //
 // [end-readme]
 
-xDotenv.config()
+import dotenv from 'dotenv'
+import { execSync } from 'child_process'
+import rimraf from 'rimraf'
+import fs from 'fs'
+import path from 'path'
+import os from 'os'
+
+dotenv.config()
 const {
   DOCUBOT_REPO_PAT,
   HEROKU_PRODUCTION_APP,
@@ -27,7 +28,6 @@ if (!DOCUBOT_REPO_PAT) {
   process.exit(0)
 }
 
-const rimraf = xRimraf.sync
 const EA_PRODUCTION_BRANCH = 'main'
 
 // If a branch name is not provided in the environment, attempt to get
@@ -96,7 +96,7 @@ if (!branchExists) {
 }
 
 // Remove any previously cloned copies of the early access repo
-rimraf(earlyAccessCloningDir)
+rimraf.sync(earlyAccessCloningDir)
 
 // Clone the repo
 console.log(`Setting up: ${earlyAccessCloningDir}`)
@@ -109,7 +109,7 @@ execSync(
 console.log(`Using early-access ${environment} branch: '${earlyAccessBranch}'`)
 
 // Remove all existing early access directories from this repo
-destinationDirNames.forEach((key) => rimraf(destinationDirsMap[key]))
+destinationDirNames.forEach((key) => rimraf.sync(destinationDirsMap[key]))
 
 // Move the latest early access source directories into this repo
 destinationDirNames.forEach((dirName) => {
@@ -134,4 +134,4 @@ destinationDirNames.forEach((dirName) => {
 })
 
 // Remove the source content again for good hygiene
-rimraf(earlyAccessCloningDir)
+rimraf.sync(earlyAccessCloningDir)

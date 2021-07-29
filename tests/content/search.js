@@ -1,8 +1,8 @@
 import { dates, supported } from '../../lib/enterprise-server-releases.js'
-import xLanguages from '../../lib/languages.js'
+import libLanguages from '../../lib/languages.js'
 import { namePrefix } from '../../lib/search/config.js'
 import remoteIndexNames from '../../lib/search/cached-index-names.json'
-const languageCodes = Object.keys(xLanguages)
+const languageCodes = Object.keys(libLanguages)
 
 describe('search', () => {
   test('has remote indexNames in every language for every supported GHE version', () => {
