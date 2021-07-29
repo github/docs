@@ -20,6 +20,7 @@ topics:
   - Fundamentals
   - SSH
 ---
+
 ### Sobre o acesso ao shell administrativo
 
 Se tiver acesso por SSH ao shell administrativo, você poderá executar os utilitários de linha de comando do {% data variables.product.prodname_ghe_server %}. O acesso SSH também é útil para solucionar problemas, fazer backups e configurar a replicação. O acesso a SSH administrativa é gerenciado separadamente do acesso SSH do Git e fica acessível apenas pela porta 122.

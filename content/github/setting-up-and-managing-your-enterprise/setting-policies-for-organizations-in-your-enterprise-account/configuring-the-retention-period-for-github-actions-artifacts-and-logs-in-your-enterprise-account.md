@@ -5,13 +5,14 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.23'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: Configure Actions retention
 ---
 {% data reusables.actions.about-artifact-log-retention %}
 

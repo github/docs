@@ -5,13 +5,14 @@ redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
   - /github/authenticating-to-github/countries-where-sms-authentication-is-supported
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - 2fa
+  - 2FA
+shortTitle: Countries supporting SMS
 ---
 If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 
-### Supported countries for SMS authentication
+## Supported countries for SMS authentication
 
 If your country is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
 
@@ -131,6 +132,6 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Venezuela</li>
 </ul>
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"

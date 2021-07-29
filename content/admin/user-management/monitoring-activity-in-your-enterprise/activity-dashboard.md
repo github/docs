@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 ---
@@ -25,11 +25,11 @@ The Activity dashboard provides weekly, monthly, and yearly graphs of the number
 
 ![Activity dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 For more analytics based on data from {% data variables.product.product_name %}, you can purchase {% data variables.product.prodname_insights %}. For more information, see "[About {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
 {% endif %}
 
-### Accessing the Activity dashboard
+## Accessing the Activity dashboard
 
 1. At the top of any page, click **Explore**.
 ![Explore tab](/assets/images/enterprise/settings/ent-new-explore.png)

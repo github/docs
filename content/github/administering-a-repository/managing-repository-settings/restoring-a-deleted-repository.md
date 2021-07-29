@@ -5,13 +5,14 @@ redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+shortTitle: Restore deleted repository
 ---
 Anyone can restore deleted repositories that were owned by their own user account. Organization owners can restore deleted repositories that were owned by the organization.
 
-### About repository restoration
+## About repository restoration
 
 A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/articles/about-forks)."
 
@@ -21,7 +22,7 @@ It can take up to an hour after a repository is deleted before that repository i
 
 Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
 
-### Restoring a deleted repository that was owned by a user account
+## Restoring a deleted repository that was owned by a user account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.repo-tab %}
@@ -29,7 +30,7 @@ Restoring a repository will not restore release attachments or team permissions.
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}
 
-### Restoring a deleted repository that was owned by an organization
+## Restoring a deleted repository that was owned by an organization
 
 
 {% data reusables.profile.access_org %}
@@ -38,6 +39,6 @@ Restoring a repository will not restore release attachments or team permissions.
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}
 
-### Further reading
+## Further reading
 
 - "[Deleting a repository](/articles/deleting-a-repository)"

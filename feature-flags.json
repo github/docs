@@ -1,5 +1,4 @@
 {
   "FEATURE_TEST_TRUE": true,
-  "FEATURE_TEST_FALSE": false,
-  "FEATURE_NEXTJS": false
+  "FEATURE_TEST_FALSE": false
 }

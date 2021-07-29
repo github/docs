@@ -18,15 +18,15 @@ Este guia mostra como configurar seu projeto C# (.NET) em {% data variables.prod
 #### Pré-requisitos
 
 - Você deve ter um projeto C# (.NET) existente em um repositório em {% data variables.product.prodname_dotcom_the_website %}. Se você não tiver um projeto, você poderá tentar este tutorial com o seguinte exemplo: https://github.com/2percentsilk/dotnet-quickstart.
-- You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
+- Você precisa ter {% data variables.product.prodname_codespaces %} habilitado para a sua organização.
 
-### Step 1: Open your project in a codespace
+### Etapa 1: Abra o seu projeto em um codespace
 
-1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
+1. Acesse o repositório do seu projeto. Use o menu suspenso {% octicon "download" aria-label="The download icon" %} **Código** e selecione **Abrir com Codespaces**. Se você não vir esta opção, seu projeto não está disponível para {% data variables.product.prodname_codespaces %}.
 
   ![Botão de abrir com codespaces](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**. ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
+2. Para criar um novo codespace, clique em {% octicon "plus" aria-label="The plus icon" %} **Novo codespace**. ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
 Ao criar um código, seu projeto será criado em uma VM remota dedicada a você. Por padrão, o contêiner para o seu codespace têm várias linguagens e tempos de execução, incluindo .NET. Ele também inclui um conjunto comum de ferramentas, como git, wget, rsync, openssh e nano.
 
@@ -35,20 +35,20 @@ Você pode personalizar o seu codespace ajustando a quantidade de vCPUs e RAM, [
 {% data variables.product.prodname_codespaces %} usa um arquivo denominado `devcontainer.json` para armazenar configurações. Ao iniciar, {% data variables.product.prodname_codespaces %} usa o arquivo para instalar quaisquer ferramentas, dependências ou outro conjunto que possa ser necessário para o projeto. Para obter mais informações, consulte "[Configurar codespaces para o seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
 
-### Step 2: Add a dev container to your codespace from a template
+### Etapa 2: Adicione um contêiner de desenvolvimento ao seu codespace a partir de um modelo
 
 O contêiner de codespaces padrão vem com a versão mais recente do .NET e as ferramentas mais comuns pré-instaladas. No entanto, recomendamos que você configure um contêiner personalizado para que possa personalizar as ferramentas e scripts que são executados como parte da criação do codespace para as necessidades do seu projeto e garantir um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_codespaces %} no seu repositório.
 
 Para configurar seu projeto com um contêiner personalizado, você deverá usar um arquivo `devcontainer.json` para definir o ambiente. Em {% data variables.product.prodname_codespaces %}, você pode adicionar isto a partir de um modelo ou você pode criar o seu próprio. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Configurar codespaces para o seu projeto ](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...** !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+1. Acesse a paleta de comandos (`shift comando P` / `shift control P`) e, em seguida, comece a digitar "dev container". Clique em **Codespaces: Adicionar arquivos de configuração de Contêiner do Desenvolvimento...** !["Codespaces: Adicionar arquivos de configuração de Contêiner de Desenvolvimento..." na paleta de comandos](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 2. Para este exemplo, clique em **C# (.NET)**. Se você precisar de funcionalidades adicionais, você poderá selecionar qualquer contêiner específico para o C# (.NET) ou uma combinação de ferramentas como C# (.NET) e MS SQL. ![Selecione a opção C# (.NET) na lista](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
 3. Clique na versão recomendada do .NET. ![Seleção da versão .NET](/assets/images/help/codespaces/add-dotnet-version.png)
 4. Aceite a opção padrão para adicionar Node.js à sua personalização. ![Adicionar seleção de Node.js](/assets/images/help/codespaces/dotnet-options.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+5. Para reconstruir seu contêiner, acesse a paleta de comandos (`shift command P` / `shift control P`) e, em seguida, comece a digitar "recriar". Click **Codespaces: Rebuild Container**. ![Opção de reconstruir contêiner](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-#### Anatomy of your dev container
+#### Anatomia do seu contêiner de desenvolvimento
 
 A adição do modelo de contêiner de C# (.NET) adiciona uma pasta de contêiner de desenvolvimento `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
 
@@ -125,11 +125,11 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
     - **Variante**: Este arquivo contém apenas um argumento de compilação, que é a versão do .NET Core que queremos usar.
 - **Configurações** - Estas são as configurações de {% data variables.product.prodname_vscode %}.
   - **Terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
-- **Extensions** - These are extensions included by default.
+- **Extensões** - Estas são extensões incluídas por padrão.
   - **ms-dotnettools.csharp** - A extensão Microsoft C# fornece amplo suporte para o desenvolvimento em C#, incluindo funcionalidades como IntelliSense, links, depuração, navegação de código, formatação de código, refatoração, explorador de variáveis, explorador de testes e muito mais.
 - **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente.
 - **postCreateCommand** - Se você quiser executar qualquer coisa depois de parar no seu codespace, isso não estará definido no arquivo Docker como a `Dotnet restore`. Você pode fazer isso aqui.
-- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
+- **remoteUser** - Por padrão, você está executando como usuário do vscode, mas, opcionalmente, você pode definir isso como root.
 
 ##### arquivo Docker
 
@@ -165,7 +165,7 @@ Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do 
 
 1. No Explorador, expanda a pasta `.devcontainer` e selecione o arquivo `devcontainer.json` a partir da árvore para abri-lo.
 
-  !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)
+  !["Codespaces: Reconstruir contêiner" na paleta de comandos](/assets/images/help/codespaces/devcontainers-options.png)
 
 2. Atualize a sua lista de `extensões` no seu arquivo `devcontainer.json` para adicionar algumas extensões úteis ao trabalhar com o seu projeto.
 
@@ -185,25 +185,25 @@ Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do 
 
 4. Para reconstruir seu contêiner e aplicar as alterações do devcontainer.json, acesse a paleta de comandos (`shift comando P` / `shift control P`). Em seguida, comece a digitar "recriar". Click **Codespaces: Rebuild Container**.
 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+  ![Opção de reconstruir contêiner](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-  Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+  A reconstrução dentro do seu codespace garante que as suas alterações funcionem conforme o esperado antes de realizar o commit das alterações no repositório. Se algo falhar, você será colocado em um codespace com um contêiner de recuperação que você pode reconstruir para continuar ajustando o seu contêiner.
 
 5. Verifique se suas alterações foram aplicadas com sucesso verificando se a extensão "Code Spell Checker" foi instalada.
 
     ![Lista de extensões](/assets/images/help/codespaces/dotnet-extensions.png)
 
-### Step 4: Run your application
+### Etapa 4: Execute o seu aplicativo
 
 Na seção anterior, você usou o `postCreateCommand` para instalar um conjunto de pacotes via pip3. Com nossas dependências agora instaladas, podemos executar nosso aplicativo.
 
 1. Execute seu aplicativo pressionando `F5` ou inserindo `dotnet watch run` no seu terminal.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. Quando o seu projeto for iniciado, você deverá ver um alerta no canto inferior direito com uma instrução para conectar-se à porta que seu projeto usa.
 
-  ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+  ![Notificação de encaminhamento de porta](/assets/images/help/codespaces/python-port-forwarding.png)
 
-### Step 5: Commit your changes
+### Etapa 5: Faça commit das suas alterações
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
@@ -212,5 +212,5 @@ Na seção anterior, você usou o `postCreateCommand` para instalar um conjunto 
 Agora você deve estar pronto para começar a desenvolver seu projeto C# (.NET) em {% data variables.product.prodname_codespaces %}. Aqui estão alguns recursos adicionais para cenários mais avançados.
 
 - [Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
+- [Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
 - [Encaminhar portas no seu código](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)

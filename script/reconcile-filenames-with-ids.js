@@ -1,22 +1,23 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import GithubSlugger from 'github-slugger'
+import htmlEntities from 'html-entities'
+import frontmatter from '../lib/read-frontmatter.js'
+import { execSync } from 'child_process'
+import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const slugger = new (require('github-slugger'))()
-const entities = new (require('html-entities').XmlEntities)()
-const frontmatter = require('../lib/read-frontmatter')
-const { execSync } = require('child_process')
-const addRedirectToFrontmatter = require('../lib/redirects/add-redirect-to-frontmatter')
+const slugger = new GithubSlugger()
+const entities = new htmlEntities.XmlEntities()
 
 const contentDir = path.join(process.cwd(), 'content')
 
-const contentFiles = walk(contentDir, { includeBasePath: true, directories: false })
-  .filter(file => {
-    return file.endsWith('.md') &&
-    !file.endsWith('index.md') &&
-    !file.includes('README')
-  })
+const contentFiles = walk(contentDir, { includeBasePath: true, directories: false }).filter(
+  (file) => {
+    return file.endsWith('.md') && !file.endsWith('index.md') && !file.includes('README')
+  }
+)
 
 // [start-readme]
 //
@@ -33,7 +34,7 @@ if (process.platform.startsWith('win')) {
   process.exit()
 }
 
-contentFiles.forEach(oldFullPath => {
+contentFiles.forEach((oldFullPath) => {
   const { data, content } = frontmatter(fs.readFileSync(oldFullPath, 'utf8'))
 
   // skip pages with frontmatter flag

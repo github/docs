@@ -5,12 +5,13 @@ redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
   - /github/authenticating-to-github/associating-an-email-with-your-gpg-key
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Associate email with GPG key
 ---
 {% note %}
 
@@ -29,7 +30,7 @@ If you're using a GPG key that matches your committer identity and your verified
   ```shell
   $ gpg> adduid
   ```
-6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>
@@ -49,7 +50,7 @@ If you're using a GPG key that matches your committer identity and your verified
   ```
 11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
 
-### Further reading
+## Further reading
 
 - "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 - "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"

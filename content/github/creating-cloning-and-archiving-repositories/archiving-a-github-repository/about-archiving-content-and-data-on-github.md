@@ -5,11 +5,12 @@ redirect_from:
   - /articles/about-archiving-content-and-data-on-github
   - /github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
+shortTitle: Archive content & data
 ---
-### Persistence of public repositories
+## Persistence of public repositories
 
 {% data variables.product.product_name %} intends to keep your public repositories available unless you remove them. In some cases, we may make public content unavailable, for example if:
 
@@ -18,7 +19,7 @@ topics:
 
 Academics and researchers can reference this information in data management plans.
 
-### About the {% data variables.product.prodname_archive %}
+## About the {% data variables.product.prodname_archive %}
 
 {% data reusables.repositories.about-github-archive-program %}
 
@@ -28,6 +29,6 @@ Responsible use of archives includes respecting users' privacy. For more informa
 
 You can opt out of the {% data variables.product.prodname_archive %} for your repository. For more information, see "[Opting into or out of the {% data variables.product.prodname_archive %} for your public repository](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)."
 
-### Adding an open source license to increase archivability
+## Adding an open source license to increase archivability
 
 Libraries and researchers may require legal protections to create archives of publicly available content. If you want third parties to consider your work on {% data variables.product.product_name %} for archiving, you can add an [open source license](/articles/open-source-licensing) to your projects. An open source license gives contributors explicit permissions to copy and distribute the material in your repositories.

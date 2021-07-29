@@ -7,11 +7,12 @@ redirect_from:
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
+shortTitle: Request OAuth App approval
 ---
-### Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
+## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
@@ -23,6 +24,6 @@ topics:
 5. After you review the information about requesting {% data variables.product.prodname_oauth_app %} access, click **Request approval from owners**.
 ![Request approval button](/assets/images/help/settings/oauth-access-request-approval.png)
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

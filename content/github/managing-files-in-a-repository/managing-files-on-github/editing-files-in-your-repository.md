@@ -6,11 +6,12 @@ redirect_from:
   - /articles/editing-files-in-your-repository
   - /github/managing-files-in-a-repository/editing-files-in-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Edit your files
 ---
 {% tip %}
 
@@ -34,6 +35,6 @@ topics:
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Further reading
+## Further reading
 
 * "[Editing files in another user's repository](/articles/editing-files-in-another-user-s-repository)"

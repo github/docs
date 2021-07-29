@@ -4,11 +4,12 @@ redirect_from:
   - /articles/rendering-differences-in-prose-documents
   - /github/managing-files-in-a-repository/rendering-differences-in-prose-documents
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Differences in prose
 ---
 Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
 
@@ -34,7 +35,7 @@ You can click {% octicon "file" aria-label="The paper icon" %} to see the change
 
 ![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
 
-### Visualizing attribute changes
+## Visualizing attribute changes
 
 We provide a tooltip
 describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
@@ -42,18 +43,18 @@ another, we'd show a tooltip like this:
 
 ![Rendered Prose attribute changes](/assets/images/help/repository/prose_diff_attributes.png)
 
-### Commenting on changes
+## Commenting on changes
 
 [Commit comments](/articles/commenting-on-differences-between-files) can only
 be added to files within the *source* view, on a line-by-line basis.
 
-### Linking to headers
+## Linking to headers
 
 As with [other rendered prose documents](/articles/about-readmes),
 hovering over a header in your document creates a link icon. You can link readers
 of your rendered prose diff to specific sections.
 
-### Viewing complex diffs
+## Viewing complex diffs
 
 Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
@@ -61,7 +62,7 @@ Some pull requests involve a large number of changes with large, complex documen
 
 You can still use the source view to analyze and comment on changes.
 
-### Viewing HTML elements
+## Viewing HTML elements
 
 We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.product_name %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
 

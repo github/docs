@@ -3,12 +3,12 @@ title: About using MakeCode Arcade with GitHub Classroom
 shortTitle: About using MakeCode Arcade
 intro: 'You can configure MakeCode Arcade as the online IDE for assignments in {% data variables.product.prodname_classroom %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ---
-### About MakeCode Arcade
+## About MakeCode Arcade
 
 MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about online IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an online IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."
 
@@ -20,12 +20,12 @@ For more information about working on MakeCode Arcade, see the [MakeCode Arcade 
 
 MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.product_name %} features like branches and pull requests.
 
-### About submission of assignments with MakeCode Arcade
+## About submission of assignments with MakeCode Arcade
 
 By default, MakeCode Arcade is configured to push to the assignment repository on {% data variables.product.product_location %}. After making progress on an assignment with MakeCode Arcade, students should push changes to {% data variables.product.product_location %} using the {% octicon "mark-github" aria-label="The GitHub mark" %}{% octicon "arrow-up" aria-label="The up arrow icon" %} button at the bottom of the screen.
 
 ![MakeCode Arcade version control functionality](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
 
-### Further reading
+## Further reading
 
 - "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

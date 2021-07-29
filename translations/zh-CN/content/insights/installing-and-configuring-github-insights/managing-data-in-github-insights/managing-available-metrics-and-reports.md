@@ -8,6 +8,7 @@ permissions: 'People with admin permissions to {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 禁用指标后，该指标对于任何用户都不可见，无论它在 {% data variables.product.prodname_insights %} 上哪个位置。
 
 {% data reusables.github-insights.settings-tab %}

@@ -1,19 +1,20 @@
 ---
 title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% ifversion ghes or ghae %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: With multiple authors
 ---
-### Required co-author information
+## Required co-author information
 
 Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their {% data variables.product.product_name %} account.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
 
@@ -29,13 +30,13 @@ For more information, see "[Setting your commit email address](/articles/setting
 
 {% endif %}
 
-### Creating co-authored commits using {% data variables.product.prodname_desktop %}
+## Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
 You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-### Creating co-authored commits on the command line
+## Creating co-authored commits on the command line
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
@@ -64,7 +65,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 
 The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
-### Creating co-authored commits on {% data variables.product.product_name %}
+## Creating co-authored commits on {% data variables.product.product_name %}
 
 After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
 
@@ -78,8 +79,8 @@ After you've made changes in a file using the web editor on {% data variables.pr
 
 The new commit and message will appear on {% data variables.product.product_location %}.
 
-### Further reading
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+## Further reading
+{% ifversion ghes or ghae %}
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
 - "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"

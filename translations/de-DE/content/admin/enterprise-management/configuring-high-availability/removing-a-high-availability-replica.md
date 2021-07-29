@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Infrastructure
 ---
+
 ### Temporäres Stoppen der Replikation
 
 1. Stoppen Sie bei Bedarf, dass ein Replikat der Geo-Replikation den Benutzer-Traffic bedient, indem Sie die Geo DNS-Einträge für das Replikat entfernen.

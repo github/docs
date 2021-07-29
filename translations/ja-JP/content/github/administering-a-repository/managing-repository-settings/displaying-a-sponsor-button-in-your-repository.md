@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### FUNDING ファイルについて
 
 デフォルトブランチの、リポジトリ内の `.github` フォルダにある _FUNDING.yml_ ファイルを編集することで、スポンサーボタンを設定できます。 ボタンには、{% data variables.product.prodname_sponsors %} のスポンサード開発者、外部の資金獲得プラットフォーム、またはカスタムの資金獲得 URL を含めることができます。 {% data variables.product.prodname_sponsors %} の詳細は、「[GitHub Sponsors について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」を参照してください。

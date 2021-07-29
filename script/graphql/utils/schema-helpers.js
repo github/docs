@@ -1,21 +1,22 @@
-const renderContent = require('../../../lib/render-content')
-const graphqlTypes = require('../../../lib/graphql/types')
-const {
-  isScalarType,
-  isObjectType,
-  isInterfaceType,
-  isUnionType,
-  isEnumType,
-  isInputObjectType
-} = require('graphql')
+#!/usr/bin/env node
+import renderContent from '../../../lib/render-content/index.js'
+import fs from 'fs'
+import xGraphql from 'graphql'
+import path from 'path'
+
+const graphqlTypes = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), './lib/graphql/types.json'))
+)
+const { isScalarType, isObjectType, isInterfaceType, isUnionType, isEnumType, isInputObjectType } =
+  xGraphql
 
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
-function addPeriod (string) {
+function addPeriod(string) {
   return string.endsWith('.') ? string : string + '.'
 }
 
-async function getArguments (args, schema) {
+async function getArguments(args, schema) {
   if (!args.length) return
 
   const newArgs = []
@@ -37,59 +38,61 @@ async function getArguments (args, schema) {
   return newArgs
 }
 
-async function getDeprecationReason (directives, schemaMember) {
+async function getDeprecationReason(directives, schemaMember) {
   if (!schemaMember.isDeprecated) return
 
   // it's possible for a schema member to be deprecated and under preview
-  const deprecationDirective = directives.filter(dir => dir.name.value === 'deprecated')
+  const deprecationDirective = directives.filter((dir) => dir.name.value === 'deprecated')
 
   // catch any schema members that have more than one deprecation (none currently)
-  if (deprecationDirective.length > 1) console.log(`more than one deprecation found for ${schemaMember.name}`)
+  if (deprecationDirective.length > 1)
+    console.log(`more than one deprecation found for ${schemaMember.name}`)
 
   return renderContent(deprecationDirective[0].arguments[0].value.value)
 }
 
-function getDeprecationStatus (directives) {
+function getDeprecationStatus(directives) {
   if (!directives.length) return
 
   return directives[0].name.value === 'deprecated'
 }
 
-async function getDescription (rawDescription) {
+async function getDescription(rawDescription) {
   rawDescription = rawDescription.replace(singleQuotesInsteadOfBackticks, '`$1`')
 
   return renderContent(addPeriod(rawDescription))
 }
 
-function getFullLink (baseType, id) {
+function getFullLink(baseType, id) {
   return `/graphql/reference/${baseType}#${id}`
 }
 
-function getId (path) {
+function getId(path) {
   return removeMarkers(path).toLowerCase()
 }
 
 // e.g., given `ObjectTypeDefinition`, get `objects`
-function getKind (type) {
-  return graphqlTypes.find(graphqlType => graphqlType.type === type).kind
+function getKind(type) {
+  return graphqlTypes.find((graphqlType) => graphqlType.type === type).kind
 }
 
-async function getPreview (directives, schemaMember, previewsPerVersion) {
+async function getPreview(directives, schemaMember, previewsPerVersion) {
   if (!directives.length) return
 
   // it's possible for a schema member to be deprecated and under preview
-  const previewDirective = directives.filter(dir => dir.name.value === 'preview')
+  const previewDirective = directives.filter((dir) => dir.name.value === 'preview')
   if (!previewDirective.length) return
 
   // catch any schema members that are under more than one preview (none currently)
-  if (previewDirective.length > 1) console.log(`more than one preview found for ${schemaMember.name}`)
+  if (previewDirective.length > 1)
+    console.log(`more than one preview found for ${schemaMember.name}`)
 
   // an input object's input field may have a ListValue directive that is not relevant to previews
   if (previewDirective[0].arguments[0].value.kind !== 'StringValue') return
 
   const previewName = previewDirective[0].arguments[0].value.value
 
-  const preview = previewsPerVersion.find(p => p.toggled_by.includes(previewName))
+  const preview = previewsPerVersion.find((p) => p.toggled_by.includes(previewName))
   if (!preview) console.error(`cannot find "${previewName}" in graphql_previews.yml`)
 
   return preview
@@ -103,7 +106,7 @@ async function getPreview (directives, schemaMember, previewsPerVersion) {
 // 2. nullable lists: `[foo]`, `[foo!]`
 // 3. non-null lists: `[foo]!`, `[foo!]!`
 // see https://github.com/rmosolgo/graphql-ruby/blob/master/guides/type_definitions/lists.md#lists-nullable-lists-and-lists-of-nulls
-function getType (field) {
+function getType(field) {
   // 1. single items
   if (field.type.kind !== 'ListType') {
     // nullable item, e.g. `license` query has `License` type
@@ -137,7 +140,10 @@ function getType (field) {
     }
 
     // non-null items, e.g. `marketplaceCategories` query has `[MarketplaceCategory!]!` type
-    if (field.type.type.type.kind === 'NonNullType' && field.type.type.type.type.kind === 'NamedType') {
+    if (
+      field.type.type.type.kind === 'NonNullType' &&
+      field.type.type.type.type.kind === 'NamedType'
+    ) {
       return `[${field.type.type.type.type.name.value}!]!`
     }
   }
@@ -145,7 +151,7 @@ function getType (field) {
   console.error(`cannot get type of ${field.name.value}`)
 }
 
-function getTypeKind (type, schema) {
+function getTypeKind(type, schema) {
   type = removeMarkers(type)
 
   const typeFromSchema = schema.getType(type)
@@ -172,13 +178,11 @@ function getTypeKind (type, schema) {
   console.error(`cannot find type kind of ${type}`)
 }
 
-function removeMarkers (str) {
-  return str.replace('[', '')
-    .replace(']', '')
-    .replace(/!/g, '')
+function removeMarkers(str) {
+  return str.replace('[', '').replace(']', '').replace(/!/g, '')
 }
 
-module.exports = {
+export default {
   getArguments,
   getDeprecationReason,
   getDeprecationStatus,
@@ -188,5 +192,5 @@ module.exports = {
   getKind,
   getPreview,
   getType,
-  getTypeKind
+  getTypeKind,
 }

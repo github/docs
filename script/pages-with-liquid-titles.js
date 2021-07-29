@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { loadPages } from '../lib/page-data.js'
+import patterns from '../lib/patterns.js'
 
 // [start-readme]
 //
@@ -7,13 +9,10 @@
 //
 // [end-readme]
 
-const { loadPages } = require('../lib/pages')
-const patterns = require('../lib/patterns')
-
-async function main () {
+async function main() {
   const pages = await loadPages()
   const liquidPages = pages
-    .filter(page => page.title && patterns.hasLiquid.test(page.title))
+    .filter((page) => page.title && patterns.hasLiquid.test(page.title))
     .map(({ relativePath, title }) => {
       return { relativePath, title }
     })
@@ -21,8 +20,7 @@ async function main () {
   console.log(`\n\n${liquidPages.length} pages with liquid titles`)
   console.log(JSON.stringify(liquidPages, null, 2))
 
-  const conditionalPages = liquidPages
-    .filter(page => page.title.includes('{% if'))
+  const conditionalPages = liquidPages.filter((page) => page.title.includes('{% if'))
 
   console.log(`\n\n\n\n${conditionalPages.length} pages with conditionals in their titles`)
   console.log(JSON.stringify(conditionalPages, null, 2))

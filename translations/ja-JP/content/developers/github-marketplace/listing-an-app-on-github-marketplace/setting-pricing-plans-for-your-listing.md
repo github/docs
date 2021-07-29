@@ -19,6 +19,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### 価格プランの設定について
 
 {% data variables.product.prodname_marketplace %} offers several different types of pricing plans. 詳細にな情報については「[{% data variables.product.prodname_marketplace %}の価格プラン](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)」を参照してください。

@@ -8,12 +8,12 @@ export const GuideCard = ({ guide }: Props) => {
   const authorString = `@${authors.join(', @')}`
 
   return (
-    <div className="col-lg-4 col-12 mb-3">
+    <div className="col-lg-4 col-12 mb-4">
       <a
         className="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-text-primary p-5"
         href={guide.href}
       >
-        <h2>{guide.title}</h2>
+        <h2 dangerouslySetInnerHTML={{ __html: guide.title }} />
         <p className="mt-2 mb-4 color-text-tertiary">{guide.intro}</p>
 
         <footer className="d-flex">

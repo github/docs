@@ -13,6 +13,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### パーソナルダッシュボードにアクセスする
 
 パーソナルダッシュボードは、{% data variables.product.product_name %}にサインインしたときに最初に表示されるページです。

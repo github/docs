@@ -1,5 +1,5 @@
 ---
-title: Working with the Apache Maven registry
+title: Trabajar con el registro de Apache Maven
 intro: 'Puedes configurar Apache Maven para publicar paquetes para {% data variables.product.prodname_registry %} y utilizar paquetes almacenados en {% data variables.product.prodname_registry %} como dependencias en un proyecto Java.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -33,7 +33,7 @@ Puedes autenticar en {% data variables.product.prodname_registry %} con Apache M
 
 En la etiqueta `servidores`, agrega una etiqueta `servidor` hijo con una `Id`, reemplazando *USERNAME* con tu nombre de usuario {% data variables.product.prodname_dotcom %} y *Token* con tu token de acceso personal.
 
-En la etiqueta `repositorios`, configura un repositorio al mapear el `Id` del repositorio a la `Id` que agregaste en la etiqueta `servidor` que contiene tus credenciales. Replace {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Dado que las letras mayúsculas no son compatibles, debes usar minúsculas para el propietario del repositorio si el nombre de usuario o el nombre de la organización de {% data variables.product.prodname_dotcom %} contiene letras mayúsculas.
+En la etiqueta `repositorios`, configura un repositorio al mapear el `Id` del repositorio a la `Id` que agregaste en la etiqueta `servidor` que contiene tus credenciales. Reemplaza a {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* con el nombre de host de {% data variables.product.product_location %} y a{% endif %} *OWNER* con el nombre de la cuenta de usuario u organización a la que pertenece el repositorio. Dado que las letras mayúsculas no son compatibles, debes usar minúsculas para el propietario del repositorio si el nombre de usuario o el nombre de la organización de {% data variables.product.prodname_dotcom %} contiene letras mayúsculas.
 
 Si deseas interactuar con múltiples repositorios, puedes agregar cada repositorio para separar hijos del `repositorio` en la etiqueta `repositorios`, asignando la `Id` de cada una a las credenciales en la etiqueta `servidores`.
 
@@ -188,5 +188,5 @@ Para instalar un paquete de Apache Maven desde {% data variables.product.prodnam
 
 ### Leer más
 
-- "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
+- "[Trabajar con el registro de Gradle](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

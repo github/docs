@@ -8,9 +8,9 @@ redirect_from:
   - /articles/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/accessing-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
 ---

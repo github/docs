@@ -5,14 +5,15 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies
   - Security
+shortTitle: Require 2FA
 ---
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organization administrators can require members to have two-factor authentication enabled.
 
@@ -20,7 +21,7 @@ When using LDAP or built-in authentication, two-factor authentication is support
 
 For more information, see "[About two-factor authentication](/github/authenticating-to-github/about-two-factor-authentication)."
 
-### Requirements for enforcing two-factor authentication
+## Requirements for enforcing two-factor authentication
 
 Before you can require organization members and outside collaborators to use 2FA, you must [enable two-factor authentication](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/) for your own personal account.
 
@@ -42,7 +43,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
 
-### Viewing people who were removed from your organization
+## Viewing people who were removed from your organization
 
 To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/) using `reason:two_factor_requirement_non_compliance` in the search field.
 
@@ -59,11 +60,11 @@ To view people who were automatically removed from your organization for non-com
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
 5. Click **Search**.  
 
-### Helping removed members and outside collaborators rejoin your organization
+## Helping removed members and outside collaborators rejoin your organization
 
 If any members or outside collaborators are removed from the organization when you enable required use of two-factor authentication, they'll receive an email notifying them that they've been removed. They should then enable 2FA for their personal account, and contact an organization owner to request access to your organization.
 
-### Further reading
+## Further reading
 
 - "[Viewing whether users in your organization have 2FA enabled](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 - "[Securing your account with two-factor authentication (2FA)](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)"

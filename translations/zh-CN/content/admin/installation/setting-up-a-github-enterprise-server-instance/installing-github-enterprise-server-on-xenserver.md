@@ -10,6 +10,13 @@ versions:
 topics:
   - Enterprise
 ---
+
+{% note %}
+
+  **注意：**XenServer 上对 {% data variables.product.prodname_ghe_server %} 的支持将在 {% data variables.product.prodname_ghe_server %} 3.3 中停止。 更多信息请参阅 [{% data variables.product.prodname_ghe_server %} 3.1 版本说明](/admin/release-notes#3.1.0)
+
+{% endnote %}
+
 ### 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}

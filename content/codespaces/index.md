@@ -4,8 +4,8 @@ beta_product: true
 shortTitle: GitHub Codespaces
 intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:
-  quickstart: /codespaces/quickstart
-  overview: /codespaces/about-codespaces
+  overview: /codespaces/overview
+  quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
   guides:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
@@ -28,16 +28,18 @@ redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
 layout: product-landing
+examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
-  - /about-codespaces
-  - /quickstart
-  - /getting-started-with-codespaces
-  - /setting-up-your-codespace
+  - /overview
+  - /getting-started
+  - /setting-up-your-project-for-codespaces
+  - /customizing-your-codespace
   - /developing-in-codespaces
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
   - /guides
 ---
+

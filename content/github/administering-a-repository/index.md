@@ -3,9 +3,9 @@ title: Administering a repository
 redirect_from:
   - /categories/administering-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -14,5 +14,7 @@ children:
   - /configuring-pull-request-merges
   - /defining-the-mergeability-of-pull-requests
   - /releasing-projects-on-github
-  - /securing-your-repository
+  - /finding-information-in-a-repository
+shortTitle: Administer a repo
 ---
+

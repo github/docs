@@ -3,14 +3,14 @@ title: Renaming a branch
 intro: You can change the name of a branch in a repository.
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  fpt: '*'
+  ghes: '>=3.1'
 topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
 ---
-### About renaming branches
+## About renaming branches
 
 You can rename a branch in a repository on {% data variables.product.product_location %}. For more information about branches, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)."
 
@@ -18,9 +18,9 @@ When you rename a branch on {% data variables.product.product_location %}, any U
 
 Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
 
-{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
+{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the branch name is deprecated and suggesting that users migrate to the new branch name.
 
-### Renaming a branch
+## Renaming a branch
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
@@ -31,7 +31,7 @@ Although file URLs are automatically redirected, raw file URLs are not redirecte
 1. Review the information about local environments, then click **Rename branch**.
     ![Local environment information and "Rename branch" button](/assets/images/help/branch/branch-rename-rename.png)
 
-### Updating a local clone after a branch name changes
+## Updating a local clone after a branch name changes
 
 After you rename a branch in a repository on {% data variables.product.product_name %}, any collaborator with a local clone of the repository will need to update the clone.
 

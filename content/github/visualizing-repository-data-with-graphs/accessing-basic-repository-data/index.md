@@ -1,12 +1,12 @@
 ---
 title: Accessing basic repository data
-intro: 'You can view basic information about a repository, such as the repository''s activity{% if currentVersion == "free-pro-team@latest" %}, traffic,{% endif %} and contribution activity.'
+intro: 'You can view basic information about a repository, such as the repository''s activity{% ifversion fpt %}, traffic,{% endif %} and contribution activity.'
 redirect_from:
   - /articles/accessing-basic-repository-data
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -14,5 +14,6 @@ children:
   - /viewing-a-summary-of-repository-activity
   - /viewing-a-projects-contributors
   - /viewing-traffic-to-a-repository
+shortTitle: Access basic repository data
 ---
 

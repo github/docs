@@ -14,7 +14,6 @@ This directory contains custom Liquid tags for outputting dynamic content. These
 Tags can be used in:
 
 - Articles and TOCs (`content/**/*.md`)
-- Layout files (`layouts/*.html`)
 - Include files (`includes/*.html`)
 
 Tags always expect a single argument, a language agnostic href:
@@ -74,7 +73,7 @@ Each custom tag has the following:
 
 The class and the template should have corresponding names, like `lib/liquid-tags/my-tag.js` and `includes/liquid-tags/my-tag.html`
 
-You must also register the new tag in `lib/render-content.js` with a line like this:
+You must also register the new tag in `lib/render-content/index.js` with a line like this:
 
 ```
 renderContent.liquid.registerTag('my_tag', require('./liquid-tags/my-tag'))

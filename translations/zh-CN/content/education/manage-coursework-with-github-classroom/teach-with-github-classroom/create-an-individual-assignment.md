@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 ---
+
 ### 关于个人作业
 
 {% data reusables.classroom.assignments-individual-definition %}

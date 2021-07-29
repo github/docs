@@ -6,13 +6,13 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% mac %}
 
 GitHub Desktop keyboard shortcuts on macOS
 
-### Site wide shortcuts
+## Site wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -26,7 +26,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>⌘</kbd><kbd>-</kbd> | Zoom out for smaller text and graphics
 |<kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd> | Toggle Developer Tools
 
-### Repositories
+## Repositories
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -43,7 +43,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | Open the repository in your preferred editor tool
 |<kbd>⌘</kbd><kbd>I</kbd> | Create an issue on {% data variables.product.prodname_dotcom %}
 
-### Branches
+## Branches
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -69,7 +69,7 @@ GitHub Desktop keyboard shortcuts on macOS
 
 GitHub Desktop keyboard shortcuts on Windows
 
-### Site wide shortcuts
+## Site wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -80,7 +80,7 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd><kbd>-</kbd> | Zoom out for smaller text and graphics
 |<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | Toggle Developer Tools
 
-### Repositories
+## Repositories
 
 | Keyboard Shortcut | Description
 |-----------|------------
@@ -97,7 +97,7 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>A</kbd> | Open the repository in your preferred editor tool
 |<kbd>Ctrl</kbd><kbd>I</kbd> | Create an issue on {% data variables.product.prodname_dotcom %}
 
-### Branches
+## Branches
 
 | Keyboard shortcut | Description
 |-----------|------------

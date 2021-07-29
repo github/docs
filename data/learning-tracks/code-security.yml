@@ -1,0 +1,110 @@
+# Feature available only on dotcom
+security_advisories:
+  title: 'Fix and disclose a security vulnerability'
+  description: 'Using security advisories to privately fix a reported vulnerability and get a CVE.'
+  featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'
+  guides:
+    - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/security-advisories/creating-a-security-advisory
+    - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
+    - /code-security/security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
+    - /code-security/security-advisories/publishing-a-security-advisory
+    - /code-security/security-advisories/editing-a-security-advisory
+    - /code-security/security-advisories/withdrawing-a-security-advisory
+    - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
+
+# Feature available on dotcom and GHES
+dependabot_alerts:
+  title: 'Get notifications for vulnerable dependencies'
+  description: 'Set up Dependabot to alert you to new vulnerabilities in your dependencies.'
+  guides:
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
+    - '{% ifversion not ghae %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
+
+# Feature available only on dotcom, so articles available hidden to hide the learning track in other versions
+dependabot_security_updates:
+  title: 'Get pull requests to update your vulnerable dependencies'
+  description: 'Set up Dependabot to create pull requests when new vulnerabilities are reported.'
+  guides:
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
+    - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
+    - '{% ifversion fpt %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
+    - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
+
+# Feature available only on dotcom
+dependency_version_updates:
+  title: 'Keep your dependencies up-to-date'
+  description: 'Use Dependabot to check for new releases and create pull requests to update your dependencies.'
+  guides:
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
+    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
+
+# Feature available in all versions from GHES 3.0 up
+secret_scanning:
+  title: 'Scan for secrets'
+  description: 'Set up secret scanning to guard against accidental check-ins of tokens, passwords, and other secrets to your repository.'
+  guides:
+    - /code-security/secret-security/about-secret-scanning
+    - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
+    - /code-security/secret-security/managing-alerts-from-secret-scanning
+
+# Security overview feature available only on dotcom currently, so other articles hidden to hide the learning path in other versions
+security_alerts:
+  title: 'Explore and manage security alerts'
+  description: 'Learn where to find and resolve security alerts.'
+  guides:
+    - /code-security/security-overview/exploring-security-alerts
+    - '{% ifversion fpt %}/code-security/secret-security/managing-alerts-from-secret-scanning {% endif %}'
+    - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
+    - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
+    - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
+
+# Feature available in all versions from GHES 2.22 up
+code_security_actions:
+  title: 'Run code scanning with GitHub Actions'
+  description: 'Check your default branch and every pull request to keep vulnerabilities and errors out of your repository.'
+  featured_track: '{% ifversion ghae or ghes > 2.22 %}true{% else %}false{% endif %}'
+  guides:
+    - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
+    - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
+    - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
+    - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+    - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
+    - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
+
+# Feature available in all versions from GHES 2.22 up
+code_security_integration:
+  title: 'Integrate with code scanning'
+  description: 'Upload code analysis results from third-party systems to GitHub using SARIF.'
+  guides:
+    - /code-security/secure-coding/integrating-with-code-scanning/about-integration-with-code-scanning
+    - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+    - /code-security/secure-coding/integrating-with-code-scanning/sarif-support-for-code-scanning
+    - /rest/reference/code-scanning
+
+# Feature available in all versions from GHES 2.22 up
+code_security_ci:
+  title: 'Run CodeQL code scanning in your CI'
+  description: 'Set up CodeQL within your existing CI and upload results to GitHub code scanning.'
+  guides:
+    - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
+    - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
+    - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
+    - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
+    - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
+    - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
