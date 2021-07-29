@@ -4,7 +4,7 @@ import { namePrefix } from '../../lib/search/config.js'
 import remoteIndexNames from '../../lib/search/cached-index-names.json'
 const languageCodes = Object.keys(xLanguages)
 
-describe('algolia', () => {
+describe('search', () => {
   test('has remote indexNames in every language for every supported GHE version', () => {
     expect(supported.length).toBeGreaterThan(1)
     supported.forEach((version) => {

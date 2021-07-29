@@ -47,7 +47,7 @@ export default function csp(req, res, next) {
 
   const { requestedVersion } = isArchivedVersion(req)
 
-  // Exception for Algolia instantsearch in deprecated Enterprise docs (Node.js era)
+  // Exception for deprecated Enterprise docs (Node.js era)
   if (
     versionSatisfiesRange(requestedVersion, '<=2.19') &&
     versionSatisfiesRange(requestedVersion, '>2.12')
