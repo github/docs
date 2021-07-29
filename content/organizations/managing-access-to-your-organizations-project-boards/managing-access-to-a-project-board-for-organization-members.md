@@ -5,17 +5,18 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Manage access for members
 ---
 
 By default, organization members have write access to their organization's project boards unless organization owners or project board admins set different permissions for specific project boards.
 
-### Setting a baseline permission level for all organization members
+## Setting a baseline permission level for all organization members
 
 {% tip %}
 
@@ -23,8 +24,8 @@ By default, organization members have write access to their organization's proje
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -33,7 +34,7 @@ By default, organization members have write access to their organization's proje
 ![Baseline project board permission options for all organization members](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Click **Save**.
 
-### Further reading
+## Further reading
 
 - "[Managing an individual’s access to an organization project board](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[Managing team access to an organization project board](/articles/managing-team-access-to-an-organization-project-board)"

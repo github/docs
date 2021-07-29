@@ -1,7 +1,7 @@
 ---
 title: アクションの検索とカスタマイズ
 shortTitle: アクションの検索とカスタマイズ
-intro: 'アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。'
+intro: アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -11,9 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - '基本'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -112,10 +112,10 @@ outputs:
 ```
 
 {% if currentVersion == "github-ae@latest" %}
-### Using the actions included with {% data variables.product.prodname_ghe_managed %}
-By default, you can use most of the official
+### {% data variables.product.prodname_ghe_managed %} に含まれているアクションを使用する
+デフォルト設定では、
 
-{% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+{% data variables.product.prodname_ghe_managed %} で公式の {% data variables.product.prodname_dotcom %} 作者のアクションのほとんどを使用できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} でアクションを使用する](/admin/github-actions/using-actions-in-github-ae)」を参照してください。
 {% endif %}
 
 ### ワークフロー ファイルでアクションを使用するのと同じリポジトリ内のアクションの参照

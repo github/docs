@@ -6,12 +6,16 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: reference
 topics:
-  - security
+  - Security advisories
+  - Vulnerabilities
+  - Permissions
+shortTitle: Permission levels
 ---
 
-### Permissions overview
+## Permissions overview
 
 {% data reusables.repositories.security-advisory-admin-permissions %} For more information about adding a collaborator to a security advisory, see "[Adding a collaborator to a security advisory](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
 
@@ -29,7 +33,7 @@ Add and remove credits for a security advisory (see "[Editing a security advisor
 Close the draft security advisory | | X |
 Publish the security advisory (see "[Publishing a security advisory](/github/managing-security-vulnerabilities/publishing-a-security-advisory)") | | X |
 
-### Further reading
+## Further reading
 
 - "[Adding a collaborator to a security advisory](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)"
 - "[Collaborating in a temporary private fork to resolve a security vulnerability](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

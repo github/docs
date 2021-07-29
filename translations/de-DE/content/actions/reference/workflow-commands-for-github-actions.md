@@ -1,7 +1,7 @@
 ---
 title: Workflow-Befehle für GitHub-Aktionen
 shortTitle: Workflow-Befehle
-intro: Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.
+intro: 'Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
@@ -280,11 +280,11 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-        echo "action_state=yellow" >> $GITHUB_ENV
+      echo "action_state=yellow" >> $GITHUB_ENV
   - name: Use the value
     id: step_two
     run: |
-        echo "${{ env.action_state }}" # This will output 'yellow'
+      echo "${{ env.action_state }}" # This will output 'yellow'
 ```
 {% endraw %}
 
@@ -306,9 +306,9 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-        curl https://httpbin.org/json >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      curl https://httpbin.org/json >> $GITHUB_ENV
+      echo 'EOF' >> $GITHUB_ENV
 ```
 
 ### Adding a system path

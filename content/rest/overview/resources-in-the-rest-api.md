@@ -4,48 +4,47 @@ intro: 'Learn how to navigate the resources provided by the {% data variables.pr
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
 
 
 This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
-### Current version
+## Current version
 
 By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/developers/overview/about-githubs-apis) of the REST API.
 We encourage you to [explicitly request this version via the `Accept` header](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
+{% ifversion fpt %}
 
 For information about GitHub's GraphQL API, see the [v4 documentation](/graphql). For information about migrating to GraphQL, see "[Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
-### Schema
+## Schema
 
-{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
+{% ifversion fpt %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
 sent and received as JSON.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-RateLimit-Reset: 1350085394{% ifversion ghes %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif ghae %}
 > X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -60,7 +59,7 @@ All timestamps return in ISO 8601 format:
 
 For more information about timezones in timestamps, see [this section](#timezones).
 
-#### Summary representations
+### Summary representations
 
 When you fetch a list of resources, the response includes a _subset_ of the
 attributes for that resource. This is the "summary" representation of the
@@ -74,7 +73,7 @@ by the [octokit](https://github.com/octokit) organization:
 
     GET /orgs/octokit/repos
 
-#### Detailed representations
+### Detailed representations
 
 When you fetch an individual resource, the response typically includes _all_
 attributes for that resource. This is the "detailed" representation of the
@@ -90,17 +89,17 @@ representation of the repository. Here, we fetch the
 The documentation provides an example response for each API method. The example
 response illustrates all attributes that are returned by that method.
 
-### Authentication
+## Authentication
 
-{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
+{% ifversion ghae %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
-#### Basic authentication
+### Basic authentication
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-#### OAuth2 token (sent in a header)
+### OAuth2 token (sent in a header)
 
 ```shell
 $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
@@ -114,8 +113,8 @@ Note: GitHub recommends sending OAuth tokens using the Authorization header.
 
 Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-#### OAuth2 key/secret
+{% ifversion fpt or ghes %}
+### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -128,19 +127,19 @@ Using your `client_id` and `client_secret` does _not_ authenticate as a user, it
 You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/enterprise/admin/installation/enabling-private-mode)".
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
 
 {% endif %}
 
-#### Failed login limit
+### Failed login limit
 
 Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
-> HTTP/1.1 401 Unauthorized
+> HTTP/2 401
 
 > {
 >   "message": "Bad credentials",
@@ -153,16 +152,16 @@ the API will temporarily reject all authentication attempts for that user
 (including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
-> HTTP/1.1 403 Forbidden
+$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+> HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
-### Parameters
+## Parameters
 
 Many API methods take optional parameters. For `GET` requests, any parameters not
 specified as a segment in the path can be passed as an HTTP query string
@@ -183,27 +182,27 @@ with a Content-Type of 'application/json':
 $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-### Root endpoint
+## Root endpoint
 
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
-$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% ifversion fpt or ghae %}
+-u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-### GraphQL global node IDs
+## GraphQL global node IDs
 
 See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
-### Client errors
+## Client errors
 
 There are three possible types of client errors on API calls that
 receive request bodies:
 
 1. Sending invalid JSON will result in a `400 Bad Request` response.
 
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 35
 
         {"message":"Problems parsing JSON"}
@@ -211,7 +210,7 @@ receive request bodies:
 2. Sending the wrong type of JSON values will result in a `400 Bad
    Request` response.
 
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 40
 
         {"message":"Body should be a JSON object"}
@@ -219,7 +218,7 @@ receive request bodies:
 3. Sending invalid fields will result in a `422 Unprocessable Entity`
    response.
 
-        HTTP/1.1 422 Unprocessable Entity
+        HTTP/2 422
         Content-Length: 149
 
         {
@@ -248,7 +247,7 @@ Error code name | Description
 
 Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
 
-### HTTP redirects
+## HTTP redirects
 
 API v3 uses HTTP redirection where appropriate. Clients should assume that any
 request may result in a redirection. Receiving an HTTP redirection is *not* an
@@ -263,7 +262,7 @@ Status Code | Description
 
 Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
-### HTTP verbs
+## HTTP verbs
 
 Where possible, API v3 strives to use appropriate HTTP verbs for each
 action.
@@ -277,7 +276,7 @@ Verb | Description
 `PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
 `DELETE` |Used for deleting resources.
 
-### Hypermedia
+## Hypermedia
 
 All resources may have one or more `*_url` properties linking to other
 resources.  These are meant to provide explicit URLs so that proper API clients
@@ -301,7 +300,7 @@ gem:
 [rfc]: http://tools.ietf.org/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
-### Pagination
+## Pagination
 
 Requests that return multiple items will be paginated to 30 items by
 default.  You can specify further pages with the `page` parameter. For some
@@ -322,7 +321,7 @@ Instead, you can traverse the results by using the `before` or `after` parameter
 
 For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
 
-#### Link header
+### Link header
 
 {% note %}
 
@@ -352,11 +351,11 @@ Name | Description
 `first` |The link relation for the first page of results.
 `prev` |The link relation for the immediate previous page of results.
 
-### Rate limiting
+## Rate limiting
 
 For API requests using Basic Authentication or OAuth, you can make up to 5,000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether [Basic Authentication](#basic-authentication) or [an OAuth token](#oauth2-token-sent-in-a-header) was used. This means that all OAuth applications authorized by a user share the same quota of 5,000 requests per hour when they authenticate with different tokens owned by the same user.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 For users that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests made using an OAuth token to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 requests per hour.
 
@@ -374,9 +373,8 @@ The returned HTTP headers of any API request show your current rate limit status
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
 > X-RateLimit-Reset: 1372700873
@@ -398,9 +396,8 @@ new Date(1372700873 * 1000)
 If you exceed the rate limit, an error response returns:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> Status: 403 Forbidden
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 0
 > X-RateLimit-Reset: 1377013266
@@ -413,15 +410,14 @@ If you exceed the rate limit, an error response returns:
 
 You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
 
-#### Increasing the unauthenticated rate limit for OAuth applications
+### Increasing the unauthenticated rate limit for OAuth applications
 
 If your OAuth application needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
 > X-RateLimit-Reset: 1372700873
@@ -433,11 +429,11 @@ $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}
 
 {% endnote %}
 
-#### Staying within the rate limit
+### Staying within the rate limit
 
 If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using [conditional requests](#conditional-requests).
 
-#### Abuse rate limits
+### Abuse rate limits
 
 In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in abuse rate limiting.
 
@@ -446,7 +442,7 @@ Abuse rate limits are not intended to interfere with legitimate use of the API. 
 If your application triggers this rate limit, you'll receive an informative response:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Content-Type: application/json; charset=utf-8
 > Connection: close
 
@@ -456,9 +452,9 @@ If your application triggers this rate limit, you'll receive an informative resp
 > }
 ```
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### User agent required
+## User agent required
 
 All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
 header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your
@@ -485,14 +481,14 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-### Conditional requests
+## Conditional requests
 
 Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
 of these headers to make subsequent requests to those resources using the
 `If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
 has not changed, the server will return a `304 Not Modified`.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% tip %}
 
@@ -506,39 +502,36 @@ whenever possible.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/user
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 200 OK
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 ```
 
-### Cross origin resource sharing
+## Cross origin resource sharing
 
 The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
 any origin.
@@ -551,7 +544,7 @@ Here's a sample request sent from a browser hitting
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
-HTTP/1.1 302 Found
+HTTP/2 302
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
@@ -560,7 +553,7 @@ This is what the CORS preflight request looks like:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
-HTTP/1.1 204 No Content
+HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
@@ -568,7 +561,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 Access-Control-Max-Age: 86400
 ```
 
-### JSON-P callbacks
+## JSON-P callbacks
 
 You can send a `?callback` parameter to any GET call to have the results
 wrapped in a JSON function.  This is typically used when browsers want
@@ -649,7 +642,7 @@ A link that looks like this:
 }
 ```
 
-### Timezones
+## Timezones
 
 Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for API calls.
 
@@ -658,13 +651,13 @@ Some requests that create new data, such as creating a new commit, allow you to 
 * [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
 * [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
 
-#### Explicitly providing an ISO 8601 timestamp with timezone information
+### Explicitly providing an ISO 8601 timestamp with timezone information
 
 For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
 
 These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
-#### Using the `Time-Zone` header
+### Using the `Time-Zone` header
 
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
@@ -674,11 +667,11 @@ $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_ur
 
 This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
 
-#### Using the last known timezone for the user
+### Using the last known timezone for the user
 
 If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
 
-#### Defaulting to UTC without other timezone information
+### Defaulting to UTC without other timezone information
 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
 

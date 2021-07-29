@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -19,8 +19,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Selecciona los equipos que deseas eliminar. ![Lista de miembros con dos equipos seleccionados](/assets/images/help/teams/list-of-teams-selected.png)
 5. Sobre la lista de equipos, usa el menú desplegable y haz clic en **Eliminar**. ![Menú desplegable con opción para cambiar la visibilidad del equipo](/assets/images/help/teams/team-bulk-management-options.png)

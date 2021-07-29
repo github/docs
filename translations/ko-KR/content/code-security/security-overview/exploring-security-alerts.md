@@ -4,7 +4,14 @@ intro: 'You can view, filter, and sort security alerts for repositories owned by
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: '다음'
+  github-ae: next
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.security-center.beta %}
@@ -13,7 +20,7 @@ versions:
 
 You can use the security overview for a high-level view of the security status of your organization or to identify problematic repositories that require intervention. At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
-The security overview indicates whether {% data variables.product.prodname_GH_advanced_security %} features are enabled for repositories owned by your organization and consolidates alerts from {% data variables.product.prodname_advanced_security %} features, including {% data variables.product.prodname_code_scanning %} alerts, {% data variables.product.prodname_dependabot_alerts %}, and {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[About securing your repository](/code-security/getting-started/about-securing-your-repository)."
+The security overview indicates whether {% data variables.product.prodname_GH_advanced_security %} features are enabled for repositories owned by your organization and consolidates alerts from {% data variables.product.prodname_advanced_security %} features, including {% data variables.product.prodname_code_scanning %} alerts, {% data variables.product.prodname_dependabot_alerts %}, and {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Securing your repository](/code-security/getting-started/securing-your-repository)" and "[Securing your organization](/code-security/getting-started/securing-your-organization)."
 
 In the security overview, you can view, sort, and filter alerts to understand the security risks in your organization and in specific repositories. You can apply multiple filters to focus on areas of interest. For example, you can identify private repositories that have a high number of {% data variables.product.prodname_dependabot_alerts %} or repositories that have no {% data variables.product.prodname_code_scanning %} alerts.
 
@@ -48,8 +55,8 @@ Organization owners can view the security overview for an organization.
 
 Members of a team can see the security overview for repositories that the team has admin privileges for.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

@@ -5,10 +5,10 @@ redirect_from:
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 This guide describes the information that GitHub needs in order to process a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
@@ -17,7 +17,7 @@ Due to the type of content GitHub hosts (mostly software code) and the way that 
 
 As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
 
-### Before You Start
+## Before You Start
 
 ***Tell the Truth.*** The DMCA requires that you swear to the facts in your copyright complaint *under penalty of perjury*. It is a federal crime to intentionally lie in a sworn declaration. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability — that is, you could get sued for money damages. The DMCA itself [provides for damages](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) against any person who knowingly materially misrepresents that material or activity is infringing.
 
@@ -50,7 +50,7 @@ This list isn't exhaustive, which is why speaking to a legal professional about 
 ***GitHub Isn't The Judge.***
 GitHub exercises little discretion in the process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
 
-### Your Complaint Must ...
+## Your Complaint Must ...
 
 1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Notice."** We won't refuse to process an otherwise complete complaint if you don't include this statement. But we'll know that you haven't read these guidelines and may ask you to go back and do so.
 
@@ -71,11 +71,14 @@ GitHub exercises little discretion in the process other than determining whether
 
 9. **Include your physical or electronic signature.**
 
-### Complaints about Anti-Circumvention Technology
+## Complaints about Anti-Circumvention Technology
 
-The Copyright Act also prohibits the circumvention of technological measures that effectively control access to works protected by copyright. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}, and include specific information about what content violates that prohibition, what technological measures you had in place, and why the content violates the prohibition.
+The Copyright Act also prohibits the circumvention of technological measures that effectively control access to works protected by copyright. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
+1. What the technical measures are;
+2. How they effectively control access to the copyrighted material; and 
+3. How the accused project is designed to circumvent their previously described technological protection measures.
 
-### How to Submit Your Complaint
+## How to Submit Your Complaint
 
 The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
 

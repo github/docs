@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 All members of an organization can view organization insights. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
@@ -26,8 +26,8 @@ You can use organization activity insights to help you better understand how mem
 
 With organization activity insights you can view weekly, monthly, and yearly data visualizations of your entire organization or specific repositories, including issue and pull request activity, top languages used, and cumulative information about where your organization members spend their time.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**. ![Click the organization insights tab](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Optionally, in the upper-right corner of the page, choose to view data for the last **1 week**, **1 month**, or **1 year**. ![Choose time period to view org insights](/assets/images/help/organizations/org-insights-time-period.png)
 5. Optionally, in the upper-right corner of the page, choose to view data for up to three repositories and click **Apply**. ![Choose repositories to view org insights](/assets/images/help/organizations/org-insights-repos.png)
@@ -35,8 +35,8 @@ With organization activity insights you can view weekly, monthly, and yearly dat
 ### Viewing organization dependency insights
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**. ![Insights tab in the main organization navigation bar](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. To view dependencies for this organization, click **Dependencies**. ![Dependencies tab under the main organization navigation bar](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. To view dependency insights for all your {% data variables.product.prodname_ghe_cloud %} organizations, click **My organizations**. ![My organizations button under dependencies tab](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)

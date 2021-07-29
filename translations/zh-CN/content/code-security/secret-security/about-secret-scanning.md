@@ -11,8 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - 仓库
+  - Secret scanning
+  - Advanced Security
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -20,7 +22,7 @@ topics:
 
 如果项目与外部服务通信，您可能使用令牌或私钥进行身份验证。 令牌和私钥是服务提供商可以签发的典型密码。 如果将密码检入仓库，则对仓库具有读取权限的任何人都可以使用该密码以您的权限访问外部服务。 建议将密码存储在项目仓库外部专用的安全位置。
 
-服务提供商可与 {% data variables.product.company_short %} 合作提供其用于扫描的密码格式。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[密码扫描](/developers/overview/secret-scanning)”。
+{% data variables.product.prodname_secret_scanning_caps %} 将在 {% data variables.product.prodname_dotcom %} 仓库中存在的所有分支上扫描整个 Git 历史记录，以查找任何密钥。 服务提供商可与 {% data variables.product.company_short %} 合作提供其用于扫描的密码格式。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
 {% endif %}
 
 {% data reusables.secret-scanning.about-secret-scanning %}
@@ -30,7 +32,7 @@ topics:
 
 {% data variables.product.prodname_secret_scanning_caps %} 自动对公共仓库启用。 当您推送到公共仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码。 如果将私有仓库切换到公共仓库，{% data variables.product.product_name %} 会扫描整个仓库中的密码。
 
-当 {% data variables.product.prodname_secret_scanning %} 检测一组凭据时，我们会通知发布密码的服务提供商。 服务提供商会验证该凭据，然后决定是否应撤销密钥、颁发新密钥或直接与您联系，具体取决于与您或服务提供商相关的风险。 有关如何使用令牌颁发合作伙伴的概述，请参阅“[密码扫描](/developers/overview/secret-scanning)”。
+当 {% data variables.product.prodname_secret_scanning %} 检测一组凭据时，我们会通知发布密码的服务提供商。 服务提供商会验证该凭据，然后决定是否应撤销密钥、颁发新密钥或直接与您联系，具体取决于与您或服务提供商相关的风险。 有关如何使用令牌颁发合作伙伴的概述，请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
 
 {% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。
 
@@ -45,7 +47,9 @@ topics:
 {% data variables.product.prodname_secret_scanning_caps %} 作为 {% data variables.product.prodname_GH_advanced_security %} 的一部分，在组织拥有的所有仓库上可用。 它不适用于用户拥有的仓库。
 {% endif %}
 
-如果您是仓库管理员或组织所有者，您可以为组织拥有的{% if currentVersion == "free-pro-team@latest" %}私有{% endif %}仓库启用 {% data variables.product.prodname_secret_scanning %}。 You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_secret_scanning_caps %} is not available for user-owned private repositories.{% endif %} For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+如果您是仓库管理员或组织所有者，您可以为组织拥有的{% if currentVersion == "free-pro-team@latest" %}私有{% endif %}仓库启用 {% data variables.product.prodname_secret_scanning %}。 您可以对您的所有仓库或您组织内的所有新仓库启用 {% data variables.product.prodname_secret_scanning %}。{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_secret_scanning_caps %} 不适用于用户拥有的私有仓库。{% endif %}更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”和“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}您也可以定义只应用到您的仓库或组织的自定义 {% data variables.product.prodname_secret_scanning %} 模式。 更多信息请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。{% endif %}
 
 将提交推送到启用了 {% data variables.product.prodname_secret_scanning %} 的{% if currentVersion == "free-pro-team@latest" %}私有{% endif %}仓库时，{% data variables.product.prodname_dotcom %} 会扫描提交的内容中是否有密码。
 
@@ -69,13 +73,15 @@ topics:
 
 {% data reusables.secret-scanning.partner-secret-list-private-repo %}
 
+{% if currentVersion ver_lt "enterprise-server@3.2" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 **注：** {% data variables.product.prodname_secret_scanning_caps %} 当前不允许定义自己的模式来检测密码。
 
 {% endnote %}
+{% endif %}
 
 ### 延伸阅读
 
-- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
 - "[保护帐户和数据安全](/github/authenticating-to-github/keeping-your-account-and-data-secure)"

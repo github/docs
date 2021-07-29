@@ -4,11 +4,11 @@ intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to exte
 redirect_from:
   - /v3/versions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
 
 There are two stable versions of the GitHub API: the [REST API](/rest) and the [GraphQL API](/graphql). When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version). For information on using the GraphQL API, see the [v4 docs](/graphql).

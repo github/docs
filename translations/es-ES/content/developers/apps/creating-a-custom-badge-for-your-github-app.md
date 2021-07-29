@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 Predeterminadamente, una GitHUb App tendrá un [identicon](https://github.com/blog/1586-identicons) generado automáticamente. Una insignia de identicon se ve más o menos así:

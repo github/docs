@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 이벤트
+  - Events
 ---
 
 
@@ -45,7 +45,7 @@ The event objects returned from the Events API endpoints have the same structure
 This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
-Status: 200 OK
+HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```

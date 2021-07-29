@@ -23,7 +23,7 @@
         "Mutation.createDeployment"
       ],
       "owning_teams": [
-        "@github/ecosystem-api"
+        "@github/c2c-actions-service"
       ],
       "accept_header": "application/vnd.github.flash-preview+json",
       "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -76,6 +76,148 @@
       ],
       "accept_header": "application/vnd.github.hawkgirl-preview+json",
       "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+    },
+    {
+      "title": "Project event details preview",
+      "description": "This preview adds project, project card, and project column details to project-related issue events.",
+      "toggled_by": "starfox-preview",
+      "toggled_on": [
+        "AddedToProjectEvent.project",
+        "AddedToProjectEvent.projectCard",
+        "AddedToProjectEvent.projectColumnName",
+        "ConvertedNoteToIssueEvent.project",
+        "ConvertedNoteToIssueEvent.projectCard",
+        "ConvertedNoteToIssueEvent.projectColumnName",
+        "MovedColumnsInProjectEvent.project",
+        "MovedColumnsInProjectEvent.projectCard",
+        "MovedColumnsInProjectEvent.projectColumnName",
+        "MovedColumnsInProjectEvent.previousProjectColumnName",
+        "RemovedFromProjectEvent.project",
+        "RemovedFromProjectEvent.projectColumnName"
+      ],
+      "owning_teams": [
+        "@github/github-projects"
+      ],
+      "accept_header": "application/vnd.github.starfox-preview+json",
+      "href": "/graphql/overview/schema-previews#project-event-details-preview"
+    },
+    {
+      "title": "Create content attachments preview",
+      "description": "This preview adds support for creating content attachments.",
+      "toggled_by": "corsair-preview",
+      "toggled_on": [
+        "Mutation.createContentAttachment"
+      ],
+      "owning_teams": [
+        "@github/feature-lifecycle"
+      ],
+      "accept_header": "application/vnd.github.corsair-preview+json",
+      "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
+    },
+    {
+      "title": "Labels preview",
+      "description": "This preview adds support for adding, updating, creating and deleting labels.",
+      "toggled_by": "bane-preview",
+      "toggled_on": [
+        "Mutation.createLabel",
+        "Mutation.deleteLabel",
+        "Mutation.updateLabel"
+      ],
+      "owning_teams": [
+        "@github/pe-pull-requests"
+      ],
+      "accept_header": "application/vnd.github.bane-preview+json",
+      "href": "/graphql/overview/schema-previews#labels-preview"
+    },
+    {
+      "title": "Import project preview",
+      "description": "This preview adds support for importing projects.",
+      "toggled_by": "slothette-preview",
+      "toggled_on": [
+        "Mutation.importProject"
+      ],
+      "owning_teams": [
+        "@github/pe-issues-projects"
+      ],
+      "accept_header": "application/vnd.github.slothette-preview+json",
+      "href": "/graphql/overview/schema-previews#import-project-preview"
+    },
+    {
+      "title": "Team review assignments preview",
+      "description": "This preview adds support for updating the settings for team review assignment.",
+      "toggled_by": "stone-crop-preview",
+      "toggled_on": [
+        "Mutation.updateTeamReviewAssignment",
+        "TeamReviewAssignmentAlgorithm",
+        "Team.reviewRequestDelegationEnabled",
+        "Team.reviewRequestDelegationAlgorithm",
+        "Team.reviewRequestDelegationMemberCount",
+        "Team.reviewRequestDelegationNotifyTeam"
+      ],
+      "owning_teams": [
+        "@github/pe-pull-requests"
+      ],
+      "accept_header": "application/vnd.github.stone-crop-preview+json",
+      "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
+    }
+  ],
+  "ghes-3.1": [
+    {
+      "title": "Access to package version deletion preview",
+      "description": "This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.",
+      "toggled_by": "package-deletes-preview",
+      "toggled_on": [
+        "Mutation.deletePackageVersion"
+      ],
+      "owning_teams": [
+        "@github/pe-package-registry"
+      ],
+      "accept_header": "application/vnd.github.package-deletes-preview+json",
+      "href": "/graphql/overview/schema-previews#access-to-package-version-deletion-preview"
+    },
+    {
+      "title": "Deployments preview",
+      "description": "This preview adds support for deployments mutations and new deployments features.",
+      "toggled_by": "flash-preview",
+      "toggled_on": [
+        "DeploymentStatus.environment",
+        "Mutation.createDeploymentStatus",
+        "Mutation.createDeployment"
+      ],
+      "owning_teams": [
+        "@github/ecosystem-api"
+      ],
+      "accept_header": "application/vnd.github.flash-preview+json",
+      "href": "/graphql/overview/schema-previews#deployments-preview"
+    },
+    {
+      "title": "Merge info preview",
+      "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
+      "toggled_by": "merge-info-preview",
+      "toggled_on": [
+        "PullRequest.canBeRebased",
+        "PullRequest.mergeStateStatus"
+      ],
+      "owning_teams": [
+        "@github/pe-pull-requests"
+      ],
+      "accept_header": "application/vnd.github.merge-info-preview+json",
+      "href": "/graphql/overview/schema-previews#merge-info-preview"
+    },
+    {
+      "title": "Update refs preview",
+      "description": "This preview adds support for updating multiple refs in a single operation.",
+      "toggled_by": "update-refs-preview",
+      "toggled_on": [
+        "Mutation.updateRefs",
+        "GitRefname",
+        "RefUpdate"
+      ],
+      "owning_teams": [
+        "@github/reponauts"
+      ],
+      "accept_header": "application/vnd.github.update-refs-preview+json",
+      "href": "/graphql/overview/schema-previews#update-refs-preview"
     },
     {
       "title": "Project event details preview",
@@ -798,7 +940,7 @@
         "Mutation.createDeployment"
       ],
       "owning_teams": [
-        "@github/ecosystem-api"
+        "@github/c2c-actions-service"
       ],
       "accept_header": "application/vnd.github.flash-preview+json",
       "href": "/graphql/overview/schema-previews#deployments-preview"

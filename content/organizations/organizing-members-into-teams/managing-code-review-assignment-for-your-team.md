@@ -5,23 +5,24 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
 product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Code review assignment
 ---
 
 Team maintainers and organization owners can configure code review assignments.
 
-### About code review assignments
+## About code review assignments
 
 By using code review assignments, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. Code review assignments allow you to decide whether the whole team or just a subset of team members are notified when a team is requested for review.
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals. The individual approvals don't satisfy the requirement for code owner approval in a protected branch. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
 
-### Routing algorithms
+## Routing algorithms
 
 Code review assignments automatically choose and assign reviewers based on one of two possible algorithms. 
 
@@ -29,9 +30,9 @@ The round robin algorithm chooses reviewers based on who's received the least re
 
 The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
 
-### Configuring code review assignment
-{% data reusables.profile.access_profile %}
+## Configuring code review assignment
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. In the left sidebar, click **Code review assignment**
@@ -48,9 +49,9 @@ The load balance algorithm chooses reviewers based on each member's total number
 ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png)
 11. Click **Save changes**.
 
-### Disabling code review assignment
-{% data reusables.profile.access_profile %}
+## Disabling code review assignment
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Select **Enable auto assignment** to remove the checkmark.

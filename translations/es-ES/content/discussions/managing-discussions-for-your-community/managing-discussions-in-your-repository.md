@@ -1,7 +1,7 @@
 ---
 title: Adminsitrar los debates en tu repositorio
-intro: Puedes categorizar, resaltar, transferir o borrar los debates en un repositorio.
-permissions: Los administradores de repositorio y las personas con acceso de escritura o superior en un repositorio pueden administrar los debates del mismo.
+intro: 'Puedes categorizar, resaltar, transferir o borrar los debates en un repositorio.'
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -18,6 +18,8 @@ Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los
 
 Para obtener más información sobre cómo proporcionar un debate sano, consulta la sección "[Moderar los comentarios y conversaciones](/communities/moderating-comments-and-conversations)".
 
+{% data reusables.discussions.you-can-label-discussions %}
+
 ### Prerrequisitos
 
 Para administrar los debates de un repositorio, éste deberá habilitar dicha función. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates para el repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
@@ -31,7 +33,8 @@ También puedes migrar un debate a una categoría diferente.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. En la barra lateral derecha, da clic en {% octicon "pencil" aria-label="The pencil icon" %} **Editar debate fijado**. !["Fijar debate" en la barra lateral derecha del debate](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. En la barra lateral derecha, a la derecha de "Categoría", haz clic en {% octicon "gear" aria-label="The gear icon" %}. ![Icono de "Categoría" con engrane](/assets/images/help/discussions/category-in-sidebar.png)
+1. Haz clic en una categoría. ![Menú desplegable "Cambiar categoría"](/assets/images/help/discussions/change-category-drop-down.png)
 
 ### Fijar un debate
 

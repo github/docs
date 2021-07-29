@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Action 開発
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,6 +20,8 @@ topics:
 このガイドでは、パッケージ化された複合実行ステップアクションを作成して使用するために必要な基本コンポーネントについて学びます。 アクションのパッケージ化に必要なコンポーネントのガイドに焦点を当てるため、アクションのコードの機能は最小限に留めます。 アクションは「Hello World」と「Goodbye」を出力するか、カスタムの名前を指定すると「Hello  [who-to-greet]」と「Goodbye」を出力します。 このアクションは、乱数を `random-number`という出力変数にマップし、 `goodbye.sh`という名前のスクリプトを実行することもします。
 
 このプロジェクトを完了すれば、独自の複合実行ステップ アクションをビルドし、ワークフローでテストする方法を理解できるでしょう。
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### 必要な環境
 
@@ -121,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }}
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

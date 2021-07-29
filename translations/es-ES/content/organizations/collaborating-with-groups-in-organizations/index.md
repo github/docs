@@ -10,13 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
+children:
+  - /about-organizations
+  - /about-your-organization-dashboard
+  - /creating-a-new-organization-from-scratch
+  - /accessing-your-organizations-settings
+  - /about-your-organizations-news-feed
+  - /viewing-insights-for-your-organization
 ---
 
-{% link_in_list /about-organizations %}
-{% link_in_list /about-your-organization-dashboard %}
-{% link_in_list /creating-a-new-organization-from-scratch %}
-{% link_in_list /accessing-your-organizations-settings %}
-{% link_in_list /about-your-organizations-news-feed %}
-{% link_in_list /viewing-insights-for-your-organization %}

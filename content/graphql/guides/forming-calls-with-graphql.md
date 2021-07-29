@@ -5,20 +5,21 @@ redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
+shortTitle: Form calls with GraphQL
 ---
 
-### Authenticating with GraphQL
+## Authenticating with GraphQL
 
 To communicate with the GraphQL server, you'll need an OAuth token with the right scopes.
 
 Follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explorer), request the following scopes:
 
@@ -30,7 +31,7 @@ The following scopes are recommended:
 
 
 ```
-user{% if currentVersion != "github-ae@latest" %}
+user{% ifversion not ghae %}
 public_repo{% endif %}
 repo
 repo_deployment
@@ -43,7 +44,7 @@ read:gpg_key
 
 The API notifies you if a resource requires a specific scope.
 
-### The GraphQL endpoint
+## The GraphQL endpoint
 
 The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
@@ -51,7 +52,7 @@ The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
 The endpoint remains constant no matter what operation you perform.
 
-### Communicating with GraphQL
+## Communicating with GraphQL
 
 Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use cURL or any other HTTP-speaking library.
 
@@ -73,7 +74,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% endtip %}
 
-#### About query and mutation operations
+### About query and mutation operations
 
 The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The [mutation name](/graphql/reference/mutations) determines which modification is executed.
 
@@ -81,7 +82,7 @@ For information about rate limiting, see "[GraphQL resource limitations](/graphq
 
 Queries and mutations share similar forms, with some important differences.
 
-#### About queries
+### About queries
 
 GraphQL queries return only the data you specify. To form a query, you must specify [fields within fields](/graphql/guides/introduction-to-graphql#field) (also known as _nested subfields_) until you return only [scalars](/graphql/reference/scalars).
 
@@ -93,7 +94,7 @@ Queries are structured like this:
 
 For a real-world example, see "[Example query](#example-query)."
 
-#### About mutations
+### About mutations
 
 To form a mutation, you must specify three things:
 
@@ -115,7 +116,7 @@ In the [mutations](/graphql/reference/mutations) reference, the listed _input fi
 
 For a real-world example, see "[Example mutation](#example-mutation)."
 
-### Working with variables
+## Working with variables
 
 [Variables](https://graphql.github.io/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
@@ -175,7 +176,7 @@ This process makes the query argument dynamic. We can now simply change the valu
 
 Using variables as arguments lets you dynamically update values in the `variables` object without changing the query.
 
-### Example query
+## Example query
 
 Let's walk through a more complex query and put this information in context.
 
@@ -249,9 +250,9 @@ Looking at the composition line by line:
 
   The `labels` field has the type [`LabelConnection`](/graphql/reference/objects#labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
 
-You may notice that running this query on the Octocat's {% if currentVersion != "github-ae@latest" %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
+You may notice that running this query on the Octocat's {% ifversion not ghae %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
 
-### Example mutation
+## Example mutation
 
 Mutations often require information that you can only find out by performing a query first. This example shows two operations:
 
@@ -405,11 +406,11 @@ For more information on the difference between enums and strings, see the [offic
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-* [Pagination](https://graphql.github.io/learn/pagination/)
-* [Fragments](https://graphql.github.io/learn/queries/#fragments)
-* [Inline fragments](https://graphql.github.io/learn/queries/#inline-fragments)
-* [Directives](https://graphql.github.io/learn/queries/#directives)
+* [Pagination](https://graphql.org/learn/pagination/)
+* [Fragments](https://graphql.org/learn/queries/#fragments)
+* [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
+* [Directives](https://graphql.org/learn/queries/#directives)

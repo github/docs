@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
+  - Workflows
   - CI
 ---
 
@@ -45,5 +45,5 @@ topics:
 - "[关于持续集成](/articles/about-continuous-integration)"
 - "[管理工作流程运行](/articles/managing-a-workflow-run)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
 {% endif %}

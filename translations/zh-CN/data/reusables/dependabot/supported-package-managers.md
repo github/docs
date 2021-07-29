@@ -11,7 +11,7 @@
 | Composer       | `composer`       | v1, v2                 | **✓** | **✓** |       |
 | Docker         | `docker`         | v1                     | **✓** | **✓** |       |
 | Hex            | `混合`             | v1                     |       | **✓** |       |
-| elm-package    | `elm`            | v0.18, v0.19           | **✓** | **✓** |       |
+| elm-package    | `elm`            | v0.19                  | **✓** | **✓** |       |
 | git submodule  | `gitsubmodule`   | N/A（无版本）               | **✓** | **✓** |       |
 | GitHub Actions | `github-actions` | N/A（无版本）               | **✓** | **✓** |       |
 | Go 模块          | `gomod`          | v1                     | **✓** | **✓** | **✓** |
@@ -23,7 +23,7 @@
 | pipenv         | `pip`            | <= 2018.11.26          |       | **✓** |       |
 | pip-compile    | `pip`            | 5.5.0                  |       | **✓** |       |
 | poetry         | `pip`            | v1                     |       | **✓** |       |
-| Terraform      | `terraform`      | <= 0.11                | **✓** | **✓** |       |
+| Terraform      | `terraform`      | <= 0.15                | **✓** | **✓** |       |
 | yarn           | `npm`            | v1                     | **✓** | **✓** |       |
 
 [1] {% data variables.product.prodname_dependabot %} 不运行 Gradle，但支持更新以下文件：`build.gradle` 和 `build.gradle.kts`（用于 Kotlin 项目）。

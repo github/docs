@@ -4,19 +4,20 @@ intro: You can configure webhooks to alert you when you receive new sponsorships
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+type: how_to
 topics:
-  - 'Webhooks'
-  - 'Events'
-  - 'Open Source'
+  - Webhooks
+  - Events
+  - Open Source
+shortTitle: Webhooks for events
 ---
 
-### About webhooks for events in your sponsored account
+## About webhooks for events in your sponsored account
 
 To monitor changes to your sponsorships, such as cancellations at the end of a pay period, you can create webhooks for your sponsored user or organization account. When you set up a webhook for your sponsored account, you'll receive updates when sponsorships are created, edited, or deleted. For more information, see the [`sponsorship` webhook event](/webhooks/event-payloads/#sponsorship).
 
-### Managing webhooks for events in your sponsored account
+## Managing webhooks for events in your sponsored account
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-webhooks-tab %}

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Visualizar dependencias que monitorea el {% data variables.product.prodname_dependabot %}

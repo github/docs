@@ -5,8 +5,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - sicherheit
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können Mitarbeiter aus Sicherheitshinweisen entfernen.

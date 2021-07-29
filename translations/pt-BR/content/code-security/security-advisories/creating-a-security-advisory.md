@@ -7,8 +7,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - segurança
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode criar uma consultoria de segurança.

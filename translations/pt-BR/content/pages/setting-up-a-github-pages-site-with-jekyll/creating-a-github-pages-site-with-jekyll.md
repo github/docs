@@ -5,13 +5,13 @@ product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
   - /github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
-permissions: 'Pessoas com permissões de administrador para um repositório podem criar um site do {% data variables.product.prodname_pages %} com o Jekyll.'
+permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
@@ -84,10 +84,21 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
    Substitua _GITHUB-PAGES-VERSÃO_ pela última versão compatível do gem de `github-pages`. Você pode encontrar esta versão aqui: "[Versões de dependência](https://pages.github.com/versions/)".
 
    A versão correta do Jekyll será instalada como uma dependência do gem de `github-pages`.
-10. Salve e feche o Gemfile.
+1. Salve e feche o Gemfile.
 11. Na linha de comando, execute `atualização do pacote`.
+11. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
+   ```yml
+   domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+   url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+   baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder   
+  ```
 11. Como alternativa, teste seu site localmente. Para obter mais informações, consulte "[Testar seu site do {% data variables.product.prodname_pages %} localmente com o Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
-12. Adicione seu repositório {% data variables.product.product_name %} como um remoto, substituindo {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ pelo nome de host da sua empresa,{% endif %} _USUÁRIO_ pela conta proprietária do repositório{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} e _REPOSITÓRIO_ pelo nome do repositório.
+12. Add and commit your work.
+```shell
+git add .
+git commit -m 'Initial GitHub pages site with Jekyll'
+```
+14. Adicione seu repositório {% data variables.product.product_name %} como um remoto, substituindo {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ pelo nome de host da sua empresa,{% endif %} _USUÁRIO_ pela conta proprietária do repositório{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} e _REPOSITÓRIO_ pelo nome do repositório.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

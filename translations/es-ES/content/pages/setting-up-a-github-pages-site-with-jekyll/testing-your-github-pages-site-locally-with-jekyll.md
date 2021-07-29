@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 Cualquier persona con permisos de lectura para un repositorio puede probar un sitio de {% data variables.product.prodname_pages %} localmente.
@@ -31,7 +31,7 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
-3. Run `bundle install`.
+3. Ejecuta `bundle install`.
 3. Ejecuta tu sitio Jekyll de forma local.
   ```shell
   $ bundle exec jekyll serve

@@ -5,10 +5,11 @@ redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Upgrade to Corporate ToS
 ---
 
 The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the Corporate Terms of Service.
@@ -24,5 +25,5 @@ The Standard Terms of Service is an agreement between {% data variables.product.
 6. To agree to the Corporate Terms of Service on behalf of your entity, click **Accept terms**.
   ![Accept terms button](/assets/images/help/organizations/accept-terms-button.png)
 
-### Further reading
+## Further reading
 - "[GitHub Corporate Terms of Service](/articles/github-corporate-terms-of-service/)"

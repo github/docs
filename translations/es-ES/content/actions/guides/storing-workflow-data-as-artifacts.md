@@ -5,16 +5,16 @@ intro: Los artefactos te permiten compartir datos entre puestos en un flujo de t
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
-  - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
+  - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
+  - /actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
   - /actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +36,7 @@ Estos son algunos de los artefactos comunes que puedes subir:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% else %}
 
@@ -252,6 +252,6 @@ La ejecución de flujo de trabajo archivará cualquier artefacto que haya genera
 
 ### Leer más
 
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

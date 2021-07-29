@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los mantenedores de equipo y propietarios de organización pueden configurar tareas de revisión de código.
@@ -30,8 +30,8 @@ El algoritmo de round robin (turno rotativo) escoge revisores basándose en qui�
 El algoritmo de balanceo de carga escoge a los revisores basándose en la cantidad total de solicitudes de revisión recientes para cada miembro, y considera el número de revisiones pendientes para cada uno de ellos. El algoritmo de balanceo de carga intenta asegurarse de que cada miembro del equipo revise una cantidad igual de solicitudes de extracción en cualquier periodo de 30 días.
 
 ### Configurar una tarea de revisión de código
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. En la barra lateral izquierda, da clic en **Tarea de revisión de código** ![Botón de tarea de revisión de código](/assets/images/help/teams/review-assignment-button.png)
@@ -43,8 +43,8 @@ El algoritmo de balanceo de carga escoge a los revisores basándose en la cantid
 11. Haz clic en **Guardar cambios**.
 
 ### Inhabilitar una tarea de revisión de código
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Selecciona **Habilitar auto asignación** para eliminar la marca. ![Botón de tarea de revisión de código](/assets/images/help/teams/review-assignment-enable.png)

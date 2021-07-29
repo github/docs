@@ -1,6 +1,6 @@
 ---
 title: 重命名组织
-intro: '如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。'
+intro: 如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。
 redirect_from:
   - /articles/what-happens-when-i-change-my-organization-s-name/
   - /articles/renaming-an-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -35,14 +35,13 @@ topics:
 更改组织的名称后：
 - 指向以前组织资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previousorgname`）将返回 404 错误。 我们建议您更新从其他站点指向组织的链接{% if currentVersion == "free-pro-team@latest" %}，例如 LinkedIn 或 Twitter 个人资料{% endif %}。
 - 使用旧组织名称的 API 请求将返回 404 错误。 我们建议您更新 API 请求中的旧组织名称。
-- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% if currentVersion == "free-pro-team@latest" %}
-- If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[Connecting your identity provider to your organization](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
+- 对于使用旧组织名称的团队，没有自动[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)重定向。{% if currentVersion == "free-pro-team@latest" %}
+- 如果为组织启用了 SAML 单点登录 (SSO)，则必须在身份提供商 (IdP) 上更新 {% data variables.product.prodname_ghe_cloud %} 的应用程序中的组织名称。 如果您不更新 IdP 上的组织名称，组织成员将无法使用您的 IdP 身份验证来访问组织的资源。 更多信息请参阅“[将身份提供程序连接到组织](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)”。{% endif %}
 
 ### 更改组织的名称
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. 在设置页面底部附近的“Rename organization（重命名组织）”下，单击 **Rename Organization（重命名组织）**。 ![重命名组织按钮](/assets/images/help/settings/settings-rename-organization.png)
 
 ### 延伸阅读

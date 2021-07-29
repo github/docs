@@ -135,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        echo "- in ${{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -175,18 +175,18 @@ on:
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Web 挂钩事件有效负载                                       | 活动类型                                                                                         | `GITHUB_SHA` | `GITHUB_REF` |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | 默认分支上的最新提交   | 默认分支         |
+| Web 挂钩事件有效负载                                       | 活动类型                                                          | `GITHUB_SHA` | `GITHUB_REF` |
+| -------------------------------------------------- | ------------------------------------------------------------- | ------------ | ------------ |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | 默认分支上的最新提交   | 默认分支         |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-例如，您可以在检查运行为 `rerequested` 或 `requested_action` 时运行工作流程。
+例如，您可以在检查运行为 `rerequested` 或 `completed` 时运行工作流程。
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -480,7 +480,7 @@ on:
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -676,6 +676,12 @@ on:
   release:
     types: [published]
 ```
+
+{% note %}
+
+**注意：**`prereleased` 类型不会触发从草稿版本预发布，但 `published` 类型会触发。 如果您希望工作流程在稳定*和*预发布时运行，请订阅 `published` 而不是 `released` 和 `prereleased`。
+
+{% endnote %}
 
 #### `状态`
 

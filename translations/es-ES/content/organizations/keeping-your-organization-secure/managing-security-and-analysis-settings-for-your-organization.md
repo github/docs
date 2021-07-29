@@ -1,7 +1,7 @@
 ---
 title: Administrar los parámetros de seguridad y análisis para tu organización
 intro: 'Puedes controlar las características que aseguran y analizan el código en los proyectos de tu organización en {% data variables.product.prodname_dotcom %}.'
-permissions: Los propietarios de la organización pueden administrar los parámetros de seguridad y de análisis para los repositorios en la organización.
+permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de la administración de los parámetros de seguridad y análisis
@@ -23,9 +23,8 @@ topics:
 
 ### Mostrar la configuración de seguridad y de análisis
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
 La página que se muestra te permite habilitar o inhabilitar todas las características de seguridad y de análisis para los repositorios de tu organización.
@@ -50,33 +49,38 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
 
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
 2. Debajo de "Configurar las características de seguridad y análisis", a la derecha de la característica, da clic en **Inhabilitar todo** o **Habilitar todo**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}El control para "{% data variables.product.prodname_GH_advanced_security %}" se encontrará inhabilitado si no tienes plazas disponibles en tu licencia de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+   {% if currentVersion == "free-pro-team@latest" %}
    ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
    {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
-   ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghe.png)
+   {% if currentVersion ver_gt "enterprise-server@3.0" %}
+   ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
+   {% endif %}
+   {% if currentVersion == "enterprise-server@3.0" %}
+   ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/enterprise/3.0/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
    {% if currentVersion == "github-ae@latest" %}
    ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
    {% endif %}
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "enterprise-server@3.0" %}
 3. Opcionalmente, habilita la característica predeterminada para los repositorios nuevos en tu organización.
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+   {% if currentVersion == "free-pro-team@latest" %}
    ![Opción de "Habilitar predeterminadamente" para los repositorios nuevos](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
    {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
-   ![Opción de "Habilitar predeterminadamente" para los repositorios nuevos](/assets/images/help/organizations/security-and-analysis-secret-scanning-enable-by-default-ghe.png)
+   {% if currentVersion == "enterprise-server@3.0" %}
+   ![Opción de "Habilitar predeterminadamente" para los repositorios nuevos](/assets/images/enterprise/3.0/organizations/security-and-analysis-secret-scanning-enable-by-default.png)
    {% endif %}
+   {% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "enterprise-server@3.0" %}
 4. Da clic en **Inhabilitar CARACTERÍSTICA** o en **Habilitar CARACTERÍSTICA** para inhabilitar o habilitar la característica para todos los repositorios en tu organización.
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+   {% if currentVersion == "free-pro-team@latest" %}
    ![Botón para inhabilitar o habilitar la característica](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
-    {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
-   ![Botón para inhabilitar o habilitar la característica](/assets/images/help/organizations/security-and-analysis-enable-secret-scanning-ghe.png)
+   {% endif %}
+   {% if currentVersion == "enterprise-server@3.0" %}
+   ![Botón para inhabilitar o habilitar la característica](/assets/images/enterprise/3.0/organizations/security-and-analysis-enable-secret-scanning.png)
    {% endif %}
    {% endif %}
-   {% if currentVersion == "github-ae@latest" %}
-3. Click **Enable for all eligible repositories** to enable the feature for all the new repositories in your organization that will have {% data variables.product.prodname_advanced_security %} enabled. ![Botón para habilitar característica para todos los repositorios elegibles de la organización](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
+   {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+3. Haz clic en **Habilitar/Inhabilitar todas** o en **Habilitar/Inhabilitar para los repositorios elegibles** para confirmar el cambio. ![Botón para habilitar característica para todos los repositorios elegibles de la organización](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
 
    {% data reusables.security.displayed-information %}
@@ -84,12 +88,15 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
 ### Habilitar o inhabilitar una característica automáticamente cuando se agregan repositorios nuevos
 
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
-2. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories{% if currentVersion == "free-pro-team@latest" %}, or all new private repositories,{% endif %} in your organization.
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+2. Debajo de "Configurar las características de seguridad y análisis", a la derecha de la características, habilita o inhabilitala predeterminadamente para los repositorios nuevos{% if currentVersion == "free-pro-team@latest" %} o para todos los repositorios privados{% endif %} de tu organización.
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
    ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
-   ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/help/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghe.png)
+   {% if currentVersion == "enterprise-server@3.1" %}
+   ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
+   {% endif %}
+   {% if currentVersion == "enterprise-server@3.0" %}
+   ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/enterprise/3.0/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox.png)
    {% endif %}
    {% if currentVersion == "github-ae@latest" %}
    ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
@@ -112,7 +119,7 @@ Para permitir que el {% data variables.product.prodname_dependabot %} acceda a u
 1. Comienza a teclear el nombre del repositorio que quieras permitir. ![Botón para agregar repositorios](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 1. Haz clic en el repositorio que quieras permitir.
 
-1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}. ![Botón "X" para eliminar un repositorio](/assets/images/help/organizations/dependabot-private-repository-list.png)
+1. Opcionalmente, para eliminar un repositorio de la lista, a la derecha de este, haz clic en {% octicon "x" aria-label="The X icon" %}. ![Botón "X" para eliminar un repositorio](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
@@ -122,7 +129,7 @@ Para permitir que el {% data variables.product.prodname_dependabot %} acceda a u
 Puedes administrar el acceso a las características de la {% data variables.product.prodname_GH_advanced_security %} para un repositorio desde su pestaña de "Configuración". Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)". Sin embargo, también puedes inhabilitar las características de la {% data variables.product.prodname_GH_advanced_security %} para un reositorio desde la pestaña de "Configuración" de la organización.
 
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
-1. Para encontrar una lista de todos los repositorios de tu organización que tengan habilitada la {% data variables.product.prodname_GH_advanced_security %}, desplázate hasta la sección "repositorios con {% data variables.product.prodname_GH_advanced_security %}". ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) La tabla lista la cantidad de confirmantes únicos para cada repositorio. Esta es la cantidad de plazas que puedes liberar en tus licencias si eliminas el acceso a {% data variables.product.prodname_GH_advanced_security %}. El tamaño de tu licencia se muestra para las licencias a nivel organizacional. Para obtener más información, consulta la sección "[Acerca de las licencias para {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)".
+1. Para encontrar una lista de todos los repositorios de tu organización que tengan habilitada la {% data variables.product.prodname_GH_advanced_security %}, desplázate hasta la sección "repositorios con {% data variables.product.prodname_GH_advanced_security %}". ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) La tabla lista la cantidad de confirmantes únicos para cada repositorio. Esta es la cantidad de plazas que puedes liberar en tus licencias si eliminas el acceso a {% data variables.product.prodname_GH_advanced_security %}. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información, consulta la sección "[Acerca del licenciamiento para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)".{% else %}Para obtener más información, consulta la sección "[Acerca del licenciamiento para {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)".{% endif %}
 1. Para eliminar el acceso a la {% data variables.product.prodname_GH_advanced_security %} desde un repositorio y liberar plazas que utilice cualquier confirmante y que son únicas en ese repositorio, haz clic en el {% octicon "x" aria-label="X symbol" %} adyacente.
 1. En el diálogo de confirmación, da clic en **Eliminar repositorio** para eliminar el acceso a las características de la {% data variables.product.prodname_GH_advanced_security %}.
 
@@ -136,7 +143,7 @@ Puedes administrar el acceso a las características de la {% data variables.prod
 
 ### Leer más
 
-- [Acerca de asegurar tu repositorio](/github/administering-a-repository/about-securing-your-repository)"
+- "[Asegurar tu repositorio](/code-security/getting-started/securing-your-repository)"
 - "[Acerca del escaneo de secretos](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Mantener tus dependencias actualizadas automáticamente](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}{% if currentVersion != "github-ae@latest" %}
 - "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"

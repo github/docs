@@ -5,10 +5,10 @@ redirect_from:
   - /articles/dmca-counter-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 This guide describes the information that GitHub needs in order to process a counter notice to a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
@@ -17,7 +17,7 @@ If you believe your content on GitHub was mistakenly disabled by a DMCA takedown
 
 As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
 
-### Before You Start
+## Before You Start
 
 ***Tell the Truth.***
 The DMCA requires that you swear to your counter notice *under penalty of perjury*. It is a federal crime to intentionally lie in a sworn declaration. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability—that is, you could get sued for money damages.
@@ -48,7 +48,7 @@ GitHub exercises little discretion in this process other than determining whethe
 ***Additional Resources.***
 If you need additional help, there are many self-help resources online. Lumen has an informative set of guides on [copyright](https://www.lumendatabase.org/topics/5) and [DMCA safe harbor](https://www.lumendatabase.org/topics/14). If you are involved with an open-source project in need of legal advice, you can contact the [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/). And if you think you have a particularly challenging case, non-profit organizations such as the [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) may also be willing to help directly or refer you to a lawyer.
 
-### Your Counter Notice Must...
+## Your Counter Notice Must...
 
 1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Counter Notice."**
 We won't refuse to process an otherwise complete counter notice if you don't include this statement; however, we will know that you haven't read these guidelines and may ask you to go back and do so.
@@ -66,7 +66,7 @@ You may also choose to communicate the reasons why you believe there was a mista
 
 6. **Include your physical or electronic signature.**
 
-### How to Submit Your Counter Notice
+## How to Submit Your Counter Notice
 
 The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
 

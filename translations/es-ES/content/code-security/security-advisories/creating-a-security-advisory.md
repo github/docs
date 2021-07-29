@@ -7,8 +7,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - seguridad
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Cualquier usuario con permisos de administrador puede crear un aviso de seguridad.

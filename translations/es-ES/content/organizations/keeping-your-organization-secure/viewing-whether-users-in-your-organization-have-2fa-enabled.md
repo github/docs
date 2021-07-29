@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% note %}
@@ -18,8 +18,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Para ver los miembros de la organización, incluidos los propietarios de la organización, que han habilitado o inhabilitado la autenticación de dos factores, a la derecha, haz clic en **2FA** y selecciona **Enabled** (Habilitado) o **Disabled** (Inhabilitado). ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
 5. Para ver los colaboradores externos en tu organización, dentro de la pestaña "People" (Personas), haz clic en **Outside collaborators (Colaboradores externos)**. ![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)

@@ -1,6 +1,11 @@
 $gradients: (
-  "-purple-pink": linear-gradient(135deg, var(--color-auto-purple-5) 0%, var(--color-auto-pink-5) 100%),
-/*"-aquamarine-mauve":  linear-gradient(130deg, #3bf0e4 -6.8%, #bca1f7 70%),
+  "-purple-pink":
+    linear-gradient(
+      135deg,
+      var(--color-auto-purple-5) 0%,
+      var(--color-auto-pink-5) 100%
+    ),
+  /*"-aquamarine-mauve":  linear-gradient(130deg, #3bf0e4 -6.8%, #bca1f7 70%),
   "-purple-coral":  linear-gradient(87.54deg, #9867f0 -6.8%, #ed4e50 84.14%),
   "-purple-coral-dark": linear-gradient(92deg, #bca1f7 15%, #e577b4 45%, #ff7170 85%),
   "-coral-yellow":  linear-gradient(267.91deg, #ffe57f 9.35%, #ff7170 96.48%),
@@ -12,9 +17,24 @@ $gradients: (
   "-blue-green": linear-gradient(-70deg, #2188ff 0%, #01a49e 100%),
   "-red-orange": linear-gradient(-70deg, #ed4e50 0%, #f06f00 100%),
   "-blue-purple": linear-gradient(-70deg, #2188ff 0%, #804eda 100%), */
-  "-pink-blue": linear-gradient(90deg, var(--color-auto-pink-5) -50%, var(--color-auto-blue-5) 150%),
-  "-pink-blue-dark": linear-gradient(-70deg, var(--color-auto-pink-3) 0%, var(--color-auto-blue-3) 100%),
-  "-blue-pink": linear-gradient(-70deg, var(--color-auto-blue-5) 0%, var(--color-auto-pink-5) 100%)
+    "-pink-blue":
+    linear-gradient(
+      90deg,
+      var(--color-auto-pink-5) -50%,
+      var(--color-auto-blue-5) 150%
+    ),
+  "-pink-blue-dark":
+    linear-gradient(
+      -70deg,
+      var(--color-auto-pink-3) 0%,
+      var(--color-auto-blue-3) 100%
+    ),
+  "-blue-pink":
+    linear-gradient(
+      -70deg,
+      var(--color-auto-blue-5) 0%,
+      var(--color-auto-pink-5) 100%
+    ),
 ) !default;
 
 @mixin bg-gradient($parent, $gradient) {
@@ -23,8 +43,9 @@ $gradients: (
   }
 }
 
+/*
 @mixin text-gradient($parent, $gradient) {
-  #{$parent} {
+  #{parent} {
     background-image: $gradient;
     -webkit-background-clip: text;
     background-clip: text;
@@ -32,6 +53,7 @@ $gradients: (
     color: transparent;
   }
 }
+*/
 
 $border-width: 2px;
 @mixin border-gradient($parent, $gradient) {
@@ -71,9 +93,11 @@ $border-width: 2px;
   @include bg-gradient(".bg-gradient-#{$gradient}", $value);
 }
 
+/*
 @each $gradient, $value in $gradients {
-  @include text-gradient(".text-gradient-#{$gradient}", $value);
+  @include text-gradient(".text-gradient-#{gradient}", $value);
 }
+*/
 
 @each $gradient, $value in $gradients {
   @include border-gradient(".border-gradient-#{$gradient}", $value);

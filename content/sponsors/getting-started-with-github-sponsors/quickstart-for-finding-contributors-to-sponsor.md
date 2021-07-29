@@ -1,14 +1,15 @@
 ---
 title: Quickstart for finding contributors to sponsor
-intro: 'Learn some best practices for finding open source contributors to sponsor.'
+intro: Learn some best practices for finding open source contributors to sponsor.
 versions:
-  free-pro-team: '*'
-type: 'quick_start'
+  fpt: '*'
+type: quick_start
 topics:
-  - 'Open Source'
+  - Open Source
+shortTitle: Quickstart
 ---
 
-### Explore projects you depend on
+## Explore projects you depend on
 
 As you consider where to find open source contributors to sponsor, consider starting at https://github.com/sponsors/community.
 
@@ -20,11 +21,11 @@ You can also toggle which of your accounts to view results for and further filte
 
 ![Search options on sponsors community search page](/assets/images/help/sponsors/sponsors-search-options.png)
 
-### Explore whom others sponsor
+## Explore whom others sponsor
 
 You can see whom a user or organization sponsors on their {% data variables.product.prodname_dotcom %} profile page.
 
-### Consider how you benefit from different contributions
+## Consider how you benefit from different contributions
 
 Consider whether you benefit from the work of open source contributions, such as:
  - Documentation
@@ -42,10 +43,10 @@ For more information on different types of open source contributions, see the [O
 
 You can check if contributors you've benefited from have {% data variables.product.prodname_sponsors %} profiles by using search at https://github.com/sponsors/community.
 
-### Search for a specific project or contributor
+## Search for a specific project or contributor
 
 At https://github.com/sponsors/community, you can search by ecosystem, most used, recently updated, and more. You can filter search results for your personal user account or for organizations that you're a member of.
 
-### Next steps
+## Next steps
 
 For more information on starting your sponsorship, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."

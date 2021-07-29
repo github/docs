@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - セキュリティ
+  - Security advisories
+  - Vulnerabilities
 ---
 
 誤ってセキュリティアドバイザリを公開した場合は、{% data variables.contact.contact_support %} に連絡するとセキュリティアドバイザリを撤回できます。

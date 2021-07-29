@@ -6,14 +6,15 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - pages
+  - Pages
+shortTitle: Secure site with HTTPS
 ---
 
 People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.
 
-### About HTTPS and {% data variables.product.prodname_pages %}
+## About HTTPS and {% data variables.product.prodname_pages %}
 
 All {% data variables.product.prodname_pages %} sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" and "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)."
 
@@ -21,7 +22,7 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-### Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
+## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -29,7 +30,7 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
   ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
 
-### Resolving problems with mixed content
+## Resolving problems with mixed content
 
 If you enable HTTPS for your {% data variables.product.prodname_pages %} site but your site's HTML still references images, CSS, or JavaScript over HTTP, then your site is serving *mixed content*. Serving mixed content may make your site less secure and cause trouble loading assets.
 
@@ -47,7 +48,7 @@ Assets are commonly found in the following locations:
 
 {% endtip %}
 
-#### Examples of assets referenced in an HTML file
+### Examples of assets referenced in an HTML file
 
 | Asset type | HTTP                                      | HTTPS                             |
 |:----------:|:-----------------------------------------:|:---------------------------------:|

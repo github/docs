@@ -13,6 +13,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 

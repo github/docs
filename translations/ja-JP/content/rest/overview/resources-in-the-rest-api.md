@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -34,11 +34,10 @@ JSON として送受信されます。
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
@@ -127,7 +126,7 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
-> HTTP/1.1 401 Unauthorized
+> HTTP/2 401
 
 > {
 >   "message": "Bad credentials",
@@ -140,7 +139,7 @@ API は、無効な認証情報を含むリクエストを短期間に複数回�
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}"
@@ -182,21 +181,21 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 1. 無効なJSONを送信すると、`400 Bad Request` レスポンスが返されます。
    
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 35
        
         {"message":"Problems parsing JSON"}
 
 2. 間違ったタイプの JSON 値を送信すると、`400 Bad Request` レスポンスが返されます。
    
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 40
        
         {"message":"Body should be a JSON object"}
 
 3. 無効なフィールドを送信すると、`422 Unprocessable Entity` レスポンスが返されます。
    
-        HTTP/1.1 422 Unprocessable Entity
+        HTTP/2 422
         Content-Length: 149
        
         {
@@ -212,13 +211,13 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 すべてのエラーオブジェクトにはリソースとフィールドのプロパティがあるため、クライアントは問題の内容を認識することができます。  また、フィールドの問題点を知らせるエラーコードもあります。  発生する可能性のある検証エラーコードは次のとおりです。
 
-| エラーコード名          | 説明                                                                          |
-| ---------------- | --------------------------------------------------------------------------- |
-| `missing`        | リソースが存在しません。                                                                |
-| `missing_field`  | リソースの必須フィールドが設定されていません。                                                     |
-| `invalid`        | フィールドのフォーマットが無効です。  Review the documentation for more specific information. |
-| `already_exists` | 別のリソースに、このフィールドと同じ値があります。  これは、一意のキー（ラベル名など）が必要なリソースで発生する可能性があります。          |
-| `unprocessable`  | 入力が無効です。                                                                    |
+| エラーコード名          | 説明                                                                 |
+| ---------------- | ------------------------------------------------------------------ |
+| `missing`        | リソースが存在しません。                                                       |
+| `missing_field`  | リソースの必須フィールドが設定されていません。                                            |
+| `invalid`        | フィールドのフォーマットが無効です。  詳細については、ドキュメントを参照してください。                       |
+| `already_exists` | 別のリソースに、このフィールドと同じ値があります。  これは、一意のキー（ラベル名など）が必要なリソースで発生する可能性があります。 |
+| `unprocessable`  | 入力が無効です。                                                           |
 
 リソースはカスタム検証エラー（`code` が `custom`）を送信する場合もあります。 カスタムエラーには常にエラーを説明する `message` フィールドがあり、ほとんどのエラーには、エラーの解決に役立つ可能性があるコンテンツを指す `documentation_url` フィールドも含まれます。
 
@@ -237,14 +236,14 @@ API v3 は、必要に応じて HTTP リダイレクトを使用します。 ク
 
 API v3 は、可能な限り各アクションに適切な HTTPメソッドを使用しようとします。
 
-| メソッド     | 説明                                                                                                                                                               |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | HTTP ヘッダ情報のみを取得するために、任意のリソースに対して発行できます。                                                                                                                          |
-| `GET`    | リソースを取得するために使用します。                                                                                                                                               |
-| `POST`   | リソースを作成するために使用します。                                                                                                                                               |
-| `PATCH`  | 部分的な JSON データでリソースを更新するために使用します。 たとえば、Issue リソースには `title` と `body` の属性があります。 A `PATCH` request may accept one or more of the attributes to update the resource. |
-| `PUT`    | リソースまたはコレクションを置き換えるために使用します。 `body` 属性のない `PUT` リクエストでは、必ず `Content-Length` ヘッダをゼロに設定してください。                                                                     |
-| `DELETE` | リソースを削除するために使用します。                                                                                                                                               |
+| メソッド     | 説明                                                                                                                            |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `HEAD`   | HTTP ヘッダ情報のみを取得するために、任意のリソースに対して発行できます。                                                                                       |
+| `GET`    | リソースを取得するために使用します。                                                                                                            |
+| `POST`   | リソースを作成するために使用します。                                                                                                            |
+| `PATCH`  | 部分的な JSON データでリソースを更新するために使用します。 たとえば、Issue リソースには `title` と `body` の属性があります。 `PATCH`リクエストは、リソースを更新するための1つ以上の属性を受け付けることがあります。 |
+| `PUT`    | リソースまたはコレクションを置き換えるために使用します。 `body` 属性のない `PUT` リクエストでは、必ず `Content-Length` ヘッダをゼロに設定してください。                                  |
+| `DELETE` | リソースを削除するために使用します。                                                                                                            |
 
 ### ハイパーメディア
 
@@ -316,7 +315,7 @@ Basic 認証または OAuth を使用する API リクエストの場合、1 時
 
 {% endif %}
 
-When using the built-in `GITHUB_TOKEN` in GitHub Actions, the rate limit is 1,000 requests per hour per repository. For organizations that belong to a GitHub Enterprise Cloud account, this limit is 15,000 requests per hour per repository.
+ビルトインの`GITHUB_TOKEN`をGitHub Actionsで使う場合、レート制限はリポジトリごとに1時間あたり1,000リクエストです。 GitHub Enterprise Cloudアカウントに属するOrganizationでは、この制限はリポジトリごとに1時間あたり15,000リクエストです。
 
 認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 認証されていないリクエストは、リクエストを行っているユーザではなく、発信元の IP アドレスに関連付けられます。
 
@@ -328,9 +327,8 @@ API リクエストの返された HTTP ヘッダは、現在のレート制限�
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
 > X-RateLimit-Reset: 1372700873
@@ -352,9 +350,8 @@ new Date(1372700873 * 1000)
 レート制限を超えると、次のようなエラーレスポンスが返されます。
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> Status: 403 Forbidden
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 0
 > X-RateLimit-Reset: 1377013266
@@ -373,9 +370,8 @@ OAuth アプリケーションが認証されていない呼び出しをより�
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
 > X-RateLimit-Reset: 1372700873
@@ -400,7 +396,7 @@ Basic 認証または OAuth を使用してレート制限を超えた場合、A
 アプリケーションがこのレート制限をトリガーすると、次のような有益なレスポンスを受け取ります。
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Content-Type: application/json; charset=utf-8
 > Connection: close
 
@@ -453,32 +449,29 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/user
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 200 OK
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
@@ -493,7 +486,7 @@ API は、任意のオリジンからの AJAX リクエストに対して、オ�
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
-HTTP/1.1 302 Found
+HTTP/2 302
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
@@ -502,7 +495,7 @@ CORS プリフライトリクエストは次のようになります。
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
-HTTP/1.1 204 No Content
+HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE

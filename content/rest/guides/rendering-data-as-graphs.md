@@ -5,11 +5,11 @@ redirect_from:
   - /guides/rendering-data-as-graphs/
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
  
 
@@ -24,7 +24,7 @@ guide before starting this example. You can find the complete source code for th
 
 Let's jump right in!
 
-### Setting up an OAuth application
+## Setting up an OAuth application
 
 First, [register a new application][new oauth application] on {% data variables.product.product_name %}. Set the main and callback
 URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by
@@ -79,7 +79,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### Fetching repository information
+## Fetching repository information
 
 This time, in order to talk to the {% data variables.product.product_name %} API, we're going to use the [Octokit
 Ruby library][Octokit]. This is much easier than directly making a bunch of
@@ -136,7 +136,7 @@ So far, so good, but not very human-friendly. A visualization
 would be great in helping us understand how these language counts are distributed. Let's feed
 our counts into D3 to get a neat bar graph representing the popularity of the languages we use.
 
-### Visualizing language counts
+## Visualizing language counts
 
 D3.js, or just D3, is a comprehensive library for creating many kinds of charts, graphs, and interactive visualizations.
 Using D3 in detail is beyond the scope of this guide, but for a good introductory article,
@@ -249,7 +249,7 @@ As the "D3 for Mortals" guide suggests, this isn't necessarily the best use of
 D3. But it does serve to illustrate how you can use the library, along with Octokit,
 to make some really amazing things.
 
-### Combining different API calls
+## Combining different API calls
 
 Now it's time for a confession: the `language` attribute within repositories
 only identifies the "primary" language defined. That means that if you have
@@ -372,7 +372,7 @@ arguments to `drawTreemap` above, to get all the information to show up properly
 [sinatra auth github]: https://github.com/atmos/sinatra_auth_github
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html 
 [language API]: /rest/reference/repos#list-repository-languages
 [simple tree map]: http://2kittymafiasoftware.blogspot.com/2011/09/simple-treemap-visualization-with-d3.html
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs

@@ -6,11 +6,11 @@ redirect_from:
   - /articles/disabling-wikis
   - /github/building-a-strong-community/disabling-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
 ---
 
 When you turn off a wiki, the content is hidden, but not erased. If you choose to re-enable wikis later, your previous pages will be restored.
@@ -20,6 +20,6 @@ When you turn off a wiki, the content is hidden, but not erased. If you choose t
 3. Under Features, unselect **Wiki**.
   ![Wiki disable checkbox](/assets/images/help/wiki/wiki_enable_disable.png)
 
-### Further reading
+## Further reading
 
 - "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"

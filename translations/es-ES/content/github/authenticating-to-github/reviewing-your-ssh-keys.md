@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) para garantizar que un atacante no tenga más acceso a tus repositorios. También puedes aprobar llaves SSH existentes que sean válidas.

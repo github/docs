@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization owners can manage default labels for repositories in the organization.
@@ -19,9 +19,8 @@ Default labels are included in every new repository in your organization, but an
 
 ### Creating a default label
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -35,9 +34,8 @@ Default labels are included in every new repository in your organization, but an
 
 ### Editing a default label
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -51,9 +49,8 @@ Default labels are included in every new repository in your organization, but an
 
 ### Deleting a default label
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}

@@ -15,7 +15,7 @@
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_github_container_registry %} service at `ghcr.io`.
+3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `ghcr.io`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

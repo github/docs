@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Esta guía describe la información que GitHub necesita para procesar una solicitud de retiro de DMCA. Si tienes preguntas más generales sobre qué es la DMCA o cómo procesa GitHub las solicitudes de retiro de DMCA, por favor revisa nuestra [política de retiro de DMCA](/articles/dmca-takedown-policy).
@@ -72,7 +72,10 @@ Esta lista no es exhaustiva, por lo que hablar con un profesional legal sobre tu
 
 ### Quejas sobre Tecnología de Anti Elusión
 
-La Ley de Derechos de Autor también prohíbe la elusión de medidas tecnológicas que controlen eficazmente el acceso a las obras protegidas por los derechos de autor. Si crees que el contenido alojado en GitHub viola esta prohibición, por favor envíanos un informe a través de nuestro {% data variables.contact.contact_dmca %}, e incluye información específica sobre qué contenido viola esa prohibición, qué medidas tecnológicas aplicas y por qué el contenido viola la prohibición.
+La Ley de Derechos de Autor también prohíbe la elusión de medidas tecnológicas que controlen eficazmente el acceso a las obras protegidas por los derechos de autor. Si crees que el contenido que se hospeda en GitHub viola esta prohibición, por favor, envíanos un reporte mediante nuestro {% data variables.contact.contact_dmca %}. Un reclamo de evasión debe incluir los siguientes detalles sobre las medidas técnicas puestas en marcha y sobre la forma en la que el proyecto acusado las evade. Específicamente, la notificación a GitHub debe incluir las declaraciones que describan:
+1. Cuáles son las medidas técnicas;
+2. Cómo controlan el acceso al material con derechos de autor de forma efectiva; y
+3. Cómo se diseñó el proyecto actusado para evadir las medidas de protección tecnológica que se describen con anterioridad.
 
 ### Como presentar tu queja
 

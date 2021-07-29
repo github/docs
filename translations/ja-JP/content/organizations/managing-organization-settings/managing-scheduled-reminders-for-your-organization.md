@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### プルリクエストのスケジュールされたリマインダーについて
@@ -19,9 +19,8 @@ Organization のオーナーは、Team がレビューをリクエストされ�
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Organization のスケジュールされたリマインダーを作成する
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![[Scheduled reminders] ボタン](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ Organization のオーナーは、Team がレビューをリクエストされ�
 {% data reusables.reminders.create-reminder %}
 
 ### Organization のスケジュールされたリマインダーを管理する
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![[Scheduled reminders] ボタン](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ Organization のオーナーは、Team がレビューをリクエストされ�
 {% data reusables.reminders.update-buttons %}
 
 ### Organization のスケジュールされたリマインダーを削除する
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![[Scheduled reminders] ボタン](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

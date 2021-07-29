@@ -8,14 +8,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
-Cuando configuras SSH, [generarás una clave SSH y la agregarás al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) y luego [agregarás la clave a tu cuenta de {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account). Al agregar la clave SSH al ssh-agent te aseguras de que tu clave SSH tiene una capa extra de seguridad mediante el uso de una frase de contraseña. Para obtener más información, consulta "[Trabajar con frases de contraseña de la clave SSH](/articles/working-with-ssh-key-passphrases)".
+Cuando configures SSH, necesitarás generar una llave SSH nuevo y agregarla al agente ssh. Debes agregar la llave SSH a tu cuenta en {% data variables.product.product_name %} antes de utilizarla para autenticarte. Para obtener más información, consulta las secciones "[Generar una llave SSH nueva y agregarla al ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" y "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
 
-{% if currentVersion == "free-pro-team@latest" %}Para utilizar tu llave SSH con un repositorio que pertenezca a una organización que utiliza el inicio de sesión único de SAML, necesitarás autorizarla primero. Para obtener más información, consulta "[Autorizar una clave SSH para usar con una clave de organización único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
+Puedes asegurar tu llave SSH aún más si utilizas una llave de seguridad de hardware, la cual requiere que esta última se conecte físicamente a tu computadora cuando se utilice el par de llaves para autenticarte con SSH. También puedes asegurar tu llave SSH si la agregas al ssh-agent y utiliza una contraseña. Para obtener más información, consulta la sección "[Trabajar con frases de acceso con llave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
-Te recomendamos que regularmente [revises tu listado de claves SSH](/articles/reviewing-your-ssh-keys) y revoques cualquiera que no sea válida o que se haya visto comprometida.
+{% if currentVersion == "free-pro-team@latest" %}Para utilizar tu llave SSH con un repositorio que pertenece a una organización que utiliza el inicio de sesión único de SAML, debes autorizar dicha llave. Para obtener más información, consulta "[Autorizar una clave SSH para usar con una clave de organización único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
+
+Para mantener la seguridad de cuenta, puedes revisar tu lista de llaves SSH frecuentemente y retirar cualquier llave que sea inválida o que se haya puesto en riesgo. Para obtener más información, consulta "[Revisar tus claves SSH](/github/authenticating-to-github/reviewing-your-ssh-keys)".
 
 {% if currentVersion == "free-pro-team@latest" %}
 Si no has utilizado tu llave SSH por un año, entonces
@@ -28,8 +30,4 @@ Si eres miembro de una organización que provee certificados SSH, puedes usar tu
 
 - "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
 - "[Probar tu conexión SSH](/articles/testing-your-ssh-connection)"
-- Para obtener más información, consulta "[Trabajar con frases de contraseña de la clave SSH](/articles/working-with-ssh-key-passphrases)"
 - "[Solucionar problemas de SSH](/articles/troubleshooting-ssh)"
-{%- if currentVersion == "free-pro-team@latest" %}
-- "[Autorizar una clave SSH para usar con el inicio de sesión único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
-{%- endif %}

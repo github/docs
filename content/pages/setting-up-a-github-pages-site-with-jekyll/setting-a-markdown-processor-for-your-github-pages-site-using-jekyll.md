@@ -8,11 +8,12 @@ redirect_from:
   - /github/working-with-github-pages/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - pages
+  - Pages
+shortTitle: Set Markdown processor
 ---
 
 People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.
@@ -31,7 +32,7 @@ You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 
 - [kramdown Documentation](https://kramdown.gettalong.org/documentation.html)
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)

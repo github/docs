@@ -5,12 +5,13 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Add a child team
 ---
 
 When you request to add a team as a child, a request is sent to the maintainers of the child team. Once a maintainer of the child team approves your request, the child team is nested under the parent team in your organization's hierarchy.
@@ -19,8 +20,8 @@ If you're an organization owner or you have team maintainer permissions in both 
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team where you'd like to add the child team.
   ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
@@ -34,7 +35,7 @@ If you're an organization owner or you have team maintainer permissions in both 
 9. Click **Confirm changes** to send a request to add the child team.
   ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"
 - "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"

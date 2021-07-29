@@ -1,7 +1,7 @@
 ---
 title: 組織へのメンバーの SAML アクセスの表示と管理
-intro: 'Organization のメンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。'
-permissions: Organization のオーナーは、組織へのメンバーの SAML アクセスを表示したり管理したりすることもできます。
+intro: Organization のメンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。
+permissions: Organization owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Organization への SAML アクセスについて
@@ -26,8 +26,8 @@ Organization に対する SAML シングルサインオンを有効にすると�
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
@@ -37,8 +37,8 @@ Organization に対する SAML シングルサインオンを有効にすると�
 
 ### アクティブな SAML セッションの表示と取り消し
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-session %}
 {% data reusables.saml.saml-identity-linked %}
@@ -49,8 +49,8 @@ Organization に対する SAML シングルサインオンを有効にすると�
 
 {% data reusables.saml.about-authorized-credentials %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-credentials %}
 {% data reusables.saml.saml-identity-linked %}

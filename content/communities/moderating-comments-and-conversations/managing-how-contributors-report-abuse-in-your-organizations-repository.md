@@ -2,11 +2,12 @@
 title: Managing how contributors report abuse in your organization's repository
 intro: You can allow contributors to report disruptive behavior directly to repository maintainers.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
-  - community
+  - Community
+shortTitle: Manage abuse in your org
 ---
 
 Anyone with admin permissions to a repository can manage how contributors report abuse in the repository.
@@ -19,7 +20,7 @@ You can enable or disable reported content for public repositories owned by an o
 4. Under "Reported content", select or unselect **Accept content reports from collaborators and prior contributors**.
   ![Checkbox for opting into or out of reported content for a repository](/assets/images/help/repository/reported-content-opt-in-checkbox.png)
 
-### Further reading
+## Further reading
 
 - "[Managing reported content in your organization's repository](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)"
 - "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"

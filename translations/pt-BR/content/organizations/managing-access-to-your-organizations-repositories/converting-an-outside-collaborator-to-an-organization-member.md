@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Proprietários da organização podem {% if currentVersion == "free-pro-team@latest" %}convidar usuários para juntar-se a{% else %}adicionar usuários a{% endif %} uma organização.'
+permissions: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -21,12 +21,12 @@ Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma l
 Se a sua organização [exigir que os integrantes usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), os usuários {% if currentVersion == "free-pro-team@latest" %}que você convidar devem [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes que possam aceitar o convite.{% else %}devem [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de adicioná-la à organização.{% endif %}
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
-5. To the right of the name of the outside collaborator you want to become a member, use the {% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Invite to organization**.![Convidar colaboradores externos para a organização](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
+5. À direita do nome do colaborador externo que você deseja que se torne integrante, use o menu suspenso {% octicon "gear" aria-label="The gear icon" %} e clique em **Convidar para a organização**.![Convidar colaboradores externos para a organização](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
 {% else %}
 5. À direita do nome do colaborador externo que você deseja que se torne integrante, clique em **Invite to organization** (Convidar para a organização).![Convidar colaboradores externos para a organização](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png)
 {% endif %}

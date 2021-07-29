@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Die Standardnutzungsbedingungen sind eine Vereinbarung zwischen {% data variables.product.prodname_dotcom %} und Ihnen als Einzelperson. Um im Auftrag einer Entität, beispielsweise eines Unternehmens, einer gemeinnützigen Organisation oder einer Gruppe, eine Vereinbarung mit {% data variables.product.prodname_dotcom %} abzuschließen, können Organisationsinhaber ein Hochstufen auf die Unternehmensnutzungsbedingungen vornehmen.

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% note %}
@@ -24,7 +24,8 @@ You can also see deployment information on the "Conversation" tab of a pull requ
 ### Viewing the deployments dashboard
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments.png)
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+
 
 ### 더 읽을거리
  - "[About pull requests](/articles/about-pull-requests)"

@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Infrastructure
+  - Performance
 ---
 
 ### Enabling rate limits for {% data variables.product.prodname_enterprise_api %}

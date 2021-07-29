@@ -1,9 +1,13 @@
 ---
 title: 关于安全漏洞的协调披露
-intro: '漏洞披露是安全报告者与仓库维护者之间的协调工作。'
+intro: 漏洞披露是安全报告者与仓库维护者之间的协调工作。
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
 ---
 
 ### 关于披露行业漏洞
@@ -43,7 +47,7 @@ versions:
 
 在 {% data variables.product.prodname_dotcom_the_website %} 上报告和披露项目漏洞的流程如下：
 
- 如果您是要报告漏洞的漏洞报告者（例如安全研究人员），请先检查相关仓库是否有安全策略。 更多信息请参阅“[关于安全策略](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果有的话，请先了解该流程，然后再联系该仓库的安全团队。
+ 如果您是要报告漏洞的漏洞报告者（例如安全研究人员），请先检查相关仓库是否有安全策略。 更多信息请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果有的话，请先了解该流程，然后再联系该仓库的安全团队。
 
  如果没有安全策略，与维护者建立私人通信手段的最有效办法是制造一个要求优先安全联系的问题。 值得注意的是，这个问题将立即公开可见，所以它不应该包括任何有关漏洞的信息。 建立通信后，您可以建议维护者制定安全策略以供将来使用。
 
@@ -55,7 +59,7 @@ versions:
 
  如果您在 {% data variables.product.prodname_dotcom_the_website %} 中发现了安全漏洞，请通过我们协调的披露流程报告该漏洞。 更多信息请参阅 [{% data variables.product.prodname_dotcom %} 安全漏洞奖金](https://bounty.github.com/)网站。
 
- 如果您是维护者， 您可以在管道开始时通过为您的仓库设置安全策略来掌控这一过程，或者以其他方式使安全报告说明清楚可用，例如在项目的 README 文件中。 有关添加安全策略的更多信息，请参阅“[关于安全策略](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果没有安全策略，漏洞报告者可能会尝试向您发送电子邮件或以其他方式私下与您联系。 或者，有人可能会开一个（公共）议题讨论安全问题的细节。
+ 如果您是维护者， 您可以在管道开始时通过为您的仓库设置安全策略来掌控这一过程，或者以其他方式使安全报告说明清楚可用，例如在项目的 README 文件中。 有关添加安全策略的更多信息，请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果没有安全策略，漏洞报告者可能会尝试向您发送电子邮件或以其他方式私下与您联系。 或者，有人可能会开一个（公共）议题讨论安全问题的细节。
 
  作为维护者，要在您的代码中披露漏洞，请先在 {% data variables.product.prodname_dotcom %} 中软件包的仓库内创建安全通告。 {% data reusables.security-advisory.security-advisory-overview %} 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 

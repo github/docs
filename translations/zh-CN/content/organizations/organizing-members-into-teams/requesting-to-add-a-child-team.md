@@ -1,6 +1,6 @@
 ---
 title: 申请添加子团队
-intro: '如果您在团队中具有维护员权限，可以申请在组织的层次结构中将现有团队嵌套在您的团队下面。'
+intro: 如果您在团队中具有维护员权限，可以申请在组织的层次结构中将现有团队嵌套在您的团队下面。
 redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 申请将某个团队添加为子团队时，申请会发送到子团队的维护员。 在子团队的维护员批准申请后，该子团队将嵌套在组织的层次结构中的父团队下面。
@@ -19,8 +19,8 @@ topics:
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 在团队列表中，单击您要在其中添加子团队的父团队名称。 ![组织的团队列表](/assets/images/help/teams/click-team-name.png)
 5. 在团队页面顶部，单击 {% octicon "people" aria-label="The people icon" %} **Teams（团队）**。 ![团队页面上的团队选项卡](/assets/images/help/teams/team-teams-tab.png)

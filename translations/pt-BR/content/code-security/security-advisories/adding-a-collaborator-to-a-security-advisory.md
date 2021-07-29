@@ -7,8 +7,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - segurança
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 Todas as pessoas com permissões de administrador para uma consultora de segurança podem adicionar colaboradores à consultora de segurança.

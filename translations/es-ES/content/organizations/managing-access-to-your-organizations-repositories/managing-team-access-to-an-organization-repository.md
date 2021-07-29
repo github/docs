@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Las personas con acceso de administrador a un repositorio pueden administrar el acceso del equipo a un repositorio. Los mantenedores del equipo pueden eliminar el acceso de un equipo a un repositorio.
@@ -26,8 +26,8 @@ Las personas con acceso de administrador a un repositorio pueden administrar el 
 
 ### Otorgarle a un equipo acceso a un repositorio
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Encima de la lista de repositorios, haz clic en **Add repository (Agregar repositorio)**. ![Botón Agregar repositorio](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ Puedes eliminar el acceso de un equipo a un repositorio si el equipo tiene acces
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Selecciona el repositorio o los repositorios que deseas eliminar del equipo. ![Lista de repositorios de equipo con casillas de verificación para algunos repositorios seleccionados](/assets/images/help/teams/select-team-repositories-bulk.png)

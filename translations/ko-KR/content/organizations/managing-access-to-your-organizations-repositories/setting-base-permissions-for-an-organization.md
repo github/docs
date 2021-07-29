@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About base permissions for an organization
@@ -23,9 +23,8 @@ If someone with admin permissions to an organization's repository grants a membe
 
 ### Setting base permissions
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Base permissions", use the drop-down to select new base permissions. ![Selecting new permission level from base permissions drop-down](/assets/images/help/organizations/base-permissions-drop-down.png)
 6. Review the changes. To confirm, click **Change default permission to PERMISSION**. ![Reviewing and confirming change of base permissions](/assets/images/help/organizations/base-permissions-confirm.png)

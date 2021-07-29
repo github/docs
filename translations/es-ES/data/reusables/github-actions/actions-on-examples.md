@@ -1,18 +1,18 @@
-##### Ejemplo con un solo evento
+##### Example: Using a single event
 
 ```yaml
 # Triggered when code is pushed to any branch in a repository
 on: push
 ```
 
-##### Ejemplo con una lista de eventos
+##### Example: Using a list of events
 
 ```yaml
 # Triggers the workflow on push or pull request events
 on: [push, pull_request]
 ```
 
-##### Ejemplo utilizando eventos múltiples con tipos de actividad o configuración
+##### Example: Using multiple events with activity types or configuration
 
 Si necesitas especificar tipos de actividad o configuración para un evento, debes configurar cada evento por separado. Debes agregar dos puntos (`:`) a todos los eventos, incluyendo aquellos sin configuración.
 

@@ -3,11 +3,11 @@ title: Termos Adicionais do Produto GitHub
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
-Version Effective Date: February 22, 2021
+Entrada em vigor desta versão: 22 de fevereiro de 2021
 
 Quando você cria uma Conta, tem acesso a vários recursos e produtos diferentes que fazem parte do Serviço. Como muitos desses recursos e produtos oferecem diferentes funcionalidades, eles podem exigir termos e condições adicionais específicos para esse recurso ou produto. Abaixo, listamos esses recursos e produtos, juntamente com os termos adicionais correspondentes que se aplicam ao uso deles.
 
@@ -44,14 +44,14 @@ Se você ativar o Git Large File Storage ("Git LFS") em sua Conta, poderá busca
 
 Cada Conta vem com acesso a [serviços de hospedagem estática do GitHub Pages](/github/working-with-github-pages/about-github-pages). Este serviço de hospedagem destina-se a hospedar páginas da web estáticas para todos os Usuários, mas principalmente, como uma vitrine para projetos pessoais e organizacionais.
 
-GitHub Pages is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). Alguns esforços de monetização são permitidos no Pages, como botões de doação e links para crowdfunding.
+O GitHub Pages não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS). Alguns esforços de monetização são permitidos no Pages, como botões de doação e links para crowdfunding.
 
-#### a. Bandwidth and Usage Limits
-GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Consulte nossas [diretrizes do GitHub Pages](/github/working-with-github-pages/about-github-pages) para obter mais informações.
+#### a. Banda larga e limites de uso
+O GitHub Pages está sujeito a limites específicos de uso e largura de banda e pode não ser apropriado para alguns usos elevados de banda larga. Consulte nossas [diretrizes do GitHub Pages](/github/working-with-github-pages/about-github-pages) para obter mais informações.
 
-#### b. Prohibited Uses
-Prohibited uses of GitHub Pages include
-- Content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service), [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) or [Community Guidelines](/github/site-policy/github-community-guidelines)
+#### b. Uso proibido
+O uso proibido do GitHub Pages inclui
+- Conteúdo ou atividade ilegal ou proibido pelos nossos [Termos de Serviço](/github/site-policy/github-terms-of-service), [Políticas de uso aceitáveis](/github/site-policy/github-acceptable-use-policies) ou [Diretrizes da comunidade](/github/site-policy/github-community-guidelines)
 - Atividade ou conteúdo violento ou ameaçador
 - Excesso de atividade automatizada em massa (spam, por exemplo)
 - Atividade que comprometa serviços ou usuários do GitHub
@@ -59,7 +59,7 @@ Prohibited uses of GitHub Pages include
 - Conteúdo sexual obsceno
 - Conteúdo que deturpe sua identidade ou a finalidade do site
 
-If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com/). O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
+Em caso de dúvidas sobre se o seu uso ou a intenção se enquadra nestas categorias, entre em contato com o [Suporte do GitHub](https://support.github.com/contact) ou com o [Suporte Premium do GitHub](https://premium.githubsupport.com/). O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
 
 ### 5. Ações e Pacotes
 

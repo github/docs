@@ -7,8 +7,8 @@ intro: 'O {% data variables.product.product_name %} usa os dados do seu reposit√
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
  
 ### Sobre o uso de seus dados pelo {% data variables.product.product_name %}

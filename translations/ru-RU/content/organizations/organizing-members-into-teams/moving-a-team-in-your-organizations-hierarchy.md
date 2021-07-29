@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see "[Requesting to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)" and "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)."
@@ -27,8 +27,8 @@ Organization owners can change the parent of any team. Team maintainers can chan
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team whose parent you'd like to change. ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

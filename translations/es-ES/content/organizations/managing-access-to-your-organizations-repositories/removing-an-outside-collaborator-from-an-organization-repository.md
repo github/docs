@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -30,8 +30,8 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 
 ### Eliminar colaboradores externos de todos los repositorios de una organización
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Selecciona el colaborador externo o los colaboradores externos que quieres eliminar de la organización. ![Lista de colaboradores externos con dos colaboradores externos seleccionados](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
@@ -42,8 +42,8 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 
 Si solo quieres eliminar un colaborador externo de determinados repositorios de tu organización, puedes eliminar el acceso de esa persona a un repositorio específico por vez.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. A la derecha del nombre de usuario de la persona que quieres eliminar, utiliza el menú desplegable {% octicon "gear" aria-label="The Settings gear" %} y haz clic en **Manage** (Administrar). ![Botón Manage access (Administrar acceso)](/assets/images/help/organizations/member-manage-access.png)

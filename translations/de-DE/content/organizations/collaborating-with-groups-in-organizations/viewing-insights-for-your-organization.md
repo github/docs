@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Alle Mitglieder einer Organisation können Organisationseinblicke anzeigen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
@@ -26,8 +26,8 @@ Mithilfe von Einblicken in Organisationsaktivitäten kannst Du besser nachvollzi
 
 Mithilfe von Einblicken in Organisationsaktivitäten kannst Du wöchentliche, monatliche und jährliche Datenvisualisierungen Deiner gesamten Organisation oder von spezifischen Repositorys anzeigen. Dazu zählen Issue- und Pull-Request-Aktivitäten, die am häufigsten verwendeten Sprachen sowie kumulative Informationen dahingehend, wo Deine Organisationsmitglieder ihre Zeit aufgewendet haben.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. Klicke unter dem Namen Deiner Organisation auf {% octicon "graph" aria-label="The bar graph icon" %} **Insights** (Einblicke). ![Klicke auf die Registerkarte „Insights“ (Einblicke) der Organisation](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Wähle optional in der oberen rechten Ecke der Seite die entsprechende Option aus, um Daten für die letzte **1 Woche**, **1 Monat** oder **1 Jahr** anzuzeigen. ![Auswahl des Zeitraums zum Anzeigen der Organisationseinblicke](/assets/images/help/organizations/org-insights-time-period.png)
 5. Wähle optional in der oberen rechten Ecke der Seite die entsprechende Option aus, um Daten für bis zu drei Repositorys anzuzeigen, und klicke auf **Apply** (Anwenden). ![Auswahl von Repositorys zum Anzeigen der Organisationseinblicke](/assets/images/help/organizations/org-insights-repos.png)
@@ -35,8 +35,8 @@ Mithilfe von Einblicken in Organisationsaktivitäten kannst Du wöchentliche, mo
 ### Organisations-Abhängigkeits-Einblicke anzeigen
 Mithilfe von Abhängigkeits-Einblicken kannst Du Schwachstellen, Lizenzen und andere wichtige Informationen für die Open-Source-Projekte anzeigen, von denen Deine Organisation abhängig ist.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. Klicke unter dem Namen Deiner Organisation auf {% octicon "graph" aria-label="The bar graph icon" %} **Insights** (Einblicke). ![Registerkarte „Insights“ (Einblicke) auf der Haupt-Navigationsleiste der Organisation](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Klicke zum Anzeigen von Abhängigkeiten für diese Organisation auf **Dependencies** (Abhängigkeiten). ![Registerkarte „Dependencies“ (Abhängigkeiten) unter der Haupt-Navigationsleiste der Organisation](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. Klicke zum Anzeigen von Abhängigkeits-Einblicken für alle Deine {% data variables.product.prodname_ghe_cloud %}-Organisationen auf **My organizations** (Meine Organisationen). ![Schaltfläche „My organizations“ (Meine Organisationen) unter der Registerkarte „Dependencies“ (Abhängigkeiten)](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)

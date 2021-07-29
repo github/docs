@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - безопасность
+  - Security advisories
+  - Vulnerabilities
 ---
 
 People with admin permissions to a security advisory can edit the security advisory.

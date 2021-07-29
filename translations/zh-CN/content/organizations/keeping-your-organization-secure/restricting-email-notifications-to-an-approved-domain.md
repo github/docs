@@ -1,6 +1,6 @@
 ---
 title: 将电子邮件通知限于已批准的域
-intro: '为防止将组织信息泄露到个人帐户，组织所有者可以将关于组织活动的电子邮件通知限于经过验证的域。'
+intro: 为防止将组织信息泄露到个人帐户，组织所有者可以将关于组织活动的电子邮件通知限于经过验证的域。
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain/
@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 关于电子邮件限制

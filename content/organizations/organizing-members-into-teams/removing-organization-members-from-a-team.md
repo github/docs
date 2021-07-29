@@ -6,18 +6,19 @@ redirect_from:
   - /articles/removing-organization-members-from-a-team
   - /github/setting-up-and-managing-organizations-and-teams/removing-organization-members-from-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Remove members
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}  
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Select the person or people you'd like to remove.
   ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)

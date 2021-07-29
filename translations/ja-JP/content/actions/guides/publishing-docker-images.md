@@ -10,8 +10,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - パッケージ化
-  - 公開
+  - Packaging
+  - Publishing
   - Docker
 ---
 
@@ -37,7 +37,7 @@ topics:
 
 - 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
 - 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
-- [{% data variables.product.prodname_registry %}で利用するためのDockerの設定](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)
+- 「[Docker レジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)」
 
 ### イメージの設定について
 
@@ -51,14 +51,17 @@ topics:
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-以下のワークフローの例では、Dockerの`build-push-action`アクションを使ってDockerイメージをビルドし、ビルドが成功すれば構築されたイメージをDocker Hubにプッシュします。
+以下のワークフロー例では、Docker の `login-action` アクションと `build-push-action` アクションを使用して Docker イメージをビルドし、ビルドが成功すればそのイメージを Docker Hub にプッシュします。
 
 Docker Hubにプッシュするためには、Docker Hubのアカウントを持っており、Docker Hubのレジストリを作成していなければなりません。 詳しい情報については、Docker のドキュメントにある「[Docker Hub でイメージを共有する](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)」を参照してください。
 
-Docker Hubに必要な`build-push-action`のオプションは以下のとおりです。
+Docker Hub に必要な `login-action` オプションは次のとおりです。
 
 * `username`及び`password`: Docker Hubのユーザ名とパスワードです。 ワークフローファイルに公開されないように、Docker Hub のユーザ名とパスワードをシークレットとして保存することをお勧めします。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
-* `repository`: `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`フォーマットでのDocker Hubのリポジトリ。
+
+Docker Hubに必要な`build-push-action`のオプションは以下のとおりです。
+* `tags`: `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION` の形式の新しい画像のタグ。 以下のとおり、単一のタグを設定することも、リストに複数のタグを指定することもできます。
+* `push`: `true` に設定すると、イメージは正常にビルドされた場合にレジストリにプッシュされます。
 
 {% raw %}
 ```yaml{:copy}
@@ -73,13 +76,16 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: my-docker-hub-namespace/my-docker-hub-repository
-          tag_with_ref: true
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: my-docker-hub-namespace/my-docker-hub-repository:latest
 ```
 {% endraw %}
 
@@ -89,16 +95,17 @@ jobs:
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-以下のワークフローの例では、Dockerの`build-push-action`アクションを使ってDockerイメージをビルドし、ビルドが成功すれば構築されたイメージを{% data variables.product.prodname_registry %}にプッシュします。
+以下のワークフロー例では、Docker の `login-action` アクションと `build-push-action` アクションを使用して Docker イメージをビルドし、ビルドが成功すればそのイメージを {% data variables.product.prodname_registry %} にプッシュします。
 
-{% data variables.product.prodname_registry %}に必要な`build-push-action`のオプションは以下のとおりです。
-
+{% data variables.product.prodname_registry %} に必要な `login-action` オプションは次のとおりです。
+* `registry`: `docker.pkg.github.com`に設定しなければなりません。
 * `username`: {% raw %}`${{ github.actor }}`{% endraw %}コンテキストを使って、ワークフローの実行を始めたユーザのユーザ名を自動的に使うことができます。 詳しい情報については、「[GitHub Actionsのコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 * `password`: パスワードには、自動的に生成された`GITHUB_TOKEN`シークレットを利用できます。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。
-* `registry`: `docker.pkg.github.com`に設定しなければなりません。
-* `repository`: `OWNER/REPOSITORY/IMAGE_NAME`というフォーマットで設定しなければなりません。 たとえば、`http://github.com/octo-org/octo-repo`にある{% data variables.product.prodname_dotcom %}上に保存される`octo-image`という名前のイメージでは、`repository`オプションは`octo-org/octo-repo/octo-image`に設定しなければなりません。
 
-{% raw %}
+{% data variables.product.prodname_registry %}に必要な`build-push-action`のオプションは以下のとおりです。
+* `tags`: `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION` の形式で設定する必要があります。 たとえば、{% data variables.product.prodname_dotcom %} の `http://github.com/octo-org/octo-repo` に保存されている `octo-image` という名前の画像の場合、`tags` オプションを `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest` に設定する必要があります。 以下のとおり、単一のタグを設定することも、リストに複数のタグを指定することもできます。
+* `push`: `true` に設定すると、イメージは正常にビルドされた場合にレジストリにプッシュされます。
+
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -107,31 +114,36 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: my-org/my-repo/my-image
-          tag_with_ref: true
-
+          registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+      - name: Build container image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+            {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
 ```
-{% endraw %}
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
 ### Docker Hubと{% data variables.product.prodname_registry %}へのイメージの公開
 
-1つのワークフローで、それぞれのレジストリに対して`build-push-action`アクションを使い、複数のレジストリにDockerイメージを公開できます。
+単一のワークフローで、各レジストリの `login-action` アクションと `build-push-action` アクションを使用して、Docker イメージを複数のレジストリに公開できます。
 
-以下のワークフローの例では、以前のセクション（「[Docker Hubへのイメージの公開](#publishing-images-to-docker-hub)」及び「[{% data variables.product.prodname_registry %}へのイメージの公開](#publishing-images-to-github-packages)」）での`build-push-action`ステップを使い、両方のレジストリにプッシュを行う1つのワークフローを作成します。
+次のワークフロー例では、前のセクションのステップ（「[Docker Hub へのイメージの公開](#publishing-images-to-docker-hub)」と「[{% data variables.product.prodname_registry %} へのイメージの公開](#publishing-images-to-github-packages)」）を使用して、両方のレジストリにプッシュする単一のワークフローを作成します。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -140,26 +152,34 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
+          password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v1
+        with:
+          registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: my-docker-hub-namespace/my-docker-hub-repository
-          tag_with_ref: true
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+          push: true
+          tags: my-docker-hub-namespace/my-docker-hub-repository:{% raw %}${{ github.ref }}{% endraw %}
+      - name: Build container image
+        uses: docker/build-push-action@v2
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: my-org/my-repo/my-image
-          tag_with_ref: true
+          push: true
+          tags: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/my-image:${{ github.ref }}{% endraw %}
 ```
-{% endraw %}
 
-上のワークフローの例は、{% data variables.product.prodname_dotcom %}リポジトリをチェックアウトし、`build-push-action`アクションを2回使ってDockerイメージをビルドしてDocker Hubと{% data variables.product.prodname_registry %}にプッシュします。 どちらのステップでも、このワークフローは`build-push-action`のオプションの[`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref)を、構築されたDockerイメージをワークフローイベントのGit参照で自動的にタグ付けするように設定します。 このワークフローは{% data variables.product.prodname_dotcom %}リリースの公開で起動されるので、どちらのレジストリの参照も、そのリリースのGitタグになります。
+上記のワークフローは、{% data variables.product.prodname_dotcom %} リポジトリをチェックアウトし、`login-action` を 2 回使用して両方のレジストリにログインし、`build-push-action` アクションを 2 回使用して、Docker イメージをビルドして Docker Hub と {% data variables.product.prodname_registry %} にプッシュします。 どちらのステップでも、ビルドされた Docker イメージにワークフローイベントの Git リファレンスをタグ付けします。 このワークフローは{% data variables.product.prodname_dotcom %}リリースの公開で起動されるので、どちらのレジストリの参照も、そのリリースのGitタグになります。

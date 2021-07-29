@@ -7,19 +7,19 @@ redirect_from:
   - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
   - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 For the avoidance of doubt, none of the foregoing information should be considered legal advice provided by {% data variables.product.prodname_dotcom %}. You are responsible for securing your own legal analysis of the information provided herein and for your compliance with privacy and data protection laws. It is up to you whether to use {% data variables.product.prodname_insights %} to process your employees’ and users’ data, and if you do so, you are solely responsible for conducting such processing in compliance with applicable law.
 
-### The organization’s roles and responsibilities
+## The organization’s roles and responsibilities
 
 When using {% data variables.product.prodname_insights %}, your organization is the data controller because your organization determines whether, how, and why {% data variables.product.prodname_insights %} will process any individual’s personal data. Your organization is solely responsible for ensuring that you are complying with all applicable laws in processing data with {% data variables.product.prodname_insights %}.
 
-### Data privacy recommendations
+## Data privacy recommendations
 
 You have full control over which metrics, reports, repositories, and contributors to include before beginning use of {% data variables.product.prodname_insights %}. The data you process with {% data variables.product.prodname_insights %} can only be pulled from your installation of {% data variables.product.prodname_ghe_server %}. Consider balancing the risks versus the benefits of analyzing personal data.
 
@@ -27,7 +27,7 @@ You have full control over which metrics, reports, repositories, and contributor
 
 - **Consider a data protection impact assessment**: If your proposed use of {% data variables.product.prodname_insights %} involves processing personal data, consider completing a data protection impact assessment or otherwise completing formal legal analysis of your planned use.
 
-### Decide what data to use
+## Decide what data to use
 
 - **Decide which repositories to include**: Before you start an analysis in {% data variables.product.prodname_insights %}, consider which repositories to include. Administrators can include repositories when adding organizations and can enable and disable repositories at any time. For more information on adding organizations to {% data variables.product.prodname_insights %}, see "[Managing organizations](/insights/installing-and-configuring-github-insights/managing-organizations)." For more information on enabling and disabling repositories, see "[Managing repositories](/insights/installing-and-configuring-github-insights/managing-repositories)."
 
@@ -35,7 +35,7 @@ You have full control over which metrics, reports, repositories, and contributor
 
 - **Decide which contributors to include**: Administrators can disable a specific contributor’s data from being processed in the metrics and reports. For more information on managing contributor data, see "[Managing contributors and teams](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)."
 
-### User rights
+## User rights
 
 Under various data protection regulations, such as the General Data Protection Regulation (GDPR), users may have the right to request exclusion from processing, access, and correction, or to request deletion of their personal data. As the data controller, your organization should evaluate whether a particular user request is valid and, if appropriate, take action to fulfill the request.
 

@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 5. Haz clic en {% octicon "pin" aria-label="The pin icon" %} al lado del debate de equipo que deseas anclar. También puedes desanclar un debate al hacer clic en el ícono. ![Anclar un debate](/assets/images/help/projects/pin-discussion-button.png)

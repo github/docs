@@ -13,11 +13,13 @@ redirect_from:
   - /github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - pages
+  - Pages
+children:
+  - /about-custom-domains-and-github-pages
+  - /managing-a-custom-domain-for-your-github-pages-site
+  - /troubleshooting-custom-domains-and-github-pages
+shortTitle: Configure a custom domain
 ---
 
-{% link_in_list /about-custom-domains-and-github-pages %}
-{% link_in_list /managing-a-custom-domain-for-your-github-pages-site %}
-{% link_in_list /troubleshooting-custom-domains-and-github-pages %}

@@ -15,19 +15,23 @@ featuredLinks:
 versions: '*'
 children:
   - github
-  - administrador
+  - admin
+  - billing
   - organizations
   - code-security
-  - ações
-  - pacotes
+  - actions
+  - packages
   - developers
   - rest
   - graphql
   - insights
-  - discussões
-  - comunidades
-  - Páginas
-  - educação
+  - issues
+  - discussions
+  - codespaces
+  - sponsors
+  - communities
+  - pages
+  - education
   - desktop
   - early-access
 externalProducts:
@@ -48,7 +52,7 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: 'CodeQL'
+    name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
 ---

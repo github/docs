@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 defaultPlatform: linux
 ---
 
@@ -23,8 +23,8 @@ defaultPlatform: linux
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Em "Executores auto-hospedados", você pode ver uma lista de executores registrados, incluindo o nome, etiqueta e status do executor.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Em {% if currentVersion == "free-pro-team@latest" %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, você pode ver uma lista de executores registrados, incluindo nome do executor, etiqueta e status.
 
     ![Lista de executores](/assets/images/help/settings/actions-runner-list.png)
 

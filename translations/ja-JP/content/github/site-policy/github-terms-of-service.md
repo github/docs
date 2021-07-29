@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHubをご利用いただきありがとうございます。 また、こちらのページをご覧いただきありがとうございます。 GitHubにアクセスするまたはGitHubをご利用いただく前に、こちらの「利用規約」をよくお読みください。 当社とユーザ間の非常に大切な契約になるため、できるだけわかりやすくなるよう心がけています。 便宜上、本規約は全文の前に法的拘束力のない短い要約を記載してあります。
@@ -109,7 +109,7 @@ We have the right to refuse or remove any User-Generated Content that, in our so
 お客様は「あなたのコンテンツ」の所有権と責任を保持しているため、当社は、セクション D.4〜D.7 に記載されている特定の法的権限を当社および GitHub の他の「ユーザ」に付与することを求めます。 かかるライセンス付与は、「あなたのコンテンツ」に適用されます。 お客様が、当社が「サービス」を実行するために必要な権限を GitHub に付与するライセンスをあらかじめ伴うような「コンテンツ」をアップロードする場合、追加のライセンスは必要ありません。 お客様は、セクション D.4〜D.7 で付与された権利のいずれに対しても支払いを受け取らないことを理解するものとします。 他の「ユーザ」がフォークした場合を除き、当社のサーバーから「あなたのコンテンツ」を削除すると、当社に付与したライセンスは終了します。
 
 #### 4. 当社へのライセンス許可
-当社には、「あなたのコンテンツ」のホスト、公開および共有などを行うための法的権利が必要です。 You grant us and our legal successors the right to store, archive, parse, and display Your Content, and make incidental copies, as necessary to provide the Service, including improving the Service over time. This license includes the right to do things like copy it to our database and make backups; show it to you and other users; parse it into a search index or otherwise analyze it on our servers; share it with other users; and perform it, in case Your Content is something like music or video.
+当社には、「あなたのコンテンツ」のホスト、公開および共有などを行うための法的権利が必要です。 You grant us and our legal successors the right to store, archive, parse, and display Your Content, and make incidental copies, as necessary to provide the Service, including improving the Service over time. このライセンスには、「あなたのコンテンツ」が音楽やビデオなどのものである場合、データベースにコピーしてバックアップを作成する、お客様および他のユーザに表示する、検索インデックスに解析する、またはその他サーバー上で分析する、他のユーザと共有する、実行するなどの操作を行う権利が含まれます。
 
 This license does not grant GitHub the right to sell Your Content. It also does not grant GitHub the right to otherwise distribute or use Your Content outside of our provision of the Service, except that as part of the right to archive Your Content, GitHub may permit our partners to store and archive Your Content in public repositories in connection with the [GitHub Arctic Code Vault and GitHub Archive Program](https://archiveprogram.github.com/).
 

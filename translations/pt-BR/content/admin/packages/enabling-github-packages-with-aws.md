@@ -4,7 +4,7 @@ intro: 'Configure {% data variables.product.prodname_registry %} com AWS como se
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% warning %}

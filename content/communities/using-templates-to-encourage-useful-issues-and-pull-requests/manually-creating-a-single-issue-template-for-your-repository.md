@@ -6,11 +6,12 @@ redirect_from:
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Create an issue template
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -36,19 +37,19 @@ assignees: octocat
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-### Adding an issue template
+## Adding an issue template
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -70,7 +71,7 @@ assignees: octocat
 {% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+## Further reading
 
 - "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
 - "[Configuring issue templates for your repository](/articles/configuring-issue-templates-for-your-repository)"

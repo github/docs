@@ -1,10 +1,17 @@
 ---
 title: 了解安全警报
-intro: '您可以在一个地方查看、筛选和排序组织或团队拥有的仓库的安全警报。'
+intro: 您可以在一个地方查看、筛选和排序组织或团队拥有的仓库的安全警报。
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'next'
+  github-ae: next
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.security-center.beta %}
@@ -13,7 +20,7 @@ versions:
 
 您可以使用安全概述来简要了解组织的安全状态，或识别需要干预的问题仓库。 在组织级别，安全概述显示组织拥有的仓库的聚合和仓库特定安全信息。 在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 更多信息请参阅“[管理团队的组织仓库访问权限](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”。
 
-安全概述指示是否为组织拥有的仓库启用了 {% data variables.product.prodname_GH_advanced_security %} 功能，并且合并来自 {% data variables.product.prodname_advanced_security %} 功能的警报，包括 {% data variables.product.prodname_code_scanning %} 警报、{% data variables.product.prodname_dependabot_alerts %} 和 {% data variables.product.prodname_secret_scanning %} 警报。 更多信息请参阅“[关于保护仓库](/code-security/getting-started/about-securing-your-repository)”。
+安全概述指示是否为组织拥有的仓库启用了 {% data variables.product.prodname_GH_advanced_security %} 功能，并且合并来自 {% data variables.product.prodname_advanced_security %} 功能的警报，包括 {% data variables.product.prodname_code_scanning %} 警报、{% data variables.product.prodname_dependabot_alerts %} 和 {% data variables.product.prodname_secret_scanning %} 警报。 解更多信息请参阅“[保护您的仓库](/code-security/getting-started/securing-your-repository)”和“[保护您的组织](/code-security/getting-started/securing-your-organization)”。
 
 在安全概述中，您可以查看、排序和筛选警报，以了解组织和特定仓库中的安全风险。 您可以应用多个筛选器来关注感兴趣的领域。 例如，您可以识别具有大量 {% data variables.product.prodname_dependabot_alerts %} 的私有仓库或者没有 {% data variables.product.prodname_code_scanning %} 警报的仓库。
 
@@ -48,8 +55,8 @@ versions:
 
 团队成员可以看到团队具有管理权限的仓库的安全概述。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

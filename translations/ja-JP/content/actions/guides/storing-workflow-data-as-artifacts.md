@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +36,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-成果物の保存には、{% data variables.product.product_name %}上のストレージ領域が使われます。 {% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)」を参照してください。
+成果物の保存には、{% data variables.product.product_name %}上のストレージ領域が使われます。 {% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いの管理](/billing/managing-billing-for-github-actions)」を参照してください。
 
 {% else %}
 
@@ -252,6 +252,6 @@ jobs:
 
 ### 参考リンク
 
-- [{% data variables.product.prodname_actions %}の支払いの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)
+- [{% data variables.product.prodname_actions %}の支払いの管理](/billing/managing-billing-for-github-actions)
 
 {% endif %}

@@ -6,21 +6,22 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-sponsored-developer-profile
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+type: how_to
 topics:
-  - 'Sponsors profile'
-  - 'Open Source'
+  - Sponsors profile
+  - Open Source
+shortTitle: Edit profile details
 ---
 
-### About sponsor profiles
+## About sponsor profiles
 
 Your {% data variables.product.prodname_sponsors %} profile tells potential sponsors why they should support you. People see your sponsor profile when they click the **Sponsor** button on your profile. We recommend including the following information.
 
 - Open source work that you contribute to
 - Why you are committed to open source development
 
-### Editing your profile details
+## Editing your profile details
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}

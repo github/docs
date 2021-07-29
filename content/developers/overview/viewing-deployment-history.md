@@ -2,19 +2,19 @@
 title: Viewing deployment history
 intro: View current and previous deployments for your repository.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
+shortTitle: View deployment history
 ---
 
-{% data reusables.actions.environments-beta %}
 
-You can deliver deployments through {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_actions %} and environments or with {% endif %}the REST API and third party apps. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)." {% endif %}For more information about deployments with the REST API, see "[Repositories](/rest/reference/repos#deployments)."
+You can deliver deployments through {% ifversion fpt or ghes > 3.0 %}{% data variables.product.prodname_actions %} and environments or with {% endif %}the REST API and third party apps. {% ifversion fpt or ghes > 3.0 %}For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)." {% endif %}For more information about deployments with the REST API, see "[Repositories](/rest/reference/repos#deployments)."
 
 To view current and past deployments, click **Environments** on the home page of your repository.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghae or ghes < 3.0 %}
 ![Environments](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
 ![Environments](/assets/images/environments-sidebar.png){% endif %}
 

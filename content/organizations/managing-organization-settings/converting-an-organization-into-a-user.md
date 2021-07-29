@@ -5,14 +5,15 @@ redirect_from:
   - /articles/converting-an-organization-into-a-user
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-into-a-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Convert organization to user
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 1. [Sign up](/articles/signing-up-for-a-new-github-account) for a new GitHub user account.
 2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).

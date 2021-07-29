@@ -7,19 +7,20 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+type: how_to
+shortTitle: Publish in GitHub Marketplace
 ---
 
 {% data reusables.actions.ae-beta %}
 
 You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
-### About publishing actions
+## About publishing actions
 
 Before you can publish an action, you'll need to create an action in your repository. For more information, see "[Creating actions](/actions/creating-actions)."
 
-When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
+When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
 Actions are published to {% data variables.product.prodname_marketplace %} immediately and aren't reviewed by {% data variables.product.prodname_dotcom %} as long as they meet these requirements:
 
@@ -32,7 +33,7 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
   - The `name` cannot match an existing {% data variables.product.prodname_marketplace %} category.
   - {% data variables.product.prodname_dotcom %} reserves the names of {% data variables.product.prodname_dotcom %} features.
 
-### Publishing an action
+## Publishing an action
 
 You can add the action you've created to {% data variables.product.prodname_marketplace %} by tagging it as a new release and publishing it.
 
@@ -54,7 +55,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
 1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication/)."
 ![Publish the release](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-### Removing an action from {% data variables.product.prodname_marketplace %}
+## Removing an action from {% data variables.product.prodname_marketplace %}
 
 To remove a published action from {% data variables.product.prodname_marketplace %}, you'll need to update each published release. Perform the following steps for each release of the action you've published to {% data variables.product.prodname_marketplace %}.
 

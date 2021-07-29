@@ -9,7 +9,7 @@ versions:
 type: tutorial
 topics:
   - CD
-  - コンテナ
+  - Containers
   - Azure App Service
 ---
 

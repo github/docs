@@ -6,14 +6,15 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+type: how_to
 topics:
-  - 'User account'
-  - 'Sponsors profile'
+  - User account
+  - Sponsors profile
+shortTitle: Set up for user account
 ---
 
-### Joining {% data variables.product.prodname_sponsors %}
+## Joining {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -27,7 +28,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 If you have a bank account in a supported region, {% data variables.product.prodname_dotcom %} will review your application within two weeks.
 
-### Completing your sponsored developer profile
+## Completing your sponsored developer profile
 
 After {% data variables.product.prodname_dotcom %} reviews your application, you can set up your sponsored developer profile so that people can start sponsoring you.
 
@@ -39,7 +40,7 @@ After {% data variables.product.prodname_dotcom %} reviews your application, you
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### Creating sponsorship tiers
+## Creating sponsorship tiers
 
 {% data reusables.sponsors.tier-details %}
 
@@ -53,7 +54,7 @@ After {% data variables.product.prodname_dotcom %} reviews your application, you
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### Submitting your bank information
+## Submitting your bank information
 
 If you live in a supported region, you can follow these instructions to submit your bank information by creating a Stripe Connect account. Your region of residence and the region of your bank account must match. {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -62,7 +63,7 @@ If you live in a supported region, you can follow these instructions to submit y
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-### Submitting your tax information
+## Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
@@ -72,11 +73,11 @@ If you live in a supported region, you can follow these instructions to submit y
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
+## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
 Before you can become a sponsored developer, you must enable 2FA on your {% data variables.product.product_name %} account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 
-### Submitting your application to {% data variables.product.prodname_dotcom %} for approval
+## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Click **Request approval**.

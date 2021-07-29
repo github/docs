@@ -5,8 +5,10 @@ intro: '{% if currentVersion == "github-ae@latest" %}您的 {% data variables.pr
 versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - 企业
+  - Enterprise
+  - Upgrades
 ---
 
 {% data variables.product.product_name %} 正在不断改进，通过主要和次要版本引入新功能和漏洞补丁。 {% if currentversion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
@@ -43,5 +45,5 @@ topics:
 
 - `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
 {% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} 发行说明](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_ghe_managed %} 发行说明](/admin/release-notes)
 {% endif %}

@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 1. Wenn Du das einige Mitglied mit *Inhaber*-Berechtigungen bist, gib einem anderen Organisationsmitglied ebenfalls die Inhaberrolle. Weitere Informationen findest Du unter „[Ernennung eines Organisationsinhabers](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."

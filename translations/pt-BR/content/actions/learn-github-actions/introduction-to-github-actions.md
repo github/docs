@@ -12,7 +12,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - Princípios básicos
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

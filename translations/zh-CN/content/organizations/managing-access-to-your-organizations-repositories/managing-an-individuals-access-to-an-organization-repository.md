@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 具有管理员权限的人员可以管理组织成员和外部协作者对组织仓库的访问。
@@ -25,8 +25,8 @@ topics:
 
 ### 管理个人对组织仓库的访问
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 单击 **Members（成员）**或 **Outside collaborators（外部协作者）**以管理具有不同访问权限的人员。 ![邀请成员或外部协作者参加组织的按钮](/assets/images/help/organizations/select-outside-collaborators.png)
 5. 在您要管理的人员名称右侧，使用 {% octicon "gear" aria-label="The Settings gear" %} 下拉菜单，并单击 **Manage（管理）**。 ![管理访问链接](/assets/images/help/organizations/member-manage-access.png)

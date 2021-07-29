@@ -1,5 +1,5 @@
 ---
-title: Gerenciar consultorias de segurança para vulnerabilidades no seu projeto
+title: Managing security advisories for vulnerabilities in your project
 shortTitle: Consultorias de segurança
 intro: 'Discuta, corrija e publique vulnerabilidades de segurança nos seus repositórios usando consultorias de segurança.'
 redirect_from:
@@ -8,19 +8,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
+children:
+  - /about-coordinated-disclosure-of-security-vulnerabilities
+  - /about-github-security-advisories
+  - /permission-levels-for-security-advisories
+  - /creating-a-security-advisory
+  - /adding-a-collaborator-to-a-security-advisory
+  - /removing-a-collaborator-from-a-security-advisory
+  - /collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
+  - /publishing-a-security-advisory
+  - /editing-a-security-advisory
+  - /withdrawing-a-security-advisory
 ---
 
-### Índice
-
-{% link_in_list /adding-a-security-policy-to-your-repository %}
-{% link_in_list /about-coordinated-disclosure-of-security-vulnerabilities %}
-{% link_in_list /about-github-security-advisories %}
-{% link_in_list /permission-levels-for-security-advisories %}
-{% link_in_list /creating-a-security-advisory %}
-{% link_in_list /adding-a-collaborator-to-a-security-advisory %}
-{% link_in_list /removing-a-collaborator-from-a-security-advisory %}
-{% link_in_list /collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability %}
-{% link_in_list /publishing-a-security-advisory %}
-{% link_in_list /editing-a-security-advisory %}
-{% link_in_list /withdrawing-a-security-advisory %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
  
 
@@ -225,7 +225,7 @@ Tal como sugiere la guía de "D3 para Mortales", esto no es necesariamente la me
 
 Ahora es el momento de hacer una confesión: el atributo de `language` dentro de los repositorios solo identifica el lenguaje "primario" que se definió. Esto significa que, si tienes un repositorio que combine varios lenguajes, el que tenga más bytes de código se considera comoel primario.
 
-Vamos a combinar algunas llamadas a la API para obtener una representación _fidedigna_ de qué lenguaje tiene la mayor cantidad de bytes escritos en todo nuestro código. Un [diagrama de árbol][D3 treemap] deberá ser la mejor forma de visualizar los tamaños de los lenguajes de código que utilizamos, en vez de obtener solo el conteo. Necesitaremos construir una matriz de objetos que se vea más o menos así:
+Vamos a combinar algunas llamadas a la API para obtener una representación _fidedigna_ de qué lenguaje tiene la mayor cantidad de bytes escritos en todo nuestro código. Un [diagrama de árbol][D3 treemap] puede ser una manera excelente de visualizar los tamaños de los lenguajes de programación que se utilizan, en vez de utilizar solo el conteo. Necesitaremos construir una matriz de objetos que se vea más o menos así:
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -334,7 +334,7 @@ Como antes, hay mucho JavaScript que puedes dejar directamente en tu plantilla:
 [Octokit]: https://github.com/octokit/octokit.rb
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
 [language API]: /rest/reference/repos#list-repository-languages
 [language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs

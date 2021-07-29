@@ -7,8 +7,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - セキュリティ
+  - Security advisories
+  - Vulnerabilities
 ---
 
 リポジトリに対する管理者権限があるユーザなら誰でも、セキュリティアドバイザリを作成できます。

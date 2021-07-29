@@ -7,8 +7,12 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - 보안
+  - Security advisories
+  - Vulnerabilities
+  - CVEs
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->

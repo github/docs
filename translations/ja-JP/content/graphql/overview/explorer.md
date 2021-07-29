@@ -9,6 +9,6 @@ versions:
   github-ae: '*'
 layout: graphql-explorer
 topics:
-  - api
+  - API
 ---
 

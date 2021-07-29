@@ -56,8 +56,9 @@ jobs:
 | `GITHUB_WORKFLOW`    | ワークフローの名前。                                                                                                                                                                                                                                                                      |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
-| `GITHUB_JOB`         | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                              |
+| `GITHUB_JOB`         | 現在のジョブの [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                             |
 | `GITHUB_ACTION`      | アクションの一意の識別子 (`id`)。                                                                                                                                                                                                                                                            |
+| `GITHUB_ACTION_PATH` | アクションが置かれているパス。 このパスを使用して、アクションと同じリポジトリにあるファイルにアクセスできます。 この変数は、複合実行ステップアクションでのみサポートされています。                                                                                                                                                                                      |
 | `GITHUB_ACTIONS`     | {% data variables.product.prodname_actions %}がワークフローを実行しているときは常に`true`に設定されます。 この変数は、テストがローカルで実行されているときと、{% data variables.product.prodname_actions %}によって実行されているときを区別するために利用できます。                                                                                              |
 | `GITHUB_ACTOR`       | ワークフローを開始するユーザまたはアプリの名前。 `octocat`などです。                                                                                                                                                                                                                                         |
 | `GITHUB_REPOSITORY`  | 所有者およびリポジトリの名前。 `octocat/Hello-World`などです。                                                                                                                                                                                                                                      |
@@ -68,9 +69,9 @@ jobs:
 | `GITHUB_REF`         | ワークフローをトリガーしたブランチまたはタグref。 たとえば、`refs/heads/feature-branch-1`です。 イベントタイプのブランチもタグも利用できない場合、変数は存在しません。                                                                                                                                                                            |
 | `GITHUB_HEAD_REF`    | Pull Requestのイベントに対してのみ設定されます。 headブランチの名前です。                                                                                                                                                                                                                                   |
 | `GITHUB_BASE_REF`    | Pull Requestのイベントに対してのみ設定されます。 ベースブランチの名前です。                                                                                                                                                                                                                                    |
-| `GITHUB_SERVER_URL`  | {% data variables.product.product_name %} サーバーの URL を返します。 For example: `https://github.com`.                                                                                                                                                                                   |
-| `GITHUB_API_URL`     | API URL を返します。 For example: `https://api.github.com`.                                                                                                                                                                                                                           |
-| `GITHUB_GRAPHQL_URL` | グラフ QL API の URL を返します。 For example: `https://api.github.com/graphql`.                                                                                                                                                                                                          |
+| `GITHUB_SERVER_URL`  | {% data variables.product.product_name %} サーバーの URL を返します。 For example: `https://{% data variables.product.product_url %}`.                                                                                                                                                     |
+| `GITHUB_API_URL`     | API URL を返します。 For example: `{% data variables.product.api_url_code %}`.                                                                                                                                                                                                        |
+| `GITHUB_GRAPHQL_URL` | グラフ QL API の URL を返します。 For example: `{% data variables.product.graphql_url_code %}`.                                                                                                                                                                                           |
 
 {% tip %}
 
@@ -84,10 +85,6 @@ jobs:
 
 ### 環境変数の命名規則
 
-{% note %}
-
-**ノート:** {% data variables.product.prodname_dotcom %}は環境変数のプレフィックスの`GITHUB_`を、{% data variables.product.prodname_dotcom %}の内部的な利用のために予約しています。 `GITHUB_`プレフィックスを使用して環境変数またはシークレットを設定すると、エラーになります。
-
-{% endnote %}
+カスタム環境変数を設定する場合、接頭辞の `GITHUB_` が付いた上記のデフォルトの環境変数名を使用することはできません。 これらのデフォルトの環境変数のいずれかの値をオーバーライドしようとすると、割り当ては無視されます。
 
 ファイルシステム上の場所を指すように設定した新しい環境変数がある場合は、`_PATH`サフィックスを指定する必要があります。 デフォルトの変数`HOME`と`GITHUB_WORKSPACE`は、「home」および「workspace」という言葉で最初から場所であることがわかっているため、この規則の例外です。

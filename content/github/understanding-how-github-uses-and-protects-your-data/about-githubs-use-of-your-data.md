@@ -5,13 +5,14 @@ redirect_from:
   - /articles/about-githubs-use-of-your-data
 intro: '{% data variables.product.product_name %} uses your repository''s data to connect you to relevant tools, people, projects, and information.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
+shortTitle: GitHub's use of your data
 ---
  
-### About {% data variables.product.product_name %}'s use of your data
+## About {% data variables.product.product_name %}'s use of your data
 
 {% data variables.product.product_name %} aggregates metadata and parses content patterns for the purposes of delivering generalized insights within the product. It uses data from public repositories, and also uses metadata and aggregate data from private repositories when a repository's owner has chosen to share the data with {% data variables.product.product_name %} through an opt-in. If you opt a private repository into data use, then it will perform read-only analysis of that specific private repository.
 
@@ -23,7 +24,7 @@ If you opt in to data use for a private repository, we will continue to treat yo
 
 We'll announce substantial new features that use metadata or aggregate data on the [{% data variables.product.prodname_dotcom %} blog](https://github.com/blog).
 
-### How data improves security recommendations
+## How data improves security recommendations
 
 As an example of how your data might be used, we can detect and alert you to a security vulnerability in your public repository's dependencies. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 
@@ -31,7 +32,7 @@ To detect potential security vulnerabilities, {% data variables.product.product_
 
 {% data variables.product.product_name %} also learns from changes you make to your dependency manifest. For example, if you upgrade a vulnerable dependency to a safe version after getting a security alert and others do the same, {% data variables.product.product_name %} learns how to patch the vulnerability and can recommend a similar patch to affected repos.
 
-### Privacy and data sharing
+## Privacy and data sharing
 
 Private repository data is scanned by machine and never read by {% data variables.product.product_name %} staff. Human eyes will never see the contents of your private repositories, except as described in our [Terms of Service](/articles/github-terms-of-service/#3-access).
 

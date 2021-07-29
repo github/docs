@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Para resolverlo, el propietario del repositorio (`user`) debe agregar tu cuenta (`other-user`) como colaborador en el repositorio o en un equipo que tenga acceso de escritura al repositorio.

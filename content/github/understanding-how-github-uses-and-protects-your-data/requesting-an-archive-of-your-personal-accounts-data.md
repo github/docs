@@ -5,10 +5,11 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
+shortTitle: Request account archive
 ---
 
 {% data variables.product.product_name %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through settings on {% data variables.product.prodname_dotcom_the_website %} or with the User Migration API.
@@ -23,7 +24,7 @@ If your operating system cannot natively unpack the `tar.gz` file, you can use a
 
 The generated `tar.gz` file reflects the data stored at the time you started the data export.
 
-### Downloading an archive of your personal account's data
+## Downloading an archive of your personal account's data
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
@@ -34,7 +35,7 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 5. Click the download link in your email and re-enter your password if prompted.
 6. You'll be redirected to a `tar.gz` file that you can download.
 
-### Deleting access to an archive of your personal account's data
+## Deleting access to an archive of your personal account's data
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

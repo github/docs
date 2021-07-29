@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} Organisationsmitglieder in externe Mitarbeiter umwandeln.
@@ -30,8 +30,8 @@ Wir empfehlen Dir, den Zugriff des Organisationsmitglieds auf Repositorys zu üb
 
 When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% if currentVersion == "free-pro-team@latest" %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. Weitere Informationen findest Du unter „[Ehemaliges Mitglied Deiner Organisation wieder einsetzen](/articles/reinstating-a-former-member-of-your-organization).“
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Wähle die Person(en) aus, die Du in externe Mitarbeiter umwandeln möchtest. ![Liste der Mitglieder mit zwei ausgewählten Mitgliedern](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Klicke im Dropdownmenü über der Mitgliederliste auf **Convert to outside collaborator** (In externen Mitarbeiter umwandeln). ![Dropdownmenü mit der Option, Mitglieder in externe Mitarbeiter umzuwandeln](/assets/images/help/teams/user-bulk-management-options.png)

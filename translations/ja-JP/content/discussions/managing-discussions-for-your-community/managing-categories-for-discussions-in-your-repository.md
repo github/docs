@@ -1,7 +1,7 @@
 ---
 title: リポジトリ内のディスカッションのカテゴリを管理する
 intro: リポジトリ内のディスカッションを分類して、コミュニティメンバーの会話を整理したり、カテゴリごとに形式を選択したりすることができます。
-permissions: リポジトリ管理者およびリポジトリへの書き込み以上のアクセス権を持つユーザは、リポジトリ内でのディスカッションを有効にすることができます。
+permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,16 +12,19 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 各カテゴリには一意の名前と絵文字の組み合わせが必要で、その目的を示す詳しい説明を付けることができます。 Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %}詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
 
 ### デフォルトのカテゴリ
 
-| カテゴリ    | 目的                       | 種類              |
-|:------- |:------------------------ |:--------------- |
-| #️⃣ 全般  | プロジェクトに関連するすべての事柄        | 自由回答形式のディスカッション |
-| 💡 アイデア  | プロジェクトを変更または改善するためのアイデア  | 自由回答形式のディスカッション |
-| 🙏 Q&A   | コミュニティが回答する質問 (質問/回答形式)  | 質問と回答           |
-| 🙌 展示と説明 | プロジェクトに関連する作成物、実験、またはテスト | 自由回答形式のディスカッション |
+| カテゴリ            | 目的                                        | Format          |
+|:--------------- |:----------------------------------------- |:--------------- |
+| 📣 Announcements | Updates and news from project maintainers | Announcement    |
+| #️⃣ 全般          | プロジェクトに関連するすべての事柄                         | 自由回答形式のディスカッション |
+| 💡 Ideas         | プロジェクトを変更または改善するためのアイデア                   | 自由回答形式のディスカッション |
+| 🙏 Q&A           | コミュニティが回答する質問 (質問/回答形式)                   | 質問と回答           |
+| 🙌 展示と説明         | プロジェクトに関連する作成物、実験、またはテスト                  | 自由回答形式のディスカッション |
 
 ### カテゴリを作成する
 

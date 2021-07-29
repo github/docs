@@ -5,14 +5,14 @@ redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
-  free-pro-team: '*'
-type: 'overview'
+  fpt: '*'
+type: overview
 topics:
-  - 'Open Source'
-  - 'Fundamentals'
+  - Open Source
+  - Fundamentals
 ---
 
-### About {% data variables.product.prodname_sponsors %}
+## About {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -24,7 +24,7 @@ topics:
 
 When you become a sponsored developer or sponsored organization, additional terms for {% data variables.product.prodname_sponsors %} apply. For more information, see "[GitHub Sponsors Additional Terms](/github/site-policy/github-sponsors-additional-terms)."
 
-### About the {% data variables.product.prodname_matching_fund %}
+## About the {% data variables.product.prodname_matching_fund %}
 
 {% note %}
 
@@ -40,11 +40,11 @@ Donations between sponsored developers will not be matched.
 
 {% data reusables.sponsors.legal-additional-terms %}
 
-### Sharing feedback about {% data variables.product.prodname_sponsors %}
+## Sharing feedback about {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.feedback %}
 
-### Further reading
+## Further reading
 - "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

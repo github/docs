@@ -1,14 +1,14 @@
 ---
 title: Leitfaden zum Absenden einer DMCA Takedown Notice
 redirect_from:
-  - /dmca-counter-notice-how-to/
+  - /dmca-notice-how-to/
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Dieser Leitfaden beschreibt die Informationen, die GitHub benötigt, um einen DMCA Takedown Request zu verarbeiten. Zu allgemeineren Fragen über die DMCA ist oder wie GitHub DMCA Takedown Requests verarbeitet, lesen Sie bitte unsere [DMCA Takedown-Richtlinie](/articles/dmca-takedown-policy).
@@ -72,7 +72,10 @@ Diese Liste ist nicht erschöpfend, weshalb es besonders wichtig ist, mit einem 
 
 ### Beschwerden über Anti-Umgehungstechnologie
 
-Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. Wenn Sie glauben, dass auf GitHub gehostete Inhalte gegen dieses Verbot verstoßen, senden Sie uns bitte einen Bericht über unsere {% data variables.contact.contact_dmca %}, und geben Sie spezifische Informationen darüber an, welche Inhalte gegen dieses Verbot verstoßen, welche technologischen Maßnahmen Sie ergriffen haben und warum der Inhalt gegen das Verbot verstößt.
+Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
+1. What the technical measures are;
+2. How they effectively control access to the copyrighted material; and
+3. How the accused project is designed to circumvent their previously described technological protection measures.
 
 ### So reichen Sie Ihre Beschwerde ein
 

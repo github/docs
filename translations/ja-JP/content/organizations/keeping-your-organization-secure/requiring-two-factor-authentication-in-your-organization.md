@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Organization の2 要素認証について
@@ -42,9 +42,8 @@ Enterprise で Organization の 2 要素認証を必須にすることもでき�
 
 ### Organization で 2 要素認証を要求する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
@@ -58,8 +57,8 @@ Enterprise で Organization の 2 要素認証を必須にすることもでき�
 
 ![2 要素認証の違反により削除されたユーザーを示す Audit log イベント](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. 検索クエリを入力します。 以下のように検索します:
     - 削除された Organization のメンバーを検索するには、検索クエリで `action:org.remove_member` を使用します

@@ -5,7 +5,7 @@ shortTitle: Mejores prácticas para la experiencia de los clientes
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 El seguir estas mejores prácticas te ayudará a proporcionar una buena experiencia del cliente.

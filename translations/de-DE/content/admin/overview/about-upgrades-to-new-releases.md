@@ -5,8 +5,10 @@ intro: '{% if currentVersion == "github-ae@latest" %}Your {% data variables.prod
 versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Unternehmen
+  - Enterprise
+  - Upgrades
 ---
 
 {% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through major and minor releases. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
@@ -17,7 +19,7 @@ Major releases include new functionality and feature upgrades and typically occu
 
 Starting with {% data variables.product.prodname_ghe_server %} 3.0, all major releases begin with at least one release candidate. Release candidates are proposed major releases, with a complete feature set. There may be bugs or issues in a release candidate which can only be found through feedback from customers actually using {% data variables.product.product_name %}.
 
-You can get early access to the latest features by testing a release candidate as soon as the release candidate is available. You can upgrade to a release candidate from a supported version and can upgrade from the release candidate to later versions when released. You should upgrade any environment running a release candidate as soon as the release is generally available. For more information, see "[Upgrade requirements](/admin/enterprise-management/upgrade-requirements)."
+You can get early access to the latest features by testing a release candidate as soon as the release candidate is available. You can upgrade to a release candidate from a supported version and can upgrade from the release candidate to later versions when released. You should upgrade any environment running a release candidate as soon as the release is generally available. Weitere Informationen finden Sie unter „[Upgrade-Anforderungen](/admin/enterprise-management/upgrade-requirements)“.
 
 Release candidates should be deployed on test or staging environments. As you test a release candidate, please provide feedback by contacting support. For more information, see "[Working with {% data variables.contact.github_support %}](/admin/enterprise-support)."
 
@@ -43,5 +45,5 @@ To upgrade your enterprise to a new release, see "[Release notes](/enterprise-se
 
 - [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository
 {% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/release-notes)
 {% endif %}

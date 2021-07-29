@@ -5,8 +5,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - seguridad
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 Las personas con permisos administrativos en una asesoría de seguridad pueden eliminar a los colaboradores de la misma.

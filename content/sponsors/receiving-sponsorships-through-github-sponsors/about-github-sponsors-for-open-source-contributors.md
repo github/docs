@@ -5,14 +5,15 @@ redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
-  free-pro-team: '*'
-type: 'overview'
+  fpt: '*'
+type: overview
 topics:
-  - 'Open Source'
-  - 'Fundamentals'
+  - Open Source
+  - Fundamentals
+shortTitle: Open source contributors
 ---
 
-### Joining {% data variables.product.prodname_sponsors %}
+## Joining {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
 
@@ -24,13 +25,13 @@ You can set a goal for your sponsorships. For more information, see "[Managing y
 
 {% data reusables.sponsors.github-contact-applicants %}
 
-### Sponsorship tiers
+## Sponsorship tiers
 
 {% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
 
 It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
 
-### Sponsorship payouts
+## Sponsorship payouts
 
 {% data reusables.sponsors.no-fees %}
 
@@ -38,9 +39,9 @@ It's best to set up a range of different sponsorship options, including monthly 
 
 For more information, see "[Managing your payouts from {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors)."
 
-### Sharing feedback about {% data variables.product.prodname_sponsors %}
+## Sharing feedback about {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.feedback %}
 
-### Further reading
+## Further reading
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

@@ -7,15 +7,16 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+type: how_to
 topics:
-  - 'Organizations'
-  - 'Sponsors profile'
-  - 'Open Source'
+  - Organizations
+  - Sponsors profile
+  - Open Source
+shortTitle: Set up for organization
 ---
 
-### Joining {% data variables.product.prodname_sponsors %}
+## Joining {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -29,7 +30,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}
 
-### Completing your sponsored organization profile
+## Completing your sponsored organization profile
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
@@ -40,7 +41,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### Creating sponsorship tiers
+## Creating sponsorship tiers
 
 {% data reusables.sponsors.tier-details %}
 
@@ -54,9 +55,9 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### Submitting your bank information
+## Submitting your bank information
 
-As a sponsored organization, you must receive payouts to a dedicated bank account for your organization in a supported region. You can get a business bank account through services like [Open Collective](https://opencollective.com/) and [Stripe Atlas](https://stripe.com/atlas). The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you will receive payouts to a bank account in a supported region. This can be a dedicated bank account for your organization or a personal bank account. You can get a business bank account through services like [Stripe Atlas](https://stripe.com/atlas) or join a fiscal host like [Open Collective](https://opencollective.com/). The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
@@ -65,7 +66,7 @@ As a sponsored organization, you must receive payouts to a dedicated bank accoun
 
 For more information about setting up Stripe Connect using Open Collective, see [Setting up {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) in the Open Collective Docs.
 
-### Submitting your tax information
+## Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-org %}
 
@@ -75,17 +76,17 @@ For more information about setting up Stripe Connect using Open Collective, see 
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
+## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
 Before your organization can become a sponsored organization, you must enable 2FA on your {% data variables.product.product_name %} account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 
-### Submitting your application to {% data variables.product.prodname_dotcom %} for approval
+## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}
 
-### Further reading
+## Further reading
 - "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

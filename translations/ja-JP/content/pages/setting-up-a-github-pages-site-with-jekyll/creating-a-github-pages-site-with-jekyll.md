@@ -5,13 +5,13 @@ product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
   - /github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
-permissions: 'リポジトリの管理者権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを作成できます。'
+permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
@@ -57,7 +57,7 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
-  For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
+  たとえば、デフォルトブランチの `docs` フォルダからサイトを公開することを選択した場合は、ディレクトリを作成して `docs ` フォルダに変更します。
  ```shell
  $ mkdir docs
  # Creates a new folder called docs
@@ -68,26 +68,37 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
-7. To create a new Jekyll site, use the `jekyll new` command:
+7. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。
    ```shell
    $ jekyll new .
    # Creates a Jekyll site in the current directory
    ```
-8. Open the Gemfile that Jekyll created.
-1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
-1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
+8. Jekyll が作成した Gemfile を開きます。
+1. `gem "jekyll"` で始まる行の先頭に「#」を追加して行をコメントアウトします。
+1. `# gem "github-pages"` で始まる行を編集して `github-pages` を追加します。 行を次のように変更します。
 
    ```shell
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+   _GITHUB-PAGES-VERSION_ をサポートされている最新バージョンの `github-pages` gem に置き換えます。 このバージョンについては、「[依存関係バージョン](https://pages.github.com/versions/)」を参照してください。
 
-   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
-10. Gemfile を保存して閉じます。
-11. From the command line, run `bundle update`.
+   正しいバージョンの Jekyll は、`github-pages` gem の依存関係としてインストールされます。
+1. Gemfile を保存して閉じます。
+11. コマンドラインで `bundle update` を実行します。
+11. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
+   ```yml
+   domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+   url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+   baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder   
+  ```
 11. 必要に応じて、サイトをローカルでテストします。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
-12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
+12. Add and commit your work.
+```shell
+git add .
+git commit -m 'Initial GitHub pages site with Jekyll'
+```
+14. {% data variables.product.product_name %} リポジトリをリモートとして追加します。{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ は Enterprise のホスト名に、{% endif %}_USER_ はリポジトリ所有者のアカウントに{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}、{% endif %}そして _REPOSITORY_ はリポジトリの名前に置き換えてください。
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

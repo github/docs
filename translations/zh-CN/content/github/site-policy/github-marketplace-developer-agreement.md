@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 **参与 GITHUB 的 MARKETPLACE 计划必须遵守这些条款和条件（以下简称“协议”）。 注册参与 MARKETPLACE 计划或单击下面的“I ACCEPT（我接受）”，即表示您确认自己理解本协议，并接受其所有条款和条件。  如果您代表公司或其他法律实体签订本协议，则表示您拥有让该实体受本协议约束的法律权限，在这种情况下，“您”即表示您所代表的实体。**

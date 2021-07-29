@@ -1,6 +1,6 @@
 ---
 title: Organization のプロジェクトボードに対する個々のアクセスを管理する
-intro: 'Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。'
+intro: Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% note %}
@@ -22,8 +22,8 @@ topics:
 
 ### Organization メンバーにプロジェクトボードへのアクセスを付与する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -35,8 +35,8 @@ topics:
 
 ### Organization のメンバーのプロジェクトボードへのアクセスを変更する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -48,8 +48,8 @@ topics:
 
 プロジェクトボードからコラボレーターを削除しても、コラボレーターは引き続き他のロールの権限でボードにアクセスできる場合があります。 プロジェクトボードへのアクセスを完全に削除するには、個人の各ロールごとにアクセスを削除する必要があります。 たとえば、ユーザは Organization のメンバーとして、またはチーム メンバーとしてプロジェクトボードにアクセスできます。 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

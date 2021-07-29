@@ -5,17 +5,18 @@ redirect_from:
   - /articles/opting-into-or-out-of-data-use-for-your-private-repository
   - /github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-data-use-for-your-private-repository
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
+shortTitle: Manage data use for private repo
 ---
 
-### About data use for your private repository
+## About data use for your private repository
 
 When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
 
-### Enabling or disabling data use features
+## Enabling or disabling data use features
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -25,7 +26,7 @@ When you enable data use for your private repository, you'll be able to access t
 4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**.
   !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %}'s use of your data](/articles/about-github-s-use-of-your-data)"
 - "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"

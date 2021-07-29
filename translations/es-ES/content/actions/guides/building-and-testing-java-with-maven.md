@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Java'
-  - 'Maven'
+  - CI
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -71,7 +71,7 @@ jobs:
 Este flujo de trabajo realiza los siguientes pasos:
 
 1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
 3. El paso "Build with Maven" (Construir con Maven) ejecuta el `paquete` destino de Maven en modo no interactivo para garantizar que tu código se compile, se superen las pruebas y se pueda crear un paquete.
 
 Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.

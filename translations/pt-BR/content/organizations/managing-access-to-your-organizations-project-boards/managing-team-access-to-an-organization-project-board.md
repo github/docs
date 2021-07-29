@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% warning %}
@@ -31,8 +31,8 @@ Você pode dar a uma equipe inteira o mesmo nível de permissão em um quadro de
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -45,8 +45,8 @@ Você pode dar a uma equipe inteira o mesmo nível de permissão em um quadro de
 
 Se o acesso de uma equipe a um quadro de projeto for herdado de uma equipe principal, você deverá alterar o acesso da equipe principal ao quadro de projeto para atualizar o acesso das equipes secundárias.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Acima das conversas da equipe, clique em {% octicon "project" aria-label="The Projects icon" %} **Projects** (Projetos). ![Aba repositórios da equipe](/assets/images/help/organizations/team-project-board-button.png)
-5. Para alterar os níveis de permissão, à direita do quadro de projetos que deseja atualizar, use o menu suspenso. Para remover um quadro de projeto, clique em **{% octicon "trashcan" aria-label="The trashcan icon" %}**. ![Botão Trash (Lixeira) Remove a project board from your team (Remover um quadro de projeto de sua equipe)](/assets/images/help/organizations/trash-button.png)
+5. Para alterar os níveis de permissão, à direita do quadro de projetos que deseja atualizar, use o menu suspenso. Para remover um quadro de projeto, clique em **{% octicon "trash" aria-label="The trash icon" %}**. ![Botão Trash (Lixeira) Remove a project board from your team (Remover um quadro de projeto de sua equipe)](/assets/images/help/organizations/trash-button.png)

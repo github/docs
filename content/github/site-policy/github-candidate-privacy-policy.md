@@ -1,10 +1,10 @@
 ---
 title: GitHub Candidate Privacy Policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Effective Date: March 8, 2021
@@ -19,7 +19,7 @@ For the purposes of this policy:
 
 This policy does not apply to the use of GitHub services, which are covered under our [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
-### What Candidate Personal Information do we collect?
+## What Candidate Personal Information do we collect?
 
 The Candidate Personal Information we collect, use, and maintain (or “process”) can include the following, but is not limited to:
 
@@ -33,7 +33,7 @@ The Candidate Personal Information we collect, use, and maintain (or “process�
 
 **Sensitive or demographic information**, such as your gender, medical or health information, veteran status, or your racial or ethnic origin. 
  
-### How do we use the Candidate Personal Information we collect?
+## How do we use the Candidate Personal Information we collect?
 
 We use the Candidate Personal Information for the following purposes:
  - To assess your skills, qualifications and interests for employment opportunities with GitHub;
@@ -46,7 +46,7 @@ We use the Candidate Personal Information for the following purposes:
  - To prepare and submit reports as required under local laws and regulations;
  - To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
  
- ### How do we share your Candidate Personal Information?
+## How do we share your Candidate Personal Information?
  
 GitHub will share your Candidate Personal Information with those who have a legitimate business need for it. Whenever we permit a third party to access your Candidate Personal Information, we will make sure the information is used in a manner consistent with this policy. Your Candidate Personal Information may be shared with our affiliates (such as Microsoft) and other third parties (such as vendors) for the following purposes:
 1. In order to carry out the uses of Candidate Personal Information described above;
@@ -56,7 +56,7 @@ GitHub will share your Candidate Personal Information with those who have a legi
 5. Where necessary to protect GitHub, your vital interests (such as safety and security), or those of another person; or
 6. With your consent (such to contact your referees). It is your responsibility to obtain consent from referees before providing their personal information to GitHub.
 
-### Your rights to your Candidate Personal Information
+## Your rights to your Candidate Personal Information
 
 In some locations, Candidates may have certain rights under applicable local privacy laws (such as the European General Data Protection Regulation). However, regardless of your location, we provide the same high standard of privacy protection to all of our Candidates around the world. 
 
@@ -64,12 +64,12 @@ This includes the rights to request access or correct your information, request 
 
 You can make a request to do so by contacting privacy@github.com. We will respond to all requests in accordance with applicable data protection laws. 
  
-### How long do we retain your Candidate Personal Information?
+## How long do we retain your Candidate Personal Information?
 
 Candidate Personal Information will be stored for one year after your application to comply with our legal obligations. After that time, we will contact you and ask for your consent to continue to retain your personal information so that we can consider you for any future job opportunities at GitHub.
 
 If you are hired for a position at GitHub, we will retain the information provided during the application and recruitment process as part of your employee record.
 
-### Changes to this Policy
+## Changes to this Policy
 
 We may occasionally update this GitHub Candidate Privacy Policy. When we do make changes to this page, we will update the "last updated" date. 

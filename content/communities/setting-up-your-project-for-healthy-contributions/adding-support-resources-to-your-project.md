@@ -5,17 +5,18 @@ redirect_from:
   - /articles/adding-support-resources-to-your-project
   - /github/building-a-strong-community/adding-support-resources-to-your-project
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Add support resources
 ---
 To direct people to specific support resources, you can add a SUPPORT file to your repository's root, `docs`, or `.github` folder. When someone creates an issue in your repository, they will see a link to your project's SUPPORT file.
 
 ![Support guidelines](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 You can create default support resources for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
@@ -27,7 +28,7 @@ You can create default support resources for your organization or user account. 
 
 {% endtip %}
 
-### Adding support resources to your project
+## Adding support resources to your project
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

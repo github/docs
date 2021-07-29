@@ -6,11 +6,12 @@ redirect_from:
   - /articles/changing-access-permissions-for-wikis
   - /github/building-a-strong-community/changing-access-permissions-for-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Change access permissions
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -18,6 +19,6 @@ topics:
 3. Under Features, unselect **Restrict edits to collaborators only**.
    ![Wiki restrict editing](/assets/images/help/wiki/wiki_restrict_editing.png)
 
-### Further reading
+## Further reading
 
 - "[Disabling wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"

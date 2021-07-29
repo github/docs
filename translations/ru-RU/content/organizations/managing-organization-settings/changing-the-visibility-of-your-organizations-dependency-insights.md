@@ -8,17 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization owners can set limitations for viewing organization dependency insights. All members of an organization can view organization dependency insights by default.
 
 Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see "[Enforcing a policy on dependency insights in your enterprise account](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Member organization permissions", select or unselect **Allow members to view dependency insights**. ![Checkbox to allow members to view insights](/assets/images/help/organizations/allow-members-to-view-insights.png)
 6. Click **Save**.

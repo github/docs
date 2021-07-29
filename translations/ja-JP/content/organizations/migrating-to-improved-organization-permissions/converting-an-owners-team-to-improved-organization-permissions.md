@@ -1,6 +1,6 @@
 ---
 title: オーナー Team を改善された Organization の権限に移行する
-intro: '2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された権限モデルに移行する必要があるかもしれません。 「オーナー」は、Organization の各メンバーに与えられる管理者ロールとなりました。 レガシーのオーナー Team のメンバーには、オーナー権限が自動的に与えられます。'
+intro: 2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された権限モデルに移行する必要があるかもしれません。 「オーナー」は、Organization の各メンバーに与えられる管理者ロールとなりました。 レガシーのオーナー Team のメンバーには、オーナー権限が自動的に与えられます。
 redirect_from:
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
@@ -10,8 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 レガシーのオーナー Team を変換する方法はいくつかあります:
@@ -27,8 +27,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Team 名のフィールドで、オーナー Team の新しい名前を選びます。 例:
@@ -45,8 +45,8 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. ページの下部にある警告を確認し、[**Delete the Owners team**] をクリックします。 ![オーナー Team を削除するリンク](/assets/images/help/teams/owners-team-delete.png)

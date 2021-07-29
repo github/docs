@@ -3,6 +3,10 @@ title: 关于 GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} 是一种在云端使用 {% data variables.product.prodname_dotcom %} 的安全性更强的标准方法。'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 ### 关于 {% data variables.product.prodname_ghe_managed %}
@@ -21,7 +25,7 @@ versions:
 
 ### 由您加密
 
-所有客户数据都会静态加密，并且您可以提供自己的加密密钥，根据加密策略来加密数据。 您的密钥以及对您所有数据的访问由您控制。 更多信息请参阅“[为企业配置数据加密](/admin/configuration/configuring-data-encryption-for-your-enterprise)”。
+所有客户数据都是加密的。 更多信息请参阅“[为企业配置数据加密](/admin/configuration/configuring-data-encryption-for-your-enterprise)”。
 
 ### 隔离的帐户
 
@@ -34,3 +38,7 @@ versions:
 ### 商业和政府环境
 
 {% data variables.product.prodname_ghe_managed %} 可用于 Azure Government 云（是美国政府机构及其伙伴信任的云）。 {% data variables.product.prodname_ghe_managed %} 也可在商业云中使用，因此您可以选择适合您组织的托管环境。
+
+### 延伸阅读
+
+- "[从 {% data variables.product.company_short %} 支持获得帮助](/admin/enterprise-support/receiving-help-from-github-support)"

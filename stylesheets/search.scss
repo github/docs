@@ -22,31 +22,8 @@ Form and inputs using .ais- prefix gets added by search.js */
   padding: 10px $spacer-2 10px $spacer-5;
   font-size: 16px;
   @extend .form-control;
-  background: var(--color-bg-primary) url("/assets/images/octicons/search.svg") no-repeat 6px;
-}
-
-.ais-SearchBox-reset {
-  width: 30px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  opacity: 0.5;
-  border: none;
-  outline: none;
-  background: none;
-  z-index: 1;
-
-  @include breakpoint(md) {
-    header & {
-      height: 30px;
-    }
-  }
-
-  .ais-SearchBox-resetIcon {
-    width: 12px;
-    height: 12px;
-  }
+  background: var(--color-bg-primary) url("/assets/images/octicons/search.svg")
+    no-repeat 6px;
 }
 
 .ais-Hits-item {
@@ -70,8 +47,7 @@ Form and inputs using .ais- prefix gets added by search.js */
 }
 
 mark,
-.ais-Highlight-highlighted
-{
+.ais-Highlight-highlighted {
   background: none;
   color: inherit;
 
@@ -110,7 +86,7 @@ header {
     margin-bottom: 0;
   }
 
-  @include breakpoint(md) {
+  @include breakpoint(lg) {
     #search-results-container {
       display: none;
       position: absolute;
@@ -161,4 +137,8 @@ header {
       transition: width 0.3s ease-in-out;
     }
   }
+}
+
+#__next .ais-SearchBox-input.js-open {
+  top: 0;
 }

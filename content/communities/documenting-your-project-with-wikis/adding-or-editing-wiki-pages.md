@@ -10,14 +10,15 @@ redirect_from:
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Manage wiki pages
 ---
 
-### Adding wiki pages
+## Adding wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -31,7 +32,7 @@ topics:
   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
 7. To commit your changes to the wiki, click **Save Page**.
 
-### Editing wiki pages
+## Editing wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -43,11 +44,11 @@ topics:
    ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
 7. To commit your changes to the wiki, click **Save Page**.
 
-### Adding or editing wiki pages locally
+## Adding or editing wiki pages locally
 
 Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
 
-#### Cloning wikis to your computer
+### Cloning wikis to your computer
 
 Every wiki provides an easy way to clone its contents down to your computer.
 You can clone the repository to your computer with the provided URL:
@@ -59,7 +60,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 
 Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
 
-### About wiki filenames
+## About wiki filenames
 
 The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
 

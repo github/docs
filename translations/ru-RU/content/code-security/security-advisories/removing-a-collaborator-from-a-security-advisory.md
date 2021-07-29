@@ -5,8 +5,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - безопасность
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 People with admin permissions to a security advisory can remove collaborators from the security advisory.

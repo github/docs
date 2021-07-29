@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 ここは、GitHub にホストされているユーザコンテンツを調査する法執行官の方や、 当社が法執行機関とどのような情報をどのような状況で共有するのかを知りたいとお考えの方に ご覧いただきたいページです。

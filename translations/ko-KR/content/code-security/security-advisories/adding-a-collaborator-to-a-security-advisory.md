@@ -7,8 +7,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - 보안
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 People with admin permissions to a security advisory can add collaborators to the security advisory.

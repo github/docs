@@ -4,16 +4,18 @@ intro: 'You can submit a ticket to {% data variables.contact.github_support %} u
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - jobs
+  - Jobs
 ---
+## About ticket submission
+If your account uses a paid {% data variables.product.prodname_dotcom %} product, you can directly contact {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. For more information, see "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
-If your account uses a paid {% data variables.product.prodname_dotcom %} product, you can directly contact {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can contact {% data variables.contact.contact_support %} to report account, security, and abuse issues. For more information, see "[About GitHub Support](/github/working-with-github-support/about-github-support)."
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 If you do not have an enterprise account, please use the {% data variables.contact.enterprise_portal %} to submit tickets. For more information about enterprise accounts, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)."
 
-### Submitting a ticket using the {% data variables.contact.support_portal %}
+## Submitting a ticket using the {% data variables.contact.support_portal %}
 
 1. Navigate to the {% data variables.contact.contact_support_portal %}.
 2. Under "Name," type your name.
@@ -31,7 +33,7 @@ If you do not have an enterprise account, please use the {% data variables.conta
 7. Click **Send request**.
 ![Send request button](/assets/images/help/support/send-request-button.png)
 
-### Submitting a ticket using the {% data variables.contact.enterprise_portal %}
+## Submitting a ticket using the {% data variables.contact.enterprise_portal %}
 
 1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
 5. Click **Submit a Ticket**
@@ -39,7 +41,7 @@ If you do not have an enterprise account, please use the {% data variables.conta
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Further reading
+## Further reading
 - "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
 - "[About {% data variables.contact.github_support %}](/articles/about-github-support)"
 - "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."

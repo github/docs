@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 When a proxy server is enabled for {% data variables.product.product_location %}, outbound messages sent by {% data variables.product.prodname_ghe_server %} are first sent through the proxy server, unless the destination host is added as an HTTP proxy exclusion. Types of outbound messages include outgoing webhooks, uploading bundles, and fetching legacy avatars. The proxy server's URL is the protocol, domain or IP address, plus the port number, for example `http://127.0.0.1:8123`.

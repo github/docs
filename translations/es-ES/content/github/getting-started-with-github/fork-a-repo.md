@@ -10,11 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### Acerca de las bifurcaciones
 
 Casi siempre las bifurcaciones se usan para proponer cambios al proyecto de otra persona o para usar el proyecto de otra persona como inicio de tu propia idea.
 
@@ -34,7 +36,7 @@ Para obtener más información acerca de aplicar los principios de código abier
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-Cuando creas tu repositorio público desde una ramificación del proyecto de alguien más, asegúrate de incluir el archivo de licencia que determine cómo quieres que se comparta tu proyecto con los demás. Para obtener más información, consulta la sección "[Elegir una licencia de código abierto](http://choosealicense.com/)" en choosealicense.com.
+Cuando creas tu repositorio público desde una ramificación del proyecto de alguien más, asegúrate de incluir el archivo de licencia que determine cómo quieres que se comparta tu proyecto con los demás. Para obtener más información, consulta la sección "[Elegir una licencia de código abierto](https://choosealicense.com/)" en choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
 
@@ -154,5 +156,6 @@ Ahora ya has bifurcado un repositorio, has practicado la clonación de tu bifurc
 
 - "[Configurar Git](/articles/set-up-git)"
 - "[Crear un repositorio](/articles/create-a-repo)"
+- **Bifurcar un repositorio**
 - "[Socializar](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

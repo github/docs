@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - móvil
+  - Mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}
@@ -40,7 +40,7 @@ Puedes ingresar simultáneamente a la versión móvil con una cuenta de usuario 
 
 Debes instalar {% data variables.product.prodname_mobile %} 1.4 o posterior en tu dispositivo para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}.
 
-Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. Para obtener más información, consulta las secciones "[Notas de lanzamiento](/enterprise-server/admin/release-notes)" y "[Administrar {% data variables.product.prodname_mobile %} para tu empresa](/admin/configuration/managing-github-for-mobile-for-your-enterprise)".
+Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
 
 Durante el beta para {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, debes estar firmado con una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %}.
 

@@ -6,7 +6,7 @@ permissions: People with admin permissions to a repository can enable discussion
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.discussions.beta %}

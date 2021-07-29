@@ -21,18 +21,13 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Setup Node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 14.x
+          node-version: 16.x
+          cache: npm
 
-      - name: Install
-        uses: rachmari/puppeteer-container@6d56d6e132a3df76cf60bc290a4282f7fbaed05e
-        timeout-minutes: 5
-        with:
-          args: npm ci
+      - name: Install dependencies
+        run: npm ci --include=optional
 
-      - name: Test
-        timeout-minutes: 10
-        uses: rachmari/puppeteer-container@6d56d6e132a3df76cf60bc290a4282f7fbaed05e
-        with:
-          args: npm run browser-test
+      - name: Run browser-test
+        run: npm run browser-test

@@ -8,13 +8,15 @@ redirect_from:
   - /articles/migrating-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /converting-an-owners-team-to-improved-organization-permissions
+  - /converting-an-admin-team-to-improved-organization-permissions
+  - /migrating-admin-teams-to-improved-organization-permissions
+shortTitle: Migrate to improved permissions
 ---
 
-{% link_in_list /converting-an-owners-team-to-improved-organization-permissions %}
-{% link_in_list /converting-an-admin-team-to-improved-organization-permissions %}
-{% link_in_list /migrating-admin-teams-to-improved-organization-permissions %}

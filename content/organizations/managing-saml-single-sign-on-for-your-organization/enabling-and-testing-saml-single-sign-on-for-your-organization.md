@@ -6,10 +6,11 @@ redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Enable & test SAML SSO
 ---
 
 You can enable SAML SSO in your organization without requiring all members to use it. Enabling but not enforcing SAML SSO in your organization can help smooth your organization's SAML SSO adoption. Once a majority of your organization's members use SAML SSO, you can enforce it within your organization.
@@ -18,11 +19,12 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Prior to enforcing SAML SSO in your organization, ensure that you've set up your identity provider (IdP). For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
+Prior to enforcing SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
 
-{% data reusables.profile.access_profile %}
+For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Under "SAML single sign-on", select **Enable SAML authentication**.
 ![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
@@ -53,6 +55,6 @@ Prior to enforcing SAML SSO in your organization, ensure that you've set up your
 12. Click **Save**.
 ![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
 
-### Further reading
+## Further reading
 
 - "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

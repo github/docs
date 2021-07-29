@@ -1,9 +1,9 @@
 ---
 title: Administrar las alertas del escaneo de código para tu repositorio
 shortTitle: Administrar alertas
-intro: 'Desde la vista de seguridad, puedes ver, arreglar, {% if currentVersion == "enterprise-server@2.22" %}o cerrar{% else %}descartar, o borrar{% endif %} las alertas para las vulnerabilidades potenciales o para los errores en el código de tus proyectos.'
+intro: 'Desde la vista de seguridad, puedes ver, corregir, descartar o borrar las alertas de las vulnerabilidades o errores potenciales en el código de tu proyecto.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permiso de escritura en un repositorio, puedes administrar las alertas del {% data variables.product.prodname_code_scanning %} para éste.'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
@@ -13,8 +13,10 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 topics:
-  - seguridad
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -46,7 +48,7 @@ Necesitas permisos de escritura para ver un resumen de todas las alertas de un r
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-1. Optionally, use the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. Opcionalmente, utiliza los menús desplegables para filtrar las alertas. Por ejemplo, puedes filtrar por la herramienta que se utilizó para identificar las alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. Debajo de "{% data variables.product.prodname_code_scanning_capc %}", da clic en la alerta que quisieras explorar.
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Resumen de alertas](/assets/images/help/repository/code-scanning-click-alert.png)
@@ -60,7 +62,7 @@ Necesitas permisos de escritura para ver un resumen de todas las alertas de un r
 
 Cualquiera con permisos de escritura en un repositorio puede arreglar una alerta si confirma una corrección en el código. Si el repositorio tiene programado un {% data variables.product.prodname_code_scanning %} para ejecutarse en las solicitudes de cambios, es mejor levantar una solicitud de cambios con tu corrección. Esto activará el análisis del {% data variables.product.prodname_code_scanning %} en los cambios y probará que tu arreglo no introduciría ningún problema nuevo. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" y "[Clasificar las alertas del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
-Si tienes permisos de escritura para un repositorio, puedes ver las alertas arregladas si ves el resumen de las alertas y das clic en **Cerrado**. Para obtener más información, consulta la sección "[Visualizar las alertas de un repositorio](#viewing-the-alerts-for-a-repository)". La lista de "Cerrados" muestra las alertas solucionadas y aquellas que los usuarios {% if currentVersion == "enterprise-server@2.22" %}cerraron{% else %}descartaron{% endif %}.
+Si tienes permisos de escritura para un repositorio, puedes ver las alertas arregladas si ves el resumen de las alertas y das clic en **Cerrado**. Para obtener más información, consulta la sección "[Visualizar las alertas de un repositorio](#viewing-the-alerts-for-a-repository)". La lista de "Cerrado" muestra las alertas arregladas y las que los usuarios han descartado.
 
 Las alertas pueden arreglarse en una rama pero no en alguna otra. Puedes utilizar el menú desplegable de "Rama", en el resumen de las alertas, para verificar si una alerta se arregló en una rama en particular.
 
@@ -69,14 +71,6 @@ Las alertas pueden arreglarse en una rama pero no en alguna otra. Puedes utiliza
 {% else %}
 ![Filtrar alertas por rama](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-### Cerrar una alerta
-
-Cerrar una alerta es una forma de resolverla si no crees que necesita un arreglo. {% data reusables.code-scanning.close-alert-examples %}
-
-{% else %}
 
 ### Descartar o borrar las alertas
 
@@ -101,20 +95,9 @@ Cuando borras una alerta:
 
 Para descartar o borrar una alerta:
 
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "enterprise-server@2.22" %}
-{% data reusables.code-scanning.click-alert-in-list %}
-1. Selecciona el menú desplegable de **Cerrar** y da clic en una razón para cerrar la alerta.    
-   ![Elegir una razón apra cerrar la alerta a través del menú desplegable de "Cerrar"](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
 1. Si tienes permisos administrativos en el repositorio y quieres borrar las alertas para esta herramienta del {% data variables.product.prodname_code_scanning %}, selecciona algunas o todas las casillas de verificación y da clic en **Borrar**.
 
    ![Borrar alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
@@ -144,8 +127,6 @@ Para descartar o borrar una alerta:
 #### Descartar varias alertas al mismo tiempo
 
 Si un proyecto tiene varias alertas que quieras descartar por la misma razón, puedes descartarlas por lote desde el resúmen de las alertas. Habitualmente quieres filtrar la lista y luego descartar todas las alertas coincidentes. Por ejemplo, puede que quieras descartar todas las alertas actuales del proyecto que se hayan etiquetado para una vulnerabilidad de Enumeración de Debilidades (CWE, por sus siglas en inglés) Común en particular.
-
-{% endif %}
 
 ### Leer más
 

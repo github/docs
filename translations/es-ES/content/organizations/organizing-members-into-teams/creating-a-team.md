@@ -10,16 +10,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Solo los propietarios y mantenedores de la organización en un equipo padre pueden crear un nuevo equipo hijo debajo del padre. Los propietarios también pueden restringir los permisos de creación para todos los equipos en una organización. Para obtener más información, consulta "[Configurar los permisos de creación de equipo en tu organización](/articles/setting-team-creation-permissions-in-your-organization)."
 
 {% data reusables.organizations.team-synchronization %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}

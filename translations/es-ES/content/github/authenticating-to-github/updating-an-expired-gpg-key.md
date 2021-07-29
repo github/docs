@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 Si tu clave está vencida, debes [actualizar el vencimiento](https://www.gnupg.org/gph/en/manual/c235.html#AEN328), exportar la clave nueva, eliminar la clave vencida en tu cuenta de GitHub y [cargar la clave nueva para GitHub](/articles/adding-a-new-gpg-key-to-your-github-account/). Tus confirmaciones y etiquetas previas se mostrarán como verificadas, siempre que la clave reúna todos los demás requisitos de verificación.

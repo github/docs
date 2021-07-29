@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Personen mit Administratorzugriff auf ein Repository können den Zugriff eines Teams auf das Repository verwalten. Team-Betreuer können einem Team den Zugriff auf ein Repository entziehen.
@@ -26,8 +26,8 @@ Personen mit Administratorzugriff auf ein Repository können den Zugriff eines T
 
 ### Einem Team Zugriff auf ein Repository gewähren
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Klicke oberhalb der Liste der Repositorys auf **Add repository** (Repository hinzufügen). ![Schaltfläche „Add repository“ (Repository hinzufügen)](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ Du kannst einem Team den Zugriff auf ein Repository entziehen, wenn das Team dir
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Wähle alle Repositorys aus, die Du vom Team entfernen möchtest. ![Liste der Team-Repositorys mit aktivierten Kontrollkästchen für einige Repositorys](/assets/images/help/teams/select-team-repositories-bulk.png)

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 **Short version:** _We host a wide variety of collaborative projects from all over the world, and that collaboration only works when our users are able to work together in good faith. While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content you can post, conduct on the service, and other limitations. In short, be excellent to each other._
@@ -17,7 +17,7 @@ Capitalized terms used but not defined in these Acceptable Use Policies have the
 You are responsible for using the Service in compliance with all applicable laws, regulations, and all of our Acceptable Use Policies. These policies may be updated from time to time and are provided below, as well as in our [Terms of Service](/articles/github-terms-of-service) and [Corporate Terms of Service](/articles/github-corporate-terms-of-service).
 
 ### 2. Content Restrictions
-Under no circumstances will Users upload, post, host, execute, or transmit any Content to any repositories that:
+Under no circumstances will Users upload, post, host, execute, or transmit any Content that:
 
 - is unlawful or promotes unlawful activities;
 
@@ -31,9 +31,13 @@ Under no circumstances will Users upload, post, host, execute, or transmit any C
 
 - is or contains false, inaccurate, or intentionally deceptive information that is likely to adversely affect the public interest (including health, safety, election integrity, and civic participation);
 
-- contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system); or
+- directly supports [unlawful active attack or malware campaigns](/github/site-policy/github-community-guidelines#active-malware-or-exploits) that are causing technical harms — such as using our platform to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers — with no implicit or explicit dual-use purpose prior to the abuse occurring; or
+
+- shares unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys, including extension of a free license beyond its trial period; or
 
 - infringes any proprietary right of any party, including patent, trademark, trade secret, copyright, right of publicity, or other right.
+
+Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
 
 ### 3. Conduct Restrictions
 While using the Service, under no circumstances will you:

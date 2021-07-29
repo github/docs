@@ -1,6 +1,6 @@
 ---
 title: 将组织成员转换为外部协作者
-intro: '如果组织的某些当前成员只需要访问特定仓库，例如顾问或临时员工，您可以将他们转换为*外部协作者*。'
+intro: 如果组织的某些当前成员只需要访问特定仓库，例如顾问或临时员工，您可以将他们转换为*外部协作者*。
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-member-to-an-outside-collaborator
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} 将组织成员转换为外部协作者。
@@ -30,8 +30,8 @@ topics:
 
 将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果您在该时间范围内{% if currentVersion == "free-pro-team@latest" %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 您的组织，您可以恢复其成员权限。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 选择要转换为外部协作者的人员。 ![选择了两名成员的成员列表](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. 在成员列表的上方，使用下拉菜单并单击 **Convert to outside collaborator（转换为外部协作者）**。 ![含有将成员转换为外部协作者选项的下拉菜单](/assets/images/help/teams/user-bulk-management-options.png)

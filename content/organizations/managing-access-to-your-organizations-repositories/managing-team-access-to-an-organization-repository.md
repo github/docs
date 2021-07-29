@@ -6,12 +6,13 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Manage team access
 ---
 
 People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.
@@ -24,10 +25,10 @@ People with admin access to a repository can manage team access to the repositor
 
 {% endwarning %}
 
-### Giving a team access to a repository
+## Giving a team access to a repository
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Above the list of repositories, click **Add repository**.
@@ -37,14 +38,14 @@ People with admin access to a repository can manage team access to the repositor
 7. Optionally, to the right of the repository name, use the drop-down menu and choose a different permission level for the team.
   ![Repository access level dropdown](/assets/images/help/organizations/team-repositories-change-permission-level.png)
 
-### Removing a team's access to a repository
+## Removing a team's access to a repository
 
 You can remove a team's access to a repository if the team has direct access to a repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Select the repository or repositories you'd like to remove from the team.
@@ -54,6 +55,6 @@ You can remove a team's access to a repository if the team has direct access to 
 7. Review the repository or repositories that will be removed from the team, then click **Remove repositories**.
   ![Modal box with a list of repositories that the team will no longer have access to](/assets/images/help/teams/confirm-remove-team-repos.png)
 
-### Further reading
+## Further reading
 
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

@@ -1,14 +1,16 @@
-const { liquid } = require('../../lib/render-content')
-const { loadPageMap } = require('../../lib/pages')
-const entities = new (require('html-entities').XmlEntities)()
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+import { jest } from '@jest/globals'
+import { liquid } from '../../lib/render-content/index.js'
+import { loadPageMap } from '../../lib/page-data.js'
+import htmlEntities from 'html-entities'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+const entities = new htmlEntities.XmlEntities()
 
 describe('liquid helper tags', () => {
   jest.setTimeout(60 * 1000)
 
   const context = {}
   let pageMap
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     pageMap = await loadPageMap()
     context.currentLanguage = 'en'
     context.currentVersion = nonEnterpriseDefaultVersion
@@ -17,24 +19,24 @@ describe('liquid helper tags', () => {
       '/en/desktop/contributing-and-collaborating-using-github-desktop': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
       '/ja/desktop/contributing-and-collaborating-using-github-desktop': `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
       '/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories`,
-      '/en/github/writing-on-github/basic-writing-and-formatting-syntax': `/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`
+      '/en/github/writing-on-github/basic-writing-and-formatting-syntax': `/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`,
     }
     context.site = {
       data: {
         reusables: {
-          example: 'a rose by any other name\nwould smell as sweet'
-        }
-      }
+          example: 'a rose by any other name\nwould smell as sweet',
+        },
+      },
     }
     context.page = {
-      relativePath: 'desktop/index.md'
+      relativePath: 'desktop/index.md',
     }
-    done()
   })
 
   test('link tag with relative path (English)', async () => {
     const template = '{% link /contributing-and-collaborating-using-github-desktop %}'
-    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating using GitHub Desktop</a>'
+    const expected =
+      '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating using GitHub Desktop</a>'
     const output = await liquid.parseAndRender(template, context)
     expect(output).toBe(expected)
   })
@@ -42,7 +44,8 @@ describe('liquid helper tags', () => {
   test('link tag with relative path (translated)', async () => {
     context.currentLanguage = 'ja'
     const template = '{% link /contributing-and-collaborating-using-github-desktop %}'
-    const expected = '<a class="link-title Bump-link--hover no-underline" href="/ja/desktop/contributing-and-collaborating-using-github-desktop">'
+    const expected =
+      '<a class="link-title Bump-link--hover no-underline" href="/ja/desktop/contributing-and-collaborating-using-github-desktop">'
     const output = await liquid.parseAndRender(template, context)
     expect(output.includes(expected)).toBe(true)
     // set this back to english
@@ -52,15 +55,18 @@ describe('liquid helper tags', () => {
   test('link tag with local variable', async () => {
     const template = `{% assign href = "/contributing-and-collaborating-using-github-desktop" %}
     {% link {{ href }} %}`
-    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">'
+    const expected =
+      '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">'
     const output = await liquid.parseAndRender(template, context)
     expect(output.includes(expected)).toBe(true)
   })
 
   test('link tag with absolute path', async () => {
     context.currentLanguage = 'en'
-    const template = '{% link /desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories %}'
-    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories">Adding and cloning repositories</a>'
+    const template =
+      '{% link /desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories %}'
+    const expected =
+      '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories">Adding and cloning repositories</a>'
     const output = await liquid.parseAndRender(template, context)
     expect(output).toBe(expected)
   })
@@ -76,26 +82,17 @@ describe('liquid helper tags', () => {
     expect(output).toBe(expected)
   })
 
-  test('homepage_link_with_intro tag', async () => {
-    const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
-    const page = pageMap['/en/github/writing-on-github/basic-writing-and-formatting-syntax']
-    const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
-  <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
-  <p class="link-with-intro-intro f5">${page.intro}</p>
-</a>`
-    const output = await liquid.parseAndRender(template, context)
-    expect(output).toBe(expected)
-  })
-
   test('link_in_list tag', async () => {
     const template = '{% link_in_list /contributing-and-collaborating-using-github-desktop %}'
-    const expected = '- <a class="article-link link Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating using GitHub Desktop</a>'
+    const expected =
+      '- <a class="article-link link Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating using GitHub Desktop</a>'
     const output = await liquid.parseAndRender(template, context)
     expect(output).toBe(expected)
   })
 
   test('link_as_article_card', async () => {
-    const template = '{% link_as_article_card /contributing-and-collaborating-using-github-desktop %}'
+    const template =
+      '{% link_as_article_card /contributing-and-collaborating-using-github-desktop %}'
     const expected = `<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="" data-topics="">
   <a class="no-underline d-flex flex-column py-3 border-bottom" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
     <h4 class="h4 color-text-primary mb-1">Contributing and collaborating using GitHub Desktop</h4>
@@ -140,32 +137,30 @@ would smell as sweet`
   })
 
   describe('data tag', () => {
-    test(
-      'handles bracketed array access within for-in loop',
-      async () => {
-        const template = `
+    test('handles bracketed array access within for-in loop', async () => {
+      const template = `
 {% for term in site.data.glossaries.external %}
 ### {% data glossaries.external[forloop.index0].term %}
 {% data glossaries.external[forloop.index0].description %}
 ---
 {% endfor %}`
 
-        const localContext = { ...context }
-        localContext.site = {
-          data: {
-            variables: {
-              fire_emoji: ':fire:'
-            },
-            glossaries: {
-              external: [
-                { term: 'lit', description: 'Awesome things. {% data variables.fire_emoji %}' },
-                { term: 'Zhu Li', description: '_"Zhu Li, do the thing!"_ :point_up:' }
-              ]
-            }
-          }
-        }
+      const localContext = { ...context }
+      localContext.site = {
+        data: {
+          variables: {
+            fire_emoji: ':fire:',
+          },
+          glossaries: {
+            external: [
+              { term: 'lit', description: 'Awesome things. {% data variables.fire_emoji %}' },
+              { term: 'Zhu Li', description: '_"Zhu Li, do the thing!"_ :point_up:' },
+            ],
+          },
+        },
+      }
 
-        const expected = `
+      const expected = `
 
 ### lit
 Awesome things. :fire:
@@ -176,9 +171,8 @@ _"Zhu Li, do the thing!"_ :point_up:
 ---
 `
 
-        const output = await liquid.parseAndRender(template, localContext)
-        expect(output).toBe(expected)
-      }
-    )
+      const output = await liquid.parseAndRender(template, localContext)
+      expect(output).toBe(expected)
+    })
   })
 })

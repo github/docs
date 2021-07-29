@@ -8,7 +8,7 @@ company_short: 'GitHub'
 # GitHub's flagship products
 ## Until we have versioning to support GitHub Enterprise Cloud content, avoid using this variable if the output should specifically be GitHub Enterprise Cloud or GitHub Enterprise Server
 product_name: >-
-  {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% else %}GitHub{% endif %}
+  {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% else %}GitHub{% endif %}
 ## Use this variable when the output should always be GitHub, regardless of the product the user is using
 prodname_dotcom: 'GitHub'
 
@@ -26,7 +26,7 @@ prodname_ghe_one: 'GitHub One'
 
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if enterpriseServerVersions contains currentVersion %}your GitHub Enterprise Server instance{% elsif currentVersion == "github-ae@latest" %}your enterprise{% else %}GitHub{% endif %}
+  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub{% endif %}
 
 # Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 # Do not use in other situations!
@@ -72,6 +72,7 @@ prodname_pages: 'GitHub Pages'
 # CodeQL
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
+prodname_codeql_cli: 'CodeQL CLI'
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
@@ -81,7 +82,7 @@ prodname_oauth_app: 'OAuth App'
 prodname_oauth_apps: 'OAuth Apps'
 
 # API and developer docs
-prodname_enterprise_api: 'the {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} APIs'
+prodname_enterprise_api: 'the {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
 prodname_support_forum_with_url: '[GitHub API Development and Support Forum](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Content Attachments'
 
@@ -98,10 +99,12 @@ prodname_debug: 'GitHub Debug'
 # GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
 
+# GitHub Issues
+prodname_github_issues: 'GitHub Issues'
+
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
-prodname_github_container_registry: 'GitHub Container Registry'
-prodname_container_registry: 'container registry'
+prodname_container_registry: 'Container registry'
 
 # GitHub Insights
 prodname_insights: 'GitHub Insights'
@@ -171,36 +174,36 @@ prodname_arctic_vault: 'Arctic Code Vault'
 
 # Links
 product_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
+  {% ifversion fpt %}github.com{% else %}[hostname]{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
+  {% ifversion fpt %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
 signout_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
+  {% ifversion fpt %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
 raw_github_com: >-
-  {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
+  {% ifversion fpt %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 # GitHub Enterprise Server past versions
 current-340-version: '11.10.354'
 
 # Developer site product variables
 # Use this inside command-line and other code blocks
 doc_url_pre: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://docs.github.com/rest{% elsif enterpriseServerVersions contains currentVersion %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% elsif currentVersion == "github-ae@latest" %}https://docs.github.com/github-ae@latest/rest{% endif %}
+  {% ifversion fpt %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% elsif ghae %}https://docs.github.com/github-ae@latest/rest{% endif %}
 # Use this inside command-line code blocks
 api_url_pre: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/v3{% elsif currentVersion == "github-ae@latest" %}https://api.<em>[hostname]</em>{% endif %}
+  {% ifversion fpt %}https://api.github.com{% elsif ghes %}http(s)://<em>[hostname]</em>/api/v3{% elsif ghae %}https://<em>[hostname]</em>/api/v3{% endif %}
 # Use this inside command-line code blocks
 # Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
 oauth_host_code: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://github.com{% else %}http(s)://[hostname]{% endif %}
+  {% ifversion fpt %}https://github.com{% else %}http(s)://[hostname]{% endif %}
 device_authorization_url: >-
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
+  {% ifversion fpt or ghes > 2.21 or ghae %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
 # Use this all other code blocks
 api_url_code: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% elsif enterpriseServerVersions contains currentVersion %}http(s)://[hostname]/api/v3{% elsif currentVersion == "github-ae@latest" %}https://api.[hostname]{% endif %}
+  {% ifversion fpt %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}
 # Use this inside command-line code blocks
 graphql_url_pre: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% elsif enterpriseServerVersions contains currentVersion %}http(s)://<em>[hostname]</em>/api/graphql{% elsif currentVersion == "github-ae@latest" %}https://api.<em>[hostname]</em>/graphql{% endif %}
+  {% ifversion fpt %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>[hostname]</em>/api/graphql{% elsif ghae %}https://api.<em>[hostname]</em>/graphql{% endif %}
 # Use this all other code blocks
 graphql_url_code: >-
-  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% elsif enterpriseServerVersions contains currentVersion %}http(s)://[hostname]/api/graphql{% elsif currentVersion == "github-ae@latest" %}https://api.[hostname]/graphql{% endif %}
+  {% ifversion fpt %}https://api.github.com/graphql{% elsif ghes %}http(s)://[hostname]/api/graphql{% elsif ghae %}https://api.[hostname]/graphql{% endif %}

@@ -6,9 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Desenvolvimento da ação'
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,6 +20,8 @@ topics:
 Neste guia, você aprenderá os componentes básicos necessários para criar e usar uma ação de etapas de execução compostas empacotada. Para manter o foco deste guia nos componentes necessários para empacotar a ação, a funcionalidade do código da ação é mínima. A ação imprime "Hello World" e "Goodbye", ou, se você fornecer um nome personalizado, imprimirá "Hello [who-to-greet]" e "Goodbye". A ação também mapeia um número aleatório para a variável de saída `random-number` e executa um script denominado `goodbye.sh`.
 
 Ao terminar esse projeto, você saberá como criar sua própria ação de etapas de execução compostas e poderá testá-la em um fluxo de trabalho.
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Pré-requisitos
 
@@ -121,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }}
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

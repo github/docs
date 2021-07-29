@@ -10,14 +10,15 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /inviting-users-to-join-your-organization
+  - /canceling-or-editing-an-invitation-to-join-your-organization
+  - /adding-people-to-your-organization
+  - /removing-a-member-from-your-organization
+  - /reinstating-a-former-member-of-your-organization
+  - /can-i-create-accounts-for-people-in-my-organization
 ---
 
-{% link_in_list /inviting-users-to-join-your-organization %}
-{% link_in_list /canceling-or-editing-an-invitation-to-join-your-organization %}
 <!-- else -->
-{% link_in_list /adding-people-to-your-organization %}
-{% link_in_list /removing-a-member-from-your-organization %}
-{% link_in_list /reinstating-a-former-member-of-your-organization %}
-{% link_in_list /can-i-create-accounts-for-people-in-my-organization %}

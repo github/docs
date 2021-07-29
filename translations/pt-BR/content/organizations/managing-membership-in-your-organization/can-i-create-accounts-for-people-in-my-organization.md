@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Como você acessa uma organização entrando em uma conta pessoal, cada um dos integrantes da equipe precisa de uma conta pessoal. Uma vez que você tem nomes de usuário para cada pessoa que deseja adicionar à sua organização, você pode adicioná-las às equipes.

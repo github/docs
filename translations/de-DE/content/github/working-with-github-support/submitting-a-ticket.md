@@ -6,14 +6,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
-Wenn Dein Konto ein kostenpflichtiges {% data variables.product.prodname_dotcom %}-Produkt verwendet, kannst Du Dich direkt an {% data variables.contact.github_support %} wenden. Wenn Dein Konto {% data variables.product.prodname_free_user %} für Benutzerkonten und Organisationen verwendet, kannst Du {% data variables.contact.contact_support %} kontaktieren, um Probleme mit Konten, Sicherheit und Missbrauch zu melden. Weitere Informationen findest Du unter „[Über GitHub Support](/github/working-with-github-support/about-github-support)."
+### About ticket submission
+Wenn Dein Konto ein kostenpflichtiges {% data variables.product.prodname_dotcom %}-Produkt verwendet, kannst Du Dich direkt an {% data variables.contact.github_support %} wenden. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. Weitere Informationen findest Du unter „[Über GitHub Support](/github/working-with-github-support/about-github-support)."
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 If you do not have an enterprise account, please use the {% data variables.contact.enterprise_portal %} to submit tickets. For more information about enterprise accounts, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)."
 
-### Ticket über das {% data variables.contact.support_portal %} einreichen
+### Ticket über das {% data variables.contact.support_portal %} absenden
 
 1. Rufen Sie das {% data variables.contact.contact_support_portal %} auf.
 2. Gib unter „Name" Deinen Namen ein. ![Feld „Name“](/assets/images/help/support/name-field.png)

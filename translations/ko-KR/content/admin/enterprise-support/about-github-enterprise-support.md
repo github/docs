@@ -6,8 +6,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: overview
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Support
 ---
 
 {% note %}

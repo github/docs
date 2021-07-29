@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Clustering
+  - Enterprise
+  - Infrastructure
 ---
 
 {% warning %}

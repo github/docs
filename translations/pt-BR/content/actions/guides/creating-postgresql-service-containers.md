@@ -10,10 +10,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Contêineres'
-  - 'Docker'
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,7 +22,7 @@ topics:
 
 ### Introdução
 
-Este guia mostra exemplos de fluxo de trabalho que configuram um contêiner de serviço usando a imagem `postgres` do Docker Hub. O fluxo de trabalho executa um script para criar um cliente PostgreSQL e preencher os dados do cliente. Para testar se o fluxo de trabalho cria e preenche o cliente PostgreSQL, o script imprime os dados do cliente no console.
+Este guia mostra exemplos de fluxo de trabalho que configuram um contêiner de serviço usando a imagem `postgres` do Docker Hub. O fluxo de trabalho executa um script que se conecta ao serviço do PostgreSQL, cria uma tabela e, em seguida, preenche-a com dados. Para testar se o fluxo de trabalho cria e preenche a tabela do PostgreSQL, o script imprime os dados da tabela para o console.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -43,48 +43,48 @@ Também pode ser útil ter um entendimento básico de YAML, a sintaxe para {% da
 
 {% raw %}
 ```yaml{:copy}
-nome: exemplo de serviço PostgreSQL
-em: push
+name: PostgreSQL service example
+on: push
 
-trabalhos:
-  # Etiqueta do trabalho do contêiner
+jobs:
+  # Label of the container job
   container-job:
-    # Os contêineres devem ser executados em sistemas operacionais baseados no Linux
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # Imagem do Docker Hub em que o `container-job` é executado
-    contêiner: node:10.18-jessie
+    # Docker Hub image that `container-job` executes in
+    container: node:10.18-jessie
 
-    # Contêineres de serviço a serem executados com `container-job`
-    serviços:
-      # Etiqueta usada para acessar o contêiner de serviço
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
       postgres:
-        # Imagem do Docker Hub
-        imagem: postgres
-        # Fornece a senha para postgres
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # Define verificações gerais até a inicialização do postgres
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
 
-    etapas:
-      # Faz o download de uma cópia do código no seu repositório antes de executar testes de CI
-      - nome: Verifica o código do repositório
-        usa: actions/checkout@v2
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v2
 
-      # Realiza uma instalação limpa de todas as dependências no arquivo `package.json`
-      # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-      - nome: Instalar dependências
-        executar: npm ci
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
+      - name: Install dependencies
+        run: npm ci
 
-      - nome: Conectar-se ao PostgreSQL
-        # Executa um script que cria um cliente PostgreSQL client, preenche
-        # os dados do cliente e recupera dados
-        executar: node client.js
-        # Variável de ambiente usada pelo script `client.js` para criar um novo PostgreSQL client.
+      - name: Connect to PostgreSQL
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
+        run: node client.js
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # O nome do host usado para comunicar-se com o contêiner de serviço do PostgreSQL
           POSTGRES_HOST: postgres
@@ -130,22 +130,22 @@ trabalhos:
 {% data reusables.github-actions.service-template-steps %}
 
 ```yaml{:copy}
-etapas:
-  # Faz o download de uma cópia do código no seu repositório antes de executar testes de CI
-  - nome: Verifica o código do repositório
-    usa: actions/checkout@v2
+steps:
+  # Downloads a copy of the code in your repository before running CI tests
+  - name: Check out repository code
+    uses: actions/checkout@v2
 
-  # Executa uma instalação limpa de todas as dependências no arquivo `package.json`
-  # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-  - Nome: Instalar dependências
-    executar: npm ci
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
+  - name: Install dependencies
+    run: npm ci
 
-  - nome: Conectar-se ao PostgreSQL
-    # Executa um script que cria um cliente PostgreSQL client, preenche
-    # os dados do cliente e recupera dados
-    executar: node client.js
-    # Variável do ambiente usada pelo script `client.js` script para criar
-    # um novo cliente PostgreSQL.
+  - name: Connect to PostgreSQL
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data.
+    run: node client.js
+    # Environment variable used by the `client.js` script to create
+    # a new PostgreSQL client.
     env:
       # O nome do host usado para comunicar-se com o contêiner de serviço do PostgreSQL
       POSTGRES_HOST: postgres
@@ -165,50 +165,50 @@ Ao executar um trabalho diretamente na máquina executora, você deverá mapear 
 
 {% raw %}
 ```yaml{:copy}
-nome: Exemplo de serviço do PostgreSQL
-em: push
+name: PostgreSQL Service Example
+on: push
 
-trabalhos:
-  # Etiqueta do trabalho executor
+jobs:
+  # Label of the runner job
   runner-job:
-    # Você deve usar um ambiente do Linux ao usar os contêineres de serviço ou os trabalhos do contêiner
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # Os serviços dos contêineres a serem executados com `runner-job`
-    serviços:
-      # Etiqueta usada para acessar o contêiner de serviço
+    # Service containers to run with `runner-job`
+    services:
+      # Label used to access the service container
       postgres:
-        # Imagem do Docker Hub
-        imagem: postgres
-        # Fornece a senha para postgres
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # Define verificações gerais até a inicialização do postgres
-        opções: >-
+        # Set health checks to wait until postgres has started
+        options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        portas:
-          # Mapeia a porta port 5432 tcp no contêiner de serviço com o host
+        ports:
+          # Maps tcp port 5432 on service container to the host
           - 5432:5432
 
-    etapas:
-      # Faz o download de uma cópia do código no seu repositório antes de executar um teste de CI
-      - nome: Verifica o código do repositório
-        usa: actions/checkout@v2
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v2
 
-      # Realiza uma instalação limpa de todas as dependências no arquivo `package.json`
-      # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-      - nome: Instalar dependências
-        executar: npm ci
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
+      - name: Install dependencies
+        run: npm ci
 
-      - nome: Conectar-se ao PostgreSQL
-        # Executa um script que cria um cliente PostgreSQL, preenche
-        # os dados do cliente e recupera dados
-        executar: node client.js
-        # Variável de ambiente usada pelo script `client.js` para criar
-        # um novo cliente PostgreSQL.
+      - name: Connect to PostgreSQL
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data
+        run: node client.js
+        # Environment variables used by the `client.js` script to create
+        # a new PostgreSQL table.
         env:
           # O nome do host usado para comunicar-se com o contêiner de serviço PostgreSQL
           POSTGRES_HOST: localhost
@@ -257,22 +257,22 @@ trabalhos:
 {% data reusables.github-actions.service-template-steps %}
 
 ```yaml{:copy}
-etapas:
-  # Faz o download de uma cópia do código no seu repositório antes de executar testes de CI
-  - nome: Verifica o código do repositório
-    usa: actions/checkout@v2
+steps:
+  # Downloads a copy of the code in your repository before running CI tests
+  - name: Check out repository code
+    uses: actions/checkout@v2
 
-  # Executa uma instalação limpa de todas as dependências no arquivo `package.json`
-  # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-  - Nome: Instalar dependências
-    executar: npm ci
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
+  - name: Install dependencies
+    run: npm ci
 
-  - nome: Conectar-se ao PostgreSQL
-    # Executa um script que cria um cliente PostgreSQL client, preenche
-    # os dados do cliente e recupera dados
-    executar: node client.js
-    # Variável do ambiente usada pelo script `client.js` script para criar
-    # um novo cliente PostgreSQL.
+  - name: Connect to PostgreSQL
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data
+    run: node client.js
+    # Environment variables used by the `client.js` script to create
+    # a new PostgreSQL table.
     env:
       # O nome do host usado para comunicar-se com o contêiner de serviço do PostgreSQL
       POSTGRES_HOST: localhost
@@ -286,9 +286,9 @@ etapas:
 
 ### Testar o contêiner de serviço do PostgreSQL
 
-Você pode testar o seu fluxo de trabalho usando o script a seguir, que cria um cliente PostgreSQL e adiciona uma tabela com alguns dados com espaços reservados. Em seguida, o script imprime no terminal os valores armazenados no cliente PostgreSQL. O seu script pode usar qualquer linguagem que você desejar, mas este exemplo usa Node.js e o módulo npm `pg`. Para obter mais informações, consulte [módulo npm pg](https://www.npmjs.com/package/pg).
+Você pode testar o seu fluxo de trabalho usando o seguinte script, que se conecta ao serviço do PostgreSQL e adiciona uma nova tabela com alguns dados de espaço reservado. Em seguida, o script imprime os valores armazenados na tabela do PostgreSQL no terminal. O seu script pode usar qualquer linguagem que você desejar, mas este exemplo usa Node.js e o módulo npm `pg`. Para obter mais informações, consulte [módulo npm pg](https://www.npmjs.com/package/pg).
 
-Você pode modificar o *client.js* para incluir qualquer operação do PostgreSQL exigida pelo seu fluxo de trabalho. Neste exemplo, o script cria a instância do cliente PostgreSQL, cria uma tabela, adiciona dados de espaços reservados e, em seguida, recupera os dados.
+Você pode modificar o *client.js* para incluir qualquer operação do PostgreSQL exigida pelo seu fluxo de trabalho. Neste exemplo, o script conecta-se ao serviço do PostgreSQL, adiciona uma tabela ao banco de dados `postgres`, insere alguns dados de espaço reservado e recupera os dados.
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -324,11 +324,11 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-O script cria um novo `Client` PostgreSQL, que aceita um `host` e o parâmetro da `porta`. O script usa as variáveis de ambiente `POSTGRES_HOST` e `POSTGRES_PORT` para definir o endereço IP e a porta do cliente. Se o `host` e a `porta` não forem definidos, o host-padrão será `localhost` e a porta-padrão será 5432.
+O script cria uma nova conexão com o serviço PostgreSQL e usa as variáveis de ambiente `POSTGRES_HOST` e `POSTGRES_PORT` para especificar o endereço e porta do serviço do PostgreSQL. Se o `host` e a `porta` não forem definidos, o host-padrão será `localhost` e a porta-padrão será 5432.
 
-O script cria uma tabela e preenche com dados de espaço reservado. Para testar se o banco de dados do PostgreSQL contém os dados, o script imprime o conteúdo da tabela no registro do console.
+O script cria uma tabela e preenche com dados de espaço reservado. Para testar se o banco de dados `postgres` contém os dados, o script imprime o conteúdo da tabela no registro do console.
 
-Ao executar este fluxo de trabalho, você deve ver a saída a seguir na etapa "Conectar-se ao PostgreSQL", que confirma que você criou o cliente PostgreSQL e adicionou dados:
+Ao executar este fluxo de trabalho, você verá a seguinte saída na etapa "Conectar ao PostgreSQL", que confirma que você criou com sucesso a tabela do PostgreSQL e adicionou dados:
 
 ```
 null [ { id: 1,

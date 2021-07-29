@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - безопасность
+  - Security advisories
+  - Vulnerabilities
 ---
 
 If you publish a security advisory in error, you can withdraw the security advisory by contacting {% data variables.contact.contact_support %}.

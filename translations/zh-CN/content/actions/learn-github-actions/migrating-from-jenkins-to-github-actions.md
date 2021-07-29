@@ -10,7 +10,7 @@ versions:
 type: tutorial
 topics:
   - Jenkins
-  - 迁移
+  - Migration
   - CI
   - CD
 ---

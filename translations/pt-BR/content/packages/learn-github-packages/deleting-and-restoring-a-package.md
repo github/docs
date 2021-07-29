@@ -1,6 +1,6 @@
 ---
 title: Excluir e restaurar um pacote
-intro: 'Saiba como excluir ou restaurar um pacote.'
+intro: Saiba como excluir ou restaurar um pacote.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package
@@ -112,9 +112,9 @@ Para obter mais informações sobre a mutação `deletePackageVersion`, consulte
 Você não pode excluir diretamente um pacote inteiro usando o GraphQL, mas se você excluir todas as versões de um pacote, o pacote não será mostrado em {% data variables.product.product_name %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Deleting a version of a user-scoped package on {% data variables.product.prodname_dotcom %}
+### Excluindo uma versão de pacote com escopo do usuário em {% data variables.product.prodname_dotcom %}
 
-To delete a specific version of a user-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps. To delete an entire package, see "[Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)."
+Para excluir uma versão específica de um pacote com escopo de usuário em {% data variables.product.prodname_dotcom %}, como para uma imagem Docker em `ghcr. o`, siga estas etapas. Para excluir um pacote inteiro, consulte "[Excluir todo um pacote com escopo do usuário em {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)".
 
 {% data reusables.package_registry.container-registry-beta %}
 

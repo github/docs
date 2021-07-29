@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Las personas con permisos administrativos o de propietario pueden configurar un archivo CODEOWNERS en un repositorio.

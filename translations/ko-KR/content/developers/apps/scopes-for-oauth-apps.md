@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.
@@ -30,7 +30,7 @@ Check headers to see what OAuth scopes you have, and what the API action accepts
 
 ```shell
 $ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
-HTTP/1.1 200 OK
+HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```

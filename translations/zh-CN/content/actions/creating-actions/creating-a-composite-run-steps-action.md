@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 操作开发
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,6 +20,8 @@ topics:
 在本指南中，您将了解创建和使用打包的组合运行步骤操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 该操作将依次打印 "Hello World" 和 "Goodbye"，如果您提供自定义名称，则将依次打印 "Hello [who-to-greet]" 和 "Goodbye"。 该操作还将随机数映射到 `random-number` 输出变量，并运行名为 `goodbye.sh` 的脚本。
 
 完成此项目后，您应会了解如何构建自己的组合运行步骤操作以及在工作流程中测试它。
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### 基本要求
 
@@ -121,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }}
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

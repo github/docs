@@ -5,17 +5,17 @@ redirect_from:
   - /articles/managing-your-sponsorship
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
-  free-pro-team: '*'
-type: 'how_to'
+  fpt: '*'
+type: how_to
 topics:
-  - 'Contacting sponsors'
-  - 'Privacy'
-  - 'Open Source'
+  - Contacting sponsors
+  - Privacy
+  - Open Source
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Managing the privacy setting for your sponsorship
+## Managing the privacy setting for your sponsorship
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -23,7 +23,7 @@ topics:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Managing email updates for your sponsorship
+## Managing email updates for your sponsorship
 
 You can choose whether an account you sponsor can send you email updates about their work. The sponsored account will not have access to your email address.
 
@@ -35,7 +35,7 @@ You can choose whether an account you sponsor can send you email updates about t
 {% data reusables.sponsors.choose-updates %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Further reading
+## Further reading
 
 - "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)"
 - "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)"

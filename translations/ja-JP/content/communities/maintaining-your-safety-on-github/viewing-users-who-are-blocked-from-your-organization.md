@@ -1,18 +1,18 @@
 ---
 title: Organization からブロックされているユーザの表示
-intro: 'あなたまたは他のコードオーナーがあなたの Organization からブロックしているすべてのユーザの一覧を表示することができます。 ユーザが一定期間ブロックされた場合は、ユーザがブロックされた時間を確認できます。'
+intro: あなたまたは他のコードオーナーがあなたの Organization からブロックしているすべてのユーザの一覧を表示することができます。 ユーザが一定期間ブロックされた場合は、ユーザがブロックされた時間を確認できます。
 redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. [Blocked users] の下で、Organization からブロックしたユーザの一覧を確認します。 ![ブロックされたユーザの一覧](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 

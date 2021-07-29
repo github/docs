@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 **Versión simplificada:** _Presentamos una amplia variedad de proyectos en equipo en todo el mundo y dicha cooperación solamente funciona cuando nuestros usuarios pueden trabajar juntos con buenas intenciones. Mientras usas el Servicio, debes cumplir con nuestras políticas de uso aceptable, que incluyen algunas restricciones sobre el contenido que puedes publicar o gestionar en el servicio y otras limitaciones. En síntesis, la idea es que sean geniales entre sí._
@@ -17,7 +17,7 @@ Los términos en mayúsculas que se utilizan, pero no se definen en estas Polít
 Eres responsable de usar el Servicio de conformidad con todas las leyes, regulaciones y con todas nuestras Políticas de uso aceptable que correspondan. Estas políticas se pueden actualizar cada cierto tiempo y se presentan a continuación. También se puede acceder a ellas en nuestros [Términos de servicio](/articles/github-terms-of-service) y [Términos de servicio corporativos](/articles/github-corporate-terms-of-service).
 
 ### 2. Restricciones de contenido
-Bajo ninguna circunstancia los usuarios cargarán, publicarán, presentarán, realizarán o transmitirán ningún contenido en ninguno de los repositorios:
+Under no circumstances will Users upload, post, host, execute, or transmit any Content that:
 
 - que sea ilícito o promueva actividades ilícitas;
 
@@ -31,9 +31,13 @@ Bajo ninguna circunstancia los usuarios cargarán, publicarán, presentarán, re
 
 - que sea o contenga información falsa, inexacta o intencionalmente engañosa que pueda afectar negativamente el interés público (incluyendo la salud, seguridad, integridad de la elección y participación cívica);
 
-- que contenga o instale cualquier malware o vulnerabilidad de seguridad, o use nuestra plataforma para el envío de vulnerabilidades de seguridad (como parte de un comando y un sistema de control);
+- directly supports [unlawful active attack or malware campaigns](/github/site-policy/github-community-guidelines#active-malware-or-exploits) that are causing technical harms — such as using our platform to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers — with no implicit or explicit dual-use purpose prior to the abuse occurring; or
+
+- comparta llaves de licencia de productos no autorizadas, software para generarlas o software para saltarse las verificaciones de estas, incluyendo las extensiones de licencias gratuitas más allá de su periodo de prueba; o
 
 - que infrinja algún derecho de propiedad de cualquiera de las partes, incluidos la patente, el nombre comercial, el secreto comercial, la propiedad intelectual, el derecho a publicidad o cualquier otro derecho.
+
+Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
 
 ### 3. Restricciones de conducta
 Mientras usas el Servicio, en ninguna circunstancia puedes hacer lo siguiente:

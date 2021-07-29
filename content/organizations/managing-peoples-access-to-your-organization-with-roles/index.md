@@ -6,16 +6,18 @@ redirect_from:
   - /articles/managing-peoples-access-to-your-organization-with-roles
   - /github/setting-up-and-managing-organizations-and-teams/managing-peoples-access-to-your-organization-with-roles
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /permission-levels-for-an-organization
+  - /maintaining-ownership-continuity-for-your-organization
+  - /giving-team-maintainer-permissions-to-an-organization-member
+  - /adding-a-billing-manager-to-your-organization
+  - /removing-a-billing-manager-from-your-organization
+shortTitle: Manage access with roles
 ---
 
-{% link_in_list /permission-levels-for-an-organization %}
-{% link_in_list /maintaining-ownership-continuity-for-your-organization %}
-{% link_in_list /giving-team-maintainer-permissions-to-an-organization-member %}
-{% link_in_list /adding-a-billing-manager-to-your-organization %}
-{% link_in_list /removing-a-billing-manager-from-your-organization %}

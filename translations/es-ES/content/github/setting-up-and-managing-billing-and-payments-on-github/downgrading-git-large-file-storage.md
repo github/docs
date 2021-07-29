@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en vigencia en tu próxima fecha de facturación. Para obtener más información, consulta "
@@ -22,11 +22,7 @@ Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en v
 
 
 
-{% data reusables.user_settings.billing %}
-
-
-
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 
 
 
@@ -42,23 +38,15 @@ Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en v
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
-
-
-
 {% data reusables.profile.access_org %}
 
 
 
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 
 
 
-{% data reusables.organizations.billing %}
-
-
-
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.organizations.billing_plans %}
 
 
 

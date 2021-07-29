@@ -4,7 +4,7 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 La API de {% data variables.product.prodname_registry %} te permite administrar paquetes utilizando la API de REST. Para aprender más sobre cómo restablecer o borrar paquetes, consulta la sección "[Restablecer y borrar paquetes](/packages/learn-github-packages/deleting-and-restoring-a-package)".

@@ -1,13 +1,13 @@
 ---
 title: Desbloquear un usuario desde tu organización
-intro: 'Los propietarios de la organización pueden desbloquear un usuario que se haya bloqueado previamente y restaurar su acceso a los repositorios de la organización.'
+intro: Los propietarios de la organización pueden desbloquear un usuario que se haya bloqueado previamente y restaurar su acceso a los repositorios de la organización.
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Después de desbloquear un usuario desde tu organización, este podrá contribuir con los repositorios de tu organización.
@@ -28,15 +28,15 @@ Si seleccionaste una cantidad de tiempo específica para bloquear al usuario, se
 
 ### Desbloquear un usuario en los parámetros de la organización
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. En "Blocked users" (Usuarios bloqueados), al lado del usuario que quieres desbloquear, haz clic en **Unblock** (Desbloquear). ![Botón Unblock user (Desbloquear usuario)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ### Leer más
 
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[Bloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
 - "[Bloquear a un usuario desde tu cuenta personal](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
 - "[Desbloquear a un usuario desde tu cuenta personal](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

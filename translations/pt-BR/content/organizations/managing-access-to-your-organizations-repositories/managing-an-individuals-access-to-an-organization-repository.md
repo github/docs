@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Pessoas com permissões de administrador podem gerenciar o acesso de integrantes da organização e colaboradores externos a um repositório da organização.
@@ -25,8 +25,8 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 ### Gerenciar o acesso de um indivíduo a um repositório da organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Cloque em **Members** (Integrantes) ou **Outside collaborators** (Colaboradores externos) para gerenciar pessoas com tipos diferentes de acessos. ![Botão para invite (convidar) members (colaboradores) ou outside collaborators (colaboradores externos) para uma organização](/assets/images/help/organizations/select-outside-collaborators.png)
 5. À direita do nome do colaborador que deseja remover, use o menu suspenso {% octicon "gear" aria-label="The Settings gear" %} e clique em **Manage** (Gerenciar). ![Link para manage access (gerenciar acesso)](/assets/images/help/organizations/member-manage-access.png)

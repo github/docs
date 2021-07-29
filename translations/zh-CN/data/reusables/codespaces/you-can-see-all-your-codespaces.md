@@ -1,1 +1,1 @@
-在 [github.com/codespaces](https://github.com/codespaces)上可以查看您的用户帐户拥有的每个代码空间。
+您可以在 [github.com/codespaces](https://github.com/codespaces) 上查看您创建的每一个可用代码空间。

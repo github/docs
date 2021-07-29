@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Por padrão, todos os integrantes da organização podem criar repositórios. Se você restringir [as permissões de criação de repositórios](/articles/restricting-repository-creation-in-your-organization) para proprietários de organizações e sua organização foi criada sob a estrutura de permissões de organização legadas, os integrantes das equipes de administradores legadas ainda conseguirão criar repositórios.
@@ -29,16 +29,15 @@ Para obter mais informações, consulte "[Níveis de permissão do repositório 
 
 ### Migrar todas as equipes de administradores legadas da organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
 1. Revise as equipes de administradores legadas da organização e clique em **Migrate all teams** (Migrar todas as equipes). ![Botão Migrate all teams (Migrar todas as equipes)](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. Leia as informações sobre possíveis alterações de permissões para integrantes dessas equipes e clique em **Migrate all teams** (Migrar todas as equipes). ![Botão Confirm migration (Confirmar migração)](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
 ### Migrar uma única equipe de administradores
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. Na caixa de descrição de equipe, clique em **Migrate team** (Migrar equipe). ![Botão Migrate team (Migrar equipe)](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

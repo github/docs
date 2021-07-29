@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,7 +19,7 @@ topics:
 ### Sobre a cobrança do {% data variables.product.prodname_actions %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)".
+{% data reusables.github-actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
 O uso do GitHub Actions é grátis para
 {% data variables.product.prodname_ghe_server %}s que usam executores auto-hospedados.
@@ -49,6 +49,8 @@ uso de {% data variables.product.prodname_actions %} ao usar executores hospedad
   | Equipe       | 60                           | 5                                   |
   | Enterprise   | 180                          | 50                                  |
 - **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 Os limites de uso aplicam-se a executores auto-hospedados. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}

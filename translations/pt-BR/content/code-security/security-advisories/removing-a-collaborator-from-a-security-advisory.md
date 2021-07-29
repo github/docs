@@ -5,8 +5,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - segurança
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 As pessoas com permissões de administrador para uma consultoria de segurança podem remover colaboradores da consultoria de segurança.

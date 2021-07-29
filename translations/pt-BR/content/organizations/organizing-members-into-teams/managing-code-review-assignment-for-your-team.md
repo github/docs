@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Os mantenedores de equipe e os proprietários da organização podem configurar atribuições de revisão de código.
@@ -30,8 +30,8 @@ O algoritmo round robin (rotativo) escolhe os revisores com base em quem recebeu
 O algoritmo do balanço de carga escolhe os revisores com base no número total de solicitações de revisão recentes de cada integrante e considera o número de revisões pendentes para cada integrante. O algoritmo do balanço de carga tenta garantir que cada integrante da equipe revise um número igual de pull requests em qualquer período de 30 dias.
 
 ### Configurar a atribuição da revisão de código
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Na barra lateral esquerda, clique em **Atribuição de revisão de código** ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-button.png)
@@ -43,8 +43,8 @@ O algoritmo do balanço de carga escolhe os revisores com base no número total 
 11. Clique em **Save changes** (Salvar alterações).
 
 ### Desabilitar atribuição de revisão de código
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Selecione **Habilitar atribuição automática** para remover a marca. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)

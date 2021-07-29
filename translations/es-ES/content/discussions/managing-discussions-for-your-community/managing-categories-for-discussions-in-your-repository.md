@@ -1,7 +1,7 @@
 ---
 title: Administrar las categorías de los debates en tu repositorio
-intro: Puedes categorizar los debates en tu repositorio para organizar las conversaciones para los miembros de tu comunidad, y puedes elegir un formato para cada categoría.
-permissions: Los administradores de repositorio y las personas con acceso de escritura o superior en el mismo pueden habilitar los debates para éste.
+intro: 'Puedes categorizar los debates en tu repositorio para organizar las conversaciones para los miembros de tu comunidad, y puedes elegir un formato para cada categoría.'
+permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,14 +12,17 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Cada categoría debe tener un nombre único y un emoji distintivo, y se le puede acompañar con una descripción detallada que describa su propósito. Las categorías ayudan a que los mantenedores organicen cómo se archivan sus conversaciones y se pueden personalizar para distinguir si las categorías que son de preguntas y respuestas o más abiertas. {% data reusables.discussions.repository-category-limit %} Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
 ### Categorías predeterminadas
 
-| Categoría          | Propósito                                                                      | Type                 |
+| Categoría          | Propósito                                                                      | Formato              |
 |:------------------ |:------------------------------------------------------------------------------ |:-------------------- |
+| 📣 Anuncios         | Actualizaciones y noticias de los mantenedores de proyecto                     | Anuncio              |
 | #️⃣ General        | Cualquier cosa que sea relevante para el proyecto                              | Debates abiertos     |
-| 💡Ideas             | Ideas para cambiar o mejorar el proyecto                                       | Debates abiertos     |
+| 💡 Ideas            | Ideas para cambiar o mejorar el proyecto                                       | Debates abiertos     |
 | 🙏 Q&A              | Preguntas para que responda la comunidad, con un formato de pregunta/respuesta | Pregunta y respuesta |
 | 🙌 Mostrar y contar | Creaciones, experimentos, o pruebas relevantes para el proyecto                | Debates abiertos     |
 

@@ -1,5 +1,5 @@
-const walkSync = require('walk-sync')
-const readFileAsync = require('../../lib/readfile-async')
+import walkSync from 'walk-sync'
+import readFileAsync from '../../lib/readfile-async.js'
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 
@@ -33,12 +33,14 @@ const ALLOW_LIST = new Set([
   'tweetsodium',
   'choosealicense.com',
   'renaming',
-  'localization-support'
+  'localization-support',
+  'docs',
+  'securitylab',
 ])
 
-describe('check for repository references', () => {
+describe('check if a GitHub-owned private repository is referenced', () => {
   // This tests exists to make sure we don't reference private GitHub owned repositories
-  // in our open-soure repository. If this is failing, and the repo is public,
+  // in our open-source repository. If this is failing, and the repo is public,
   // feel free to add it to the list above. Or if the feature requires referencing an
   // internal repo, add the feature to the ignore list below.
 
@@ -48,6 +50,8 @@ describe('check for repository references', () => {
       '.algolia-cache',
       '.git',
       '.github/actions-scripts/enterprise-server-issue-templates/*.md',
+      '.github/review-template.md',
+      '.next',
       'dist',
       'node_modules',
       'translations',
@@ -64,15 +68,16 @@ describe('check for repository references', () => {
       '**/*.gif', // READMEs or other text-based files from being checked.
       '**/*.pdf',
       '**/*.ico',
-      '**/*.woff'
-    ]
+      '**/*.woff',
+      'script/deploy',
+    ],
   })
 
   test.each(filenames)('in file %s', async (filename) => {
     const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
-      .filter(repoName => !ALLOW_LIST.has(repoName))
+      .filter((repoName) => !ALLOW_LIST.has(repoName))
     expect(matches).toHaveLength(0)
   })
 })

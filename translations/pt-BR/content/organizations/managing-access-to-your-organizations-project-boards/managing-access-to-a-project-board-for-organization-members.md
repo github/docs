@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Por padrão, os integrantes de uma organização têm acesso de gravação nos quadros de projetos da organização, exceto se os proprietários da organização ou os administradores de quadro de projeto configurarem permissões diferentes para quadros de projetos específicos.
@@ -23,8 +23,8 @@ Por padrão, os integrantes de uma organização têm acesso de gravação nos q
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

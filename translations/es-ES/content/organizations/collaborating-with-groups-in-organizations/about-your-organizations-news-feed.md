@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Las noticias de una organización muestran las actividades de otras personas en los repositorios que posee esa organización. Puedes usar las noticias de tu organización para ver cuando alguien abre, cierra o fusiona una propuesta o solicitud de extracción, crea o elimina una rama, crea una etiqueta o un lanzamiento, comenta en una propuesta, una solicitud de extracción o una confirmación de cambios o sube confirmaciones nuevas a {% data variables.product.product_name %}.

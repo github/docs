@@ -10,8 +10,8 @@ versions:
   github-ae: '*'
 permissions: Organization owners can reinstate a former member of an organization.
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About member reinstatement
@@ -39,8 +39,8 @@ If your organization has a paid per-user subscription, an unused license must be
 
 ### Reinstating a former member of your organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

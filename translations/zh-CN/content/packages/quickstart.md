@@ -71,7 +71,10 @@ versions:
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          packages: write
+          contents: read{% endif %}
         steps:
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v1
@@ -95,7 +98,7 @@ versions:
 
 ### 查看已发布的包
 
-包在仓库级别发布。 您可以查看仓库中的所有包，也可以搜索特定的包。
+您可以查看您发布的所有软件包。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -104,7 +107,7 @@ versions:
 
 ### 安装已发布的包
 
-现在，您已发布包，您需要使用它作为项目之间的依赖项。 更多信息请参阅"[配置 npm 用于 {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)"。
+现在，您已发布包，您需要使用它作为项目之间的依赖项。 更多信息请参阅“[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)”。
 
 ### 后续步骤
 
@@ -114,4 +117,4 @@ versions:
 
 - “[了解 {% data variables.product.prodname_registry %}](/packages/learn-github-packages)”，以获取 GitHub Packages 的深入教程
 - “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，以获取 GitHub Actions 的深入教程
-- “[指南](/packages/guides)”，以获取特定用例和示例
+- 特定用例和示例的“[使用 {% data variables.product.prodname_registry %} 注册表](/packages/working-with-a-github-packages-registry)”

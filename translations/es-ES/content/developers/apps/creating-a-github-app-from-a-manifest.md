@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 
@@ -59,9 +59,9 @@ Se redirigirá al creador de la app a una página de GitHub en donde encontrará
  | `name (nombre)`       | `secuencia`              | El nombre dela GitHub App.                                                                                                                                                                                                                                      |
  | `url`                 | `secuencia`              | **Requerido.** La página principal de tu GitHub App.                                                                                                                                                                                                            |
  | `hook_attributes`     | `objeto`                 | La configuración del webhook de la GitHub App.                                                                                                                                                                                                                  |
- | `redirect_url`        | `secuencia`              | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
- | `callback_urls`       | `conjunto de secuencias` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
- | `callback_url`        | `secuencia`              | A full URL to redirect to after someone authorizes an installation.{% endif %}
+ | `redirect_url`        | `secuencia`              | La URL completa a donde se debe redirigir a un usuario cuando inicia la creación de una GitHub App desde un manifiesto.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`       | `conjunto de secuencias` | Una URL completa a la cual redirigir cuando alguien autorice una instalación. Puedes proporcionar hasta 10 URL de rellamado.{% else %}
+ | `callback_url`        | `secuencia`              | Una URL completa a la cual redirigir cuando alguien autoriza una instalación.{% endif %}
  | `descripción`         | `secuencia`              | Una descripción de la GitHub App.                                                                                                                                                                                                                               |
  | `public`              | `boolean`                | Configúralo como `true` cuando tu GitHub App esté disponible al público o como `false` si solo puede acceder el propietario de la misma.                                                                                                                        |
  | `default_events`      | `arreglo`                | La lista de [eventos](/webhooks/event-payloads) a la cual se suscribe la GitHub App.                                                                                                                                                                            |
@@ -179,7 +179,7 @@ Tienes solo una hora para completar este paso en el flujo del Manifiesto de la G
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-    POST /app-manifests/:code/conversions
+    POST /app-manifests/{code}/conversions
 
 Para obtener más información acerca de la respuesta de la terminal, consulta la sección [Crear una GitHub App desde un manifiesto](/rest/reference/apps#create-a-github-app-from-a-manifest).
 

@@ -4,13 +4,13 @@ intro: '{% data variables.product.product_name %} Team をアイデンティテ�
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 product: '{% data reusables.gated-features.team-synchronization %}'
-permissions: 'Organization のオーナーとチームメンテナは、{% data variables.product.prodname_dotcom %} Team を IdP グループと同期することができます。'
+permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -30,7 +30,7 @@ IdP を通じた Team メンバーシップ変更はすべて、Team 同期ボ�
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.product_name %} according to the schedule determined by your IdP. {% data variables.product.prodname_dotcom %} Team または Organization のメンバーシップを変更するリクエストは、ユーザプロビジョニングの設定に使用されたアカウントによって行われた変更として監査ログに登録されます。 このアカウントに関する詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。 SCIM リクエストのスケジュールについて詳しくは、Microsoft Docs の「[ユーザプロビジョニングのステータスの確認](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)」を参照してください。
+IdP上でグループのメンバーシップが変更された場合、IdPはIdPが決定しているスケジュールに従い、その変更と共にSCIMリクエストを{% data variables.product.product_name %}に送信します。 {% data variables.product.prodname_dotcom %} Team または Organization のメンバーシップを変更するリクエストは、ユーザプロビジョニングの設定に使用されたアカウントによって行われた変更として監査ログに登録されます。 このアカウントに関する詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。 SCIM リクエストのスケジュールについて詳しくは、Microsoft Docs の「[ユーザプロビジョニングのステータスの確認](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)」を参照してください。
 {% endif %}
 
 親チームは IdP グループと同期できません。 IdP グループに接続したい Team が親チームの場合、新しい Team を作るか、Team と親チームのネスト関係を削除することをお勧めします。 詳細は、「[Team について](/articles/about-teams#nested-teams)」、「[Team の作成](/organizations/organizing-members-into-teams/creating-a-team)」、「[Organization 階層内で Team を移動する](/articles/moving-a-team-in-your-organizations-hierarchy)」を参照してください。
@@ -47,7 +47,7 @@ IdP グループに接続された Team を含めて {% data variables.product.p
 - そのユーザがすでに {% data variables.product.product_name %} のユーザアカウントでログインしており、少なくとも 1 回は SAML シングルサインオンを介して Organization または Enterprise アカウントに認証されている場合。
 - そのユーザの SSO ID が IdP グループのメンバーである場合。
 
-これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 詳しい情報については、「[Organization へのメンバーの SAML アクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)」と「[Enterprise へのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)」を参照してください。
 
 削除された Team メンバーは、SSO を使って Organization または Enterprise アカウントに認証され、接続先の IdP グループに移動すれば、再び Team に自動的に追加できます。
 
@@ -60,24 +60,24 @@ Organization が Enterprise アカウントによって所有されている場�
 ### 必要な環境
 
 {% if currentVersion == "free-pro-team@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+{% data variables.product.product_name %} チームに接続する前に、Organization またはEnterprise のオーナーは、Organization または Enterprise アカウントの Team 同期を有効にする必要があります。 詳しい情報については、「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」と「[Enterprise アカウントで Team 同期を管理する](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)」を参照してください。
 
 Team メンバーを誤って削除しないように、お使いの IdP の管理ポータルにアクセスし、現在の各 Team メンバーが、接続しようとしている IdP グループにも属していることを確認してください。 アイデンティティプロバイダにこうしたアクセスができない場合は、IdP 管理者にお問い合わせください。
 
 SAML SSO を使って認証する必要があります。 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
 {% elsif currentVersion == "github-ae@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an IdP group, you must first configure user provisioning for {% data variables.product.product_location %} using a supported System for Cross-domain Identity Management (SCIM). 詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
+IdP グループを含む {% data variables.product.product_name %} チームに接続するには、最初に、サポートされている System for Cross-domain Identity Management (SCIM) を使用して {% data variables.product.product_location %} のユーザプロビジョニングを設定する必要があります。 詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 
-Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. 詳しい情報については、Microsoft Docs の「[GitHub AE への自動ユーザプロビジョニングを設定する](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae)」を参照してください。
+SCIMを使用して{% data variables.product.product_name %} のユーザプロビジョニングを設定したら、{% data variables.product.product_name %} で使用するすべての IdP グループに {% data variables.product.product_name %} アプリケーションを割り当てることができます。 詳しい情報については、Microsoft Docs の「[GitHub AE への自動ユーザプロビジョニングを設定する](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae)」を参照してください。
 {% endif %}
 
 ### IdP グループをTeam に接続する
 
 IdP グループを {% data variables.product.product_name %} Team に接続すると、グループ内のすべてのユーザが自動的に Team に追加されます。 {% if currentVersion == "github-ae@latest" %}親 Organization のメンバーになっていないユーザも Organization に追加されます。{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -89,8 +89,8 @@ IdP グループを {% data variables.product.product_name %} Team に接続す�
 
 {% data variables.product.prodname_dotcom %} Team から IdP グループを切断すると、その IdP グループを介して {% data variables.product.prodname_dotcom %} Team に割り当てられている Team メンバーは Team から削除されます。 {% if currentVersion == "github-ae@latest" %} その Team 接続のためだけに親 Organization のメンバーであったユーザも、Organization から削除されます。{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}

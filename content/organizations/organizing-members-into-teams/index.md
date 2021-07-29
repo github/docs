@@ -13,26 +13,28 @@ redirect_from:
   - /articles/organizing-members-into-teams
   - /github/setting-up-and-managing-organizations-and-teams/organizing-members-into-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /about-teams
+  - /creating-a-team
+  - /setting-your-teams-profile-picture
+  - /adding-organization-members-to-a-team
+  - /managing-code-review-assignment-for-your-team
+  - /renaming-a-team
+  - /changing-team-visibility
+  - /synchronizing-a-team-with-an-identity-provider-group
+  - /moving-a-team-in-your-organizations-hierarchy
+  - /requesting-to-add-a-child-team
+  - /requesting-to-add-or-change-a-parent-team
+  - /removing-organization-members-from-a-team
+  - /disabling-team-discussions-for-your-organization
+  - /managing-scheduled-reminders-for-your-team
+  - /deleting-a-team
+shortTitle: Organize members into teams
 ---
 
-{% link_in_list /about-teams %}
-{% link_in_list /creating-a-team %}
-{% link_in_list /setting-your-teams-profile-picture %}
-{% link_in_list /adding-organization-members-to-a-team %}
-{% link_in_list /managing-code-review-assignment-for-your-team %}
-{% link_in_list /renaming-a-team %}
-{% link_in_list /changing-team-visibility %}
-{% link_in_list /synchronizing-a-team-with-an-identity-provider-group %}
-{% link_in_list /moving-a-team-in-your-organizations-hierarchy %}
-{% link_in_list /requesting-to-add-a-child-team %}
-{% link_in_list /requesting-to-add-or-change-a-parent-team %}
-{% link_in_list /removing-organization-members-from-a-team %}
-{% link_in_list /disabling-team-discussions-for-your-organization %}
-{% link_in_list /managing-scheduled-reminders-for-your-team %}
-{% link_in_list /deleting-a-team %}

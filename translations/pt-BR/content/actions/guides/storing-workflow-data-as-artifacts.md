@@ -12,9 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +36,7 @@ Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% else %}
 
@@ -252,6 +252,6 @@ A execução do fluxo de trabalho arquivará quaisquer artefatos gerados por ele
 
 ### Leia mais
 
-- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

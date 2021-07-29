@@ -4,14 +4,15 @@ intro: You can manage your enterprise account and the organizations it owns with
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
+shortTitle: Manage enterprise accounts
 ---
 
-### About managing enterprise accounts with GraphQL
+## About managing enterprise accounts with GraphQL
 
 To help you monitor and make changes in your organizations and maintain compliance, you can use the Enterprise Accounts API and the Audit Log API, which are only available as GraphQL APIs.
 
@@ -37,7 +38,7 @@ With the Enterprise Accounts API, you can:
 
 For a list of the fields available with the Enterprise Accounts API, see "[GraphQL fields and types for the Enterprise account API](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)."
 
-### Getting started using GraphQL for enterprise accounts
+## Getting started using GraphQL for enterprise accounts
 
 Follow these steps to get started using GraphQL to manage your enterprise accounts:
  - Authenticating with a personal access token
@@ -46,7 +47,7 @@ Follow these steps to get started using GraphQL to manage your enterprise accoun
 
 For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
 
-#### 1. Authenticate with your personal access token
+### 1. Authenticate with your personal access token
 
 1. To authenticate with GraphQL, you need to generate a personal access token (PAT) from developer settings. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
@@ -63,7 +64,7 @@ For some example queries, see "[An example query using the Enterprise Accounts A
     
 4. Copy your personal access token and keep it in a secure place until you add it to your GraphQL client.
 
-#### 2. Choose a GraphQL client
+### 2. Choose a GraphQL client
 
 We recommend you use GraphiQL or another standalone GraphQL client that lets you configure the base URL.
 
@@ -74,7 +75,7 @@ You may also consider using these GraphQL clients:
 
 The next steps will use Insomnia.
 
-#### 3. Setting up Insomnia to use the GitHub GraphQL API with enterprise accounts
+### 3. Setting up Insomnia to use the GitHub GraphQL API with enterprise accounts
 
 1. Add the base url and `POST` method to your GraphQL client. When using GraphQL to request information (queries), change information (mutations), or transfer data using the GitHub API, the default HTTP method is `POST` and the base url follows this syntax:
     - For your enterprise instance: `https://<HOST>/api/graphql`
@@ -93,11 +94,11 @@ The next steps will use Insomnia.
 
 Now you are ready to start making queries.
 
-### An example query using the Enterprise Accounts API
+## An example query using the Enterprise Accounts API
 
-This GraphQL query requests the total number of {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the slug of your Enterprise's instance slug.
+This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the slug of your Enterprise's instance slug.
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization($slug: String!) {
@@ -162,9 +163,9 @@ variables {
 ```
 {% endif %}
 
-The next GraphQL query example shows how challenging it is to retrieve the number of {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
+The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 ```graphql
 # Each organization is queried separately
 {
@@ -210,9 +211,9 @@ fragment repositories on Organization {
 ```
 {% endif %}
 
-### Query each organization separately
+## Query each organization separately
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -286,7 +287,7 @@ This GraphQL query requests the last 5 log entries for an enterprise organizatio
 
 For more information about getting started with GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)" and "[Forming Calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 
-### GraphQL fields and types for the Enterprise Accounts API
+## GraphQL fields and types for the Enterprise Accounts API
 
 Here's an overview of the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API.
 

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Quando você solicita a adição ou alteração da equipe principal, uma solicitação é enviada aos mantenedores da equipe principal. Quando um mantenedor da nova equipe principal aprova a solicitação, sua equipe é aninhada como uma equipe secundária abaixo da equipe principal na hierarquia da organização.
@@ -19,8 +19,8 @@ Se você for proprietário da organização ou tiver permissões de mantenedor d
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Na lista de equipes, clique no nome da equipe que deseja aninhar abaixo de uma equipe principal. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

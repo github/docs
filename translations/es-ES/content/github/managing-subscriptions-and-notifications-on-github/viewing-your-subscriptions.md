@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 Recibes notificaciones para tus suscripciones de la actividad reciente en {% data variables.product.product_name %}. Hay muchas razones por las cuales puedes estar suscrito a una conversación. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
@@ -35,10 +35,10 @@ Cuando tu bandeja de entrada tiene demasiadas notificaciones como para administr
 Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)".
 
 Para ver un resumen de tus suscripciones a repositorios, consulta la sección "[Revisar los repositorios que estás observando](#reviewing-repositories-that-youre-watching)".
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or  currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 {% tip %}
 
-**Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
+**Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 
 {% endtip %}
 {% endif %}
@@ -67,16 +67,15 @@ Muchas personas se olvidan de los repositorios que han marcado para observar. De
 
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable "Administrar notificaciones" y da clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evalúa si los repositorios que estás siguiendo de cerca tienen actualizaciones que aún sean útiles y relevantes. Cuando sigues de cerca un repositorio, se te notificará de todas las conversaciones en el mismo.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
   ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
   ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 {% endif %}
 
   {% tip %}
 
-  **Tip:** En vez de observar un repositorio, considera solo recibir notificaciones {% if currentVersion == "free-pro-team@latest" %}cuando existan actualizaciones a las propuestas, solicitudes de cambios, lanzamientos o debates (si se habilitaron en el repositorio), o cualquier combinación de estas opciones,{% else %}para los lanzamientos en un repositorio,{% endif %} o dejar de observar el repositorio completamente.
+  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
 
   Cuando dejas de seguir un repositorio, aún se te puede notificar cuando te @mencionan o cuando participas en un hilo. Cuando configuras el recibir notificaciones para ciertos tipos de evento, solo se te notificará cuando existan actualizaciones en éstos dentro del repositorio, si estás participando en un hilo, o si tú o un equipo al que perteneces tiene alguna @mención.
 

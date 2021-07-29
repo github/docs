@@ -5,18 +5,19 @@ permissions: Organization owners can cancel an invitation to become an outside c
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Cancel collaborator invitation
 ---
 
 You can view a list of all people with pending invitations to become an outside collaborator on any repository owned by your organization.
 
 For each pending collaborator, you can cancel all invitations to join organization repositories at the same time.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Click **X pending collaborators**.

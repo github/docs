@@ -5,13 +5,13 @@ product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
   - /github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
-permissions: '拥有仓库管理员权限的人员可以使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点。'
+permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
@@ -84,10 +84,21 @@ topics:
    将 _GITHUB-PAGES-VERSION_ 替换为 `github-pages` gem 的最新支持版本。 您可以在这里找到这个版本：“[依赖项版本](https://pages.github.com/versions/)”。
 
    正确版本 Jekyll 将安装为 `github-pages` gem 的依赖项。
-10. 保存并关闭 Gemfile。
+1. 保存并关闭 Gemfile。
 11. 从命令行运行 `bundle update`。
+11. （可选）对 `_config.yml` 文件进行任何必要的编辑。 当仓库托管在子目录时相对路径需要此设置。  更多信息请参阅“[将子文件夹拆分到新仓库](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)”。
+   ```yml
+   domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+   url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+   baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder   
+  ```
 11. （可选）在本地测试您的站点。 更多信息请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
-12. 将您的 {% data variables.product.product_name %} 仓库添加为远程仓库，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ 替换为您企业的主机名，将 {% endif %} _USER_ 替换为拥有该仓库的帐户{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}，{% endif %}并将 _REPOSITORY_ 替换为仓库名称。
+12. 添加并提交您的工作。
+```shell
+git add .
+git commit -m 'Initial GitHub pages site with Jekyll'
+```
+14. 将您的 {% data variables.product.product_name %} 仓库添加为远程仓库，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ 替换为您企业的主机名，将 {% endif %} _USER_ 替换为拥有该仓库的帐户{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}，{% endif %}并将 _REPOSITORY_ 替换为仓库名称。
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

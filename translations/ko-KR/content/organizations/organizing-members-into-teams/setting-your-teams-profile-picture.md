@@ -10,14 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Unless you set a profile picture for a team, the team profile picture will match the organization's profile picture.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Click **Upload new picture** and select your desired profile picture. ![Upload new picture](/assets/images/help/teams/org-team-profile-picture-upload.png)

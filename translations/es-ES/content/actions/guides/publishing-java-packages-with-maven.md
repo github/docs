@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Embalaje'
-  - 'Publicar'
-  - 'Java'
-  - 'Maven'
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +32,7 @@ Para obtener más información acerca de la creación de un flujo de trabajo de 
 
 También puede ser útil tener un entendimiento básico de lo siguiente:
 
-- "[Configurar npm para usar con {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
+- "[Trabajar con el registro de npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
 - "[Variables de ambiente](/actions/reference/environment-variables)"
 - "[Secretos cifrados](/actions/reference/encrypted-secrets)"
 - "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)"
@@ -112,9 +112,9 @@ Este flujo de trabajo realiza los siguientes pasos:
 
 Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo en el ejemplo a continuación se ejecuta cuando el evento `lanzamiento` desencadena con tipo `creado`. El flujo de trabajo publica el paquete en el {% data variables.product.prodname_registry %} si se superan las pruebas de CI. Para obtener más información acerca del evento `release`, consulta "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#release)".
 
-En este flujo de trabajo, puedes usar la acicón `setup-java`. Esta acción instala la versión determinada del JDK en el `PATH` y configura un _settings.xml_ de Maven para publicar el paquete en el {% data variables.product.prodname_registry %}. El _settings.sml_ generado define la autenticación para un servidor con una `id` de `github`, utilizando la variable de entorno `GITHUB_ACTOR` como nombre de usuario y la variable de entorno `GITHUB_TOKEN` como contraseña.
+En este flujo de trabajo, puedes usar la acicón `setup-java`. Esta acción instala la versión determinada del JDK en el `PATH` y configura un _settings.xml_ de Maven para publicar el paquete en el {% data variables.product.prodname_registry %}. El _settings.sml_ generado define la autenticación para un servidor con una `id` de `github`, utilizando la variable de entorno `GITHUB_ACTOR` como nombre de usuario y la variable de entorno `GITHUB_TOKEN` como contraseña. Se le asigna el valor del secreto especial `GITHUB_TOKEN` a la variable de ambiente `GITHUB_TOKEN`.
 
-El `GITHUB_TOKEN` existe en tu repositorio por defecto y tiene permisos de lectura y escritura para paquetes en el repositorio donde se ejecuta el flujo de trabajo. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% data reusables.github-actions.github-token-permissions %}
 
 Para un proyecto basado en Maven, puedes hacer uso de estas configuraciones creando un repositorio de distribución en tu archivo _pom.xml_ con una `id` de `github` que apunta a tu extremo {% data variables.product.prodname_registry %}.
 
@@ -137,7 +137,6 @@ Por ejemplo, si tu organización se llama "octocat", y tu repositorio se llama "
 
 Con esta configuración, puedes crear un flujo de trabajo que publique tu paquete en {% data variables.product.prodname_registry %} haciendo uso del _settings.xml_ generado automáticamente.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
@@ -145,7 +144,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
@@ -155,9 +157,8 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 Este flujo de trabajo realiza los siguientes pasos:
 
@@ -173,7 +174,6 @@ Puedes publicar tus paquetes en el repositorio central de Maven y en el {% data 
 
 Asegúrate de que tu archivo _pom.xml_ incluya un repositorio de administración de distribución para tu repositorio de {% data variables.product.prodname_dotcom %} y para tu proveedor de repositorios centrales de Maven. Por ejemplo, si implementas el repositorio central a través del proyecto de alojamiento de OSSRH, es posible que desees especificarlo en un repositorio de administración de distribución con la `id` establecida en `ossrh`, y que desees especificar el {% data variables.product.prodname_registry %} en un repositorio de administración de distribución con la `id` establecida en `github`.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
@@ -181,7 +181,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java for publishing to Maven Central Repository
@@ -194,7 +197,7 @@ jobs:
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
         run: mvn --batch-mode deploy
-        env:
+        env:{% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
@@ -205,9 +208,8 @@ jobs:
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 Este flujo de trabajo llama a la acción `setup-java` dos veces.  Cada vez que la acción `setup-java` se ejecuta, sobrescribe el archivo _settings.xml_ de Maven para publicar paquetes.  Para la autenticación en el repositorio, el archivo _settings.xml_ hace referencia a la `id` del repositorio de administración de distribución y al nombre de usuario y contraseña.
 

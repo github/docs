@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
   - CI
 ---
 
@@ -45,5 +45,5 @@ CIを設定すると、必要に応じてワークフローをカスタマイズ
 - [継続的インテグレーションについて](/articles/about-continuous-integration)
 - "[ワークフロー実行の管理](/articles/managing-a-workflow-run)"
 {% if currentVersion == "free-pro-team@latest" %}
-- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)」
+- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
 {% endif %}

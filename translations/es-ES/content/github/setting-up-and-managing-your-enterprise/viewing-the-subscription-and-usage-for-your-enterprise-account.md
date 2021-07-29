@@ -2,7 +2,7 @@
 title: Ver la suscripción y el uso de tu cuenta de empresa
 intro: 'Puedes ver la suscripción actual, el uso de la licencia, las facturas, el historial de pagos y otra información de facturación de tu cuenta de empresa.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Los propietarios de la empresa y los gerente de facturación pueden acceder y administrar todas las configuraciones de facturación para las cuentas de empresa.
+permissions: Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
   - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de la facturación para las cuentas de empresa

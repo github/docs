@@ -7,8 +7,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - 安全
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 对安全通告具有管理员权限的人员可向安全通告添加协作者。

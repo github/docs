@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - segurança
+  - Security advisories
+  - Vulnerabilities
 ---
 
 As pessoas com permissão de administrador para uma consultora de segurança podem editar a consultora de segurança.

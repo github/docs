@@ -7,16 +7,19 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-as-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-through-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /about-github-sponsors-for-open-source-contributors
+  - /setting-up-github-sponsors-for-your-user-account
+  - /setting-up-github-sponsors-for-your-organization
+  - /editing-your-profile-details-for-github-sponsors
+  - /managing-your-sponsorship-goal
+  - /managing-your-sponsorship-tiers
+  - /viewing-your-sponsors-and-sponsorships
+  - /managing-your-payouts-from-github-sponsors
+  - /contacting-your-sponsors
+  - /tax-information-for-github-sponsors
+  - /disabling-your-github-sponsors-account
+  - /unpublishing-your-github-sponsors-profile
 ---
 
-{% link_with_intro /about-github-sponsors-for-open-source-contributors %}
-{% link_with_intro /setting-up-github-sponsors-for-your-user-account %}
-{% link_with_intro /setting-up-github-sponsors-for-your-organization %}
-{% link_with_intro /editing-your-profile-details-for-github-sponsors %}
-{% link_with_intro /managing-your-sponsorship-goal %}
-{% link_with_intro /managing-your-sponsorship-tiers %}
-{% link_with_intro /viewing-your-sponsors-and-sponsorships %}
-{% link_with_intro /managing-your-payouts-from-github-sponsors %}
-{% link_with_intro /contacting-your-sponsors %}
-{% link_with_intro /tax-information-for-github-sponsors %}

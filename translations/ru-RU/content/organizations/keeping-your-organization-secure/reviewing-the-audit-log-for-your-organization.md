@@ -10,17 +10,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Accessing the audit log
 
 The audit log lists events triggered by activities that affect your organization within the last 90 days. Only owners can access an organization's audit log.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 
 ### Searching the audit log
@@ -36,6 +35,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`учетная запись`](#account-category-actions)                                                                                                                                                                                                                                                                                                                               | Contains all activities related to your organization account.                                                                                                                                                                                                                                                                                                                                                 |
 | [`advisory_credit`](#advisory_credit-category-actions)                                                                                                                                                                                                                                                                                                                      | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."                                                                        |
 | [`выставление счетов`](#billing-category-actions)                                                                                                                                                                                                                                                                                                                           | Contains all activities related to your organization's billing.                                                                                                                                                                                                                                                                                                                                               |
+| [`codespaces`](#codespaces-category-actions)                                                                                                                                                                                                                                                                                                                                | Contains all activities related to your organization's codespaces.                                                                                                                                                                                                                                                                                                                                            |
 | [`dependabot_alerts`](#dependabot_alerts-category-actions)                                                                                                                                                                                                                                                                                                                  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."                                                                                                        |
 | [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions)                                                                                                                                                                                                                                                                                              | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in new repositories created in the organization.                                                                                                                                                                                                                                             |
 | [`dependabot_security_updates`](#dependabot_security_updates-category-actions)                                                                                                                                                                                                                                                                                              | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."                                                      |
@@ -190,6 +190,20 @@ An overview of some of the most common actions that are recorded as events in th
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `change_billing_type` | Triggered when your organization [changes how it pays for {% data variables.product.prodname_dotcom %}](/articles/adding-or-editing-a-payment-method). |
 | `change_email`        | Triggered when your organization's [billing email address](/articles/setting-your-billing-email) changes.                                              |
+
+#### `codespaces` category actions
+
+| Действие                     | Description                                                                                                                                                                                                                                    |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create`                     | Triggered when a user [creates a codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                                   |
+| `resume`                     | Triggered when a user resumes a suspended codespace.                                                                                                                                                                                           |
+| `delete - Удалить`           | Triggered when a user [deletes a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                                   |
+| `create_an_org_secret`       | Triggered when a user creates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)  |
+| `update_an_org_secret`       | Triggered when a user updates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces). |
+| `remove_an_org_secret`       | Triggered when a user removes an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces). |
+| `manage_access_and_security` | Triggered when a user updates [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                                              |
+
+
 
 #### `dependabot_alerts` category actions
 
@@ -484,6 +498,38 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_linear_history_requirement_enforcement_level` | Triggered when required linear commit history is enabled or disabled for a protected branch.                                                                                                                                           |
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+#### `pull_request` category actions
+
+| Действие                | Description                                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `create`                | Triggered when a pull request is created.                                                                  |
+| `close`                 | Triggered when a pull request is closed without being merged.                                              |
+| `reopen`                | Triggered when a pull request is reopened after previously being closed.                                   |
+| `слияние`               | Triggered when a pull request is merged.                                                                   |
+| `indirect_merge`        | Triggered when a pull request is considered merged because its commits were merged into the target branch. |
+| `ready_for_review`      | Triggered when a pull request is marked as ready for review.                                               |
+| `converted_to_draft`    | Triggered when a pull request is converted to a draft.                                                     |
+| `create_review_request` | Triggered when a review is requested.                                                                      |
+| `remove_review_request` | Triggered when a review request is removed.                                                                |
+
+#### `pull_request_review` category actions
+
+| Действие           | Description                           |
+| ------------------ | ------------------------------------- |
+| `отправить`        | Triggered when a review is submitted. |
+| `отклонить`        | Triggered when a review is dismissed. |
+| `delete - Удалить` | Triggered when a review is deleted.   |
+
+#### `pull_request_review_comment` category actions
+
+| Действие           | Description                                 |
+| ------------------ | ------------------------------------------- |
+| `create`           | Triggered when a review comment is added.   |
+| `обновление`       | Triggered when a review comment is changed. |
+| `delete - Удалить` | Triggered when a review comment is deleted. |
+{% endif %}
+
 #### `repo` category actions
 
 | Действие                              | Description                                                                                                                                                                                                                                                                                                                                        |
@@ -593,22 +639,25 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% if currentVersion == "free-pro-team@latest" %}
 #### `sponsors` category actions
 
-| Действие                                       | Description                                                                                                                                                                                                                                                                                                              |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `repo_funding_link_button_toggle`              | Triggered when you enable or disable a sponsor button in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                              |
-| `repo_funding_links_file_action`               | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                                         |
-| `sponsor_sponsorship_cancel`                   | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")                                                                                                                                                                                                         |
-| `sponsor_sponsorship_create`                   | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")                                                                                                                           |
-| `sponsor_sponsorship_preference_change`        | Triggered when you change whether you receive email updates from a sponsored account (see "[Managing your sponsorship](/articles/managing-your-sponsorship)")                                                                                                                                                            |
-| `sponsor_sponsorship_tier_change`              | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")                                                                                                                     |
-| `sponsored_developer_approve`                  | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                     |
-| `sponsored_developer_create`                   | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                      |
-| `sponsored_developer_profile_update`           | Triggered when you edit your sponsored organization profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                |
-| `sponsored_developer_request_approval`         | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)") |
-| `sponsored_developer_tier_description_update`  | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                                                                                            |
-| sponsored_developer_update_newsletter_send | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/articles/contacting-your-sponsors)")                                                                                                                                                                                          |
-| `waitlist_invite_sponsored_developer`          | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")    |
-| `waitlist_join`                                | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")                                    |
+| Действие                                      | Description                                                                                                                                                                                                                                                                                                     |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `custom_amount_settings_change`               | Triggered when you enable or disable custom amounts, or when you change the suggested custom amount (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                                                |
+| `repo_funding_links_file_action`              | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                                |
+| `sponsor_sponsorship_cancel`                  | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")                                                                                                                                                                                                |
+| `sponsor_sponsorship_create`                  | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                                                                                                      |
+| `sponsor_sponsorship_payment_complete`        | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                                                                 |
+| `sponsor_sponsorship_preference_change`       | Triggered when you change whether you receive email updates from a sponsored account (see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")                                                                                                               |
+| `sponsor_sponsorship_tier_change`             | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")                                                                                                            |
+| `sponsored_developer_approve`                 | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")                     |
+| `sponsored_developer_create`                  | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")                      |
+| `sponsored_developer_disable`                 | Triggered when your {% data variables.product.prodname_sponsors %} account is disabled                                                                                                                                                                                                                          |
+| `sponsored_developer_redraft`                 | Triggered when your {% data variables.product.prodname_sponsors %} account is returned to draft state from approved state                                                                                                                                                                                       |
+| `sponsored_developer_profile_update`          | Triggered when you edit your sponsored organization profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                |
+| `sponsored_developer_request_approval`        | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)") |
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")                                                                                                            |
+| `sponsored_developer_update_newsletter_send`  | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)")                                                                                                                                  |
+| `waitlist_invite_sponsored_developer`         | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")    |
+| `waitlist_join`                               | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")                                    |
 {% endif %}
 
 #### `team` category actions

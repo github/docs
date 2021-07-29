@@ -1,7 +1,7 @@
 ---
 title: Visualizar y administrar el acceso de SAML de un miembro a tu organización
 intro: 'Puedes ver y revocar la identidad vinculada de un miembro de la organización, sesiones activas y credenciales autorizadas.'
-permissions: Los dueños de organización pueden ver y administrar el acceso de SAML de un miembro a la misma.
+permissions: Organization owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca del acceso de SAML a tu organización
@@ -26,8 +26,8 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
@@ -37,8 +37,8 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 
 ### Visualizar y revocar una sesión activa de SAML
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-session %}
 {% data reusables.saml.saml-identity-linked %}
@@ -49,8 +49,8 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 
 {% data reusables.saml.about-authorized-credentials %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-credentials %}
 {% data reusables.saml.saml-identity-linked %}

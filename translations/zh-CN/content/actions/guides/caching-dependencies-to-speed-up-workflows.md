@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 type: tutorial
 topics:
-  - 工作流程
+  - Workflows
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -59,7 +59,16 @@ topics:
 
 - `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
 - `path`：**必要** 运行器上缓存或还原的文件路径。 路径可以是绝对路径或相对于工作目录的路径。
-  - 使用 `cache` 操作的 `v2`，可以指定单个路径，或将多个路径指定为列表。 路径可以是目录或单个文件，并且支持 glob 模式。
+  - 路径可以是目录或单个文件，并且支持 glob 模式。
+  - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - 对于 `cache` 操作的 `v1`，仅支持单个路径，它必须是一个目录。 您不能缓存单个文件。
 - `restore-keys`：**可选** `key` 没有发生缓存命中时用于查找缓存的其他密钥顺序列表。
 
@@ -82,30 +91,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build
-      run: npm build
+      - name: Build
+        run: npm build
 
-    - name: Test
-      run: npm test
-
+      - name: Test
+        run: npm test
 ```
 {% endraw %}
 

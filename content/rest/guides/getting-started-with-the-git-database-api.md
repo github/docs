@@ -2,14 +2,15 @@
 title: Getting started with the Git Database API
 intro: 'The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
+shortTitle: Get started - Git Database API
 ---
 
-### Overview 
+## Overview 
 
 This basically allows you to reimplement a lot of Git functionality over our API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
 
@@ -36,7 +37,7 @@ repository, you would:
 It might seem complex, but it's actually pretty simple when you understand
 the model and it opens up a ton of things you could potentially do with the API.
 
-### Checking mergeability of pull requests
+## Checking mergeability of pull requests
 
 {% warning %}
 

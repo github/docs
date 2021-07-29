@@ -10,13 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} Weitere Informationen findest Du unter „[Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions).“
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Gib einen Titel für die Teamdiskussion und einen ersten Kommentar ein, um eine Unterhaltung zu starten. ![Neuer Kommentar zur Teamdiskussion](/assets/images/help/projects/team-discussions-comment.png)

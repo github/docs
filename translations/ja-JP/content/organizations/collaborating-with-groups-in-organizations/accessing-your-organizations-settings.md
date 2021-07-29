@@ -9,14 +9,14 @@ redirect_from:
   - /articles/accessing-your-organization-s-settings
   - /articles/accessing-your-organizations-settings
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organizations-settings
-intro: 'Organization アカウントの設定ページには、支払い、Team のメンバーシップ、リポジトリ設定など、アカウントを管理するいくつかの方法があります。'
+intro: Organization アカウントの設定ページには、支払い、Team のメンバーシップ、リポジトリ設定など、アカウントを管理するいくつかの方法があります。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -29,6 +29,5 @@ topics:
 
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}

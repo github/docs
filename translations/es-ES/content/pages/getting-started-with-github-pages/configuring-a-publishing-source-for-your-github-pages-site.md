@@ -6,20 +6,20 @@ redirect_from:
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
   - /github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
-permissions: 'Las personas con permisos de administrador o de mantenedor para un repositorio pueden configurar una fuente de publicación para un sitio de {% data variables.product.prodname_pages %}.'
+permissions: 'People with admin or maintainer permissions for a repository can configure a publishing source for a {% data variables.product.prodname_pages %} site.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 Para obtener más información acerca de las fuentes de publicación, consulta "[Acerca de las {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)".
 
 ### Elegir una fuente de publicación
 
-Before you configure a publishing source, make sure the branch{% if currentVersion ver_lt "enterprise-server@3.0" %} or folder{% endif %} you want to use as your publishing source already exists in your repository.{% if currentVersion ver_lt "enterprise-server@3.0" %} For example, before you can publish your project site from the `/docs` folder on the `master` branch of your repository, you or a collaborator must create a `/docs` folder on the default `master` branch of your repository.{% endif %}
+Antes de que configures una fuente de publicación, asegúrate de que la rama{% if currentVersion ver_lt "enterprise-server@3.0" %} o carpeta{% endif %} que quieras utilizar como tal ya exista en tu repositorio.{% if currentVersion ver_lt "enterprise-server@3.0" %} Por ejemplo, antes de que puedas publicar tu sitio de proyecto desde la carpeta `/docs` en la rama `master` de tu repositorio, ya sea algún colaborador o tú mismo deberán crear una carpeta de `/docs` en la rama predeterminada `master` de tu repositorio.{% endif %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

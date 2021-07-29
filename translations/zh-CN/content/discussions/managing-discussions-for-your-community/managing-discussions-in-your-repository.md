@@ -1,7 +1,7 @@
 ---
 title: 管理仓库中的讨论
 intro: 您可以对仓库中的讨论进行分类、聚焦、转让或删除。
-permissions: 仓库管理员以及对仓库具有写入或更大访问权限的人员可以管理仓库中的讨论。
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -18,6 +18,8 @@ versions:
 
 有关引导健康的讨论的更多信息，请参阅“[调解评论和对话](/communities/moderating-comments-and-conversations)”。
 
+{% data reusables.discussions.you-can-label-discussions %}
+
 ### 基本要求
 
 要管理仓库中的讨论，必须为存储库启用讨论。 更多信息请参阅“[启用和禁用仓库讨论](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
@@ -31,7 +33,8 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. 在右侧侧边栏中，单击 {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion（编辑固定的讨论）**。 ![讨论右侧边栏中的"固定讨论"](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. 在右侧边栏中“Category（类别）”的右侧，单击 {% octicon "gear" aria-label="The gear icon" %}。 ![带齿轮图标的"类别"](/assets/images/help/discussions/category-in-sidebar.png)
+1. 单击一个类别。 !["更改类别"下拉菜单](/assets/images/help/discussions/change-category-drop-down.png)
 
 ### 固定讨论
 

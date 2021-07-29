@@ -1,6 +1,6 @@
 ---
 title: Manage classrooms
-intro: You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.
+intro: 'You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.'
 permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'

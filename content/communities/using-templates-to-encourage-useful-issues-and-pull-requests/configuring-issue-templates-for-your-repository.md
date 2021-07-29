@@ -6,22 +6,23 @@ redirect_from:
   - /articles/configuring-issue-templates-for-your-repository
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Configure
 ---
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 
-### Creating issue templates
+## Creating issue templates
 
 {% endif %}
 
@@ -45,8 +46,32 @@ topics:
 ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Configuring the template chooser
+{% ifversion fpt %}
+
+## Creating issue forms
+
+{% data reusables.community.issue-forms-beta %}
+
+With issue forms, you can create issue templates that have customizable web form fields. You can encourage contributors to include specific, structured information by using issue forms in your repository. Issue forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)." {% data reusables.actions.learn-more-about-yaml %}
+
+To use an issue form in your repository, you must create a new file and add it to the `.github/ISSUE_TEMPLATE` folder in your repository.
+
+Here is an example of an issue form configuration file.
+
+{% data reusables.community.issue-forms-sample %}
+
+Here is the rendered version of the issue form.
+  ![A rendered issue form](/assets/images/help/repository/sample-issue-form.png)
+
+1. Choose a repository where you want to create an issue form. You can use an existing repository that you have write access to, or you can create a new repository. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)."
+2. In your repository, create a file called `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, replacing `FORM-NAME` with the name for your issue form. For more information about creating new files on GitHub, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+3. In the body of the new file, type the contents of your issue form. For more information, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
+4. Commit your file to the default branch of your repository. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+
+{% endif %}
+
+{% ifversion fpt or ghae or ghes %}
+## Configuring the template chooser
 
 {% data reusables.repositories.issue-template-config %}
 
@@ -86,7 +111,7 @@ Your configuration file will customize the template chooser when the file is mer
 {% data reusables.files.propose_new_file %}
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
 - "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)"

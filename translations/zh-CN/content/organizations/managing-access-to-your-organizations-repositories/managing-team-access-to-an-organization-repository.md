@@ -1,6 +1,6 @@
 ---
 title: 管理团队对组织仓库的访问
-intro: '您可以向团队授予仓库访问权限，删除团队的仓库访问权限，或者更改团队对仓库的权限级别。'
+intro: 您可以向团队授予仓库访问权限，删除团队的仓库访问权限，或者更改团队对仓库的权限级别。
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program/
   - /articles/managing-team-access-to-an-organization-repository
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 对仓库具有管理员权限的人员可以管理团队对仓库的访问权限。 团队维护员可以删除团队对仓库的访问权限。
@@ -26,8 +26,8 @@ topics:
 
 ### 授予团队对仓库的访问权限
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. 在仓库列表上方，单击 **Add repository（添加仓库）**。 ![添加仓库按钮](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ topics:
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. 选择要从团队删除的仓库。 ![某些仓库的勾选框已选中的团队仓库列表](/assets/images/help/teams/select-team-repositories-bulk.png)

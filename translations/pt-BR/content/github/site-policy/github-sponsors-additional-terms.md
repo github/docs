@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Sua participação no Programa GitHub Sponsors (o "Programa") está sujeita aos [Termos de Serviço do GitHub](/github/site-policy/github-terms-of-service) (o "Contrato"), assim como aos seguintes termos adicionais ("Termos Adicionais"). Qualquer uso do Programa GitHub Sponsors que viole o Acordo também será uma violação destes Termos Adicionais. Quaisquer termos que iniciem em letra maiúscula, mas que não estejam definidos abaixo, têm os significados no Contrato. Esses Termos Adicionais para o Programa GitHub Sponsors descrevem a relação entre o GitHub e você, "Desenvolvedor Patrocinado", no Programa. Os Termos Adicionais têm efeito a partir da data que você os aceita ("Início da Vigência").
@@ -121,7 +121,7 @@ Durante a vigência, o GitHub enviará a você todos os Pagamentos para Desenvol
 
 - Para Contas de Desenvolvedor Patrocinado recém-criadas, o GitHub remeterá a você todos os Pagamentos de Desenvolvedor Patrocinado recebidos em um determinado mês dentro de 90 dias após a criação de sua Conta de Desenvolvedor Patrocinado, sujeito às variáveis abaixo. Os pagamentos subsequentes serão novamente enviados no prazo de 30 dias após o encerramento desse mês, de acordo com esta seção.
 
-- If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors.
+- Se você for pago pelo Stripe Connect, você receberá pagamentos no dia 22 de cada mês pelo saldo acumulado desde o último pagamento, independentemente do montante do saldo. As datas de início dos pagamentos variam de país para país e podem mudar de mês para mês, em razão de feriados, fins de semana e outros fatores.
 
 - Se você for receber por meio de transferência ACH ou transferência eletrônica, você receberá pagamentos na terceira quinta-feira do mês. O GitHub emitirá um pagamento para você em qualquer mês que seu saldo atingir US$ 100. Contribuições do Fundo Correspondentes para Patrocinadores do GitHub não contam para esse limite. Se o seu saldo ficar abaixo de US$ 100 no fim do mês, ele será acumulado até que ultrapasse o limite no fim do mês. Se você deixar o GitHub Sponsors, o GitHub emitirá um pagamento a partir do seu saldo restante, mesmo que o saldo esteja abaixo de US$ 100.
 
@@ -141,19 +141,19 @@ Para ser pago, você deverá fornecer as informações financeiras, tributárias
 
 #### 4.8. Stripe Connect
 
-If you are paid through Stripe Connect, the following additional terms apply to your usage of GitHub Sponsors:
+Se você é pago pelo do Stripe Connect, aplicam-se os seguintes termos adicionais ao seu uso do GitHub Sponsors:
 
-**Full service agreement**
+**Contrato de Serviço Completo**
 
-_Applies to Sponsored Developer Accounts registered in Australia, Austria, Belgium, Canada, Denmark, Estonia, Finland, France, Germany, Greece, Hong Kong, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States._
+_Aplica-se às contas de desenvolvedor patrocinadas registradas na Austrália, Áustria, Bélgica, Canadá, Dinamarca, Estônia, Finlândia, França, Alemanha, Grécia, Hong Kong, Irlanda, Itália, Japão, Letônia, Lituânia, Luxemburgo, Países Baixos, Nova Zelândia, Noruega, Polônia, Portugal, Eslováquia, Eslovênia, Espanha, Suécia, Suíça, Reino Unido e Estados Unidos._
 
-Payment processing services for Sponsored Developer Accounts on GitHub Sponsors are provided by Stripe and are subject to the [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full), which includes the [Stripe Terms of Service](https://stripe.com/legal) (collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a Sponsored Developer Account on GitHub Sponsors, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of GitHub enabling payment processing services through Stripe, you agree to provide GitHub accurate and complete information about you and your business, and you authorize GitHub to share it and transaction information related to your use of the payment processing services provided by Stripe.
+Os serviços de processamento de pagamento para Contas de Desenvolvedores Patrocinados no GitHub Sponsors são fornecidos pelo Stripe e estão sujeitos ao [Contrato de Conta Conectada do Stripe](https://stripe.com/connect-account/legal/full), que inclui os [Termos de serviço do Stripe](https://stripe.com/legal) (coletivamente, o "Contrato de Serviços do Stripe"). Ao concordar com estes termos ou continuar a operar como uma conta de desenvolvedor patrocinada no GitHub Sponsors, você concorda em estar vinculado ao Acordo de Serviços do Stripe, já que o mesmo pode ser modificado pelo Stripe de vez em quando. Como condição do GitHub, que permite que os serviços de processamento de pagamentos sejam efetuados por meio do Stripe, você concorda em fornecer ao GitHub informações precisas e completas sobre você e seus negócios, e você autoriza o GitHub a compartilhar o negócio e as informações de transação relacionadas ao seu uso dos serviços de processamento de pagamento fornecidos pelo Stripe.
 
-**Recipient service agreement**
+**Contrato de serviço destinatário**
 
-_Applies to Sponsored Developer Accounts in all other countries._
+_Aplica-se às Contas de Desenvolvedor Patrocinado em todos os outros países._
 
-We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recipient Agreement](https://stripe.com/connect-account/legal/recipient) applies to your receipt of such payouts. To receive payouts from GitHub Sponsors, you must provide us accurate and complete information about you and your business, and you authorize us to share it and transaction information related to your payout with Stripe.
+Nós usamos o Stripe para fazer pagamentos para contas de desenvolvedor patrocinado. O [Contrato de Beneficiário do Struoe](https://stripe.com/connect-account/legal/recipient) aplica-se ao recebimento de tais pagamentos. Para receber os pagamentos dos GitHub Sponsors você deve nos fornecer informações precisas e completas sobre você e seu negócio e você deve autorizar-nos a compartilhar os seus negócios e as informações de transação relacionadas ao seu pagamento com Stripe.
 
 ### 5.  Representações e Garantias; Limitação de Responsabilidade; Indenização.
 

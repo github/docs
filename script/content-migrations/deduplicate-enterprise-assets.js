@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const jimp = require('jimp')
+import fs from 'fs/promises'
+import path from 'path'
+import walk from 'walk-sync'
+import jimp from 'jimp' // this is an optional dependency, install with `npm i --include=optional`
 
 // iterate through enterprise images from most recent to oldest
 // check if the image in the /assets/enterprise/... directory
@@ -15,15 +14,15 @@ const enterpriseAssetDirectories = [
   '/assets/enterprise/github-ae',
   '/assets/enterprise/2.22',
   '/assets/enterprise/2.21',
-  '/assets/enterprise/2.20'
+  '/assets/enterprise/2.20',
 ]
 
-async function main () {
+async function main() {
   for (const directory of enterpriseAssetDirectories) {
     const fullDirectoryPath = path.join(process.cwd(), directory)
     const files = walk(fullDirectoryPath, {
       includeBasePath: true,
-      directories: false
+      directories: false,
     })
 
     for (const file of files) {
@@ -37,7 +36,7 @@ async function main () {
       // the image in the local /assets/images directory, then we can
       // delete the enterprise image and the reference in the Markdown
       // will just work
-      if (fs.existsSync(existingFileToCompare)) {
+      if (await fs.readFile(existingFileToCompare)) {
         // Buffer.compare and Jimp both return 0 if files match
         let compareResult = 1
         try {
@@ -51,16 +50,18 @@ async function main () {
             const diff = await jimp.diff(existingImageToCompare, enterpriseImage)
             compareResult = diff.percent
           } else {
-            const existingImageToCompare = await fs.readFileSync(existingFileToCompare)
-            const enterpriseImage = await fs.readFileSync(file)
-            compareResult = Buffer.compare(Buffer.from(existingImageToCompare),
-              Buffer.from(enterpriseImage))
+            const existingImageToCompare = await fs.readFile(existingFileToCompare)
+            const enterpriseImage = await fs.readFile(file)
+            compareResult = Buffer.compare(
+              Buffer.from(existingImageToCompare),
+              Buffer.from(enterpriseImage)
+            )
           }
         } catch (err) {
           console.log(file)
           console.log(err)
         }
-        if (compareResult === 0) fs.unlinkSync(file)
+        if (compareResult === 0) await fs.unlink(file)
       }
     }
   }

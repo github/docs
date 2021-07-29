@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Millones de desarrolladores albergan millones de proyectos en GitHub — tanto de código abierto como de código cerrado — y tenemos el honor de participar en la colaboración de toda la comunidad todos los días. Juntos tenemos una emocionante oportunidad y responsabilidad de hacer de esta una comunidad de la que podemos estar orgullosos.
@@ -68,7 +68,20 @@ Estamos comprometidos a mantener una comunidad donde los usuarios sean libres de
 
 - #### Información errónea y desinformación - No puedes publicar contenido que presente una visión distorsionada de la realidad, ya sea inexacta o falsa (información errónea) o que sea intencionalmente engañosa (desinformación) donde dicho contenido probablemente resulte en daño al público o que interfiera con oportunidades justas y equitativas para que todos participen en la vida pública. Por ejemplo, no permitimos contenido que pueda poner el bienestar de grupos de personas en riesgo o limitar su capacidad de participar en una sociedad libre y abierta. Fomentamos la participación activa en la expresión de ideas, perspectivas y experiencias y podríamos no estar en posición de disputar cuentas personales u observaciones. Por lo general, permitimos la parodia y la sátira que está en línea con nuestras políticas de uso aceptable y consideramos que el contexto es importante en la manera en que se recibe y se entiende la información; por lo tanto, puede ser adecuado aclarar tus intenciones mediante renuncias u otros medios, así como la fuente(s) de tu información.
 
-- #### Malware activo o explotación de vulnerabilidad - Ser parte de una comunidad incluye no aprovecharse de otros miembros de la comunidad. No permitimos que nadie utilice nuestra plataforma para la entrega de explotación de vulnerabilidad, por ejemplo usar GitHub como un medio para entregar ejecutables maliciosos, o como infraestructura de ataques, por ejemplo organizando ataques de denegación de servicio o gestionando servidores de comando y control. Sin embargo, ten en cuenta, que no prohibimos la publicación de código fuente que podría utilizarse para desarrollar malware o explotación de vulnerabilidad, ya que la publicación y distribución de dicho código fuente tiene un valor educativo y proporciona un beneficio neto a la comunidad de seguridad.
+- #### Active malware or exploits Being part of a community includes not taking advantage of other members of the community. We do not allow anyone to use our platform in direct support of unlawful attacks that cause technical harms, such as using GitHub as a means to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers. Technical harms means overconsumption of resources, physical damage, downtime, denial of service, or data loss, with no implicit or explicit dual-use purpose prior to the abuse occurring.
+
+  Note that GitHub allows dual-use content and supports the posting of content that is used for research into vulnerabilities, malware, or exploits, as the publication and distribution of such content has educational value and provides a net benefit to the security community. We assume positive intention and use of these projects to promote and drive improvements across the ecosystem.
+
+  In rare cases of very widespread abuse of dual-use content, we may restrict access to that specific instance of the content to disrupt an ongoing unlawful attack or malware campaign that is leveraging the GitHub platform as an exploit or malware CDN. In most of these instances, restriction takes the form of putting the content behind authentication, but may, as an option of last resort, involve disabling access or full removal where this is not possible (e.g. when posted as a gist). We will also contact the project owners about restrictions put in place where possible.
+
+  Restrictions are temporary where feasible, and do not serve the purpose of purging or restricting any specific dual-use content, or copies of that content, from the platform in perpetuity. While we aim to make these rare cases of restriction a collaborative process with project owners, if you do feel your content was unduly restricted, we have an [appeals process](#appeal-and-reinstatement) in place.
+
+  To facilitate a path to abuse resolution with project maintainers themselves, prior to escalation to GitHub abuse reports, we recommend, but do not require, that repository owners take the following steps when posting potentially harmful security research content:
+
+    * Clearly identify and describe any potentially harmful content in a disclaimer in the project’s README.md file or source code comments.
+    * Provide a preferred contact method for any 3rd party abuse inquiries through a SECURITY.md file in the repository (e.g. "Please create an issue on this repository for any questions or concerns"). Such a contact method allows 3rd parties to reach out to project maintainers directly and potentially resolve concerns without the need to file abuse reports.
+
+  *GitHub considers the npm registry to be a platform used primarily for installation and run-time use of code, and not for research.*
 
 
 ### ¿Qué sucede si alguien no comple con las reglas?
@@ -83,6 +96,10 @@ Las acciones que podemos emprender en respuesta a un informe de abuso incluyen, 
 * Bloqueo de contenido
 * Suspensión de la cuenta
 * Terminación de la cuenta
+
+### Appeal and Reinstatement
+
+In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact).
 
 ### Avisos legales
 

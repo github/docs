@@ -1,7 +1,7 @@
 ---
 title: GitHub Education 文档
 shortTitle: 教育版
-intro: "{% data variables.product.prodname_education %} 通过平台以及对 {% data variables.product.company_short %} 平台和社区的支持帮助您教授或学习软件开发。"
+intro: '{% data variables.product.prodname_education %} 通过平台以及对 {% data variables.product.company_short %} 平台和社区的支持帮助您教授或学习软件开发。'
 introLinks:
   quickstart: /education/quickstart
 featuredLinks:
@@ -20,11 +20,14 @@ featuredLinks:
     - /github/getting-started-with-github/github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
-  label: '教育版'
+  label: education
 layout: product-landing
 versions:
   free-pro-team: '*'
+children:
+  - /quickstart
+  - /explore-the-benefits-of-teaching-and-learning-with-github-education
+  - /manage-coursework-with-github-classroom
+  - /guides
 ---
 
-<!-- {% link_with_intro /explore-the-benefits-of-teaching-and-learning-with-github-education %} -->
-<!-- {% link_with_intro /manage-coursework-with-github-classroom %} -->

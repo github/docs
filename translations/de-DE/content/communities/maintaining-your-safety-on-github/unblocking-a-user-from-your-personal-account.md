@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Ein Benutzer, dessen Sperre Du aufhebst, kann Dich auch wieder als Mitarbeiter zu seinen Repositorys einladen. Wenn Du von diesem Benutzer irgendwo auf GitHub [@erwähnt](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) wirst, erhältst Du eine Benachrichtigung.

@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Team のスケジュールされたリマインダーについて
@@ -20,8 +20,8 @@ topics:
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Team のスケジュールされたリマインダーを作成する
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -44,8 +44,8 @@ topics:
 {% data reusables.reminders.create-reminder %}
 
 ### Team のスケジュールされたリマインダーを管理する
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -55,8 +55,8 @@ topics:
 {% data reusables.reminders.update-buttons %}
 
 ### Team のスケジュールされたリマインダーを削除する
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

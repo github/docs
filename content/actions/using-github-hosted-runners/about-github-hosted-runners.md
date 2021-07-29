@@ -11,14 +11,15 @@ redirect_from:
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '>=2.22'
+shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### About {% data variables.product.prodname_dotcom %}-hosted runners
+## About {% data variables.product.prodname_dotcom %}-hosted runners
 
 A {% data variables.product.prodname_dotcom %}-hosted runner is a virtual machine hosted by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner application installed. {% data variables.product.prodname_dotcom %} offers runners with Linux, Windows, and macOS operating systems.
 
@@ -28,25 +29,25 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 {% data reusables.github-actions.runner-app-open-source %}
 
-#### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
+### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on Standard_DS2_v2 virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the Standard_DS2_v2 machine resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
 
 {% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
 
-#### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
+### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
 In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
-#### Administrative privileges of {% data variables.product.prodname_dotcom %}-hosted runners
+### Administrative privileges of {% data variables.product.prodname_dotcom %}-hosted runners
 
 The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
 Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
-### Supported runners and hardware resources
+## Supported runners and hardware resources
 
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU
@@ -64,12 +65,12 @@ Hardware specification for macOS virtual machines:
 
 Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-### Supported software
+## Supported software
 
 The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends. 
-#### Preinstalled software
+### Preinstalled software
 
-Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow.
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
 ![Installed software link](/assets/images/actions-runner-installed-software-link.png)
 For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
@@ -77,15 +78,14 @@ For the overall list of included tools for each runner operating system, see the
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
-* [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
 
-#### Using preinstalled software
+### Using preinstalled software
 
 We recommend using actions to interact with the software installed on runners. This approach has several benefits:
 - Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
@@ -93,7 +93,11 @@ We recommend using actions to interact with the software installed on runners. T
 
 If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
-### IP addresses
+### Installing additional software
+
+You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+
+## IP addresses
 
 {% note %}
 
@@ -107,7 +111,7 @@ To get a list of IP address ranges that {% data variables.product.prodname_actio
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week. 
 
-### File systems
+## File systems
 
 {% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
@@ -119,7 +123,7 @@ The list of {% data variables.product.prodname_actions %} IP addresses returned 
 
 For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-#### Docker container filesystem
+### Docker container filesystem
 
 Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
 
@@ -129,9 +133,9 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Further reading
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+## Further reading
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 
 {% endif %}

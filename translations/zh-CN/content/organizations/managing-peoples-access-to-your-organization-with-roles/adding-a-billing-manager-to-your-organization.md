@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
-  - 计费，帐单
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 组织所有者团队的成员可向人们授予*帐单管理员*权限。 在个人接受其邀请成为组织的帐单管理员后，他们可邀请其他人员为帐单管理员。
@@ -49,9 +49,6 @@ topics:
 
 受邀人员将会收到邀请电子邮件，邀请他们成为您的组织的帐单管理员。 在受邀人员单击其邀请电子邮件中的接受链接后，他们会自动加入组织成为帐单管理员。 如果他们还没有 GitHub 帐户，将被重定向到注册页面注册一个，在创建帐户后会自动加入组织成为帐单管理员。
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-5. 在帐单管理员旁边，单击 **Add a billing manager（添加帐单管理员）**。 ![邀请帐单管理员](/assets/images/help/billing/settings_billing_managers_list.png)
+{% data reusables.organizations.billing-settings %}
+1. 在“Billing management（帐单管理）”下的“Billing managers（帐单管理员）”旁边，单击 **Add（添加）**。 ![邀请帐单管理员](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 输入您要添加的人员的用户名或电子邮件地址，然后单击 **Send invitation（发送邀请）**。 ![邀请帐单管理员页面](/assets/images/help/billing/billing_manager_invite.png)

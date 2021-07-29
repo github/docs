@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
-## Sobre o explorador do GraphQL
+### Sobre o explorador do GraphQL
 
 {% if currentVersion == "free-pro-team@latest" %}
 

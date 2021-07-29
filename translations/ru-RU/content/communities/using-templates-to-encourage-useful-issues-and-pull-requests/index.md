@@ -12,10 +12,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - сообщество
+  - Community
+children:
+  - /about-issue-and-pull-request-templates
+  - /configuring-issue-templates-for-your-repository
+  - /creating-a-pull-request-template-for-your-repository
+  - /manually-creating-a-single-issue-template-for-your-repository
 ---
 
-{% link_in_list /about-issue-and-pull-request-templates %}
-{% link_in_list /configuring-issue-templates-for-your-repository %}
-{% link_in_list /creating-a-pull-request-template-for-your-repository %}
-{% link_in_list /manually-creating-a-single-issue-template-for-your-repository %}

@@ -10,8 +10,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - パッケージ化
-  - 公開
+  - Packaging
+  - Publishing
   - Java
   - Gradle
 ---
@@ -32,7 +32,7 @@ GradleでのJavaプロジェクトのためのCIワークフローの作成に�
 
 また、以下の基本的な理解があれば役立ちます。
 
-- [{% data variables.product.prodname_registry %} で利用するために npm を設定する](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+- 「[npm レジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)」
 - 「[環境変数](/actions/reference/environment-variables)」
 - 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
 - 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
@@ -51,6 +51,11 @@ _build.gradle_ファイルのpublishingブロックには、パッケージリ�
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -108,12 +113,17 @@ jobs:
 
 _build.gradle_のpublishingブロックには、{% data variables.product.prodname_registry %}を指す新しいMavenリポジトリを定義できます。  そのリポジトリの設定では、CIワークフローの実行で設定された環境変数を活用することもできます。  環境変数の`GITHUB_ACTOR`はユーザ名として利用でき、環境変数の`GITHUB_TOKEN`には`GITHUB_TOKEN`シークレットを設定できます。
 
-`GITHUB_TOKEN`は、デフォルトでリポジトリ中に存在し、ワークフローが実行されるリポジトリ中のパッケージには読み書きの権限があります。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+{% data reusables.github-actions.github-token-permissions %}
 
 たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -133,7 +143,6 @@ publishing {
 
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryに公開するワークフローを作成できます。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
@@ -141,7 +150,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
@@ -151,12 +163,11 @@ jobs:
       - name: Publish package
         run: gradle publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. {% data variables.product.prodname_registry %}に公開するために` gradle publish `コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
+1. {% data variables.product.prodname_registry %}に公開するために` gradle publish `コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}`permissions` キーは、`GITHUB_TOKEN` のシークレットに付与されたアクセス権を指定します。{% endif %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
@@ -172,6 +183,11 @@ Organizationの名前が"octocat"でリポジトリの名前が"hello-world"な�
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -199,7 +215,6 @@ publishing {
 
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryと{% data variables.product.prodname_registry %}の両方に公開するワークフローを作成できます。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
@@ -207,7 +222,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java
@@ -217,14 +235,13 @@ jobs:
           distribution: 'adopt'
       - name: Publish to the Maven Central Repository
         run: gradle publish
-        env:
+        env: {% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. `OSSRH` Mavenリポジトリと{% data variables.product.prodname_registry %}に公開するために` gradle publish`コマンドを実行してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
+1. `OSSRH` Mavenリポジトリと{% data variables.product.prodname_registry %}に公開するために` gradle publish`コマンドを実行してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}`permissions` キーは、`GITHUB_TOKEN` のシークレットに付与されたアクセス権を指定します。{% endif %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。

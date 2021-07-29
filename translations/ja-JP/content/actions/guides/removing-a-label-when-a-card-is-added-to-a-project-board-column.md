@@ -1,6 +1,6 @@
 ---
-title: Removing a label when a card is added to a project board column
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a project board.'
+title: カードがプロジェクトボードの列に追加されたときにラベルを削除する
+intro: '{% data variables.product.prodname_actions %} を使用すると、プロジェクトボードの特定の列に Issue またはプルリクエストが追加されたときに、ラベルを自動的に削除できます。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
   - Project management
 ---
 
@@ -19,18 +19,17 @@ topics:
 
 ### はじめに
 
-This tutorial demonstrates how to use the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a project board. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
+このチュートリアルでは、[`andymckay/labeler` アクション](https://github.com/marketplace/actions/simple-issue-labeler)を条件付きで使用して、プロジェクトボードの特定の列に追加された Issue とプルリクエストからラベルを削除する方法を説明します。 たとえば、プロジェクトカードが `Done` 列に移動されたときに `needs review` ラベルを削除できます。
 
-In the tutorial, you will first make a workflow file that uses the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler). Then, you will customize the workflow to suit your needs.
+チュートリアルでは、最初に [`andymckay/labeler` アクション](https://github.com/marketplace/actions/simple-issue-labeler)を使用するワークフローファイルを作成します。 次に、ニーズに合わせてワークフローをカスタマイズします。
 
 ### ワークフローの作成
 
 1. {% data reusables.actions.choose-repo %}
-2. Choose a project that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
+2. リポジトリに属するプロジェクトを選択します。 このワークフローは、ユーザまたは Organization に属するプロジェクトでは使用できません。 既存のプロジェクトを使用することも、新しいプロジェクトを作成することもできます。 プロジェクトの作成の詳細については、「[プロジェクトボードを作成する](/github/managing-your-work-on-github/creating-a-project-board)」を参照してください。
 3. {% data reusables.actions.make-workflow-file %}
-4. Copy the following YAML contents into your workflow file.
+4. 次の YAML コンテンツをワークフローファイルにコピーします。
 
-    {% raw %}
     ```yaml{:copy}
     name: Remove labels
     on:
@@ -40,36 +39,40 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - name: remove labels
             uses: andymckay/labeler@master
             with:
               remove-labels: "needs review"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
-5. Customize the parameters in your workflow file:
-   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 
-    To find the column ID, navigate to your project board. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
+5. ワークフローファイルのパラメータをカスタマイズします。
+   - `github.event.project_card.column_id == '12345678'`で、`12345678` を、そこに移動される Issue とプルリクエストのラベルを解除する列の ID に置き換えます。
 
-     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
-   - Change the value for `remove-labels` to the list of labels that you want to remove from issues or pull requests that are moved to the specified column(s). Separate multiple labels with commas. For example, `"help wanted, good first issue"`. For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+    列 ID を見つけるには、プロジェクトボードに移動します。 列のタイトルの横にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、[**Copy column link**] リンクをクリックします。 列 ID は、コピーされたリンクの末尾にある番号です。 たとえば、`https://github.com/octocat/octo-repo/projects/1#column-24687531` の列 ID は `24687531` です。
+
+     複数の列を操作する場合は、条件を `||` で区切ります。 たとえば、プロジェクトカードが列 `12345678` または列 `87654321` に追加されるたびに`if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` が動作する場合、 列は異なるプロジェクトボード上にある可能性があります。
+   - `remove-labels` の値を、指定された列に移動された Issue またはプルリクエストから削除するラベルのリストに変更します。 複数のラベルはコンマで区切ります。 たとえば、`"help wanted, good first issue"` というようにします。 ラベルの詳細については、「[ラベルを管理する](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)」を参照してください。
 6. {% data reusables.actions.commit-workflow %}
 
-### Testing the workflow
+### ワークフローのテスト
 
-Every time a project card on a project in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified labels from the issue or a pull request. Cards that are notes will not be affected.
+リポジトリ内のプロジェクトのプロジェクトカードが移動するたびに、このワークフローが実行されます。 カードが Issue またはプルリクエストであり、指定した列に移動された場合、ワークフローは、指定されたラベルを Issue またはプルリクエストから削除します。 注釈のカードは影響を受けません。
 
-Test your workflow out by moving an issue on your project into the target column.
+プロジェクトの Issue をターゲット列に移動して、ワークフローをテストします。
 
-1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. Label the issue with the labels that you want the workflow to remove. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
-3. Add the issue to the project column that you specified in your workflow file. 詳しい情報については、「[プロジェクトボードに Issue およびプルリクエストを追加する](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)」を参照してください。
-4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
-5. When the workflow completes, the issue that you added to the project column should have the specified labels removed.
+1. リポジトリで Issue をオープンします。 詳しい情報については、「[>Issue を作成する](/github/managing-your-work-on-github/creating-an-issue)」を参照してください。
+2. ワークフローで削除するラベルを使用して Issue にラベルを付けます。 詳しい情報については、「[ラベルを管理する](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)」を参照してください。
+3. ワークフローファイルで指定したプロジェクト列に Issue を追加します。 詳しい情報については、「[プロジェクトボードに Issue およびプルリクエストを追加する](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)」を参照してください。
+4. プロジェクトに Issue を追加することでトリガーされたワークフローの実行を確認するには、ワークフローの実行履歴を表示します。 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
+5. ワークフローが完了すると、プロジェクト列に追加した Issue で、指定したラベルが削除されます。
 
 ### 次のステップ
 
-- To learn more about additional things you can do with the `andymckay/labeler` action, like adding labels or skipping this action if the issue is assigned or has a specific label, visit the [`andymckay/labeler` action documentation](https://github.com/marketplace/actions/simple-issue-labeler).
-- [Search GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) for examples of workflows using this action.
+- ラベルの追加や、Issue が割り当てられている場合または特定のラベルがある場合はこのアクションをスキップするなど、`andymckay/labeler` アクションで実行できる追加の機能について詳しくは、[`andymckay/labeler` アクションのドキュメント](https://github.com/marketplace/actions/simple-issue-labeler)をご覧ください。
+- このアクションを使用したワークフローの例については、[GitHub を検索](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) してください。

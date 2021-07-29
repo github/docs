@@ -13,7 +13,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 操作开发
+  - Action development
   - JavaScript
 ---
 
@@ -31,15 +31,17 @@ topics:
 
 {% data reusables.github-actions.pure-javascript %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 基本要求
 
-开始之前，您需要下载 Node.js 并创建 GitHub 仓库。
+在开始之前，您需要下载 Node.js 并创建公共 {% data variables.product.prodname_dotcom %} 仓库。
 
 1. 下载并安装 Node.js 12.x，其中包含 npm。
 
   https://nodejs.org/en/download/current/
 
-1. 在 {% data variables.product.product_location %} 上创建新仓库 您可以选择任何仓库名称或如本例一样使用 "hello-world-javascript-action"。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+1. 在 {% data variables.product.product_location %} 上创建一个新的公共仓库，并将其称为 "hello-world-javascript-action"。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
 1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
@@ -49,7 +51,7 @@ topics:
   cd hello-world-javascript-action
   ```
 
-1. 从您的终端，使用 `package.json` 文件初始化目录。
+1. 从您的终端，使用 npm 初始化目录以生成 `package.json` 文件。
 
   ```shell
   npm init -y
@@ -59,8 +61,6 @@ topics:
 
 使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
 
-
-**action.yml**
 ```yaml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -106,7 +106,7 @@ GitHub 操作提供有关 web 挂钩实践、Git 引用、工作流程、操作�
 
 使用以下代码添加名为 `index.js` 的新文件。
 
-**index.js**
+{% raw %}
 ```javascript
 const core = require('@actions/core');
 const github = require('@actions/github');
@@ -124,6 +124,7 @@ try {
   core.setFailed(error.message);
 }
 ```
+{% endraw %}
 
 如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
 
@@ -141,7 +142,6 @@ try {
 - 操作使用的环境变量。
 - 如何在工作流程中使用操作的示例。
 
-**README.md**
 ```markdown
 # Hello world javascript action
 
@@ -178,7 +178,7 @@ with:
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
-git tag -a -m "My first action release" v1
+git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
@@ -198,7 +198,7 @@ git push --follow-tags
 ```shell
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
-git tag -a -m "My first action release" v1
+git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
@@ -210,10 +210,11 @@ git push --follow-tags
 
 #### 使用公共操作的示例
 
-以下工作流程代码使用 `actions/hello-world-javascript-action` 仓库中已完成的 hello world 操作。 将工作流程代码复制到 `.github/workflows/main.yml` 文件中，但要将 `actions/hello-world-javascript-action` 仓库替换为您创建的仓库。 您还可以将 `who-to-greet` 输入替换为您的名称。
+此示例显示您的新公共操作如何从外部仓库中运行。
+
+将以下 YAML 复制到 `.github/workflows/main.yml` 上的新文件中，并使用您的用户名和上面创建的公共仓库名称更新 `uses: octocat/hello-world-javascript-action@v1.1` 行。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
 {% raw %}
-**.github/workflows/main.yml**
 ```yaml
 on: [push]
 
@@ -222,16 +223,18 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-javascript-action@v1.1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: octocat/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
+
+当触发此工作流程时，运行器将从您的公共仓库下载 `hello-world-javascript-action` 操作，然后执行它。
 
 #### 使用私有操作的示例
 

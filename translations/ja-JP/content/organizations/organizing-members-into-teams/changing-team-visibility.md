@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.types-of-team-visibility %}
@@ -21,8 +21,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 3. 可視性を変更したいチームを選択します。 ![2 つの Team を選択した状態の Team リスト](/assets/images/help/teams/list-of-teams-selected.png)
 4. Team 一覧の上にあるドロップダウンメニューで [**Change visibility**] をクリックします。 ![Team の可視性を変更するオプションのあるドロップダウンメニュー](/assets/images/help/teams/team-bulk-management-options.png)

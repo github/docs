@@ -1,6 +1,6 @@
 ---
 title: 查看组织的洞察
-intro: '组织洞察提供有关组织的活动、贡献和依赖项的数据。'
+intro: 组织洞察提供有关组织的活动、贡献和依赖项的数据。
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 组织的所有成员均可查看组织洞察。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
@@ -26,8 +26,8 @@ topics:
 
 通过组织活动洞察，您可以查看整个组织或特定仓库每周、每月和每年的数据可视化，包括议题和拉取请求活动、热门使用语言以及有关组织成员花费其时间累积的信息。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. 在组织名称下，单击 {% octicon "graph" aria-label="The bar graph icon" %} **Insights（洞察）**。 ![单击组织洞察选项卡](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. （可选）在页面的右上角，选择查看过去 **1 周**、**1 个月**或 **1 年**的数据。 ![选择查看组织洞察的时间段](/assets/images/help/organizations/org-insights-time-period.png)
 5. （可选）在页面的右上角，选择查看最多三个仓库的数据，然后单击 **Apply（应用）**。 ![选择查看组织洞察的仓库](/assets/images/help/organizations/org-insights-repos.png)
@@ -35,8 +35,8 @@ topics:
 ### 查看组织依赖项洞察
 通过依赖项洞察，您可以查看组织所依赖的开源项目的漏洞、许可证和其他重要信息。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. 在组织名称下，单击 {% octicon "graph" aria-label="The bar graph icon" %} **Insights（洞察）**。 ![主要组织导航栏中的洞察选项卡](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. 要查看此组织的依赖项，请单击 **Dependencies（依赖项）**。 ![主要组织导航栏下的依赖项选项卡](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. 要查看所有您的 {% data variables.product.prodname_ghe_cloud %} 组织的依赖项洞察，请单击 **My organizations（我的组织）**。 ![依赖项选项卡下的我的组织按钮](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)

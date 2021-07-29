@@ -7,26 +7,29 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+type: reference
 topics:
-  - api
+  - API
+  - Code scanning
+  - REST
 ---
 
 {% data reusables.code-scanning.beta %}
 
-The {% data variables.product.prodname_code_scanning %} API lets you retrieve and update {% data variables.product.prodname_code_scanning %} alerts from a repository. You can use the endpoints to create automated reports for the {% data variables.product.prodname_code_scanning %} alerts in an organization or upload analysis results generated using offline {% data variables.product.prodname_code_scanning %} tools. 詳しい情報については、「[コード内のセキュリティの脆弱性とエラーを検出する](/github/finding-security-vulnerabilities-and-errors-in-your-code)」を参照してください。
+{% data variables.product.prodname_code_scanning %} APIを使うと、リオジトリから{% data variables.product.prodname_code_scanning %}アラートを取得して更新できます。 このエンドポイントを使って、Organization内で{% data variables.product.prodname_code_scanning %}アラートの自動化されたレポートを作成したり、オフラインの{% data variables.product.prodname_code_scanning %}ツールを使って生成された分析結果をアップロードしたりできます。 詳しい情報については、「[コード内のセキュリティの脆弱性とエラーを検出する](/github/finding-security-vulnerabilities-and-errors-in-your-code)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-### Custom media type for {% data variables.product.prodname_code_scanning %}
+### {% data variables.product.prodname_code_scanning %}のためのカスタムメディアタイプ
 
-There is one supported custom media type for the {% data variables.product.prodname_code_scanning %} REST API. You can use this with `GET` requests sent to the `/analyses/{analysis_id}` endpoint. When you use this media type with this operation, the response includes a subset of the actual data that was uploaded for the specified analysis, rather than details about the analysis, which is returned when you use the default media type. The response also includes additional data such as the `github/alertNumber` and `github/alertUrl` properties. The data is formatted as [SARIF version 2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html).
+{% data variables.product.prodname_code_scanning %} REST API用にサポートされているカスタムメディアタイプが1つあります。 これは`/analyses/{analysis_id}`エンドポイントに送信される`GET`リクエストで利用できます。 この操作でこのメディアタイプを使う場合、レスポンスには指定された分析に関する詳細ではなく、その分析のためにアップロードされた実際のデータのサブセットが含まれます。分析の詳細は、デフォルトのメディアタイプを使った場合に返されます。 このレスポンスには、`github/alertNumber`や`github/alertUrl`プロパティなどの追加データも含まれます。 このデータは、[SARIF version 2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html)でフォーマットされます。
 
     application/sarif+json
 
 詳しい情報については、「[メディアタイプ](/rest/overview/media-types)」を参照してください。
 
-#### Response using the custom media type
+#### カスタムメディアタイプを使用したレスポンス
 
-This example response is from a `GET` request to the `/analyses/{analysis_id}` endpoint, using `application/sarif+json` as the `Accept` header value. The example has had indendation and line breaks added for readability. For more information about this endpoint, see "[Get a {% data variables.product.prodname_code_scanning %} analysis for a repository](#get-a-code-scanning-analysis-for-a-repository)."
+このレスポンスの例は、`application/sarif+json`を`Accept`ヘッダの値として使用した`/analyses/{analysis_id}`への`GET`リクエストからのものです。 この例には、読みやすくなるようにインデントと改行が追加されています。 このエンドポイントに関する詳しい情報については「[リポジトリの{% data variables.product.prodname_code_scanning %}分析の取得](#get-a-code-scanning-analysis-for-a-repository)」を参照してください。
 
 ```
 {

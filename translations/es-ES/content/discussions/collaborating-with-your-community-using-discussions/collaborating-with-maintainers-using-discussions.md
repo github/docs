@@ -1,8 +1,8 @@
 ---
 title: Colaborar con los mantenedores utilizando debates
 shortTitle: Colaborar con los mantenedores
-intro: Puedes contribuir a las metas, planes, salud y comunidad de un proyecto en {% data variables.product.product_name %} si te comunicas con los mantenedores del proyecto en un debate.
-permissions: Las personas con permisos de lectura en un repositorio pueden iniciar y participar en debates dentro del mismo.
+intro: 'Puedes contribuir a las metas, planes, salud y comunidad de un proyecto en {% data variables.product.product_name %} si te comunicas con los mantenedores del proyecto en un debate.'
+permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -13,7 +13,9 @@ versions:
 
 {% data reusables.discussions.about-discussions %} Si utilizas o contribuyes con un proyecto, puedes iniciar un debate para hacer sugerencias e interactuar con los manenedores y miembros de la comunidad con respecto a tus planes, preguntas, ideas y retroalimentación. Para obtener más información, consulta la sección "[‎Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-{% data reusables.discussions.about-categories-and-formats %} Los administradores de repositorio y mantenedores de proyecto pueden borrar un debate. Para obtener más información, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".
+{% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
+
+Los administradores de repositorio y mantenedores de proyecto pueden borrar un debate. Para obtener más información, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".
 
 {% data reusables.discussions.github-recognizes-members %} Estos miembros aparecen en una lista de los contribuyentes más útiles en los debates del proyecto. Conforme crezca tu proyecto, podrás otorgar permisos de acceso superiores a los miembros activos de tu comunidad. Para obtener más información, consulta la sección "[Otorgar permisos superiores a los colaboradores principales](/discussions/guides/granting-higher-permissions-to-top-contributors)"
 

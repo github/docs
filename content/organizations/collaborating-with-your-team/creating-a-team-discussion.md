@@ -6,17 +6,18 @@ redirect_from:
   - /github/building-a-strong-community/creating-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Create a team discussion
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Type a team discussion title and a comment to start a conversation.
@@ -26,7 +27,7 @@ topics:
 8. Click **Comment**.
   ![Create new team discussions comment button](/assets/images/help/projects/team-discussions-comment-button.png)
 
-### Further reading
+## Further reading
 
   - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

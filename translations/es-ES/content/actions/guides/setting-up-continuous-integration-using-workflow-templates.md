@@ -12,10 +12,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'CI'
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -45,5 +45,5 @@ Para obtener más información, consulta la sección "[Aprende sobre {% data var
 - "[Acerca de la integración continua](/articles/about-continuous-integration)"
 - "[Administrar una ejecución de flujo de trabajo](/articles/managing-a-workflow-run)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

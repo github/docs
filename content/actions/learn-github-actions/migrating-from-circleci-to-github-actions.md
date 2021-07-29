@@ -4,22 +4,24 @@ intro: 'GitHub Actions and CircleCI share several similarities in configuration,
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
 topics:
-  - 'CircleCI'
-  - 'Migration'
-  - 'CI'
-  - 'CD'
+  - CircleCI
+  - Migration
+  - CI
+  - CD
+shortTitle: Migrate from CircleCI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
+{% data reusables.actions.actions-not-certified-by-github-note %}
 
-### Introduction
+## Introduction
 
 CircleCI and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. CircleCI and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
@@ -30,28 +32,28 @@ CircleCI and {% data variables.product.prodname_actions %} both allow you to cre
 
 For more information, see "[Core concepts for {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
 
-### Key differences
+## Key differences
 
 When migrating from CircleCI, consider the following differences:
 
 - CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
-- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your *Dockerfile*. {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images).". 
+- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your *Dockerfile*. {% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images).". 
 {% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
 {% endif %}
 
-### Migrating workflows and jobs
+## Migrating workflows and jobs
 
 CircleCI defines `workflows` in the *config.yml* file, which allows you to configure more than one workflow. {% data variables.product.product_name %} requires one workflow file per workflow, and as a consequence, does not require you to declare `workflows`. You'll need to create a new workflow file for each workflow configured in *config.yml*.
 
 Both CircleCI and {% data variables.product.prodname_actions %} configure `jobs` in the configuration file using similar syntax. If you configure any dependencies between jobs using `requires` in your CircleCI workflow, you can use the equivalent {% data variables.product.prodname_actions %} `needs` syntax. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
-### Migrating orbs to actions
+## Migrating orbs to actions
 
 Both CircleCI and {% data variables.product.prodname_actions %} provide a mechanism to reuse and share tasks in a workflow. CircleCI uses a concept called orbs, written in YAML, to provide tasks that people can reuse in a workflow. {% data variables.product.prodname_actions %} has powerful and flexible reusable components called actions, which you build with either JavaScript files or Docker images. You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.product_name %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code. For more information, see "[Creating actions](/actions/creating-actions)."
 
 CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports the most common need for reusability using build matrixes. For more information about build matrixes, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)."
 
-### Using Docker images
+## Using Docker images
 
 
 Both CircleCI and {% data variables.product.prodname_actions %} support running steps inside of a Docker image.
@@ -60,7 +62,7 @@ CircleCI provides a set of pre-built images with common dependencies. These imag
 
 We recommend that you move away from CircleCI's pre-built images when you migrate to {% data variables.product.prodname_actions %}. In many cases, you can use actions to install the additional dependencies you need.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 For more information about the Docker filesystem, see "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
 
 For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
@@ -70,13 +72,13 @@ For more information about the Docker filesystem, see "[Virtual environments for
 For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-### Using variables and secrets
+## Using variables and secrets
 
 CircleCI and {% data variables.product.prodname_actions %} support setting environment variables in the configuration file and creating secrets using the CircleCI or {% data variables.product.product_name %} UI.
 
 For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and "[Creating and using encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
-### Caching
+## Caching
 
 CircleCI and {% data variables.product.prodname_actions %} provide a method to manually cache files in the configuration file.
 
@@ -121,7 +123,7 @@ GitHub Actions
 
 {% data variables.product.prodname_actions %} does not have an equivalent of CircleCI’s Docker Layer Caching (or DLC).
 
-### Persisting data between jobs
+## Persisting data between jobs
 
 Both CircleCI and {% data variables.product.prodname_actions %} provide mechanisms to persist data between jobs.
 
@@ -175,7 +177,7 @@ GitHub Actions
 
 For more information, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
 
-### Using databases and service containers
+## Using databases and service containers
 
 Both systems enable you to include additional containers for databases, caching, or other dependencies.
 
@@ -299,7 +301,7 @@ jobs:
 
 For more information, see "[About service containers](/actions/configuring-and-managing-workflows/about-service-containers)."
 
-### Complete Example
+## Complete Example
 
 Below is a real-world example. The left shows the actual CircleCI *config.yml* for the [thoughtbot/administrator](https://github.com/thoughtbot/administrate) repository. The right shows the {% data variables.product.prodname_actions %} equivalent.
 
@@ -401,6 +403,8 @@ workflows:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
+{% endraw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% raw %}
+
 name: Containers
 
 on: [push]
@@ -434,7 +438,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Ruby
-        uses: eregon/use-ruby-action@master
+        uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: ${{ matrix.ruby }}
       - name: Cache dependencies
@@ -443,7 +447,9 @@ jobs:
           path: vendor/bundle
           key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
       - name: Install postgres headers
-        run: sudo apt-get install libpq-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
       - name: Install dependencies
         run: bundle install --path vendor/bundle
       - name: Setup environment configuration

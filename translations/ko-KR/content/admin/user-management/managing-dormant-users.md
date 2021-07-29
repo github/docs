@@ -9,8 +9,11 @@ intro: 'A user account is considered to be dormant if it has not been active for
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Accounts
+  - Enterprise
+  - Licensing
 ---
 
 "Activity" includes, but is not limited to:

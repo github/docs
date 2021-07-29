@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organizationのオーナーは、Organization のリポジトリのデフォルトラベルを管理できます。
@@ -19,9 +19,8 @@ Organizationのオーナーは、Organization のリポジトリのデフォル�
 
 ### デフォルトラベルの作成
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -35,9 +34,8 @@ Organizationのオーナーは、Organization のリポジトリのデフォル�
 
 ### デフォルトラベルの編集
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -51,9 +49,8 @@ Organizationのオーナーは、Organization のリポジトリのデフォル�
 
 ### デフォルトラベルの削除
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}

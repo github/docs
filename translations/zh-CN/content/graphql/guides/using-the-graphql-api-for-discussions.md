@@ -1,6 +1,6 @@
 ---
 title: 使用 GraphQL API for Discussions
-intro: '了解如何使用 GitHub Discussions GraphQL API。'
+intro: 了解如何使用 GitHub Discussions GraphQL API。
 versions:
   free-pro-team: '*'
 ---
@@ -8,8 +8,6 @@ versions:
 {% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。 有关 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
 此 API 适用于经过验证的用户、OAuth 应用程序和 GitHub 应用程序。 访问令牌需要 `repo` 作用域（对于私有仓库）和 `public_repo` 作用域（对于公共仓库）。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。
-
-要使用此 API，您必须在 `HTTP` 标题中包含 `GraphQL-Features: discussions_api`。
 
 ## 字段
 
@@ -1081,4 +1079,4 @@ mutation {
 
 ## 搜索
 
-讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 更多信息请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”。
+讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 更多信息请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/github/searching-for-information-on-github/searching-discussions)”。

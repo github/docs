@@ -1,13 +1,16 @@
 ---
 title: 企业 GitHub Packages 使用入门
+shortTitle: GitHub Packages 使用入门
 intro: '您可以通过启用功能、配置第三方存储、配置您想要支持的生态系统以及更新您的 TLS 证书，开始在 {% data variables.product.product_location %} 上使用 {% data variables.product.prodname_registry %}。'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
-  - 企业
+  - Enterprise
+  - Packages
 ---
 
 {% if currentVersion == "enterprise-server@2.22" %}

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 *2018年の声明*
@@ -18,7 +18,7 @@ topics:
 
 GitHubは、現代の奴隷制と児童労働が存在し続けていることを強く非難し、現代の奴隷制も児童労働も当社のサプライチェーンや当社の事業に占める位置がないようにするという責任を真剣に受け止めています。 (本声明における「現代の奴隷制」とは、奴隷制、強制または意思に反した労働、人身売買、隷属、および拘禁、年季奉公、拘束された労働者のことを指します。 「児童労働」とは、16歳未満、また軽労働では14歳未満による労働を指します。ただし、児童の就学を妨げる期間に限定されているものや、また児童の健康や幸福を妨げる条件ではないものを除きます。
 
-In accordance with the [UK Modern Slavery Act](https://www.legislation.gov.uk/ukpga/2015/30/section/54/enacted), and in alignment with the [ILO 2014 Protocol to its Forced Labour Convention](https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029), [ILO Declaration on Fundamental Principles and Rights at Work](https://www.ilo.org/declaration/thedeclaration/textdeclaration/lang--en/index.htm), and [United Nations Sustainable Development Goals target 8.7](https://sustainabledevelopment.un.org/sdg8), this 2018 Statement Against Modern Slavery and Child Labor ("the Statement") describes the steps GitHub has taken to prevent modern slavery and child labor from occurring in its business or supply chain.
+[英国現代奴隷法](https://www.legislation.gov.uk/ukpga/2015/30/section/54/enacted)に従い、また[ILOによる強制労働条約の2014年の議定書](https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029)、[労働における基本的原則及び権利に関するILO宣言](https://www.ilo.org/declaration/thedeclaration/textdeclaration/lang--en/index.htm)、[国連の持続可能な開発目標　ターゲット8.7](https://sustainabledevelopment.un.org/sdg8)と協調し、現代版奴隷と児童労働に関する2018年の声明 (「本声明」) は、当社の事業やサプライチェーンで現代版奴隷や児童労働が生じることを防ぐためにGitHabが取ってきた行動について記載しています。
 
 ### GitHubの組織、事業、およびサプライチェーン
 

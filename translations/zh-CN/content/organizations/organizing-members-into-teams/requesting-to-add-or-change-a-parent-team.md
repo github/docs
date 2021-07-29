@@ -1,6 +1,6 @@
 ---
 title: 申请添加或更改父团队
-intro: '如果您在团队中具有维护员权限，可以申请在组织的层次结构中将团队嵌套在父团队下面。'
+intro: 如果您在团队中具有维护员权限，可以申请在组织的层次结构中将团队嵌套在父团队下面。
 redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-or-change-a-parent-team
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 申请添加或更改团队的父团队时，申请会发送给父团队的维护员。 新父团队的维护员批准申请后，您的团队将作为子团队嵌套在组织的层次结构中该父团队下。
@@ -19,8 +19,8 @@ topics:
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 在团队列表中，单击您要在父团队下嵌套的团队的名称。 ![组织的团队列表](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

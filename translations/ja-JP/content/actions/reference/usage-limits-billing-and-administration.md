@@ -1,5 +1,5 @@
 ---
-title: '使用制限、支払い、管理'
+title: 使用制限、支払い、管理
 intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの無料の時間とストレージの量を超えるリポジトリに適用されます。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,7 +19,7 @@ topics:
 ### {% data variables.product.prodname_actions %}の支払いについて
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)」を参照してください。
+{% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 {% else %}
 GitHub アクションの使用は、
 セルフホストランナーを使用する {% data variables.product.prodname_ghe_server %} では無料です。
@@ -49,6 +49,8 @@ GitHub アクションの使用は、
   | Team       | 60      | 5            |
   | Enterprise | 180     | 50           |
 - **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 使用制限は、セルフホストランナーに適用されます。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 {% endif %}

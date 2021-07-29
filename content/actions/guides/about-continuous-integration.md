@@ -8,20 +8,21 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-continuous-integration
   - /actions/building-and-testing-code-with-continuous-integration/about-continuous-integration
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'overview'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: overview
 topics:
-  - 'CI'
-  - 'CD'
+  - CI
+  - CD
+shortTitle: Continuous integration
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About continuous integration
+## About continuous integration
 
 Continuous integration (CI) is a software practice that requires frequently committing code to a shared repository. Committing code more often detects errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts.
 
@@ -29,9 +30,9 @@ When you commit code to your repository, you can continuously build and test the
 
 Building and testing your code requires a server. You can build and test updates locally before pushing code to a repository, or you can use a CI server that checks for new code commits in a repository.
 
-### About continuous integration using {% data variables.product.prodname_actions %}
+## About continuous integration using {% data variables.product.prodname_actions %}
 
-{% if currentVersion == "github-ae@latest" %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on virtual machines hosted by {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
+{% ifversion ghae %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on virtual machines hosted by {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
 {% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
 {% endif %}
 
@@ -47,16 +48,17 @@ In addition to helping you set up CI workflows for your project, you can use {% 
 
 For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
-### Supported languages
+## Supported languages
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} offers CI workflow templates for a variety of languages and frameworks.
 
-Browse the complete list of CI workflow templates offered by {% data variables.product.product_name %} in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+Browse the complete list of CI workflow templates offered by {% data variables.product.product_name %} in the {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-### Skipping workflow runs
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+## Skipping workflow runs
 
-If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
+If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
 
 * `[skip ci]`
 * `[ci skip]`
@@ -75,19 +77,18 @@ You won't be able to merge the pull request if your repository is configured to 
 {% endnote %}
 {% endif %}
 
-### Notifications for workflow runs
+## Notifications for workflow runs
 
 {% data reusables.repositories.workflow-notifications %}
 
-### Status badges for workflow runs
+## Status badges for workflow runs
 
-{% data reusables.repositories.actions-workflow-status-badge-into %}
+{% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Configuring a workflow](/articles/configuring-a-workflow)."
+For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
-### Further reading
+## Further reading
 
-- "[Setting up continuous integration using {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
-{% if currentVersion == "free-pro-team@latest" %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+{% ifversion fpt %}
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

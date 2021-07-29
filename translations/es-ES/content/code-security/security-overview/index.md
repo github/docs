@@ -1,13 +1,15 @@
 ---
-title: Viewing security alerts for repositories in your organization
-shortTitle: Security overview
-intro: 'View, sort, and filter the security alerts from across your organization in one place.'
+title: Visualizar las alertas de seguridad para los repositorios en tu organización
+shortTitle: Resumen de seguridad
+intro: 'Visualiza, clasifica y filtra las alertas de seguridad desde cualquier parte de tu organización en un solo lugar.'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'next'
+  github-ae: next
+topics:
+  - Security overview
+  - Advanced Security
+children:
+  - /exploring-security-alerts
 ---
 
-### Índice
-
-{% link_in_list /exploring-security-alerts %}
