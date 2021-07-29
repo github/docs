@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import walk from 'walk-sync'
-import astFromMarkdown from 'mdast-util-from-markdown'
+import { fromMarkdown } from 'mdast-util-from-markdown'
 import visit from 'unist-util-visit'
 import { loadPages, loadPageMap } from '../lib/page-data.js'
 import loadSiteData from '../lib/site-data.js'
@@ -74,7 +74,7 @@ async function main() {
     // so that the AST parser recognizes the link as a link node. The spaces prevent it from doing so.
     newContent = newContent.replace(currentVersionWithSpacesRegex, currentVersionWithoutSpaces)
 
-    const ast = astFromMarkdown(newContent)
+    const ast = fromMarkdown(newContent)
 
     // We can't do async functions within visit, so gather the nodes upfront
     const nodesPerFile = []

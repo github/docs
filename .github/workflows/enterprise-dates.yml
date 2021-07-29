@@ -52,6 +52,9 @@ jobs:
       - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43
+        env:
+          # Disable pre-commit hooks; they don't play nicely here
+          HUSKY: '0'
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.GITHUB_TOKEN }}

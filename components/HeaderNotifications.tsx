@@ -5,6 +5,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 import { useVersion } from './hooks/useVersion'
+import { useLanguages } from './context/LanguagesContext'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -23,11 +24,11 @@ export const HeaderNotifications = () => {
     relativePath,
     allVersions,
     data,
-    languages,
     currentLanguage,
     userLanguage,
     currentPathWithoutLanguage,
   } = useMainContext()
+  const { languages } = useLanguages()
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
