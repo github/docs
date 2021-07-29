@@ -1,7 +1,8 @@
-/* Grid-based layout
-------------------------------------------------------------------------------*/
+@import "@primer/css/layout/index.scss";
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/marketing/support/variables.scss";
 
-.article-grid-container {
+.container {
   max-width: 720px;
 
   @include breakpoint(xl) {
@@ -20,11 +21,11 @@
   }
 }
 
-.article-grid-toc {
+.sidebar {
   grid-area: right-sidebar;
 }
 
-.article-grid-toc-content {
+.sidebarContent {
   @include breakpoint(xl) {
     position: sticky;
     top: $spacer-4;
@@ -34,10 +35,10 @@
   }
 }
 
-.article-grid-head {
+.head {
   grid-area: top;
 }
 
-.article-grid-body {
+.content {
   grid-area: bottom;
 }

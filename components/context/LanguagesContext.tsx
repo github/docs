@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react'
-import languages from 'lib/languages.js'
 
 type LanguageItem = {
   name: string
@@ -14,13 +13,6 @@ export type LanguagesContextT = {
 }
 
 export const LanguagesContext = createContext<LanguagesContextT | null>(null)
-
-type Props = {
-  children?: React.ReactNode
-}
-export const LanguagesProvider = ({ children }: Props) => {
-  return <LanguagesContext.Provider value={{ languages }}>{children}</LanguagesContext.Provider>
-}
 
 export const useLanguages = (): LanguagesContextT => {
   const context = useContext(LanguagesContext)
