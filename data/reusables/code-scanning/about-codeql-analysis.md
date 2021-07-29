@@ -1,0 +1,1 @@
+{% data variables.product.prodname_codeql %} is the code analysis engine developed by {% data variables.product.company_short %} to automate security checks. You can analyze your code using {% data variables.product.prodname_codeql %} and display the results as {% data variables.product.prodname_code_scanning %} alerts.

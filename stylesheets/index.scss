@@ -5,7 +5,7 @@
 @import "@primer/css/labels/index.scss";
 @import "@primer/css/avatars/avatar.scss";
 
-$marketing-font-path: "/dist/fonts/";
+$marketing-font-path: "/assets/fonts/inter/";
 @import "@primer/css/marketing/index.scss";
 @import "font-mktg.scss";
 
@@ -37,6 +37,5 @@ $marketing-font-path: "/dist/fonts/";
 @import "summary.scss";
 @import "syntax-highlighting.scss";
 @import "tables.scss";
-@import "toggle-images-button.scss";
 @import "underline-dashed.scss";
 @import "utilities.scss";

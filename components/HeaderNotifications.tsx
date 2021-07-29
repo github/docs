@@ -5,6 +5,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 import { useVersion } from './hooks/useVersion'
+import { useLanguages } from './context/LanguagesContext'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -23,11 +24,11 @@ export const HeaderNotifications = () => {
     relativePath,
     allVersions,
     data,
-    languages,
     currentLanguage,
     userLanguage,
     currentPathWithoutLanguage,
   } = useMainContext()
+  const { languages } = useLanguages()
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
@@ -52,7 +53,7 @@ export const HeaderNotifications = () => {
     if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: `This article is also available in your language of choice. Click <a href="/${userLanguage}${currentPathWithoutLanguage}">here</a>`,
+        content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage].name}</a>.`,
       })
     }
   }

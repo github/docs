@@ -4,14 +4,14 @@ import { Dropdown, Details, useDetails } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
-import { useMainContext } from './context/MainContext'
+import { useLanguages } from './context/LanguagesContext'
 
 type Props = {
   variant?: 'inline'
 }
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
-  const { languages } = useMainContext()
+  const { languages } = useLanguages()
   const { getDetailsProps } = useDetails({})
   const locale = router.locale || 'en'
   const langs = Object.values(languages)
@@ -28,6 +28,10 @@ export const LanguagePicker = ({ variant }: Props) => {
         </summary>
         <div>
           {langs.map((lang) => {
+            if (lang.wip) {
+              return null
+            }
+
             return (
               <Link
                 key={lang.code}
@@ -63,6 +67,7 @@ export const LanguagePicker = ({ variant }: Props) => {
           width: unset;
         }
       `}
+      data-testid="language-picker"
     >
       <summary>
         {selectedLang.nativeName || selectedLang.name}
@@ -70,6 +75,10 @@ export const LanguagePicker = ({ variant }: Props) => {
       </summary>
       <Dropdown.Menu direction="sw">
         {langs.map((lang) => {
+          if (lang.wip) {
+            return null
+          }
+
           return (
             <Dropdown.Item key={lang.code}>
               <Link href={router.asPath} locale={lang.code} disableClientTransition={true}>
