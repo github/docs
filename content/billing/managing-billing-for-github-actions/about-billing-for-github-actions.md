@@ -23,7 +23,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 Minutes reset every month, while storage usage does not.
 
-### Included Storage and Minutes per month
+### Included storage and minutes
 
 |Product | Storage | Minutes (per month)|
 |------- | ------- | ---------|
@@ -35,7 +35,7 @@ Minutes reset every month, while storage usage does not.
 
 Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
 
-### Operating system minute multiplier
+### Minute multipliers
 
 | Operating system | Minute multiplier |
 |------- | ---------|
@@ -53,7 +53,7 @@ The storage used by a repository is the total storage used by {% data variables.
 
 {% endnote %}
 
-### Operating system Per-minute rate
+### Per-minute rates
 
 | Operating system | Per-minute rate |
 |------- | ---------|
