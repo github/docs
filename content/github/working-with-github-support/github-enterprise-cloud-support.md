@@ -1,3 +1,40 @@
+<!-- Matomo A/B Test -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['AbTesting::create', {
+        name: '278191027907827206q', // you can also use '1' (ID of the experiment) to hide the name
+        percentage: 100,
+        includedTargets: [{"attribute":"url","inverted":"0","type":"any","value":""}],
+        excludedTargets: [],
+        variations: [
+            {
+                name: 'original',
+                activate: function (event) {
+                    // usually nothing needs to be done here
+                }
+            },
+            {
+                name: 'Variation1', // you can also use '1' (ID of the variation) to hide the name
+                activate: function(event) {
+                    // eg $('#btn').attr('style', 'color: ' + this.name + ';');
+                }
+            }            
+        ],
+        trigger: function () {
+            return true; // here you can further customize which of your visitors will participate in this experiment
+        }
+    }]);
+</script>
+<!-- Matomo A/B Test -->
+
+
+
+
+
+
+
+
+
 ---
 title: GitHub Enterprise Cloud support
 redirect_from:
