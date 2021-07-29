@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// This script creates or removes a release candidate banner for a specified version.
+//
+// [end-readme]
+
 import fs from 'fs/promises'
 import path from 'path'
 import program from 'commander'
@@ -7,14 +14,7 @@ import { allVersions } from '../../lib/all-versions.js'
 
 const releaseCandidateFile = 'data/variables/release_candidate.yml'
 const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
-
 const allowedActions = ['create', 'remove']
-
-// [start-readme]
-//
-// This script creates or removes a release candidate banner for a specified version.
-//
-// [end-readme]
 
 program
   .description('Create or remove a release candidate banner for the provided docs version.')

@@ -2,24 +2,24 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import lunr from 'lunr'
-import xLunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js'
-import xTinyseg from 'lunr-languages/tinyseg.js'
-import xLunrJa from 'lunr-languages/lunr.ja.js'
-import xLunrEs from 'lunr-languages/lunr.es.js'
-import xLunrPt from 'lunr-languages/lunr.pt.js'
-import xLunrDe from 'lunr-languages/lunr.de.js'
-import xFs from 'fs'
+import lunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js'
+import tinyseg from 'lunr-languages/tinyseg.js'
+import lunrJa from 'lunr-languages/lunr.ja.js'
+import lunrEs from 'lunr-languages/lunr.es.js'
+import lunrPt from 'lunr-languages/lunr.pt.js'
+import lunrDe from 'lunr-languages/lunr.de.js'
+import fs from 'fs/promises'
 import rank from './rank.js'
 import validateRecords from './validate-records.js'
 import { compress } from '../../lib/search/compress.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-xLunrStemmerSupport(lunr)
-xTinyseg(lunr)
-xLunrJa(lunr)
-xLunrEs(lunr)
-xLunrPt(lunr)
-xLunrDe(lunr)
-const fs = xFs.promises
+lunrStemmerSupport(lunr)
+tinyseg(lunr)
+lunrJa(lunr)
+lunrEs(lunr)
+lunrPt(lunr)
+lunrDe(lunr)
 
 export default class LunrIndex {
   constructor(name, records) {

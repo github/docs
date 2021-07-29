@@ -1,15 +1,17 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs/promises'
-import yaml from 'js-yaml'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
 // This script turns a Google Sheets CSV spreadsheet into a YAML file.
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs/promises'
+import yaml from 'js-yaml'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const inputFile = path.join(__dirname, '../data/glossary.yml')
 

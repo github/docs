@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs/promises'
 import path from 'path'
-import xMkdirp from 'mkdirp'
+import mkdirp from 'mkdirp'
 import yaml from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, listMatchingRefs } from '../helpers/git-utils.js'
@@ -14,7 +14,6 @@ import prerenderInputObjects from './utils/prerender-input-objects.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 import loadData from '../../lib/site-data.js'
 
-const mkdirp = xMkdirp.sync
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const dataFilenames = JSON.parse(
@@ -77,7 +76,7 @@ async function main() {
       const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
       await updateFile(schemaPath, latestSchema)
       const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
-      updateStaticFile(
+      await updateStaticFile(
         schemaJsonPerVersion,
         path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
       )
@@ -113,10 +112,16 @@ async function main() {
       }
     }
 
-    updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
-    updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
-    updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
-    updateStaticFile(
+    await updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
+    await updateStaticFile(
+      upcomingChangesJson,
+      path.join(graphqlStaticDir, 'upcoming-changes.json')
+    )
+    await updateStaticFile(
+      prerenderedObjects,
+      path.join(graphqlStaticDir, 'prerendered-objects.json')
+    )
+    await updateStaticFile(
       prerenderedInputObjects,
       path.join(graphqlStaticDir, 'prerendered-input-objects.json')
     )
@@ -194,7 +199,7 @@ function getVersionType(graphqlVersion) {
 
 async function updateFile(filepath, content) {
   console.log(`fetching latest data to ${filepath}`)
-  mkdirp(path.dirname(filepath))
+  await mkdirp(path.dirname(filepath))
   return fs.writeFile(filepath, content, 'utf8')
 }
 

@@ -77,7 +77,7 @@ COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Use Lunr instead of Algolia
+# Hide iframes, add warnings to external links
 ENV AIRGAP true
 
 # Copy only what's needed to run the server
