@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
+import { ExcludesNull } from 'components/lib/ExcludesNull'
 
 type ProductT = {
   external: boolean
@@ -68,11 +69,11 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { js: string } }
   activeProducts: Array<ProductT>
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
+  isFPT: boolean
   data: DataT
   airGap?: boolean
   error: string
@@ -112,13 +113,13 @@ export type MainContextT = {
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
-    isHomepageVersion: req.context.currentVersion === 'homepage',
-    error: req.context.error || '',
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    isFPT: req.context.currentVersion === 'free-pro-team@latest',
+    error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {
@@ -186,7 +187,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): ProductTreeNode => {
+const getCurrentProductTree = (input: any): ProductTreeNode | null => {
+  if (input.page.hidden) {
+    return null
+  }
+
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',
@@ -197,7 +202,7 @@ const getCurrentProductTree = (input: any): ProductTreeNode => {
       title: input.page.title,
       shortTitle: input.page.shortTitle || '',
     },
-    childPages: (input.childPages || []).map(getCurrentProductTree),
+    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 

@@ -44,7 +44,7 @@ type LandingPageProps = {
 function LandingPage(props: LandingPageProps) {
   const router = useRouter()
   const { gettingStartedLinks, popularLinks } = props
-  const { activeProducts, isHomepageVersion } = useMainContext()
+  const { activeProducts, isFPT } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['homepage', 'search', 'toc'])
   return (
@@ -80,12 +80,12 @@ function LandingPage(props: LandingPageProps) {
           </h2>
           <div className="d-flex flex-wrap gutter gutter-xl-spacious">
             {activeProducts.map((product) => {
-              if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
+              if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
                 return null
               }
 
               const href = `${!product.external ? `/${router.locale}` : ''}${
-                product.versions?.includes(currentVersion)
+                product.versions?.includes(currentVersion) && !isFPT
                   ? `/${currentVersion}/${product.id}`
                   : product.href
               }`

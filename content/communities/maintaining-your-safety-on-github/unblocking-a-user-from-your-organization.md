@@ -5,9 +5,10 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Unblock from your org
 ---
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.

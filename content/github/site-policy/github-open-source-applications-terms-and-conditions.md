@@ -3,7 +3,7 @@ title: GitHub Open Source Applications Terms and Conditions
 redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

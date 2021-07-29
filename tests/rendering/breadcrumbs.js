@@ -1,6 +1,8 @@
-const { getDOM, getJSON } = require('../helpers/supertest')
+import { getDOM, getJSON } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
-const describeInternalOnly = process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
+const describeInternalOnly =
+  process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 
 describe('breadcrumbs', () => {
   jest.setTimeout(300 * 1000)
@@ -12,40 +14,45 @@ describe('breadcrumbs', () => {
     })
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
-      const $ = await getDOM('/github/getting-started-with-github/supported-browsers')
+      const $ = await getDOM(
+        '/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
+      )
       const $breadcrumbs = $('.breadcrumbs a')
 
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
-      expect($breadcrumbs[1].attribs.title).toBe('category: Getting started')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Using GitHub')
-      expect($breadcrumbs[3].attribs.title).toBe('article: Supported browsers')
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
+      expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
+      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Troubleshooting SSH')
+      expect($breadcrumbs[3].attribs.title).toBe('article: Use SSH over HTTPS port')
     })
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
-      const $ = await getDOM('/github/getting-started-with-github/using-github')
+      const $ = await getDOM(
+        '/github/authenticating-to-github/keeping-your-account-and-data-secure'
+      )
       const $breadcrumbs = $('.breadcrumbs a')
 
       expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
-      expect($breadcrumbs[1].attribs.title).toBe('category: Getting started')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Using GitHub')
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
+      expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
+      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Account security')
       expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
-      const $ = await getDOM('/en/enterprise/user/github/getting-started-with-github/supported-browsers')
+      const $ = await getDOM(
+        '/en/enterprise-server/github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase'
+      )
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs).toHaveLength(4)
-      // The product is still GitHub.com on an Enterprise Server version
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub.com')
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
     })
 
     test('parses Liquid variables inside titles', async () => {
       const $ = await getDOM('/en/enterprise/admin/enterprise-support')
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs).toHaveLength(2)
-      expect($breadcrumbs[1].attribs.title).toBe('category: Working with GitHub Support')
+      expect($breadcrumbs[1].attribs.title).toBe('category: Working with support')
     })
 
     test('English breadcrumbs link to English pages', async () => {
@@ -68,15 +75,19 @@ describe('breadcrumbs', () => {
     })
 
     test('early access article pages have breadcrumbs with product, category, and article', async () => {
-      const $ = await getDOM('/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies')
+      const $ = await getDOM(
+        '/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies'
+      )
       const $breadcrumbSpans = $('.breadcrumbs span')
       const $breadcrumbLinks = $('.breadcrumbs a')
 
       expect($breadcrumbSpans).toHaveLength(2)
       expect($breadcrumbLinks).toHaveLength(2)
       expect($breadcrumbSpans[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub.com')
-      expect($breadcrumbLinks[0].attribs.title).toBe('category: Enforcing best practices with GitHub Policies')
+      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub')
+      expect($breadcrumbLinks[0].attribs.title).toBe(
+        'category: Enforcing best practices with GitHub Policies'
+      )
       expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
       expect($breadcrumbLinks[1].attribs.class.includes('color-text-tertiary')).toBe(true)
     })
@@ -89,8 +100,8 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com'
-        }
+          title: 'GitHub',
+        },
       ]
       expect(breadcrumbs).toEqual(expected)
     })
@@ -101,84 +112,90 @@ describe('breadcrumbs', () => {
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com'
+          title: 'GitHub',
         },
         {
           documentType: 'category',
           href: '/en/github/authenticating-to-github',
-          title: 'Authentication'
-        }
+          title: 'Authentication',
+        },
       ]
       expect(breadcrumbs).toEqual(expected)
     })
 
     test('works on maptopic pages', async () => {
-      const breadcrumbs = await getJSON('/en/github/authenticating-to-github/keeping-your-account-and-data-secure?json=breadcrumbs')
+      const breadcrumbs = await getJSON(
+        '/en/github/authenticating-to-github/keeping-your-account-and-data-secure?json=breadcrumbs'
+      )
       const expected = [
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com'
+          title: 'GitHub',
         },
         {
           documentType: 'category',
           href: '/en/github/authenticating-to-github',
-          title: 'Authentication'
+          title: 'Authentication',
         },
         {
           documentType: 'mapTopic',
           href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Keeping your account and data secure'
-        }
+          title: 'Account security',
+        },
       ]
       expect(breadcrumbs).toEqual(expected)
     })
 
     test('works on articles that DO have maptopics ', async () => {
-      const breadcrumbs = await getJSON('/en/github/authenticating-to-github/creating-a-strong-password?json=breadcrumbs')
+      const breadcrumbs = await getJSON(
+        '/en/github/authenticating-to-github/creating-a-strong-password?json=breadcrumbs'
+      )
       const expected = [
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com'
+          title: 'GitHub',
         },
         {
           documentType: 'category',
           href: '/en/github/authenticating-to-github',
-          title: 'Authentication'
+          title: 'Authentication',
         },
         {
           documentType: 'mapTopic',
           href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Keeping your account and data secure'
+          title: 'Account security',
         },
         {
           documentType: 'article',
           href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password',
-          title: 'Creating a strong password'
-        }
+          title: 'Create a strong password',
+        },
       ]
       expect(breadcrumbs).toEqual(expected)
     })
 
     test('works on articles that DO NOT have maptopics ', async () => {
-      const breadcrumbs = await getJSON('/github/site-policy/github-privacy-statement?json=breadcrumbs')
+      const breadcrumbs = await getJSON(
+        '/github/site-policy/github-privacy-statement?json=breadcrumbs'
+      )
       const expected = [
         {
           documentType: 'product',
           href: '/en/github',
-          title: 'GitHub.com'
+          title: 'GitHub',
         },
         {
           documentType: 'category',
           href: '/en/github/site-policy',
-          title: 'Site policy'
+          title: 'Site policy',
         },
         {
           documentType: 'article',
           href: '/en/github/site-policy/github-privacy-statement',
-          title: 'GitHub Privacy Statement'
-        }
+          title: 'GitHub Privacy Statement',
+        },
       ]
       expect(breadcrumbs).toEqual(expected)
     })

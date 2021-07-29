@@ -4,7 +4,7 @@ redirect_from:
   - /articles/name-squatting-policy/
   - /articles/github-username-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

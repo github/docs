@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Actions
@@ -14,6 +14,7 @@ topics:
   - Organizations
   - Spending limits
   - User account
+shortTitle: Spending limits for Actions
 ---
 ## About spending limits for {% data variables.product.prodname_actions %}
 

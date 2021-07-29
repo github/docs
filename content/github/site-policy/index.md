@@ -4,7 +4,7 @@ redirect_from:
   - /categories/61/articles/
   - /categories/site-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -50,3 +50,4 @@ children:
   - /github-event-code-of-conduct
   - /github-gpl-cooperation-commitment
 ---
+

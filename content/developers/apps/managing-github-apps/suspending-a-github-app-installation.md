@@ -5,11 +5,12 @@ redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
   - /developers/apps/suspending-a-github-app-installation
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Suspend app installation
 ---
 ## Suspending a GitHub App
 

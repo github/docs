@@ -1,6 +1,6 @@
 ---
 title: Triaging code scanning alerts in pull requests
-shortTitle: Triaging alerts in pull requests
+shortTitle: Triage alerts in pull requests
 intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
@@ -8,9 +8,9 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
   - /code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -29,7 +29,7 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 If {% data variables.product.prodname_code_scanning %} has any results with a severity of `error`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notices and the check succeeds. 
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}You can override the default behavior in your repository settings, by specifying the level of severities that will cause a pull request check failure. For more information, see "[Defining the alert severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-alert-severities-causing-pull-request-check-failure)".
+{% ifversion fpt or ghes > 3.1 or ghae-next %}You can override the default behavior in your repository settings, by specifying the level of severities {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}and security severities {% endif %}that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
 
 {% endif %}If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then you must either fix or dismiss all error alerts before the pull request can be merged. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
 
@@ -43,7 +43,7 @@ If the repository uses the {% data variables.product.prodname_codeql_workflow %}
 
 ## Triaging an alert on your pull request
 
-When you look at the **Files changed** tab for a pull request, you see annotations for any lines of code that triggered the alert.
+When you look at the **Files changed** tab for a pull request, you see annotations for any lines of code that triggered the alert. The severity of the alert is displayed in the annotation.
 
 ![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
 

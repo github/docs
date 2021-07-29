@@ -8,11 +8,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
+shortTitle: Provide data to Support
 ---
 ## Creating and sharing diagnostic files
 
@@ -63,7 +64,7 @@ After you submit your support request, we may ask you to share a support bundle 
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
 - `collectd/logs/collectd.log`: Collectd logs
 - `mail-logs/mail.log`: SMTP email delivery logs
-{% if currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghes < 3.0 %}
 - `hookshot-logs/exceptions.log`: Webhook delivery errors
 {% endif %}
 

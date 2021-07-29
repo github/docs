@@ -18,12 +18,13 @@ redirect_from:
   - /github/administering-a-repository/enabling-deletion-of-a-protected-branch
   - /github/administering-a-repository/managing-a-branch-protection-rule
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
+shortTitle: Branch protection rule
 ---
 ## About branch protection rules
 
@@ -65,7 +66,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
    - From the list of available status checks, select the checks you want to require.
      ![List of available status checks](/assets/images/help/repository/required-statuses-list.png)
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@issue-4382" %}
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
 1. Optionally, select **Require conversation resolution before merging**.
   ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
 {%- endif %}
@@ -75,7 +76,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
 1. Optionally, select **Include administrators**.
 ![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
-1. Optionally,{% if currentVersion == "free-pro-team@latest" %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
+1. Optionally,{% ifversion fpt %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch.

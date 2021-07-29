@@ -7,13 +7,14 @@ redirect_from:
   - /apps/building-github-apps/authenticating-with-github-apps
   - /developers/apps/authenticating-with-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Authentication
 ---
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -41,7 +42,7 @@ To generate a private key:
 {% endnote %}
 
 ## Verifying private keys
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %} hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the {% ifversion ghes < 3.0 %}SHA-1{% else %}SHA-256{% endif %} hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
 
 To verify a private key:
 
@@ -49,7 +50,7 @@ To verify a private key:
 ![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Generate the fingerprint of your private key (PEM) locally by using the following command:
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% if currentVersion ver_lt "enterprise-server@2.23" %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% ifversion ghes < 3.0 %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
     ```
 3. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
 
@@ -97,7 +98,7 @@ Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_AP
 
 After creating the JWT, set it in the `Header` of the API request:
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 ```shell
 $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.machine-man-preview+json" {% data variables.product.api_url_pre %}/app
 ```
@@ -126,13 +127,13 @@ For a list of REST API endpoints you can use to get high-level information about
 
 ## Authenticating as an installation
 
-Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_app %}s to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
 
 By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
 
 To list the installations for an authenticated app, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
 
-{% if currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 ```shell
 $ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
@@ -152,7 +153,7 @@ The response will include a list of installations where each installation's `id`
 
 To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request and replace `:installation_id` with the installation's `id`:
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
@@ -172,7 +173,7 @@ The response will include your installation access token, the expiration date, t
 
 To authenticate with an installation access token, include it in the Authorization header in the API request:
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
@@ -192,7 +193,7 @@ $ curl -i \
 
 ## Accessing API endpoints as an installation
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_app %}s using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
 
 For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
 

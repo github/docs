@@ -6,7 +6,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-organizations
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 ## About organization management
 

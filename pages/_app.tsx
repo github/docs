@@ -7,8 +7,16 @@ import { defaultThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
 import '../stylesheets/index.scss'
 
+import events from 'components/lib/events'
+import experiment from 'components/lib/experiment'
+
 type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
+  useEffect(() => {
+    events()
+    experiment()
+  }, [])
+
   return (
     <>
       <Head>

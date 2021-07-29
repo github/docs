@@ -1,7 +1,7 @@
-const { getPathWithoutLanguage, getPathWithoutVersion } = require('../lib/path-utils')
-const getLinkData = require('../lib/get-link-data')
+import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
+import getLinkData from '../lib/get-link-data.js'
 
-module.exports = async function learningTrack (req, res, next) {
+export default async function learningTrack(req, res, next) {
   const noTrack = () => {
     req.context.currentLearningTrack = {}
     return next()
@@ -20,7 +20,7 @@ module.exports = async function learningTrack (req, res, next) {
 
   const currentLearningTrack = { trackName }
 
-  const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.path))
+  const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
   const guideIndex = track.guides.findIndex((path) => path === guidePath)
 
   if (guideIndex < 0) return noTrack()

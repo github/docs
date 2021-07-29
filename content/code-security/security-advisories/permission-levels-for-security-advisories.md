@@ -6,12 +6,13 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: reference
 topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
+shortTitle: Permission levels
 ---
 
 ## Permissions overview

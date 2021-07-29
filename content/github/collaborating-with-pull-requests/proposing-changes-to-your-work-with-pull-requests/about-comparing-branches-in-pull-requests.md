@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Compare branches
 ---
 {% note %}
 
@@ -19,7 +20,7 @@ topics:
 {% endnote %}
 
 You can view proposed changes in a pull request in the Files changed tab.
-{% if currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![Pull Request Files changed tab](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 

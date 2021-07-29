@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { sendEvent, EventType } from '../javascripts/events'
+import { sendEvent, EventType } from 'components/lib/events'
 
 enum ViewState {
   START = 'START',
@@ -35,7 +35,7 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5" onSubmit={submit} ref={formRef}>
+    <form className="f5 js-survey" onSubmit={submit} ref={formRef} data-testid="survey-form">
       <h2 className="mb-1 f4">
         {t`able_to_find`}
 
@@ -128,7 +128,9 @@ export const Survey = () => {
         </>
       )}
 
-      {state === ViewState.END && <p className="color-text-secondary f6">{t`feedback`}</p>}
+      {state === ViewState.END && (
+        <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>
+      )}
     </form>
   )
 }

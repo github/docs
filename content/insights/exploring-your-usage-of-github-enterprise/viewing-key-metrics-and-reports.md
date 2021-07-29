@@ -5,7 +5,8 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: View metrics & reports
 ---
 
 ## About metrics and reports

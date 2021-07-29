@@ -5,9 +5,9 @@ redirect_from:
   - /articles/sorting-search-results
   - /github/searching-for-information-on-github/sorting-search-results
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
