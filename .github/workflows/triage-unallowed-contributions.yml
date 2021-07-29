@@ -120,6 +120,7 @@ jobs:
             })
 
             core.setFailed("It looks like you've modified some files we don't accept contributions for. Please see the review with requested changes for details.")
+
       # When the most recent review was CHANGES_REQUESTED and the existing
       # PR no longer contains unallowed changes, dismiss the previous review
       - name: Dismiss pull request review
