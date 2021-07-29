@@ -56,7 +56,7 @@ The {% data variables.product.prodname_marketplace %} API allows you to see whic
 
 This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
 
-To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_app %}s on {% data variables.product.prodname_marketplace %}.
+To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
 
 Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
 
@@ -69,7 +69,7 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Webhooks
 
-{% data reusables.webhooks.webhooks-rest-api-links %}
+A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

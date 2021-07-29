@@ -19,7 +19,7 @@ shortTitle: IAM with SAML SSO
 
 After you configure SAML SSO, members of your {% data variables.product.prodname_dotcom %} organization will continue to log into their user accounts on {% data variables.product.prodname_dotcom %}. When a member accesses resources within your organization that uses SAML SSO, {% data variables.product.prodname_dotcom %} redirects the member to your IdP to authenticate. After successful authentication, your IdP redirects the member back to {% data variables.product.prodname_dotcom %}, where the member can access your organization's resources.
 
-Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -43,7 +43,7 @@ Organization members must also have an active SAML session to authorize an {% da
 
 {% data reusables.saml.saml-supported-idps %}
 
-Some IdPs support provisioning access to a  {% data variables.product.prodname_dotcom %} organization via SCIM. For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+Some IdPs support provisioning access to a {% data variables.product.prodname_dotcom %} organization via SCIM. {% data reusables.scim.enterprise-account-scim %} For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
 
 ## Adding members to an organization using SAML SSO
 

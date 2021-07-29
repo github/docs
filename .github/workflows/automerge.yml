@@ -39,3 +39,4 @@ jobs:
           MERGE_RETRY_SLEEP: '10000' # ten seconds
           UPDATE_LABELS: 'automerge,autosquash'
           UPDATE_METHOD: 'merge'
+          HUSKY: '0' # Disable pre-commit hooks
