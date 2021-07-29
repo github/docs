@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
+import fs from 'fs/promises'
 import { setOutput } from '@actions/core'
 
-const eventPayload = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'))
+const eventPayload = JSON.parse(await fs.readFile(process.env.GITHUB_EVENT_PATH, 'utf8'))
 
 // This workflow-run script does the following:
 // 1. Gets an array of labels on a PR.
