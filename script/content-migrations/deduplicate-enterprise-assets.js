@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import walk from 'walk-sync'
 import xJimp from 'jimp'
@@ -38,7 +38,7 @@ async function main() {
       // the image in the local /assets/images directory, then we can
       // delete the enterprise image and the reference in the Markdown
       // will just work
-      if (fs.existsSync(existingFileToCompare)) {
+      if (await fs.readFile(existingFileToCompare)) {
         // Buffer.compare and Jimp both return 0 if files match
         let compareResult = 1
         try {
@@ -52,8 +52,8 @@ async function main() {
             const diff = await jimp.diff(existingImageToCompare, enterpriseImage)
             compareResult = diff.percent
           } else {
-            const existingImageToCompare = await fs.readFileSync(existingFileToCompare)
-            const enterpriseImage = await fs.readFileSync(file)
+            const existingImageToCompare = await fs.readFile(existingFileToCompare)
+            const enterpriseImage = await fs.readFile(file)
             compareResult = Buffer.compare(
               Buffer.from(existingImageToCompare),
               Buffer.from(enterpriseImage)
@@ -63,7 +63,7 @@ async function main() {
           console.log(file)
           console.log(err)
         }
-        if (compareResult === 0) fs.unlinkSync(file)
+        if (compareResult === 0) await fs.unlink(file)
       }
     }
   }
