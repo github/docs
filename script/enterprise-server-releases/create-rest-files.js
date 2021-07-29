@@ -1,12 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs/promises'
-import path from 'path'
-import program from 'commander'
-import { allVersions } from '../../lib/all-versions.js'
-import getOperations from '../rest/utils/get-operations.js'
-
-const dereferencedDir = 'lib/rest/static/dereferenced'
-const decoratedDir = 'lib/rest/static/decorated'
 
 // [start-readme]
 //
@@ -15,6 +7,15 @@ const decoratedDir = 'lib/rest/static/decorated'
 // Finally, it generates a new decorated file from the new dereferenced file to ensure that the dereferenced and decorated files match.
 //
 // [end-readme]
+
+import fs from 'fs/promises'
+import path from 'path'
+import program from 'commander'
+import { allVersions } from '../../lib/all-versions.js'
+import getOperations from '../rest/utils/get-operations.js'
+
+const dereferencedDir = 'lib/rest/static/dereferenced'
+const decoratedDir = 'lib/rest/static/decorated'
 
 program
   .description(

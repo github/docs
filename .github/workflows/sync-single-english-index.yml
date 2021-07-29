@@ -1,4 +1,4 @@
-name: Algolia Sync Single English Index
+name: Sync Single English Index
 
 # **What it does**:
 # **Why we have it**:
@@ -31,9 +31,9 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Get version from Algolia label if present; only continue if the label is found.
+      - name: Get version from search label if present; only continue if the label is found.
         id: getVersion
-        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-algolia-label.js
+        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-search-label.js
       - if: ${{ steps.getVersion.outputs.versionToSync }}
         name: Sync English index for single version
         env:

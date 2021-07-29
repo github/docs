@@ -1,9 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import walk from 'walk-sync'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -11,6 +6,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // Changing H3 to H2, H4 to H3, H5 to H4, and H6 to H5
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const re = /^#.*\n/gm
 

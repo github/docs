@@ -1,4 +1,13 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to fix known frontmatter errors by copying values from english file
+// Currently only fixing errors in: 'type', 'changelog'
+// Please double check the changes created by this script before committing.
+//
+// [end-readme]
+
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -12,14 +21,6 @@ import yaml from 'js-yaml'
 import ghesReleaseNotesSchema from '../tests/helpers/schemas/release-notes-schema.js'
 import revalidator from 'revalidator'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-// [start-readme]
-//
-// Run this script to fix known frontmatter errors by copying values from english file
-// Currently only fixing errors in: 'type', 'changelog'
-// Please double check the changes created by this script before committing.
-//
-// [end-readme]
 
 main()
 

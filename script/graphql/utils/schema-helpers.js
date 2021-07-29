@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 import renderContent from '../../../lib/render-content/index.js'
 import fs from 'fs/promises'
-import xGraphql from 'graphql'
+import graphql from 'graphql'
 import path from 'path'
 
 const graphqlTypes = JSON.parse(
   await fs.readFile(path.join(process.cwd(), './lib/graphql/types.json'))
 )
 const { isScalarType, isObjectType, isInterfaceType, isUnionType, isEnumType, isInputObjectType } =
-  xGraphql
+  graphql
 
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 

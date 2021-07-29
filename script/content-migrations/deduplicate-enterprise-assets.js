@@ -2,9 +2,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import walk from 'walk-sync'
-import xJimp from 'jimp'
-
-const jimp = xJimp // this is an optional dependency, install with `npm i --include=optional`
+import jimp from 'jimp' // this is an optional dependency, install with `npm i --include=optional`
 
 // iterate through enterprise images from most recent to oldest
 // check if the image in the /assets/enterprise/... directory
