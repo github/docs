@@ -30,6 +30,8 @@ shortTitle: Enforce SSO for organizations
 
 **Note:** Enabling authentication with SAML single sign-on for your enterprise account will override any existing organization-level SAML configurations.
 
+**Note:** Enabling enterprise-level SAML single sign-on does not automatically remove users from the enterprise the same way that the organization-level configuration does.
+
 {% endnote %}
 
 For more detailed information about how to enable SAML using Okta, see "[Configuring SAML single sign-on for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)."
