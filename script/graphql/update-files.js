@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import xMkdirp from 'mkdirp'
 import yaml from 'js-yaml'
@@ -18,7 +18,7 @@ const mkdirp = xMkdirp.sync
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const dataFilenames = JSON.parse(
-  fs.readFileSync(path.join(process.cwd(), './script/graphql/utils/data-filenames.json'))
+  await fs.readFile(path.join(process.cwd(), './script/graphql/utils/data-filenames.json'))
 )
 
 // check for required PAT
@@ -60,22 +60,22 @@ async function main() {
       const safeForPublicPreviews = yaml.load(
         await getRemoteRawContent(previewsPath, graphqlVersion)
       )
-      updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
+      await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
       previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
       // 2. UPDATE UPCOMING CHANGES
       const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-      const previousUpcomingChanges = yaml.load(fs.readFileSync(upcomingChangesPath, 'utf8'))
+      const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8'))
       const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
-      updateFile(upcomingChangesPath, safeForPublicChanges)
+      await updateFile(upcomingChangesPath, safeForPublicChanges)
       upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
 
       // 3. UPDATE SCHEMAS
       // note: schemas live in separate files per version
       const schemaPath = getDataFilepath('schemas', graphqlVersion)
-      const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
+      const previousSchemaString = await fs.readFile(schemaPath, 'utf8')
       const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
-      updateFile(schemaPath, latestSchema)
+      await updateFile(schemaPath, latestSchema)
       const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
       updateStaticFile(
         schemaJsonPerVersion,
@@ -192,13 +192,13 @@ function getVersionType(graphqlVersion) {
   return graphqlVersion.split('-')[0]
 }
 
-function updateFile(filepath, content) {
+async function updateFile(filepath, content) {
   console.log(`fetching latest data to ${filepath}`)
   mkdirp(path.dirname(filepath))
-  fs.writeFileSync(filepath, content, 'utf8')
+  return fs.writeFile(filepath, content, 'utf8')
 }
 
-function updateStaticFile(json, filepath) {
+async function updateStaticFile(json, filepath) {
   const jsonString = JSON.stringify(json, null, 2)
-  updateFile(filepath, jsonString)
+  return updateFile(filepath, jsonString)
 }
