@@ -159,7 +159,7 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
 
 To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
 
-For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
+For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository: HOW?
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
