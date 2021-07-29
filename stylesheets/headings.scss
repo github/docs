@@ -6,16 +6,6 @@ h3 {
   }
 }
 
-// all h2 headers that are links should be blue-500
-h2 a {
-  color: var(--color-auto-blue-5);
-}
-
-// ... except those on each product's toc
-.product-landing h2 a {
-  color: var(--color-auto-gray-9);
-}
-
 .markdown-body {
   h1,
   h2,
@@ -28,6 +18,10 @@ h2 a {
   }
   h2 {
     font-size: 1.25em;
+  }
+  // all h2 headers that are links should be blue-500
+  h2 a {
+    color: var(--color-auto-blue-5);
   }
   #article-contents h2:not(.link-with-intro-title) {
     padding-bottom: 0;
