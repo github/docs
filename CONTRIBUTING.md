@@ -110,6 +110,8 @@ This website is internationalized and available in multiple languages. The sourc
 
 **We do not currently accept contributions for translated content**, but we hope to in the future.
 
+Until we do, to report bugs in the translations, please [Contact support](https://support.github.com/contact).
+
 ### :balance_scale: Site Policy
 GitHub's site policies are published on docs.github.com, too!
 
