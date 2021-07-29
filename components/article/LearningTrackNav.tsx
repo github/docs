@@ -29,7 +29,7 @@ export function LearningTrackNav({ track }: Props) {
             <span className="f6 color-text-secondary">{t('nextGuide')}</span>
             <a
               href={`${nextGuide.href}?learn=${trackName}`}
-              className="text-bold color-text-secondary text-right"
+              className="text-bold color-text-secondary text-right f4"
             >
               {nextGuide.title}
             </a>
