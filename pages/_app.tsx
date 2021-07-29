@@ -9,6 +9,8 @@ import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
+import { LanguagesProvider } from 'components/context/LanguagesContext'
+
 
 type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
@@ -39,8 +41,10 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
         <meta name="csrf-token" content={csrfToken} />
       </Head>
       <ThemeProvider>
-        <SetTheme themeProps={themeProps} />
-        <Component {...pageProps} />
+        <LanguagesProvider>
+          <SetTheme themeProps={themeProps} />
+          <Component {...pageProps} />
+        </LanguagesProvider>
       </ThemeProvider>
     </>
   )

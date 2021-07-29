@@ -4,14 +4,14 @@ import { Dropdown, Details, useDetails } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
-import { useMainContext } from './context/MainContext'
+import { useLanguages } from './context/LanguagesContext'
 
 type Props = {
   variant?: 'inline'
 }
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
-  const { languages } = useMainContext()
+  const { languages } = useLanguages()
   const { getDetailsProps } = useDetails({})
   const locale = router.locale || 'en'
   const langs = Object.values(languages)
