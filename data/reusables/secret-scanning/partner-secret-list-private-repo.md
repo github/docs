@@ -60,6 +60,10 @@ Doppler | Doppler SCIM Token | doppler_scim_token{% endif %}
 Dropbox | Dropbox Access Token | dropbox_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Duffel | Duffel Live Access Token | duffel_live_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Duffel | Duffel Test Access Token | duffel_test_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
 Dynatrace | Dynatrace Access Token | dynatrace_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}

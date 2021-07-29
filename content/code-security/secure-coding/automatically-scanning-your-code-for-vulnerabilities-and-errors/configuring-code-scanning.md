@@ -275,13 +275,13 @@ This parameter is particularly useful if you work with monorepos and have multip
 
 {% raw %}
 ``` yaml
-   - name: Perform CodeQL Analysis
+    - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze
       with:
-      # Optional. Specify a category to distinguish between multiple analyses
-      # for the same tool and ref. If you don't use `category` in your workflow, 
-      # GitHub will generate a default category name for you
-       category: "my_category"
+        # Optional. Specify a category to distinguish between multiple analyses
+        # for the same tool and ref. If you don't use `category` in your workflow, 
+        # GitHub will generate a default category name for you
+        category: "my_category"
 ```
 {% endraw %}
 
@@ -299,14 +299,40 @@ Your specified category will not overwrite the details of the `runAutomationDeta
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to the private repository.
+{% if codeql-packs %}
+### Using {% data variables.product.prodname_codeql %} query packs
+
+{% data reusables.code-scanning.beta-codeql-packs-actions %}
+
+To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+{% note %}
+
+**Note:** For workflows that generate {% data variables.product.prodname_codeql %} databases for multiple languages, you must instead specify the {% data variables.product.prodname_codeql %} query packs in a configuration file. For more information, see "[Specifying {% data variables.product.prodname_codeql %} query packs](#specifying-codeql-query-packs)" below.
+
+{% endnote %}
+
+In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the three {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run. The latest version of `pack1` is downloaded as no version is specified. Version 1.2.3 of `pack2` is downloaded, as well as the latest version of `pack3` that is compatible with version 1.2.3.
+
+{% raw %}
+``` yaml
+- uses: github/codeql-action/init@v1
+  with:
+    # Comma-separated list of packs to download
+    packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~1.2.3
+```
+{% endraw %}
+
+### Using queries in QL packs
+{% endif %}
+To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
 {% raw %}
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
-    # Optional. Provide a token to access private repositories.
+    # Optional. Provide a token to access queries stored in private repositories.
     external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
 {% endraw %}
@@ -315,23 +341,27 @@ You can also specify query suites in the value of `queries`. Query suites are co
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-If you are also using a configuration file for custom settings, any additional queries specified in your workflow are used instead of any specified in the configuration file. If you want to run the combined set of additional queries specified here and in the configuration file, prefix the value of `queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+{% if codeql-packs %}
+### Working with custom configuration files
+{% endif %}
 
-In the following example, the `+` symbol ensures that the specified additional queries are used together with any queries specified in the referenced configuration file.
+If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
 
-{% raw %}
+In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+    {%- if codeql-packs %}
+    packs: +scope/pack1,scope/pack2@v1.2.3
+    {% endif %}
 ```
-{% endraw %}
 
 ## Using a custom configuration file
 
-As an alternative to specifying which queries to run in the workflow file, you can do this in a separate configuration file. You can also use a configuration file to disable the default queries and to specify which directories to scan during analysis.
+A custom configuration file is an alternative way to specify additional {% if codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
@@ -347,13 +377,49 @@ If the configuration file is located in an external private repository, use the 
 
 {% raw %}
 ```yaml
-uses: github/codeql-action/init@v1
-with:
-  external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+- uses: github/codeql-action/init@v1
+  with:
+    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
 {% endraw %}
 
 The settings in the configuration file are written in YAML format.
+
+{% if codeql-packs %}
+### Specifying {% data variables.product.prodname_codeql %} query packs
+
+{% data reusables.code-scanning.beta-codeql-packs-actions %}
+
+You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
+
+{% raw %}
+``` yaml
+packs: 
+  # Use the latest version of 'pack1' published by 'scope'
+  - scope/pack1 
+  # Use version 1.23 of 'pack2' 
+  - scope/pack2@v1.2.3
+  # Use the latest version of 'pack3' compatible with 1.23
+  - scope/pack3@~1.2.3
+```
+{% endraw %}
+
+If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
+
+{% raw %}
+``` yaml
+packs:
+  # Use these packs for JavaScript analysis
+  javascript:
+    - scope/js-pack1
+    - scope/js-pack2
+  # Use these packs for Java analysis
+  java:
+    - scope/java-pack1
+    - scope/java-pack2@v1.0.0
+```
+{% endraw %}
+{% endif %}
 
 ### Specifying additional queries
 
@@ -363,12 +429,10 @@ You specify additional queries in a `queries` array. Each element of the array c
 queries:
   - uses: ./my-basic-queries/example-query.ql
   - uses: ./my-advanced-queries
-  - uses: ./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls
+  - uses: ./query-suites/my-security-queries.qls
 ```
 
-Optionally, you can give each array element a name, as shown in the example configuration files below.
-
-For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
+Optionally, you can give each array element a name, as shown in the example configuration files below. For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
 
 ### Disabling the default queries
 

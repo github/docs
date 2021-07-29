@@ -44,4 +44,4 @@ jobs:
 
         env:
           # Disable pre-commit hooks; they don't play nicely with add-and-commit
-          HUSKY: 0
+          HUSKY: '0'
