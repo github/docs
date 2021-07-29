@@ -6,7 +6,6 @@ import copyCode from 'components/lib/copy-code'
 import displayPlatformSpecificContent from 'components/lib/display-platform-specific-content'
 import displayToolSpecificContent from 'components/lib/display-tool-specific-content'
 import localization from 'components/lib/localization'
-import toggleImages from 'components/lib/toggle-images'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
 import {
@@ -64,7 +63,6 @@ const GlobalPage = ({
     displayPlatformSpecificContent()
     displayToolSpecificContent()
     localization()
-    toggleImages()
     wrapCodeTerms()
   }, [])
 
