@@ -191,7 +191,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
   ```shell
   repositories {
       maven {
-          url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+          url = uri("https://{% ifversion fpt %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
           credentials {
               username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
               password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
@@ -203,7 +203,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
   ```shell
   repositories {
       maven {
-          url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+          url = uri("https://{% ifversion fpt %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
           credentials {
               username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
               password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
