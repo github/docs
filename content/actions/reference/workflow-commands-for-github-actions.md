@@ -128,14 +128,14 @@ echo "::add-path::/path/to/dir"
 
 ## Setting a debug message
 
-`::debug::{message}`
+`::debug {message}`
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
 ### Example
 
 ``` bash
-echo "::debug::Set the Octocat variable"
+echo "::debug Set the Octocat variable"
 ```
 
 ## Setting a warning message
