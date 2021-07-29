@@ -4,9 +4,9 @@ intro: 'To protect your personal information, you should keep both your {% data 
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
@@ -18,6 +18,7 @@ children:
   - /reviewing-your-ssh-keys
   - /reviewing-your-deploy-keys
   - /authorizing-oauth-apps
+  - /authorizing-github-apps
   - /reviewing-your-authorized-integrations
   - /connecting-with-third-party-applications
   - /reviewing-your-authorized-applications-oauth
@@ -28,5 +29,6 @@ children:
   - /githubs-ssh-key-fingerprints
   - /sudo-mode
   - /preventing-unauthorized-access
+shortTitle: Account security
 ---
 

@@ -10,14 +10,15 @@ redirect_from:
   - /articles/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/configuring-two-factor-authentication-recovery-methods
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
-  - 2fa
+  - 2FA
+shortTitle: Configure 2FA recovery
 ---
 In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
 
-### Downloading your two-factor authentication recovery codes
+## Downloading your two-factor authentication recovery codes
 
 {% data reusables.two_fa.about-recovery-codes %} You can also download your recovery codes at any point after enabling two-factor authentication.
 
@@ -37,7 +38,7 @@ If you generate new recovery codes or disable and re-enable 2FA, the recovery co
     - To copy your recovery codes for storage in a password manager, click **Copy**.
   ![List of recovery codes with option to download, print, or copy the codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
 
-### Generating a new set of recovery codes
+## Generating a new set of recovery codes
 
 Once you use a recovery code to regain access to your account, it cannot be reused. If you've used all 16 recovery codes, you can generate another list of codes. Generating a new set of recovery codes will invalidate any codes you previously generated.
 
@@ -47,13 +48,13 @@ Once you use a recovery code to regain access to your account, it cannot be reus
 3. To create another batch of recovery codes, click **Generate new recovery codes**.
 	![Generate new recovery codes button](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
-### Configuring a security key as an additional two-factor authentication method
+## Configuring a security key as an additional two-factor authentication method
 
 You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Setting a fallback authentication number
+## Setting a fallback authentication number
 
 You can provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
 
@@ -78,11 +79,11 @@ You can use a fallback number regardless of whether you've configured authentica
 
 After setup, the backup device will receive a confirmation SMS.
 
-### Adding a fallback authentication method with Recover Accounts Elsewhere
+## Adding a fallback authentication method with Recover Accounts Elsewhere
 
 You can generate an extra authentication credential for your account and store it with a partner recovery provider.
 
-#### About Recover Accounts Elsewhere
+### About Recover Accounts Elsewhere
 
 With Recover Accounts Elsewhere, you can add an extra security factor to your {% data variables.product.product_name %} account in case you lose access to your two-factor authentication method or recovery codes.
 
@@ -94,7 +95,7 @@ After you retrieve your token, {% data variables.contact.contact_support %} may 
 
 When you generate or retrieve an account recovery token, an event is added to your account's audit log. For more information, see "[Reviewing your security log](/articles/reviewing-your-security-log)."
 
-#### Generating and storing an account recovery token
+### Generating and storing an account recovery token
 
 You can generate an account recovery token and store it with a partner recovery provider.
 
@@ -108,7 +109,7 @@ You can generate an account recovery token and store it with a partner recovery 
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
 - "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"

@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 查看企业所有者{% if currentVersion == "free-pro-team@latest" %}和帐单管理员{% endif %}
 
 您可以查看企业所有者{% if currentVersion == "free-pro-team@latest" %}和帐单管理员，{% endif %}以及待处理邀请成为所有者{% if currentVersion == "free-pro-team@latest" %}和帐单管理员的列表。 您可以按角色过滤企业管理员列表{% endif %}。 您可以通过搜索其用户名或全名查找特定人员。

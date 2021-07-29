@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### 了解结算周期
 
 客户在购买您的应用程序时可选择月度或年度结算周期、 客户对结算周期和计划选择所做的所有更改都将触发 `marketplace_purchase` 事件。 您可以参考 `marketplace_purchase` web 挂钩有效负载，以查看客户选择了哪个结算周期以及下一个计费日期 (`effective_date`) 何时开始 。 有关 web 挂钩有效负载的更多信息，请参阅“[{% data variables.product.prodname_marketplace %} API 的 web 挂钩事件](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)”。

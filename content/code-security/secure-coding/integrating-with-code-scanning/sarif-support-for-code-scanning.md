@@ -3,23 +3,27 @@ title: SARIF support for code scanning
 shortTitle: SARIF support
 intro: 'To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you''ll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. If you use the default {% data variables.product.prodname_codeql %} static analysis engine, then your results will display in your repository on {% data variables.product.prodname_dotcom %} automatically.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
   - /code-security/secure-coding/sarif-support-for-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
+type: reference
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Integration
+  - SARIF
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
-### About SARIF support
+## About SARIF support
 
 SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html) that defines an output file format. The SARIF standard is used to streamline how static analysis tools share their results. {% data variables.product.prodname_code_scanning_capc %} supports a subset of the SARIF 2.1.0 JSON schema.
 
@@ -27,10 +31,10 @@ To upload a SARIF file from a third-party static code analysis engine, you'll ne
 
 If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %} or using the {% data variables.product.prodname_codeql_runner %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-If you're using the {% data variables.product.prodname_codeql_cli %}, then you can specify the version of SARIF to use. For more information, see "[Running {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/running-codeql-cli-in-your-ci-system#uploading-results-to-github)."{% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+If you're using the {% data variables.product.prodname_codeql_cli %}, then you can specify the version of SARIF to use. For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 You can upload multiple SARIF files for the same tool and commit, and analyze each file using {% data variables.product.prodname_code_scanning %}. You can indicate a "category" for each analysis by specifying a `runAutomationDetails.id` in each file. Only SARIF files with the same category will overwrite each other. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
 
 {% endif %}
@@ -39,7 +43,7 @@ You can upload multiple SARIF files for the same tool and commit, and analyze ea
 
 If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
 
-### Preventing duplicate alerts using fingerprints
+## Preventing duplicate alerts using fingerprints
 
 Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the right line of code when files are edited.
 
@@ -49,7 +53,7 @@ SARIF files created by the {% data variables.product.prodname_codeql_workflow %}
 
 If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
 
-### Validating your SARIF file
+## Validating your SARIF file
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
@@ -57,13 +61,13 @@ You can check a SARIF file is compatible with {% data variables.product.prodname
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### Supported SARIF output file properties
+## Supported SARIF output file properties
 
 If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
 
 Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
 
-#### `sarifLog` object
+### `sarifLog` object
 
 | Name | Description |
 |----|----|
@@ -71,7 +75,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `version` | **Required.** {% data variables.product.prodname_code_scanning_capc %} only supports SARIF version `2.1.0`.
 | `runs[]` | **Required.** A SARIF file contains an array of one or more runs. Each run represents a single run of an analysis tool. For more information about a `run`, see the [`run` object](#run-object).
 
-#### `run` object
+### `run` object
 
 {% data variables.product.prodname_code_scanning_capc %} uses the `run` object to filter results by tool and provide information about the source of a result. The `run` object contains the `tool.driver` tool component object, which contains information about the tool that generated the results. Each `run` can only have results for one analysis tool.
 
@@ -83,7 +87,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `tool.driver.rules[]` | **Required.** An array of `reportingDescriptor` objects that represent rules. The analysis tool uses rules to find problems in the code being analyzed. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). |
 | `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
 
-#### `reportingDescriptor` object
+### `reportingDescriptor` object
 
 | Name | Description |
 |----|----|
@@ -97,7 +101,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `properties.tags[]` | **Optional.** An array of strings. {% data variables.product.prodname_code_scanning_capc %} uses `tags` to allow you to filter results on {% data variables.product.prodname_dotcom %}. For example, it is possible to filter to all results that have the tag `security`.
 | `properties.precision` | **Recommended.** A string that indicates how often the results indicated by this rule are true. For example, if a rule has a known high false-positive rate, the precision should be `low`. {% data variables.product.prodname_code_scanning_capc %} orders results by precision on {% data variables.product.prodname_dotcom %} so that the results with the highest `level`, and highest `precision` are shown first. Can be one of: `very-high`, `high`, `medium`, or `low`.
 
-#### `result` object
+### `result` object
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -113,7 +117,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `codeFlows[].threadFlows[].locations[]`| **Optional.** An array of `location` objects for a `threadFlow` object, which describes the progress of a program through a thread of execution. A `codeFlow` object describes a pattern of code execution used to detect a result. If code flows are provided, {% data variables.product.prodname_code_scanning %} will expand code flows on {% data variables.product.prodname_dotcom %} for the relevant result. For more information, see the [`location` object](#location-object).
 | `relatedLocations[]`| A set of locations relevant to this result. {% data variables.product.prodname_code_scanning_capc %} will link to related locations when they are embedded in the result message. For more information, see the [`location` object](#location-object).
 
-#### `location` object
+### `location` object
 
 A location within a programming artifact, such as a file in the repository or a file that was generated during a build.
 
@@ -123,7 +127,7 @@ A location within a programming artifact, such as a file in the repository or a 
 | `location.physicalLocation` | **Required.** Identifies the artifact and region. For more information, see the [`physicalLocation`](#physicallocation-object).
 | `location.message.text` | **Optional.** A message relevant to the location.
 
-#### `physicalLocation` object
+### `physicalLocation` object
 
 | Name | Description |
 |----|----|
@@ -133,8 +137,8 @@ A location within a programming artifact, such as a file in the repository or a 
 | `region.endLine` | **Required.** The line number of the last character in the region.
 | `region.endColumn` | **Required.** The column number of the character following the end of the region.
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### `runAutomationDetails` object
+{% ifversion fpt %}
+### `runAutomationDetails` object
 
 The `runAutomationDetails` object contains information that specifies the identity of a run.
 
@@ -172,11 +176,11 @@ Note that the rest of the supported fields are ignored.
 
 {% endif %}
 
-### SARIF output file examples
+## SARIF output file examples
 
 These example SARIF output files show supported properties and example values.
 
-#### Example with minimum required properties
+### Example with minimum required properties
 
 This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties or don't include values, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}.
 
@@ -226,11 +230,11 @@ This SARIF output file has example values to show the minimum required propertie
 }
 ```
 
-#### Example showing all supported SARIF properties
+### Example showing all supported SARIF properties
 
 This SARIF output file has example values to show all supported SARIF properties for {% data variables.product.prodname_code_scanning %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",

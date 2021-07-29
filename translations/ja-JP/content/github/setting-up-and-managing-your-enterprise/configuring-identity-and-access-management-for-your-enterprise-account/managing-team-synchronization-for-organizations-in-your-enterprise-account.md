@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
 ---
+
 ### Enterprise アカウントのチーム同期について
 
 Azure AD を IdP として使用する場合は、Enterprise アカウントのチーム同期を有効にして、Organization のオーナーとチームメンテナが、Enterprise アカウントが所有する Organization のチームを IdP グループと同期できるようにすることができます。

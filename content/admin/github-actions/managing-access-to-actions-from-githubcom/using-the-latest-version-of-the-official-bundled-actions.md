@@ -2,12 +2,13 @@
 title: Using the latest version of the official bundled actions
 intro: 'You can update the actions that are bundled with your enterprise, or use actions directly from {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '>=2.22'
+  ghae: next
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
+shortTitle: Use the latest bundled actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -17,11 +18,11 @@ Your enterprise instance includes a number of built-in actions that you can use 
 
 These bundled actions are a point-in-time snapshot of the official actions found at https://github.com/actions, so there may be newer versions of these actions available. You can use the `actions-sync` tool to update these actions, or you can configure {% data variables.product.prodname_github_connect %} to allow access to the latest actions on {% data variables.product.prodname_dotcom_the_website %}. These options are described in the following sections.
 
-### Using `actions-sync` to update the bundled actions
+## Using `actions-sync` to update the bundled actions
 
 To update the bundled actions, you can use the `actions-sync` tool to update the snapshot. For more information on using `actions-sync`, see "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/manually-syncing-actions-from-githubcom)."
 
-### Using {% data variables.product.prodname_github_connect %} to access the latest actions
+## Using {% data variables.product.prodname_github_connect %} to access the latest actions
 
 You can use {% data variables.product.prodname_github_connect %} to allow {% data variables.product.product_name %} to use actions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 

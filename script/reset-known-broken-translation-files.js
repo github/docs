@@ -1,9 +1,12 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import xGithub from './helpers/github.js'
+import { promisify } from 'util'
+import xChildProcess from 'child_process'
 
-require('dotenv').config()
-const github = require('./helpers/github')()
-const { promisify } = require('util')
-const exec = promisify(require('child_process').exec)
+xDotenv.config()
+const github = xGithub()
+const exec = promisify(xChildProcess.exec)
 
 // Check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -20,29 +23,29 @@ if (!process.env.GITHUB_TOKEN) {
 
 main()
 
-async function main () {
+async function main() {
   // Get body text of OP from https://github.com/github/localization-support/issues/489.
-  const { data: { body } } = await github.issues.get({
+  const {
+    data: { body },
+  } = await github.issues.get({
     owner: 'github',
     repo: 'localization-support',
-    issue_number: '489'
+    issue_number: '489',
   })
 
   // Get the list of broken files from the body text.
-  const brokenFiles = body
-    .replace(/^[\s\S]*?## List of Broken Translations/m, '')
-    .trim()
+  const brokenFiles = body.replace(/^[\s\S]*?## List of Broken Translations/m, '').trim()
 
   // Turn it into a simple array of files.
-  const brokenFilesArray = brokenFiles
-    .split('\n')
-    .map(line => line.replace('- [ ] ', '').trim())
+  const brokenFilesArray = brokenFiles.split('\n').map((line) => line.replace('- [ ] ', '').trim())
 
   // Run the script to revert them.
-  await Promise.all(brokenFilesArray.map(async (file) => {
-    console.log(`resetting ${file}`)
-    await exec(`script/reset-translated-file.js --prefer-main ${file}`)
-  }))
+  await Promise.all(
+    brokenFilesArray.map(async (file) => {
+      console.log(`resetting ${file}`)
+      await exec(`script/reset-translated-file.js --prefer-main ${file}`)
+    })
+  )
 
   // Print a message with next steps.
   console.log(`

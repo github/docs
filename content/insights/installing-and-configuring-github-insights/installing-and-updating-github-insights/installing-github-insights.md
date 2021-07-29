@@ -6,9 +6,10 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/installing-github-insights
 permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Install GitHub Insights
 ---
-### Prerequisites
+## Prerequisites
 
 - You must have a {% data variables.product.prodname_enterprise %} license file that includes {% data variables.product.prodname_insights %}. After you purchase {% data variables.product.prodname_insights %}, you can download the updated license file in the [{% data variables.product.prodname_enterprise %} web portal](https://enterprise.github.com/download).
 - {% data reusables.github-insights.requires-machine %} For more information, see "[System overview for {% data variables.product.prodname_insights %}](/github/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)."
@@ -23,7 +24,7 @@ versions:
 
   {% endnote %}
 
-### Creating a {% data variables.product.prodname_github_app %}
+## Creating a {% data variables.product.prodname_github_app %}
 
 To connect {% data variables.product.prodname_insights %} to {% data variables.product.prodname_enterprise %}, you must create a {% data variables.product.prodname_github_app %} in an organization on {% data variables.product.prodname_enterprise %}. A slugged version of your app's name will be shown on {% data variables.product.prodname_enterprise %} when your integration takes an action.
 
@@ -82,13 +83,13 @@ To connect {% data variables.product.prodname_insights %} to {% data variables.p
     - Private key
     - Webhook secret
 
-### Installing {% data variables.product.prodname_insights %}
+## Installing {% data variables.product.prodname_insights %}
 
 {% data reusables.github-insights.download-latest-release %}
 {% data reusables.github-insights.install-script %}
 {% data reusables.github-insights.run-script %}
 
-### Configuring {% data variables.product.prodname_insights %}
+## Configuring {% data variables.product.prodname_insights %}
 
 To configure {% data variables.product.prodname_insights %} to connect to {% data variables.product.prodname_ghe_server %}, you must provide the information you recorded in previous steps.
 
@@ -105,7 +106,7 @@ To configure {% data variables.product.prodname_insights %} to connect to {% dat
 12. Click **Log in with {% data variables.product.prodname_dotcom %}**.
 13. To authorize the {% data variables.product.prodname_github_app %} and access {% data variables.product.prodname_insights %}, click **Authorize {% data variables.product.prodname_github_app %}**.
 
-### Further reading
+## Further reading
 
 - "[Managing repositories](/insights/installing-and-configuring-github-insights/managing-repositories)"
 - "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} and data protection for your organization</a>"

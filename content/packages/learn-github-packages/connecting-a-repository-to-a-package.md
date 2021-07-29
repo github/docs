@@ -6,24 +6,25 @@ redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Connect a repository
 ---
 
 By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.
 
-### Connecting a repository to a user-owned package on {% data variables.product.prodname_dotcom %}
+## Connecting a repository to a user-owned package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to an organization-owned package on {% data variables.product.prodname_dotcom %}
+## Connecting a repository to an organization-owned package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to a container image using the command line
+## Connecting a repository to a container image using the command line
 
 1. In your Dockerfile, add this line, replacing `OWNER` and `REPO` with your details:
 

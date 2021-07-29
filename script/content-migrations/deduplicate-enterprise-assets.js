@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import xJimp from 'jimp'
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const jimp = require('jimp')
+const jimp = xJimp // this is an optional dependency, install with `npm i --include=optional`
 
 // iterate through enterprise images from most recent to oldest
 // check if the image in the /assets/enterprise/... directory
@@ -15,15 +16,15 @@ const enterpriseAssetDirectories = [
   '/assets/enterprise/github-ae',
   '/assets/enterprise/2.22',
   '/assets/enterprise/2.21',
-  '/assets/enterprise/2.20'
+  '/assets/enterprise/2.20',
 ]
 
-async function main () {
+async function main() {
   for (const directory of enterpriseAssetDirectories) {
     const fullDirectoryPath = path.join(process.cwd(), directory)
     const files = walk(fullDirectoryPath, {
       includeBasePath: true,
-      directories: false
+      directories: false,
     })
 
     for (const file of files) {
@@ -53,8 +54,10 @@ async function main () {
           } else {
             const existingImageToCompare = await fs.readFileSync(existingFileToCompare)
             const enterpriseImage = await fs.readFileSync(file)
-            compareResult = Buffer.compare(Buffer.from(existingImageToCompare),
-              Buffer.from(enterpriseImage))
+            compareResult = Buffer.compare(
+              Buffer.from(existingImageToCompare),
+              Buffer.from(enterpriseImage)
+            )
           }
         } catch (err) {
           console.log(file)

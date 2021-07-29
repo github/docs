@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting the CodeQL workflow
-shortTitle: Troubleshooting CodeQL
+shortTitle: Troubleshoot CodeQL workflow
 intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -8,22 +8,32 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
   - /code-security/secure-coding/troubleshooting-the-codeql-workflow
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Actions
+  - Troubleshooting
+  - Repositories
+  - Pull requests
+  - C/C++
+  - C#
+  - Java
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### Producing detailed logs for debugging
+## Producing detailed logs for debugging
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
-### Automatic build for a compiled language fails
+## Automatic build for a compiled language fails
 
 If an automatic build of code for a compiled language within your project fails, try the following troubleshooting steps.
 
@@ -35,7 +45,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -55,7 +65,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   For more information about editing the workflow, see "[Configuring code scanning](/code-security/secure-coding/configuring-code-scanning)."
 
-### No code found during the build
+## No code found during the build
 
 If your workflow fails with an error `No source code was seen during the build` or `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure:
 
@@ -93,23 +103,23 @@ For more information, see the workflow extract in "[Automatic build for a compil
 
 For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)." 
 
-### Portions of my repository were not analyzed using `autobuild`
+## Portions of my repository were not analyzed using `autobuild`
 
 The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-### The build takes too long
+## The build takes too long
 
 If your build with {% data variables.product.prodname_codeql %} analysis takes too long to run, there are several approaches you can try to reduce the build time. 
 
-#### Increase the memory or cores
+### Increase the memory or cores
 
 If you use self-hosted runners to run {% data variables.product.prodname_codeql %} analysis, you can increase the memory or the number of cores on those runners.
 
-#### Use matrix builds to parallelize the analysis
+### Use matrix builds to parallelize the analysis
 
 The default {% data variables.product.prodname_codeql_workflow %} uses a build matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 
-#### Reduce the amount of code being analyzed in a single workflow
+### Reduce the amount of code being analyzed in a single workflow
 
 Analysis time is typically proportional to the amount of code being analyzed. You can reduce the analysis time by reducing the amount of code being analyzed at once, for example, by excluding test code, or breaking analysis into multiple workflows that analyze only a subset of your code at a time.
 
@@ -119,12 +129,12 @@ For interpreted languages like Go, JavaScript, Python, and TypeScript, that {% d
 
 If you split your analysis into multiple workflows as described above, we still recommend that you have at least one workflow which runs on a `schedule` which analyzes all of the code in your repository. Because {% data variables.product.prodname_codeql %} analyzes data flows between components, some complex security behaviors may only be detected on a complete build. 
 
-#### Run only during a `schedule` event
+### Run only during a `schedule` event
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Results differ between analysis platforms
+{% ifversion fpt %}
+## Results differ between analysis platforms
 
 If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
 
@@ -132,17 +142,50 @@ On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_
 
 {% endif %}
 
-### Error: "Server error"
+## Error: "Server error"
 
 If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
 
-### Error: "Out of disk" or "Out of memory"
+## Error: "Out of disk" or "Out of memory"
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
+{% ifversion fpt %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
 {% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
 
-### Warning: "git checkout HEAD^2 is no longer necessary"
+{% ifversion fpt %}
+## Error: 403 "Resource not accessible by integration" when using {% data variables.product.prodname_dependabot %}
+
+{% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, and the workflow will run with read-only scopes. Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+
+A simple approach is to run on pushes to the default branch and any other important long-running branches, as well as pull requests opened against this set of branches:
+```yaml
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+```
+An alternative approach is to run on all pushes except for {% data variables.product.prodname_dependabot %} branches:
+```yaml
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+  pull_request:
+```
+
+### Analysis still failing on the default branch
+
+If the {% data variables.product.prodname_codeql_workflow %} still fails on a commit made on the default branch, you need to check:
+- whether {% data variables.product.prodname_dependabot %} authored the commit
+- whether the pull request that includes the commit has been merged using `@dependabot squash and merge`
+
+This type of merge commit is authored by {% data variables.product.prodname_dependabot %} and therefore, any workflows running on the commit will have read-only permissions. If you enabled {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} security updates or version updates on your repository, we recommend you avoid using the {% data variables.product.prodname_dependabot %} `@dependabot squash and merge` command. Instead, you can enable auto-merge for your repository. This means that pull requests will be automatically merged when all required reviews are met and status checks have passed. For more information about enabling auto-merge, see "[Automatically merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)."
+{% endif %}
+
+## Warning: "git checkout HEAD^2 is no longer necessary"
 
 If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
 

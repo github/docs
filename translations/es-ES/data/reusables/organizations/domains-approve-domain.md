@@ -1,1 +1,1 @@
-1. Read the information about domain approval, then click **Approve _DOMAIN_**. !["Approve DOMAIN" button in confirmation dialog](/assets/images/help/organizations/domains-approve-domain.png)
+1. Lee la información sobre la aprobación de dominios y luego haz clic en **Aprobar _DOMINIO_**. ![Botón "Aprobar DOMINIO" en el diálogo de confirmación](/assets/images/help/organizations/domains-approve-domain.png)

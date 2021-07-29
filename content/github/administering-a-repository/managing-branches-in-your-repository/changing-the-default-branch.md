@@ -3,21 +3,22 @@ title: Changing the default branch
 intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
 permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
   - /github/administering-a-repository/changing-the-default-branch
 topics:
   - Repositories
+shortTitle: Change the default branch
 ---
-### About changing the default branch
+## About changing the default branch
 
 You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 {% note %}
 
 **Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients)" and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
@@ -25,25 +26,25 @@ You can choose the default branch for a repository. The default branch is the ba
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.0 %}
 
 You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes > 2.22 %}
 
 {% data reusables.branches.set-default-branch %}
 
 {% endif %}
 
-### Prerequisites
+## Prerequisites
 
 To change the default branch, your repository must have more than one branch. For more information, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
-### Changing the default branch
+## Changing the default branch
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

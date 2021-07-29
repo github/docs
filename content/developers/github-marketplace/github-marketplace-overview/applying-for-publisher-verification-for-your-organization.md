@@ -2,11 +2,12 @@
 title: Applying for publisher verification for your organization
 intro: 'To offer paid plans for your app or to include a marketplace badge in your app listing, you must complete the publisher verification process for your organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
+shortTitle: Publisher verification
 ---
 Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.
 
@@ -14,7 +15,7 @@ Once your organization has been verified, you can publish paid plans for your ap
 
 To offer paid plans for your app, the app must be owned by an organization and you must have owner permissions in the organization. If your app is currently owned by a user account, you'll need to transfer the ownership of the app to an organization. For more information, see "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)."
 
-### Requesting publisher verification
+## Requesting publisher verification
 
 
 {% data reusables.profile.access_org %}
@@ -32,6 +33,6 @@ To offer paid plans for your app, the app must be owned by an organization and y
 
 2. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
 
-### Further reading
+## Further reading
 
 For information about the process of publishing apps, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)."

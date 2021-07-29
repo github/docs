@@ -6,23 +6,24 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on Azure
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
 
-### Prerequisites
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have an Azure account capable of provisioning new machines. For more information, see the [Microsoft Azure website](https://azure.microsoft.com).
 - Most actions needed to launch your virtual machine (VM) may also be performed using the Azure Portal. However, we recommend installing the Azure command line interface (CLI) for initial setup. Examples using the Azure CLI 2.0 are included below. For more information, see Azure's guide "[Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)."
 
-### Hardware considerations
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Determining the virtual machine type
+## Determining the virtual machine type
 
 Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
@@ -34,7 +35,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
 
 {% data variables.product.prodname_ghe_server %} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
 
-### Creating the {% data variables.product.prodname_ghe_server %} virtual machine
+## Creating the {% data variables.product.prodname_ghe_server %} virtual machine
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -75,7 +76,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
 
    {% endnote %}
 
-### Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
+## Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
 
 1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[az vm list](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
@@ -97,7 +98,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
   
-### Further reading
+## Further reading
   
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

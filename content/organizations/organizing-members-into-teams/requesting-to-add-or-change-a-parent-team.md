@@ -5,12 +5,13 @@ redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-or-change-a-parent-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Add or change parent team
 ---
 
 When you request to add or change your team's parent, a request is sent to the maintainers of the parent team. When a maintainer of the new parent team approves your request, your team is nested as a child team under the parent team in your organization's hierarchy.
@@ -32,7 +33,7 @@ If you're an organization owner or you have team maintainer permissions in the c
 9. Click **Confirm changes** to send a request to add or change your team's parent.
   ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"
 - "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"

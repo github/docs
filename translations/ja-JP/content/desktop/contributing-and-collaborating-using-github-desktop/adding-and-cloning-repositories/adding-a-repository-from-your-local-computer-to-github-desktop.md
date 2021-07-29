@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **ヒント：**フォルダを{% data variables.product.prodname_desktop %}ウィンドウにドラッグすることで、GitリポジトリをローカルコンピュータからGitHub Desktopに追加することができます。 {% data variables.product.prodname_desktop %}に同時に複数のフォルダをドラッグする場合、各フォルダが別々のGitリポジトリとして追加されます。

@@ -13,6 +13,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 O evento do webhook do {% data variables.product.prodname_marketplace %} só pode ser configurado a partir da página de listagem {% data variables.product.prodname_marketplace %} do seu aplicativo. Você pode configurar todos os outros eventos a partir da [página de configurações de desenvolvedor do seu aplicativo](https://github.com/settings/developers). Se você não criou uma listagem do {% data variables.product.prodname_marketplace %}, leia "[Criando um rascunho da listagem {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)" para aprender como fazê-lo.
 
 ### Criar um webhook

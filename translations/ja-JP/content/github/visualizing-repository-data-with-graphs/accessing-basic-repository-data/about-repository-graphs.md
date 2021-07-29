@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 リポジトリグラフは、{% if currentVersion == "free-pro-team@latest" %}トラフィック、リポジトリに依存するプロジェクト、{% endif %}リポジトリのコントリビューターとコミット、そしてリポジトリのフォークやネットワークに関する情報を提供します。 自分が管理しているリポジトリがある場合、このデータを使用すれば、リポジトリを誰が使っているのか、なぜ使っているのかをよりよく知ることができます。
 
 {% if currentVersion == "free-pro-team@latest" %}

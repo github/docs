@@ -80,7 +80,7 @@ topics:
    {% endif %}
    {% endif %}
    {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change. ![Organization 内の適格なすべてのリポジトリの機能を有効化するボタン](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
+3. **[Enable/Disable all]**あるいは**[Enable/Disable for eligible repositories]**をクリックして、変更を確認します。 ![Organization 内の適格なすべてのリポジトリの機能を有効化するボタン](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
 
    {% data reusables.security.displayed-information %}
@@ -88,7 +88,7 @@ topics:
 ### 新しいリポジトリが追加されたときに機能を自動的に有効化または無効化する
 
 1. Organization のセキュリティと分析の設定に移動します。 詳しい情報については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
-2. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories{% if currentVersion == "free-pro-team@latest" %}, or all new private repositories,{% endif %} in your organization.
+2. [Configure security and analysis features]の下で、機能の右から、Organizatin中の新しいリポジトリ{% if currentVersion == "free-pro-team@latest" %}あるいはすべての新しいプライベートリポジトリ{% endif %}でデフォルトでその機能を有効または無効にします。
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
@@ -119,7 +119,7 @@ topics:
 1. 許可するリポジトリの名前を入力します。 ![[Add repositories] ボタン](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 1. 許可するリポジトリをクリックします。
 
-1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}. ![リポジトリを削除する [X] ボタン](/assets/images/help/organizations/dependabot-private-repository-list.png)
+1. あるいは、リストからリポジトリを差k除するには、リポジトリの右の{% octicon "x" aria-label="The X icon" %}をクリックします。 ![リポジトリを削除する [X] ボタン](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
@@ -129,7 +129,7 @@ topics:
 [Settings] タブから、リポジトリの {% data variables.product.prodname_GH_advanced_security %} 機能へのアクセスを管理できます。 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。 ただし、Organization の [Settings] タブから、リポジトリの {% data variables.product.prodname_GH_advanced_security %} 機能を無効にすることもできます。
 
 1. Organization のセキュリティと分析の設定に移動します。 詳しい情報については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
-1. {% data variables.product.prodname_GH_advanced_security %} が有効になっている Organization 内のすべてのリポジトリのリストを表示するには、「{% data variables.product.prodname_GH_advanced_security %} リポジトリ」セクションまでスクロールします。 ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) この表は、各リポジトリの一意のコミッターの数を示しています。 これは、{% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除することによりライセンスで解放できるシートの数です。 {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."{% else %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."{% endif %}
+1. {% data variables.product.prodname_GH_advanced_security %} が有効になっている Organization 内のすべてのリポジトリのリストを表示するには、「{% data variables.product.prodname_GH_advanced_security %} リポジトリ」セクションまでスクロールします。 ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) この表は、各リポジトリの一意のコミッターの数を示しています。 これは、{% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除することによりライセンスで解放できるシートの数です。 {% if currentVersion == "free-pro-team@latest" %}詳しい情報については「[{% data variables.product.prodname_GH_advanced_security %}のライセンスについて](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)」を参照してください。{% else %}詳しい情報については「[{% data variables.product.prodname_GH_advanced_security %}のライセンスについて](/admin/advanced-security/about-licensing-for-github-advanced-security)」を参照してください。{% endif %}
 1. リポジトリから {% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除し、リポジトリ固有のコミッターが使用するシートを解放するには、隣接する {% octicon "x" aria-label="X symbol" %} をクリックします。
 1. 確認ダイアログで、[**Remove repository**] をクリックして、{% data variables.product.prodname_GH_advanced_security %} の機能へのアクセスを削除します。
 
@@ -143,7 +143,7 @@ topics:
 
 ### 参考リンク
 
-- 「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」
+- 「[リポジトリをセキュアにする](/code-security/getting-started/securing-your-repository)」
 - 「[シークレットスキャンについて](/github/administering-a-repository/about-secret-scanning)」{% if currentVersion == "free-pro-team@latest" %}
 - [依存関係を自動的に更新する](/github/administering-a-repository/keeping-your-dependencies-updated-automatically){% endif %}{% if currentVersion != "github-ae@latest" %}
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)

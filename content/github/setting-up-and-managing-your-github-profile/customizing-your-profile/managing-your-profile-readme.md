@@ -2,14 +2,15 @@
 title: Managing your profile README
 intro: 'You can add a README to your {% data variables.product.prodname_dotcom %} profile to tell other people about yourself.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '>=2.22'
 topics:
   - Profiles
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
+shortTitle: Your profile README
 ---
-### About your profile README
+## About your profile README
 
 You can share information about yourself with the community on {% data variables.product.prodname_dotcom %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
 
@@ -23,7 +24,7 @@ You decide what information to include in your profile README, so you have full 
 
 You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
 
-### Prerequisites
+## Prerequisites
 
 GitHub will display your profile README on your profile page if all of the following are true.
 
@@ -40,7 +41,7 @@ GitHub will display your profile README on your profile page if all of the follo
 
 {% endnote %}
 
-### Adding a profile README
+## Adding a profile README
 
 {% data reusables.repositories.create_new %}
 2. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat".
@@ -59,7 +60,7 @@ GitHub will display your profile README on your profile page if all of the follo
 
 For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](http://www.emoji-cheat-sheet.com/)."
 
-### Removing a profile README
+## Removing a profile README
 
 The profile README is removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
 
@@ -69,6 +70,6 @@ The profile README is removed from your {% data variables.product.prodname_dotco
 
 The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
 
-### Further reading
+## Further reading
 
 - [About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)

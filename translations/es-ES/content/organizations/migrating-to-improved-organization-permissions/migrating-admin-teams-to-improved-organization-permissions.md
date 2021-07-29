@@ -37,7 +37,7 @@ Para obtener más información, consulta "[Niveles de permiso del repositorio pa
 
 ### Migrar un equipo de administradores único
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. En la casilla de descripción de equipo, haz clic en **Migrate team (Migrar equipo)**. ![Botón Migrar equipo](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

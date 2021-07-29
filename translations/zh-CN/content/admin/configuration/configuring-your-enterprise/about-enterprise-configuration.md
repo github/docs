@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/configuration/about-enterprise-configuration
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} 更多信息请参阅“[站点管理员仪表板](/admin/configuration/site-admin-dashboard)”。
 
@@ -21,8 +22,7 @@ redirect_from:
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-第一次访问您的企业时，您将完成初始配置以获取
-可供使用的 {% data variables.product.product_name %}。 初始配置包括连接您的企业与身份提供程序 (IdP) 连接、通过 SAML SSO 进行身份验证、配置企业中仓库和组织的策略，以及为出站电子邮件配置 SMTP。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)。”
+第一次访问您的企业时，您将完成初始配置，以便 {% data variables.product.product_name %} 可供使用。 初始配置包括连接您的企业与身份提供程序 (IdP) 连接、通过 SAML SSO 进行身份验证、配置企业中仓库和组织的策略，以及为出站电子邮件配置 SMTP。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)。”
 
 稍后，您可以使用站点管理员仪表板和企业设置进一步配置企业、管理用户、组织和仓库，并设置可降低风险和提高质量的策略。
 

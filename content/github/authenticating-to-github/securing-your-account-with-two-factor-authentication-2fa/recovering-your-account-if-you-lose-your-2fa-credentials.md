@@ -7,12 +7,13 @@ redirect_from:
   - /articles/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/recovering-your-account-if-you-lose-your-2fa-credentials
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
-  - 2fa
+  - 2FA
+shortTitle: Recover an account with 2FA
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% warning %}
 
@@ -22,11 +23,11 @@ topics:
 
 {% endif %}
 
-### Using a two-factor authentication recovery code
+## Using a two-factor authentication recovery code
 
 Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-{% data reusables.two_fa.username-password %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.two_fa.username-password %}{% ifversion fpt %}
 2. Under "Having Problems?", click **Enter a two-factor recovery code**.
   ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
 2. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**.
@@ -34,19 +35,20 @@ Use one of your recovery codes to automatically regain entry into your account. 
 3. Type one of your recovery codes, then click **Verify**.
   ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Authenticating with a fallback number
+{% ifversion fpt %}
+## Authenticating with a fallback number
 
 If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
 {% endif %}
 
-### Authenticating with a security key
+## Authenticating with a security key
 
 If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Authenticating with a verified device, SSH token, or personal access token
-If you lose access to the two-factor authentication credentials and don't have your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+{% ifversion fpt %}
+## Authenticating with a verified device, SSH token, or personal access token
+
+If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 
@@ -56,7 +58,7 @@ If you lose access to the two-factor authentication credentials and don't have y
 
 You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
 
-{% data reusables.two_fa.username-password %}
+1. Type your username and password to prompt authentication. If you do not know your {% data variables.product.product_name %} password, you will not be able to generate a one-time password.
 2. Under "Having Problems?", click **Can't access your two factor device or valid recovery codes?**
   ![Link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
 3. Click **I understand, get started** to request a reset of your authentication settings.
@@ -73,7 +75,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
   ![Alternative verification buttons](/assets/images/help/2fa/alt-verifications.png)
 8. A member of {% data variables.contact.github_support %} will review your request and email you within 3-5 business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
 
-### Authenticating with an account recovery token
+## Authenticating with an account recovery token
 
 If you lose access to the two-factor authentication methods for your {% data variables.product.product_name %} account, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
 
@@ -97,7 +99,7 @@ If you're unable to regain access to your account, generate a one-time password 
 4. Contact {% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"
 - "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"

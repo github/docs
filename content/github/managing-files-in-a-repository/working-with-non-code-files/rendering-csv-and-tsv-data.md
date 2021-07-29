@@ -4,11 +4,12 @@ redirect_from:
   - /articles/rendering-csv-and-tsv-data
   - /github/managing-files-in-a-repository/rendering-csv-and-tsv-data
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: Render CSV & TSV data
 ---
 GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
 
@@ -18,13 +19,13 @@ When viewed, any _.csv_ or _.tsv_ file committed to a {% data variables.product.
 
 You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
-### Searching data
+## Searching data
 
 If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
 
 ![Searching for values](/assets/images/help/repository/searching_csvs.gif)
 
-### Handling errors
+## Handling errors
 
 Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, an error box appears at the bottom of your raw text, suggesting what the error may be.
 

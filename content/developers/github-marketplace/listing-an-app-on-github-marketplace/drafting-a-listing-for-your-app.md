@@ -14,11 +14,12 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Draft an app listing
 ---
-### Create a new draft {% data variables.product.prodname_marketplace %} listing
+## Create a new draft {% data variables.product.prodname_marketplace %} listing
 
 You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
 
@@ -53,14 +54,14 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
 {% endnote %}
 
-### Editing your listing
+## Editing your listing
 
 Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
 
-### Submitting your app
+## Submitting your app
 
 Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
 
-### Removing a {% data variables.product.prodname_marketplace %} listing
+## Removing a {% data variables.product.prodname_marketplace %} listing
 
 If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.

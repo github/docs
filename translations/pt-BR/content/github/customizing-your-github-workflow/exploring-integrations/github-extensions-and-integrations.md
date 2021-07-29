@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Ferramentas de edição
 
 Você pode conectar-se aos repositórios de {% data variables.product.product_name %} de ferramentas de editores de terceiros, como o Atom, Unity e o Visual Studio.

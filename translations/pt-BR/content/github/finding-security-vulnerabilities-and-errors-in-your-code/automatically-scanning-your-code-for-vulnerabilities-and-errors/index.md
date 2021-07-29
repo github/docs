@@ -17,4 +17,5 @@ children:
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->

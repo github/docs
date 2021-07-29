@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### {% data variables.product.prodname_insights %} について
 
 {% data variables.product.prodname_insights %}は、{% data variables.product.product_location %}からのデータに基づく分析レポートを提供するスタンドアローンアプリケーションで、ソフトウェアデリバリのプロセスを理解し、改善する手助けをします。 これらのメトリクスは、プロセス中のボトルネックの除去、コラボレーションの改善、プロジェクトのデリバリを高品質で高速に行うために利用できます。

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 要在[仓库搜索](/articles/searching-for-repositories)结果中显示复刻，请将 `fork:true` 或 `fork:only` 添加到查询。
 
 仅当复刻具有比父仓库更多的星号时，才会为[代码搜索](/articles/searching-code)编索引。 您无法在比父项具有更少星号的复刻中搜索代码。 要在代码搜索结果中显示比父仓库具有更多星号的复刻，请将 `fork:true` 或 `fork:only` 添加到查询。

@@ -7,9 +7,9 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-### About authentication
+## About authentication
 
 To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.prodname_dotcom %}.
 
@@ -17,7 +17,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-### Authenticating an account on {% data variables.product.prodname_dotcom %}
+## Authenticating an account on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
@@ -32,7 +32,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.2fa-in-browser %}
 7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
 
-### Authenticating an account on {% data variables.product.prodname_enterprise %}
+## Authenticating an account on {% data variables.product.prodname_enterprise %}
 
 {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -47,7 +47,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% windows %}
 
-### Authenticating an account on {% data variables.product.prodname_dotcom %}
+## Authenticating an account on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
@@ -62,7 +62,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.2fa-in-browser %}
 7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
 
-### Authenticating an account on {% data variables.product.prodname_enterprise %}
+## Authenticating an account on {% data variables.product.prodname_enterprise %}
 
 
 {% data reusables.user_settings.password-authentication-deprecation-desktop %}
@@ -76,7 +76,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% endwindows %}
 
-### Troubleshooting authentication issues
+## Troubleshooting authentication issues
 
 If {% data variables.product.prodname_desktop %} encounters an authentication error, you can use error messages to troubleshoot.
 
@@ -102,7 +102,7 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 
 Review the troubleshooting information below for the error message that you encounter.
 
-#### Bad credentials
+### Bad credentials
 
 ```shell
 Error: Bad credentials
@@ -112,7 +112,7 @@ This error means that there is an issue with your stored account credentials.
 
 To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
 
-#### Empty token
+### Empty token
 
 ```shell
 info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
@@ -122,7 +122,7 @@ This error means that {% data variables.product.prodname_desktop %} is unable to
 
 To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
 
-#### Repository not found
+### Repository not found
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -134,7 +134,7 @@ This error means that you do not have permission to access the repository that y
 
 To troubleshoot, contact the person in your organization who administers permissions.
 
-#### Could not read from remote repository
+### Could not read from remote repository
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -147,7 +147,7 @@ This error means that you do not have a valid SSH key set up.
 
 To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-#### Failed to clone
+### Failed to clone
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -167,7 +167,7 @@ If you do not have a valid SSH key set up, see "[Generating a new SSH key and ad
 
 {% windows %}
 
-#### Unable to read AskPass response
+### Unable to read AskPass response
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
@@ -188,5 +188,5 @@ If your Windows username has extended Unicode characters, it may cause an AskPas
 
 {% endwindows %}
 
-### Further reading
+## Further reading
 - "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"

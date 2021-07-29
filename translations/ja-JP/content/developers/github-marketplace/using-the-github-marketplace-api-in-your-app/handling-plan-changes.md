@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 支払いに関連するアップグレード及びダウングレードに関する詳しい説明については「[{% data variables.product.prodname_marketplace %} APIとのインテグレーション](/marketplace/integrating-with-the-github-marketplace-api/)」を参照してください。
 
 ### ステップ 1. 料金プランの変更イベント

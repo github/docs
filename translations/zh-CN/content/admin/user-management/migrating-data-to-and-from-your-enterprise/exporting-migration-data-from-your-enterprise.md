@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### 准备 {% data variables.product.prodname_ghe_server %} 源实例
 
 1. 验证您在 {% data variables.product.prodname_ghe_server %} 源上是站点管理员。 最好的方式是验证您可以[通过 SSH 访问实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。

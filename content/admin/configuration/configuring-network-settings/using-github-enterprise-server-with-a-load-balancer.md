@@ -7,19 +7,20 @@ redirect_from:
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Use a load balancer
 ---
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-### Handling client connection information
+## Handling client connection information
 
 Because client connections to {% data variables.product.prodname_ghe_server %} come from the load balancer, the client IP address can be lost.
 
@@ -27,7 +28,7 @@ Because client connections to {% data variables.product.prodname_ghe_server %} c
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Enabling PROXY protocol support on {% data variables.product.product_location %}
+### Enabling PROXY protocol support on {% data variables.product.product_location %}
 
 We strongly recommend enabling PROXY protocol support for both your appliance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt).
 
@@ -40,7 +41,7 @@ We strongly recommend enabling PROXY protocol support for both your appliance an
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Enabling X-Forwarded-For support on {% data variables.product.product_location %}
+### Enabling X-Forwarded-For support on {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
@@ -55,7 +56,7 @@ We strongly recommend enabling PROXY protocol support for both your appliance an
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### Configuring health checks
+## Configuring health checks
 
 Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If the appliance is offline due to maintenance or unexpected failure, the load balancer can display a status page. In a High Availability (HA) configuration, a load balancer can be used as part of a failover strategy. However, automatic failover of HA pairs is not supported. You must manually promote the replica appliance before it will begin serving requests. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 

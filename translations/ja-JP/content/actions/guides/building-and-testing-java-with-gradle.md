@@ -71,7 +71,7 @@ jobs:
 このワークフローは以下のステップを実行します。
 
 1. `checkout`ステップは、ランナーにリポジトリのコピーをダウンロードします。
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. `setup-java` ステップは、 Adoptium で Java 11 JDK を設定します。
 3. "Build with Gradle"ステップは、ラッパースクリプトの`gradlew`を実行し、コードがビルドされ、テストをパスし、パッケージが作成できることを保証します。
 
 デフォルトのワークフローテンプレートは、ビルドとテストのワークフローを構築する際の素晴らしい出発点であり、プロジェクトの要求に合わせてこのテンプレートをカスタマイズできます。
@@ -126,7 +126,7 @@ steps:
   - name: Build with Gradle
     run: ./gradlew build
   - name: Cleanup Gradle Cache
-    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+    # GitHub Actions でキャッシュされないように Gradle キャッシュからいくつかのファイルを削除
     # これらのファイルをGitHub Actionsのキャッシュからリストアすると、将来のビルドで問題が生じるかもしれない。
     run: |
       rm -f ~/.gradle/caches/modules-2/modules-2.lock

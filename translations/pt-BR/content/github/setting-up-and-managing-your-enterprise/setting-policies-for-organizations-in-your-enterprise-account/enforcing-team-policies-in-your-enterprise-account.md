@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Aplicar política para discussões de equipe
 
 Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar discussões de equipe ou permitir que os proprietários administrem a configuração no nível da organização. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions/)".

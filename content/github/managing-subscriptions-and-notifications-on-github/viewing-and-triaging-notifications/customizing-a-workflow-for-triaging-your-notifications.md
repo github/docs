@@ -2,15 +2,16 @@
 title: Customizing a workflow for triaging your notifications
 intro: 'To create an ideal workflow for triaging your notifications, you can adapt and customize these example workflows.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
+shortTitle: Triage your notifications
 ---
-### Starting your inbox triage
+## Starting your inbox triage
 
 Before you start triaging your inbox, consider whether you prefer to first find and respond to the most important updates or to clear your inbox of distracting updates that are easy to remove or triage.
 
@@ -20,7 +21,7 @@ For an example workflow of finding and responding to the most important notifica
 
 For an example workflow of removing notifications that are easy to remove or triage, see "[Clearing your least important notifications](#clearing-your-least-important-notifications)."
 
-### Checking your highest notification priorities
+## Checking your highest notification priorities
 
 Choose which type of notifications are most urgent to review and pick a time to review them that's best for you. You might consider the question "Who am I blocking?"
 
@@ -36,7 +37,7 @@ For example, you may decide to check your notifications in this order in the mor
 
   {% endtip %}
 
-### Following up on ongoing notification updates
+## Following up on ongoing notification updates
 
 To follow-up on notifications, you might consider the question "What was I blocked on that I'm no longer blocked on?" Choose your follow-up notification priorities.
 
@@ -44,7 +45,7 @@ For example, you may decide to follow up in this order:
   - Issues and pull requests you're assigned to. Immediately close any issues or pull requests you can and add updates. As needed, save notifications to review later.
   - Review notifications in the saved inbox, especially unread updates. If the thread is no longer relevant, uncheck {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
 
-### Managing lower-priority notifications
+## Managing lower-priority notifications
 
 After triaging the higher priority notifications, review the remaining notifications, such as participating notifications. Consider these questions:
   - Can you unsubscribe to this notification? Is this notification completed and ready to be marked as **Done**?
@@ -56,7 +57,7 @@ After triaging the higher priority notifications, review the remaining notificat
   - Would you like to receive future updates when this issue or pull request is closed or reopened, or when a pull request is merged? For more information on these options, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
   - Would you like to avoid receiving notifications like this in the future? If so, consider unsubscribing. For more information, see "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 
-### Clearing your least important notifications
+## Clearing your least important notifications
 
 Choose which type of notifications are quickest and easiest for you to triage and remove from your inbox, ideally triaging multiple notifications at once.
 

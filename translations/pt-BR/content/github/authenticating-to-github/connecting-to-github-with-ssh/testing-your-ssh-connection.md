@@ -11,6 +11,7 @@ versions:
 topics:
   - SSH
 ---
+
 Antes de testar a conexão SSH, é recomendável que você tenha:
 - [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
 - [Gerado uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)

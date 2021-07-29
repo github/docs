@@ -7,9 +7,9 @@ redirect_from:
   - /articles/reviewing-your-ssh-keys
   - /github/authenticating-to-github/reviewing-your-ssh-keys
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
@@ -31,9 +31,9 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 4. Open Terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+6. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -73,7 +73,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+6. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -109,9 +109,9 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 4. Open Terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+6. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

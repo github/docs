@@ -11,8 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 モバイルアプリまたは {% if currentVersion == "free-pro-team@latest" %} テキストメッセージ{% endif %}を使って、2 要素認証を設定できます。 また、セキュリティキーを追加することも可能です。
 
 2 要素認証の設定には、時間ベースのワンタイムパスワード (TOTP) アプリケーションを使うことを強くおすすめします。{% if currentVersion == "free-pro-team@latest" %}TOTP アプリケーションは、特に米国外において、SMS より信頼性があります。{% endif %}TOTP アプリは、クラウド内にある認証コードのセキュアなバックアップをサポートしており、デバイスにアクセスできなくなった場合に回復できます。
@@ -31,6 +32,8 @@ topics:
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
+- [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
+- [Keeper](https://docs.keeper.io/enterprise-guide/storing-two-factor-codes)
 
 {% tip %}
 
@@ -47,9 +50,7 @@ topics:
 8. [Two-factor authentication] ページで、次のいずれかを実行します:
     - QR コードを、モバイルデバイスのアプリでスキャンする。 スキャン後、アプリは {% data variables.product.product_name %} で入力する 6 桁の数字を表示します。
     - QR コードをスキャンできない場合は、[**enter this text code**] をクリックしてコードを表示し、それをコピーして {% data variables.product.product_name %} に手入力してください。 ![[enter this code] をクリック](/assets/images/help/2fa/totp-click-enter-code.png)
-9. TOTP モバイルアプリケーションは、
-{% data variables.product.product_name %} アカウントを保存し、数秒ごとに新しい認証コードを生成します。 {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。
-    ![[TOTP Enable] フィールド](/assets/images/help/2fa/totp-enter-code.png)
+9. TOTP モバイルアプリは、あなたの {% data variables.product.product_name %} アカウントを保存し、数秒ごとに認証コードを新しく生成します。 {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。 ![[TOTP Enable] フィールド](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% if currentVersion == "free-pro-team@latest" %}

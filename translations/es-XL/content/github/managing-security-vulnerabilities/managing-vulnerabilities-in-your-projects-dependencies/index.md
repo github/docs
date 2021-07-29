@@ -11,10 +11,7 @@ versions:
 topics:
   - Security
 children:
-  - /browsing-security-vulnerabilities-in-the-github-advisory-database
   - /about-alerts-for-vulnerable-dependencies
-  - /configuring-github-dependabot-security-updates
-  - /viewing-and-updating-vulnerable-dependencies-in-your-repository
-  - /troubleshooting-the-detection-of-vulnerable-dependencies
+  - /configuring-notifications-for-vulnerable-dependencies
 ---
 

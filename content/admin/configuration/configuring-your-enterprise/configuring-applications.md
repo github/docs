@@ -6,13 +6,13 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 ---
-### Adjusting image caching
+## Adjusting image caching
 
 You can choose the amount of time that {% data variables.product.product_location %} caches avatars. When you increase the cache time, you increase the amount of time a user's avatar will take to load. Configuring the cache time with too low a value can overload {% data variables.product.product_location %} work processes. 
 

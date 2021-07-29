@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. **GitHub Desktop** メニューで、**About GitHub Desktop**をクリックします。 ![About GitHub Desktopメニューオプション](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)

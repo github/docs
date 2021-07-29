@@ -6,9 +6,10 @@ redirect_from:
   - /articles/installing-git-large-file-storage
   - /github/managing-large-files/installing-git-large-file-storage
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Install Git LFS
 ---
 {% mac %}
 
@@ -108,6 +109,6 @@ versions:
 
 {% endlinux %}
 
-### Further reading
+## Further reading
 
 - "[Configuring {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)"

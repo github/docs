@@ -4,9 +4,9 @@ intro: 'Repository administrators and organization owners can change settings fo
 redirect_from:
   - /articles/managing-repository-settings
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -22,6 +22,8 @@ children:
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
   - /disabling-or-limiting-github-actions-for-a-repository
   - /enabling-or-disabling-github-discussions-for-a-repository
+  - /disabling-project-boards-in-a-repository
+  - /disabling-issues
   - /managing-git-lfs-objects-in-archives-of-your-repository
   - /managing-security-and-analysis-settings-for-your-repository
   - /enabling-anonymous-git-read-access-for-a-repository
@@ -30,5 +32,6 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
+shortTitle: Manage repository settings
 ---
 

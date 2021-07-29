@@ -1,129 +1,89 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import xMkdirp from 'mkdirp'
+import program from 'commander'
+import { execSync } from 'child_process'
+import frontmatter from '../lib/read-frontmatter.js'
+import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
+import walkFiles from './helpers/walk-files.js'
 
-const assert = require('assert')
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const { execSync } = require('child_process')
-const matter = require('gray-matter')
-const addRedirectToFrontmatter = require('../lib/redirects/add-redirect-to-frontmatter')
-const contentDir = path.join(__dirname, '../content')
+const mkdirp = xMkdirp.sync
+const contentFiles = walkFiles('content', '.md')
+const contentDir = path.posix.join(process.cwd(), 'content')
 
 // [start-readme]
 //
-// Pass this script three arguments:
-// 1. current category path (e.g., `github/automating-your-workflows-with-github-actions`)
-// 2. new product ID (e.g., `actions`)
-// 3. new product name in quotes (e.g., `"GitHub Actions"`)
-// and it does everything that needs to be done to make the category into a new product.
+// Move the files from a category directory to a top-level product and add redirects.
 //
 // [end-readme]
 
-// derive global values
-const [relativePath, productId, productName] = process.argv.slice(2)
-assert(relativePath, 'first arg must be a path to an existing category, e.g., github/working-with-github-pages')
-assert(productId, 'second arg must be the ID of the new product, e.g., pages')
-assert(productName, 'third arg must be the full name of the new product in quotes, e.g., "GitHub Pages"')
-assert.strictEqual(relativePath.split('/').length, 2, 'first arg must only contain one slash, e.g., github/working-with-github-pages')
+program
+  .description('Move a category-level docs set to the product level.')
+  .requiredOption(
+    '-c, --category <PATH>',
+    'Provide the path of the existing category, e.g., github/github-pages'
+  )
+  .requiredOption('-p, --product <PATH>', 'Provide the path of the new product, e.g., pages')
+  .parse(process.argv)
 
-const oldCategoryDir = path.join(contentDir, relativePath)
-assert(fs.existsSync(oldCategoryDir), `directory does not exist: ${oldCategoryDir}`)
+const oldCategory = program.opts().category.replace('content/', '')
+const newProduct = program.opts().product.replace('content/', '')
 
-const productDir = path.join(contentDir, productId)
+const [oldProductId, oldCategoryId] = oldCategory.split('/')
+const oldCategoryPath = path.posix.join(contentDir, oldCategory)
+const oldProductPath = path.posix.join(contentDir, oldProductId)
 
-const [oldproductId, categoryName] = relativePath.split('/')
-
-// do all the moving/renaming/updating
-makeNewProductDir()
-moveFilesToNewDir()
-createNewProductToc()
-removeCategoryFromOldProductToc()
-updateFrontmatter()
-
-console.log(`Moved files to content/${productId} and updated frontmatter!\n\nNext steps:\n`)
-
-// display data that needs to be manually added to lib files
-printProductsModuleUpdate()
-printFrontmatterSchemaUpdate()
-
-function makeNewProductDir () {
-  if (!fs.existsSync(productDir)) {
-    execSync(`mkdir ${productDir}`)
-  }
+if (!fs.existsSync(oldProductPath)) {
+  console.error(`Error! Can't find ${oldProductPath}`)
+  process.exit(1)
 }
 
-function moveFilesToNewDir () {
-  execSync(`git mv ${oldCategoryDir} ${productDir}`)
+const oldCategoryFiles = contentFiles.filter((file) => file.includes(`/${oldCategoryId}/`))
+
+if (!oldCategoryFiles.length) {
+  console.error(`Error! Can't find ${oldCategory} files`)
+  process.exit(1)
 }
 
-function createNewProductToc () {
-  const productTocPath = path.join(productDir, 'index.md')
-  const data = {}
-  data.title = `${productName} Documentation`
-  data.productVersions = {}
-  data.productVersions[productId] = '*'
-  const content = `\n{% link_with_intro /${categoryName} %}`
+const newProductPath = path.posix.join(process.cwd(), 'content', newProduct)
 
-  fs.writeFileSync(productTocPath, matter.stringify(content, data, { lineWidth: 10000 }))
-}
+main()
 
-function removeCategoryFromOldProductToc () {
-  const oldProductTocPath = path.join(contentDir, oldproductId, 'index.md')
-  const tocContents = fs.readFileSync(oldProductTocPath, 'utf8')
-  const { content, data } = matter(tocContents)
+function main() {
+  // Create the new product dir.
+  mkdirp(newProductPath)
 
-  const link = `(\n<!-- if page.version.*? -->)?\n{% link_in_list /${categoryName} %}\n(<!-- endif -->)?`
-
-  const newContent = content.replace(new RegExp(link), '')
-
-  fs.writeFileSync(oldProductTocPath, matter.stringify(newContent, data, { lineWidth: 10000 }))
-}
-
-function updateFrontmatter () {
-  const newCategoryDir = path.join(productDir, categoryName)
-
-  // for every article in the category, update productVersions and redirect frontmatter
-  walk(newCategoryDir, { includeBasePath: true }).forEach(file => {
-    const articleContents = fs.readFileSync(file, 'utf8')
-    const { content, data } = matter(articleContents)
-
-    const baseFilename = file.endsWith('index.md') ? '' : path.basename(file, '.md')
-
-    const redirectString = path.join('/', oldproductId, categoryName, baseFilename)
+  // Add redirects to the frontmatter of the to-be-moved files.
+  oldCategoryFiles.forEach((file) => {
+    const { content, data } = frontmatter(fs.readFileSync(file, 'utf8'))
+    const redirectString = file.replace(contentDir, '').replace('index.md', '').replace('.md', '')
     data.redirect_from = addRedirectToFrontmatter(data.redirect_from, redirectString)
-
-    data.productVersions = {}
-    data.productVersions[productId] = '*'
-
-    const newContents = matter.stringify(content, data, { lineWidth: 10000 })
-    fs.writeFileSync(file, newContents)
+    fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: 10000 }))
   })
-}
 
-function printProductsModuleUpdate () {
-  const newProduct = {
-    id: productId,
-    name: productName,
-    href: path.join('/', productId),
-    dir: path.join('content/', productId),
-    toc: path.join('content/', productId, 'index.md')
-  }
-  const obj = {}
-  obj[productId] = newProduct
+  // Move the files.
+  execSync(`git mv ${oldCategoryPath}/* ${newProductPath}`)
 
-  console.log('1. Add the following block to lib/products.js. Note: the order of this file determines the product order everywhere on the site.\n')
-  console.log(obj)
-}
+  // Remove the category from the old product TOC.
+  const oldProductTocPath = path.posix.join(oldProductPath, 'index.md')
+  const productToc = frontmatter(fs.readFileSync(oldProductTocPath, 'utf8'))
+  productToc.data.children = productToc.data.children.filter(
+    (child) => child !== `/${oldCategoryId}`
+  )
+  fs.writeFileSync(
+    oldProductTocPath,
+    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 })
+  )
 
-function printFrontmatterSchemaUpdate () {
-  const newFrontmatter = {
-    type: 'string',
-    conform: '(add validSemverRange here)',
-    message: 'Must be a valid SemVer range'
-  }
-  const obj = {}
-  obj[productId] = newFrontmatter
+  // Add the new product to the homepage TOC.
+  const homepage = path.posix.join(contentDir, 'index.md')
+  const homepageToc = frontmatter(fs.readFileSync(homepage, 'utf8'))
+  homepageToc.data.children.push(newProduct)
+  fs.writeFileSync(
+    homepage,
+    frontmatter.stringify(homepageToc.content, homepageToc.data, { lineWidth: 10000 })
+  )
 
-  console.log('\n2. Add the following block to the productVersions object in lib/frontmatter.js (ordered alphabetically). Make sure the \'conform\' property looks like the others. \n')
-  console.log(obj)
+  console.log(`Moved ${oldCategory} files to ${newProduct}, added redirects, and updated TOCs!`)
 }

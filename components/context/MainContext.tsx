@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
+import { ExcludesNull } from 'components/lib/ExcludesNull'
 
 type ProductT = {
   external: boolean
@@ -12,20 +13,12 @@ type ProductT = {
   versions?: Array<string>
 }
 
-type LanguageItem = {
-  name: string
-  nativeName: string
-  code: string
-  hreflang: string
-  wip?: boolean
-}
-
 type VersionItem = {
   version: string
   versionTitle: string
 }
 
-export type CurrentProductTree = {
+export type ProductTreeNode = {
   page: {
     hidden?: boolean
     documentType: 'article' | 'mapTopic'
@@ -35,7 +28,7 @@ export type CurrentProductTree = {
   renderedShortTitle?: string
   renderedFullTitle: string
   href: string
-  childPages: Array<CurrentProductTree>
+  childPages: Array<ProductTreeNode>
 }
 
 type DataT = {
@@ -59,6 +52,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -67,25 +61,28 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { css: string; js: string } }
-  expose: string
   activeProducts: Array<ProductT>
-  currentProduct: ProductT
+  currentProduct?: ProductT
   currentLayoutName: string
+  isHomepageVersion: boolean
+  isFPT: boolean
   data: DataT
   airGap?: boolean
   error: string
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
+  currentPathWithoutLanguage: string
   currentLanguage: string
-  languages: Record<string, LanguageItem>
+  userLanguage: string
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree
+  currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
+    documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
+    title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
@@ -100,17 +97,20 @@ export type MainContextT = {
   }
 
   enterpriseServerVersions: Array<string>
+
+  searchVersions: Record<string, string>
+  nonEnterpriseDefaultVersion: string
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: req.context.builtAssets,
-    expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    currentProduct: req.context.productMap[req.context.currentProduct],
+    currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
-    error: req.context.error || '',
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    isFPT: req.context.currentVersion === 'free-pro-team@latest',
+    error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {
@@ -123,9 +123,12 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
+      documentType: req.context.page.documentType,
+      title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
@@ -141,26 +144,42 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ),
       hidden: req.context.page.hidden || false,
     },
-    enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
+    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
+      'isOldestReleaseDeprecated',
+      'oldestSupported',
+      'nextDeprecationDate',
+      'supported',
+    ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
-    languages: Object.fromEntries(
-      Object.entries(req.context.languages).map(([key, entry]: any) => {
-        return [
-          key,
-          {
-            name: entry.name,
-            nativeName: entry.nativeName || '',
-            code: entry.code,
-            hreflang: entry.hreflang,
-          },
-        ]
-      })
-    ),
+    userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
-    // this gets rid of some `undefined` values, which is necessary so next.js can serialize the data
-    currentProductTree: JSON.parse(JSON.stringify(req.context.currentProductTree)),
+    currentProductTree: req.context.currentProductTree
+      ? getCurrentProductTree(req.context.currentProductTree)
+      : null,
     featureFlags: {},
+    searchVersions: req.context.searchVersions,
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+  }
+}
+
+// only pull things we need from the product tree, and make sure there are default values instead of `undefined`
+const getCurrentProductTree = (input: any): ProductTreeNode | null => {
+  if (input.page.hidden) {
+    return null
+  }
+
+  return {
+    href: input.href,
+    renderedShortTitle: input.renderedShortTitle || '',
+    renderedFullTitle: input.renderedFullTitle || '',
+    page: {
+      hidden: input.page.hidden || false,
+      documentType: input.page.documentType,
+      title: input.page.title,
+      shortTitle: input.page.shortTitle || '',
+    },
+    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 
