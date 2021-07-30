@@ -15,7 +15,7 @@ topics:
 
 Welcome to GitHub's Guide to the Digital Millennium Copyright Act, commonly known as the "DMCA." This page is not meant as a comprehensive primer to the statute. However, if you've received a DMCA takedown notice targeting content you've posted on GitHub or if you're a rights-holder looking to issue such a notice, this page will hopefully help to demystify the law a bit as well as our policies for complying with it.
 
-(If you just want to submit a notice, you can [skip to the end](#f-submitting-notices).)
+(If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
 
 As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
 
@@ -85,7 +85,7 @@ Where our experts determine that a claim is complete, legal, and technically leg
 
 Please note, our review process for circumvention technology does not apply to content that would otherwise violate our Acceptable Use Policy restrictions against sharing unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys. Although these types of claims may also violate the DMCA provisions on circumvention technology, these are typically straightforward and do not warrant additional technical and legal review. Nonetheless, where a claim is not straightforward, for example in the case of jailbreaks, the circumvention technology claim review process would apply.  
 
-When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer to connect the repository owner with legal resources, in case the repository owner wishes to obtain third party legal advice.
+When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer the repository owner a referral to receive independent legal consultation through [GitHub’s Developer Defense Fund](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) at no cost to them.
 
 ## D. What If I Inadvertently Missed the Window to Make Changes?
 

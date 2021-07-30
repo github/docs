@@ -20,6 +20,8 @@ If you want to use {% data variables.product.prodname_GH_advanced_security %} fe
 
 {% data reusables.advanced-security.license-overview %}
 
+{% data reusables.dotcom_billing.pricing_cal %} 
+
 To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise account, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## About committer numbers for {% data variables.product.prodname_GH_advanced_security %}

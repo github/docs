@@ -38,5 +38,20 @@ export default function handleInvalidPaths(req, res, next) {
     return res.sendStatus(400)
   }
 
+  // Prevent some script tag injection attacks
+  if (req.path.match(/<script/i)) {
+    return res.sendStatus(400)
+  }
+
+  // Prevent some injection attacks targeting Fastly
+  if (req.path.match(/<esi:include/i)) {
+    return res.sendStatus(400)
+  }
+
+  // Prevent various malicious injection attacks targeting Next.js
+  if (req.path.match(/^\/_next[^/]/)) {
+    return next(404)
+  }
+
   return next()
 }
