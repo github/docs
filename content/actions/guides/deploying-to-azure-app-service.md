@@ -17,7 +17,6 @@ shortTitle: Deploy to Azure App Service
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
