@@ -1,4 +1,4 @@
-{
+
   "ext": "js,json,yml,md,html,scss",
   "ignore": [
     "assets",
@@ -8,4 +8,4 @@
     "javascripts",
     "stylesheets"
   ]
-}
+
