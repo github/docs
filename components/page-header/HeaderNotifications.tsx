@@ -4,8 +4,9 @@ import cx from 'classnames'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
-import { useVersion } from './hooks/useVersion'
-import { useLanguages } from './context/LanguagesContext'
+import { useVersion } from 'components/hooks/useVersion'
+import { useLanguages } from 'components/context/LanguagesContext'
+import styles from './HeaderNotifications.module.scss'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -83,23 +84,26 @@ export const HeaderNotifications = () => {
   ].filter(ExcludesNull)
 
   return (
-    <>
+    <div>
       {allNotifications.map(({ type, content }, i) => {
         const isLast = i === allNotifications.length - 1
         return (
           <div
             key={content}
+            data-testid="header-notification"
+            data-type={type}
             className={cx(
-              'header-notifications text-center f5 color-text-primary py-4 px-6',
-              type === NotificationType.TRANSLATION && 'translation_notice color-bg-info',
-              type === NotificationType.RELEASE && 'release_notice color-bg-info',
-              type === NotificationType.EARLY_ACCESS && 'early_access color-bg-danger',
+              styles.container,
+              'text-center f5 color-text-primary py-4 px-6',
+              type === NotificationType.TRANSLATION && 'color-bg-info',
+              type === NotificationType.RELEASE && 'color-bg-info',
+              type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
               !isLast && 'border-bottom color-border-tertiary'
             )}
             dangerouslySetInnerHTML={{ __html: content }}
           />
         )
       })}
-    </>
+    </div>
   )
 }

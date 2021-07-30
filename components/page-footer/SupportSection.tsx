@@ -1,7 +1,7 @@
-import { Survey } from 'components/Survey'
-import { Contribution } from 'components/Contribution'
-import { Support } from 'components/Support'
-import { useMainContext } from './context/MainContext'
+import { Survey } from 'components/page-footer/Survey'
+import { Contribution } from 'components/page-footer/Contribution'
+import { Support } from 'components/page-footer/Support'
+import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 
 export const SupportSection = () => {

@@ -1,12 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import { getContents } from './helpers/git-utils.js'
-import fs from 'fs'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
-const enterpriseDatesString = fs.readFileSync(enterpriseDatesFile, 'utf8')
 
 // [start-readme]
 //
@@ -14,6 +6,15 @@ const enterpriseDatesString = fs.readFileSync(enterpriseDatesFile, 'utf8')
 // and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import { getContents } from './helpers/git-utils.js'
+import fs from 'fs/promises'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
+const enterpriseDatesString = await fs.readFile(enterpriseDatesFile, 'utf8')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -50,7 +51,7 @@ async function main() {
   if (formattedDatesString === enterpriseDatesString) {
     console.log('This repo is already in sync with enterprise-releases!')
   } else {
-    fs.writeFileSync(enterpriseDatesFile, formattedDatesString)
+    await fs.writeFile(enterpriseDatesFile, formattedDatesString)
     console.log(`${enterpriseDatesFile} has been updated!`)
   }
 }

@@ -9,11 +9,14 @@ import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
-import { LanguagesProvider } from 'components/context/LanguagesContext'
+import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
 
-
-type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
-const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
+type MyAppProps = AppProps & {
+  csrfToken: string
+  themeProps: typeof defaultThemeProps
+  languagesContext: LanguagesContextT
+}
+const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }: MyAppProps) => {
   useEffect(() => {
     events()
     experiment()
@@ -41,10 +44,10 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
         <meta name="csrf-token" content={csrfToken} />
       </Head>
       <ThemeProvider>
-        <LanguagesProvider>
+        <LanguagesContext.Provider value={languagesContext}>
           <SetTheme themeProps={themeProps} />
           <Component {...pageProps} />
-        </LanguagesProvider>
+        </LanguagesContext.Provider>
       </ThemeProvider>
     </>
   )
@@ -56,7 +59,12 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext)
   const req: any = ctx.req
 
-  return { ...appProps, themeProps: getThemeProps(req), csrfToken: req?.csrfToken?.() || '' }
+  return {
+    ...appProps,
+    themeProps: getThemeProps(req),
+    csrfToken: req?.csrfToken?.() || '',
+    languagesContext: { languages: req.context.languages },
+  }
 }
 
 const SetTheme = ({ themeProps }: { themeProps: typeof defaultThemeProps }) => {

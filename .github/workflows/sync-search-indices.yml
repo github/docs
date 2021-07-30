@@ -1,4 +1,4 @@
-name: Algolia
+name: Sync search indexes
 
 # **What it does**: This updates our search indexes after each deployment.
 # **Why we have it**: We want our search indexes kept up to date.
@@ -40,4 +40,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last Algolia workflow run for ${{github.repository}} failed. Search actions for `workflow:Algolia`
+          text: The last search index workflow run for ${{github.repository}} failed. Search actions for `workflow:search`

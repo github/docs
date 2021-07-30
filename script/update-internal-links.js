@@ -1,4 +1,19 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to find internal links in all content and data Markdown files, check if either the title or link
+// (or both) are outdated, and automatically update them if so.
+//
+// Exceptions:
+// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment
+// and title will be unchanged (e.g., [Bar](/noo#bar)).
+// * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
+// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)).
+// * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
+//
+// [end-readme]
+
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
@@ -35,20 +50,6 @@ const linkInlineMarkup = {
 
 const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
 const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
-
-// [start-readme]
-//
-// Run this script to find internal links in all content and data Markdown files, check if either the title or link
-// (or both) are outdated, and automatically update them if so.
-//
-// Exceptions:
-// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment
-// and title will be unchanged (e.g., [Bar](/noo#bar)).
-// * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
-// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)).
-// * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
-//
-// [end-readme]
 
 main()
 
