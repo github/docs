@@ -34,7 +34,7 @@
         - PLACEHOLDER
     ```
     **Note:** All of the content in this file will be updated when the release notes are created in the megabranch including the filename `PLACEHOLDER.yml`. You can update the date or leave it as-is and wait to update it when the release notes are finalized.
-- [ ] Create the Algolia search indices for the new release:
+- [ ] Create the search indices for the new release:
     ```
     npm run sync-search-ghes-release
     ```
@@ -51,7 +51,7 @@
     ```
     sync-english-index-for-<PLAN@RELEASE>
     ```
-    ☝️ This will run a workflow **on every push to the PR** that will sync **only** the English index for the new version to Algolia. This will make the GHES content searchable on staging throughout content creation, and will ensure the search updates go live at the same time the content is published. See [`contributing/search.md`](https://github.com/github/docs-internal/blob/main/contributing/search.md) for details.
+    ☝️ This will run a workflow **on every push to the PR** that will sync **only** the English index for the new version. This will make the GHES content searchable on staging throughout content creation, and will ensure the search updates go live at the same time the content is published. See [`contributing/search.md`](https://github.com/github/docs-internal/blob/main/contributing/search.md) for details.
 
 - [ ] In `github/github`, to create a new GHES release follow these steps:
   - [ ] Copy the previous release's root document to a new root document for this release `cp app/api/description/ghes-<LATEST RELEASE NUMBER>.yaml app/api/description/ghes-<NEXT RELEASE NUMBER>.yaml`.
@@ -79,7 +79,7 @@ If the `OpenAPI dev mode check / check-schema-versions` check fails with the fol
 #### `Node.js tests / test content` failures
 
 If the `Node.js tests / test content` check fails with the following message, the `lib/enterprise-dates.json` file is not up-to-date: 
-> FAIL tests/content/algolia-search.js ● algolia › has remote indexNames in every language for every supported GHE version
+> FAIL tests/content/search.js ● search › has remote indexNames in every language for every supported GHE version
 
 This file should be automatically updated, but you can also run `script/update-enterprise-dates.js` to update it. **Note:** If the test is still failing after running this script, look at the dates for this release. If the date is still inaccurate, it may be an issue with the source at https://github.com/github/enterprise-releases/blob/master/docs/supported-versions.md#release-lifecycle-dates. If that is the case, manually update the dates in the `lib/enterprise-dates.json` file.
 

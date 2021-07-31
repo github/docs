@@ -1,15 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import walk from 'walk-sync'
-import xMkdirp from 'mkdirp'
-import languages from '../lib/languages.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const mkdirp = xMkdirp.sync
-
-const dirs = ['content', 'data']
 
 // [start-readme]
 //
@@ -18,7 +7,17 @@ const dirs = ['content', 'data']
 //
 // [end-readme]
 
-dirs.forEach((dir) => {
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import mkdirp from 'mkdirp'
+import languages from '../lib/languages.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const dirs = ['content', 'data']
+
+for (const dir of dirs) {
   const englishPath = path.join(__dirname, `../${dir}`)
   const filenames = walk(englishPath).filter((filename) => {
     return (
@@ -26,16 +25,16 @@ dirs.forEach((dir) => {
     )
   })
 
-  filenames.forEach((filename) => {
-    Object.values(languages).forEach((language) => {
+  for (const filename of filenames) {
+    for (const language of Object.values(languages)) {
       if (language.code === 'en') return
       const fullPath = path.join(__dirname, '..', language.dir, dir, filename)
       if (!fs.existsSync(fullPath)) {
         console.log('missing', fullPath)
         const englishFullPath = path.join(__dirname, '..', dir, filename)
-        mkdirp(path.dirname(fullPath))
+        await mkdirp(path.dirname(fullPath))
         fs.writeFileSync(fullPath, fs.readFileSync(englishFullPath))
       }
-    })
-  })
-})
+    }
+  }
+}

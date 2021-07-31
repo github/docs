@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import { getOctokit } from '@actions/github'
 import enterpriseDates from '../../lib/enterprise-dates.js'
@@ -74,7 +74,7 @@ async function run() {
     process.exit(0)
   }
 
-  const milestoneSteps = fs.readFileSync(
+  const milestoneSteps = await fs.readFile(
     path.join(
       process.cwd(),
       `.github/actions-scripts/enterprise-server-issue-templates/${milestone}-issue.md`

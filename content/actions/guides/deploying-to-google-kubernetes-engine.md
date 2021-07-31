@@ -17,7 +17,6 @@ shortTitle: Deploy to Kubernetes (GKE)
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -164,7 +163,7 @@ jobs:
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
-        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+        curl --location https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_linux_amd64.tar.gz | tar xz
         chmod u+x ./kustomize
 
     # Deploy the Docker image to the GKE cluster

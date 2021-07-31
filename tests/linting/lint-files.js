@@ -5,8 +5,8 @@ import walk from 'walk-sync'
 import { zip, groupBy } from 'lodash-es'
 import yaml from 'js-yaml'
 import revalidator from 'revalidator'
-import generateMarkdownAST from 'mdast-util-from-markdown'
-import visit from 'unist-util-visit'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import { visit } from 'unist-util-visit'
 import readFileAsync from '../../lib/readfile-async.js'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
@@ -18,9 +18,9 @@ import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import { supported, next } from '../../lib/enterprise-server-releases.js'
-import getLiquidConditionals from '../../script/helpers/get-liquid-conditionals.js'
+import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -376,7 +376,7 @@ describe('lint markdown content', () => {
       content = bodyContent
       frontmatterErrors = errors
       frontmatterData = data
-      ast = generateMarkdownAST(content)
+      ast = fromMarkdown(content)
       isHidden = data.hidden === true
       isEarlyAccess = markdownRelPath.split('/').includes('early-access')
       isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')

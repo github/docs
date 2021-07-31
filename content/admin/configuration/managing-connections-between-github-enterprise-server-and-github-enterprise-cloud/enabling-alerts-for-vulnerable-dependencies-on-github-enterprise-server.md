@@ -24,7 +24,7 @@ To identify vulnerable dependencies in your repository and receive vulnerability
 - The dependency graph
 - {% ifversion ghes > 2.21 %}{% data variables.product.prodname_dependabot %}{% else %}Security{% endif %} alerts
 
-For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)" and "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)" and "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 
 {% data reusables.repositories.tracks-vulnerabilities %} 
 

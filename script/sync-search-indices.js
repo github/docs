@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import searchSync from './search/sync.js'
-import 'make-promises-safe'
 
 // [start-readme]
 //
@@ -8,6 +6,9 @@ import 'make-promises-safe'
 // It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
 //
 // [end-readme]
+
+import searchSync from './search/sync.js'
+import 'make-promises-safe'
 
 main()
 

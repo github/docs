@@ -22,13 +22,13 @@ children:
   - code-security
   - issues
   - actions
+  - codespaces
   - packages
   - developers
   - rest
   - graphql
   - insights
   - discussions
-  - codespaces
   - sponsors
   - communities
   - pages

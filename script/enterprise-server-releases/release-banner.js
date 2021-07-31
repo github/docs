@@ -1,20 +1,20 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import program from 'commander'
-import yaml from 'js-yaml'
-import allVersions from '../../lib/all-versions.js'
-
-const releaseCandidateFile = 'data/variables/release_candidate.yml'
-const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
-
-const allowedActions = ['create', 'remove']
 
 // [start-readme]
 //
 // This script creates or removes a release candidate banner for a specified version.
 //
 // [end-readme]
+
+import fs from 'fs/promises'
+import path from 'path'
+import program from 'commander'
+import yaml from 'js-yaml'
+import { allVersions } from '../../lib/all-versions.js'
+
+const releaseCandidateFile = 'data/variables/release_candidate.yml'
+const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
+const allowedActions = ['create', 'remove']
 
 program
   .description('Create or remove a release candidate banner for the provided docs version.')
@@ -43,7 +43,7 @@ if (!Object.keys(allVersions).includes(options.version)) {
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.load(fs.readFileSync(releaseCandidateYaml, 'utf8'))
+const releaseCandidateData = yaml.load(await fs.readFile(releaseCandidateYaml, 'utf8'))
 
 // Create or remove the variable
 if (options.action === 'create') {
@@ -55,7 +55,7 @@ if (options.action === 'remove') {
 }
 
 // Update the file
-fs.writeFileSync(releaseCandidateYaml, yaml.dump(releaseCandidateData))
+await fs.writeFile(releaseCandidateYaml, yaml.dump(releaseCandidateData))
 
 // Display next steps
 console.log(`\nDone! Commit the update to ${releaseCandidateFile}. This ${options.action}s the banner for ${options.version}.
