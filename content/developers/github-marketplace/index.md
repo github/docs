@@ -5,7 +5,7 @@ redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace/
   - /apps/marketplace/
   - /marketplace
-versions:
+versions: 
   fpt: '*'
 topics:
   - Marketplace
