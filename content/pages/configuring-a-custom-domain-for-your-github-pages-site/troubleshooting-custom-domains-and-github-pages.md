@@ -32,7 +32,9 @@ Then, make sure the _CNAME_ file is formatted correctly.
 
 If you have trouble pointing the default domain for your site to your custom domain, contact your DNS provider.
 
-You can also test whether your custom domain's DNS records are configured correctly. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+You can also test whether your custom domain's DNS records are configured correctly. There are multiple ways to query your DNS records:
+- Using the command line. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)"; or
+- Using an [online DNS lookup tool](https://www.nslookup.io/).
 
 ## Custom domain names that are unsupported
 
