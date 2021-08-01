@@ -18,31 +18,35 @@ export const Breadcrumbs = ({ variant = 'default' }: Props) => {
   const { breadcrumbs } = useMainContext()
 
   return (
-    <nav className="breadcrumbs f5" aria-label="Breadcrumb">
-      {Object.values(breadcrumbs).map((breadcrumb) => {
+    <nav data-testid="breadcrumbs" className="f5" aria-label="Breadcrumb">
+      {Object.values(breadcrumbs).map((breadcrumb, i, arr) => {
         if (!breadcrumb) {
           return null
         }
 
         const title = `${breadcrumb.documentType}: ${breadcrumb.title}`
-        return !breadcrumb.href ? (
-          <span key={title} title={title}>
-            {breadcrumb.title}
-          </span>
-        ) : (
-          <Link
-            key={title}
-            href={breadcrumb.href}
-            title={title}
-            className={cx(
-              'd-inline-block',
-              variant === 'large' && 'text-uppercase text-mono',
-              pathWithLocale === breadcrumb.href && 'color-text-tertiary'
-            )}
-          >
-            {breadcrumb.title}
-          </Link>
-        )
+        return [
+          !breadcrumb.href ? (
+            <span data-testid="breadcrumb-title" key={title} title={title} className="px-2">
+              {breadcrumb.title}
+            </span>
+          ) : (
+            <Link
+              key={title}
+              data-testid="breadcrumb-link"
+              href={breadcrumb.href}
+              title={title}
+              className={cx(
+                'd-inline-block px-2',
+                variant === 'large' && 'text-uppercase text-mono',
+                pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+              )}
+            >
+              {breadcrumb.title}
+            </Link>
+          ),
+          i !== arr.length - 1 ? <span className="color-text-tertiary">/</span> : null,
+        ]
       })}
     </nav>
   )

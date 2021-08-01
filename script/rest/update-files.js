@@ -1,24 +1,24 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import program from 'commander'
-import { execSync } from 'child_process'
-import xMkdirp from 'mkdirp'
-import xRimraf from 'rimraf'
-import getOperations from './utils/get-operations.js'
-const mkdirp = xMkdirp.sync
-const rimraf = xRimraf.sync
-const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
-const githubRepoDir = path.join(process.cwd(), '../github')
-const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
-const schemas = fs.readdirSync(dereferencedPath)
-const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
 
 // [start-readme]
 //
 // Run this script to pull openAPI files from github/github, dereference them, and decorate them.
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
+import { execSync } from 'child_process'
+import mkdirp from 'mkdirp'
+import rimraf from 'rimraf'
+import getOperations from './utils/get-operations.js'
+
+const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
+const githubRepoDir = path.join(process.cwd(), '../github')
+const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const schemas = fs.readdirSync(dereferencedPath)
+const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
 
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')
@@ -65,8 +65,8 @@ async function getDereferencedFiles() {
   }
 
   // create a tmp directory to store schema files generated from github/github
-  rimraf(tempDocsDir)
-  mkdirp(tempDocsDir)
+  rimraf.sync(tempDocsDir)
+  await mkdirp(tempDocsDir)
 
   console.log(
     `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`
@@ -86,7 +86,7 @@ async function getDereferencedFiles() {
 
   execSync(`find ${tempDocsDir} -type f -name "*deref.json" -exec mv '{}' ${dereferencedPath} ';'`)
 
-  rimraf(tempDocsDir)
+  rimraf.sync(tempDocsDir)
 
   // When running in development mode (locally), the the info.version
   // property in the dereferenced schema is replaced with the branch

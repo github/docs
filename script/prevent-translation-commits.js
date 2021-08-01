@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import xDotenv from 'dotenv'
-import { execSync } from 'child_process'
 
 // [start-readme]
 //
@@ -10,7 +8,10 @@ import { execSync } from 'child_process'
 //
 // [end-readme]
 
-xDotenv.config()
+import dotenv from 'dotenv'
+import { execSync } from 'child_process'
+
+dotenv.config()
 
 // Ignore this hook in GitHub Actions workflows
 if (process.env.CI) process.exit()
