@@ -1,4 +1,4 @@
-import xDotenv from 'dotenv'
+import dotenv from 'dotenv'
 import './lib/feature-flags.js'
 import './lib/check-node-version.js'
 import './lib/handle-exceptions.js'
@@ -9,7 +9,7 @@ import prefixStreamWrite from './lib/prefix-stream-write.js'
 import createApp from './lib/app.js'
 import warmServer from './lib/warm-server.js'
 import http from 'http'
-xDotenv.config()
+dotenv.config()
 // Intentionally require these for both cluster primary and workers
 
 const { PORT, NODE_ENV } = process.env

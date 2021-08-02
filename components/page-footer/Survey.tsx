@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import cx from 'classnames'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
@@ -63,8 +64,14 @@ export const Survey = () => {
             onChange={vote(ViewState.YES)}
             defaultChecked={state === ViewState.YES}
           />
-          <label className="btn x-radio-label mr-1" htmlFor="survey-yes">
-            <ThumbsupIcon size={24} className="color-text-tertiary" />
+          <label
+            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-info-inverse')}
+            htmlFor="survey-yes"
+          >
+            <ThumbsupIcon
+              size={24}
+              className={state === ViewState.YES ? 'color-text-primary' : 'color-text-tertiary'}
+            />
           </label>
           <input
             id="survey-no"
@@ -76,8 +83,14 @@ export const Survey = () => {
             onChange={vote(ViewState.NO)}
             defaultChecked={state === ViewState.NO}
           />
-          <label className="btn x-radio-label" htmlFor="survey-no">
-            <ThumbsdownIcon size={24} className="color-text-tertiary" />
+          <label
+            className={cx('btn', state === ViewState.NO && 'color-bg-danger-inverse')}
+            htmlFor="survey-no"
+          >
+            <ThumbsdownIcon
+              size={24}
+              className={state === ViewState.NO ? 'color-text-primary' : 'color-text-tertiary'}
+            />
           </label>
         </p>
       )}
@@ -120,11 +133,18 @@ export const Survey = () => {
             />
             <span className="f6 color-text-secondary">{t`not_support`}</span>
           </p>
-          <p className="text-right">
+          <div className="d-flex flex-justify-end flex-items-center mt-3">
+            <button
+              type="button"
+              className="btn btn-sm btn-invisible mr-3"
+              onClick={() => setState(ViewState.START)}
+            >
+              Cancel
+            </button>
             <button type="submit" className="btn btn-sm">
               {t`send`}
             </button>
-          </p>
+          </div>
         </>
       )}
 

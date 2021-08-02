@@ -1,22 +1,21 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import xRimraf from 'rimraf'
-import { allVersions } from '../../lib/all-versions.js'
-
-const rimraf = xRimraf.sync
-
-const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
-const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
-const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
-const restDecoratedDir = path.join(process.cwd(), 'lib/rest/static/decorated')
-const restDereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 
 // [start-readme]
 //
 // This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import rimraf from 'rimraf'
+import { allVersions } from '../../lib/all-versions.js'
+
+const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
+const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
+const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const restDecoratedDir = path.join(process.cwd(), 'lib/rest/static/decorated')
+const restDereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 
 const supportedEnterpriseVersions = Object.values(allVersions).filter(
   (v) => v.plan === 'enterprise-server'
@@ -47,6 +46,6 @@ function removeFiles(dir, baseName, supportedVersions) {
     .forEach((file) => {
       const fullPath = path.join(dir, file)
       console.log(`removing ${fullPath}`)
-      rimraf(fullPath)
+      rimraf.sync(fullPath)
     })
 }

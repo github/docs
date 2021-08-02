@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
+import fs from 'fs/promises'
 import { setOutput } from '@actions/core'
 
-const eventPayload = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'))
+const eventPayload = JSON.parse(await fs.readFile(process.env.GITHUB_EVENT_PATH, 'utf8'))
 
 // This workflow-run script does the following:
 // 1. Gets an array of labels on a PR.
-// 2. Finds one with the relevant Algolia text; if none found, exits early.
+// 2. Finds one with the relevant search text; if none found, exits early.
 // 3. Gets the version substring from the label string.
 
 const labelText = 'sync-english-index-for-'
@@ -19,18 +19,18 @@ if (!(labelsArray && labelsArray.length)) {
 }
 
 // Find the relevant label
-const algoliaLabel = labelsArray
+const searchLabel = labelsArray
   .map((label) => label.name)
   .find((label) => label.startsWith(labelText))
 
 // Exit early if no relevant label is found
-if (!algoliaLabel) {
+if (!searchLabel) {
   process.exit(0)
 }
 
 // Given: sync-english-index-for-enterprise-server@3.0
 // Returns: enterprise-server@3.0
-const versionToSync = algoliaLabel.split(labelText)[1]
+const versionToSync = searchLabel.split(labelText)[1]
 
 // Store the version so we can access it later in the workflow
 setOutput('versionToSync', versionToSync)
