@@ -37,7 +37,6 @@ FROM all_deps as builder
 
 ENV NODE_ENV production
 
-COPY javascripts ./javascripts
 COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
@@ -48,6 +47,7 @@ COPY content/index.md ./content/index.md
 
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
+COPY next-env.d.ts ./next-env.d.ts
 
 RUN npx tsc --noEmit
 
@@ -77,7 +77,7 @@ COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Use Lunr instead of Algolia
+# Hide iframes, add warnings to external links
 ENV AIRGAP true
 
 # Copy only what's needed to run the server

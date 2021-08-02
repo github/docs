@@ -1,7 +1,6 @@
-import xFs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import { filter as asyncFilter } from 'async'
-const fs = xFs.promises
 
 describe('check for orphan tests', () => {
   test('all tests are in sub-directories', async () => {

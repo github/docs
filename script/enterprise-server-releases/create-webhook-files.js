@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import xMkdirp from 'mkdirp'
-import path from 'path'
-import program from 'commander'
-import { allVersions } from '../../lib/all-versions.js'
-
-const mkdirp = xMkdirp.sync
-const payloadsDir = 'lib/webhooks/static'
 
 // [start-readme]
 //
 // This script creates new static webhook payload files for a new version.
 //
 // [end-readme]
+
+import fs from 'fs'
+import mkdirp from 'mkdirp'
+import path from 'path'
+import program from 'commander'
+import { allVersions } from '../../lib/all-versions.js'
+
+const payloadsDir = 'lib/webhooks/static'
 
 program
   .description(
@@ -52,7 +52,7 @@ const srcDir = path.join(payloadsDir, oldVersionDirName)
 const destDir = path.join(payloadsDir, newVersionDirName)
 
 // create the new directory
-mkdirp(destDir)
+await mkdirp(destDir)
 
 // copy the files
 fs.readdirSync(srcDir).forEach((file) => {
