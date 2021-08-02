@@ -75,7 +75,7 @@ You can enable or disable features programmatically on {% data variables.product
 For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
 1. SSH into {% data variables.product.product_location %}.
-1. Enable feature.
+1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - {% data variables.product.prodname_code_scanning_capc %}: 
 
