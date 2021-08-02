@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json
+// and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
+//
+// [end-readme]
+
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { getContents } from './helpers/git-utils.js'
@@ -7,13 +15,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
 const enterpriseDatesString = await fs.readFile(enterpriseDatesFile, 'utf8')
-
-// [start-readme]
-//
-// This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json
-// and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
-//
-// [end-readme]
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {

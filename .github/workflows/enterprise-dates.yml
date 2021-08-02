@@ -3,7 +3,7 @@ name: Enterprise date updater
 # **What it does**: Runs on a schedule to update lib/enterprise-dates.json.
 # **Why we have it**: The lib/enterprise-dates.json file needs to be up-to-date
 # for the .github/workflows/open-enterprise-issue.yml workflow and the
-# tests/content/algolia-search.js test.
+# tests/content/search.js test.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:

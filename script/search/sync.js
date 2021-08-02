@@ -2,8 +2,8 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
-import xMkdirp from 'mkdirp'
-import xRimraf from 'rimraf'
+import mkdirp from 'mkdirp'
+import rimraf from 'rimraf'
 import chalk from 'chalk'
 import languages from '../../lib/languages.js'
 import buildRecords from './build-records.js'
@@ -14,9 +14,8 @@ import getRemoteIndexNames from './algolia-get-remote-index-names.js'
 import AlgoliaIndex from './algolia-search-index.js'
 import LunrIndex from './lunr-search-index.js'
 import getLunrIndexNames from './lunr-get-index-names.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const mkdirp = xMkdirp.sync
-const rimraf = xRimraf.sync
 const cacheDir = path.join(process.cwd(), './.search-cache')
 
 // Algolia
@@ -30,8 +29,8 @@ export default async function syncSearchIndexes(opts = {}) {
     console.log(
       'This is a dry run! The script will build the indices locally but not upload anything.\n'
     )
-    rimraf(cacheDir)
-    mkdirp(cacheDir)
+    rimraf.sync(cacheDir)
+    await mkdirp(cacheDir)
   }
 
   if (opts.language) {

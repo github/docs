@@ -4,7 +4,7 @@ import { Dropdown, Details, useDetails } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
-import { useLanguages } from './context/LanguagesContext'
+import { useLanguages } from 'components/context/LanguagesContext'
 
 type Props = {
   variant?: 'inline'

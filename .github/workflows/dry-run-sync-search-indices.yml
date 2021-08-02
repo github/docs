@@ -1,6 +1,6 @@
-name: (Dry run) Algolia
+name: (Dry run) Search indexes
 
-# **What it does**: On request, dry run Algolia to check for issues with search indexing.
+# **What it does**: On request, dry run to check for issues with search indexing.
 # **Why we have it**: It helps us debug issues with search indexing.
 # **Who does it impact**: Docs engineering.
 
