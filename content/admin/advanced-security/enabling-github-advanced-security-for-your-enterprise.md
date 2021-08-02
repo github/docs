@@ -104,7 +104,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - {% data variables.product.prodname_dependabot %}:
+    - To disable {% data variables.product.prodname_dependabot %}, enter the following commands.
     ```shell
     ghe-config app.github.dependency-graph-enabled false
     ghe-config app.github.vulnerability-alerting-and-settings-enabled false
