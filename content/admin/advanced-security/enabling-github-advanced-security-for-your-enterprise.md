@@ -72,7 +72,7 @@ When {% data variables.product.product_name %} has finished restarting, you're r
 
 You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
 
-For example, you can enable {% data variables.product.prodname_code_scanning %} with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
+For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
 1. SSH into {% data variables.product.product_location %}.
 1. Enable feature.
