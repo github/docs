@@ -77,7 +77,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
 1. SSH into {% data variables.product.product_location %}.
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
-    - {% data variables.product.prodname_code_scanning_capc %}: 
+    - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
 
     ```shell
     ghe-config app.minio.enabled true
