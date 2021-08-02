@@ -93,7 +93,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ghe-config app.github.dependency-graph-enabled true
     ghe-config app.github.vulnerability-alerting-and-settings-enabled true
     ```
-2. Optionally, disable feature.
+2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - {% data variables.product.prodname_code_scanning_capc %}: 
     ```shell
