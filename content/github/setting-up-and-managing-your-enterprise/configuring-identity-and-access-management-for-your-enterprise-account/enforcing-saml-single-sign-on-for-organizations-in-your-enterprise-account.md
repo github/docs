@@ -30,8 +30,8 @@ shortTitle: Enforce SSO for organizations
 
 **Notes:**
 
-- When you enable SAML SSO for your enterprise account, the enterprise configuration will override any existing organization-level SAML configurations.
-- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise account, {% data variables.product.company_short %} does not remove members of the enterprise account if the members have not authenticated successfully with your SAML IdP. Existing members must authenticate with your SAML IdP the next time the members access the enterprise's resources.
+- When you enable SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations.
+- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
 
 {% endnote %}
 
