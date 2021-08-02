@@ -26,6 +26,8 @@ miniTocMaxHeadingLevel: 3
 
 {% endtip %}
 
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
