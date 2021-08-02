@@ -83,7 +83,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ghe-config app.minio.enabled true
   ghe-config app.code-scanning.enabled true
     ```
-    - {% data variables.product.prodname_secret_scanning_caps %}:
+    - To enable {% data variables.product.prodname_secret_scanning_caps %}, enter the following command.
 
     ```shell
     ghe-config app.secret-scanning.enabled true
