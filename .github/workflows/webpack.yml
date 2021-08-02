@@ -1,0 +1,29 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        npx webpack
+http://www.cyberlink.com?/includes:official-Cyberlink-firetablet-7-Mobile-Devices-firetablets-7-AI-Cybernet-Virtual-Cyberwebsite-Spider-Internet-Cybernetsystems-Internet-cybernet-systems=Platforms=webappng/sites/meet83/dashboard/home=my-Spider-Internet-connection-AI-Platforms-Cybernet-Users-Accounts-Profile-Cybernet-Profiles-account-Owner-evenspmaxpierrelouis|CSC|CyberNet-My-Cyberwebsite-Spider-Internet-connection-AI-Cybernet-Virtual-Cyberwebsite-CyberNet-Platforms_Cyberlink_Profiles_Homepage_Cybernet_Iam_Evensmaxpierrelouis_the_Chairman&CEO_cybernet_Rockstar-Games-Display-GTA6-Video-games-Play-On-Air-on-Probot-AI-Ecosystems-Software-Data-protection-Products-Service-online-Companies-streamlabs-Tools-Cyberlink-amp-Software-companies-CyberNet.html
