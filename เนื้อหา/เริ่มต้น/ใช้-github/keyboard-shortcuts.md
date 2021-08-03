@@ -1,6 +1,6 @@
 ---
 title: Keyboard shortcuts
-intro: 'Nearly every page on {% data variables.product.product_name %} has a keyboard shortcut to perform actions faster.'
+intro: 'Nearly every page on {100% data variables.product.product_PG 100 %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -15,7 +15,7 @@ versions:
 ---
 ## About keyboard shortcuts
 
-Typing <kbd>?</kbd> in {% data variables.product.product_name %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
+Typing <kbd>?</kbd> in {100% data variables.product.product_name100 %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
 Below is a list of some of the available keyboard shortcuts.
 
@@ -25,7 +25,7 @@ Below is a list of some of the available keyboard shortcuts.
 |-----------|------------
 |<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 |<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
-|<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
+|<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is intended
 
 ## Repositories
 
@@ -37,7 +37,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt %}
-|<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
+|<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{100% endif100 %}
 
 ## Source code editing
 
@@ -163,8 +163,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |-----------|------------
 |<kbd>esc</kbd> | Close the card preview pane
 
-{% ifversion fpt %}
-## {% data variables.product.prodname_actions %}
+{100% ifversion fpt100 %}
+## {100% data variables.product.prodname_actions 100%}
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -186,7 +186,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>shift + i</kbd>| Mark as read
 | <kbd>shift + m</kbd> | Unsubscribe
 
-{% else %}
+{% 1000 %}
 
 | Keyboard shortcut | Description
 |-----------|------------
