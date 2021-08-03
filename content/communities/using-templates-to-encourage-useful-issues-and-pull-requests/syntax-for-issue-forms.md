@@ -16,9 +16,7 @@ You can create custom issue forms by adding a YAML form definition file to the `
 
 When a contributor fills out an issue form, their responses for each input are converted to markdown and added to the body of an issue. Contributors can edit their issues that were created with issue forms and other people can interact with the issues like an issue created through other methods.
 
-{% note %}
-**Note:** Issue forms are not supported for pull requests. Only traditional [pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository) can be used for pull requests.
-{% endnote %}
+Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. For more information, see "[Creating a pull request template for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."
 
 This example YAML configuration file defines an issue form using several inputs to report a bug.
 
