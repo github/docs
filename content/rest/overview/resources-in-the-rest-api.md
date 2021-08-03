@@ -297,7 +297,7 @@ gem:
     >> tmpl.expand :all => 1, :participating => 1
     => "/notifications?all=1&participating=1"
 
-[rfc]: http://tools.ietf.org/html/rfc6570
+[rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
 ## Pagination
@@ -329,7 +329,7 @@ For more information on pagination, check out our guide on [Traversing with Pagi
 
 {% endnote %}
 
-The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information. For example:
+The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. For example:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
@@ -340,7 +340,7 @@ Or, if the endpoint uses cursor-based pagination:
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
 
 The possible `rel` values are:
 
