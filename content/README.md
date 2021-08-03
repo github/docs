@@ -108,7 +108,7 @@ See [`contributing/redirects`](contributing/redirects.md) for more info.
 
 ### `shortTitle`
 
-- Purpose: An abbreviated variant of the page title for use in breadcrumbs.
+- Purpose: An abbreviated variant of the page title for use in breadcrumbs and navigation elements.
 - Type: `String`
 - Optional. If omitted, `title` will be used.
 
