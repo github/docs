@@ -30489,6 +30489,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): UserConnection!
 
   """
+  Whether or not Auto-merge can be enabled on pull requests in this repository.
+  """
+  autoMergeAllowed: Boolean!
+
+  """
   A list of branch protection rules for this repository.
   """
   branchProtectionRules(
