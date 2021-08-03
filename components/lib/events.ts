@@ -99,6 +99,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
 
       // Preference information
       application_preference: Cookies.get('toolPreferred'),
+      color_mode_preference: getColorModePreference(),
     },
 
     ...props,
@@ -111,6 +112,23 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
   }
 
   return body
+}
+
+function getColorModePreference() {
+  // color mode is set as attributes on <body>, we'll use that information
+  // along with media query checking rather than parsing the cookie value
+  // set by github.com
+  let color_mode_preference = document.querySelector('body')?.dataset.colorMode
+
+  if (color_mode_preference === 'auto') {
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      color_mode_preference += ':light'
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      color_mode_preference += ':dark'
+    }
+  }
+
+  return color_mode_preference
 }
 
 function getPerformance() {
