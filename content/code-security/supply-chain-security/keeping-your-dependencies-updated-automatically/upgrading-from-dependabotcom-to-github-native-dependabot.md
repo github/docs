@@ -17,7 +17,7 @@ shortTitle: Dependabot.com upgrades
 
 Dependabot Preview has been shut down as of August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot.
 
-Open pull requests from Dependabot Preview will remain open, including the pull request to upgrade to GitHub-native Dependavot, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
+Open pull requests from Dependabot Preview will remain open, including the pull request to upgrade to GitHub-native Dependabot, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
 
 {% endwarning %}
 
