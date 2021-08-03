@@ -95,7 +95,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```
 2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
-    - To disable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
+    - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
     ```shell
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
