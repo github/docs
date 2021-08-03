@@ -89,17 +89,17 @@ describe('enterprise deprecation', () => {
 describe('deprecation banner', () => {
   test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner').length).toBe(1)
+    expect($('[data-testid=deprecation-banner]').length).toBe(1)
   })
 
   test('does not render a deprecation warning banner on other Enterprise versions', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-    expect($('.deprecation-banner').length).toBe(0)
+    expect($('[data-testid=deprecation-banner]').length).toBe(0)
   })
 
   test('deprecation warning banner includes a date', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner b').text().endsWith('discontinued on .')).toBe(false)
+    expect($('[data-testid=deprecation-banner] b').text().endsWith('discontinued on .')).toBe(false)
   })
 
   test('deprecation warning banner includes the right text depending on the date', async () => {
@@ -107,7 +107,7 @@ describe('deprecation banner', () => {
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'
       : 'will be discontinued'
-    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
+    expect($('[data-testid=deprecation-banner] b').text().includes(expectedString)).toBe(true)
   })
 })
 

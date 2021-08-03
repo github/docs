@@ -2,12 +2,11 @@ import { GetServerSideProps } from 'next'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
-import copyCode from 'javascripts/copy-code'
-import displayPlatformSpecificContent from 'javascripts/display-platform-specific-content'
-import displayToolSpecificContent from 'javascripts/display-tool-specific-content'
-import localization from 'javascripts/localization'
-import toggleImages from 'javascripts/toggle-images'
-import wrapCodeTerms from 'javascripts/wrap-code-terms'
+import copyCode from 'components/lib/copy-code'
+import displayPlatformSpecificContent from 'components/lib/display-platform-specific-content'
+import displayToolSpecificContent from 'components/lib/display-tool-specific-content'
+import localization from 'components/lib/localization'
+import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
 import {
   MainContextT,
@@ -64,7 +63,6 @@ const GlobalPage = ({
     displayPlatformSpecificContent()
     displayToolSpecificContent()
     localization()
-    toggleImages()
     wrapCodeTerms()
   }, [])
 

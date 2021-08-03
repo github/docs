@@ -5,8 +5,8 @@ import walk from 'walk-sync'
 import { zip, groupBy } from 'lodash-es'
 import yaml from 'js-yaml'
 import revalidator from 'revalidator'
-import generateMarkdownAST from 'mdast-util-from-markdown'
-import visit from 'unist-util-visit'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import { visit } from 'unist-util-visit'
 import readFileAsync from '../../lib/readfile-async.js'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
@@ -376,7 +376,7 @@ describe('lint markdown content', () => {
       content = bodyContent
       frontmatterErrors = errors
       frontmatterData = data
-      ast = generateMarkdownAST(content)
+      ast = fromMarkdown(content)
       isHidden = data.hidden === true
       isEarlyAccess = markdownRelPath.split('/').includes('early-access')
       isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')

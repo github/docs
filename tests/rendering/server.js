@@ -673,7 +673,7 @@ describe('server', () => {
 
     test('category page renders with TOC', async () => {
       const $ = await getDOM('/en/github/managing-large-files')
-      expect($('.list-style-inside ul li a').length).toBeGreaterThan(5)
+      expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
     })
 
     test('map topic renders with h2 links to articles', async () => {

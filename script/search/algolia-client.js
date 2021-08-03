@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import xDotenv from 'dotenv'
+import dotenv from 'dotenv'
 import algoliasearch from 'algoliasearch'
-xDotenv.config()
+dotenv.config()
 
 const { ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY } = process.env
 

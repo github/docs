@@ -139,10 +139,10 @@ shortTitle: Contributing to projects
 
 ### `layout`
 
-- Purpose: Wrap the page in a custom HTML layout.
-- Type: `String` that matches the name of the layout file, without an extension.
-For a layout named `layouts/article.html`, the value would be `article`.
-- Optional. If omitted, `layouts/default.html` is used.
+- Purpose: Render the proper page layout.
+- Type: `String` that matches the name of the layout.
+For a layout named `components/landing`, the value would be `product-landing`.
+- Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`
 
@@ -192,7 +192,7 @@ featuredLinks:
 
 ### `changelog`
 
-- Purpose: Render a list of items pulled from [GitHub Changelog](https://github.blog/changelog/) on product landing pages (ex: `layouts/product-landing.html`). The one exception is Education, which pulls from https://github.blog/category/community/education.
+- Purpose: Render a list of items pulled from [GitHub Changelog](https://github.blog/changelog/) on product landing pages (ex: `components/landing`). The one exception is Education, which pulls from https://github.blog/category/community/education.
 - Type: `Object`, properties:
   - `label` -- must be present and corresponds to the labels used in the [GitHub Changelog](https://github.blog/changelog/)
   - `prefix` -- optional string that starts each changelog title that should be omitted in the docs feed. For example, with the prefix `GitHub Actions: ` specified, changelog titles like `GitHub Actions: Some Title Here` will render as `Some Title Here` in the docs feed).

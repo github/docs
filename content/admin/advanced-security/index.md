@@ -11,7 +11,6 @@ versions:
 topics:
   - Enterprise
 children:
-  - /about-licensing-for-github-advanced-security
   - /enabling-github-advanced-security-for-your-enterprise
   - /configuring-code-scanning-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance

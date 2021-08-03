@@ -61,7 +61,9 @@ By default, any code scanning results with a security severity of `Critical` or 
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
-You need write permission to view a summary of all the alerts for a repository on the **Security** tab. By default, alerts are shown for the default branch.
+You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
+
+By default, the code scanning alerts page is filtered to show alerts for the default branch of the repository only.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

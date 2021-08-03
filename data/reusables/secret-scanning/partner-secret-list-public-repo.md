@@ -15,6 +15,8 @@ Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
+Checkout.com | Checkout.com Production Secret Key
+Checkout.com | Checkout.com Test Secret Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Databricks | Databricks Access Token

@@ -17337,6 +17337,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -33656,6 +33666,76 @@
           "href": "/graphql/reference/objects#organizationidentityprovider"
         },
         {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsActivities",
           "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
           "type": "SponsorsActivityConnection!",
@@ -34328,6 +34408,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             }
           ]
@@ -42303,6 +42393,56 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "mentions",
+          "description": "<p>A list of users mentioned in the release description.</p>",
+          "type": "UserConnection",
+          "id": "userconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "name",
           "description": "<p>The title of the release.</p>",
           "type": "String",
@@ -46981,6 +47121,14 @@
           ]
         },
         {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRules",
           "description": "<p>A list of branch protection rules for this repository.</p>",
           "type": "BranchProtectionRuleConnection!",
@@ -50396,7 +50544,7 @@
       "kind": "objects",
       "id": "repositoryvulnerabilityalert",
       "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
-      "description": "<p>A alert for a repository with an affected vulnerability.</p>",
+      "description": "<p>A Dependabot alert for a repository with a dependency affected by a security vulnerability.</p>",
       "implements": [
         {
           "name": "Node",
@@ -51921,6 +52069,72 @@
       ]
     },
     {
+      "name": "SponsorConnection",
+      "kind": "objects",
+      "id": "sponsorconnection",
+      "href": "/graphql/reference/objects#sponsorconnection",
+      "description": "<p>The connection type for Sponsor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorEdge]",
+          "id": "sponsoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Sponsor]",
+          "id": "sponsor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SponsorEdge",
+      "kind": "objects",
+      "id": "sponsoredge",
+      "href": "/graphql/reference/objects#sponsoredge",
+      "description": "<p>Represents a user or organization who is sponsoring someone in GitHub Sponsors.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsor"
+        }
+      ]
+    },
+    {
       "name": "SponsorableItemConnection",
       "kind": "objects",
       "id": "sponsorableitemconnection",
@@ -52212,12 +52426,28 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "isPublic",
+          "description": "<p>Whether this listing is publicly visible.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "name",
           "description": "<p>The listing's full name.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "nextPayoutDate",
+          "description": "<p>A future date on which this listing is eligible to receive a payout.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
         },
         {
           "name": "shortDescription",
@@ -52234,6 +52464,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The entity this listing represents who can be sponsored on GitHub Sponsors.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#sponsorable"
         },
         {
           "name": "tiers",
@@ -59364,6 +59602,76 @@
           ]
         },
         {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsActivities",
           "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
           "type": "SponsorsActivityConnection!",
@@ -63037,6 +63345,76 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorsActivities",
@@ -66784,6 +67162,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order vulnerability by update time.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorOrderField",
+      "kind": "enums",
+      "id": "sponsororderfield",
+      "href": "/graphql/reference/enums#sponsororderfield",
+      "description": "<p>Properties by which sponsor connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "LOGIN",
+          "description": "<p>Order sponsorable entities by login (username).</p>"
+        },
+        {
+          "name": "RELEVANCE",
+          "description": "<p>Order sponsors by their relevance to the viewer.</p>"
         }
       ]
     },
@@ -74656,6 +75051,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "SponsorOrder",
+      "kind": "inputObjects",
+      "id": "sponsororder",
+      "href": "/graphql/reference/input-objects#sponsororder",
+      "description": "<p>Ordering options for connections to get sponsor entities for GitHub Sponsors.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsor entities by.</p>",
+          "type": "SponsorOrderField!",
+          "id": "sponsororderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsororderfield"
         }
       ]
     },

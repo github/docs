@@ -5,12 +5,11 @@ import loadSiteData from '../../lib/site-data.js'
 import { loadPages } from '../../lib/page-data.js'
 import getDataReferences from '../../lib/get-liquid-data-references.js'
 import frontmatter from '../../lib/read-frontmatter.js'
-import xFs from 'fs'
+import fs from 'fs/promises'
 import readFileAsync from '../../lib/readfile-async.js'
 import { jest } from '@jest/globals'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const fs = xFs.promises
 
 describe('data references', () => {
   jest.setTimeout(60 * 1000)

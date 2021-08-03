@@ -4,7 +4,7 @@ intro: 'You can add a CITATION file to your repository to help users correctly c
 versions:
   fpt: '*'
   ghes: '>=3.3'
-  ghae: '>=M3'
+  ghae: 'issue-4651'
 topics:
   - Repositories
 ---

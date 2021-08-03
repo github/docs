@@ -1,7 +1,7 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 const gitignorePath = path.join(process.cwd(), '.gitignore')
-const gitignore = fs.readFileSync(gitignorePath, 'utf8')
+const gitignore = await fs.readFile(gitignorePath, 'utf8')
 const entries = gitignore.split(/\r?\n/)
 
 describe('.gitignore file', () => {

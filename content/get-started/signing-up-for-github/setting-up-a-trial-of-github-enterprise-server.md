@@ -27,7 +27,7 @@ Trials are also available for {% data variables.product.prodname_ghe_cloud %}. F
 
 {% data variables.product.prodname_ghe_server %} is installed as a virtual appliance. Determine the best person in your organization to set up a virtual machine, and ask that person to submit a [trial request](https://enterprise.github.com/trial). You can begin your trial immediately after submitting a request.
 
-To set up an account for the {% data variables.product.prodname_enterprise %} Web portal, click the link in the email you received after submitting your trial request, and follow the prompts. Then, download your license file. For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/admin/installation/managing-your-github-enterprise-license)."
+To set up an account for the {% data variables.product.prodname_enterprise %} Web portal, click the link in the email you received after submitting your trial request, and follow the prompts. Then, download your license file. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 To install {% data variables.product.prodname_ghe_server %}, download the necessary components and upload your license file. For more information, see the instructions for your chosen visualization platform in "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
