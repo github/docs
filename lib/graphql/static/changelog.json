@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `autoMergeAllowed` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `SponsorConnection` was added",
           "Type `SponsorEdge` was added",
           "Type `SponsorOrder` was added",
