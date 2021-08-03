@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 {% data reusables.sponsors.sponsorship-details %}
@@ -17,5 +17,5 @@ topics:
 
 ### Дополнительная литература
 
-- "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)"
-- "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"
+- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"

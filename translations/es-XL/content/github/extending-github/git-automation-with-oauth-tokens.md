@@ -8,6 +8,7 @@ intro: 'Puedes utilizar tokens de OAuth para interactuar con {% data variables.p
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Paso 1: Obtener un token de OAuth

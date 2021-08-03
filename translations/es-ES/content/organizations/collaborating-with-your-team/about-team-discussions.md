@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -43,7 +43,7 @@ Para obtener más información, consulta las secciones{% if currentVersion == "f
 
 ### Leer más
 
-- "[Acerca de las conversaciones en {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
+- "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Crear un debate de equipo](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
 - "[Editar o eliminar un debate de equipo](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

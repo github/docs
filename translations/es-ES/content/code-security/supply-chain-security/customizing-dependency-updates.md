@@ -1,13 +1,13 @@
 ---
 title: Personalizar las actualizaciones de las dependencias
 intro: 'Puedes personalizar cómo el {% data variables.product.prodname_dependabot %} mantiene tus dependencias.'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar el {% data variables.product.prodname_dependabot %} para el mismo.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de personalizar las actualizaciones de las dependencias

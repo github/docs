@@ -23,7 +23,7 @@ To create a heading, add one to six `#` symbols before your heading text. The nu
 
 ### Styling text
 
-You can indicate emphasis with bold, italic, or strikethrough text.
+You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.
 
 | Style                  | Syntax             | Keyboard shortcut   | 예시                                       | Output                                 |
 | ---------------------- | ------------------ | ------------------- | ---------------------------------------- | -------------------------------------- |
@@ -204,6 +204,10 @@ To see content attachments, you must have a {% data variables.product.prodname_g
 Content attachments will not be displayed for URLs that are part of a markdown link.
 
 For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
+
+### Uploading assets
+
+You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
 
 ### Using emoji
 

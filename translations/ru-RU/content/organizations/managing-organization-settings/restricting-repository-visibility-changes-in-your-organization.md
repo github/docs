@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
@@ -22,9 +22,8 @@ You can restrict the ability to change repository visibility to organization own
 {% endwarning %}
 
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Repository visibility change", deselect **Allow members to change repository visibilities for this organization**. ![Checkbox to allow members to change repository visibility](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Click **Save**.

@@ -8,8 +8,13 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### About Transport Layer Security

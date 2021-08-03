@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Deseamos mantener a GitHub seguro para todos. Si has descubierto una vulnerabilidad de seguridad en GitHub, apreciamos tu ayuda para revelárnosla de manera responsable.

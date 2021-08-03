@@ -8,8 +8,8 @@ permissions: Organization owners can configure SAML SSO and SCIM using Okta for 
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About SAML and SCIM with Okta

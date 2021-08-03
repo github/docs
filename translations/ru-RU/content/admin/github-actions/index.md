@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -29,7 +29,7 @@ topics:
 {% link_in_list /enforcing-github-actions-policies-for-your-enterprise %}
 
 {% topic_link_in_list /managing-access-to-actions-from-githubcom %}
-  {% link_in_list /about-using-actions-on-github-enterprise-server %}
+  {% link_in_list /about-using-actions-in-your-enterprise %}
   {% link_in_list /enabling-automatic-access-to-githubcom-actions-using-github-connect %}
   {% link_in_list /manually-syncing-actions-from-githubcom %}
   {% link_in_list /using-the-latest-version-of-the-official-bundled-actions %}

@@ -23,3 +23,4 @@ sections:
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - ノートブックに非ASCIIのUTF-8文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。
     - Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。
+    - Pull Requestをマージした後にブランチを削除すると、ブランチの削除は成功しているにもかかわらずエラーメッセージが表示されます。

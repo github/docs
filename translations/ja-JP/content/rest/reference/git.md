@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 Git Database APIでは、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりすることができます。 Git Database API の使用方法の詳細については、「[Git データ API の概要](/rest/guides/getting-started-with-the-git-database-api)」を参照してください。
@@ -19,7 +19,7 @@ Git Database APIでは、{% data variables.product.product_name %}上のGitデ�
 
 ## Blob
 
-Git blob (バイナリラージオブジェクト) は、各ファイルのコンテンツをリポジトリに保存する際に使用されるオブジェクトタイプです。 ファイルの SHA-1 ハッシュが計算され、blob オブジェクトに保存されます。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [blob オブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)の読み書きができます。 blob は[これらのカスタムメディアタイプ](#custom-media-types)を利用します。 API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
+Git blob (バイナリラージオブジェクト) は、各ファイルのコンテンツをリポジトリに保存する際に使用されるオブジェクトタイプです。 ファイルの SHA-1 ハッシュが計算され、blob オブジェクトに保存されます。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [blob オブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)の読み書きができます。 blob は[これらのカスタムメディアタイプ](#custom-media-types-for-blobs)を利用します。 API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
 
 ### Blob のカスタムメディアタイプ
 

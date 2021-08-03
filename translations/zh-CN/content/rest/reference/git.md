@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 Git 数据库 API 使您能够在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入原始 Git 对象，并列出和更新您的引用（分支头部和标记）。 有关使用 Git 数据库 API 的更多信息，请参阅“[Git 数据库 API 入门指南](/rest/guides/getting-started-with-the-git-database-api)”。
@@ -19,7 +19,7 @@ Git 数据库 API 使您能够在 {% data variables.product.product_name %} 上�
 
 ## Blob
 
-Git Blob（二进制大对象）是用于将每个文件的内容存储在仓库中的对象类型。 文件的 SHA-1 哈希在 Blob 对象中计算和存储。 这些端点允许您在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入 [blob 对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)。 Blob 使用[这些自定义媒体类型](#custom-media-types)。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
+Git Blob（二进制大对象）是用于将每个文件的内容存储在仓库中的对象类型。 文件的 SHA-1 哈希在 Blob 对象中计算和存储。 这些端点允许您在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入 [blob 对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)。 Blob 使用[这些自定义媒体类型](#custom-media-types-for-blobs)。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
 ### Blob 的自定义媒体类型
 

@@ -1,7 +1,7 @@
 ---
 title: リポジトリ内のディスカッションのカテゴリを管理する
 intro: リポジトリ内のディスカッションを分類して、コミュニティメンバーの会話を整理したり、カテゴリごとに形式を選択したりすることができます。
-permissions: リポジトリ管理者およびリポジトリへの書き込み以上のアクセス権を持つユーザは、リポジトリ内でのディスカッションを有効にすることができます。
+permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

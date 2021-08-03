@@ -1,15 +1,15 @@
 ---
 title: Mover las propuestas asignadas en los tableros de proyecto
-intro: Puedes utilizar las {% data variables.product.prodname_actions %} para mover automáticamente una propuesta a una columna específica en un tablero de proyecto cuando se asigna la propuesta.
+intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para mover automáticamente una propuesta a una columna específica en un tablero de proyecto cuando se asigna la propuesta.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

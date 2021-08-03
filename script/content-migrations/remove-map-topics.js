@@ -3,9 +3,10 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
+const stripHtmlComments = require('strip-html-comments')
 const languages = require('../../lib/languages')
 const frontmatter = require('../../lib/read-frontmatter')
-const addRedirectToFrontmatter = require('../../lib/redirects/add-redirect-to-frontmatter')
+const addRedirectToFrontmatter = require('../helpers/add-redirect-to-frontmatter')
 
 const relativeRefRegex = /\/[a-zA-Z0-9-]+/g
 const linkString = /{% [^}]*?link.*? \/(.*?) ?%}/m
@@ -25,6 +26,10 @@ const categoryIndexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(full
 
 categoryIndexFiles.forEach(categoryIndexFile => {
   let categoryIndexContent = fs.readFileSync(categoryIndexFile, 'utf8')
+
+  if (categoryIndexFile.endsWith('github/getting-started-with-github/index.md')) {
+    categoryIndexContent = stripHtmlComments(categoryIndexContent.replace(/\n<!--/g, '<!--'))
+  }
 
   // find array of TOC link strings
   const rawItems = categoryIndexContent.match(linksArray)
@@ -79,7 +84,9 @@ categoryIndexFiles.forEach(categoryIndexFile => {
 
       // Read the article file so we can add a redirect from its old path
       const articleContents = frontmatter(fs.readFileSync(newArticlePath, 'utf8'))
-      addRedirectToFrontmatter(articleContents.data.redirect_from, `${oldTopicDirectory}/${article}`)
+
+      if (!articleContents.data.redirect_from) articleContents.data.redirect_from = []
+      addRedirectToFrontmatter(articleContents.data.redirect_from, `${oldTopicDirectory.replace(/^.*?\/content\//, '/')}/${article}`)
 
       // Write the article with updated frontmatter
       fs.writeFileSync(newArticlePath, frontmatter.stringify(articleContents.content.trim(), articleContents.data, { lineWidth: 10000 }))

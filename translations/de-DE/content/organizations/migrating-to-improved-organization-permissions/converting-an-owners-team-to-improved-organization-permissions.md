@@ -10,8 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:

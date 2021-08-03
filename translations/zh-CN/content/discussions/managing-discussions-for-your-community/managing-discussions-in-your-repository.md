@@ -1,7 +1,7 @@
 ---
 title: 管理仓库中的讨论
 intro: 您可以对仓库中的讨论进行分类、聚焦、转让或删除。
-permissions: 仓库管理员以及对仓库具有写入或更大访问权限的人员可以管理仓库中的讨论。
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

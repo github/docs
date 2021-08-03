@@ -9,13 +9,13 @@ redirect_from:
   - /articles/unpublishing-a-github-pages-site
   - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
-permissions: '拥有仓库管理员或维护员权限的人可取消发布 {% data variables.product.prodname_pages %} 站点。'
+permissions: 'People with admin or maintainer permissions for a repository can unpublish a {% data variables.product.prodname_pages %} site.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 ### 取消发布项目站点

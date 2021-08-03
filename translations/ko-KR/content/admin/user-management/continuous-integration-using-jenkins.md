@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/user-management/continuous-integration-using-jenkins
 versions:
   enterprise-server: '*'
+type: reference
 topics:
-  - 엔터프라이즈
+  - CI
+  - Enterprise
 ---
 
 ### 요구 사항

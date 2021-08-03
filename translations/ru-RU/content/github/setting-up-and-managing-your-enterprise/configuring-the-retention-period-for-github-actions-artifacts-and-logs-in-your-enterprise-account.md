@@ -10,7 +10,7 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

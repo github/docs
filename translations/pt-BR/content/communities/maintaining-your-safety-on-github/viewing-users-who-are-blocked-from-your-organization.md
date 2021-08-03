@@ -7,12 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. Em "Blocked users" (Usuários bloqueados), revise a lista de usuários que estão bloqueados da organização. ![Lista de usuários bloqueados](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 

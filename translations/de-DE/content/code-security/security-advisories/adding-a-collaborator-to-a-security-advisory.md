@@ -1,6 +1,6 @@
 ---
 title: Einen Mitarbeiter zu einem Sicherheitshinweis hinzufügen
-intro: Du kannst andere Benutzer oder Teams hinzufügen, damit sie mit Dir an einem Sicherheitshinweis zusammenarbeiten.
+intro: 'Du kannst andere Benutzer oder Teams hinzufügen, damit sie mit Dir an einem Sicherheitshinweis zusammenarbeiten.'
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - sicherheit
+  - Security
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können Mitarbeiter zu Sicherheitshinweisen hinzufügen.

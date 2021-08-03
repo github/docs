@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 Si publicas una asesoría de seguridad por error, puedes retirarla contactando a {% data variables.contact.contact_support %}.

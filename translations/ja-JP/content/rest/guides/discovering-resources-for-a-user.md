@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
  
@@ -24,7 +24,7 @@ topics:
 
 ### アプリケーションでアクセス可能なユーザのリポジトリを調べる
 
-ユーザは、個人でリポジトリを所有する他に、別のユーザやOrganizationが所有するリポジトリのコラボレータであることもあります。 Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's a {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} repository where the user has write access.
+ユーザは、個人でリポジトリを所有する他に、別のユーザやOrganizationが所有するリポジトリのコラボレータであることもあります。 まとめると、ユーザが権限を持ってアクセスできるリポジトリがあります。それはユーザが読み取りあるいは書き込みアクセスを持つプライベートリポジトリであったり、ユーザが書き込み権限を持つ{% if currentVersion != "github-ae@latest" %}パブリック{% else %}インターナル{% endif %}リポジトリであったりします。
 
 アプリがユーザのどのリポジトリにアクセスできるかを決めるのは、[OAuthスコープ][scopes]および[Organizationのアプリケーションポリシー][oap]です。 以下のワークフローを使用して、これらのリポジトリを調べます。
 
@@ -89,11 +89,11 @@ client.organizations.each do |organization|
 end
 ```
 
-#### Return all of the user's organization memberships
+#### ユーザのすべてのOrganizationメンバーシップを返す
 
 このドキュメントを端から端まで読んだ方は、[ユーザのパブリックなOrganizationに属するメンバーを取得するAPIメソッド][list-public-orgs]に気付いたかもしれません。 ほとんどのアプリケーションでは、このAPIメソッドを避けるべきです。 このメソッドは、ユーザのパブリックなOrganizationに属するメンバーだけを返し、プライベートなOrganizationに属するメンバーは返しません。
 
-As an application, you typically want all of the user's organizations that your app is authorized to access. 上記のワークフローでは、まさにこれを実行しています。
+アプリケーションでは通常、アクセスを認可されたすべてのユーザのOrganizationが求められます。 上記のワークフローでは、まさにこれを実行しています。
 
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user

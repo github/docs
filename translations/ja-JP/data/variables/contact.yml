@@ -1,15 +1,15 @@
 ---
 contact_ent_support: '[GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) または [GitHub Premium Support](https://premium.githubsupport.com)'
 contact_support: >-
-  {% if currentVersion == "free-pro-team@latest" %}[GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com){% else %}your site administrator{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[GitHub Support](https://support.github.com/contact)あるいは [GitHub Premium Support](https://premium.githubsupport.com){% else %}サイト管理者{% endif %}
 report_abuse: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Report abuse](https://github.com/contact/report-abuse){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[不正利用の報告](https://github.com/contact/report-abuse){% endif %}
 report_content: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Report content](https://github.com/contact/report-content){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[コンテンツを報告](https://github.com/contact/report-content){% endif %}
 contact_dmca: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Copyright claims form](https://github.com/contact/dmca){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[著作権侵害の申し立て](https://github.com/contact/dmca){% endif %}
 contact_privacy: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[プライバシーに関する連絡フォーム](https://github.com/contact/privacy){% endif %}
 contact_enterprise_sales: "[GitHubの営業チーム](https://enterprise.github.com/contact)"
 contact_feedback_actions: '[GitHub Actionsのフィードバックフォーム](https://support.github.com/contact/feedback?contact[category]=actions)'
 #The team that provides Standard Support
@@ -22,8 +22,8 @@ premium_support: 'GitHub Premium Support'
 enterprise_portal: 'GitHub Enterprise Supportポータル'
 contact_enterprise_portal: '[GitHub Enterprise Supportポータル](https://enterprise.githubsupport.com/hc/en-us)'
 #Azure support (GitHub AE) portal
-ae_azure_portal: 'Azure Support portal'
-contact_ae_portal: '[Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
+ae_azure_portal: 'Azureサポートポータル'
+contact_ae_portal: '[Azureサポートポータル](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
 #GitHub Support portal (for dotcom - this sends users to a contact form)
 support_portal: 'GitHub Support ページ'
 contact_support_portal: '[GitHub Support ページ](https://support.github.com/contact)'

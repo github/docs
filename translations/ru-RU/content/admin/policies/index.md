@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 
@@ -16,6 +16,7 @@ topics:
 
 {% topic_link_in_list /enforcing-policies-for-your-enterprise %}
     {% link_in_list /enforcing-repository-management-policies-in-your-enterprise %}
+    {% link_in_list /restricting-email-notifications-for-your-enterprise %}
     {% link_in_list /enforcing-policies-for-advanced-security-in-your-enterprise %}
 {% topic_link_in_list /enforcing-policy-with-pre-receive-hooks %}
     {% link_in_list /about-pre-receive-hooks %}

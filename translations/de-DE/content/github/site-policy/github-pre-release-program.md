@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Vielen Dank, dass Sie sich für die Teilnahme an GitHub-Pre-Release-Programm angemeldet haben!  Als vertrauenswürdiges Mitglied unserer Community ist uns Ihr Feedback zu neuen und experimentellen Funktionen sehr wichtig.  Um diese neuen Produkte und Dienstleistungen mit Ihnen teilen zu können – von denen viele noch geheim sind und sich in der Entwicklung befinden – müssen Sie sich mit speziellen Bedingungen einverstanden erklären. Willkommen bei der Vereinbarung über das Pre-Release Programm ("Vereinbarung").

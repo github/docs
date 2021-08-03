@@ -1,6 +1,6 @@
 ---
 title: メール通知を承認済みドメインに制限する
-intro: 'Organization の情報が個人アカウントに漏れるのを防ぐために、Organization のオーナーは Organization アクティビティに関するメール通知を検証済みドメインに制限できます。'
+intro: Organization の情報が個人アカウントに漏れるのを防ぐために、Organization のオーナーは Organization アクティビティに関するメール通知を検証済みドメインに制限できます。
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain/
@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### メールの制限について

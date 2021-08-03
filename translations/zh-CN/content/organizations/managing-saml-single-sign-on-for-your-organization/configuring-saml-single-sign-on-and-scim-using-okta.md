@@ -4,12 +4,12 @@ intro: '您可以使用安全声明标记语言 (SAML) 单点登录 (SSO) 和跨
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: 组织所有者可以使用 Okta 为组织配置 SAML SSO 和 SCIM。
+permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 关于 SAML 和 SCIM 与 Octa

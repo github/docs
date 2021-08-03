@@ -1,6 +1,6 @@
 ---
 title: Início rápido para educadores do GitHub
-intro: Em cerca de 15 minutos, os professores podem começar com descontos, treinamentos e ferramentas para {% data variables.product.company_short %} e, em seguida, criar uma sala de aula para os alunos em um curso de desenvolvimento de software usando {% data variables.product.prodname_classroom %}.
+intro: 'Em cerca de 15 minutos, os professores podem começar com descontos, treinamentos e ferramentas para {% data variables.product.company_short %} e, em seguida, criar uma sala de aula para os alunos em um curso de desenvolvimento de software usando {% data variables.product.prodname_classroom %}.'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'

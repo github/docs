@@ -1,13 +1,13 @@
 ---
 title: 关于 GitHub Enterprise Cloud 的 GitHub 高级支持
-intro: '{% data variables.contact.premium_support %} 是向 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_one %} 客户提供的一种付费、补充支持服务。'
+intro: '{% data variables.contact.premium_support %} 是向 {% data variables.product.prodname_ghe_cloud %} 客户提供的一种付费、补充服务。'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 {% note %}

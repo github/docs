@@ -6,8 +6,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - webhooks
-  - 이벤트
+  - Webhooks
+  - Events
 ---
 
 ### Table of Contents

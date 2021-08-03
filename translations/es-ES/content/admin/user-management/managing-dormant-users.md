@@ -9,8 +9,11 @@ intro: 'Se considera una cuenta de usuario como durmiente si no ha tenido activi
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Accounts
+  - Enterprise
+  - Licensing
 ---
 
 "Actividad" incluye, entre otros:

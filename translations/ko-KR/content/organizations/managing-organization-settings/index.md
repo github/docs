@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
-{% link_in_list /verifying-your-organizations-domain %}
+{% link_in_list /verifying-or-approving-a-domain-for-your-organization %}
 {% link_in_list /renaming-an-organization %}
 {% link_in_list /transferring-organization-ownership %}
 {% link_in_list /restricting-repository-creation-in-your-organization %}

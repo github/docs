@@ -1,13 +1,13 @@
 ---
 title: Abrir un informe de problemas desde un comentario
 intro: Puedes abrir un nuevo informe de problemas desde un comentario específico en un informe de problemas o solicitud de extracción.
-permissions: Las personas con permisos de lectura pueden crear una propuesta en un repositorio en donde las propuestas se hayan habilitado.
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Cuando abres un informe de problemas desde un comentario, este informe contiene un fragmento de código que muestra en dónde se hizo el comentario originalmente.

@@ -1,6 +1,6 @@
 ---
 title: Crear una tarea de grupo
-intro: 'Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.'
+intro: Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -17,7 +17,7 @@ Cuando un alumno acepta una tarea grupal, los alumnos pueden crear un equipo nue
 
 {% data reusables.classroom.about-assignments %}
 
-Puedes decidir cuántos equipos puede tener una tarea y cuántos miembros puede tener cada equipo. Cada equipo que crea un alumno para una tarea constituye un equipo dentro de tu organización en {% data variables.product.product_name %}. La visibilidad del equipo es secreta. Los equipos que crees en {% data variables.product.product_name %} no aparecerán en {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+Puedes decidir cuántos equipos puede tener una tarea y cuántos miembros puede tener cada equipo. Cada equipo que crea un alumno para una tarea constituye un equipo dentro de tu organización en {% data variables.product.product_name %}. La visibilidad del equipo es secreta. Los equipos que crees en {% data variables.product.product_name %} no aparecerán en {% data variables.product.prodname_classroom %}. Para obtener más información, consulta la sección "[Acerca de los equipos](/organizations/organizing-members-into-teams/about-teams)".
 
 Para ver un video demostrativo de la creación de una tarea de grupo, consulta la sección "[Conceptos básicos para configurar un {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 

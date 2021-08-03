@@ -12,7 +12,7 @@ require('make-promises-safe')
 main()
 
 async function main () {
-  const sync = require('../lib/search/sync')
+  const sync = require('./search/sync')
   const opts = {
     dryRun: 'DRY_RUN' in process.env,
     language: process.env.LANGUAGE,

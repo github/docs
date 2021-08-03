@@ -1,7 +1,7 @@
 ---
 title: Basics of setting up GitHub Classroom
 shortTitle: '{% data variables.product.prodname_classroom %} basics'
-intro: Learn how to set up your classroom, manage assignments, and configure time-saving automation.
+intro: 'Learn how to set up your classroom, manage assignments, and configure time-saving automation.'
 versions:
   free-pro-team: '*'
 ---

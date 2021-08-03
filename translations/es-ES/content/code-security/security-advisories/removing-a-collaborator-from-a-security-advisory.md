@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 Las personas con permisos administrativos en una asesoría de seguridad pueden eliminar a los colaboradores de la misma.

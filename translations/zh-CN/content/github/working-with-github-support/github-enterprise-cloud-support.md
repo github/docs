@@ -8,7 +8,7 @@ intro: '{% data variables.product.prodname_ghe_cloud %} 在您当地时区的周
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 {% note %}

@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Ofrecemos este proceso de eliminación de información privada como un servicio excepcional únicamente para el contenido de alto riesgo que viola las [Condiciones de Servicio de GitHub](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions), tal como cuando tu seguridad está en riesgo debido a que se expusieron tus credenciales de acceso. Esta guía describe la información que GitHub necesita de ti para procesar una solicitud para eliminar la información privada de un repositorio.

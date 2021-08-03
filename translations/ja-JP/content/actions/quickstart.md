@@ -8,9 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'quick_start'
+type: quick_start
 topics:
-  - '基本'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,7 +60,7 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 1. 左のサイドバーで、表示させたいワークフローをクリックしてください。
 
    ![左サイドバーのワークフローのリスト](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
-1. From the list of workflow runs, click the name of the run you want to see.
+1. ワークフローの実行リストから、表示させたい実行の名前をクリックしてください。
 
    ![ワークフローの実行の名前](/assets/images/help/repository/actions-quickstart-run-name.png)
 1. Under **Jobs** , click the **Explore-GitHub-Actions** job.

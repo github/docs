@@ -1,6 +1,6 @@
 ---
 title: Hacer cumplir políticas de administración de repositorios para las organizaciones en tu cuenta de empresa
-intro: 'Los propietarios de empresas pueden hacer cumplir determinadas políticas de administración de repositorios para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.'
+intro: Los propietarios de empresas pueden hacer cumplir determinadas políticas de administración de repositorios para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/articles/permission-levels-for-an-organization)".

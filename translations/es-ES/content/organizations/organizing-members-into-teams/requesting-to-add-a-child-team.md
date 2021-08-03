@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Cuando solicitas agregar un equipo como hijo, se envía una solicitud a los mantenedores del equipo hijo. Una vez que un mantenedor del equipo hijo aprueba tu solicitud, el equipo hijo se anida en el equipo padre de la jerarquía de tu organización.

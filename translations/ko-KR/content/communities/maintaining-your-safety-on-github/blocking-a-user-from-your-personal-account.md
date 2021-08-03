@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 커뮤니티
+  - Community
 ---
 
 ### About blocking users

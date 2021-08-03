@@ -1,7 +1,7 @@
 ---
 title: アクションの検索とカスタマイズ
 shortTitle: アクションの検索とカスタマイズ
-intro: 'アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。'
+intro: アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -11,9 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - '基本'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

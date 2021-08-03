@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Organization のオーナーは、Organization の元メンバーを元に戻すことができます。
+permissions: Organization owners can reinstate a former member of an organization.
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### メンバーの復帰について

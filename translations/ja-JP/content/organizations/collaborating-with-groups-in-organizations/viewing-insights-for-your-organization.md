@@ -1,6 +1,6 @@
 ---
 title: Organization のインサイトを表示する
-intro: 'Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。'
+intro: Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization のメンバー全員が Organization のインサイトを表示できます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。

@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Im Newsfeed einer Organisation sind die neuesten Aktivitäten in Bezug auf die Repositorys dieser Organisation zu sehen. Über den Newsfeed Deiner Organisation kannst Du sehen, wann jemand einen Issue oder Pull Request öffnet, schließt oder zusammenführt, einen Branch erstellt oder löscht, einen Tag oder eine Veröffentlichung erstellt, Kommentare zu einem Issue, Pull Request oder Commit erstellt oder neue Commits an {% data variables.product.product_name %} freigibt.

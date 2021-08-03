@@ -13,8 +13,11 @@ redirect_from:
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Fundamentals
+  - SSH
 ---
 
 ### About administrative shell access

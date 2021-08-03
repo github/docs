@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### About {% data variables.product.prodname_actions %} permissions for your enterprise account
@@ -48,3 +48,19 @@ You can disable all workflows for an enterprise or set a policy that configures 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+
+### Setting the permissions of the `GITHUB_TOKEN` for your enterprise
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your enterprise, organizations, or repositories. If you choose the restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configuring the default `GITHUB_TOKEN` permissions
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope. ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. Click **Save** to apply the settings.

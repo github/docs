@@ -1,10 +1,9 @@
 ---
 title: Administrar organizaciones
 intro: 'Puedes administrar las organizaciones {% data variables.product.prodname_enterprise %} que están incluidas en las métricas.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-organizations
-permissions: 'Las personas con permisos de administrador en {% data variables.product.prodname_insights %} pueden administrar organizaciones.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'
 versions:
   enterprise-server: '*'
 ---

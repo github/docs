@@ -181,7 +181,7 @@
 - 
   term: 默认分支
   description: >-
-    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为"main"，并且通常是默认分支。
+    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
 - 
   term: 从属者图
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "main" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 默认开发分支。每当您创建 Git 仓库时，都会创建名为 `main` 的分支，它将成为活动分支。在大多数情况下，它包含本地开发内容，但这完全是就惯例而言，并不是必需的。{% else %}通常选择名称替代仓库默认分支的名称 `master`。{% endif %}
 - 
   term: master
   description: >-
-    许多 Git 存储库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。
+    许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
 - 
   term: 成员图
   description: 显示仓库所有分叉的仓库图。

@@ -1,13 +1,13 @@
 ---
 title: Habilitar e inhabilitar las actualizaciones de versión
 intro: 'Puedes configurar tu repositorio para que el {% data variables.product.prodname_dependabot %} actualice automáticamente los paquetes que utilizas.'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden habilitar o inhabilitar las {% data variables.product.prodname_dependabot_version_updates %} para el mismo.'
+permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -18,7 +18,7 @@ Habilitarás {% data variables.product.prodname_dependabot_version_updates %} me
 
 {% data reusables.dependabot.initial-updates %} Para obtener más información, consulta la sección "[Personalizar las actualizaciones de las dependencias](/github/administering-a-repository/customizing-dependency-updates)".
 
-{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, el {% data variables.product.prodname_dependabot %} no es compatible con dependencias privadas de {% data variables.product.prodname_dotcom %} para todos los administradores de paquetes. Para obtener más información, consulta la sección "[Acerca de las actualizaciones de versión del Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, el {% data variables.product.prodname_dependabot %} no es compatible con dependencias privadas de {% data variables.product.prodname_dotcom %} para todos los administradores de paquetes. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
 
 ### Habilitar las {% data variables.product.prodname_dependabot_version_updates %}
 

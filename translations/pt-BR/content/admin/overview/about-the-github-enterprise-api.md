@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Com as APIs, você pode automatizar muitas tarefas administrativas. Veja alguns exemplos:

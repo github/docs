@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 _These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._

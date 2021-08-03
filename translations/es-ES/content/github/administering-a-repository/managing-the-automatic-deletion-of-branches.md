@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Cualquier persona con permisos de administrador a un repositorio puede habilitar e inhabilitar la eliminación automática de ramas.

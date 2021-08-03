@@ -4,6 +4,8 @@ redirect_from:
   - /v3/interactions
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 Los usuarios interactuan con los repositorios al comentar, abrir informes de problemas y crear solicitudes de extracción. Las API de interacciones permiten a las personas con acceso adminsitrativo o de propietario resgringir temporalmente a usuarios específicos de la interacción con los repositorios públicos.

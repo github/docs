@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Clustering
+  - Enterprise
+  - Upgrades
 ---
 
 ### Upgrading with a hotpatch

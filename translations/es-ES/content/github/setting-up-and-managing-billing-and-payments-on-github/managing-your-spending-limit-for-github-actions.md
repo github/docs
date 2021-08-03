@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Acerca de los límites de gastos para {% data variables.product.prodname_actions %}
@@ -27,8 +27,8 @@ Ya que no has habilitado los excedentes, tu siguiente intento de crear un artefa
 Cualquiera puede administrar el límite de gastos de {% data variables.product.prodname_actions %} para su propia cuenta de usuario.
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -36,11 +36,10 @@ Cualquiera puede administrar el límite de gastos de {% data variables.product.p
 
 Los propietarios de las organizaciones pueden administrar el límite de gastos de {% data variables.product.prodname_actions %} para una organización.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -51,8 +50,8 @@ Los propietarios de la empresa y gerentes de facturación pueden administrar el 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Debajo de "
-uso mensual de Paquetes y {% data variables.product.prodname_actions %}", da clic en **Administración de costos**.
-  ![Pestaña de administración de costos](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Above "
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**.
+  ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

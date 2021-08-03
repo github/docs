@@ -1,0 +1,69 @@
+name: Copy to REST API issue to docs-content
+
+# **What it does**: Copies an issue in the open source repo to the docs-content repo, comments on and closes the original issue
+# **Why we have it**: REST API updates cannot be made in the open source repo. Instead, we copy the issue to an internal issue (we do not transfer so that the issue does not disappear for the contributor) and close the original issue.
+# **Who does it impact**: Open source and docs-content maintainers
+
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  transfer-issue:
+    name: Transfer issue
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'rest-description' && github.repository == 'github/docs'
+    steps:
+      - name: Check if this run was triggered by a member of the docs team
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        id: triggered-by-member
+        with:
+          github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          result-encoding: string
+          script: |
+            const triggerer_login = context.payload.sender.login
+            const teamMembers = await github.request(
+              `/orgs/github/teams/docs/members?per_page=100`
+            )
+            const logins = teamMembers.data.map(member => member.login)
+            if (logins.includes(triggerer_login)) {
+              console.log(`This workflow was triggered by ${triggerer_login} (on the docs team).`)
+              return 'true'
+            }
+            console.log(`This workflow was triggered by ${triggerer_login} (not on the docs team), so no action will be taken.`)
+            return 'false'
+
+      - name: Exit if not triggered by a docs team member
+        if: steps.triggered-by-member.outputs.result == 'false'
+        run: |
+          echo Aborting. This workflow must be triggered by a member of the docs team.
+          exit 1
+
+      - name: Create an issue in the docs-content repo
+        run: |
+          new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content)"
+          echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+
+      - name: Comment on the new issue
+        run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          NEW_ISSUE: ${{ env.NEW_ISSUE }}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}
+
+      - name: Comment on the old issue
+        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to the REST API description must be made internally. I have copied your issue to an internal issue, so I will close this issue."
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}
+
+      - name: Close the old issue
+        run: gh issue close $OLD_ISSUE
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}

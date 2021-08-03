@@ -1,6 +1,6 @@
 ---
 title: 查看组织的洞察
-intro: '组织洞察提供有关组织的活动、贡献和依赖项的数据。'
+intro: 组织洞察提供有关组织的活动、贡献和依赖项的数据。
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 组织的所有成员均可查看组织洞察。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。

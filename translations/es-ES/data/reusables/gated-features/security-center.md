@@ -1,4 +1,4 @@
 {% if currentVersion == "github-ae@latest" %}
-The security overview for your organization is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release.
+El resumen de seguridad de tu organización se encuentra disponible si tienes una licencia para la {% data variables.product.prodname_GH_advanced_security %}, la cual es gratuita durante el lanzamiento beta.
 {% else %}
-The security overview for your organization is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+El resumen de seguridad de tu organización se encuentra disponible si tienes una licencia para la {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}

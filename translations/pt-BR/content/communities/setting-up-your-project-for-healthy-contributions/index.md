@@ -1,7 +1,7 @@
 ---
 title: Configurar projeto para contribuições úteis
-shortTitle: Healthy contributions
-intro: 'Os mantenedores de repositório podem definir diretrizes de contribuição para ajudar os colaboradores a fazer contribuições relevantes e úteis a um projeto.'
+shortTitle: Contribuições saudáveis
+intro: Os mantenedores de repositório podem definir diretrizes de contribuição para ajudar os colaboradores a fazer contribuições relevantes e úteis a um projeto.
 redirect_from:
   - /articles/helping-people-contribute-to-your-project/
   - /articles/setting-up-your-project-for-healthy-contributions
@@ -11,15 +11,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
+children:
+  - /about-community-management-and-moderation
+  - /about-community-profiles-for-public-repositories
+  - /accessing-a-projects-community-profile
+  - /adding-a-code-of-conduct-to-your-project
+  - /setting-guidelines-for-repository-contributors
+  - /adding-a-license-to-a-repository
+  - /adding-support-resources-to-your-project
+  - /creating-a-default-community-health-file
+  - /encouraging-helpful-contributions-to-your-project-with-labels
 ---
 
-{% link_in_list /about-community-management-and-moderation %}
-{% link_in_list /about-community-profiles-for-public-repositories %}
-{% link_in_list /accessing-a-projects-community-profile %}
-{% link_in_list /adding-a-code-of-conduct-to-your-project %}
-{% link_in_list /setting-guidelines-for-repository-contributors %}
-{% link_in_list /adding-a-license-to-a-repository %}
-{% link_in_list /adding-support-resources-to-your-project %}
-{% link_in_list /creating-a-default-community-health-file %}
-{% link_in_list /encouraging-helpful-contributions-to-your-project-with-labels %}

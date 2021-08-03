@@ -66,7 +66,7 @@ Organizationからセルフホストランナーを削除するには、Organiza
 
 {% if currentVersion == "free-pro-team@latest" %}
 セルフホストランナーを Enterprise アカウントから削除するには、Enterprise のオーナーである必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"% or currentVersion == "github-ae@latest" }
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 セルフホストランナーを
 {% data variables.product.product_location %} の Enterprise レベルで削除するには、サイト管理者である必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
 {% endif %}

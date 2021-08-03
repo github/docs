@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}

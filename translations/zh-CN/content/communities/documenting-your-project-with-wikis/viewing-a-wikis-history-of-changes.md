@@ -1,6 +1,6 @@
 ---
 title: 查看 wiki 的更改历史记录
-intro: '由于 wiki 是 Git 仓库，因此您进行的每个更改均为可查看的提交。'
+intro: 由于 wiki 是 Git 仓库，因此您进行的每个更改均为可查看的提交。
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 ### 查看 wiki 历史记录

@@ -36,5 +36,5 @@ After you disconnect your Azure subscription from your enterprise account, your 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
+1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Review the prompt, then click **Remove**.

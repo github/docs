@@ -107,3 +107,31 @@ Después de borrar las bitácoras, el botón de **Borrar todas las bitácoras** 
 1. En la esquina superior derecha, da clic en el {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. Para borrar los archivos de bitácora, da clic en el botón **Borrar todas las bitácoras** y revisa el aviso de confirmación. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Después de que se hayan borrado las bitácoras, el botón de **Borrar todas las bitácoras** se elimina para indicar que no queda ningún archivo de bitácora en la ejecución del flujo de trabajo.
 {% endif %}
+
+### Visualizar las bitácoras con {% data variables.product.prodname_cli %}
+
+{% data reusables.actions.actions-cli %}
+
+Para ver la bitácora de un job específico, utiliza el subcomando `run view`. Reemplaza a `run-id` con la ID de la ejecución de la cual quieres ver las bitácoras. {% data variables.product.prodname_cli %} devuelve un menú interactivo para que elijas un job de la ejecución. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devuelve un menú interactivo para que elijas una ejecución reciente y luego devuelve otro menú interactivo para que elijas un job de la ejecución.
+
+```shell
+gh run view <em>run-id</em> --log
+```
+
+También puedes utilizar el marcador `--job` para especificar una ID de job. Reemplaza a `job-id` con la ID del job del cual quieres ver las bitácoras.
+
+```shell
+gh run view --job <em>job-id</em> --log
+```
+
+Puedes utilizar `grep` para buscar la bitácora. Por ejemplo, este comando devolverá todas las entradas de la bitácora que contenga la palabra `error`.
+
+```shell
+gh run view --job <em>job-id</em> --log | grep error
+```
+
+Para filtrar las bitácoras para encontrar cualquier tipo de paso fallido, utiliza `--log-failed` en vez de `--log`.
+
+```shell
+gh run view --job <em>job-id</em> --log-failed
+```

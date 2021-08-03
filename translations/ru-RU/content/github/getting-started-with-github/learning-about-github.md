@@ -1,6 +1,6 @@
 ---
 title: Learning about GitHub
-intro: ''
+intro: '{% data variables.product.prodname_dotcom %} has a variety of products and account types to help you build software and collaborate with other people.'
 mapTopic: true
 redirect_from:
   - /articles/learning-about-github
@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
-  - cli
-  - mobile
-  - desktop
-  - безопасность
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 

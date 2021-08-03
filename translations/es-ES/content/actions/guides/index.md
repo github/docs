@@ -4,7 +4,7 @@ shortTitle: Guías
 intro: 'Estas guías para {% data variables.product.prodname_actions %} incluyen casos de uso y ejemplos específicos que te ayudarán a configurar los flujos de trabajo.'
 redirect_from:
   - /actions/guides/caching-and-storing-workflow-data
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Using-Databases-and-Services
+  - /actions/automating-your-workflow-with-github-actions/using-databases-and-services
   - /actions/configuring-and-managing-workflows/using-databases-and-service-containers
   - /actions/guides/using-databases-and-service-containers
   - /actions/language-and-framework-guides
@@ -42,7 +42,9 @@ includeGuides:
   - /actions/guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-ant
+  - /actions/guide/building-and-testing-swift
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /actions/guides/building-and-testing-xamarin-applications
   - /actions/guides/publishing-nodejs-packages
   - /actions/guides/publishing-java-packages-with-maven
   - /actions/guides/publishing-java-packages-with-gradle
@@ -70,6 +72,7 @@ includeGuides:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /actions/guides/managing-github-actions-with-github-cli
 ---
 
 <!-- {% link_in_list /about-continuous-integration %} -->
@@ -82,7 +85,9 @@ includeGuides:
 <!-- {% link_in_list /building-and-testing-java-with-maven %} -->
 <!-- {% link_in_list /building-and-testing-java-with-gradle %} -->
 <!-- {% link_in_list /building-and-testing-java-with-ant %} -->
+<!-- {% link_in_list /building-and-testing-swift %}-->
 <!-- {% link_in_list /installing-an-apple-certificate-on-macos-runners-for-xcode-development %} -->
+<!-- {% link_in_list /building-and-testing-xamarin-applications %} -->
 <!-- {% link_in_list /about-packaging-with-github-actions %} -->
 <!-- {% link_in_list /publishing-nodejs-packages %} -->
 <!-- {% link_in_list /publishing-java-packages-with-maven %} -->
@@ -104,3 +109,4 @@ includeGuides:
 <!-- {% link_in_list /commenting-on-an-issue-when-a-label-is-added %} -->
 <!-- {% link_in_list /moving-assigned-issues-on-project-boards %} -->
 <!-- {% link_in_list /removing-a-label-when-a-card-is-added-to-a-project-board-column %} -->
+<!-- {% link_in_list /managing-github-actions-with-github-cli %} -->

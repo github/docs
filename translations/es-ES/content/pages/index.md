@@ -1,5 +1,5 @@
 ---
-title: GitHub Pages Documentation
+title: Documentación de GitHub Pages
 shortTitle: Páginas de GitHub
 intro: 'Puedes crear un sitio web directamente desde un repositorio de {% data variables.product.product_name %}.'
 redirect_from:
@@ -17,7 +17,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 {% link_with_intro /getting-started-with-github-pages %}

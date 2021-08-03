@@ -8,8 +8,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Auditing
+  - Enterprise
+  - Logging
 ---
 
 ### Buscar sintaxis de consultas

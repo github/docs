@@ -7,9 +7,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 ### Índice
 
 {% link_in_list /about-securing-your-repository %}
+{% link_in_list /adding-a-security-policy-to-your-repository %}

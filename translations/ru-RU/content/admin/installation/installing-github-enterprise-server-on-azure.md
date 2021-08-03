@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.

@@ -4,7 +4,7 @@ intro: 'Configura el {% data variables.product.prodname_registry %} con MinIO co
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% warning %}

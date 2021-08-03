@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Puedes agregar propuestas o tarjetas de solicitudes de extracción a un tablero de proyecto al:

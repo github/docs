@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 对安全通告具有管理员权限的人员可向安全通告添加协作者。

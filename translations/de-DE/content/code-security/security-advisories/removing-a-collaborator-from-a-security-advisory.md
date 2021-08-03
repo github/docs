@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - sicherheit
+  - Security
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können Mitarbeiter aus Sicherheitshinweisen entfernen.

@@ -1,6 +1,6 @@
 ---
 title: Editar el contenido de una wiki
-intro: 'Puedes agregar imágenes y enlaces al contenido de tu wiki y usar algunos de los formatos que admite MediaWiki.'
+intro: Puedes agregar imágenes y enlaces al contenido de tu wiki y usar algunos de los formatos que admite MediaWiki.
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/
@@ -17,7 +17,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Agregar enlaces

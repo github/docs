@@ -1,1 +1,1 @@
-Activity related to columns in a project board. {% data reusables.webhooks.action_type_desc %} For more information, see the "[project columns](/rest/reference/projects#columns)" REST API.
+プロジェクトボード内の列に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[プロジェクトの列](/rest/reference/projects#columns)」 REST APIを参照してください。

@@ -1,6 +1,6 @@
 ---
 title: Organization について GitHub Actions を無効化または制限する
-intro: 'Organization のオーナーは Organization の GitHub Actions を無効化、有効化、制限することができます。'
+intro: Organization のオーナーは Organization の GitHub Actions を無効化、有効化、制限することができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -27,9 +27,8 @@ Organization のすべてのリポジトリについて {% data variables.produc
 
 ### Organization の {% data variables.product.prodname_actions %} 権限の管理
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. [**Local and third-party Actions**] で、オプションを選択します。 ![この Organization でアクションを有効化、無効化、制限](/assets/images/help/repository/enable-org-actions.png)
 1. [**Save**] をクリックします。
@@ -50,22 +49,20 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. [**Policies**] でオプションを選択します。 ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
+1. [**Policies**] でオプションを選択します。 ![この Organization に対するアクションポリシーを設定する](/assets/images/help/organizations/actions-policy.png)
 1. [**Save**] をクリックします。
 
-### Allowing specific actions to run
+### 特定のアクションの実行を許可する
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。 ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。 ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. [**Save**] をクリックします。
 
 {% endif %}
@@ -77,9 +74,27 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 #### Organization のプライベートフォークポリシーを設定する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### Setting the permissions of the `GITHUB_TOKEN` for your organization
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you choose the restricted option as the default in your organization settings, the same option is auto-selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and the more restricted default has been selected in the enterprise settings, you won't be able to choose the more permissive default in your organization settings.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configuring the default `GITHUB_TOKEN` permissions
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope. ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}

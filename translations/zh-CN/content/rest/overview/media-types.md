@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -43,17 +43,17 @@ API 支持的最基本媒体类型是：
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3
 
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 ```
 

@@ -15,7 +15,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 {% link_in_list /about-custom-domains-and-github-pages %}

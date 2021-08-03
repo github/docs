@@ -1,9 +1,16 @@
 ---
 title: Restringir el tráfico de red en tu empresa
 shortTitle: Restringir el tráfico de red
-intro: 'Puedes utilizar una lista de IP permitidas para restringir el acceso de conexiones de IP específicas a tu empresa.'
+intro: Puedes utilizar una lista de IP permitidas para restringir el acceso de conexiones de IP específicas a tu empresa.
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Access management
+  - Enterprise
+  - Fundamentals
+  - Networking
+  - Security
 ---
 
 ### Acerca de las listas de IP permitidas

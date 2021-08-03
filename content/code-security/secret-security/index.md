@@ -8,11 +8,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
+children:
+  - /about-secret-scanning
+  - /configuring-secret-scanning-for-your-repositories
+  - /managing-alerts-from-secret-scanning
 ---
 
-### Table of Contents
-
-{% link_in_list /about-secret-scanning %}
-{% link_in_list /configuring-secret-scanning-for-your-repositories %}
-{% link_in_list /managing-alerts-from-secret-scanning %}

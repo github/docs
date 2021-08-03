@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub profitiert von der erfreulichen Tatsache, dass viele Entwickler in unsere Plattform integriert sind. Wir finden das großartig, und wir wollen diese Erfahrung noch besser machen.  Das Entwicklerprogramm von GitHub (das „Programm“) hilft uns, uns mit Ihnen zu verbinden, Informationen mit Ihnen auszutauschen und Ihre kreativen Bemühungen besser denn je zu unterstützen. Die besondere Beziehung zwischen GitHub und der Entwicklercommunity, die durch das Programm ermöglicht wird, erfordert eine Reihe besonderer Bedingungen. Willkommen bei der Vereinbarung für registrierte Entwickler („Vereinbarung“).

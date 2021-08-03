@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'reference'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -58,7 +58,7 @@ inputs:
 
 Cuando especificas una entrada para una acción en un archivo de flujo de trabajo o usas un valor de entrada predeterminado, {% data variables.product.prodname_dotcom %} crea una variable de entorno para la entrada con el nombre `INPUT_<VARIABLE_NAME>`. La variable de entorno creada convierte los nombre de entrada en letras mayúscula y reemplaza los espacios con los caracteres `_`.
 
-For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `octocatEyeColor`, el código de acción pudo leer los valores de las entradas utilizando las variables de ambiente `INPUT_NUMOCTOCATS` y `INPUT_OCTOCATEYECOLOR`.
 
 #### `inputs.<input_id>`
 
@@ -78,7 +78,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 #### `inputs.<input_id>.deprecationMessage`
 
-**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
+**Opcional** Si se utiliza el parámetro de entrada, esta `string` se registrará como un mensaje de advertencia. Puedes utilizar esta advertencia para notificar a los usuarios que la entrada es obsoleta y mencionar cualquier alternativa.
 
 ### `outputs (salidas)`
 
@@ -151,7 +151,7 @@ runs:
 
 #### `pre`
 
-**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. The application specified with the [`using`](#runsusing) syntax will execute this file. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
+**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. La aplicación que se especifica con la sintaxis [`using`](#runsusing) ejecutará este archivo. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
 
 En este ejemplo, la acción `pre:` ejecuta un script llamado `setup.js`:
 
@@ -171,12 +171,12 @@ En este ejemplo, `cleanup.js` se ejecuta únicamente en los ejecutores basados e
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 #### `publicación`
 
-**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. The application specified with the [`using`](#runsusing) syntax will execute this file.
+**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. La aplicación que se especifica con la sintaxis [`using`](#runsusing) ejecutará este archivo.
 
 En este ejemplo, la acción `post:` ejecuta un script llamado `cleanup.js`:
 
@@ -197,7 +197,7 @@ Por ejemplo, este `cleanup.js` únicamente se ejecutará en ejecutores basados e
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
 ### `runs` para acciones con pasos de ejecución compuestos
@@ -286,7 +286,7 @@ runs:
 
 **Opcional** Te permite ejecutar un script antes de que comience la acción `entrypoint`. Por ejemplo, puedes utilizar `pre-entrypoint` para ejecutar un script de configuración de pre-requisitos. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción, y ejecuta el script dentro de un contenedor nuevo que utiliza la misma imagen base. Esto significa que el estado del tiempo de ejecución difiere de el contenedor principal `entrypoint`, y se deberá acceder a cualquier estado que requieras ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `pre-entrypoint:` siempre se ejecuta predeterminadamente pero la puedes invalidar utilizando [`pre-if`](#pre-if).
 
-The application specified with the [`using`](#runsusing) syntax will execute this file.
+La aplicación que se especifica con la sintaxis [`using`](#runsusing) ejecutará este archivo.
 
 En este ejemplo, la acción `pre.entrypoint:` ejecuta un script llamado `setup.sh`:
 
@@ -295,7 +295,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
@@ -323,7 +323,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```

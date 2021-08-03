@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - if: (github.repository == 'github/docs-internal') && contains(github.event.pull_request.labels.*.name, 'feature')
+      - if: (github.repository == 'github/docs-internal') && !contains(github.event.issue.labels.*.name, 'no-hww-board') && contains(github.event.pull_request.labels.*.name, 'batch')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}

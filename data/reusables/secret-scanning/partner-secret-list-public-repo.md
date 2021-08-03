@@ -1,15 +1,19 @@
 Partner | Supported secret
 --- | ---
 Adafruit IO | Adafruit IO Key
+Adobe | Adobe Device Token
+Adobe | Adobe Service Token
+Adobe | Adobe Short-Lived Access Token
+Adobe | Adobe JSON Web Token
 Alibaba Cloud | Alibaba Cloud Access Key ID and Access Key Secret pair
 Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
 Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
-Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
-Azure | Azure SAS Token | azure_sas_token
-Azure | Azure Service Management Certificate | azure_management_certificate
-Azure | Azure SQL Connection String | azure_sql_connection_string
-Azure | Azure Storage Account Key | azure_storage_account_key
+Azure | Azure DevOps Personal Access Token
+Azure | Azure SAS Token
+Azure | Azure Service Management Certificate
+Azure | Azure SQL Connection String
+Azure | Azure Storage Account Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Databricks | Databricks Access Token
@@ -26,9 +30,11 @@ Dynatrace | Dynatrace Internal Token
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
-GitHub | GitHub SSH Private Key
 GitHub | GitHub Personal Access Token
+GitHub | GitHub OAuth Access Token
+GitHub | GitHub Refresh Token
 GitHub | GitHub App Installation Access Token
+GitHub | GitHub SSH Private Key
 GoCardless | GoCardless Live Access Token
 GoCardless | GoCardless Sandbox Access Token
 Google Cloud | Google API Key
@@ -41,6 +47,7 @@ Mailgun | Mailgun API Key
 MessageBird | MessageBird API Key
 npm | npm Access Token
 NuGet | NuGet API Key
+OpenAI | OpenAI API Key
 Palantir | Palantir JSON Web Token
 Plivo | Plivo Auth Token
 Postman | Postman API Key
@@ -53,6 +60,7 @@ PyPI | PyPI API Token
 RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
+SendGrid | SendGrid API Key
 Shopify | Shopify App Shared Secret
 Shopify | Shopify Access Token
 Shopify | Shopify Custom App Access Token
@@ -69,3 +77,4 @@ Stripe | Stripe Test API Restricted Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
+Valour | Valour Access Token

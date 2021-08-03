@@ -8,8 +8,14 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Errors
+  - Infrastructure
+  - Networking
+  - Security
+  - Troubleshooting
 ---
 
 ### Removing the passphrase from your key file

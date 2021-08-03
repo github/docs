@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 如果您的帐户使用付费的 {% data variables.product.prodname_dotcom %} 产品，您可以直接联系 {% data variables.contact.github_support %}。 如果您的帐户使用 {% data variables.product.prodname_free_user %} 支持用户帐户和组织，您可以联系 {% data variables.contact.contact_support %} 以报告帐户、安全和滥用问题。 更多信息请参阅“[关于 GitHub 支持](/github/working-with-github-support/about-github-support)”。

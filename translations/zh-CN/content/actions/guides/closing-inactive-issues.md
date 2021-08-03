@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
-  - 项目管理
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ topics:
 2. {% data reusables.actions.make-workflow-file %}
 3. 将以下 YAML 内容复制到工作流程文件中。
 
-    {% raw %}
     ```yaml{:copy}
     name: Close inactive issues
     on:
@@ -38,7 +37,10 @@ topics:
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - uses: actions/stale@v3
             with:
@@ -49,9 +51,9 @@ topics:
               close-issue-message: "This issue was closed because it has been inactive for 14 days since being marked as stale."
               days-before-pr-stale: -1
               days-before-pr-close: -1
-              repo-token: ${{ secrets.GITHUB_TOKEN }}
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. 自定义工工作流程文件中的参数：
    - 更改 `on.schedule` 的值以指示您希望此工作流程何时运行。 在上面的示例中，工作流将于每天 1:30 UTC 运行。 有关计划工作流程的更多信息，请参阅“[计划的活动](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
    - 将 `days-before-issue-stale` 的值更改为在 `actions/stale` 操作标记议题之前无活动的天数。 如果您不希望此操作标记议题，将此值设置为 `-1`。

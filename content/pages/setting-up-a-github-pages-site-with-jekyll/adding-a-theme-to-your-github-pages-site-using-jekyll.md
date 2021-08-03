@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.

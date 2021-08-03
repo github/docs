@@ -1,7 +1,7 @@
 ---
 title: リポジトリ内のディスカッションを管理する
 intro: リポジトリ内のディスカッションを分類、スポットライト、転送、または削除できます。
-permissions: リポジトリ管理者およびリポジトリへの書き込み以上のアクセス権を持つユーザは、リポジトリ内のディスカッションを管理できます。
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

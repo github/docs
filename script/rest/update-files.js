@@ -23,7 +23,7 @@ program
   .option('--decorate-only', '⚠️ Only used by a 🤖 to generate decorated schema files from existing dereferenced schema files.')
   .parse(process.argv)
 
-const decorateOnly = program.decorateOnly
+const decorateOnly = program.opts().decorateOnly
 
 main()
 

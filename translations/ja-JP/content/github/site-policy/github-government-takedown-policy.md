@@ -3,8 +3,8 @@ title: GitHub の行政機関による削除に関するポリシー
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 #### この項目についての説明

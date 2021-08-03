@@ -7,8 +7,8 @@ intro: '{% data reusables.user_settings.export-data %}'
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 O {% data variables.product.product_name %} os metadados de repositório e de perfil da atividade da conta pessoal. Você pode exportar os dados da conta pessoal por meio das configurações do {% data variables.product.prodname_dotcom_the_website %} ou com a API de migração de usuários.

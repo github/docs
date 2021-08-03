@@ -31,6 +31,7 @@ sections:
     - 如果笔记本包含非 ASCII UTF-8 字符，网页界面中的 Jupyter Notebook 渲染可能会失败。
     - restructuredText(RST) 渲染在 web 界面可能失败，反而显示原始 RST 标记文本。
     - Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。
+    - 在合并拉取请求后删除分支时，即使分支删除成功也会出现错误消息。
     - |
       用户可能会遇到一些资产（如头像）不加载，或者无法推送/拉取代码。这可能是由于 `haproxy-cluster-proxy` 服务中的 PID 不匹配造成的。要确定您是否有受影响的实例：
 

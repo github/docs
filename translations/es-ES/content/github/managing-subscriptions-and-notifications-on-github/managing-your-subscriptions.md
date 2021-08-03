@@ -1,12 +1,12 @@
 ---
 title: Administrar tus suscripciones
-intro: 'Hay varias maneras de darte de baja para ayudarte a administrar tus notificaciones de manera eficiente.'
+intro: Hay varias maneras de darte de baja para ayudarte a administrar tus notificaciones de manera eficiente.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 Para ayudarte a entender tus suscripciones y decidir si quieres desuscribirte, consulta la sección "[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".
@@ -57,13 +57,13 @@ Cuando dejas de observar un repositorio, de desuscribes de notificaciones futura
 {% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. En la página de repositorios que sigues, después de que hayas evaluado aquellos que estás siguiendo, decide si quieres:
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-    - dejar de seguir un repositorio
-    - únicamente seguir los lanzamientos de un repositorio
-    - ignorar todas las notificaciones de un repositorio
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
-    - dejar de seguir un repositorio
-    - ignorar todas las notificaciones de un repositorio
-    - personalizar los tipos de evento para los cuales recibes notificaciones (propuestas, solicitudes de cambio, lanzamientos o debates, si es que están habilitados)
-{% endif %}
+  {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
+    - Dejar de seguir un repositorio
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
+  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+    - Dejar de seguir un repositorio
+    - Ignore all notifications for a repository
+    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% endif %}

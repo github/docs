@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 Cualquier usuario con permisos de administrador puede crear un aviso de seguridad.

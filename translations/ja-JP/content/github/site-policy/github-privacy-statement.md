@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 発効日：2020年12月20日
@@ -42,7 +42,7 @@ Githubではお客様の個人情報をプライバシーステートメント�
 | [お客様情報についての当社の保護方法](#how-github-secures-your-information)                                  | 当社では、GitHub上のお客様の個人情報の秘密性、統合性及び可用性を保護するために合理的なすべての必要な措置を講ずるとともに、サーバーのレジリエンスを保護します。                                                                                                                                                                |
 | [GitHubのグローバルプライバシープラクティス](#githubs-global-privacy-practices)                              | We provide the same high standard of privacy protection to all our users around the world.                                                                                                                                                        |
 | [当社とお客様との連絡方法](#how-we-communicate-with-you)                                               | 当社は、お客様にemailでご連絡します。 アカウント設定または当社にご連絡いただければ、当社からお客様への方法を管理できます。                                                                                                                                                                                  |
-| [苦情の解決](#resolving-complaints)                                                             | In the unlikely event that we are unable to resolve a privacy concern quickly and thoroughly, we provide a path of dispute resolution.                                                                                                            |
+| [苦情の解決](#resolving-complaints)                                                             | 万が一、当社がプライバシーに関する懸念を迅速かつ十分に解決できない場合、当社は紛争解決の方法を提案します。                                                                                                                                                                                             |
 | [プライバシーステートメントの変更](#changes-to-our-privacy-statement)                                      | 当社は、本プライバシーステートメントの重大な変更について当該変更が有効となる30日前に、お客様に通知します。 お客様は、変更を当社のサイトポリシーリポジトリにおいて確認することもできます。                                                                                                                                                    |
 | [ライセンス](#license)                                                                          | 本プライバシーステートメントは、[Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/)の元でライセンス付与されています。                                                                                                                              |
 | [GitHubへの連絡](#contacting-github)                                                           | 当社のプライバシーステートメントに関するご質問がある場合はお気軽にお問い合わせください。                                                                                                                                                                                                      |
@@ -64,7 +64,7 @@ Githubではお客様の個人情報をプライバシーステートメント�
 ##### Payment information
 有料でのアカウントにサインオンする場合や、GitHub Sponsors Programを通じて送金する場合、GitHub Marketplaceでアプリケーションを購入する場合、当社は、お客様のフルネーム、住所およびクレジットカード情報またはPayPal情報を収集します。 GitHubは、お客様のクレジットカード情報またはPaypal情報を処理または保管しませんが、第三者の支払処理者はこれを行うことにご留意ください。
 
-If you list and sell an application on [GitHub Marketplace](https://github.com/marketplace), we require your banking information. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
+If you list and sell an application on [GitHub Marketplace](https://github.com/marketplace), we require your banking information. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
 
 ##### Profile information
 お客様は、フルネーム、写真を含むアバター、経歴、位置情報、会社、第三者のウェブサイトへのURLなどのお客様のアカウントプロフィールの追加情報を当社に提供するかどうかを選択できます。 この情報には、ユーザの個人情報が含まれる可能性があります。 プロフィール情報は、当社のサービスを使用する他のユーザからも閲覧ができますのでご注意ください。

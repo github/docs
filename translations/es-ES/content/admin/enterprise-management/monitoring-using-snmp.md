@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 SNMP es una norma común para controlar dispositivos en una red. Recomendamos firmemente habilitar SNMP para que puedas controlar la salud de {% data variables.product.product_location %} y saber cuándo agregar más memoria, almacenamiento, o rendimiento del procesador a la máquina del servidor.

@@ -6,8 +6,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 ### Acerca de la autenticación en {% data variables.product.prodname_dotcom %}
@@ -58,16 +58,16 @@ Puedes acceder a los repositorios en {% data variables.product.product_name %} d
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 
-### {% data variables.product.company_short %}'s token formats
+### Formatos de los tokens de {% data variables.product.company_short %}
 
-{% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
+{% data variables.product.company_short %} emite tokens que inician con un prefijo para indicar el tipo de los mismos.
 
-| Token type                                                                      | Prefix | Más información                                                                                                                                                   |
-|:------------------------------------------------------------------------------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Token de acceso personal                                                        | `ghp_` | "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)"                                                          |
-| OAuth access token                                                              | `gho_` | "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)"                                                       |
-| User-to-server token for a {% data variables.product.prodname_github_app %}   | `ghu_` | "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
-| Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"   |
-| Refresh token for a {% data variables.product.prodname_github_app %}          | `ghr_` | "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)"                                                             |
+| Tipo de token                                                                            | Prefijo | Más información                                                                                                                                                             |
+|:---------------------------------------------------------------------------------------- |:------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Token de acceso personal                                                                 | `ghp_`  | "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)"                                                                    |
+| Token de acceso OAuth                                                                    | `gho_`  | "[Autorizar las {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)"                                                               |
+| Token de usuario a servidor para una {% data variables.product.prodname_github_app %}  | `ghu_`  | "[Identificar y autorizar a los usuarios para las {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
+| Token de servidor a servidor para una {% data variables.product.prodname_github_app %} | `ghs_`  | "[Autenticarse con las {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"            |
+| Actualizar un token para una {% data variables.product.prodname_github_app %}          | `ghr_`  | "[Actualizar los tokens de acceso de usuario a servidor](/developers/apps/refreshing-user-to-server-access-tokens)"                                                         |
 
 {% endif %}

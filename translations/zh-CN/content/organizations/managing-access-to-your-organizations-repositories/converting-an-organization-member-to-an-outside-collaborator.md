@@ -1,6 +1,6 @@
 ---
 title: 将组织成员转换为外部协作者
-intro: '如果组织的某些当前成员只需要访问特定仓库，例如顾问或临时员工，您可以将他们转换为*外部协作者*。'
+intro: 如果组织的某些当前成员只需要访问特定仓库，例如顾问或临时员工，您可以将他们转换为*外部协作者*。
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-member-to-an-outside-collaborator
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} 将组织成员转换为外部协作者。

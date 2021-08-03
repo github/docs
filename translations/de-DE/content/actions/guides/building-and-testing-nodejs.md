@@ -1,6 +1,6 @@
 ---
 title: Building and testing Node.js
-intro: Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Node.js-Projekt zu bauen und zu testen.
+intro: 'Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Node.js-Projekt zu bauen und zu testen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
@@ -9,11 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Node'
-  - 'JavaScript'
+  - CI
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +37,7 @@ Wir empfehlen, dass Du ein grundlegendes Verständnis von Node.js, YAML, Workflo
 
 {% data variables.product.prodname_dotcom %} bietet eine Node.js-Workflow-Vorlage, die für die meisten Node.js-basierten Projekte funktionieren wird. Diese Anleitung enthält npm und Yarn Beispiele, mit denen Du die Vorlage anpassen kannst. Weitere Informationen findest Du in der [Node.js-Workflow-Vorlage](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` Deines Repositorys ein.
+Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` Deines Repositorys ein. The workflow shown below assumes that the default branch for your repository is `main`.
 
 {% raw %}
 ```yaml{:copy}
@@ -45,9 +45,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -59,14 +59,14 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
 
@@ -119,14 +119,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
 If you don't specify a Node.js version,

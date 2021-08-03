@@ -1,1 +1,1 @@
-When the status of a Git commit changes. {% data reusables.webhooks.action_type_desc %} For more information, see the "[statuses](/rest/reference/repos#statuses)" REST API.
+Gitコミットのステータスが変化したとき。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[ステータス](/rest/reference/repos#statuses)」 REST APIを参照してください。

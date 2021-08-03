@@ -10,11 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
-  - issues
-  - notifications
-  - accounts
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### About forks
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
 
@@ -34,7 +36,7 @@ For more information about applying open source principles to your organization'
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](http://choosealicense.com/)" at choosealicense.com.
+When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
@@ -154,5 +156,6 @@ You have now forked a repository, practiced cloning your fork, and configured an
 
 - "[Set up Git](/articles/set-up-git)"
 - "[Create a repository](/articles/create-a-repo)"
+- **Fork a repository**
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

@@ -7,8 +7,10 @@ permissions: 'If you have write permissions to a repository, you can configure {
 versions:
   enterprise-server: '2.22'
 topics:
-  - безопасность
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
@@ -31,11 +33,7 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 
 {% note %}
 
-{% if currentVersion == "github-ae@latest" %}**Note**: For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
-{% else %}
-**Note**: If you use self-hosted runners for
-{% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
-{% endif %}
+**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 
 {% endnote %}
 

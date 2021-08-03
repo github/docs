@@ -181,7 +181,9 @@ Do not include your username or avatar in any images. If a screenshot must inclu
 
 ## Inclusive language
 
-It’s critical that all of our documentation is inclusive and respectful of our audience of people in widely varying circumstances from all over the planet. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+
+Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
 | Use | Avoid |
 | --- | --- |
@@ -234,6 +236,10 @@ It's not necessary to link to an external product’s website when we mention an
 For general guidelines, see “[Lists](https://brand.github.com/content/grammar#lists)” in GitHub’s Brand Guide.
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
+
+When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
+* `foo`: Something that provides bar.
+* `bar`: Something provided by foo.
 
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.

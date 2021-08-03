@@ -1,14 +1,14 @@
 ---
 title: 取消成为组织外部协作者的邀请
 intro: 您可以取消让某人成为组织拥有仓库的外部协作者的所有邀请。
-permissions: 组织所有者可取消成为组织外部协作者的邀请。
+permissions: Organization owners can cancel an invitation to become an outside collaborator in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 您可以查看所有待定邀请（邀请成为组织拥有的任何仓库上的外部协作者）人员列表。

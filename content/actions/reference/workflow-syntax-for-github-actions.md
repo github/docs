@@ -110,8 +110,8 @@ The following workflow will run on pushes to `releases/10` or `releases/beta/mon
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -128,7 +128,7 @@ When all the path names match patterns in `paths-ignore`, the workflow will not 
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
 #### Example including paths
@@ -139,7 +139,7 @@ If at least one path matches a pattern in the `paths` filter, the workflow runs.
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### Excluding paths
@@ -160,8 +160,8 @@ This example runs anytime the `push` event includes a file in the `sub-project` 
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git diff comparisons
@@ -186,6 +186,32 @@ For more information, see "[About comparing branches in pull requests](/articles
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 For more information about cron syntax, see "[Events that trigger workflows](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+
+You can use `permissions` either as a top-level key, to apply to all jobs in the workflow, or within specific jobs. When you add the `permissions` key within a specific job, all actions and run commands within that job that use the `GITHUB_TOKEN` gain the access rights you specify.  For more information, see [`jobs.<job_id>.permissions`](#jobsjob_idpermissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Example
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will apply to all jobs in the workflow. All permissions are granted read access.
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -221,6 +247,18 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the `github` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs`
 
 A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
@@ -303,7 +341,7 @@ runs-on: [AE-runner-for-CI]
 
 For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
 
-{% else %} 
+{% else %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 #### {% data variables.product.prodname_dotcom %}-hosted runners
@@ -339,6 +377,34 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+
+By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](#permissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Example
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will only apply to the job named `stale`. Write access is granted for the `issues` and `pull-requests` scopes. All other scopes will have no access.
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v3
+```
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
@@ -347,10 +413,11 @@ The environment that the job references. All environment protection rules must p
 You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
 
 ##### Example using a single environment name
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### Example using environment name and URL
 
@@ -367,11 +434,30 @@ The URL can be an expression and can use any context except for the `secrets` co
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**Note:** When concurrency is specified at the job level, order is not guaranteed for jobs or runs that queue within 5 minutes of each other.
+
+{% endnote %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+You can also specify `concurrency` at the workflow level. For more information, see [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
@@ -392,15 +478,15 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -470,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
@@ -609,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Example using the {% data variables.product.prodname_github_container_registry %}
+##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_github_container_registry %}.
+A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -639,7 +725,9 @@ jobs:
 
 #### Example using action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally.
+Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
 {% raw %}
 ```yaml
@@ -651,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
@@ -765,7 +853,7 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner. 
+The command used, `perl` in this example, must be installed on the runner.
 
 
 {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
@@ -933,7 +1021,7 @@ You can create a matrix to run workflows on more than one runner operating syste
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
+    os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
   - uses: actions/setup-node@v2
@@ -1181,7 +1269,7 @@ The Docker image to use as the service container to run the action. The value ca
 {% raw %}
 ```yaml
 services:
-  myservice1: 
+  myservice1:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
@@ -1277,7 +1365,7 @@ Path patterns must match the whole path, and start from the repository's root.
 | `docs/*`  | All files within the root of the `docs` directory, at the root of the repository. | `docs/README.md`<br/><br/>`docs/file.txt` |
 | `docs/**` | Any files in the `/docs` directory at the root of the repository. | `docs/README.md`<br/><br/>`docs/mona/octocat.txt` |
 | `docs/**/*.md` | A file with a `.md` suffix anywhere in the `docs` directory. | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`
-| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
+| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
 | `'**/README.md'` | A README.md file anywhere in the repository. | `README.md`<br/><br/>`js/README.md`
 | `'**/*src/**'` | Any file in a folder with a `src` suffix anywhere in the repository. | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
 | `'**/*-post.md'` | A file with the suffix `-post.md` anywhere in the repository. | `my-post.md`<br/><br/>`path/their-post.md` |

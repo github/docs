@@ -11,7 +11,9 @@ permissions: 'Site administrators for {% data variables.product.prodname_ghe_ser
 versions:
   enterprise-server: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - GitHub Connect
+  - GitHub search
 ---
 
 When you enable unified search, users can view search results from public and private content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.product.product_location_enterprise %}.

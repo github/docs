@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 Todas as pessoas com permissões de administrador para uma consultora de segurança podem adicionar colaboradores à consultora de segurança.

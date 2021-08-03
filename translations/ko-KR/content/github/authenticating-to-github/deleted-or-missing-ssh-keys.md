@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 {% data variables.product.prodname_dotcom %} automatically deletes inactive SSH keys to help keep accounts safe, such as after someone leaves a job or loses a computer.

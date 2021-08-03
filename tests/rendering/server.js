@@ -38,8 +38,6 @@ describe('server', () => {
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
-    expect('x-content-security-policy' in res.headers).toBe(true)
-    expect('x-webkit-csp' in res.headers).toBe(true)
 
     const csp = new (require('csp-parse'))(res.headers['content-security-policy'])
     expect(csp.get('default-src')).toBe("'none'")
@@ -191,8 +189,8 @@ describe('server', () => {
   test('renders product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
     const note = $('.product-callout').eq(0)
-    expect(note.hasClass('color-border-info')).toBe(true)
-    expect(note.hasClass('color-bg-info')).toBe(true)
+    expect(note.hasClass('color-border-success')).toBe(true)
+    expect(note.hasClass('color-bg-success')).toBe(true)
   })
 
   test('renders liquid within liquid within product frontmatter callouts', async () => {
@@ -321,7 +319,7 @@ describe('server', () => {
 
     test('dotcom categories on GHE have Enterprise user links', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/github/managing-large-files`)
-      expect($(`article a[href="${latestEnterprisePath}/github/managing-large-files/conditions-for-large-files"]`).length).toBe(1)
+      expect($(`article a[href="${latestEnterprisePath}/github/managing-large-files/working-with-large-files/conditions-for-large-files"]`).length).toBe(1)
     })
 
     test('dotcom-only links on GHE are dotcom-only', async () => {
@@ -352,7 +350,7 @@ describe('server', () => {
 
   describe('article versions', () => {
     test('includes links to all versions of each article', async () => {
-      const articlePath = 'github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard'
+      const articlePath = 'github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard'
       const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`)
       expect($(`.article-versions a.active[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`).length).toBe(2)
       expect($(`.article-versions a.active[href="/en/${articlePath}"]`).length).toBe(0)
@@ -415,7 +413,7 @@ describe('server', () => {
 
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
-      expect(res.text).toBe('Moved Permanently. Redirecting to /en/github/authenticating-to-github/about-githubs-ip-addresses')
+      expect(res.text).toBe('Moved Permanently. Redirecting to /en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-githubs-ip-addresses')
     })
 
     test('redirects / to /en', async () => {
@@ -439,7 +437,7 @@ describe('server', () => {
     test('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
       const res = await get('/en/insights/installing-and-configuring-github-insights/about-github-insights')
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`)
+      expect(res.headers.location).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`)
     })
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
@@ -471,7 +469,7 @@ describe('server', () => {
 
     test('map topic renders with h2 links to articles', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
-      expect($('a[href="/en/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h2').length).toBe(1)
+      expect($('a[href="/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username"] h2').length).toBe(1)
     })
 
     test('map topic renders with one intro for every h2', async () => {
@@ -518,8 +516,8 @@ describe('GitHub Enterprise URLs', () => {
   test('renders the Enterprise Admin category homepage', async () => {
     const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const $ = await getDOM(adminPath)
-    expect($(`article a[href="${adminPath}/installation"]`).length).toBe(1)
-    expect($.text()).toContain('This guide describes')
+    expect($(`h3 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
+    expect($('h2 a[href="#all-docs"]').length).toBe(1)
   })
 
   test('renders an Enterprise Admin category with correct links', async () => {
@@ -597,7 +595,7 @@ describe('GitHub Desktop URLs', () => {
   })
 
   test('renders a Desktop article within a map topic', async () => {
-    const res = await get('/en/desktop/installing-and-configuring-github-desktop/installing-github-desktop')
+    const res = await get('/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop')
     expect(res.statusCode).toBe(200)
   })
 

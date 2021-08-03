@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Estes Termos e Condições de Aplicativos de Código Aberto do GitHub ("Termos de Aplicação") são um acordo legal entre você (como pessoa física ou em nome de uma entidade) e o GitHub, Inc. em relação ao uso de aplicativos do GitHub, como GitHub Desktop™ e documentação associada ("Software"). Estes Termos de Aplicação aplicam-se à versão de código executável do Software. O código-fonte do Software está disponível separadamente e gratuitamente sob contratos de licença de software de código aberto. Se você não concordar com todos os termos nestes Termos de Aplicativo, não baixe, instale, use ou copie o Software.

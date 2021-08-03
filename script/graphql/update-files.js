@@ -65,13 +65,13 @@ async function main () {
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
-    const safeForPublicPreviews = yaml.safeLoad(await getRemoteRawContent(previewsPath, graphqlVersion))
+    const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
     updateFile(previewsPath, yaml.safeDump(safeForPublicPreviews))
     previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    const previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
+    const previousUpcomingChanges = yaml.load(fs.readFileSync(upcomingChangesPath, 'utf8'))
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     updateFile(upcomingChangesPath, safeForPublicChanges)
     upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
@@ -106,7 +106,7 @@ async function main () {
         safeForPublicSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
-        yaml.safeLoad(safeForPublicChanges).upcoming_changes
+        yaml.load(safeForPublicChanges).upcoming_changes
       )
       if (changelogEntry) {
         prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))

@@ -1,15 +1,15 @@
 ---
 title: Scheduling issue creation
-intro: You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.
+intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Workflows'
-  - 'Project management'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
-    {% raw %}
     ```yaml{:copy}
     name: Weekly Team Sync
     on:
@@ -39,7 +38,9 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@v3.0
@@ -62,9 +63,9 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
               pinned: false
               close-previous: false
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Customize the parameters in your workflow file:
    - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
    - Change the value for `assignees` to the list of {% data variables.product.prodname_dotcom %} usernames that you want to assign to the issue.

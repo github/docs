@@ -1,6 +1,6 @@
 ---
 title: 限制在组织中创建仓库
-intro: '为保护组织的数据，您可以配置在组织中创建仓库的权限。'
+intro: 为保护组织的数据，您可以配置在组织中创建仓库的权限。
 redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 您可以选择成员是否可以在组织中创建仓库。 如果允许成员创建仓库，您可以选择允许创建哪些类型的仓库。{% if currentVersion == "free-pro-team@latest" %}若只允许成员创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。{% endif %}更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
@@ -27,9 +27,8 @@ topics:
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. 在“Repository creation（仓库创建）”下，选择一个或多个选项。 ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. 单击 **Save（保存）**。

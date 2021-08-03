@@ -9,6 +9,7 @@ module.exports = [
   "actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9", // v3.0.0
   "actions/labeler@5f867a63be70efff62b767459b009290364495eb", // v2.2.0
   "actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e", // v2.1.4
+  "actions/setup-python@dc73133d4da04e56a135ae2246682783cc7c7cb6", // v2.2.2
   "ruby/setup-ruby@fdcfbcf14ec9672f6f615cb9589a1bc5dd69d262", // v1.64.1
   "actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da", // v3.0.16
   "alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9",
@@ -33,7 +34,6 @@ module.exports = [
   "peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43",
   "rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9",
   "rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e",
-  "rachmari/puppeteer-container@6d56d6e132a3df76cf60bc290a4282f7fbaed05e",
   "repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88",
   "repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d",
   "someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd",

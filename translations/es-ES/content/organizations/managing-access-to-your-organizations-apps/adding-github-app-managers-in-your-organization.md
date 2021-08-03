@@ -9,25 +9,23 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Para más información sobre los permisos del administrador de {% data variables.product.prodname_github_app %}, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization#github-app-managers)".
 
 ### Brindar a alguien la posibilidad de administrar todos los {% data variables.product.prodname_github_app %} que son propiedad de la organización.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 1. En "Management" (Administración), escribe el nombre de usuario de la persona a quien deseas designar como gerente de {% data variables.product.prodname_github_app %} en la organización, y haz clic en **Grant** (Conceder). ![Agregar un administrador de {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/add-github-app-manager.png)
 
 ### Brindar a alguien la posibilidad de administrar un {% data variables.product.prodname_github_app %} individual
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 1. Debajo de "{% data variables.product.prodname_github_app %}s", haz clic en el avatar de la app a la que quieres agregarle un administrador de {% data variables.product.prodname_github_app %}. ![Seleccionar {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}

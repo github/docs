@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 Puedes acceder a la mayoría de objetos en GitHub (usuarios, informes de problemas, solicitudes de extracción, etc.) utilizando ya sea la API de Rest o la de GraphQL. Con una [actualización reciente](https://developer.github.com/changes/2017-12-19-graphql-node-id/), puedes encontrar la **ID de nodo global** de muchos objetos desde dentro de la API de REST y utilizar estas ID en tus operaciones de GraphQL.

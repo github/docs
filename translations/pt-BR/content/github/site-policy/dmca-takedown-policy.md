@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Bem-vindo ao Guia do GitHub para a Lei dos Direitos Autorais do Milênio Digital, comumente conhecida como "DMCA" - Digital Millenium Copyright Act Policy. Esta página não tem a finalidade de ser uma cartilha abrangente sobre o regimento. No entanto, se você recebeu um aviso de retirada DMCA direcionado ao conteúdo que você postou no GitHub, ou se você é um detentor de direitos que pretende enviar tal aviso, esta página vai ajudá-lo a desmistificar a lei, bem como nossas políticas relacionadas.

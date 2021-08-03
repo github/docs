@@ -49,8 +49,8 @@ Organization owners can view the security overview for an organization.
 
 Members of a team can see the security overview for repositories that the team has admin privileges for.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - рынок
+  - Marketplace
 ---
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->

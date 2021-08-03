@@ -1,11 +1,13 @@
 ---
 title: Administrar a GitHub para móviles en tu empresa
 intro: 'Puedes decidir si los usuarios autenticados pueden conectarse a {% data variables.product.product_location %} con {% data variables.product.prodname_mobile %}.'
-permissions: 'Los propietarios de las empresas pueden administrar a {% data variables.product.prodname_mobile %} para empresas en {% data variables.product.product_name %}.'
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Mobile
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

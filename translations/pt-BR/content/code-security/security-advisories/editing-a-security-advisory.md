@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 As pessoas com permissão de administrador para uma consultora de segurança podem editar a consultora de segurança.

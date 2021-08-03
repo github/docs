@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-marketplace-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ¡Bienvenido a Mercado GitHub ("Mercado")! Estamos felices de que estés aquí. Por favor, lee cuidadosamente estos Términos de Servicio ("Términos del Mercado") antes de ingresar o usar Mercado GitHub. Mercado GitHub es una plataforma que te permite comprar productos de programador (de forma gratuita o por un cargo) que se pueden utilizar con tu cuenta GitHub.com ("Productos de programador"). Aunque GitHub, Inc. lo vende, ("GitHub", "nosotros") los productos de programador pueden elaborarse y mantenerse por GitHub o por proveedores de software terceros y podría ser necesario que aceptes los términos de servicio por separado. Tu uso y/o compra de Productos de Programador está sujeta a estos Términos de Mercados y a las tarifas aplicables y también puede estar sujeta a términos adicionales proporcionados por el licenciador de ese Producto de Programador (el "Proveedor del Producto").

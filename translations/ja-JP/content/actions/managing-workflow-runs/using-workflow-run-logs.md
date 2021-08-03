@@ -1,6 +1,6 @@
 ---
 title: ワークフロー実行ログを使用する
-intro: 'ワークフロー実行の各ジョブのログを表示、検索、およびダウンロードできます。'
+intro: ワークフロー実行の各ジョブのログを表示、検索、およびダウンロードできます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -107,3 +107,31 @@ versions:
 1. 右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. ログファイルを削除するには、**Delete all logs（すべてのログを削除）**ボタンをクリックして、確認の要求を見てください 。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png)ログが削除されると、[**Delete all logs**] ボタンが削除され、ワークフローの実行にログファイルが残っていないことを示します。
 {% endif %}
+
+### Viewing logs with {% data variables.product.prodname_cli %}
+
+{% data reusables.actions.actions-cli %}
+
+To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
+
+```shell
+gh run view <em>run-id</em> --log
+```
+
+You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
+
+```shell
+gh run view --job <em>job-id</em> --log
+```
+
+You can use `grep` to search the log. For example, this command will return all log entries that contain the word `error`.
+
+```shell
+gh run view --job <em>job-id</em> --log | grep error
+```
+
+To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
+
+```shell
+gh run view --job <em>job-id</em> --log-failed
+```

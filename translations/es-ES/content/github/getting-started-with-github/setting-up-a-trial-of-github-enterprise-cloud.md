@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Acerca de las pruebas de {% data variables.product.prodname_ghe_cloud %}
@@ -50,10 +50,10 @@ Si no compras {% data variables.product.prodname_enterprise %} o {% data variabl
 
 El bajar de categoría a {% data variables.product.prodname_free_team %} en organizaciones también inhabilita cualquier configuración de SAML durante el periodo de prueba. Una vez que compras {% data variables.product.prodname_enterprise %} o {% data variables.product.prodname_team %}, tus parámetros de SAML serán activados nuevamente para que los usuarios de tu organización los autentiquen.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. Debajo de "{% data variables.product.prodname_ghe_cloud %} Free Trial" (Prueba gratis de {% data variables.product.prodname_ghe_cloud %}), haz clic en **Buy Enterprise** (Comprar empresa) o **Downgrade to Team** (Bajar de categoría a equipo). ![Botones Comprar Enterprise y Bajar de categoría a Team](/assets/images/help/organizations/finish-trial-buttons.png)
 6. Sigue las indicaciones para ingresar tu método de pago, a continuación haz clic en **Enviar**.
 

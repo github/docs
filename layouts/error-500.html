@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
   <body>
     {% include header %}
@@ -16,8 +16,6 @@
         {% if error %}
           <pre><code>{{ error.stack }}</code></pre>
         {% endif %}
-
-        <img src="/assets/images/site/labtocat.png" alt="labtocat">
       </article>
     </div>
 

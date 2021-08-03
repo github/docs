@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 A collaborator is a person who has permissions to a project board you own. A collaborator's permissions will default to read access. For more information, see "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards)."

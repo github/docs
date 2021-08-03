@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 보안
+  - Security
 ---
 
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->

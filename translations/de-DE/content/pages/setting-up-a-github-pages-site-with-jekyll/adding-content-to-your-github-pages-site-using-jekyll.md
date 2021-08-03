@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll Inhalte zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.

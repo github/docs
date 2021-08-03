@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 To help you understand your subscriptions and decide whether to unsubscribe, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
@@ -57,13 +57,13 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 {% data reusables.notifications.access_notifications %}
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Watched repositories**. ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-    - unwatch a repository
-    - only watch releases for a repository
-    - ignore all notifications for a repository
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
-    - unwatch a repository
-    - ignore all notifications for a repository
-    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
-{% endif %}
+  {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
+    - Unwatch a repository
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
+  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+    - Unwatch a repository
+    - Ignore all notifications for a repository
+    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% endif %}

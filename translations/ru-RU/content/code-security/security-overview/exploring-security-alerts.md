@@ -4,7 +4,7 @@ intro: 'You can view, filter, and sort security alerts for repositories owned by
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'далее'
+  github-ae: next
 ---
 
 {% data reusables.security-center.beta %}

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 ### 权限概述

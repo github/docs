@@ -8,8 +8,11 @@ intro: You can prevent users from creating organizations in your enterprise.
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Organizations
+  - Policies
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}

@@ -8,8 +8,11 @@ intro: Puedes prevenir que los usuarios creen organizaciones en tu empresa.
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Organizations
+  - Policies
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}

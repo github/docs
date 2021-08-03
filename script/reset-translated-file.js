@@ -51,7 +51,7 @@ const relativePath = fs.existsSync(pathArg)
   ? path.relative(process.cwd(), pathArg)
   : pathArg
 
-if (program.preferMain) {
+if (program.opts().preferMain) {
   try {
     execSync(`git checkout main -- ${relativePath}`, { stdio: 'pipe' })
     console.log('-> reverted to file from main branch: %s', relativePath)

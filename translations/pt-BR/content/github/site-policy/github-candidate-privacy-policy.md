@@ -3,8 +3,8 @@ title: Política de Privacidade do GitHub Candidate
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Data de vigência: 8 de março de 2021
@@ -27,7 +27,7 @@ As informações pessoais do candidato que coletamos, usamos e mantemos (ou "pro
 
 **Identificadores nacionais**, como o status da sua cidadania, residência e status de permissão de trabalho.
 
-**Employment and education history**, such as your resume or CV, cover letter, details of how you heard about the position you are applying for, information about any previous employment at GitHub or affiliates of GitHub, or other information you provide to us in support of an application and/or the application and recruitment process.
+**Histórico de trabalho e escolar**, como seu currículo ou CV, carta de apresentação, informações sobre como você ouviu sobre a vaga à qual você está se candidatando, informações sobre qualquer trabalho anterior no GitHub ou afiliados do GitHub, ou outras informações que nos fornecem como suporte a uma candidatura e/ou processo de recrutamento.
 
 **Professional or employment information**, including your desired salary or terms related to benefits, willingness to relocate, other job preferences, interview details, reference information and/or information received from background checks (where applicable), and information from publicly available resources (such as your LinkedIn profile or website).
 

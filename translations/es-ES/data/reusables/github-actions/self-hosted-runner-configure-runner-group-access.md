@@ -5,7 +5,7 @@
 
    **Advertencia**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 

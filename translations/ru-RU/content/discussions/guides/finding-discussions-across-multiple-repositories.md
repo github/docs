@@ -1,6 +1,6 @@
 ---
 title: Finding discussions across multiple repositories
-intro: 'You can easily access every discussion you''ve created or participated in across multiple repositories.'
+intro: You can easily access every discussion you've created or participated in across multiple repositories.
 versions:
   free-pro-team: '*'
 ---

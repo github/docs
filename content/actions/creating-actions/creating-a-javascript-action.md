@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Action development'
-  - 'JavaScript'
+  - Action development
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -30,6 +30,8 @@ This guide uses the {% data variables.product.prodname_actions %} Toolkit Node.j
 Once you complete this project, you should understand how to build your own JavaScript action and test it in a workflow.
 
 {% data reusables.github-actions.pure-javascript %}
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Prerequisites
 
@@ -227,14 +229,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-javascript-action@v1.1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

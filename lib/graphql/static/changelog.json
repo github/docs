@@ -4,6 +4,64 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Argument `isApproved: Boolean` added to field `Organization.domains`",
+          "Field `canReceiveOrganizationEmailsWhenNotificationsRestricted` was added to object type `User`",
+          "Field `isApproved` was added to object type `VerifiableDomain`",
+          "Argument `isApproved: Boolean` added to field `EnterpriseOwnerInfo.domains`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-05-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `claimant` was added to object type `Mannequin`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-05-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `PullRequestTemplate` was added",
+          "Field `pullRequestTemplates` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-05-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ConvertPullRequestToDraftInput` was added",
+          "Type `ConvertPullRequestToDraftPayload` was added",
+          "Field `convertPullRequestToDraft` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-04-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `tierSelectedAt` was added to object type `Sponsorship`"
         ]
       }

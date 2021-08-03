@@ -1,6 +1,6 @@
 ---
 title: 暗号化されたシークレット
-intro: 暗号化されたシークレットを使うと、機密情報をOrganization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。
+intro: '暗号化されたシークレットを使うと、機密情報をOrganization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}

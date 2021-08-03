@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/differences-between-clustering-and-high-availability-ha
 versions:
   enterprise-server: '*'
+type: reference
 topics:
-  - empresa
+  - Clustering
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### Escenarios de fallas

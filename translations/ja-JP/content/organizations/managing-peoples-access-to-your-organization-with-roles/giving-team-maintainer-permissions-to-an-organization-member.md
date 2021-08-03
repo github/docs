@@ -1,6 +1,6 @@
 ---
 title: Organization メンバーに「チームメンテナー」権限を付与する
-intro: 'Organization のオーナーは、Organization の任意のメンバーを Team の *チームメンテナー* に昇格させて、Organization のオーナーが持ついくつかの権限を付与することができます。'
+intro: Organization のオーナーは、Organization の任意のメンバーを Team の *チームメンテナー* に昇格させて、Organization のオーナーが持ついくつかの権限を付与することができます。
 redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program/
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team_maintainers_can %}

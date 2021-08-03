@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Cada repositorio de {% data variables.product.product_name %} viene equipado con una sección para alojar documentación, llamada una wiki. Puedes usar la wiki de tu repositorio para compartir contenido en forma completa acerca de tu proyecto, como por ejemplo cómo usarlo, cómo lo diseñaste o sus principios básicos. Un archivo README rápidamente dice lo que puede hacer tu proyecto, mientras que puedes usar una wiki para proporcionar documentación adicional. Para obtener más información, consulta "[Acerca de los archivos README](/articles/about-readmes/)".
@@ -21,6 +21,12 @@ Con las wikis, puedes escribir contenido como en cualquier otro lado en {% data 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Si creas un wiki en un repositorio público, éste estará disponible para {% if enterpriseServerVersions contains currentVersion %}cualquiera con acceso a {% data variables.product.product_location %}{% else %}el público en general{% endif %}. {% endif %}Si creas un wiki en un repositorio interno o privado, {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}las personas{% elsif currentVersion == "github-ae@latest" %}los miembros de la empresa{% endif %} con acceso al repositorio también podrán acceder al wiki. Para obtener más información, consulta "[Configurar la visibilidad de un repositorio](/articles/setting-repository-visibility)".
 
 Puedes editar las wikis directamente en {% data variables.product.product_name %} o puedes editar los archivos wiki localmente. Predeterminadamente, solo las personas con acceso a tu repositorio podrán hacer cambios a los wikis, aunque podrás permitir que cualquiera en {% data variables.product.product_location %} colabore con un wiki en {% if currentVersion == "github-ae@latest" %}un repositorio interno{% else %}un repositorio público{% endif %}. Para obtener más información, consulta "[Cambiar permisos de acceso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
+
+{% note %}
+
+**Nota:** Los motores de búsqueda no indizarán el contenido de los wikis. Para que tu contenido se indice en los motores de búsqueda, puedes utilizar [{% data variables.product.prodname_pages %}](/pages) en un repositorio público.
+
+{% endnote %}
 
 ### Leer más
 

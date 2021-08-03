@@ -1,7 +1,7 @@
 ---
 title: Configurar a varredura de segredo para os seus repositórios
 intro: 'Você pode configurar como {% data variables.product.prodname_dotcom %} faz a varredura de segredos dos seus repositórios.'
-permissions: 'As pessoas com permissões de administrador para um repositório podem habilitar {% data variables.product.prodname_secret_scanning %} para o repositório.'
+permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -27,13 +27,19 @@ topics:
 
 ### Habilitar {% data variables.product.prodname_secret_scanning %} para repositórios {% if currentVersion == "free-pro-team@latest" %}privados {% endif %}
 
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
+Você pode habilitar {% data variables.product.prodname_secret_scanning %} para qualquer repositório que pertença a uma organização.
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-4. Talvez seja necessário habilitar {% data variables.product.prodname_GH_advanced_security %} para ativar o botão para "{% data variables.product.prodname_secret_scanning_caps %}". À direita de "{% data variables.product.prodname_GH_advanced_security %}", clique em **Habilitar**. ![Habilitar {% data variables.product.prodname_GH_advanced_security %} para o seu repositório](/assets/images/help/repository/enable-ghas-dotcom.png)
-5. Clique **Habilitar {% data variables.product.prodname_GH_advanced_security %} para este repositório** para confirmar a ação. ![Confirme a habilitação de {% data variables.product.prodname_GH_advanced_security %} para o seu repositório](/assets/images/help/repository/enable-ghas-confirmation-dotcom.png)
-6. Ao habilitar {% data variables.product.prodname_GH_advanced_security %}, isso poderá automaticamente habilitar {% data variables.product.prodname_secret_scanning %} para o repositório (isso é controlado pela configuração da organização). Se "{% data variables.product.prodname_secret_scanning_caps %}" é exibido com um botão **habilitar**. Você ainda precisa habilitar {% data variables.product.prodname_secret_scanning %} clicando em **Habilitar**. Se você vir um botão **Desabilitar**, significa que {% data variables.product.prodname_secret_scanning %} já está habilitado. ![Habilitar {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next"%}
+4. Se {% data variables.product.prodname_advanced_security %} ainda não estiver habilitado para o repositório, à direita de "{% data variables.product.prodname_GH_advanced_security %}", clique em **Habilitar**.
+   {% if currentVersion == "free-pro-team@latest" %}![Habilitar {% data variables.product.prodname_GH_advanced_security %} para o seu repositório](/assets/images/help/repository/enable-ghas-dotcom.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
+5. Revise o impacto de habilitar {% data variables.product.prodname_advanced_security %}, e clique em **Permitir {% data variables.product.prodname_GH_advanced_security %} para este repositório**.
+6. Quando você habilitar {% data variables.product.prodname_advanced_security %}, {% data variables.product.prodname_secret_scanning %} pode ser habilitado automaticamente para o repositório, devido às configurações da organização. Se "{% data variables.product.prodname_secret_scanning_caps %}" é exibido com um botão **habilitar**. Você ainda precisa habilitar {% data variables.product.prodname_secret_scanning %} clicando em **Habilitar**. Se você vir um botão **Desabilitar**, significa que {% data variables.product.prodname_secret_scanning %} já está habilitado. ![Habilitar {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
    {% elsif currentVersion == "enterprise-server@3.0" %}
 7. À direita de "{% data variables.product.prodname_secret_scanning_caps %}", clique em **Habilitar**. ![Habilitar {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/help/repository/enable-secret-scanning-ghe.png)
    {% endif %}
@@ -66,7 +72,7 @@ Você pode usar um arquivo *secret_scanning.yml* para excluir diretórios do {% 
 
     {% endnote %}
 
-Você também pode ignorar alertas individuais de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-alerts)."
+Você também pode ignorar alertas individuais de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
 
 ### Leia mais
 

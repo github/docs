@@ -3,12 +3,14 @@ title: About securing your repository
 intro: '{% data variables.product.product_name %} provides a number of ways that you can help keep your repository secure.'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
+  - /articles/securing-your-repository
+  - /github/administering-a-repository/securing-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Setting up your repository securely
@@ -22,11 +24,13 @@ The first step to securing a repository is to set up who can see and modify your
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### Available for all repositories
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
 - **Security policy**
   
-  Make it easy for people to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)."
+  Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 - **Security advisories**
 
   Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage them to upgrade. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."

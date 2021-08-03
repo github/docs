@@ -1,5 +1,6 @@
 ---
 title: Personalizar los mensajes de usuario para tu empresa
+shortTitle: Customizing user messages
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
@@ -8,8 +9,10 @@ intro: 'Puedes crear mensajes personalizados que los usuarios verán en {% data 
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Maintenance
 ---
 
 ### Acerca de los mensajes de usuario
@@ -72,7 +75,7 @@ Cada vez que un usuario vea un mensaje obligatorio, se crea un evento de bitáco
 
 {% note %}
 
-**Note:** If you change the mandatory message for {% data variables.product.product_location %}, users who have already acknowledged the message will not see the new message.
+**Nota:** Si cambias el mensaje obligatorio de {% data variables.product.product_location %}, los usuarios que ya lo hayan reconocido no verán el mensaje nuevo.
 
 {% endnote %}
 

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 {% data reusables.code-scanning.beta %}

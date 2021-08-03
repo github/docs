@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können eine {% data variables.product.prodname_pages %}-Website lokal testen.

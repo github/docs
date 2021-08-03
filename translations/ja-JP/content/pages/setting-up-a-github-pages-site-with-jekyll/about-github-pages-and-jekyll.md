@@ -24,14 +24,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 ### Jekyllについて
 
 Jekyllは、{% data variables.product.prodname_pages %}に組み込まれている静的サイトジェネレータで、ビルドプロセスを容易化できます。 JekyllはMarkdownおよびHTMLファイルを取り込み、選択したレイアウトに基づいて、完成された静的ウェブサイトを作成します。 Jekyllは、Markdownと、サイトに動的コンテンツを読み込むテンプレート言語のLiquidをサポートします。 詳しい情報については、[Jekyll](https://jekyllrb.com/)を参照してください。
 
-Windows は、Jekyll を公式にはサポートしていません。 For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
+Windows は、Jekyll を公式にはサポートしていません。 詳しい情報については、Jekyll のドキュメントの「[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)」を参照してください。
 
 {% data variables.product.prodname_pages %} ではJekyllを使用することをおすすめします。 お好みに応じて、別の静的サイトジェネレータを使用することも、ローカルまたは別のサーバーにおけるビルドプロセスをカスタマイズすることもできます。 詳しい情報については「[{% data variables.product.prodname_pages %}について](/articles/about-github-pages#static-site-generators)」を参照してください。
 
@@ -75,7 +75,7 @@ kramdown:
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.prodname_dotcom %} のサイトに、サポートされているテーマを追加できます。 詳しい情報については、{% data variables.product.prodname_pages %} サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」および「[テーマ選択画面を使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)」を参照してください。
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% if currentVersion == "free-pro-team@latest" %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+{% data variables.product.prodname_dotcom %} にホストされている他のオープンソース Jekyll テーマを使用する場合は、テーマを手動で追加できます。{% else %}テーマを手動でサイトに追加できます。{% endif %}詳しい情報については、{% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %} にホストされているテーマ](https://github.com/topics/jekyll-theme)と、{% else %}{% data variables.product.prodname_pages %}サイトの「[サポートされているテーマ](https://pages.github.com/themes/)」、および{% endif %}「[Jekyllを使用して{% data variables.product.prodname_pages %}サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
 
 テーマのファイルを編集することで、テーマのデフォルトを上書きできます。 詳しい情報については、テーマのドキュメンテーションおよびJekyllドキュメンテーションの「[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)」を参照してください。
 

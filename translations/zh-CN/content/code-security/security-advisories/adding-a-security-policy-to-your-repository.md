@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 ### 关于安全政策

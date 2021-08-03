@@ -7,8 +7,10 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '2.22'
 topics:
-  - seguridad
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
@@ -48,11 +50,11 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 El {% data variables.product.prodname_codeql_runner %} detecta automáticamente y escanea el código que se ha escrito en los lenguajes compatibles.
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-Para anular la detección automática de lenguajes, ejecuta el comando `init` con el marcador `--languages`, seguido de una lista separada por comas de las palabras clave de los lenguajes. Las palabras clave para los lenguajes compatibles son `cpp`, `csharp`, `go`, `java`, `javascript`, y `python`.
+Para anular la detección automática de lenguajes, ejecuta el comando `init` con el marcador `--languages`, seguido de una lista separada por comas de las palabras clave de los lenguajes. The keywords for the supported languages are {% data reusables.code-scanning.codeql-languages-keywords %}.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java

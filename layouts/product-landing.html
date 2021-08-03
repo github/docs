@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -9,7 +9,7 @@
       {% include header %}
       {% include deprecation-banner %}
 
-      <div class="container-xl px-3 px-md-6 pt-3 pb-2">
+      <div class="container-xl px-3 px-md-6 pt-3 pb-2 product-landing">
         <header class="d-lg-flex gutter-lg mb-6">
           <div class="{% if page.product_video and page.product_video != '' %}col-12 col-lg-6 mb-3 mb-lg-0{% endif %}">
             <span class="text-mono color-text-secondary">Product</span>
@@ -22,23 +22,15 @@
             </h1>
             <div class="lead-mktg color-text-secondary">{{ page.intro }}</div>
 
-            {% if page.introLinks.quickstart and page.introLinks.quickstart != '' %}
-            <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
-              {% data ui.product_landing.quick_start %}
+            {% for introLinkType in page.introLinks %}
+            {% if introLinkType[1] != '' %}
+            {% unless introLinkType[0] contains 'raw' %}
+            <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks[introLinkType[0]] }}" class="btn-mktg {% unless forloop.first %}btn-outline-mktg {% endunless %}btn-large f4 mt-3 mr-3">
+              {% data ui.product_landing[introLinkType[0]] %}
             </a>
+            {% endunless %}
             {% endif %}
-
-            {% if page.introLinks.reference and page.introLinks.reference != '' %}
-              <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
-                {% data ui.product_landing.reference_guides %}
-              </a>
-            {% endif %}
-
-            {% if page.introLinks.overview and page.introLinks.overview != '' %}
-              <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.overview }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
-                {% data ui.product_landing.overview %}
-              </a>
-            {% endif %}
+            {% endfor %}
           </div>
 
           {% if page.product_video and page.product_video != '' %}
@@ -62,7 +54,7 @@
         <div class="d-lg-flex gutter my-6 py-6">
           <div class="col-12 col-lg-{% if page.changelog %}4{% else %}6{% endif %} mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
-              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary">{% data ui.toc.guides %}</h3>
+              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="guides"><a href="#guides">{% data ui.toc.guides %}</a></h3>
               {% unless currentCategory %}
                 <a href="{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
               {% endunless %}
@@ -79,9 +71,10 @@
             </ul>
           </div>
 
+          {% if featuredLinks.popular %}
           <div class="col-12 col-lg-{% if page.changelog %}4{% else %}6{% endif %} mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
-              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary">{% data ui.toc.popular_articles %}</h3>
+              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="popular"><a href="#popular">{% if page.featuredLinks.popularHeading %}{{ page.featuredLinks.popularHeading }}{% else %}{% data ui.toc.popular %}{% endif %}</a></h3>
             </div>
             <ul class="list-style-none">
               {% for link in featuredLinks.popular %}
@@ -93,11 +86,12 @@
               {% endfor %}
             </ul>
           </div>
+          {% endif %}
 
           {% if page.changelog %}
             <div class="col-12 col-lg-4 mb-4 mb-lg-0">
               <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
-                <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary">{% data ui.toc.whats_new %}</h3>
+                <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="whats-new"><a href="#whats-new">{% data ui.toc.whats_new %}</a></h3>
                 <a href="{{ changelogUrl }}" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
               </div>
               <ul class="list-style-none">
@@ -125,13 +119,21 @@
         {% include community-examples %}
         {% endif %}
 
+        {% if productUserExamples %}
+        {% include sponsor-examples %}
+        {% endif %}
+
         {{ renderedPage }}
       </div>
 
+      {% if currentVersion contains 'enterprise-server' and currentProduct == 'admin' %}
+      {% include product-releases %}
+      {% endif %}
+
       {% if featuredLinks.guideCards %}
-        <div class="bg-guides-gradient py-6">
+        <div class="color-bg-tertiary py-6">
           <div class="container-xl px-3 px-md-6 my-6">
-            <h2 class="font-mktg h1 mb-2">Guides</h2>
+            <h2 class="font-mktg h1 mb-2" id="guides-2"><a href="#guides-2">Guides</a></h2>
 
             <div class="d-lg-flex gutter-lg flex-items-stretch">
               {% assign guideCards = featuredLinks.guideCards %}
@@ -146,10 +148,11 @@
       {% endif %}
 
       <div class="container-xl px-3 px-md-6 mt-6">
-        {% if currentCategory %}
-          {% include all-articles-category %}
-        {% else %}
-          {% include all-articles-product %}
+        {% if page.documentType == "category" %}
+          {% include category-articles-list %}
+        {% endif %}
+        {% if page.documentType == "product" %}
+          {% include product-articles-list %}
         {% endif %}
       </div>
 

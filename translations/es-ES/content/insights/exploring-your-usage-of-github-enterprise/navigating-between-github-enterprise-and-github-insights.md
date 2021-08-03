@@ -1,8 +1,7 @@
 ---
 title: Navegar entre GitHub Enterprise y GitHub Insights
 intro: ''
-product: '{% data reusables.gated-features.github-insights %}'
-permissions: 'Cualquier persona con acceso a {% data variables.product.prodname_insights %} puede navegar entre {% data variables.product.prodname_enterprise %} y {% data variables.product.prodname_insights %}.'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can navigate between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

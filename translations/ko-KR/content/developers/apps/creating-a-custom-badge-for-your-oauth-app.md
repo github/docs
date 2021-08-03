@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 By default, a new OAuth App will have an automatically generated [identicon](https://github.com/blog/1586-identicons). An identicon badge looks something like this:

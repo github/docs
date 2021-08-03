@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."

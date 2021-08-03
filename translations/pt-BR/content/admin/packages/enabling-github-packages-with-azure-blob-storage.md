@@ -4,7 +4,7 @@ intro: 'Configure o {% data variables.product.prodname_registry %} com o Azure B
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% warning %}

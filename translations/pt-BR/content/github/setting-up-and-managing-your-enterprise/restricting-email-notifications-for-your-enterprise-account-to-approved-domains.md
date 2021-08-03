@@ -1,12 +1,12 @@
 ---
 title: Restringir notificações de e-mail da conta corporativa para domínios aprovados
-intro: Você pode impedir que as informações da sua empresa vazem para contas pessoais, restringindo notificações de e-mail sobre a atividade em organizações pertencentes à sua conta corporativa para domínios verificados.
+intro: 'Você pode impedir que as informações da sua empresa vazem para contas pessoais, restringindo notificações de e-mail sobre a atividade em organizações pertencentes à sua conta corporativa para domínios verificados.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: Os proprietários das empresas podem restringir notificações de e-mail para uma conta corporativa.
+permissions: Enterprise owners can restrict email notifications for an enterprise account.
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre restrições de e-mail para a sua conta corporativa

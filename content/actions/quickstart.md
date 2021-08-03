@@ -8,9 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'quick_start'
+type: quick_start
 topics:
-  - 'Fundamentals'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

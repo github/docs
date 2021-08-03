@@ -1,7 +1,7 @@
 ---
 title: Encontrar errores y vulnerabilidades de seguridad en tu código
 shortTitle: Programación segura
-intro: 'Keep your code secure by using {% data variables.product.prodname_code_scanning %} to identify and fix potential security vulnerabilities and other errors in your code.'
+intro: 'Mantén tu código seguro utilizando el {% data variables.product.prodname_code_scanning %} para identificar y arreglar vulnerabilidades de seguridad potenciales y otros errores en tu código.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code
@@ -11,8 +11,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 ### Índice
 
@@ -30,6 +32,8 @@ topics:
     {% link_in_list /uploading-a-sarif-file-to-github %}
     {% link_in_list /sarif-support-for-code-scanning %}
 {% topic_link_in_list /using-codeql-code-scanning-with-your-existing-ci-system %}
-    {% link_in_list /running-codeql-code-scanning-in-your-ci-system %}
-    {% link_in_list /configuring-codeql-code-scanning-in-your-ci-system %}
-    {% link_in_list /troubleshooting-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /about-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /running-codeql-cli-in-your-ci-system %}
+    {% link_in_list /running-codeql-runner-in-your-ci-system %}
+    {% link_in_list /configuring-codeql-runner-in-your-ci-system %}
+    {% link_in_list /troubleshooting-codeql-runner-in-your-ci-system %}

@@ -26,7 +26,7 @@ function move (dir) {
     .forEach(file => {
       const fullPath = path.join(file.basePath, file.relativePath)
       const fileContent = fs.readFileSync(fullPath, 'utf8')
-      const data = flat(yaml.safeLoad(fileContent))
+      const data = flat(yaml.load(fileContent))
 
       Object.keys(data).forEach(key => {
         const value = get(data, key)

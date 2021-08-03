@@ -6,7 +6,7 @@ name: Ping staging apps
 
 on:
   schedule:
-    - cron: '*/20 * * * *' # every twenty minutes
+    - cron: '10,30,50 * * * *' # every twenty minutes
 
 jobs:
   ping_staging_apps:

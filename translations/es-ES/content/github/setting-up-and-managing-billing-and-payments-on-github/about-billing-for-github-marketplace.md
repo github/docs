@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %} incluye apps con planes de precios gratuitos y pagos. Después de comprar e instalar una app, puedes actualizar, bajar de categoría o cancerla en cualquier momento.

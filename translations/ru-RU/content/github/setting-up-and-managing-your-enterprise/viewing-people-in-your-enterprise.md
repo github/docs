@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### Viewing enterprise owners{% if currentVersion == "free-pro-team@latest" %} and billing managers{% endif %}

@@ -1,10 +1,9 @@
 ---
 title: Gestión de métricas e informes disponibles
 intro: 'Puedes activar y desactivar métricas específicas en {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-settings-in-github-insights
-permissions: 'Las personas con permisos de administrador para {% data variables.product.prodname_insights %} pueden administrar las métricas e informes disponibles.'
+permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage available metrics and reports.'
 versions:
   enterprise-server: '*'
 ---

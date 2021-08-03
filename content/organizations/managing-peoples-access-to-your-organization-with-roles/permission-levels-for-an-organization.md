@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Permission levels for an organization
@@ -43,7 +43,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Access the organization audit log | **X** |  |  |
 | Edit the organization's profile page (see "[About your organization's profile](/articles/about-your-organization-s-profile)" for details) | **X** |  |  |
 | Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)" for details) | **X** |  |  |
-| Restrict email notifications to verified domains (see "[Restricting email notifications to an approved domain](/organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain)" for details) | **X** |  |  |
+| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)" for details) | **X** |  |  |
 | Delete **all teams** | **X** |  |  |
 | Delete the organization account, including all repositories | **X** |  |  |
 | Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)" for details) | **X** | **X** |  |
@@ -60,9 +60,9 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)" for details) | **X** |  |  |
 | Manage viewing of organization dependency insights (see "[Changing the visibility of your organization's dependency insights](/articles/changing-the-visibility-of-your-organizations-dependency-insights)" for details) | **X** |  |  |
 | Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)" for details) | **X** |  |  |
-| Sponsor accounts and manage the organization's sponsorships (see "[Sponsoring open-source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)" for details) | **X** | **X** | | 
+| Sponsor accounts and manage the organization's sponsorships (see "[Sponsoring open-source contributors](/sponsors/sponsoring-open-source-contributors)" for details) | **X** | **X** | |
 | Manage email updates from sponsored accounts (see "[Managing updates from accounts your organization's sponsors](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)" for details) | **X** | | |
-| Attribute your sponsorships to another organization (see "[Attributing sponsorships to your organization](/github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization)" for details ) | **X** | | |
+| Attribute your sponsorships to another organization (see "[Attributing sponsorships to your organization](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" for details ) | **X** | | |
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" for details) | **X** | | |
 | Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" for details) | **X** | | |
 | Enable and enforce [SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |
