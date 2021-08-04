@@ -1,0 +1,18 @@
+@saritai saritai edited on May 24
+What article on docs.github.com is affected?
+
+This could effect a variety of GitHub articles, since we want to add links in articles, where it makes sense, to GitHub Classroom articles.
+
+What part(s) of the article would you like to see updated?
+
+Here are 4 examples of articles that could benefit from a link to GitHub Classroom articles:
+
+“Creating a template repository” - To this article about template repositories, we can add a link to this GitHub Classroom article “Create an assignment from a template repository” so that those learning how to create a template repository are aware they can be used in GitHub Classroom.
+“Create an individual assignment” - To this page in GitHub Classroom, the section “Creating a pull request for feedback” which is specifically about enabling feedback pull requests to be automatically created for each student submission, we can add a link to this article, “Leave feedback with pull requests” , which goes into more detail about how to leave feedback in those pull requests.
+To either “About integrations” or “GitHub extensions and integrations”, we can link out to “Integrate GitHub Classroom with an IDE”, in the context of giving an example of an integration with GitHub specific to education, allowing students to develop in an online IDE.
+This is a bit more vague, but we could add a link in some page about GitHub Actions, such as “About continuous integration” to “Use autograding” as an example of one way continuous integration and GitHub Actions is used, in an education/classroom context.
+There may be other articles out there that could also use links to GitHub Classroom articles (including GitHub Classroom articles themselves) - feel free to explore and find other places!
+
+Additional information
+
+When you add the link, you would usually want to add it a new paragraph or a "Further reading" section if it doesn't fit in any of the existing sections. When we link to other articles, we often start with "For more information, see [link]". In this case, you could also say something like "To see an example of how [feature] is used in GitHub Classroom, see [link]" - whatever wording makes clear why they might find it useful or of interest to go to that link.
