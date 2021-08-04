@@ -15,3 +15,18 @@ topics:
 shortTitle: Set permissions
 ---
 GitHub Apps don't have any permissions by default. When you create a GitHub App, you can select the permissions it needs to access end user data. Permissions can also be added and removed. For more information, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
+name: Pull request labeler
+
+on: [ pull_request_target ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
