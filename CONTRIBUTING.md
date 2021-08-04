@@ -102,7 +102,7 @@ We cannot accept contributions to the [REST API reference documentation](https:/
 ### :question: Support
 We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact?tags=docs-contributing-guide).
 
 ### :earth_asia: Translations
 
