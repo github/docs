@@ -858,13 +858,13 @@ describe('GitHub Desktop URLs', () => {
   })
 })
 
-describe('static assets', () => {
-  test('fonts', async () => {
-    expect((await get('/assets/fonts/inter/Inter-Bold.woff')).statusCode).toBe(200)
-    expect((await get('/assets/fonts/inter/Inter-Medium.woff')).statusCode).toBe(200)
-    expect((await get('/assets/fonts/inter/Inter-Regular.woff')).statusCode).toBe(200)
-  })
-})
+// describe('static assets', () => {
+//   test('fonts', async () => {
+//     expect((await get('/assets/fonts/inter/Inter-Bold.woff')).statusCode).toBe(200)
+//     expect((await get('/assets/fonts/inter/Inter-Medium.woff')).statusCode).toBe(200)
+//     expect((await get('/assets/fonts/inter/Inter-Regular.woff')).statusCode).toBe(200)
+//   })
+// })
 
 describe('extended Markdown', () => {
   test('renders styled warnings', async () => {
