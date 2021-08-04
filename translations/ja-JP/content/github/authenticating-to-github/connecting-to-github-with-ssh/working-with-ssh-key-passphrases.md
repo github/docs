@@ -44,21 +44,20 @@ agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
 
 agent_start () {
     (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; }
+    . env=~/.ssh/agent.env
 
-agent_load_env
+agent_load_env () { test -f "$env" && .
 
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
-agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+"$env" >| /dev/null ; }
 
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
     agent_start
     ssh-add
 elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
     ssh-add
 fi
-
-unset env
 ```
 
 秘密鍵がデフォルトの場所 (`~/.ssh/id_rsa` など) に保存されていない場合は、SSH 認証エージェントにその場所を指定する必要があります。 キーを ssh-agent に追加するには、`ssh-add ~/path/to/my_key` と入力します。 詳細は「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)」を参照してください。

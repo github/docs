@@ -47121,6 +47121,14 @@
           ]
         },
         {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRules",
           "description": "<p>A list of branch protection rules for this repository.</p>",
           "type": "BranchProtectionRuleConnection!",
