@@ -17,7 +17,7 @@ shortTitle: Change your username
 ---
 ## About username changes
 
-You can change your username to another username that is not currently in use.{% ifversion fpt %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you identify a desirable username still available.
+You can change your username to another username that is not currently in use.{% ifversion fpt %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
 
 If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/articles/github-trademark-policy/) page. 
 
