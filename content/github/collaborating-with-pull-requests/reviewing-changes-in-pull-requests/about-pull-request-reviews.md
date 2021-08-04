@@ -26,9 +26,7 @@ Reviews allow for discussion of proposed changes and help ensure that the change
 ![Header of review requesting changes with line comments](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
 A review has three possible statuses:
-- **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
-- **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
-- **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
+- [X] **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
 
 ![Image of review statuses](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
@@ -50,11 +48,9 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-{% tip %}
 
 **Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
 
-{% endtip %}
 
 ## Further reading
 
