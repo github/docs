@@ -36,7 +36,7 @@ Categories are usually organized around a feature or a discrete set of tasks wit
 - Task-based (begins with a gerund)
 - Describes the big-picture purpose or goal of using the feature or product
 - General or high-level enough to scale with future product enhancements
-- Category titles must be 67 characters or shorter
+- Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters
 - Examples
   - [Setting up and managing your GitHub user account](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account)
   - [Installing GitHub Enterprise](https://docs.github.com/en/enterprise-server@3.0/admin/installation)
@@ -54,7 +54,7 @@ Map topics contain at least three articles. When map topics have more than eight
 - Task-based (begins with a gerund)
 - Describes a more specific task within the larger workflow of the category it’s in
 - General or high-level enough to scale with future additions to the product
-- Map topic titles must be 63 characters or shorter
+- Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters
 - Examples
   - [Securing your account with two-factor authentication](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)
   - [Setting policies for organizations in your enterprise account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)
@@ -103,9 +103,9 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
 - Think about how the title will look in production
 - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-  - Category titles: 67 characters
-  - Map topic titles: 63 characters
-  - Article titles: 80 characters, 60 if possible
+  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
+  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
+  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
 
 ### Reusing content
 

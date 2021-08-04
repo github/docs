@@ -26,7 +26,7 @@ On {% data variables.product.prodname_dotcom %} if you have the required access,
 {% note %}
 
 **Note:** 
-- You cannot delete a public package if any version of the package has more than 25 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact) for further assistance.
+- You cannot delete a public package if any version of the package has more than 25 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
 - When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
