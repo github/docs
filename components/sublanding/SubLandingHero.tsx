@@ -30,9 +30,10 @@ export const SubLandingHero = () => {
           </div>
         </div>
         <h3 className="font-mktg h3-mktg my-4 color-text-primary">{guide.title}</h3>
-        <div className="lead-mktg color-text-secondary f5 my-4 truncate-overflow-8">
-          {guide.intro}
-        </div>
+        <div
+          className="lead-mktg color-text-secondary f5 my-4 truncate-overflow-8"
+          dangerouslySetInnerHTML={{ __html: guide.intro }}
+        />
       </Link>
     </li>
   ))
