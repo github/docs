@@ -10,14 +10,14 @@ describe('breadcrumbs', () => {
   describe('rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/github')
-      expect($('.breadcrumbs')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
     })
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
       const $ = await getDOM(
         '/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
       )
-      const $breadcrumbs = $('.breadcrumbs a')
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(4)
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
@@ -30,7 +30,7 @@ describe('breadcrumbs', () => {
       const $ = await getDOM(
         '/github/authenticating-to-github/keeping-your-account-and-data-secure'
       )
-      const $breadcrumbs = $('.breadcrumbs a')
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(3)
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
@@ -43,27 +43,27 @@ describe('breadcrumbs', () => {
       const $ = await getDOM(
         '/en/enterprise-server/github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase'
       )
-      const $breadcrumbs = $('.breadcrumbs a')
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(4)
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
     })
 
     test('parses Liquid variables inside titles', async () => {
       const $ = await getDOM('/en/enterprise/admin/enterprise-support')
-      const $breadcrumbs = $('.breadcrumbs a')
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(2)
       expect($breadcrumbs[1].attribs.title).toBe('category: Working with support')
     })
 
     test('English breadcrumbs link to English pages', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account')
-      const $breadcrumbs = $('.breadcrumbs a')
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs[0].attribs.href).toBe('/en/github')
     })
 
     test('localized breadcrumbs link to localize pages', async () => {
       const $ = await getDOM('/ja/github/setting-up-and-managing-your-github-user-account')
-      const $breadcrumbs = $('.breadcrumbs a')
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs[0].attribs.href).toBe('/ja/github')
     })
   })
@@ -71,20 +71,20 @@ describe('breadcrumbs', () => {
   describeInternalOnly('early access rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/early-access/github/articles/using-gist-playground')
-      expect($('.breadcrumbs')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
     })
 
     test('early access article pages have breadcrumbs with product, category, and article', async () => {
       const $ = await getDOM(
         '/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies'
       )
-      const $breadcrumbSpans = $('.breadcrumbs span')
-      const $breadcrumbLinks = $('.breadcrumbs a')
+      const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
+      const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbSpans).toHaveLength(2)
+      expect($breadcrumbTitles).toHaveLength(2)
       expect($breadcrumbLinks).toHaveLength(2)
-      expect($breadcrumbSpans[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub')
+      expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
+      expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'category: Enforcing best practices with GitHub Policies'
       )
@@ -93,7 +93,7 @@ describe('breadcrumbs', () => {
     })
   })
 
-  describe('context.breadcrumbs object', () => {
+  describe('breadcrumbs object', () => {
     test('works on product index pages', async () => {
       const breadcrumbs = await getJSON('/en/github?json=breadcrumbs')
       const expected = [

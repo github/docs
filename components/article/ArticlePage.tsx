@@ -1,13 +1,14 @@
 import cx from 'classnames'
 
 import { DefaultLayout } from 'components/DefaultLayout'
-import { ArticleVersionPicker } from 'components/article/ArticleVersionPicker'
-import { Breadcrumbs } from 'components/Breadcrumbs'
+import { ArticleTopper } from 'components/article/ArticleTopper'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
 import { InfoIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
+import { ArticleContent } from './ArticleContent'
+import { ArticleGridLayout } from './ArticleGridLayout'
 
 export const ArticlePage = () => {
   const {
@@ -26,21 +27,12 @@ export const ArticlePage = () => {
   return (
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-        <article className="markdown-body">
-          <div className="d-lg-flex flex-justify-between">
-            <div className="d-block d-lg-none">
-              <ArticleVersionPicker />
-            </div>
-            <div className="d-flex flex-items-center">
-              <Breadcrumbs />
-            </div>
-            <div className="d-none d-lg-block">
-              <ArticleVersionPicker />
-            </div>
-          </div>
+        <ArticleTopper />
 
-          <div className="article-grid-container mt-2">
-            <div className="article-grid-head">
+        <ArticleGridLayout
+          className="mt-7"
+          head={
+            <>
               <ArticleTitle>{title}</ArticleTitle>
 
               {contributor && (
@@ -99,52 +91,43 @@ export const ArticlePage = () => {
                   dangerouslySetInnerHTML={{ __html: product }}
                 />
               )}
-            </div>
+            </>
+          }
+          toc={
+            miniTocItems.length > 1 && (
+              <>
+                <h2 id="in-this-article" className="f5 mb-2">
+                  <a className="Link--primary" href="#in-this-article">
+                    {t('miniToc')}
+                  </a>
+                </h2>
+                <ul className="list-style-none pl-0 f5 mb-0">
+                  {miniTocItems.map((item) => {
+                    return (
+                      <li
+                        key={item.contents}
+                        className={cx(
+                          `ml-${item.indentationLevel * 3}`,
+                          item.platform,
+                          'mb-2 lh-condensed'
+                        )}
+                        dangerouslySetInnerHTML={{ __html: item.contents }}
+                      />
+                    )
+                  })}
+                </ul>
+              </>
+            )
+          }
+        >
+          <ArticleContent>{renderedPage}</ArticleContent>
+        </ArticleGridLayout>
 
-            <div className="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
-              <div className="article-grid-toc-content">
-                {miniTocItems.length > 1 && (
-                  <>
-                    <h2 id="in-this-article" className="f5 mb-2">
-                      <a className="Link--primary" href="#in-this-article">
-                        {t('miniToc')}
-                      </a>
-                    </h2>
-                    <ul className="list-style-none pl-0 f5 mb-0">
-                      {miniTocItems.map((item) => {
-                        return (
-                          <li
-                            key={item.contents}
-                            className={cx(
-                              `ml-${item.indentationLevel * 3}`,
-                              item.platform,
-                              'mb-2 lh-condensed'
-                            )}
-                            dangerouslySetInnerHTML={{ __html: item.contents }}
-                          />
-                        )
-                      })}
-                    </ul>
-                  </>
-                )}
-              </div>
-            </div>
-
-            <div className="markdown-body">
-              <div
-                id="article-contents"
-                className="article-grid-body"
-                dangerouslySetInnerHTML={{ __html: renderedPage }}
-              />
-            </div>
+        {currentLearningTrack?.trackName ? (
+          <div className="mt-4">
+            <LearningTrackNav track={currentLearningTrack} />
           </div>
-
-          {currentLearningTrack?.trackName ? (
-            <div className="d-block mt-4 markdown-body">
-              <LearningTrackNav track={currentLearningTrack} />
-            </div>
-          ) : null}
-        </article>
+        ) : null}
       </div>
     </DefaultLayout>
   )

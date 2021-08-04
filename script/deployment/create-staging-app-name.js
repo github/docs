@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import xGithubSlugger from 'github-slugger'
-const slugify = xGithubSlugger.slug
+import GithubSlugger from 'github-slugger'
+const slugify = GithubSlugger.slug
 
 const APP_NAME_MAX_LENGTH = 30
 

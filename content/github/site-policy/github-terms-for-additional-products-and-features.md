@@ -98,7 +98,7 @@ Prohibited uses of GitHub Pages include
 - Sexually obscene content
 - Content that misrepresents your identity or site purpose
 
-If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com/). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
+If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
 
 ## Sponsors Program
 

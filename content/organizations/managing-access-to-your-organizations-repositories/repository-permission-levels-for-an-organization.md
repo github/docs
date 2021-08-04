@@ -142,7 +142,7 @@ In addition to managing organization-level settings, organization owners have ad
 In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:|{% ifversion fpt or ghes > 2.22 %}
+|:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes > 2.22 %}
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for vulnerable dependencies | | | | | **X** |{% endif %}{% ifversion fpt %}

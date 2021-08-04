@@ -26,7 +26,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)."
+{% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
 You can run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %} using {% data variables.product.prodname_actions %}. Alternatively, if you use a third-party continuous integration or continuous delivery/deployment (CI/CD) system, you can run {% data variables.product.prodname_codeql %} analysis in your existing system and upload the results to {% data variables.product.product_location %}.
 

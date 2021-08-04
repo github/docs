@@ -14,7 +14,6 @@ This directory contains custom Liquid tags for outputting dynamic content. These
 Tags can be used in:
 
 - Articles and TOCs (`content/**/*.md`)
-- Layout files (`layouts/*.html`)
 - Include files (`includes/*.html`)
 
 Tags always expect a single argument, a language agnostic href:

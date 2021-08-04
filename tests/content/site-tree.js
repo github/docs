@@ -1,12 +1,12 @@
 import revalidator from 'revalidator'
 import schema from '../helpers/schemas/site-tree-schema.js'
-import xEnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { loadSiteTree } from '../../lib/page-data.js'
 import japaneseCharacters from 'japanese-characters'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import { jest } from '@jest/globals'
 
-const latestEnterpriseRelease = xEnterpriseServerReleases.latest
+const latestEnterpriseRelease = EnterpriseServerReleases.latest
 
 describe('siteTree', () => {
   jest.setTimeout(3 * 60 * 1000)

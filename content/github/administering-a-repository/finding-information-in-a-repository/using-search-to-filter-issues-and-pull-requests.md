@@ -31,6 +31,16 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
+{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% tip %}
+
+**Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
+- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`. 
+- To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+
+{% endtip %}
+{% endif %}
+
 {% ifversion fpt or ghes or ghae %}
 For issues, you can also use search to:
 
@@ -50,7 +60,7 @@ For pull requests, you can also use search to:
 
 ## Further reading
 
-- "[Searching issues](/articles/searching-issues)"
+- "[Searching issues and pull requests](/articles/searching-issues)"
 - "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 - "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"
 - "[Sharing filters](/articles/sharing-filters)"

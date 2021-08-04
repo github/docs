@@ -2,7 +2,7 @@ import languages from '../lib/languages.js'
 import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
 import { allVersions } from '../lib/all-versions.js'
 import { productMap } from '../lib/all-products.js'
-import xPathUtils from '../lib/path-utils.js'
+import pathUtils from '../lib/path-utils.js'
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
 import readJsonFile from '../lib/read-json-file.js'
@@ -16,7 +16,7 @@ const {
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
-} = xPathUtils
+} = pathUtils
 const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
 
 // Supply all route handlers with a baseline `req.context` object
