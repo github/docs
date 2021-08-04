@@ -33,7 +33,6 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)." 
 
 ## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
@@ -73,45 +72,22 @@ When {% data variables.product.product_name %} has finished restarting, you're r
 
 You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
 
-For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
+For example, you can enable {% data variables.product.prodname_code_scanning %} with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
 1. SSH into {% data variables.product.product_location %}.
-1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
-
-    - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
-
+1. Enable {% data variables.product.prodname_code_scanning %}.
     ```shell
     ghe-config app.minio.enabled true
-  ghe-config app.code-scanning.enabled true
+    ghe-config app.code-scanning.enabled true
     ```
-    - To enable {% data variables.product.prodname_secret_scanning_caps %}, enter the following command.
-
-    ```shell
-    ghe-config app.secret-scanning.enabled true
-    ```
-    - To enable {% data variables.product.prodname_dependabot %}, enter the following commands.
-    ```shell
-    ghe-config app.github.dependency-graph-enabled true
-    ghe-config app.github.vulnerability-alerting-and-settings-enabled true
-    ```
-2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
-
-    - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
+2. Optionally, disable {% data variables.product.prodname_code_scanning %}.
     ```shell
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_secret_scanning %}, enter the following command.
-    ```shell
-    ghe-config app.secret-scanning.enabled false
-    ```
-    - To disable {% data variables.product.prodname_dependabot %}, enter the following commands.
-    ```shell
-    ghe-config app.github.dependency-graph-enabled false
-    ghe-config app.github.vulnerability-alerting-and-settings-enabled false
-    ```
-
 3. Apply the configuration.
     ```shell
-    ghe-config-apply
-    ```
+  ghe-config-apply
+  ```
+
+{% ifversion ghes > 2.22 %}To enable and disable {% data variables.product.prodname_secret_scanning %} in the same way, set: `ghe-config app.secret-scanning.enabled` true or false and apply the configuration.{% endif %}
