@@ -14,7 +14,10 @@ export const GuideCard = ({ guide }: Props) => {
         href={guide.href}
       >
         <h2 dangerouslySetInnerHTML={{ __html: guide.title }} />
-        <p className="mt-2 mb-4 color-text-tertiary">{guide.intro}</p>
+        <p
+          className="mt-2 mb-4 color-text-tertiary"
+          dangerouslySetInnerHTML={{ __html: guide.intro || '' }}
+        />
 
         <footer className="d-flex">
           <div className="mr-1">
