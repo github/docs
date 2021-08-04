@@ -25474,7 +25474,7 @@ type PullRequestReviewThread implements Node {
   id: ID!
 
   """
-  Whether or not the thread has been collapsed (outdated or resolved)
+  Whether or not the thread has been collapsed (resolved)
   """
   isCollapsed: Boolean!
 
