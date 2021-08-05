@@ -37381,7 +37381,7 @@
         },
         {
           "name": "isCollapsed",
-          "description": "<p>Whether or not the thread has been collapsed (outdated or resolved).</p>",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -43683,6 +43683,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "branchProtectionRules",

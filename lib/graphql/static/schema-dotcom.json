@@ -33666,6 +33666,66 @@
           "href": "/graphql/reference/objects#organizationidentityprovider"
         },
         {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsors",
           "description": "<p>List of sponsors for this user or organization.</p>",
           "type": "SponsorConnection!",
@@ -40812,7 +40872,7 @@
         },
         {
           "name": "isCollapsed",
-          "description": "<p>Whether or not the thread has been collapsed (outdated or resolved).</p>",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -47119,6 +47179,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "branchProtectionRules",
@@ -59594,6 +59662,66 @@
           ]
         },
         {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsors",
           "description": "<p>List of sponsors for this user or organization.</p>",
           "type": "SponsorConnection!",
@@ -63337,6 +63465,66 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            }
+          ]
         },
         {
           "name": "sponsors",
