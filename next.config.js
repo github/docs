@@ -10,21 +10,6 @@ const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children
 
 module.exports = {
-  // webpack: (config, { isServer }) => {
-  //   if (isServer) {
-  //     config.plugins.push(
-  //       new CopyWebpackPlugin({
-  //         patterns: [
-  //           {
-  //             from: path.join(__dirname, 'node_modules/@primer/css/fonts'),
-  //             to: path.join(__dirname, 'assets/fonts/inter'),
-  //           },
-  //         ],
-  //       })
-  //     )
-  //   }
-  //   return config
-  // },
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
   typescript: {
