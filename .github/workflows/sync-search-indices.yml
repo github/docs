@@ -71,8 +71,8 @@ jobs:
           git commit -am "update search indexes"
           echo 'git lfs push --all origin'
           git lfs push --all origin
-          echo 'git push origin main --no-verify'
-          git push origin main --no-verify
+          echo 'git push --force origin main --no-verify'
+          git push --force origin main --no-verify
 
       - name: Update open-source docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
@@ -87,8 +87,8 @@ jobs:
           git lfs push --all public-docs-repo
           echo 'git pull public-docs-repo main'
           git pull public-docs-repo main
-          echo 'git push public-docs-repo main --no-verify'
-          git push public-docs-repo main --no-verify
+          echo 'git push--force public-docs-repo main --no-verify'
+          git push --force public-docs-repo main --no-verify
 
       - name: Send slack notification if workflow run fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
