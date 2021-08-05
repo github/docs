@@ -120,6 +120,7 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 You can interact with the audit log using the GraphQL API{% ifversion fpt %} or the REST API{% endif %}.
 
 {% ifversion fpt %}
+The audit log API requires {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 ### Using the GraphQL API
 
@@ -376,7 +377,8 @@ For more information, see "[Managing the publication of {% data variables.produc
 ### `org` category actions
 
 | Action | Description
-|------------------|-------------------{% ifversion fpt or ghes > 3.0 or ghae-next %}
+|------------------|-------------------
+| `add_member` | Triggered when a user joins an organization.{% ifversion fpt or ghes > 3.0 or ghae-next %}
 | `advanced_security_policy_selected_member_disabled` | Triggered when an enterprise owner prevents {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
 | `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% ifversion fpt %}
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
@@ -390,8 +392,8 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.
 | `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}
 | `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
-| `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% ifversion fpt %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}
-| `invite_member` | Triggered when [a new user was invited to join your organization](/articles/adding-organization-members-to-a-team).{% ifversion fpt %}
+| `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% ifversion fpt %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt %}
+| `invite_member` | Triggered when [a new user was invited to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
 | `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {% data variables.product.prodname_oauth_app %}](/articles/approving-oauth-apps-for-your-organization/).
 | `oauth_app_access_denied` | Triggered when an owner [disables a previously approved {% data variables.product.prodname_oauth_app %}'s access](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to your organization.
 | `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {% data variables.product.prodname_oauth_app %} access to your organization.{% endif %}{% ifversion fpt or ghes > 2.21 or ghae %}

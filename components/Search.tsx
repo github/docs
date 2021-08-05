@@ -41,7 +41,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
 
   // If the user shows up with a query in the URL, go ahead and search for it
   useEffect(() => {
-    if (router.query.query) {
+    if (updateSearchParams && router.query.query) {
       /* await */ fetchSearchResults((router.query.query as string).trim())
     }
   }, [])

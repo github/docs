@@ -37,17 +37,19 @@ Using the attribute `topics` in your query will only return results that have th
 
 ## Production deploys
 
-A [GitHub Actions workflow](.github/workflows/sync-search-indices.yml) triggered by pushes to the `main` branch syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
+A [GitHub Actions workflow](.github/workflows/sync-search-indices.yml) that runs every four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
 
 The Actions workflow progress can be viewed (by GitHub employees) in the [Actions tab](https://github.com/github/docs/actions?query=workflow%3Asearch) of the repo.
 
-Because the workflow runs after a branch is merged to `main`, there is a slight delay for search data updates to appear on the site.
+## Manually triggering the search index update workflow
 
-## Manual sync from a checkout
+You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml).
 
-It is also possible to manually sync the indices from your local checkout of the repo, before your branch is merged to `main`.
+## Generating search indexes for your local checkout
 
-**Prerequisite:** Make sure the environment variables `ALGOLIA_APPLICATION_ID` and `ALGOLIA_API_KEY` are set in your `.env` file. You can find these values on [Algolia](https://www.algolia.com/apps/ZI5KPY1HBE/api-keys/all). _Remove this paragraph when we switch to Lunr._
+You can locally generate search indexes, but please do not check them into your local branch because they can get out-of-sync with the `main` branch quickly.
+
+To locally generate the English version of the Dotcom search index locally, run `LANGUAGE=en VERSION=free-pro-team@latest npm run sync-search`. See [Build and sync](#build-and-sync) below for more details. To revert those files run `git checkout lib/search/indexes`.
 
 ### Build without sync (dry run)
 
@@ -75,7 +77,7 @@ VERSION=<PLAN@RELEASE LANGUAGE=<TWO-LETTER CODE> npm run sync-search
 ```
 You can set `VERSION` and `LANGUAGE` individually, too.
 
-Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`.
+Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`. Languages and versions are lowercase. The options for version are currently `free-pro-team`, `github-ae`, and `enterprise-server`.
 
 ## Label-triggered Actions workflow
 
@@ -95,7 +97,7 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 
 ### Actions workflow files
 
-- [`.github/workflows/sync-search-indices.yml`](.github/workflows/sync-search-indices.yml) - Builds and syncs search indices whenever the `main` branch is pushed to (that is, on production deploys).
+- [`.github/workflows/sync-search-indices.yml`](.github/workflows/sync-search-indices.yml) - Builds and syncs search indices on the `main` branch every four hours. Search indices are committed directly to the `main` branch on both the `github/docs-internal` and `github/docs` repositories. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml).
 - [`.github/workflows/dry-run-sync-search-indices.yml`](.github/workflows/dry-run-sync-search-indices.yml) - This workflow can be run manually (via `workflow_dispatch`) to do a dry run build of all the indices. Useful for confirming that the indices can build without erroring out.
 - [`.github/workflows/sync-single-english-index.yml`](.github/workflows/sync-single-english-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered Actions workflow](#label-triggered-actions-workflow)" for details.
 
