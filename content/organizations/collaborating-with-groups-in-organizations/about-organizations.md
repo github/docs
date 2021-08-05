@@ -13,6 +13,8 @@ topics:
   - Teams
 ---
 
+{% data reusables.organizations.about-organizations %}
+
 {% data reusables.organizations.organizations_include %}
 
 {% ifversion fpt %}
