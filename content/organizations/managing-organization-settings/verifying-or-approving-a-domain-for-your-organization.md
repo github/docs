@@ -27,7 +27,7 @@ If your organization is owned by an enterprise account, a "Verified" badge will 
 
 {% data reusables.organizations.verified-domains-details %}
 
-On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)." {% data reusables.enterprise.link-to-ghec-trial %}
 
 ## About domain approval
 

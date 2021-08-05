@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `sponsoring` was added to object type `Organization`",
+          "Field `sponsoring` was added to interface `Sponsorable`",
+          "Field `sponsoring` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `autoMergeAllowed` was added to object type `Repository`"
         ]
       }

@@ -655,7 +655,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
 jobs:

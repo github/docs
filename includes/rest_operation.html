@@ -78,7 +78,7 @@
             <td colspan="4" class="has-nested-table">
             {%- for childParamsGroup in bodyParam.childParamsGroups -%}
             <details>
-            <summary class="color-text-secondary"><h4 id="{{ childParamsGroup.id }}">Properties of the <code>{{ childParamsGroup.parentName }}</code> {{ childParamsGroup.parentType }}</h4></summary>
+            <summary class="color-text-secondary"><span class="d-inline-block mb-3" id="{{ operation.slug }}-{{ childParamsGroup.id }}">Properties of the <code>{{ childParamsGroup.parentName }}</code> {{ childParamsGroup.parentType }}</span></summary>
             <table>
               <tbody>
                 {%- for childParam in childParamsGroup.params -%}
