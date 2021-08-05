@@ -120,6 +120,7 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 You can interact with the audit log using the GraphQL API{% ifversion fpt %} or the REST API{% endif %}.
 
 {% ifversion fpt %}
+The audit log API requires {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 ### Using the GraphQL API
 
