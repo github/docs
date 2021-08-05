@@ -1,7 +1,8 @@
-import sleep from 'await-sleep'
 import { jest } from '@jest/globals'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
+
+jest.useFakeTimers()
 
 /* global page, browser */
 describe('homepage', () => {
@@ -108,6 +109,8 @@ describe('browser search', () => {
 })
 
 describe('survey', () => {
+  jest.setTimeout(3 * 60 * 1000)
+
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto(
@@ -135,8 +138,6 @@ describe('survey', () => {
 
     // When I fill in my email and submit the form
     await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
-
-    await sleep(1000)
 
     await page.click('[data-testid=survey-form] [type="submit"]')
     // (sent a PUT request to /events/{id})
@@ -271,7 +272,6 @@ describe('tool specific content', () => {
     const toolSelector = await page.$$('nav#tool-switcher')
     const switches = await page.$$('a.tool-switcher')
     const selectedSwitch = await page.$$('a.tool-switcher.selected')
-    console.log(switches.length)
     expect(toolSelector.length).toBeGreaterThan(1)
     expect(switches.length).toBeGreaterThan(1)
     expect(selectedSwitch.length).toEqual(toolSelector.length)
@@ -437,30 +437,14 @@ describe('language banner', () => {
   })
 })
 
-// The Explorer in the iFrame will not be accessible on localhost, but we can still
-// test the query param handling
+// The Explorer in the iFrame will not be accessible on localhost
+// There's a url in github.com that uses ?query= for a graphql query instead of a search query, so we're hiding the Search bar on this page
 describe('GraphQL Explorer', () => {
-  it('preserves query strings on the Explorer page without opening search', async () => {
-    const queryString = `query {
-  viewer {
-    foo
-  }
-}`
-    // Encoded as: query%20%7B%0A%20%20viewer%20%7B%0A%20%20%20%20foo%0A%20%20%7D%0A%7D
-    const encodedString = encodeURIComponent(queryString)
+  it('hides search bar on GraphQL Explorer page', async () => {
     const explorerUrl = 'http://localhost:4001/en/graphql/overview/explorer'
-
-    await page.goto(`${explorerUrl}?query=${encodedString}`)
-
-    // On non-Explorer pages, query params handled by search JS get form-encoded using `+` instead of `%20`.
-    // So on these pages, the following test will be false; but on the Explorer page, it should be true.
-    expect(page.url().endsWith(encodedString)).toBe(true)
-
-    // On non-Explorer pages, query params handled by search JS will populate in the search box and the `js-open`
-    // class is added. On these pages, the following test will NOT be null; but on the Explorer page, it should be null.
-    await page.waitForSelector('#search-results-container')
-    const searchResult = await page.$('#search-results-container.js-open')
-    expect(searchResult).toBeNull()
+    await page.goto(`${explorerUrl}`)
+    const searchBar = await page.$$('[data-testid=site-search-input]')
+    expect(searchBar.length).toBe(0)
   })
 })
 

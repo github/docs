@@ -5,6 +5,7 @@ name: Sync Single English Index
 # **Who does it impact**:
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - labeled
@@ -39,9 +40,15 @@ jobs:
         env:
           VERSION: ${{ steps.getVersion.outputs.versionToSync }}
           LANGUAGE: 'en'
-          ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run build
           npm run sync-search
+      - name: Check in search index
+        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
+        with:
+          # The arguments for the `git add` command
+          add: 'lib/search/indexes'
+
+          # The message for the commit
+          message: 'Updated search index for ${{ steps.getVersion.outputs.versionToSync }}'
