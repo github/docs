@@ -83,13 +83,13 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches-ignore:
-      # Push events to branches matching refs/heads/mona/octocat
+      # Do not push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/beta/3-alpha
+      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
     tags-ignore:
-      - v1.*           # Push events to tags v1.0, v1.1, and v1.9
+      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
 ```
 
 ### Excluding branches and tags
