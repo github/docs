@@ -6,9 +6,6 @@ name: Check for unallowed internal changes
 
 on:
   pull_request:
-    paths:
-      - 'app.json'
-      - 'lib/search/indexes/**'
 
 jobs:
   check-internal-changes:
