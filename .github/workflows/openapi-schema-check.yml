@@ -10,6 +10,8 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - 'lib/rest/static/**'
 
 jobs:
   check-schema-versions:

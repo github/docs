@@ -188,7 +188,7 @@ describe('JS and CSS assets', () => {
 
   it('returns the expected node_modules', async () => {
     const result = await supertest(app)
-      .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
+      .get('/node_modules/instantsearch.js/dist/instantsearch.production.min.js')
       .set('Referrer', '/en/enterprise/2.17')
 
     expect(result.statusCode).toBe(200)
