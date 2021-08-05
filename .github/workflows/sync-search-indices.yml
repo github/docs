@@ -64,6 +64,8 @@ jobs:
           git config user.name "GitHub Actions"
           echo 'git config user.email action@github.com'
           git config user.email action@github.com
+          echo 'git config pull.ff only'
+          git config pull.ff only
           echo 'git commit -am "update search indexes"'
           git commit -am "update search indexes"
           echo 'git lfs push --all origin'
