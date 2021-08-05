@@ -51,8 +51,7 @@ jobs:
       - name: Update search indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # TODO remove version and language after first successful run to test
-        run: VERSION=github-ae@latest LANGUAGE=pt npm run sync-search
+        run: npm run sync-search
 
       - name: Update private docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
