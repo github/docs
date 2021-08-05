@@ -10,9 +10,9 @@ USER node
 
 COPY --chown=node:node package.json /openapi-check
 COPY --chown=node:node package-lock.json /openapi-check
-ADD --chown=node:node script /openapi-check/script
-ADD --chown=node:node lib /openapi-check/lib
-ADD --chown=node:node content /openapi-check/content
+COPY --chown=node:node script /openapi-check/script
+COPY --chown=node:node lib /openapi-check/lib
+COPY --chown=node:node content /openapi-check/content
 
 RUN npm ci -D
 
