@@ -69,8 +69,8 @@ jobs:
           git config user.email action@github.com
           echo 'git commit -am "update search indexes"'
           git commit -am "update search indexes"
-          echo 'git lfs push origin'
-          git lfs push origin
+          echo 'git lfs push --all origin'
+          git lfs push --all origin
           echo 'git push origin main --no-verify'
           git push origin main --no-verify
 
@@ -83,8 +83,8 @@ jobs:
         run: |
           echo 'git remote add public-docs-repo https://github.com/github/docs.git'
           git remote add public-docs-repo https://github.com/github/docs.git
-          echo 'git lfs push public-docs-repo'
-          git lfs push public-docs-repo
+          echo 'git lfs push --all public-docs-repo'
+          git lfs push --all public-docs-repo
           echo 'git pull public-docs-repo main'
           git pull public-docs-repo main
           echo 'git push public-docs-repo main --no-verify'
