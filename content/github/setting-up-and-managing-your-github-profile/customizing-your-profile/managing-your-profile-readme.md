@@ -70,6 +70,8 @@ The profile README is removed from your {% data variables.product.prodname_dotco
 
 The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
 
+The profile README doesn't support Github Organizations as of now, and only works only for personal profiles.
+
 ## Further reading
 
 - [About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)
