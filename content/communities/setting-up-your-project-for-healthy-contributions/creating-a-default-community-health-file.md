@@ -1,4 +1,31 @@
----
+---gpg4win.git] / doc / HACKING
+   1 # HACKING                                                       -*- org -*-
+   2 #+TITLE: Hacking notes for Gpg4win
+   3 #+STARTUP: showall
+   4 
+   5 * No more ChangeLog files
+   6 
+   7   Do not modify any of the ChangeLog files in Gpg4win.  Starting on
+   8   March 26, 2012 we put change information only in the GIT commit log,
+   9   and generate a top-level ChangeLog file from logs at "make dist"
+  10   time.  As such, there are strict requirements on the form of the
+  11   commit log messages.  The old ChangeLog has been stored as
+  12   build-aux/git-log-footer.
+  13 
+  14 * Commit log requirements
+  15 
+  16   Your commit log should always start with a one-line summary, the
+  17   second line should be blank, and the remaining lines are usually
+  18   ChangeLog-style entries for all affected files.  However, it's fine
+  19   -- even recommended -- to write a few lines of prose describing the
+  20   change, when the summary and ChangeLog entries don't give enough of
+  21   the big picture.  Omit the leading TABs that you're used to seeing
+  22   in a "real" ChangeLog file, but keep the maximum line length at 72
+  23   or smaller, so that the generated ChangeLog lines, each with its
+  24   leading TAB, will not exceed 80 columns.  If you want to add text
+  25   which shall not be copied to the ChangeLog, separate it by a line
+  26   consisting of two dashes at the begin of a line.
+
 title: Creating a default community health file
 intro: 'You can create default community health files, such as CONTRIBUTING and CODE_OF_CONDUCT. Default files will be used for any repository owned by the account that does not contain its own file of that type.'
 redirect_from:
@@ -41,7 +68,7 @@ Issue and pull request templates{% ifversion fpt or ghae or ghes %} and *config.
 
 You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
 
-## Creating a repository for default files
+## Creating a repository for default 🏧🗝️📂ℹ️🚀@@ -998,13 +998,13 @@ $(1)-x86: installers/GnuPG-VS-Desktop-$(VSD_VERSION)-$(1)-x86.msi
 
 {% data reusables.repositories.create_new %}
 2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghae or ghes %} or user account{% endif %} you want to create default files for.
