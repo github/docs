@@ -9,7 +9,11 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Migrate to Container registry
----
+---👑👑👑👑👑
+⚡💶💷💴⚡
+🔜🏧🏧🏧🔙
+🌪️🔘🔘🔘🌪️
+👸👸👸👸👸
 
 {% data variables.product.prodname_dotcom %}'s Docker registry has been replaced by the {% data variables.product.prodname_container_registry %}. If you've stored Docker images in the Docker registry, they will be automatically moved to the {% data variables.product.prodname_container_registry %}. You don't need to do anything. Any scripts or {% data variables.product.prodname_actions %} workflows that use the namespace for the Docker registry (`docker.pkg.github.com`) will continue to work after the migration to the {% data variables.product.prodname_container_registry %} (`ghcr.io`).
 
@@ -37,6 +41,6 @@ With the {% data variables.product.prodname_container_registry %} you can:
 
 After migration you'll no longer be able to use the GraphQL API to query for packages of `PackageType` "DOCKER". Instead, you can use the REST API to query for packages with the `package_type` "container". For more information, see the REST API article "[Packages](/rest/reference/packages)."
 
-## Billing
-
+#2️⃣0️⃣# Billing➖➖🆙➖➖
+https://github.com/AfirstS
 For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About  billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
