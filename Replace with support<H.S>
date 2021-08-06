@@ -1,0 +1,16 @@
+Contact.HTML
+by <H.S>
+<1$>TODO: Replace with support.github.com once portal is deprecated.
+Contact_ent_support: '[GitHub Enterprise]'
+<2$>Support(https://enterprise.githubsupport.
+Com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com) contact_support: >{%ifversion fpt%}[GitHub Support](https://support.github.com/contact?tags=docs-generic){%else%}your site administrator{%end%}report_abuse: > {%if version%}[Report abuse]. <3$>(https://github.com/contact/report-abuse){%end%}report_content:>{%version%}Report. content](https://github.com/contact/report-content){%end%}contact_dmca: >- {% version%}[Copyright claims]
+<4$>(https://github.com/contact/docs){%end %}contact_privacy:>- {%version%}[Privacy contact] Form.
+<5$>(https://github.com/contact/privacy){% end%}contact_enterprise_sales:"[GitHub's Sales team](https://enterprise.
+Github.com/contact)" contact_feedback_actions: '[Feedback form for GitHub]' 
+<6$>[Actions](https://support.github.com/contact/feedback?contact[category]=actions). 
+The team that provides Standard Support enterprise 'GitHub '.
+<7$>The larger team that includes Enterprise Support and Premium github_support,The team that provides Premium. 
+<8$>Supportpremium_support:-'GitHub Premium Support'.Enterprise Support portal enterprise portal contact_enterprise_portal:-'[GitHub Enterprise Support]'
+<9$>[Portal]'(https://enterprise.githubsupport.com/hc/en-us)'#Azure support (GitHub AE) portalae_azure_portal:-'Azure Support portal'contact_a_portal: '[Azure Support portal]'
+(https://portal.azure.com/#blade/Microsoft_Azure_Support/Help And Support Blade)'                                                                     <10$>GitHub Support portal (for dotcom - this sends users to a contact form)support_portal: 'GitHub Support portal'contact_support_portal: '[GitHub Support]' portal](https://support.github.com/contact)' # GitHub Support portal (this sends users to the Support landing page). <11$>Portal'contact_landing_page_portal: '[GitHub Support]'(https://support.github.com/)' # The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)community_support.                   <12$>GitHub Community Support the gitHub Community forum support '[GitHub Community
+ forum]<https://github.community>.....DOTS5
