@@ -133,40 +133,40 @@ Here's some information that might be helpful while working on a Docs PR:
 
 - [Development](/contributing/development.md) - This short guide describes how to get this app running on your local machine.
 
-- [Content markup reference](/contributing/content-markup-reference.md) - All of our content is written in GitHub-flavored Markdown, with some additional enhancements.
+- [X](/contributing/content-markup-reference.md) - All of our content is written in GitHub-flavored Markdown, with some additional enhancements.
 
 - [Content style guide for GitHub Docs](/contributing/content-style-guide.md) - This guide covers GitHub-specific information about how we style our content and images. It also links to the resources we use for general style guidelines.
 
-- [Content model](/contributing/content-model.md) and [content templates](/contributing/content-templates.md) - The content model describes the purpose of each type of content we use in GitHub Docs and how to write for each type. The templates allow you to quickly get started with new articles.
+- [X](/contributing/content-model.md) and [content templates](/contributing/content-templates.md) - The content model describes the purpose of each type of content we use in GitHub Docs and how to write for each type. The templates allow you to quickly get started with new articles.
 
 - [Reusables](/data/reusables/README.md) - We use reusables to help us keep content up to date. Instead of writing the same long string of information in several articles, we create a reusable, then call it from the individual articles.
 
 - [Variables](/data/variables/README.md) - We use variables the same way we use reusables. Variables are for short strings of reusable text.
 
-- [Liquid](/contributing/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
+- [X](/contributing/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
 
-- [Scripts](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally.
+- [X](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally.
 
-- [Tests](/tests/README.md) - We use tests to ensure content will render correctly on the site. Tests run automatically in your PR, and sometimes it's also helpful to run them locally.
+[X](/tests/README.md) - We use tests to ensure content will render correctly on the site. Tests run automatically in your PR, and sometimes it's also helpful to run them locally.
 
 ## Reviewing
 We (usually the docs team, but sometimes GitHub product managers, engineers, or supportocats too!) review every single PR. The purpose of reviews is to create the best content we can for people who use GitHub.
 
-:yellow_heart: Reviews are always respectful, acknowledging that everyone did the best possible job with the knowledge they had at the time.  
-:yellow_heart: Reviews discuss content, not the person who created it.  
-:yellow_heart: Reviews are constructive and start conversation around feedback.  
+- [X]:yellow_heart: Reviews are always respectful, acknowledging that everyone did the best possible job with the knowledge they had at the time.  
+- [X]:yellow_heart: Reviews discuss content, the person who created 
+- [X]:yellow_heart: Reviews are constructive and start conversation around feedback.  
 
 ### Self review
 You should always review your own PR first.
 
 For content changes, make sure that you:
-- [ ] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
-- [ ] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
-- [ ] Review the content for technical accuracy.
-- [ ] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
-- [ ] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
-- [ ] Check new or updated Liquid statements to confirm that versioning is correct.
-- [ ] If there are any failing checks in your PR, troubleshoot them until they're all passing.
+- [X] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
+- [X] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
+- [X] Review the content for technical accuracy.
+- [X] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
+- [X] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
+- [X] Check new or updated Liquid statements to confirm that versioning is correct.
+- [X] If there are any failing checks in your PR, troubleshoot them until they're all passing.
 
 ### Pull request template
 When you open a pull request, you must fill out the "Ready for review" template before we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request.
