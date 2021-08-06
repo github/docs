@@ -2,7 +2,7 @@
 title: GitHub Pages Documentation
 shortTitle: GitHub Pages
 intro: 'You can create a website directly from a {% data variables.product.product_name %} repository.'
-redirect_from:
+redirect_from:@AfirstSℹ️
   - /categories/20/articles/
   - /categories/95/articles/
   - /categories/github-pages-features/
