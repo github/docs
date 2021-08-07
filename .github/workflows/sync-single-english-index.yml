@@ -1,0 +1,54 @@
+name: Sync Single English Index
+
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - unlocked
+
+# This workflow requires a label in the format `sync-english-index-for-<PLAN@RELEASE>`
+jobs:
+  updateIndices:
+    name: Update English index for single version based on a label's version
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Setup Node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.x
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Get version from search label if present; only continue if the label is found.
+        id: getVersion
+        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-search-label.js
+      - if: ${{ steps.getVersion.outputs.versionToSync }}
+        name: Sync English index for single version
+        env:
+          VERSION: ${{ steps.getVersion.outputs.versionToSync }}
+          LANGUAGE: 'en'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm run build
+          npm run sync-search
+      - name: Check in search index
+        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
+        with:
+          # The arguments for the `git add` command
+          add: 'lib/search/indexes'
+
+          # The message for the commit
+          message: 'Updated search index for ${{ steps.getVersion.outputs.versionToSync }}'

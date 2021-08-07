@@ -10,7 +10,6 @@
 /.github/ @github/docs-engineering
 /script/ @github/docs-engineering
 /includes/ @github/docs-engineering
-/layouts/ @github/docs-engineering
 app.json @github/docs-engineering
 Dockerfile @github/docs-engineering
 package-lock.json @github/docs-engineering

@@ -14,9 +14,9 @@ topics:
   - Organizations
   - Teams
 shortTitle: Repository permissions
----
+permissions: People with admin permissions can manage individual and team access to an organization-owned repository.
 
-People with admin permissions can manage individual and team access to an organization-owned repository.
+---
 
 ## Permission levels for repositories owned by an organization
 
@@ -28,12 +28,6 @@ From least access to most access, the permission levels for an organization repo
 - **Write**: Recommended for contributors who actively push to your project
 - **Maintain**: Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
 - **Admin**: Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
-
-{% ifversion fpt %}
-
-{% endif %}
-
-For more information about giving people and teams access to repositories, see "[Managing access to your organization's repositories](/articles/managing-access-to-your-organizations-repositories)."
 
 Organization owners can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. For more information, see "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
 
@@ -48,6 +42,11 @@ In addition to managing organization-level settings, organization owners have ad
 {% endwarning %}
 
 ## Repository access for each permission level
+
+{% ifversion fpt %}
+Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
+
 {% ifversion fpt or ghes > 2.21 %}
 {% note %}
 
@@ -142,7 +141,7 @@ In addition to managing organization-level settings, organization owners have ad
 In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:|{% ifversion fpt or ghes > 2.22 %}
+|:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes > 2.22 %}
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for vulnerable dependencies | | | | | **X** |{% endif %}{% ifversion fpt %}

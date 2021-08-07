@@ -4,7 +4,7 @@ intro: 'You can add a CITATION file to your repository to help users correctly c
 versions:
   fpt: '*'
   ghes: '>=3.3'
-  ghae: '>=M3'
+  ghae: 'issue-4651'
 topics:
   - Repositories
 ---
@@ -17,17 +17,17 @@ Example CITATION.cff:
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: Lisa
-  given-names: Mona
-  orcid: https://orcid.org/0000-0000-0000-0000
-- family-names: Bot
-  given-names: Hew
-  orcid: https://orcid.org/0000-0000-0000-0000
+- family-names: "Lisa"
+  given-names: "Mona"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+- family-names: "Bot"
+  given-names: "Hew"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
 title: "My Research Software"
 version: 2.0.4
 doi: 10.5281/zenodo.1234
 date-released: 2017-12-18
-url: https://github.com/github/linguist
+url: "https://github.com/github/linguist"
 ```
 
 For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.

@@ -141,8 +141,6 @@ describe('server', () => {
     expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
-    expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
-    expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
     expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
@@ -673,7 +671,7 @@ describe('server', () => {
 
     test('category page renders with TOC', async () => {
       const $ = await getDOM('/en/github/managing-large-files')
-      expect($('.list-style-inside ul li a').length).toBeGreaterThan(5)
+      expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
     })
 
     test('map topic renders with h2 links to articles', async () => {

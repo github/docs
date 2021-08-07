@@ -4,6 +4,71 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `sponsoring` was added to object type `Organization`",
+          "Field `sponsoring` was added to interface `Sponsorable`",
+          "Field `sponsoring` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `autoMergeAllowed` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `SponsorConnection` was added",
+          "Type `SponsorEdge` was added",
+          "Type `SponsorOrder` was added",
+          "Type `SponsorOrderField` was added",
+          "Field `sponsors` was added to object type `Organization`",
+          "Field `sponsors` was added to interface `Sponsorable`",
+          "Field `sponsors` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `membersOnly: Boolean` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Argument `membersOnly: Boolean` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Field `mentions` was added to object type `Release`",
+          "Field `isPublic` was added to object type `SponsorsListing`",
+          "Field `nextPayoutDate` was added to object type `SponsorsListing`",
+          "Field `sponsorable` was added to object type `SponsorsListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-07-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `SponsorsActivity` was added",
           "Type `SponsorsActivityAction` was added",
           "Type `SponsorsActivityConnection` was added",

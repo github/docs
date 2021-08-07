@@ -1,10 +1,6 @@
 /* Numbered procedures (step 1, step 2, ...)
 ------------------------------------------------------------------------------*/
 
-.list-style-inside {
-  list-style: inside;
-}
-
 .markdown-body ol {
   counter-reset: li;
   list-style: none;

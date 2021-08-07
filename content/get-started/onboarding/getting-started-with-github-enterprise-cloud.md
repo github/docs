@@ -1,11 +1,13 @@
 ---
 title: Getting started with GitHub Enterprise Cloud
-intro: 'Get started with setting up and managing your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account'
+intro: 'Get started with setting up and managing your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account.'
 versions:
   fpt: '*'
 ---
 
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_cloud %} account as an organization or enterprise owner.
+
+{% data reusables.enterprise.ghec-cta-button %}
 
 ## Part 1: Choosing your account type
 
