@@ -6,11 +6,13 @@ redirect_from:
   - /articles/types-of-collaborative-development-models/
   - /articles/about-collaborative-development-models
   - /github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models
+  - /for help and more
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-topics:
+  ghae: '*'
+topics: [*]
   - Pull requests
 shortTitle: Collaborative development
 ---
