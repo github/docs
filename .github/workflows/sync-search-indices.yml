@@ -51,8 +51,7 @@ jobs:
       - name: Update search indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # TODO remove version and language after first successful run to test
-        run: VERSION=github-ae@latest LANGUAGE=pt npm run sync-search
+        run: npm run sync-search
 
       - name: Update private docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
@@ -61,18 +60,26 @@ jobs:
         # So if you don't use the pre-push hooks or you run with --no-verify
         # the LFS objects need to be pushed first.
         run: |
-          echo 'git checkout main'
-          git checkout main
           echo 'git config user.name "GitHub Actions"'
           git config user.name "GitHub Actions"
           echo 'git config user.email action@github.com'
           git config user.email action@github.com
+          echo 'git config pull.ff only'
+          git config pull.ff only
           echo 'git commit -am "update search indexes"'
           git commit -am "update search indexes"
-          echo 'git lfs push origin'
-          git lfs push origin
-          echo 'git push origin main --no-verify'
-          git push origin main --no-verify
+          echo 'git lfs push --all origin'
+          git lfs push --all origin
+          echo 'git push --force origin main --no-verify'
+          git push --force origin main --no-verify
+
+      - name: checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          token: ${{ secrets.DOCS_BOT }}
+          repository: 'github/docs'
+          path: 'public-docs-repo'
+          ref: 'main'
 
       - name: Update open-source docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
@@ -81,14 +88,20 @@ jobs:
         # So if you don't use the pre-push hooks or you run with --no-verify
         # the LFS objects need to be pushed first.
         run: |
-          echo 'git remote add public-docs-repo https://github.com/github/docs.git'
-          git remote add public-docs-repo https://github.com/github/docs.git
-          echo 'git lfs push public-docs-repo'
-          git lfs push public-docs-repo
-          echo 'git pull public-docs-repo main'
-          git pull public-docs-repo main
-          echo 'git push public-docs-repo main --no-verify'
-          git push public-docs-repo main --no-verify
+          echo 'cp lib/search/indexes/* public-docs-repo/lib/search/indexes'
+          cp lib/search/indexes/* public-docs-repo/lib/search/indexes
+          echo 'cd public-docs-repo'
+          cd public-docs-repo
+          echo 'git config user.name "GitHub Actions"'
+          git config user.name "GitHub Actions"
+          echo 'git config user.email action@github.com'
+          git config user.email action@github.com
+          echo 'git commit -am "update search indexes"'
+          git commit -am "update search indexes"
+          echo 'git lfs push --all origin'
+          git lfs push --all origin
+          echo 'git push--force origin main --no-verify'
+          git push --force origin main --no-verify
 
       - name: Send slack notification if workflow run fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
