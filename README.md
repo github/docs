@@ -7,7 +7,7 @@ GitHub's Docs team works on pre-production content in a private repo that regula
 In this article:
 
 - [Contributing](#contributing)
-- [READMEs](#readmes)
+- [README(s)](#readmes)
 - [License](#license)
 
 ## Contributing
@@ -45,9 +45,9 @@ There are a few more things to know when you're getting started with this repo:
 1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
 
-## READMEs
+## README(s)
 
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
+In addition to the README you're reading right now, this repo includes other README(s) that describe the purpose of each subdirectory in more detail:
 
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
