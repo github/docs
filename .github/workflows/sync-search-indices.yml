@@ -85,12 +85,12 @@ jobs:
           git remote add public-docs-repo https://github.com/github/docs.git
           echo 'git lfs push --all public-docs-repo'
           git lfs push --all public-docs-repo
-          echo 'git fetch public-docs-repo'
-          git fetch public-docs-repo
-          echo 'git push public-docs-repo main --force --no-verify'
-          git push public-docs-repo main --force --no-verify
-          echo "Removing public-docs-repo remote"
-          git remote rm public-docs-repo
+        # echo 'git fetch public-docs-repo'
+        # git fetch public-docs-repo
+        # echo 'git push public-docs-repo main --force --no-verify'
+        # git push public-docs-repo main --force --no-verify
+        # echo "Removing public-docs-repo remote"
+        # git remote rm public-docs-repo
 
       - name: Send slack notification if workflow run fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
