@@ -15,21 +15,32 @@ topics:
 
 ## About followers on {% data variables.product.product_name %}
 
-Your {% data variables.product.product_name %} followers get updates about your public {% data variables.product.product_name %} activity on their news feed. {% ifversion fpt %} When you star a public repository, {% data variables.product.product_name %} may recommend this repository to your followers in their discovery view of their news feed. {% endif %}
+When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}.
 
-Similarly, you can follow someone to get their public {% data variables.product.product_name %} activity on your news feed. {% ifversion fpt %} If a person you follow stars a public repository, {% data variables.product.product_name %} may recommend that repository on the discovery view of your news feed.{% endif %}
+You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
 
-<!-- You can follow people on {% data variables.product.product_name %}, to see their public activity in the activity view of your news feed. {% ifversion fpt %} When a person you follow stars a public repository, {% data variables.product.product_name %} may recommend this repository to you in your discovery view of your feed.
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %} To follow someone, visit their profile page and click **Follow** under their profile image. -->
+## Following a user on {% data variables.product.product_name %}
 
-## Following people on {% data variables.product.product_name %}
+1. Visit a user profile you want to follow by clicking on their user image.
+   
+![Username](../../../assets/images/help/profile/user-profile-image.png) 
 
-1. Click on the username of the person you want to follow to visit their profile page.
-2. click **Follow** under their profile image.
+1. Click **Follow** button under their profile image.
 
 ![Follow user button](/assets/images/help/profile/follow-user-button.png)
 
-To stop following someone, visit their profile page and click **Unfollow** under their profile image.
+## Unfollowing a user on {% data variables.product.product_name %}
+
+1.  Visit a user profile you want to unfollow by clicking on their user image.
+
+![Username](../../../assets/images/help/profile/user-profile-image.png) 
+
+1.  Click **Unfollow** button under their profile image.
+
+![User profile button](../../../assets/images/help/profile/user-profile-unfollow-button.png) 
+
+
+
 
 {% ifversion fpt %}
 ## Further reading
