@@ -80,7 +80,7 @@ If you've already created a group assignment for the classroom, you can reuse a 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an online integrated development environment (IDE)](#choosing-an-online-integrated-development-environment-ide)
+- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### Choosing a template repository
 
@@ -88,7 +88,7 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an online integrated development environment (IDE)
+### Choosing an integrated development environment (IDE)
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
