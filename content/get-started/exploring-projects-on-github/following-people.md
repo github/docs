@@ -25,7 +25,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
    
   ![User image](/assets/images/help/profile/user-profile-image.png) 
 
-1. Click **Follow** under their profile image.
+2. Click **Follow** under their profile image.
 
   ![Follow user button](/assets/images/help/profile/follow-user-button.png)
 
@@ -35,7 +35,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
   ![User image](/assets/images/help/profile/user-profile-image.png) 
 
-1.  Click **Unfollow** under their profile image.
+2.  Click **Unfollow** under their profile image.
 
   ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png) 
 
