@@ -51,8 +51,7 @@ jobs:
       - name: Update search indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # TODO remove version and language after first successful run to test
-        run: VERSION=github-ae@latest LANGUAGE=pt npm run sync-search
+        run: npm run sync-search
 
       - name: Update private docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
@@ -61,12 +60,12 @@ jobs:
         # So if you don't use the pre-push hooks or you run with --no-verify
         # the LFS objects need to be pushed first.
         run: |
-          echo 'git checkout main'
-          git checkout main
           echo 'git config user.name "GitHub Actions"'
           git config user.name "GitHub Actions"
           echo 'git config user.email action@github.com'
           git config user.email action@github.com
+          echo 'git config pull.ff only'
+          git config pull.ff only
           echo 'git commit -am "update search indexes"'
           git commit -am "update search indexes"
           echo 'git lfs push --all origin'
@@ -93,6 +92,10 @@ jobs:
           cp lib/search/indexes/* public-docs-repo/lib/search/indexes
           echo 'cd public-docs-repo'
           cd public-docs-repo
+          echo 'git config user.name "GitHub Actions"'
+          git config user.name "GitHub Actions"
+          echo 'git config user.email action@github.com'
+          git config user.email action@github.com
           echo 'git commit -am "update search indexes"'
           git commit -am "update search indexes"
           echo 'git lfs push --all origin'
