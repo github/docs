@@ -38,8 +38,9 @@ jobs:
       - name: Get version from search label if present; only continue if the label is found.
         id: getVersion
         run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-search-label.js
-      - if: ${{ steps.getVersion.outputs.versionToSync }}
-        name: Sync English index for single version
+
+      - name: Sync English index for single version
+        if: ${{ steps.getVersion.outputs.versionToSync }}
         env:
           VERSION: ${{ steps.getVersion.outputs.versionToSync }}
           LANGUAGE: 'en'
@@ -47,19 +48,17 @@ jobs:
         run: |
           npm run build
           npm run sync-search
+
+      - name: Commit indexes and push LFS objects
+        if: ${{ steps.getVersion.outputs.versionToSync }}
+        run: |
           echo 'git config user.name "GitHub Actions"'
           git config user.name "GitHub Actions"
           echo 'git config user.email action@github.com'
           git config user.email action@github.com
+          echo 'git commit -am "update search indexes"'
+          git commit -am "update search indexes"
           echo 'git lfs push --all origin'
           git lfs push --all origin
-
-      - name: Check in search index
-        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
-        with:
-          # The arguments for the `git add` command
-          add: 'lib/search/indexes'
-          # The message for the commit
-          message: 'Updated search index for ${{ steps.getVersion.outputs.versionToSync }}'
-          author_name: 'GitHub Actions'
-          author_email: 'action@github.com'
+          echo 'git push origin $GITHUB_HEAD_REF'
+          git push origin $GITHUB_HEAD_REF
