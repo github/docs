@@ -129,4 +129,4 @@ If you want to learn more about security practices for {% data variables.product
 
 ## Reserved Names
 
-When you enable GitHub Actions, there are two orgs created: `github` and `actions`. If your enterprise already uses these names, we fall back to alternatives. The `actions` org will fall back to `github-actions`, then `github-actions-org`. The `github` org will fall back to `github-org`, then `github-github-org`.  Once actions is enabled, you won't be able to use these names anymore.
+When you enable GitHub Actions, there are two orgs created: `github` and `actions`. If your enterprise already uses these names, we fall back to alternatives. The `actions` org will fall back to `github-actions`, then `github-actions-org`. The `github` org will fall back to `github-org`, then `github-github-org`. Once actions is enabled, you won't be able to use these names anymore.
