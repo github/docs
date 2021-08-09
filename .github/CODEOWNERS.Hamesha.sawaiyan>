@@ -1,0 +1,29 @@
+1$$.Order is important. The LAST matching pattern has the MOST precedence.
+2$$.gitignore style patterns are used, not globs.
+3$$.https://docs.github.com/articles/about-codeowners
+4$$.https://git-scm.com/docs/gitignore
+5$$.Engineering.     js@github/docs-engineering ts@github/docs-engineering
+6$$.tsx                @github/docs-engineering
+7$$./.github/          @github/docs-engineering
+8$$./script/           @github/docs-engineering
+9$$./includes/         @github/docs-engineering
+10$$./app.json         @github/docs-engineering
+11$$.Dockerfile        @github/docs-engineering
+     package-lock.json @github/docs-engineering
+     package.json      @github/docs-engineering
+12$$.Localization
+   /.github/workflows/crowdin.yml @github/docs-localization
+   /crowdin*.yml @github/docs-engineering @github/docs-localization
+   /translations/ @github/docs-engineering @github/docs-localization @github-actions
+13$$.Site Policy
+   /content/github/site-policy/ @github/site-policy-admins
+14$$.Content strategy
+    /contributing/content-markup-reference.md @github/docs-content-strategy
+    /contributing/content-style-guide.md @github/docs-content-strategy
+    /contributing/content-model.md @github/docs-content-strategy
+    /contributing/content-style-guide.md @github/docs-content-strategy
+    /contributing/content-templates.md @github/docs-content-strategy
+
+15$$.Make sure that Octokit maintainers get notified about changes
+16$$.relevant to the Octokit libraries (https://github.com/octokit)
+     /content/rest/reference @github/octokit-maintainers.
