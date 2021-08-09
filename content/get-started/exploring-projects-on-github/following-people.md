@@ -21,7 +21,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 ## Following a user on {% data variables.product.product_name %}
 
-1. Visit a user profile you want to follow by clicking on their user image.
+1. Click a user image to display that user's profile.
    
 ![Username](../../../assets/images/help/profile/user-profile-image.png) 
 
