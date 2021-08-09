@@ -31,13 +31,13 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 ## Unfollowing a user on {% data variables.product.product_name %}
 
-1.  Visit a user profile you want to unfollow by clicking on their user image.
+1.  Click a user image to display that user's profile.
 
-![Username](../../../assets/images/help/profile/user-profile-image.png) 
+  ![User image](/assets/images/help/profile/user-profile-image.png) 
 
-1.  Click **Unfollow** button under their profile image.
+1.  Click **Unfollow** under their profile image.
 
-![User profile button](../../../assets/images/help/profile/user-profile-unfollow-button.png) 
+  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png) 
 
 
 
