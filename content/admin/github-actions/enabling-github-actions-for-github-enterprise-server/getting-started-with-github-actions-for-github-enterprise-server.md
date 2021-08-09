@@ -126,3 +126,7 @@ For more information, see "[About using actions in your enterprise](/admin/githu
 If you want to learn more about security practices for {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
 
 {% endif %}
+
+## Reserved Names
+
+When you enable GitHub Actions, there are two orgs created: `github` and `actions`. If your enterprise already uses these names, we fall back to alternatives. The `actions` org will fall back to `github-actions`, then `github-actions-org`. The `github` org will fall back to `github-org`, then `github-github-org`.  Once actions is enabled, you won't be able to use these names anymore.
