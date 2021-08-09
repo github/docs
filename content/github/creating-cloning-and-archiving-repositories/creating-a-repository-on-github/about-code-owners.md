@@ -84,12 +84,41 @@ apps/ @octocat
 # directory in the root of your repository and any of its
 # subdirectories.
 /docs/ @doctocat
+
+# In this example, @octocat owns any file in the `/apps` 
+# directory in the root of your repository except for the `/apps/github` 
+# subdirectory, as its owners are left empty.
+/apps/ @octocat
+/apps/github 
 ```
 ### Syntax exceptions
 There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
 - Using `[ ]` to define a character range
+
+## CODEOWNERS and branch protection
+Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." 
+
+
+### Example of a CODEOWNERS file
+```
+# In this example, any change inside the `/apps` directory
+# will require approval from @doctocat.
+/apps/ @doctocat
+
+# In this example, any change inside the `/apps` directory
+# will require approval from @doctocat or @octocat.
+/apps/ @doctocat @octocat
+
+# In this example, any change inside the `/apps` directory
+# will require approval from a member of the @example-org/content team.
+# If a member of @example-org/content opens a pull request 
+# with a change inside the `/apps` directory, their approval is implicit.
+# The team is still added as a reviewer but not a required reviewer.
+# Anyone can approve the changes.
+/apps/ @example-org/content-team
+```
 
 
 

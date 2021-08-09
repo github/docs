@@ -37,21 +37,15 @@ In your `docs-internal` checkout:
 - [ ] Create a new branch: `git checkout -b deprecate-<version>`.
 - [ ] Edit `lib/enterprise-server-releases.js` by moving the number to be deprecated into the `deprecated` array.
 - [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
-- [ ] Manually remove entries for the deprecated version from `lib/redirects/static/developer-docs-routes-for-supported-versions.json`.
-    - **Note**: These entries only go up to 2.21. We can remove this step once 2.21 is deprecated.
+- [ ] Run `script/enterprise-server-deprecations/remove-redirects.js` and commit results.
 - [ ] Open a new PR. Make sure to check the following:
     - [ ] Tests are passing.
     - [ ] The deprecated version renders on staging as expected.
     - [ ] The new oldest supported version renders on staging as expected. Also check the banner text.
+- [ ] Remove the outdated Liquid markup and frontmatter. It's recommended to create a topic branch off of your `deprecate-<version>` branch to isolate the changes for review. 
+    - [ ] In your `docs-internal` checkout, from your `deprecate-<version>` branch: `git checkout -b remove-<version>-markup`
+    - [ ] Run the script: `script/enterprise-server-deprecations/remove-version-markup.js --release <number>`.
+    - [ ] Spot check a few changes. Content, frontmatter, and data files should all have been updated.
+    - [ ] Open a PR with the results. The diff may be large and complex, so make sure to get a review from `@github/docs-content`.
+    - [ ] Debug any test failures or unexpected results. 
 - [ ] When the PR is approved, merge it in to complete the deprecation.
-
-## Step 5: Remove outdated Liquid markup and frontmatter
-
-The following steps are somewhat optional and can be completed at any time. They do not have user impact; they just clear out old Liquid statements for the deprecated version, which makes things easier for content writers.
-
-In your `docs-internal` checkout:
-- [ ] Create a new branch: `git checkout -b remove-<version>-markup`
-- [ ] Run the script: `script/remove-deprecated-enterprise-version-markup.js --release <number>`.
-- [ ] Spot check a few changes. Content, frontmatter, and data files should all have been updated.
-- [ ] Open a PR with the results. The diff may be large and complex, so make sure to get a review from `@github/docs-content`.
-- [ ] Debug any test failures or unexpected results.

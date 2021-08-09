@@ -7,7 +7,7 @@ versions:
 children:
   - /integrate-github-classroom-with-an-online-ide
   - /about-using-makecode-arcade-with-github-classroom
-  - /about-using-replit-with-github-classroom
+  - /replit-with-github-classroom
   - /run-student-code-in-an-online-ide
 ---
 

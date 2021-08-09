@@ -1,17 +1,18 @@
-const sleep = require('await-sleep')
-const got = require('got')
-const Heroku = require('heroku-client')
-const createStagingAppName = require('./create-staging-app-name')
+#!/usr/bin/env node
+import sleep from 'await-sleep'
+import got from 'got'
+import Heroku from 'heroku-client'
+import createStagingAppName from './create-staging-app-name.js'
 
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
-module.exports = async function deployToStaging ({
+export default async function deployToStaging({
   herokuToken,
   octokit,
   pullRequest,
   forceRebuild = false,
-  runId = null
+  runId = null,
 }) {
   // Start a timer so we can report how long the deployment takes
   const startTime = Date.now()
@@ -22,15 +23,12 @@ module.exports = async function deployToStaging ({
     base: {
       repo: {
         name: repo,
-        owner: { login: owner }
-      }
+        owner: { login: owner },
+      },
     },
     state,
-    head: {
-      ref: branch,
-      sha
-    },
-    user: author
+    head: { ref: branch, sha },
+    user: author,
   } = pullRequest
 
   // Verify the PR is still open
@@ -77,7 +75,7 @@ module.exports = async function deployToStaging ({
       required_contexts: [],
 
       // Do not try to merge the base branch into the feature branch
-      auto_merge: false
+      auto_merge: false,
     })
     console.log('GitHub Deployment created', deployment)
 
@@ -94,21 +92,23 @@ module.exports = async function deployToStaging ({
       // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
       // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
       mediaType: {
-        previews: ['ant-man', 'flash']
-      }
+        previews: ['ant-man', 'flash'],
+      },
     })
     console.log('🚀 Deployment status: in_progress - Preparing to deploy the app...')
 
     // Get a URL for the tarballed source code bundle
-    const { headers: { location: tarballUrl } } = await octokit.repos.downloadTarballArchive({
+    const {
+      headers: { location: tarballUrl },
+    } = await octokit.repos.downloadTarballArchive({
       owner,
       repo,
       ref: sha,
       // Override the underlying `node-fetch` module's `redirect` option
       // configuration to prevent automatically following redirects.
       request: {
-        redirect: 'manual'
-      }
+        redirect: 'manual',
+      },
     })
 
     // Time to talk to Heroku...
@@ -134,7 +134,9 @@ module.exports = async function deployToStaging ({
 
         console.log(`Heroku app '${appName}' deleted for forced rebuild`)
       } catch (error) {
-        throw new Error(`Failed to delete Heroku app '${appName}' for forced rebuild. Error: ${error}`)
+        throw new Error(
+          `Failed to delete Heroku app '${appName}' for forced rebuild. Error: ${error}`
+        )
       }
     }
 
@@ -153,18 +155,18 @@ module.exports = async function deployToStaging ({
         const { DOCUBOT_REPO_PAT, HYDRO_ENDPOINT, HYDRO_SECRET } = process.env
         const secretEnvVars = {
           // This is required for cloning the `docs-early-access` repo
-          ...DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT },
+          ...(DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT }),
           // These are required for Hydro event tracking
-          ...(HYDRO_ENDPOINT && HYDRO_SECRET) && { HYDRO_ENDPOINT, HYDRO_SECRET }
+          ...(HYDRO_ENDPOINT && HYDRO_SECRET && { HYDRO_ENDPOINT, HYDRO_SECRET }),
         }
 
         appSetup = await heroku.post('/app-setups', {
           body: {
             app: {
-              name: appName
+              name: appName,
             },
             source_blob: {
-              url: tarballUrl
+              url: tarballUrl,
             },
 
             // Pass some secret environment variables to staging apps via Heroku
@@ -172,10 +174,10 @@ module.exports = async function deployToStaging ({
             overrides: {
               env: {
                 ...secretEnvVars,
-                GIT_BRANCH: branch
-              }
-            }
-          }
+                GIT_BRANCH: branch,
+              },
+            },
+          },
         })
         console.log('Heroku AppSetup created', appSetup)
 
@@ -192,14 +194,16 @@ module.exports = async function deployToStaging ({
             body: {
               user: `${author.login}@github.com`,
               // We don't want an email invitation for every new staging app
-              silent: true
-            }
+              silent: true,
+            },
           })
           console.log(`Added PR author @${author.login} as a Heroku app collaborator`)
         }
       } catch (error) {
         // It's fine if this fails, it shouldn't block the app from deploying!
-        console.warn(`Warning: failed to add PR author as a Heroku app collaborator. Error: ${error}`)
+        console.warn(
+          `Warning: failed to add PR author as a Heroku app collaborator. Error: ${error}`
+        )
       }
 
       // A new Build is created as a by-product of creating an AppSetup.
@@ -209,7 +213,11 @@ module.exports = async function deployToStaging ({
         appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
         build = appSetup.build
 
-        console.log(`AppSetup status: ${appSetup.status} (after ${Math.round((Date.now() - appSetupStartTime) / 1000)} seconds)`)
+        console.log(
+          `AppSetup status: ${appSetup.status} (after ${Math.round(
+            (Date.now() - appSetupStartTime) / 1000
+          )} seconds)`
+        )
       }
 
       console.log('Heroku build detected', build)
@@ -221,9 +229,9 @@ module.exports = async function deployToStaging ({
         build = await heroku.post(`/apps/${appName}/builds`, {
           body: {
             source_blob: {
-              url: tarballUrl
-            }
-          }
+              url: tarballUrl,
+            },
+          },
         })
       } catch (error) {
         throw new Error(`Failed to create Heroku build. Error: ${error}`)
@@ -246,14 +254,25 @@ module.exports = async function deployToStaging ({
       } catch (error) {
         throw new Error(`Failed to get build status. Error: ${error}`)
       }
-      console.log(`Heroku build status: ${(build || {}).status} (after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds)`)
+      console.log(
+        `Heroku build status: ${(build || {}).status} (after ${Math.round(
+          (Date.now() - buildStartTime) / 1000
+        )} seconds)`
+      )
     }
 
     if (build.status !== 'succeeded') {
-      throw new Error(`Failed to build after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds. See Heroku logs for more information:\n${logUrl}`)
+      throw new Error(
+        `Failed to build after ${Math.round(
+          (Date.now() - buildStartTime) / 1000
+        )} seconds. See Heroku logs for more information:\n${logUrl}`
+      )
     }
 
-    console.log(`Finished Heroku build after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds.`, build)
+    console.log(
+      `Finished Heroku build after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds.`,
+      build
+    )
 
     const releaseStartTime = Date.now() // Close enough...
     let releaseId = build.release.id
@@ -279,14 +298,27 @@ module.exports = async function deployToStaging ({
         throw new Error(`Failed to get release status. Error: ${error}`)
       }
 
-      console.log(`Release status: ${(release || {}).status} (after ${Math.round((Date.now() - releaseStartTime) / 1000)} seconds)`)
+      console.log(
+        `Release status: ${(release || {}).status} (after ${Math.round(
+          (Date.now() - releaseStartTime) / 1000
+        )} seconds)`
+      )
     }
 
     if (release.status !== 'succeeded') {
-      throw new Error(`Failed to release after ${Math.round((Date.now() - releaseStartTime) / 1000)} seconds. See Heroku logs for more information:\n${logUrl}`)
+      throw new Error(
+        `Failed to release after ${Math.round(
+          (Date.now() - releaseStartTime) / 1000
+        )} seconds. See Heroku logs for more information:\n${logUrl}`
+      )
     }
 
-    console.log(`Finished Heroku release after ${Math.round((Date.now() - releaseStartTime) / 1000)} seconds.`, release)
+    console.log(
+      `Finished Heroku release after ${Math.round(
+        (Date.now() - releaseStartTime) / 1000
+      )} seconds.`,
+      release
+    )
 
     // Monitor dyno state for this release to ensure it reaches "up" rather than crashing.
     // This will help us catch issues with faulty startup code and/or the package manifest.
@@ -298,11 +330,11 @@ module.exports = async function deployToStaging ({
 
     // Keep checking while there are still dynos in non-terminal states
     let newDynos = []
-    while (newDynos.length === 0 || newDynos.some(dyno => dyno.state === 'starting')) {
+    while (newDynos.length === 0 || newDynos.some((dyno) => dyno.state === 'starting')) {
       await sleep(SLEEP_INTERVAL)
       try {
         const dynoList = await heroku.get(`/apps/${appName}/dynos`)
-        const dynosForThisRelease = dynoList.filter(dyno => dyno.release.id === releaseId)
+        const dynosForThisRelease = dynoList.filter((dyno) => dyno.release.id === releaseId)
 
         // If this Heroku app was just newly created, often a secondary release
         // is requested to enable automatically managed SSL certificates. The
@@ -322,7 +354,9 @@ module.exports = async function deployToStaging ({
           try {
             nextRelease = await heroku.get(`/apps/${appName}/releases/${release.version + 1}`)
           } catch (error) {
-            throw new Error(`Could not find a secondary release to explain the disappearing dynos. Error: ${error}`)
+            throw new Error(
+              `Could not find a secondary release to explain the disappearing dynos. Error: ${error}`
+            )
           }
 
           if (nextRelease) {
@@ -337,21 +371,27 @@ module.exports = async function deployToStaging ({
             } else {
               // Otherwise, assume another release replaced this one but it
               // PROBABLY would've succeeded...?
-              newDynos.forEach(dyno => { dyno.state = 'up' })
+              newDynos.forEach((dyno) => {
+                dyno.state = 'up'
+              })
             }
           }
           // else just keep monitoring and hope for the best
         }
 
         newDynos = dynosForThisRelease
-        console.log(`Dyno states: ${JSON.stringify(newDynos.map(dyno => dyno.state))} (after ${Math.round((Date.now() - dynoBootStartTime) / 1000)} seconds)`)
+        console.log(
+          `Dyno states: ${JSON.stringify(newDynos.map((dyno) => dyno.state))} (after ${Math.round(
+            (Date.now() - dynoBootStartTime) / 1000
+          )} seconds)`
+        )
       } catch (error) {
         throw new Error(`Failed to find dynos for this release. Error: ${error}`)
       }
     }
 
-    const crashedDynos = newDynos.filter(dyno => ['crashed', 'restarting'].includes(dyno.state))
-    const runningDynos = newDynos.filter(dyno => dyno.state === 'up')
+    const crashedDynos = newDynos.filter((dyno) => ['crashed', 'restarting'].includes(dyno.state))
+    const runningDynos = newDynos.filter((dyno) => dyno.state === 'up')
 
     // If any dynos crashed on start-up, fail the deployment
     if (crashedDynos.length > 0) {
@@ -365,14 +405,16 @@ module.exports = async function deployToStaging ({
           body: {
             dyno: crashedDynos[0].name,
             lines: HEROKU_LOG_LINES_TO_SHOW,
-            tail: false
-          }
+            tail: false,
+          },
         })
 
         logUrl = logSession.logplex_url
 
         const logText = await got(logUrl).text()
-        console.error(`Here are the last ${HEROKU_LOG_LINES_TO_SHOW} lines of the Heroku log:\n\n${logText}`)
+        console.error(
+          `Here are the last ${HEROKU_LOG_LINES_TO_SHOW} lines of the Heroku log:\n\n${logText}`
+        )
       } catch (error) {
         // Don't fail because of this error
         console.error(`Failed to retrieve the Heroku logs for the crashed dynos. Error: ${error}`)
@@ -381,7 +423,11 @@ module.exports = async function deployToStaging ({
       throw new Error(errorMessage)
     }
 
-    console.log(`At least ${runningDynos.length} Heroku dyno(s) are ready after ${Math.round((Date.now() - dynoBootStartTime) / 1000)} seconds.`)
+    console.log(
+      `At least ${runningDynos.length} Heroku dyno(s) are ready after ${Math.round(
+        (Date.now() - dynoBootStartTime) / 1000
+      )} seconds.`
+    )
 
     // Send a series of requests to trigger the server warmup routines
     console.log('🚀 Deployment status: in_progress - Triggering server warmup routines...')
@@ -396,18 +442,30 @@ module.exports = async function deployToStaging ({
           beforeRetry: [
             (options, error = {}, retryCount = '?') => {
               const statusCode = error.statusCode || (error.response || {}).statusCode || -1
-              console.log(`Retrying after warmup request attempt #${retryCount} (${statusCode}) after ${Math.round((Date.now() - warmupStartTime) / 1000)} seconds...`)
-            }
-          ]
-        }
+              console.log(
+                `Retrying after warmup request attempt #${retryCount} (${statusCode}) after ${Math.round(
+                  (Date.now() - warmupStartTime) / 1000
+                )} seconds...`
+              )
+            },
+          ],
+        },
       })
-      console.log(`Warmup requests passed after ${Math.round((Date.now() - warmupStartTime) / 1000)} seconds`)
+      console.log(
+        `Warmup requests passed after ${Math.round((Date.now() - warmupStartTime) / 1000)} seconds`
+      )
     } catch (error) {
-      throw new Error(`Warmup requests failed after ${Math.round((Date.now() - warmupStartTime) / 1000)} seconds. Error: ${error}`)
+      throw new Error(
+        `Warmup requests failed after ${Math.round(
+          (Date.now() - warmupStartTime) / 1000
+        )} seconds. Error: ${error}`
+      )
     }
 
     // Report success!
-    const successMessage = `Deployment succeeded after ${Math.round((Date.now() - startTime) / 1000)} seconds.`
+    const successMessage = `Deployment succeeded after ${Math.round(
+      (Date.now() - startTime) / 1000
+    )} seconds.`
     console.log(successMessage)
 
     await octokit.repos.createDeploymentStatus({
@@ -416,21 +474,23 @@ module.exports = async function deployToStaging ({
       deployment_id: deploymentId,
       state: 'success',
       description: successMessage,
-      ...logUrl && { log_url: logUrl },
+      ...(logUrl && { log_url: logUrl }),
       environment_url: homepageUrl,
       // The 'ant-man' preview is required for `state` values of 'inactive', as well as
       // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
       // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
       mediaType: {
-        previews: ['ant-man', 'flash']
-      }
+        previews: ['ant-man', 'flash'],
+      },
     })
 
     console.log(`🚀 Deployment status: success - ${successMessage}`)
     console.log(`Visit the newly deployed app at: ${homepageUrl}`)
   } catch (error) {
     // Report failure!
-    const failureMessage = `Deployment failed after ${Math.round((Date.now() - startTime) / 1000)} seconds. See logs for more information.`
+    const failureMessage = `Deployment failed after ${Math.round(
+      (Date.now() - startTime) / 1000
+    )} seconds. See logs for more information.`
     console.error(failureMessage)
 
     try {
@@ -441,19 +501,18 @@ module.exports = async function deployToStaging ({
           deployment_id: deploymentId,
           state: 'error',
           description: failureMessage,
-          ...logUrl && { log_url: logUrl },
+          ...(logUrl && { log_url: logUrl }),
           environment_url: homepageUrl,
           // The 'ant-man' preview is required for `state` values of 'inactive', as well as
           // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
           // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
           mediaType: {
-            previews: ['ant-man', 'flash']
-          }
+            previews: ['ant-man', 'flash'],
+          },
         })
 
         console.log(
-          `🚀 Deployment status: error - ${failureMessage}` +
-          (logUrl ? ` Logs: ${logUrl}` : '')
+          `🚀 Deployment status: error - ${failureMessage}` + (logUrl ? ` Logs: ${logUrl}` : '')
         )
       }
     } catch (error) {

@@ -32,7 +32,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Written support through our support portal 24 hours per day, 7 days per week
   - Phone support 24 hours per day, 7 days per week
   - A Service Level Agreement (SLA) with guaranteed initial response times
-  - Technical account managers
+  - Customer Reliability Engineers 
   - Access to premium content
   - Scheduled health checks
   - Managed Admin hours
@@ -71,21 +71,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
 
-| U.S. holiday                | Date observed |
-| ---                         | ---                         |
-| New Year's Day              | January 1                   |
-| Martin Luther King, Jr. Day | Third Monday in January     |
-| Presidents' Day             | Third Monday in February    |
-| Memorial Day                | Last Monday in May          |
-| Independence Day            | July 4                      |
-| Labor Day                   | First Monday in September   |
-| Veterans Day                | November 12                 |
-| Thanksgiving Day            | Fourth Thursday in November |
-| Day after Thanksgiving      | Fourth Friday in November   |
-| Christmas Eve               | December 24                 |
-| Christmas Day               | December 25                 |
-| Day after Christmas         | December 28                 |
-| New Year's Eve              | December 31                 |
+{% data reusables.enterprise_enterprise_support.support-holiday-availability %}
 
 ### Holidays in Japan
 

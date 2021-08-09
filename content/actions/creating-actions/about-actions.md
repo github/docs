@@ -151,7 +151,7 @@ We recommend creating a README file to help people learn how to use your action.
 
 ### Strengths of GitHub Actions and GitHub Apps
 
-While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_app %}s provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
+While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
 
 {% data variables.product.prodname_github_apps %}:
 * Run persistently and can react to events quickly.

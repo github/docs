@@ -16,4 +16,3 @@ as much as we can, and avoid writing custom styles whenever possible.
 
 See [styleguide.github.com/primer](https://styleguide.github.com/primer/) for reference.
 
-We use [Webpack](https://github.com/webpack/webpack) to process the files - see [javascripts/README.md](../javascripts/README.md) for more information on how these files are compiled.

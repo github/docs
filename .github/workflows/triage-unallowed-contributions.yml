@@ -16,15 +16,18 @@ on:
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
+      - 'lib/search/indexes/**'
       - 'scripts/**'
       - 'translations/**'
+      - 'package*.json'
+      - 'app.json'
+      - 'Procfile'
 
 jobs:
   triage:
     if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
       - name: Check for existing requested changes
         id: requested-change
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
@@ -74,14 +77,18 @@ jobs:
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
+              - 'lib/search/indexes/**'
               - 'scripts/**'
               - 'translations/**'
+              - 'package*.json'
+              - 'app.json'
+              - 'Procfile'
 
       # When there are changes to files we can't accept
       # and no review exists,leave a REQUEST_CHANGES review
       - name: Request pull request changes
         # Check for no reviews or reviews that aren't CHANGES_REQUESTED
-        if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJSON(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -96,8 +103,12 @@ jobs:
               'lib/redirects/**',
               'lib/rest/**',
               'lib/webhooks/**',
+              'lib/search/indexes/**'
               'scripts/**',
-              'translations/**'
+              'translations/**',
+              'package*.json',
+              'app.json',
+              'Procfile'
             ]
 
             const badFiles = badFilesArr.join('\n')
@@ -117,7 +128,7 @@ jobs:
       - name: Dismiss pull request review
         # Check that unallowed files aren't modified and that a
         # CHANGES_REQUESTED review already exists
-        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
+        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJSON(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -125,6 +136,6 @@ jobs:
             await github.pulls.dismissReview({
               ...context.repo,
               pull_number: context.payload.number,
-              review_id: ${{fromJson(steps.requested-change.outputs.result).id}},
+              review_id: ${{fromJSON(steps.requested-change.outputs.result).id}},
               message: `✨Looks like you reverted all files we don't accept contributions for. 🙌 A member of the docs team will review your PR soon. 🚂`
             })
