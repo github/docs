@@ -10,18 +10,19 @@ on:
       - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
+      - 'app.json'
       - 'assets/fonts/**'
       - 'data/graphql/**'
+      - 'Dockerfile*'
       - 'lib/graphql/**'
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
       - 'lib/search/indexes/**'
+      - 'package*.json'
+      - 'Procfile'
       - 'scripts/**'
       - 'translations/**'
-      - 'package*.json'
-      - 'app.json'
-      - 'Procfile'
 
 jobs:
   triage:
@@ -71,18 +72,19 @@ jobs:
               - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
+              - 'app.json'
               - 'assets/fonts/**'
               - 'data/graphql/**'
+              - 'Dockerfile*'
               - 'lib/graphql/**'
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
               - 'lib/search/indexes/**'
+              - 'package*.json'
+              - 'Procfile'
               - 'scripts/**'
               - 'translations/**'
-              - 'package*.json'
-              - 'app.json'
-              - 'Procfile'
 
       # When there are changes to files we can't accept
       # and no review exists,leave a REQUEST_CHANGES review
@@ -97,18 +99,19 @@ jobs:
               '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
+              'app.json',
               'assets/fonts/**',
               'data/graphql/**',
+              'Dockerfile*',
               'lib/graphql/**',
               'lib/redirects/**',
               'lib/rest/**',
               'lib/webhooks/**',
-              'lib/search/indexes/**'
-              'scripts/**',
-              'translations/**',
+              'lib/search/indexes/**',
               'package*.json',
-              'app.json',
               'Procfile'
+              'scripts/**',
+              'translations/**'
             ]
 
             const badFiles = badFilesArr.join('\n')
