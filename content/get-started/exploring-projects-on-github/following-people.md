@@ -27,7 +27,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 1. Click **Follow** under their profile image.
 
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+  ![Follow user button](/assets/images/help/profile/follow-user-button.png)
 
 ## Unfollowing a user on {% data variables.product.product_name %}
 
