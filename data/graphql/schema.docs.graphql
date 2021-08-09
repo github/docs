@@ -22647,6 +22647,36 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   samlIdentityProvider: OrganizationIdentityProvider
 
   """
+  List of users and organizations this entity is sponsoring.
+  """
+  sponsoring(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the users and organizations returned from the connection.
+    """
+    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+  ): SponsorConnection!
+
+  """
   List of sponsors for this user or organization.
   """
   sponsors(
@@ -27569,7 +27599,7 @@ type PullRequestReviewThread implements Node {
   id: ID!
 
   """
-  Whether or not the thread has been collapsed (outdated or resolved)
+  Whether or not the thread has been collapsed (resolved)
   """
   isCollapsed: Boolean!
 
@@ -32942,6 +32972,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   ): UserConnection!
 
   """
+  Whether or not Auto-merge can be enabled on pull requests in this repository.
+  """
+  autoMergeAllowed: Boolean!
+
+  """
   A list of branch protection rules for this repository.
   """
   branchProtectionRules(
@@ -37032,6 +37067,36 @@ interface Sponsorable {
   True if the viewer is sponsored by this user/organization.
   """
   isSponsoringViewer: Boolean!
+
+  """
+  List of users and organizations this entity is sponsoring.
+  """
+  sponsoring(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the users and organizations returned from the connection.
+    """
+    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+  ): SponsorConnection!
 
   """
   List of sponsors for this user or organization.
@@ -44268,6 +44333,36 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     orderBy: SavedReplyOrder = {field: UPDATED_AT, direction: DESC}
   ): SavedReplyConnection
+
+  """
+  List of users and organizations this entity is sponsoring.
+  """
+  sponsoring(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for the users and organizations returned from the connection.
+    """
+    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+  ): SponsorConnection!
 
   """
   List of sponsors for this user or organization.

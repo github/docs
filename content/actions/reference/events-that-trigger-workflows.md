@@ -569,7 +569,9 @@ Runs your workflow anytime the `pull_request` event occurs. {% data reusables.de
 
 {% note %}
 
-**Note:** By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows for more activity types, use the `types` keyword.
+**Notes:** 
+- By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows for more activity types, use the `types` keyword.
+- Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
 
 {% endnote %}
 

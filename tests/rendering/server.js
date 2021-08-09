@@ -141,8 +141,6 @@ describe('server', () => {
     expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
-    expect(csp.get('connect-src').includes('*.algolia.net')).toBe(true)
-    expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
     expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
@@ -855,14 +853,6 @@ describe('GitHub Desktop URLs', () => {
   test('renders the Desktop homepage in Japanese', async () => {
     const res = await get('/ja/desktop')
     expect(res.statusCode).toBe(200)
-  })
-})
-
-describe('static assets', () => {
-  test('fonts', async () => {
-    expect((await get('/assets/fonts/inter/Inter-Bold.woff')).statusCode).toBe(200)
-    expect((await get('/assets/fonts/inter/Inter-Medium.woff')).statusCode).toBe(200)
-    expect((await get('/assets/fonts/inter/Inter-Regular.woff')).statusCode).toBe(200)
   })
 })
 
