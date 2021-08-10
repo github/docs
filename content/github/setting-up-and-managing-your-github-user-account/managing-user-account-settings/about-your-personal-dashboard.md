@@ -47,7 +47,9 @@ You'll see updates in your news feed when a user you follow:
 - Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
 - Pushes commits to a repository you watch.{% ifversion fpt or ghes %}
 - Forks a public repository.{% endif %}
+- Publishes a new release.
 
+You'll also see updates in your news feed when a repository you've starred has a new release and the release mentions another user.
 For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
 
 ## Exploring recommended repositories
