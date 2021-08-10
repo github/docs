@@ -100,6 +100,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
       // Preference information
       application_preference: Cookies.get('toolPreferred'),
       color_mode_preference: getColorModePreference(),
+      os_preference: Cookies.get('osPreferred'),
     },
 
     ...props,
