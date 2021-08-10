@@ -9,7 +9,7 @@ topics:
   - Legal
 ---
 
-Effective Date: August 11, 2021
+Effective Date: August 10, 2021
 
 Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
