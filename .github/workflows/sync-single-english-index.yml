@@ -57,8 +57,8 @@ jobs:
           echo 'git config user.email action@github.com'
           git config user.email action@github.com
           echo 'git commit -am "update search indexes"'
-          git commit -am "update search indexes"
+          git commit -am 'update search indexes'
           echo 'git lfs push --all origin'
           git lfs push --all origin
-          echo 'git push origin $GITHUB_HEAD_REF'
-          git push origin $GITHUB_HEAD_REF
+          echo 'git push origin' $GITHUB_HEAD_REF '--set-upstream'
+          git push origin $GITHUB_HEAD_REF --set-upstream
