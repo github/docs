@@ -56,7 +56,7 @@ GitHub Codespaces enables you to develop code directly from your browser using t
 - cryptomining;
 - using our servers to disrupt, or to gain or to attempt to gain unauthorized access to any service, device, data, account or network (other than those authorized by the GitHub Bug Bounty program);
 - the provision of a stand-alone or integrated application or service offering Codespaces or any elements of Codespaces for commercial purposes;
-- any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network or as part of a serverless application, but a low benefit Codespaces could be ok if it’s also low burden); or
+- any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network, as part of a serverless application, or to host any kind of production-facing application); or
 - any other activity unrelated to the development or testing of the software project associated with the repository where GitHub Codespaces is initiated.
 In order to prevent violations of these limitations and abuse of GitHub Codespaces, GitHub may monitor your use of GitHub Codespaces. Misuse of GitHub Codespaces may result in termination of your access to Codespaces, restrictions in your ability to use GitHub Codespaces, or the disabling of repositories created to run Codespaces in a way that violates these Terms.
 
