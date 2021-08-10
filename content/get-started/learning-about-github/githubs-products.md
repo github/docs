@@ -102,3 +102,5 @@ In addition to the features available with {% data variables.product.prodname_te
 You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Setting up a trial of {% data variables.product.prodname_ghe_cloud %}</a>."
 
 For more information about hosting your own instance of [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), contact {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
+
+See also: <a href="/github-ae@latest/admin/overview/about-github-ae" class="dotcom-only">GitHub AE</a>.
