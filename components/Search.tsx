@@ -2,10 +2,11 @@ import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import debounce from 'lodash/debounce'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { sendEvent, EventType } from '../javascripts/events'
+import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 import cx from 'classnames'
+import { useLanguages } from './context/LanguagesContext'
 
 type SearchResult = {
   url: string
@@ -30,16 +31,17 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
+  const { languages } = useLanguages()
 
   // Figure out language and version for index
-  const { languages, searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
+  const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
   const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
 
   // If the user shows up with a query in the URL, go ahead and search for it
   useEffect(() => {
-    if (router.query.query) {
+    if (updateSearchParams && router.query.query) {
       /* await */ fetchSearchResults((router.query.query as string).trim())
     }
   }, [])

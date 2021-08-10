@@ -4,9 +4,9 @@ shortTitle: Secret security
 intro: 'Let {% data variables.product.company_short %} do the hard work of ensuring that tokens, private keys, and other code secrets are not exposed in your repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 topics:
   - Secret scanning
   - Advanced Security

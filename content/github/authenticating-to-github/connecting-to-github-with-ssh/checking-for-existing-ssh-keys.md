@@ -5,11 +5,12 @@ redirect_from:
   - /articles/checking-for-existing-ssh-keys
   - /github/authenticating-to-github/checking-for-existing-ssh-keys
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Check for existing SSH key
 ---
 {% data reusables.ssh.dsa-support %}
 

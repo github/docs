@@ -2,13 +2,14 @@
 title: Customizing a workflow for triaging your notifications
 intro: 'To create an ideal workflow for triaging your notifications, you can adapt and customize these example workflows.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
+shortTitle: Triage your notifications
 ---
 ## Starting your inbox triage
 

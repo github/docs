@@ -5,9 +5,9 @@ redirect_from:
   - /articles/using-github
   - /github/getting-started-with-github/using-github/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /exploring-early-access-releases-with-feature-preview
   - /supported-browsers

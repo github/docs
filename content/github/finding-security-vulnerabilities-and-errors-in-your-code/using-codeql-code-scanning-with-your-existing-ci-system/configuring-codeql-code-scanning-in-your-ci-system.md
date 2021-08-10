@@ -5,7 +5,7 @@ intro: 'You can configure how the {% data variables.product.prodname_codeql_runn
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:

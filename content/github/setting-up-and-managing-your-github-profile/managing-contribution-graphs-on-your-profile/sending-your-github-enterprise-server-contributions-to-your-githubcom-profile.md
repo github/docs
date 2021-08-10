@@ -7,10 +7,11 @@ redirect_from:
   - /articles/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Profiles
+shortTitle: Send your contributions
 ---
 {% note %}
 

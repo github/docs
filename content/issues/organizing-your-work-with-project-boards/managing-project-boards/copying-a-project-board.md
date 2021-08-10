@@ -6,7 +6,7 @@ redirect_from:
   - /articles/copying-a-project-board
   - /github/managing-your-work-on-github/copying-a-project-board
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pull requests
 ---

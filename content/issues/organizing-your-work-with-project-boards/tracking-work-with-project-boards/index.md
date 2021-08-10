@@ -1,11 +1,11 @@
 ---
 title: Tracking progress on your project board
 shortTitle: Tracking projects
-intro: 'Learn how to track your work on project boards'
+intro: Learn how to track your work on project boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
   - Projects

@@ -3,15 +3,16 @@ title: Building and testing PowerShell
 intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 authors:
   - potatoqualitee
 type: tutorial
 topics:
   - CI
   - Powershell
+shortTitle: Build & test PowerShell
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -24,7 +25,7 @@ This guide shows you how to use PowerShell for CI. It describes how to use Peste
 
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. 
 
-{% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
 {% else %}For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -70,7 +71,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+  {% ifversion fpt or ghes > 3.0 or ghae %}
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)

@@ -5,11 +5,12 @@ redirect_from:
   - /articles/troubleshooting-commits-on-your-timeline
   - /github/setting-up-and-managing-your-github-profile/troubleshooting-commits-on-your-timeline
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
+shortTitle: Troubleshoot commits
 ---
 ## Expected behavior to view commit details
 

@@ -7,10 +7,11 @@ redirect_from:
   - /articles/inviting-users-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Invite users to join
 ---
 
 {% tip %}

@@ -3,9 +3,9 @@ title: Canceling a workflow
 intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,7 +22,7 @@ versions:
 1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel.
 ![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
 1. In the upper-right corner of the workflow, click **Cancel workflow**.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
  ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
 {% else %}
  ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)

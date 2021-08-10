@@ -3,10 +3,11 @@ title: Managing support entitlements for your enterprise
 intro: You can grant enterprise members the ability to manage support tickets for your enterprise account.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
   - Support
+shortTitle: Manage support entitlements
 ---
 ## About support entitlements
 

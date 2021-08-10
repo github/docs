@@ -1,0 +1,42 @@
+name: Check for unallowed internal changes
+
+# **What it does**: If someone changes app.json or search indexes, we fail the check.
+# **Why we have it**: app.json should rarely be edited, so we'll require an admin merge if the file really needs to be changed. The search indexes are synced every 4 hours, so changes should not need to be made.
+# **Who does it impact**: Docs engineering and content writers.
+
+on:
+  pull_request:
+
+jobs:
+  check-internal-changes:
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: ${{ github.event.pull_request.base.ref }}
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            notAllowed:
+              - 'app.json'
+            notAllowedWithoutLabel:
+              - 'lib/search/indexes/**'
+
+      - name: Fail if unallowed changes were made
+        if: steps.filter.outputs.notAllowed == 'true'
+        run: |
+          echo "Please admin merge if you really need to update app.json!"
+          exit 1
+      - name: Fail if unallowed changes were made outside of a label added
+        if: steps.filter.outputs.notAllowedWithoutLabel == 'true' && !contains(github.event.pull_request.labels.*.name, 'sync-english-index-for-')
+        run: |
+          echo "Search indices (`lib/search/indexes/**`) are updated automatically every 4 hours. Please revert any changes you have made to the search indexes before you merge this PR (`git checkout origin/main lib/search/indexes/*`). If you need to update the search indices directly after you merge your PR, you can manually run the search sync workflow "Sync search indexes" (sync-search-indices.yml). See the `docs/contributing/search.md` for more details. If you have any other questions, please ping us in #docs-engineering."
+          exit 1

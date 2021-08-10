@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/accessing-a-pull-request-locally
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About pull requests in {% data variables.product.prodname_desktop %}
 You can view pull requests that you or your collaborators have proposed in {% data variables.product.prodname_desktop %}. Pull requests let you propose changes to projects, provide feedback and reviews, and merge changes into projects. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."

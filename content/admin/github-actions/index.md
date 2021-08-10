@@ -1,11 +1,11 @@
 ---
 title: Managing GitHub Actions for your enterprise
-intro: 'Enable {% data variables.product.prodname_actions %} on {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
+intro: 'Enable {% data variables.product.prodname_actions %} on {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -13,6 +13,7 @@ children:
   - /enabling-github-actions-for-github-enterprise-server
   - /managing-access-to-actions-from-githubcom
   - /advanced-configuration-and-troubleshooting
+shortTitle: Manage GitHub Actions
 ---
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Repositories
 ---

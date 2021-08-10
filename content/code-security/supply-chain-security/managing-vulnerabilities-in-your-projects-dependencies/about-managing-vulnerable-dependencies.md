@@ -5,7 +5,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies
   - /code-security/supply-chain-security/about-managing-vulnerable-dependencies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Dependabot
@@ -13,6 +13,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Vulnerable dependencies
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Managing vulnerabilities in your project’s dependencies ".-->
 

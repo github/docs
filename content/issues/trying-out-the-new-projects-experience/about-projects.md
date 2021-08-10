@@ -4,7 +4,7 @@ intro: 'Projects are a customizable, flexible tool for planning and tracking wor
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Projects

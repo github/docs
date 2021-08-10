@@ -4,9 +4,9 @@ intro: 'After you create your repository on {% data variables.product.product_na
 redirect_from:
   - /articles/creating-a-repository-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -18,9 +18,11 @@ children:
   - /about-code-owners
   - /about-repository-languages
   - /licensing-a-repository
+  - /about-citation-files
   - /creating-a-template-repository
   - /creating-an-issues-only-repository
   - /limits-for-viewing-content-and-diffs-in-a-repository
   - /duplicating-a-repository
+shortTitle: Create a repository
 ---
 

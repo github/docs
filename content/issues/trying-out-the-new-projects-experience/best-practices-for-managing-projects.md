@@ -4,7 +4,7 @@ intro: 'Learn tips for managing your projects on {% data variables.product.compa
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Projects
@@ -33,7 +33,7 @@ Use project views to look at your project from different angles.
 For example:
 
 - Filter by status to view all un-started items
-- Group by assignee to view the workload for each team member
+- Group by a custom priority field to monitor the volume of high priority items
 - Sort by a custom date field to view the items with the earliest target ship date
 
 For more information, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."

@@ -15891,6 +15891,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -31588,6 +31598,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -37361,7 +37381,7 @@
         },
         {
           "name": "isCollapsed",
-          "description": "<p>Whether or not the thread has been collapsed (outdated or resolved).</p>",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -38940,6 +38960,56 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mentions",
+          "description": "<p>A list of users mentioned in the release description.</p>",
+          "type": "UserConnection",
+          "id": "userconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -43615,6 +43685,14 @@
           ]
         },
         {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRules",
           "description": "<p>A list of branch protection rules for this repository.</p>",
           "type": "BranchProtectionRuleConnection!",
@@ -46798,7 +46876,7 @@
       "kind": "objects",
       "id": "repositoryvulnerabilityalert",
       "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
-      "description": "<p>A alert for a repository with an affected vulnerability.</p>",
+      "description": "<p>A Dependabot alert for a repository with a dependency affected by a security vulnerability.</p>",
       "implements": [
         {
           "name": "Node",
@@ -61529,6 +61607,10 @@
         {
           "name": "NUGET",
           "description": "<p>.NET packages hosted at the NuGet Gallery.</p>"
+        },
+        {
+          "name": "OTHER",
+          "description": "<p>Applications, runtimes, operating systems and other kinds of software.</p>"
         },
         {
           "name": "PIP",

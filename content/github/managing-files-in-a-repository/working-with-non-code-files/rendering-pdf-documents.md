@@ -4,9 +4,9 @@ redirect_from:
   - /articles/rendering-pdf-documents
   - /github/managing-files-in-a-repository/rendering-pdf-documents
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 ---

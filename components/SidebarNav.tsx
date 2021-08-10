@@ -10,7 +10,7 @@ import { useVersion } from './hooks/useVersion'
 
 export const SidebarNav = () => {
   const router = useRouter()
-  const { error, relativePath, isHomepageVersion } = useMainContext()
+  const { error, relativePath, isFPT } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
@@ -39,7 +39,7 @@ export const SidebarNav = () => {
       <nav>
         {error === '404' || relativePath === 'index.md' ? (
           <ul className="sidebar-products mt-4">
-            {!isHomepageVersion && <AllProductsLink />}
+            {!isFPT && <AllProductsLink />}
             <SidebarHomepage />
           </ul>
         ) : (
@@ -52,7 +52,7 @@ export const SidebarNav = () => {
       <style jsx>
         {`
           .root {
-            width: 280px;
+            width: 286px;
             height: 100vh;
             flex-shrink: 0;
             padding-bottom: 32px;
@@ -66,17 +66,17 @@ export const SidebarNav = () => {
 const SidebarHomepage = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { activeProducts, isHomepageVersion } = useMainContext()
+  const { activeProducts, isFPT } = useMainContext()
 
   return (
     <>
       {activeProducts.map((product) => {
-        if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
+        if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
           return null
         }
 
         const href = `${!product.external ? `/${router.locale}` : ''}${
-          product.versions?.includes(currentVersion)
+          product.versions?.includes(currentVersion) && !isFPT
             ? `/${currentVersion}/${product.id}`
             : product.href
         }`

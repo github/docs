@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
   - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

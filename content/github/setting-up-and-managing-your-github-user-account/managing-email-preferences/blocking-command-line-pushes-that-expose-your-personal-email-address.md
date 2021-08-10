@@ -5,10 +5,11 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
   - /github/setting-up-and-managing-your-github-user-account/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Notifications
+shortTitle: Block push with personal email
 ---
 When you push commits from the command line, the email address that you've [set in Git](/articles/setting-your-commit-email-address) is associated with your commits. If you enable this setting, each time you push to GitHub, we’ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.
 

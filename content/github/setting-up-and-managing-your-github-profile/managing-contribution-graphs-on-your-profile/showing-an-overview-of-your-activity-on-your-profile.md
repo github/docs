@@ -5,11 +5,12 @@ redirect_from:
   - /articles/showing-an-overview-of-your-activity-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/showing-an-overview-of-your-activity-on-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Profiles
+shortTitle: Show an overview
 ---
 {% data reusables.profile.activity-overview-summary %} For more information, see "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)."
 

@@ -1,7 +1,7 @@
 ---
 title: Managing workflow runs
 shortTitle: Managing workflow runs
-intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}review deployments, {% endif %}view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
+intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, {% ifversion fpt or ghes > 3.0 or ghae %}review deployments, {% endif %}view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/viewing-your-repository-s-workflows
@@ -11,9 +11,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 children:
   - /using-the-visualization-graph
   - /viewing-workflow-run-history
@@ -34,4 +34,4 @@ children:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae %}{% endif %}

@@ -8,9 +8,9 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -51,7 +51,7 @@ on:
 
 When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
 
-The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one branch or tag name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including branches and tags
 
@@ -83,13 +83,13 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches-ignore:
-      # Push events to branches matching refs/heads/mona/octocat
+      # Do not push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/beta/3-alpha
+      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
     tags-ignore:
-      - v1.*           # Push events to tags v1.0, v1.1, and v1.9
+      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
 ```
 
 ### Excluding branches and tags
@@ -181,13 +181,32 @@ The filter determines if a workflow should run by evaluating the changed files a
 
 For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
 
+## `on.workflow_dispatch.inputs`
+
+When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+
+```yaml
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+        required: false
+```
+
+The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+
 ## `on.schedule`
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 For more information about cron syntax, see "[Events that trigger workflows](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## `permissions`
 
 You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
@@ -247,7 +266,7 @@ defaults:
     working-directory: scripts
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `concurrency`
 
 {% data reusables.actions.concurrency-beta %}
@@ -328,7 +347,7 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 **Required**. The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 ### {% data variables.actions.hosted_runner %}s
 
 If you use an {% data variables.actions.hosted_runner %}, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
@@ -377,7 +396,7 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## `jobs.<job_id>.permissions`
 
 You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
@@ -405,7 +424,7 @@ jobs:
 ```
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
 ## `jobs.<job_id>.environment`
 
 The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
@@ -440,7 +459,7 @@ environment:
 {% endif %}
 
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.concurrency-beta %}
@@ -595,7 +614,7 @@ The `my backup step` only runs when the previous step of a job fails. For more i
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@main
+    uses: octo-org/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
@@ -621,22 +640,22 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ### Example: Using versioned actions
 
 ```yaml
-steps:    
+steps:
   # Reference a specific commit
-  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+  - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
   # Reference the major version of a release
-  - uses: actions/setup-node@v1
-  # Reference a minor version of a release
-  - uses: actions/setup-node@v1.2
+  - uses: actions/checkout@v2
+  # Reference a specific version
+  - uses: actions/checkout@v2.2.0
   # Reference a branch
-  - uses: actions/setup-node@main
+  - uses: actions/checkout@main
 ```
 
 ### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
-You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
 jobs:
@@ -644,7 +663,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@1.0.0
+        uses: actions/heroku@main
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -694,7 +713,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 #### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
@@ -780,7 +799,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### Using a specific shell
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
+You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
@@ -856,7 +875,7 @@ steps:
 The command used, `perl` in this example, must be installed on the runner.
 
 
-{% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
 {% else %}
 For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
 {% endif %}
@@ -909,7 +928,7 @@ A `string` that defines the inputs for a Docker container. {% data variables.pro
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@main
+    uses: octo-org/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -931,7 +950,7 @@ Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't 
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@main
+    uses: octo-org/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
@@ -970,6 +989,8 @@ The maximum number of minutes to run the step before killing the process.
 ## `jobs.<job_id>.timeout-minutes`
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
+
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
 
 ## `jobs.<job_id>.strategy`
 
@@ -1030,7 +1051,7 @@ steps:
 ```
 {% endraw %}
 
-{% if currentVersion == "github-ae@latest" %}To find supported configuration options for {% data variables.actions.hosted_runner %}s, see "[Software specifications](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)."
+{% ifversion ghae %}To find supported configuration options for {% data variables.actions.hosted_runner %}s, see "[Software specifications](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)."
 {% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
@@ -1172,9 +1193,9 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% ifversion ghes < 3.0 %}public{% endif %} registry name.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1256,9 +1277,9 @@ services:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% ifversion ghes < 3.0 %}public{% endif %} registry name.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1320,7 +1341,7 @@ You can use special characters in path, branch, and tag filters.
 
 - `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
 - `**`: Matches zero or more of any character.
-- `?`: Matches zero or one single character. For example, `Octoc?t` matches `Octocat`.
+- `?`: Matches zero or one of the preceding character.
 - `+`: Matches one or more of the preceding character.
 - `[]` Matches one character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
 - `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.

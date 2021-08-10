@@ -3,7 +3,7 @@ title: GitHub Open Source Applications Terms and Conditions
 redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -63,4 +63,4 @@ GitHub reserves the right at any time and from time to time to modify or discont
 
 6. License to GitHub Policies. These Application Terms are licensed under this [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
 
-7. Contact Us. Questions about the Terms of Service? [Contact us](https://support.github.com/contact).
+7. Contact Us. Questions about the Terms of Service? [Contact us](https://support.github.com/contact?tags=docs-policy).

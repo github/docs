@@ -6,9 +6,10 @@ redirect_from:
   - /articles/removing-files-from-a-repositorys-history
   - /github/managing-large-files/removing-files-from-a-repositorys-history
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Remove repository history
 ---
 {% warning %}
 

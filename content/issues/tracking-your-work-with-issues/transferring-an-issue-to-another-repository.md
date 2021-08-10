@@ -7,15 +7,16 @@ redirect_from:
   - /github/managing-your-work-on-github/transferring-an-issue-to-another-repository
   - /issues/tracking-your-work-with-issues/managing-issues/transferring-an-issue-to-another-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Transfer an issue
 ---
 To transfer an open issue to another repository, you must have write permissions on the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 
-You can only transfer issues between repositories owned by the same user or organization account. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
+You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
 When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
 

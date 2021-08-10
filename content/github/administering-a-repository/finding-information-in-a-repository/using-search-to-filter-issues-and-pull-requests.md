@@ -6,11 +6,12 @@ redirect_from:
   - /articles/using-search-to-filter-issues-and-pull-requests
   - /github/managing-your-work-on-github/using-search-to-filter-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Use search to filter
 ---
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/articles/viewing-all-of-your-issues-and-pull-requests).
 
@@ -30,7 +31,17 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% tip %}
+
+**Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
+- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`. 
+- To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+
+{% endtip %}
+{% endif %}
+
+{% ifversion fpt or ghes or ghae %}
 For issues, you can also use search to:
 
 - Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
@@ -44,12 +55,12 @@ For pull requests, you can also use search to:
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
 - Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
 - Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
 
 ## Further reading
 
-- "[Searching issues](/articles/searching-issues)"
+- "[Searching issues and pull requests](/articles/searching-issues)"
 - "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
 - "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"
 - "[Sharing filters](/articles/sharing-filters)"

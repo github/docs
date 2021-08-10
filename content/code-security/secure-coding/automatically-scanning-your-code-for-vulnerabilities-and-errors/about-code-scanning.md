@@ -7,14 +7,13 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
   - /code-security/secure-coding/about-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: overview
 topics:
   - Advanced Security
   - Code scanning
-  - CodeQL
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
@@ -34,19 +33,7 @@ To monitor results from {% data variables.product.prodname_code_scanning %} acro
 
 To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-## About {% data variables.product.prodname_codeql %}
-
-You can use {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, a semantic code analysis engine. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers. 
-
-{% data variables.product.prodname_ql %} is the query language that powers {% data variables.product.prodname_codeql %}. {% data variables.product.prodname_ql %} is an object-oriented logic programming language. {% data variables.product.company_short %}, language experts, and security researchers create the queries used for {% data variables.product.prodname_code_scanning %}, and the queries are open source. The community maintains and updates the queries to improve analysis and reduce false positives. For more information, see [{% data variables.product.prodname_codeql %}](https://securitylab.github.com/tools/codeql) on the GitHub Security Lab website.
-
-{% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
-
-{% data reusables.code-scanning.codeql-languages-bullets %}
-
-You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## About billing for {% data variables.product.prodname_code_scanning %}
 
@@ -54,14 +41,16 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 {% endif %}
 
-## About third-party {% data variables.product.prodname_code_scanning %} tools
+## About tools for {% data variables.product.prodname_code_scanning %}
+
+You can set up {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short%} or a third-party {% data variables.product.prodname_code_scanning %} tool. 
+
+### About {% data variables.product.prodname_codeql %} analysis
+
+{% data reusables.code-scanning.about-codeql-analysis %} For more information about {% data variables.product.prodname_codeql %}, see "[About code scanning with CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+
+### About third-party {% data variables.product.prodname_code_scanning %} tools
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
-
-## Further reading
-
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
-- [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

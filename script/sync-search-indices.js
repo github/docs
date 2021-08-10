@@ -6,17 +6,18 @@
 // It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
 //
 // [end-readme]
-const searchSync = require('./search/sync')
-require('make-promises-safe')
+
+import searchSync from './search/sync.js'
+import 'make-promises-safe'
 
 main()
 
-async function main () {
+async function main() {
   const sync = searchSync
   const opts = {
     dryRun: 'DRY_RUN' in process.env,
     language: process.env.LANGUAGE,
-    version: process.env.VERSION
+    version: process.env.VERSION,
   }
   await sync(opts)
 }

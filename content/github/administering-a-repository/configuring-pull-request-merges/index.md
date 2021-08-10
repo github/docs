@@ -4,9 +4,9 @@ intro: 'You can configure pull request merges on {% data variables.product.produ
 redirect_from:
   - /articles/configuring-pull-request-merges
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -15,5 +15,6 @@ children:
   - /configuring-commit-rebasing-for-pull-requests
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches
+shortTitle: Configure PR merges
 ---
 

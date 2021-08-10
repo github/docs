@@ -5,9 +5,9 @@ redirect_from:
   - /v3/issues/issue-event-types
   - /developers/webhooks-and-events/issue-event-types
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Events
 ---
@@ -350,7 +350,7 @@ The issue or pull request was locked.
 
 ### Event object properties
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -670,7 +670,7 @@ The issue was unlocked.
 
 ### Event object properties
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -720,7 +720,7 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## user_blocked
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).

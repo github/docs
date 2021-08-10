@@ -3,9 +3,9 @@ title: Enabling debug logging
 intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -15,7 +15,7 @@ versions:
 These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
 - {% data reusables.github-actions.permissions-statement-secrets-environment %}
 {% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}

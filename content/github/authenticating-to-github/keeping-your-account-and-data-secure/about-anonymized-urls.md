@@ -7,7 +7,7 @@ redirect_from:
   - /authenticating-to-github/about-anonymized-image-urls
   - /github/authenticating-to-github/about-anonymized-urls
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Identity
   - Access management

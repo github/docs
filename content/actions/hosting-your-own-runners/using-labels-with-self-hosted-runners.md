@@ -2,10 +2,11 @@
 title: Using labels with self-hosted runners
 intro: You can use labels to organize your self-hosted runners based on their characteristics.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: tutorial
+shortTitle: Label runners
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}

@@ -4,7 +4,7 @@ intro: 'You can submit a ticket to {% data variables.contact.github_support %} u
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---

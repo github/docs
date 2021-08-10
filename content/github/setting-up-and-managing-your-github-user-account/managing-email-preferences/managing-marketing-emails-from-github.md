@@ -5,10 +5,11 @@ redirect_from:
   - /articles/managing-marketing-emails-from-github
   - /github/setting-up-and-managing-your-github-user-account/managing-marketing-emails-from-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Notifications
+shortTitle: Marketing emails
 ---
 ## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
 

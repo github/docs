@@ -5,14 +5,15 @@ redirect_from:
   - /articles/managing-notifications/
   - /articles/managing-your-notifications
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
   - /customizing-a-workflow-for-triaging-your-notifications
+shortTitle: Customize a workflow
 ---
 

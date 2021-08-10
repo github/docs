@@ -35,9 +35,9 @@ redirect_from:
   - /marketplace/actions
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 children:
   - /quickstart
   - /guides
@@ -48,3 +48,4 @@ children:
   - /hosting-your-own-runners
   - /reference
 ---
+

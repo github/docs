@@ -3,7 +3,7 @@ title: GitHub Statement Against Modern Slavery and Child Labor
 redirect_from:
   - /articles/github-statement-against-modern-slavery-and-child-labor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

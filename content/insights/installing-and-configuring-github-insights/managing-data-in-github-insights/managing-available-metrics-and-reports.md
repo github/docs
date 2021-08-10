@@ -6,7 +6,8 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage available metrics and reports.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Manage metrics & reports
 ---
 When you disable a metric, the metric will not be visible for any user, anywhere on {% data variables.product.prodname_insights %}.
 

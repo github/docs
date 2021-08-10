@@ -3,9 +3,9 @@ title: Scheduling issue creation
 intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Workflows
@@ -30,6 +30,8 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
     name: Weekly Team Sync
     on:
       schedule:
@@ -38,12 +40,12 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
         permissions:
           issues: write{% endif %}
         steps:
           - name: Create team sync issue
-            uses: imjohnbo/issue-bot@v3.0
+            uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
             with:
               assignees: "monalisa, doctocat, hubot"
               labels: "weekly sync, docs-team"

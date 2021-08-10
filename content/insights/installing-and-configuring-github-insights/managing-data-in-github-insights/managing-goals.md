@@ -6,7 +6,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-goals
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 ---
 ## About goals
 

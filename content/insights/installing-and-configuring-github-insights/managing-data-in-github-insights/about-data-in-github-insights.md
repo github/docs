@@ -3,9 +3,10 @@ title: About data in GitHub Insights
 intro: 'The data included in {% data variables.product.prodname_insights %} metrics is highly customizable.'
 permissions: ''
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 redirect_from:
   - /insights/installing-and-configuring-github-insights/about-data-in-github-insights
+shortTitle: Data in GitHub Insights
 ---
 {% data variables.product.prodname_insights %} displays data about your team's work in key metrics and reports. You can choose which of these metrics are displayed. For more information, see "[Managing available metrics and reports](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)."
 

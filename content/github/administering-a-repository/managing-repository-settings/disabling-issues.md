@@ -6,9 +6,9 @@ redirect_from:
   - /articles/disabling-issues
   - /github/managing-your-work-on-github/disabling-issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ topics:
 
 If you decide to enable issues again in the future, any issues that were previously added will be available.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% tip %}
 

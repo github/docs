@@ -7,10 +7,11 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: Troubleshoot service hooks
 ---
 ## Getting information on deliveries
 

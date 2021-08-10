@@ -15,6 +15,7 @@ export type TocLandingContextT = {
   tocItems: Array<TocItem>
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
+  renderedPage: string
 }
 
 export const TocLandingContext = createContext<TocLandingContextT | null>(null)
@@ -30,15 +31,17 @@ export const useTocLandingContext = (): TocLandingContextT => {
 }
 
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
+  const isEarlyAccess = req.context.page?.documentType === 'early-access'
   return {
     title: req.context.page.title,
     productCallout: req.context.page.product || '',
     introPlainText: req.context.page.introPlainText,
     tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
-      pick(obj, ['fullPath', 'title', 'intro'])
+      pick(obj, ['fullPath', 'title', 'intro', 'childTocItems'])
     ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
 
     featuredLinks: getFeaturedLinksFromReq(req),
+    renderedPage: isEarlyAccess ? req.context.renderedPage : '',
   }
 }

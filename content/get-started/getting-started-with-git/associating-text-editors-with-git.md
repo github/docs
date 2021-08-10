@@ -10,9 +10,10 @@ redirect_from:
   - /github/getting-started-with-github/associating-text-editors-with-git
   - /github/getting-started-with-github/getting-started-with-git/associating-text-editors-with-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Associate text editors
 ---
 {% mac %}
 

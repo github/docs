@@ -5,12 +5,13 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: quick_start
 topics:
   - Fundamentals
+shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-beta %}

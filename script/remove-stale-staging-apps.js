@@ -7,16 +7,19 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+import dotenv from 'dotenv'
+import { chain } from 'lodash-es'
+import chalk from 'chalk'
+import Heroku from 'heroku-client'
+import getOctokit from './helpers/github.js'
 
-const { chain } = require('lodash')
-const chalk = require('chalk')
-const Heroku = require('heroku-client')
-const getOctokit = require('./helpers/github')
+dotenv.config()
 
 // Check for required Heroku API token
 if (!process.env.HEROKU_API_TOKEN) {
-  console.error('Error! You must have a HEROKU_API_TOKEN environment variable for deployer-level access.')
+  console.error(
+    'Error! You must have a HEROKU_API_TOKEN environment variable for deployer-level access.'
+  )
   process.exit(1)
 }
 // Check for required GitHub PAT
@@ -33,31 +36,30 @@ const protectedAppNames = ['help-docs', 'help-docs-deployer']
 
 main()
 
-async function main () {
+async function main() {
   const apps = chain(await heroku.get('/apps'))
     .orderBy('name')
     .value()
 
   const prInfoMatch = /^(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
 
-  const appsPlusPullIds = apps
-    .map(app => {
-      const match = prInfoMatch.exec(app.name)
-      const { repo, pullNumber } = ((match || {}).groups || {})
+  const appsPlusPullIds = apps.map((app) => {
+    const match = prInfoMatch.exec(app.name)
+    const { repo, pullNumber } = (match || {}).groups || {}
 
-      return {
-        app,
-        repo,
-        pullNumber: parseInt(pullNumber, 10) || null
-      }
-    })
+    return {
+      app,
+      repo,
+      pullNumber: parseInt(pullNumber, 10) || null,
+    }
+  })
 
-  const appsWithPullIds = appsPlusPullIds.filter(appi => appi.repo && appi.pullNumber > 0)
+  const appsWithPullIds = appsPlusPullIds.filter((appi) => appi.repo && appi.pullNumber > 0)
 
   const nonMatchingAppNames = appsPlusPullIds
-    .filter(appi => !(appi.repo && appi.pullNumber > 0))
-    .map(appi => appi.app.name)
-    .filter(name => !protectedAppNames.includes(name))
+    .filter((appi) => !(appi.repo && appi.pullNumber > 0))
+    .map((appi) => appi.app.name)
+    .filter((name) => !protectedAppNames.includes(name))
 
   let staleCount = 0
   let spammyCount = 0
@@ -78,27 +80,32 @@ async function main () {
     stale: {
       total: staleCount,
       spammy: spammyCount,
-      closed: staleCount - spammyCount
-    }
+      closed: staleCount - spammyCount,
+    },
   }
   console.log(`🧮 COUNTS!\n${JSON.stringify(counts, null, 2)}`)
 
   const nonMatchingCount = nonMatchingAppNames.length
   if (nonMatchingCount > 0) {
-    console.log('⚠️  👀', chalk.yellow(`Non-matching app names (${nonMatchingCount}):\n - ${nonMatchingAppNames.join('\n - ')}`))
+    console.log(
+      '⚠️  👀',
+      chalk.yellow(
+        `Non-matching app names (${nonMatchingCount}):\n - ${nonMatchingAppNames.join('\n - ')}`
+      )
+    )
   }
 }
 
-function displayParams (params) {
+function displayParams(params) {
   const { owner, repo, pull_number: pullNumber } = params
   return `${owner}/${repo}#${pullNumber}`
 }
 
-async function assessPullRequest (repo, pullNumber) {
+async function assessPullRequest(repo, pullNumber) {
   const params = {
     owner: 'github',
     repo: repo,
-    pull_number: pullNumber
+    pull_number: pullNumber,
   }
 
   let isStale = false
@@ -124,11 +131,14 @@ async function assessPullRequest (repo, pullNumber) {
   return { isStale, isSpammy }
 }
 
-async function deleteHerokuApp (appName) {
+async function deleteHerokuApp(appName) {
   try {
     await heroku.delete(`/apps/${appName}`)
     console.log('✅', chalk.green(`Removed stale app "${appName}"`))
   } catch (error) {
-    console.log('❌', chalk.red(`ERROR: Failed to remove stale app "${appName}" - ${error.message}`))
+    console.log(
+      '❌',
+      chalk.red(`ERROR: Failed to remove stale app "${appName}" - ${error.message}`)
+    )
   }
 }

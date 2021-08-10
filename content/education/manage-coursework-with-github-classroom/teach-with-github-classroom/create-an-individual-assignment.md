@@ -2,10 +2,11 @@
 title: Create an individual assignment
 intro: You can create an assignment for students in your course to complete individually.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
+shortTitle: Individual assignment
 ---
 ## About individual assignments
 
@@ -59,7 +60,7 @@ Under "Individual or group assignment", select the drop-down menu, and click **I
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an online integrated development environment (IDE)](#choosing-an-online-integrated-development-environment-ide)
+- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### Choosing a template repository
 
@@ -69,7 +70,7 @@ By default, a new assignment will create an empty repository for each student on
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Choosing an online integrated development environment (IDE)
+### Choosing an integrated development environment (IDE)
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 

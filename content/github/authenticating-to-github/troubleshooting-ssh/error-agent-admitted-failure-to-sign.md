@@ -6,11 +6,12 @@ redirect_from:
   - /articles/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/error-agent-admitted-failure-to-sign
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Agent failure to sign
 ---
 When trying to SSH into {% data variables.product.product_location %} on a Linux computer, you may see the following message in your terminal:
 

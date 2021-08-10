@@ -6,11 +6,12 @@ redirect_from:
   - /articles/disabling-project-boards-in-a-repository
   - /github/managing-your-work-on-github/disabling-project-boards-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Disable project boards
 ---
 When you disable project boards, you will no longer see project board information in timelines or [audit logs](/articles/reviewing-your-security-log/).
 

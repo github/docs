@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting CodeQL runner in your CI system
-shortTitle: Troubleshooting CodeQL runner
+shortTitle: Troubleshoot CodeQL runner
 intro: 'If you''re having problems with the {% data variables.product.prodname_codeql_runner %}, you can troubleshoot by using these tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -9,9 +9,9 @@ redirect_from:
   - /code-security/secure-coding/troubleshooting-codeql-code-scanning-in-your-ci-system
   - /code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: how_to
 topics:
   - Advanced Security

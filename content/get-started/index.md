@@ -17,9 +17,9 @@ redirect_from:
   - /github/using-git
   - /github/getting-started-with-github/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 layout: product-landing
 introLinks:
   quickstart: /github/getting-started-with-github/quickstart
@@ -27,8 +27,13 @@ featuredLinks:
   guides:
     - /github/getting-started-with-github/githubs-products
     - /github/getting-started-with-github/create-a-repo
-    - /github/getting-started-with-github/signing-up-for-a-new-github-account
+    - /get-started/onboarding/getting-started-with-your-github-account
+    - /get-started/onboarding/getting-started-with-github-team
+    - /get-started/onboarding/getting-started-with-github-enterprise-cloud
+    - /get-started/onboarding/getting-started-with-github-enterprise-server
+    - /get-started/onboarding/getting-started-with-github-ae
   popular:
+    - /github/getting-started-with-github/signing-up-for-a-new-github-account
     - /github/getting-started-with-github/set-up-git
     - /github/getting-started-with-github/github-glossary
     - /github/getting-started-with-github/fork-a-repo
@@ -45,6 +50,7 @@ topics:
   - Accounts
 children:
   - /quickstart
+  - /onboarding
   - /learning-about-github
   - /signing-up-for-github
   - /using-github

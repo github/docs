@@ -5,10 +5,11 @@ redirect_from:
   - /articles/types-of-emails-github-sends
   - /github/setting-up-and-managing-your-github-user-account/types-of-emails-github-sends
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Notifications
+shortTitle: Emails from GitHub
 ---
 ## Notification emails
 

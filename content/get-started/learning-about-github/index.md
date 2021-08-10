@@ -5,9 +5,9 @@ redirect_from:
   - /articles/learning-about-github
   - /github/getting-started-with-github/learning-about-github/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - CLI

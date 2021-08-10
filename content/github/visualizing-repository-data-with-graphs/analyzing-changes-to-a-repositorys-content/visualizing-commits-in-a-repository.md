@@ -6,11 +6,12 @@ redirect_from:
   - /articles/visualizing-commits-in-a-repository
   - /github/visualizing-repository-data-with-graphs/visualizing-commits-in-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
+shortTitle: View commits in repository
 ---
 The top graph shows commits for the entire year by week.
 

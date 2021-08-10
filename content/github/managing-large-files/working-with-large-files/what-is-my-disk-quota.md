@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-large-files/what-is-my-disk-quota
 intro: '{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% data reusables.large_files.use_lfs_tip %}
 

@@ -27,11 +27,12 @@ redirect_from:
   - /github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Troubleshoot Jekyll errors
 ---
 
 ## Troubleshooting build errors
@@ -39,7 +40,7 @@ topics:
 If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
 
 If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% if currentVersion == "free-pro-team@latest" %}
+- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% ifversion fpt %}
 - Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
 - You changed the `source` setting in your *_config.yml* file. {% data variables.product.prodname_pages %} overrides this setting during the build process.
 - A filename in your publishing source contains a colon (`:`) which is not supported.
@@ -162,7 +163,7 @@ To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* f
 
 This error means that your site includes a symbolic link (symlink) that does not exist in the publishing source for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the publishing source for your site. To include external assets, consider using {% if currentVersion == "free-pro-team@latest" %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the publishing source for your site. To include external assets, consider using {% ifversion fpt %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
 
 ## Syntax error in 'for' loop
 

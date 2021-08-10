@@ -2,7 +2,7 @@
 title: Glossary
 intro: 'You can review explanations of terminology for {% data variables.product.prodname_classroom %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
 ---

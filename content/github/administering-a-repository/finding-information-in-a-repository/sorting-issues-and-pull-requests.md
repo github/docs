@@ -6,11 +6,12 @@ redirect_from:
   - /articles/sorting-issues-and-pull-requests
   - /github/managing-your-work-on-github/sorting-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Sort issues & PRs
 ---
 You can sort any filtered view by:
 

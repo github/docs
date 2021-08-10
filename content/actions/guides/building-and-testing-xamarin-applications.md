@@ -3,9 +3,9 @@ title: Building and testing Xamarin applications
 intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Xamarin application.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - CI
@@ -14,6 +14,7 @@ topics:
   - Xamarin.Android
   - Android
   - iOS
+shortTitle: Build & test Xamarin apps
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -39,7 +40,7 @@ We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML
 - "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
 - "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 
-## Bulding Xamarin.iOS apps
+## Building Xamarin.iOS apps
 
 The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
 
@@ -79,7 +80,7 @@ jobs:
 ```
 {% endraw %}
 
-## Bulding Xamarin.Android apps
+## Building Xamarin.Android apps
 
 The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
 

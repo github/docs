@@ -5,9 +5,9 @@ redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -21,7 +21,7 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion ver_lt "enterprise-server@2.22" %}
+{% ifversion ghes < 2.22 %}
 2. Under your repository name, click **Find file**.
 ![Find file button](/assets/images/help/search/find-file-button.png)
 {% else %}

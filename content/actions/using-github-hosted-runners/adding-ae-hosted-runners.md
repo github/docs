@@ -2,7 +2,7 @@
 title: Adding AE hosted runners
 intro: 'You can add an {% data variables.actions.hosted_runner %} to an organization or an enterprise.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
 {% data reusables.actions.ae-beta %}

@@ -3,9 +3,9 @@ title: Closing inactive issues
 intro: 'You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 type: tutorial
 topics:
   - Workflows
@@ -37,7 +37,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
         permissions:
           issues: write
           pull-requests: write{% endif %}
@@ -71,7 +71,7 @@ Based on the `schedule` parameter (for example, every day at 1:30 UTC), your wor
 
 You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-This workflow will only label and/or close 30 issues at a time in order to avoid rate limit abuse. You can configure this with the `operations-per-run` setting. For more information, see the [`actions/stale` action documentation](https://github.com/marketplace/actions/close-stale-issues).
+This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. You can configure this with the `operations-per-run` setting. For more information, see the [`actions/stale` action documentation](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Next steps
 

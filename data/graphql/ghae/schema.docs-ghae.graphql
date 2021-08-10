@@ -9437,6 +9437,11 @@ type EnterpriseIdentityProvider implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter to external identities with valid org membership only
+    """
+    membersOnly: Boolean
   ): ExternalIdentityConnection!
   id: ID!
 
@@ -21557,6 +21562,11 @@ type OrganizationIdentityProvider implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter to external identities with valid org membership only
+    """
+    membersOnly: Boolean
   ): ExternalIdentityConnection!
   id: ID!
 
@@ -25464,7 +25474,7 @@ type PullRequestReviewThread implements Node {
   id: ID!
 
   """
-  Whether or not the thread has been collapsed (outdated or resolved)
+  Whether or not the thread has been collapsed (resolved)
   """
   isCollapsed: Boolean!
 
@@ -27358,6 +27368,31 @@ type Release implements Node & Reactable & UniformResourceLocatable {
   Whether or not the release is a prerelease
   """
   isPrerelease: Boolean!
+
+  """
+  A list of users mentioned in the release description
+  """
+  mentions(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): UserConnection
 
   """
   The title of the release.
@@ -30454,6 +30489,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): UserConnection!
 
   """
+  Whether or not Auto-merge can be enabled on pull requests in this repository.
+  """
+  autoMergeAllowed: Boolean!
+
+  """
   A list of branch protection rules for this repository.
   """
   branchProtectionRules(
@@ -32769,7 +32809,7 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
 }
 
 """
-A alert for a repository with an affected vulnerability.
+A Dependabot alert for a repository with a dependency affected by a security vulnerability.
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
@@ -33772,6 +33812,11 @@ enum SecurityAdvisoryEcosystem {
   .NET packages hosted at the NuGet Gallery
   """
   NUGET
+
+  """
+  Applications, runtimes, operating systems and other kinds of software
+  """
+  OTHER
 
   """
   Python packages hosted at PyPI.org

@@ -4,7 +4,7 @@ shortTitle: Troubleshooting in your CI
 intro: 'If you''re having problems with the {% data variables.product.prodname_codeql_runner %}, you can troubleshoot by using these tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:

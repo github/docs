@@ -5,7 +5,7 @@ intro: 'You can configure SAML single sign-on (SSO) for your enterprise, which a
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -18,7 +18,7 @@ redirect_from:
 ---
 ## About SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 SAML SSO allows you to centrally control and secure access to {% data variables.product.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
 
@@ -36,13 +36,13 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% data variables.product.company_short %} has tested SAML SSO for {% data variables.product.product_name %} with the following IdPs.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 - Azure AD
 {% endif %}
 
 ## Enabling SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -66,7 +66,7 @@ During initialization for {% data variables.product.product_name %}, you must co
 
 If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.product.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% note %}
 
@@ -94,7 +94,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 
 ## Disabling SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% warning %}
 

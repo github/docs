@@ -6,11 +6,12 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-milestone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter by milestone
 ---
 {% tip %}
 

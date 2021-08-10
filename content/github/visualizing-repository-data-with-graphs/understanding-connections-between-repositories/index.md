@@ -1,12 +1,12 @@
 ---
 title: Understanding connections between repositories
-intro: 'You can better understand the connections that exist between repositories by viewing a repository''s network{% if currentVersion == "free-pro-team@latest" %}, projects that depend on the repository,{% endif %} and its forks.'
+intro: 'You can better understand the connections that exist between repositories by viewing a repository''s network{% ifversion fpt %}, projects that depend on the repository,{% endif %} and its forks.'
 redirect_from:
   - /articles/understanding-connections-between-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 children:
@@ -15,5 +15,6 @@ children:
   - /viewing-the-dependencies-of-a-repository
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
+shortTitle: Connections between repos
 ---
 

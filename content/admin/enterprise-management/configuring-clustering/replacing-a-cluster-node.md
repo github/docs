@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
   - /admin/enterprise-management/replacing-a-cluster-node
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering

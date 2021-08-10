@@ -2,13 +2,14 @@
 title: Triaging a single notification
 intro: 'When you review and investigate a single notification, you have several triaging options that are optimized for the detailed notification view.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
+shortTitle: Triage a notification
 ---
 ## Saving a single notification
 

@@ -3,9 +3,10 @@ title: Configuring the connection between GitHub Insights and GitHub Enterprise
 intro: 'You can manage how {% data variables.product.prodname_insights %} connects to {% data variables.product.prodname_enterprise %}.'
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can configure the connection to {% data variables.product.prodname_enterprise %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 redirect_from:
   - /insights/installing-and-configuring-github-insights/configuring-the-connection-between-github-insights-and-github-enterprise
+shortTitle: Connect Insights to Enterprise
 ---
 {% data reusables.github-insights.settings-tab %}
 2. Under {% octicon "gear" aria-label="The gear icon" %} Settings, click **Enterprise**.
