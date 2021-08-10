@@ -46,6 +46,10 @@ jobs:
           LANGUAGE: 'en'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo 'git show-ref'
+          git show-ref
+          echo 'git checkout $GITHUB_HEAD_REF'
+          git checkout $GITHUB_HEAD_REF
           npm run build
           npm run sync-search
 
