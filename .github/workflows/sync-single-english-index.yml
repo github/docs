@@ -20,7 +20,7 @@ on:
 jobs:
   updateIndices:
     name: Update English index for single version based on a label's version
-    if: github.repository == 'github/docs-internal'
+    if: github.repository == 'github/docs-internal' && github.event.sender != 'actions-user'
     runs-on: ubuntu-latest
     steps:
       - name: checkout
