@@ -13,7 +13,7 @@ Effective Date: August 11, 2021
 
 Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
-Activity on github.dev is subject to [GitHub's Beta Previews terms](https://docs.github.com/en/github/site-policy/github-terms-of-service#j-beta-previews)
+Activity on github.dev is subject to [GitHub's Beta Previews terms](/github/site-policy/github-terms-of-service#j-beta-previews)
 
 ## Using Visual Studio Code
 
