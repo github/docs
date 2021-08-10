@@ -48,6 +48,8 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
   $ git remote set-url origin <em>new_url</em>
   ```
 
+- When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
+
 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Repository transfers and organizations

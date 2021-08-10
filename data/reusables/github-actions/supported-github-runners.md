@@ -1,6 +1,6 @@
 {% warning %}
 
-**Warning**: Ubuntu 16.04 is being deprecated. If any of your workflows use Ubuntu 16.04, migrate to Ubuntu 20.04 or 18.04. For more information, see [the blog post](https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021).
+**Warning**: Ubuntu 16.04 is being deprecated and limited to existing customers only. No new onboardings are accepted. If any of your workflows use Ubuntu 16.04, migrate to Ubuntu 20.04 or 18.04. For more information, see [the blog post](https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021).
 
 {% endwarning %}
 
