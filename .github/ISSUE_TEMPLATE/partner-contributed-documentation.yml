@@ -20,19 +20,19 @@ body:
       label: Pre-requisites
       description: Prior to submitting documentation, please apply to join the GitHub Technology Partner Program [partner.github.com/apply](https://partner.github.com/apply?partnershipType=Technology+Partner). Please feel free to proceed once your application is approved.
       options:
-        - label: My application to the GitHub Technology Partner Program is approved
+        - label: My application to the GitHub Technology Partner Program is approved.
           required: true
 
   - type: checkboxes
     attributes:
       label: Tasks
-      description: Please be sure to complete each of the following
+      description: Please be sure to complete each of the following.
       options:
         - label: MUST follow our [general contributing guidelines](CONTRIBUTING.md) for voice and markup format.
           required: true
         - label: MUST emphasize how the third-party product works with GitHub.
           required: true
-        - label: MUST be written in Markdown format, using [one of the templates provided](contributing/github-partners/README.md#templates)
+        - label: MUST be written in Markdown format, using [one of the templates provided](contributing/github-partners/README.md#templates).
           required: true
         - label: MUST include the name and URL of the GitHub technology partner responsible for maintenance of the documentation being contributed. This should be added via the `contributor.name` and `contributor.URL` properties in the template's YAML frontmatter.
           required: true
@@ -44,17 +44,17 @@ body:
   - type: checkboxes
     attributes:
       label: Pull Request
-      description: Please be sure to complete each of the following
+      description: Please be sure to complete each of the following.
       options:
-        - label: MUST reference this issue, e.g. via `closes [this issue number]`
+        - label: MUST reference this issue, e.g. via `closes [this issue number]`.
           required: true
-        - label: MUST pass the automated CI checks
+        - label: MUST pass the automated CI checks.
           required: true
-        - label: MUST include links to supporting material demonstrating the functionality being documented (this can be a link to a public GitHub repo, _or_ a video / screencast walkthrough)
+        - label: MUST include links to supporting material demonstrating the functionality being documented (this can be a link to a public GitHub repo, _or_ a video / screencast walkthrough).
           required: true
 
   - type: markdown
     attributes:
       value: |
-        * Once all tasks are completed, please mention `@github/docs-content` for next steps.
-        * /cc @github/partner-engineering for :eyes:
+        Once all tasks are completed, please mention `@github/docs-content` for next steps.
+        /cc @github/partner-engineering for :eyes:
