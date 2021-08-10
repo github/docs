@@ -7,25 +7,24 @@ body:
   - type: markdown
     attributes:
       value: |
-        **HUBBERS!! THIS IS GITHUB/DOCS OPEN SOURCE REPO. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.**
+        **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
 
-        * For questions, ask in [Discussions](https://github.com/github/docs/discussions)
-        * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
-        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
+        * For questions, ask in [Discussions](https://github.com/github/docs/discussions).
+        * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
+        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
 
   - type: checkboxes
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      label: Code of Conduct.
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this project's Code of Conduct.
           required: true
 
   - type: textarea
     attributes:
       label: What article on docs.github.com is affected?
-      description: |
-        Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
+      description: Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
     validations:
       required: true
 
@@ -42,7 +41,6 @@ body:
   - type: textarea
     attributes:
       label: Additional information
-      description: |
-        Any additional information, configuration, or data that might be necessary to reproduce the issue.
+      description: Any additional information, configuration, or data that might be necessary to reproduce the issue.
     validations:
       required: false

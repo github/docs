@@ -1,32 +1,31 @@
-name: Improve existing content
-description: Make a suggestion to improve the content in an existing article
-title: '[What I really want the title to be]'
+name: Improve existing content.
+description: Make a suggestion to improve the content in an existing article.
+title: '[What I really want the title to be]':
 labels:
   - content
 body:
   - type: markdown
     attributes:
       value: |
-        **HUBBERS!! THIS IS GITHUB/DOCS OPEN SOURCE REPO. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.**
+        **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
 
-        * For questions, ask in [Discussions](https://github.com/github/docs/discussions)
-        * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
-        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
+        * For questions, ask in [Discussions](https://github.com/github/docs/discussions).
+        * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
+        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
 
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this project's Code of Conduct.
           required: true
 
   - type: textarea
     attributes:
       label: What article on docs.github.com is affected?
-      description: |
-        Please link to the article you'd like to see updated
+      description: Please link to the article you'd like to see updated.
     validations:
       required: true
 
@@ -43,7 +42,6 @@ body:
   - type: textarea
     attributes:
       label: Additional information
-      description: |
-        Add any other context or screenshots about the feature request here.
+      description: Add any other context or screenshots about the feature request here.
     validations:
       required: false

@@ -1,6 +1,6 @@
-name: Partner-owned product documentation
-description: Initiate a set of tasks to be completed by a GitHub partner wishing to document how their product works with GitHub
-title: "'[What I really want the title to be]': "
+name: Partner-owned product documentation.
+description: Initiate a set of tasks to be completed by a GitHub partner wishing to document how their product works with GitHub.
+title: '[What I really want the title to be]': 
 labels:
   - partner
 body:
@@ -57,4 +57,4 @@ body:
     attributes:
       value: |
         Once all tasks are completed, please mention `@github/docs-content` for next steps.
-        /cc @github/partner-engineering for :eyes:
+        /cc @github/partner-engineering for :eyes:.
