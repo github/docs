@@ -15,29 +15,29 @@ topics:
 
 ## About followers on {% data variables.product.product_name %}
 
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}.
+When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
 
 You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
 
 ## Following a user on {% data variables.product.product_name %}
 
-1. Visit a user profile you want to follow by clicking on their user image.
+1. Click a user image to display that user's profile.
    
-![Username](../../../assets/images/help/profile/user-profile-image.png) 
+  ![User image](/assets/images/help/profile/user-profile-image.png) 
 
-1. Click **Follow** button under their profile image.
+2. Click **Follow** under their profile image.
 
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+  ![Follow user button](/assets/images/help/profile/follow-user-button.png)
 
 ## Unfollowing a user on {% data variables.product.product_name %}
 
-1.  Visit a user profile you want to unfollow by clicking on their user image.
+1.  Click a user image to display that user's profile.
 
-![Username](../../../assets/images/help/profile/user-profile-image.png) 
+  ![User image](/assets/images/help/profile/user-profile-image.png) 
 
-1.  Click **Unfollow** button under their profile image.
+2.  Click **Unfollow** under their profile image.
 
-![User profile button](../../../assets/images/help/profile/user-profile-unfollow-button.png) 
+  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png) 
 
 
 
