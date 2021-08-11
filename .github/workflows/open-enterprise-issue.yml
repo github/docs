@@ -46,11 +46,11 @@ jobs:
         run: |
           .github/actions-scripts/create-enterprise-issue.js release
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
 
       - name: Create an enterprise deprecation issue
         if: steps.existingIssue.outputs.deprecationIssue == 'false'
         run: |
           .github/actions-scripts/create-enterprise-issue.js deprecation
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
