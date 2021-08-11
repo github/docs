@@ -72,7 +72,7 @@ For more information, see "[About alerts for vulnerable dependencies](/code-secu
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt %}
 ## Managing dependency review
 
 Dependency review lets you visualize dependency changes in pull requests before they are merged into your repository. Dependency review is available in all public repositories and in repositories owned by organizations with an {% data variables.product.prodname_advanced_security %} license that have the dependency graph enabled. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."

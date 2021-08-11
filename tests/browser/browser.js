@@ -78,7 +78,7 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
+    await searchInput.type('code')
     await newPage.waitForSelector('.search-result')
   })
 

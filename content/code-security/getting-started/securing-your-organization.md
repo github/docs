@@ -47,7 +47,7 @@ For more information, see "[About alerts for vulnerable dependencies](/code-secu
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt %}
 
 ## Managing dependency review
 
