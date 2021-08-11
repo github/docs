@@ -16,7 +16,6 @@ children:
   - /global-privacy-practices
   - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
-  - /github-codespaces-privacy-statement
   - /github-terms-for-additional-products-and-features
   - /github-logo-policy
   - /github-username-policy
