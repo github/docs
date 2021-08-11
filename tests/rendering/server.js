@@ -298,14 +298,13 @@ describe('server', () => {
 
   test('renders product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
-    const note = $('.product-callout').eq(0)
-    expect(note.hasClass('color-border-success')).toBe(true)
-    expect(note.hasClass('color-bg-success')).toBe(true)
+    const note = $('[data-testid=callout]').eq(0)
+    expect(note).toBeTruthy()
   })
 
   test('renders liquid within liquid within product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
-    const note = $('.product-callout').eq(0)
+    const note = $('[data-testid=callout]').eq(0)
     expect(
       note
         .first()
