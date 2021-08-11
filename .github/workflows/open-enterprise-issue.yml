@@ -32,7 +32,7 @@ jobs:
         run: |
           .github/actions-scripts/check-for-enterprise-issues-by-label.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
 
       - name: Update enterprise dates
         if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
