@@ -51,7 +51,7 @@ jobs:
       - name: Update search indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: VERSION=free-pro-team@latest LANGUAGE=en npm run sync-search
+        run: npm run sync-search
 
       - name: Update private docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
