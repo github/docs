@@ -25,7 +25,7 @@ describe('products module', () => {
 describe('mobile-only products nav', () => {
   test('renders current product on various product pages for each product', async () => {
     // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
-    expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub.com')
+    expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub')
 
     // Enterprise server
     expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe(
@@ -39,7 +39,7 @@ describe('mobile-only products nav', () => {
       )('#current-product')
         .text()
         .trim()
-    ).toBe('GitHub.com')
+    ).toBe('GitHub')
 
     expect((await getDOM('/desktop'))('#current-product').text().trim()).toBe('GitHub Desktop')
 

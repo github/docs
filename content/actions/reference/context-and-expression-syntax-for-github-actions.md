@@ -219,14 +219,14 @@ jobs:
 
 ## Literals
 
-As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types. Boolean literals are not case sensitive, so you can use `true` or `True`.
+As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types.
 
 | Data type | Literal value |
 |-----------|---------------|
 | `boolean` | `true` or `false` |
 | `null`    | `null` |
-| `number`  | Any number format supported by JSON.
-| `string`  | You must use single quotes. Escape literal single-quotes with a single quote.
+| `number`  | Any number format supported by JSON. |
+| `string`  | You must use single quotes. Escape literal single-quotes with a single quote. |
 
 #### Example
 
@@ -456,7 +456,7 @@ steps:
 
 ### always
 
-Always returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
 
 #### Example
 

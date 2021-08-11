@@ -72,12 +72,6 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% linux %}
 
-{% note %}
-
-**Note:** X.509 keys are not supported on Linux. You can configure gpgsm to provide encryption and signing services, however, this is not currently supported by {% data variables.product.product_name %}. For more information, see the [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) topic in the GnuPG documentation.
-
-{% endnote %}
-
 ## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.

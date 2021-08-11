@@ -18,6 +18,7 @@ children:
   - /about-code-owners
   - /about-repository-languages
   - /licensing-a-repository
+  - /about-citation-files
   - /creating-a-template-repository
   - /creating-an-issues-only-repository
   - /limits-for-viewing-content-and-diffs-in-a-repository

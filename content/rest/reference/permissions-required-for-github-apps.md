@@ -15,7 +15,7 @@ shortTitle: GitHub App permissions
 
 ### About {% data variables.product.prodname_github_app %} permissions
 
-{% data variables.product.prodname_github_app %}s are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
+{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
 
 ### Metadata permissions
 

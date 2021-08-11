@@ -24,6 +24,13 @@ $ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock
 
 The *username* in the response is the {% data variables.product.product_name %} account that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
 
+
+To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
+
+```shell
+$ ssh -v -o "IdentitiesOnly=yes" -i <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+```
+
 ## Fixing the issue
 
 To resolve the issue, first remove the key from the other account or repository and then [add it to your account](/articles/adding-a-new-ssh-key-to-your-github-account).

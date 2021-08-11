@@ -1,6 +1,8 @@
 import { get, getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
 
+jest.useFakeTimers()
+
 describe('release notes', () => {
   jest.setTimeout(60 * 1000)
 

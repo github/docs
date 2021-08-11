@@ -2,24 +2,19 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
-import xMkdirp from 'mkdirp'
-import xRimraf from 'rimraf'
+import mkdirp from 'mkdirp'
+import rimraf from 'rimraf'
 import chalk from 'chalk'
 import languages from '../../lib/languages.js'
 import buildRecords from './build-records.js'
 import findIndexablePages from './find-indexable-pages.js'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import { namePrefix } from '../../lib/search/config.js'
-import getRemoteIndexNames from './algolia-get-remote-index-names.js'
-import AlgoliaIndex from './algolia-search-index.js'
 import LunrIndex from './lunr-search-index.js'
 import getLunrIndexNames from './lunr-get-index-names.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const mkdirp = xMkdirp.sync
-const rimraf = xRimraf.sync
-const cacheDir = path.join(process.cwd(), './.search-cache')
 
-// Algolia
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const cacheDir = path.join(process.cwd(), './.search-cache')
 
 // Lunr
 
@@ -30,8 +25,8 @@ export default async function syncSearchIndexes(opts = {}) {
     console.log(
       'This is a dry run! The script will build the indices locally but not upload anything.\n'
     )
-    rimraf(cacheDir)
-    mkdirp(cacheDir)
+    rimraf.sync(cacheDir)
+    await mkdirp(cacheDir)
   }
 
   if (opts.language) {
@@ -87,31 +82,22 @@ export default async function syncSearchIndexes(opts = {}) {
 
       // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@2.22
       const records = await buildRecords(indexName, indexablePages, pageVersion, languageCode)
-      const index = process.env.AIRGAP
-        ? new LunrIndex(indexName, records)
-        : new AlgoliaIndex(indexName, records)
+      const index = new LunrIndex(indexName, records)
 
       if (opts.dryRun) {
         const cacheFile = path.join(cacheDir, `${indexName}.json`)
         fs.writeFileSync(cacheFile, JSON.stringify(index, null, 2))
         console.log('wrote dry-run index to disk: ', cacheFile)
       } else {
-        if (process.env.AIRGAP) {
-          await index.write()
-          console.log('wrote index to file: ', indexName)
-        } else {
-          await index.syncWithRemote()
-          console.log('synced index with remote: ', indexName)
-        }
+        await index.write()
+        console.log('wrote index to file: ', indexName)
       }
     }
   }
 
   // Fetch a list of index names and cache it for tests
   // to ensure that an index exists for every language and GHE version
-  const remoteIndexNames = process.env.AIRGAP
-    ? await getLunrIndexNames()
-    : await getRemoteIndexNames()
+  const remoteIndexNames = await getLunrIndexNames()
   const cachedIndexNamesFile = path.join(__dirname, '../../lib/search/cached-index-names.json')
   fs.writeFileSync(cachedIndexNamesFile, JSON.stringify(remoteIndexNames, null, 2))
 

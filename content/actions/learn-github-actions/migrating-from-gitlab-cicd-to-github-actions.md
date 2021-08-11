@@ -343,6 +343,8 @@ test_async:
 ```yaml
 jobs:
   test_async:
+    runs-on: ubuntu-latest
+    steps:
     - name: Cache node modules
       uses: actions/cache@v2
       with:

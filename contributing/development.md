@@ -10,7 +10,9 @@ It runs on macOS, Windows, and Linux environments.
 
 You'll need Node.js version 16 to run the site. To install Node.js, [download the "LTS" installer from nodejs.org](https://nodejs.org). If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) for instructions on switching Node.js versions.
 
-Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
+You'll want to [install Git LFS](https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage).
+
+Once you've installed Node.js (which includes the popular `npm` package manager) and Git LFS, open Terminal and run the following:
 
 ```sh
 git clone https://github.com/github/docs
@@ -39,10 +41,10 @@ In a matter of minutes, you will be ready to edit, preview and test your changes
 This repo has configuration for debugging with VS Code's built-in Node Debugger.
 
 1. After running the build steps, start the app by running `npm run debug`.
-2. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
-3. In the Debug View, select the **'Node: Nodemon'** configuration, then press F5 or click the green play button. You should see all of your running node processes.
-4. Select the node process that's started with the `--inspect` flag.
-5. Debugger has now been attached. Enjoy!
+1. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
+1. In the Debug View, select the **'Node: Nodemon'** configuration, then press F5 or click the green play button. You should see all of your running node processes.
+1. Select the node process that's started with the `--inspect` flag.
+1. Debugger has now been attached. Enjoy!
 
 For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).
 
@@ -75,8 +77,7 @@ For more info about working with this site, check out these READMEs:
 - [data/variables/README.md](../data/variables/README.md)
 - [includes/liquid-tags/README.md](../includes/liquid-tags/README.md)
 - [includes/README.md](../includes/README.md)
-- [javascripts/README.md](../javascripts/README.md)
-- [layouts/README.md](../layouts/README.md)
+- [components/README.md](../components/README.md)
 - [lib/liquid-tags/README.md](../lib/liquid-tags/README.md)
 - [middleware/README.md](../middleware/README.md)
 - [script/README.md](../script/README.md)

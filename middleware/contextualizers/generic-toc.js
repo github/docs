@@ -82,7 +82,7 @@ async function getTocItems(pagesArray, context, isRecursive, renderIntros) {
             : null,
           childTocItems:
             isRecursive && child.childPages
-              ? getTocItems(child.childPages, context, isRecursive, renderIntros)
+              ? await getTocItems(child.childPages, context, isRecursive, renderIntros)
               : null,
         }
       })

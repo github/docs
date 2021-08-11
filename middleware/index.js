@@ -53,10 +53,8 @@ import breadcrumbs from './contextualizers/breadcrumbs.js'
 import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
-import devToc from './dev-toc.js'
 import featuredLinks from './featured-links.js'
 import learningTrack from './learning-track.js'
-import isNextRequest from './is-next-request.js'
 import next from './next.js'
 import renderPage from './render-page.js'
 
@@ -212,18 +210,14 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 
-  app.use(asyncMiddleware(instrument(devToc, './dev-toc')))
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
-  app.use(asyncMiddleware(instrument(isNextRequest, './is-next-request')))
 
   // *** Headers for pages only ***
   app.use(setFastlyCacheHeaders)
 
   // handle serving NextJS bundled code (/_next/*)
-  if (process.env.FEATURE_NEXTJS) {
-    app.use(instrument(next, './next'))
-  }
+  app.use(instrument(next, './next'))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

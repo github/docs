@@ -23,7 +23,7 @@ describe('sidebar', () => {
 
   test('highlights active product on GitHub pages', async () => {
     expect($githubPage('.sidebar-products li.sidebar-product').length).toBe(1)
-    expect($githubPage('.sidebar-products li.sidebar-product > a').text().trim()).toBe('GitHub.com')
+    expect($githubPage('.sidebar-products li.sidebar-product > a').text().trim()).toBe('GitHub')
   })
 
   test('includes links to external products like the CLI, Atom, Electron, and CodeQL', async () => {

@@ -23,6 +23,8 @@ If you spot something new, open an issue using a [template](https://github.com/g
 
 ### Ready to make a change? Fork the repo
 
+You'll want to [install Git LFS](https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage).
+
 Fork using GitHub Desktop:
 
 - [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop.
@@ -100,7 +102,7 @@ We cannot accept contributions to the [REST API reference documentation](https:/
 ### :question: Support
 We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact?tags=docs-contributing-guide).
 
 ### :earth_asia: Translations
 
@@ -181,3 +183,7 @@ This site can be developed on Windows, however a few potential gotchas need to b
 1. Regular Expressions: Windows uses `\r\n` for line endings, while Unix based systems use `\n`. Therefore when working on Regular Expressions, use `\r?\n` instead of `\n` in order to support both environments. The Node.js [`os.EOL`](https://nodejs.org/api/os.html#os_os_eol) property can be used to get an OS-specific end-of-line marker.
 1. Paths: Windows systems use `\` for the path separator, which would be returned by `path.join` and others. You could use `path.posix`, `path.posix.join` etc and the [slash](https://ghub.io/slash) module, if you need forward slashes - like for constructing URLs - or ensure your code works with either.
 1. Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
+1. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could possibly cause other issues, a few workarounds include:
+    - Shorten the path by cloning this repo directly into `C:\`
+    - Use a different Git client on Windows
+    - Update Git configuration: `git config --system core.longpaths true`

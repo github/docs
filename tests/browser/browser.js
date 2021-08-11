@@ -1,13 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import sleep from 'await-sleep'
 import { jest } from '@jest/globals'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
 
-/* global page, browser */
-const featureFlags = JSON.parse(fs.readFileSync(path.join(process.cwd(), './feature-flags.json')))
+jest.useFakeTimers()
 
+/* global page, browser */
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
@@ -50,8 +47,8 @@ describe('browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
     await page.setViewport(initialViewport)
   })
-
-  it('works on 404 error page', async () => {
+  // 404 page is statically generated with next, so search is not available, but may possibly be brought back
+  it.skip('works on 404 error page', async () => {
     await page.goto('http://localhost:4001/en/404')
     await page.click('#search-input-container input[type="search"]')
     await page.type('#search-input-container input[type="search"]', 'actions')
@@ -81,7 +78,7 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
+    await searchInput.type('code')
     await newPage.waitForSelector('.search-result')
   })
 
@@ -112,6 +109,8 @@ describe('browser search', () => {
 })
 
 describe('survey', () => {
+  jest.setTimeout(3 * 60 * 1000)
+
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto(
@@ -139,8 +138,6 @@ describe('survey', () => {
 
     // When I fill in my email and submit the form
     await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
-
-    await sleep(1000)
 
     await page.click('[data-testid=survey-form] [type="submit"]')
     // (sent a PUT request to /events/{id})
@@ -252,6 +249,118 @@ describe('platform specific content', () => {
   })
 })
 
+describe('tool specific content', () => {
+  const pageWithSingleSwitcher =
+    'http://localhost:4001/en/actions/managing-workflow-runs/manually-running-a-workflow'
+  const pageWithoutSwitcher =
+    'http://localhost:4001/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
+  const pageWithMultipleSwitcher =
+    'http://localhost:4001/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
+
+  it('should have a tool switcher if a tool switcher is included', async () => {
+    await page.goto(pageWithSingleSwitcher)
+    const nav = await page.$$('nav#tool-switcher')
+    const switches = await page.$$('a.tool-switcher')
+    const selectedSwitch = await page.$$('a.tool-switcher.selected')
+    expect(nav).toHaveLength(1)
+    expect(switches.length).toBeGreaterThan(1)
+    expect(selectedSwitch).toHaveLength(1)
+  })
+
+  it('should have multiple tool switchers if multiple tools switchers are included', async () => {
+    await page.goto(pageWithMultipleSwitcher)
+    const toolSelector = await page.$$('nav#tool-switcher')
+    const switches = await page.$$('a.tool-switcher')
+    const selectedSwitch = await page.$$('a.tool-switcher.selected')
+    expect(toolSelector.length).toBeGreaterThan(1)
+    expect(switches.length).toBeGreaterThan(1)
+    expect(selectedSwitch.length).toEqual(toolSelector.length)
+  })
+
+  it('should NOT have a tool switcher if no tool switcher is included', async () => {
+    await page.goto(pageWithoutSwitcher)
+    const toolSelector = await page.$$('nav#tool-switcher')
+    const switches = await page.$$('a.tool-switcher')
+    const selectedSwitch = await page.$$('a.tool-switcher.selected')
+    expect(toolSelector).toHaveLength(0)
+    expect(switches).toHaveLength(0)
+    expect(selectedSwitch).toHaveLength(0)
+  })
+
+  it('should use cli if no defaultTool is specified and if webui is not one of the tools', async () => {
+    await page.goto(pageWithMultipleSwitcher)
+    const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
+    expect(selectedTool).toBe('GitHub CLI')
+  })
+
+  it('should use webui if no defaultTool is specified and if webui is one of the tools', async () => {
+    await page.goto(pageWithSingleSwitcher)
+    const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
+    expect(selectedTool).toBe('GitHub.com')
+  })
+
+  it('should use the recorded user selection', async () => {
+    // With no user data, the selected tool is GitHub.com
+    await page.goto(pageWithSingleSwitcher)
+    let selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    let selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
+    expect(selectedTool).toBe('GitHub.com')
+
+    await page.click(`.tool-switcher[data-tool="cli"]`)
+
+    // Revisiting the page after CLI is selected results in CLI as the selected tool
+    await page.goto(pageWithSingleSwitcher)
+    selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
+    expect(selectedTool).toBe('GitHub CLI')
+  })
+
+  it('should show the content for the selected tool only', async () => {
+    await page.goto(pageWithSingleSwitcher)
+
+    const tools = ['webui', 'cli']
+    for (const tool of tools) {
+      await page.click(`.tool-switcher[data-tool="${tool}"]`)
+
+      // content for selected tool is expected to become visible
+      await page.waitForSelector(`.extended-markdown.${tool}`, { visible: true, timeout: 3000 })
+
+      // only a single tab should be selected
+      const selectedSwitch = await page.$$('a.tool-switcher.selected')
+      expect(selectedSwitch).toHaveLength(1)
+
+      // content for NOT selected tools is expected to become hidden
+      const otherTools = tools.filter((e) => e !== tool)
+      for (const other of otherTools) {
+        await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
+      }
+    }
+  })
+
+  it('selecting a tool in one switcher will control all tool switchers on the page', async () => {
+    await page.goto(pageWithMultipleSwitcher)
+
+    const tools = { cli: 'GitHub CLI', curl: 'cURL' }
+    for (const [tool, toolName] of Object.entries(tools)) {
+      await page.click(`.tool-switcher[data-tool="${tool}"]`)
+
+      // content for selected tool is expected to become visible
+      await page.waitForSelector(`.extended-markdown.${tool}`, { visible: true, timeout: 3000 })
+
+      // all tabs should be selected
+      const toolSelector = await page.$$('nav#tool-switcher')
+      const selectedSwitch = await page.$$('a.tool-switcher.selected')
+      expect(selectedSwitch).toHaveLength(toolSelector.length)
+
+      const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+      const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
+      expect(selectedTool).toBe(toolName)
+    }
+  })
+})
+
 describe('code examples', () => {
   it('loads correctly', async () => {
     await page.goto('http://localhost:4001/en/actions')
@@ -328,43 +437,14 @@ describe('language banner', () => {
   })
 })
 
-// The Explorer in the iFrame will not be accessible on localhost, but we can still
-// test the query param handling
+// The Explorer in the iFrame will not be accessible on localhost
+// There's a url in github.com that uses ?query= for a graphql query instead of a search query, so we're hiding the Search bar on this page
 describe('GraphQL Explorer', () => {
-  it('preserves query strings on the Explorer page without opening search', async () => {
-    const queryString = `query {
-  viewer {
-    foo
-  }
-}`
-    // Encoded as: query%20%7B%0A%20%20viewer%20%7B%0A%20%20%20%20foo%0A%20%20%7D%0A%7D
-    const encodedString = encodeURIComponent(queryString)
+  it('hides search bar on GraphQL Explorer page', async () => {
     const explorerUrl = 'http://localhost:4001/en/graphql/overview/explorer'
-
-    await page.goto(`${explorerUrl}?query=${encodedString}`)
-
-    // On non-Explorer pages, query params handled by search JS get form-encoded using `+` instead of `%20`.
-    // So on these pages, the following test will be false; but on the Explorer page, it should be true.
-    expect(page.url().endsWith(encodedString)).toBe(true)
-
-    // On non-Explorer pages, query params handled by search JS will populate in the search box and the `js-open`
-    // class is added. On these pages, the following test will NOT be null; but on the Explorer page, it should be null.
-    await page.waitForSelector('#search-results-container')
-    const searchResult = await page.$('#search-results-container.js-open')
-    expect(searchResult).toBeNull()
-  })
-})
-
-describe('nextjs query param', () => {
-  jest.setTimeout(60 * 1000)
-
-  it('landing page renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
-    const flagVal = featureFlags.FEATURE_NEXTJS
-    await page.goto('http://localhost:4001/en/actions?nextjs=')
-    const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
-    const nextWrapper = await page.$('#__next')
-    flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
-    flagVal === true ? expect(IS_NEXTJS_PAGE).toBe(true) : expect(IS_NEXTJS_PAGE).toBe(false)
+    await page.goto(`${explorerUrl}`)
+    const searchBar = await page.$$('[data-testid=site-search-input]')
+    expect(searchBar.length).toBe(0)
   })
 })
 

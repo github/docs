@@ -5,6 +5,10 @@ export type TocItem = {
   fullPath: string
   title: string
   intro?: string
+  childTocItems?: Array<{
+    fullPath: string
+    title: string
+  }>
 }
 export type FeaturedLink = {
   title: string
