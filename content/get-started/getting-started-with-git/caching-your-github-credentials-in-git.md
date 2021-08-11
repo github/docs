@@ -65,7 +65,7 @@ Once you've authenticated successfully, your credentials are stored in the Windo
 
 {% linux %}
 
-For Linus, Install Git and GCM Core, then configure Git to use GCM Core.
+For Linux, Install Git and GCM Core, then configure Git to use GCM Core.
 
 1. Install Git from your distro's packaging system. Instructions will vary depending on the flavor of Linux you run.
 
