@@ -72,7 +72,7 @@ jobs:
           git commit -m "update search indexes"
           echo 'git lfs push --all origin'
           git lfs push --all origin
-          echo 'git pull origin main' --no-verify
+          echo 'git pull origin main --no-verify'
           git pull origin main --no-verify
           echo 'git push origin main --no-verify'
           git push origin main --no-verify
