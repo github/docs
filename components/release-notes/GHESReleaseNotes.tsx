@@ -59,7 +59,6 @@ export function GHESReleaseNotes({ context }: Props) {
             <div />
           )}
         </div>
-
         <div className="markdown-body">
           {releaseNotes.map((patch) => {
             return (

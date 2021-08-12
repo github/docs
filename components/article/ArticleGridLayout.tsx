@@ -22,7 +22,12 @@ export const ArticleGridLayout = ({ head, toc, children, className }: Props) => 
       )}
 
       {/* content */}
-      <div className={styles.content}>{children}</div>
+      {/*
+        NOTE: The article-grid-body class is used by the LUNR search scripts. 
+        If this class changes, please also change
+        updating script/search/parse-page-sections-into-records.js.
+        */}
+      <div className={cx(styles.content, 'article-grid-body')}>{children}</div>
     </div>
   )
 }
