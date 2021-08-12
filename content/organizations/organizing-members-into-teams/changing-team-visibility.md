@@ -5,12 +5,12 @@ redirect_from:
   - /articles/changing-team-visibility
   - /github/setting-up-and-managing-organizations-and-teams/changing-team-visibility
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.types-of-team-visibility %}
@@ -21,8 +21,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 3. Select the team or teams whose visibility you'd like to change.
   ![List of teams with two teams selected](/assets/images/help/teams/list-of-teams-selected.png)

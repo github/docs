@@ -53,7 +53,7 @@ on:
 
 `branches`、`branches-ignore`、`tags` 和 `tags-ignore` 关键词接受使用 `*` 和 `**` 通配符匹配多个分支或标记名称的 glob 模式。 更多信息请参阅“[过滤器模式备忘清单](#filter-pattern-cheat-sheet)”。
 
-#### 包括分支和标记的示例
+#### 示例：包括分支和标记
 
 在 `branches` 和 `tags` 中定义的模式根据 Git ref 的名称进行评估。 例如，在 `branches` 中定义的模式 `mona/octocat` 将匹配 `refs/heads/mona/octocat` Git ref。 模式 `releases/**` 将匹配 `refs/heads/releases/10` Git ref。
 
@@ -74,7 +74,7 @@ on:
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
-#### 忽略分支和标记的示例
+#### 示例：忽略分支和标记
 
 只要模式与 `branches-ignore` or `tags-ignore` 模式匹配，工作流就不会运行。 在 `branches-ignore` 和 `tags-ignore` 中定义的模式根据 Git ref 的名称进行评估。 例如，在 `branches` 中定义的模式 `mona/octocat` 将匹配 `refs/heads/mona/octocat` Git ref。 `branches` 中的模式 `releases/**-alpha` 将匹配 `refs/releases/beta/3-alpha` Git ref。
 
@@ -98,7 +98,7 @@ on:
 - `branches` 或 `branches-ignore` - 您无法对工作流程中的同一事件同时使用 `branches` 和 `branches-ignore` 过滤器。 需要过滤肯定匹配的分支和排除分支时，请使用 `branches` 过滤器。 只需要排除分支名称时，请使用 `branches-ignore` 过滤器。
 - `tags` 或 `tags-ignore` - 您无法对工作流程中的同一事件同时使用 `tags` 和 `tags-ignore` 过滤器。 需要过滤肯定匹配的标记和排除标记时，请使用 `tags` 过滤器。 只需要排除标记名称时，请使用 `tags-ignore` 过滤器。
 
-#### 使用肯定和否定模式的示例
+#### 示例：使用肯定和否定模式
 
 您可以使用 `!` 字符排除 `tags` 和 `branches`。 您定义模式事项的顺序。
   - 肯定匹配后的匹配否定模式（前缀为 `!`）将排除 Git 引用。
@@ -110,8 +110,8 @@ on:
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -120,7 +120,7 @@ on:
 
 `paths-ignore` 和 `paths` 关键词接受使用 `*` 和 `**` 通配符匹配多个路径名称的 glob 模式。 更多信息请参阅“[过滤器模式备忘清单](#filter-pattern-cheat-sheet)”。
 
-#### 忽略路径的示例
+#### 示例：忽略路径
 
 当所有路径名称匹配 `paths-ignore` 中的模式时，工作流程不会运行。 {% data variables.product.prodname_dotcom %} 根据路径名称评估 `paths-ignore` 中定义的模式。 具有以下路径过滤器的工作流程仅在 `push` 事件上运行，这些事件包括至少一个位于仓库根目录的 `docs` 目录外的文件。
 
@@ -128,10 +128,10 @@ on:
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
-#### 包括路径的示例
+#### 示例：包括路径
 
 如果至少有一个路径与 `paths` 过滤器中的模式匹配，工作流程将会运行。 要在每次推送 JavaScript 文件时触发构建，您可以使用通配符模式。
 
@@ -139,7 +139,7 @@ on:
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### 排除路径
@@ -148,7 +148,7 @@ on:
 - `paths-ignore` - 只需要排除路径名称时，请使用 `paths-ignore` 过滤器。
 - `paths` - 需要过滤肯定匹配的路径和排除路径时，请使用 `paths` 过滤器。
 
-#### 使用肯定和否定模式的示例
+#### 示例：使用肯定和否定模式
 
 您可以使用 `!` 字符排除 `paths`。 您定义模式事项的顺序：
   - 肯定匹配后的匹配否定模式（前缀为 `!`）将排除路径。
@@ -160,8 +160,8 @@ on:
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git 差异比较
@@ -186,6 +186,32 @@ on:
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 有关计划任务语法的更多信息请参阅“[触发工作流程的事件](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `权限`
+
+您可以修改授予 `GITHUB_TOKEN` 的默认权限，根据需要添加或删除访问权限，以便只授予所需的最低访问权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。
+
+您可以使用 `permissions` 作为顶级密钥，以应用于工作流程中的所有作业，或特定的作业。 当您在特定作业中添加 `permissions` 键时，该作业中的所有操作和运行命令使用 `GITHUB_TOKEN` 获取您指定的访问权限。  更多信息请参阅 [`jobs.<job_id>.permissions`](#jobsjob_idpermissions)。
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### 示例
+
+此示例显示为将要应用到工作流程中所有作业的 `GITHUB_TOKEN` 设置的权限。 所有权限都被授予读取权限。
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -221,6 +247,18 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+Concurrency 确保只有使用相同并发组的单一作业或工作流程才会同时运行。 并发组可以是任何字符串或表达式。 表达式只能使用 `github` 上下文。 有关表达式的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+
+您也可以在作业级别指定 `concurrency`。 更多信息请参阅 [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency)。
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs`
 
 工作流程运行包括一项或多项作业。 作业默认是并行运行。 要按顺序运行作业，您可以使用 `<job_id>needs` 关键词在其他作业上定义依赖项。
@@ -253,7 +291,7 @@ jobs:
 
 识别在此作业运行之前必须成功完成的任何作业。 它可以是一个字符串，也可以是字符串数组。 如果某个作业失败，则所有需要它的作业都会被跳过，除非这些作业使用让该作业继续的条件表达式。
 
-#### 要求相关作业成功的示例
+#### 示例：要求相关作业成功
 
 ```yaml
 jobs:
@@ -272,7 +310,7 @@ jobs:
 2. `job2`
 3. `job3`
 
-#### 不要求相关作业成功的示例
+#### 示例：不要求相关作业成功
 
 ```yaml
 jobs:
@@ -339,6 +377,34 @@ runs-on: [self-hosted, linux]
 
 更多信息请参阅“[关于自托管的运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)”和“[在工作流程中使用自托管的运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+您可以修改授予 `GITHUB_TOKEN` 的默认权限，根据需要添加或删除访问权限，以便只授予所需的最低访问权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。
+
+通过在工作定义中指定权限，您可以根据需要为每个作业的 `GITHUB_TOKEN` 配置一组不同的权限。 或者，您也可以为工作流程中的所有作业指定权限。 有关在工作流程级别定义权限的信息，请参阅 [`permissions`](#permissions)。
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### 示例
+
+此示例显示为将要应用到作业 `stale` 的 `GITHUB_TOKEN` 设置的权限。 对于 `issues` 和 `pull-requests` 拉取请求，授予写入访问权限。 所有其他范围将没有访问权限。
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v3
+```
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
@@ -347,10 +413,11 @@ runs-on: [self-hosted, linux]
 您可以将环境仅作为环境 `name`，或作为具有 `name` 和 `url` 的环境变量。 URL 映射到部署 API 中的 `environment_url`。 有关部署 API 的更多信息，请参阅“[部署](/rest/reference/repos#deployments)”。
 
 ##### 使用单一环境名称的示例
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### 使用环境名称和 URL 的示例
 
@@ -367,11 +434,30 @@ URL 可以是表达式，并且可以使用除 `secrets` 上下文以外的任�
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**注意：** 在作业级别指定并发时，无法保证在 5 分钟内排队的作业或运行的互相顺序。
+
+{% endnote %}
+
+Concurrency 确保只有使用相同并发组的单一作业或工作流程才会同时运行。 并发组可以是任何字符串或表达式。 表达式可以使用除 `secrets` 上下文以外的任何上下文。 有关表达式的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+
+您也可以在工作流程级别指定 `concurrency`。 更多信息请参阅 [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency)。
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 作业的输出 `map`。 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的更多信息，请参阅 [`jobs.<job_id>.needs`](#jobsjob_idneeds)。
@@ -392,15 +478,15 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -470,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
@@ -491,7 +577,7 @@ jobs:
 
 {% data reusables.github-actions.expression-syntax-if %} 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-#### 使用上下文的示例
+#### 示例：使用上下文
 
  此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
 
@@ -502,7 +588,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### 使用状态检查功能的示例
+#### 示例：使用状态检查功能
 
 `my backup step` 仅在作业的上一步失败时运行。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)”。
 
@@ -532,7 +618,7 @@ steps:
 
 操作为 JavaScript 文件或 Docker 容器。 如果您使用的操作是 Docker 容器，则必须在 Linux 环境中运行作业。 更多详情请参阅 [`runs-on`](#jobsjob_idruns-on)。
 
-#### 使用版本化操作的示例
+#### 示例：使用版本化操作
 
 ```yaml
 steps:    
@@ -546,7 +632,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-#### 使用公共操作的示例
+#### 示例：使用公共操作
 
 `{owner}/{repo}@{ref}`
 
@@ -564,7 +650,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### 在子目录中使用公共操作的示例
+#### 示例：在子目录中使用公共操作
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -578,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### 使用工作流程所在仓库中操作的示例
+#### 示例：使用工作流程所在仓库中操作
 
 `./path/to/dir`
 
@@ -594,7 +680,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### 使用 Docker 中枢操作的示例
+#### 示例：使用 Docker 中枢操作
 
 `docker://{image}:{tag}`
 
@@ -609,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### 使用 {% data variables.product.prodname_github_container_registry %} 的示例
+##### 示例：使用 {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-{% data variables.product.prodname_github_container_registry %} 中的 Docker 映像。
+{% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} 中的 Docker 映像。
 
 ```yaml
 jobs:
@@ -623,7 +709,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-##### 使用 Docker 公共注册表操作的示例
+##### 示例：使用 Docker 公共注册表操作
 
 `docker://{host}/{image}:{tag}`
 
@@ -637,9 +723,11 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### 在不同于工作流程的私有仓库中使用操作的示例
+#### 示例：在不同于工作流程的私有仓库中使用操作
 
-您的工作流程必须检出私有仓库，并在本地引用操作。
+您的工作流程必须检出私有仓库，并在本地引用操作。 生成个人访问令牌并将该令牌添加为加密密钥。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密密码](/actions/reference/encrypted-secrets)”。
+
+将示例中的 `PERSONAL_ACCESS_TOKEN` 替换为您的密钥名称。
 
 {% raw %}
 ```yaml
@@ -651,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
@@ -704,7 +792,7 @@ jobs:
 | Windows       | `pwsh`       | 这是 Windows 上使用的默认 shell。 PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 如果自托管的 Windows 运行器没有安装 _PowerShell Core_，则使用 _PowerShell Desktop_ 代替。 | `pwsh -command ". '{0}'"`.                      |
 | Windows       | `powershell` | PowerShell 桌面。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                  | `powershell -command ". '{0}'"`.                |
 
-#### 使用 bash 运行脚本的示例
+#### 示例：使用 bash 运行脚本
 
 ```yaml
 steps:
@@ -713,7 +801,7 @@ steps:
     shell: bash
 ```
 
-#### 使用 Windows `cmd` 运行脚本的示例
+#### 示例：使用 Windows `cmd` 运行脚本
 
 ```yaml
 steps:
@@ -722,7 +810,7 @@ steps:
     shell: cmd
 ```
 
-#### 使用 PowerShell Core 运行脚本的示例
+#### 示例：使用 PowerShell Core 运行脚本
 
 ```yaml
 steps:
@@ -740,7 +828,7 @@ steps:
     shell: powershell
 ```
 
-#### 运行 python 脚本的示例
+#### 示例：运行 python 脚本
 
 ```yaml
 steps:
@@ -897,9 +985,9 @@ steps:
 
 定义 `matrix` 事项的顺序。 定义的第一个选项将是工作流程中运行的第一个作业。
 
-#### 使用 Node.js 多个版本运行的示例
+#### 示例：运行多个版本的 Node.js
 
-您可以提供配置选项阵列来指定矩阵。 例如，如果运行器支持 Node.js 版本 6、8 和 10，则您可以在 `matrix` 中指定这些版本的阵列。
+您可以提供配置选项阵列来指定矩阵。 例如，如果运行器支持 Node.js 版本 10、12 和 14，则您可以在 `matrix` 中指定这些版本的阵列。
 
 此示例通过设置三个 Node.js 版本阵列的 `node` 键创建三个作业的矩阵。 为使用矩阵，示例将 `matrix.node` 上下文属性设置为 `setup-node` 操作的输入参数 `node-version`。 因此，将有三个作业运行，每个使用不同的 Node.js 版本。
 
@@ -907,10 +995,10 @@ steps:
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       # The Node.js version to configure
       node-version: ${{ matrix.node }}
@@ -919,7 +1007,7 @@ steps:
 
 `setup-node` 操作是在使用 {% data variables.product.prodname_dotcom %} 托管的运行器时建议用于配置 Node.js 版本的方式。 更多信息请参阅 [`setup-node`](https://github.com/actions/setup-node) 操作。
 
-#### 使用多个操作系统的示例
+#### 示例：使用多个操作系统运行
 
 您可以创建矩阵以在多个运行器操作系统上运行工作流程。 您也可以指定多个矩阵配置。 此示例创建包含 6 个作业的矩阵：
 
@@ -933,10 +1021,10 @@ steps:
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    os: [ubuntu-18.04, ubuntu-20.04]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
@@ -946,9 +1034,9 @@ steps:
 {% else %}要查找 {% data variables.product.prodname_dotcom %} 托管的运行器支持的配置选项，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
 {% endif %}
 
-#### 在组合中包含附加值的示例
+#### 示例：在组合中包含附加值
 
-您可以将额外的配置选项添加到已经存在的构建矩阵作业中。 例如，如果要在作业使用 `windows-latest` 和 `node` 的版本 4 运行时使用 `npm` 的特定版本，您可以使用 `include` 指定该附加选项。
+您可以将额外的配置选项添加到已经存在的构建矩阵作业中。 例如，如果要在作业使用 `windows-latest` 和 `node` 的版本 8 运行时使用 `npm` 的特定版本，您可以使用 `include` 指定该附加选项。
 
 {% raw %}
 ```yaml
@@ -956,35 +1044,35 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 2
+      # includes a new variable of npm with a value of 6
       # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
-#### 包括新组合的示例
+#### 示例：包括新组合
 
-您可以使用 `include` 将新作业添加到构建矩阵中。 任何不匹配包含配置都会添加到矩阵中。 例如，如果您想要使用 `node` 版本 12 在多个操作系统上构建，但在 Ubuntu 上需要一个使用节点版本 13 的额外实验性作业，则可使用 `include` 指定该额外作业。
+您可以使用 `include` 将新作业添加到构建矩阵中。 任何不匹配包含配置都会添加到矩阵中。 例如，如果您想要使用 `node` 版本 14 在多个操作系统上构建，但在 Ubuntu 上需要一个使用节点版本 15 的额外实验性作业，则可使用 `include` 指定该额外作业。
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
 {% endraw %}
 
-#### 从矩阵中排除配置的示例
+#### 示例：从矩阵中排除配置
 
 您可以使用 `exclude` 选项删除构建矩阵中定义的特定配置。 使用 `exclude` 删除由构建矩阵定义的作业。 作业数量是您提供的数组中所包括的操作系统 (`os`) 数量减去所有减项 (`exclude`) 后的叉积。
 
@@ -994,11 +1082,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # excludes node 4 on macOS
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -1031,9 +1119,9 @@ strategy:
 
 防止工作流程运行在作业失败时失败。 设置为 `true` 以允许工作流程运行在此作业失败时通过。
 
-#### 防止特定失败的矩阵作业导致工作流程运行失败的示例
+#### 示例：防止特定失败的矩阵作业无法运行工作流程
 
-您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如， 只允许 `node` 设置为 `13` 的实验性作业失败，而不允许工作流程运行失败。
+您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如， 只允许 `node` 设置为 `15` 的实验性作业失败，而不允许工作流程运行失败。
 
 {% raw %}
 ```yaml
@@ -1042,11 +1130,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -1064,7 +1152,7 @@ strategy:
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1079,7 +1167,7 @@ jobs:
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`
@@ -1148,7 +1236,7 @@ volumes:
 
 有关网络服务容器之间差异的更多信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers)”。
 
-#### 使用 localhost 的示例
+#### 示例：使用 localhost
 
 此示例创建分别用于 nginx 和 redis 的两项服务。 指定 Docker 主机端口但不指定容器端口时，容器端口将随机分配给空闲端口。 {% data variables.product.prodname_dotcom %} 在 {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} 上下文中设置分配的容器端口。 在此示例中，可以使用 {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 和 {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} 上下文访问服务容器端口。
 
@@ -1181,7 +1269,7 @@ services:
 {% raw %}
 ```yaml
 services:
-  myservice1: 
+  myservice1:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
@@ -1277,7 +1365,7 @@ volumes:
 | `docs/*`                                                                | 仓库根目录下 `docs` 根目录中的所有文件。                                               | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
 | `docs/**`                                                               | 仓库根目录下 `/docs` 目录中的任何文件。                                               | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
 | `'**/README.md'`                                                        | 仓库中任意位置的 README.md 文件。                                                 | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

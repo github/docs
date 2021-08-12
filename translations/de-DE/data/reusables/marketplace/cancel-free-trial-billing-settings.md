@@ -1,1 +1,1 @@
-1. Unter „Subscriptions" (Abonnements) verwende das Dropdownmenü Edit (Bearbeiten) neben der kostenlosen Testversion, die Du kündigen möchtest und klicke auf **Cancel plan** (Plan kündigen).
+1. Next to the free trial you'd like to cancel, use the **Edit** drop-down and click **Cancel plan**.

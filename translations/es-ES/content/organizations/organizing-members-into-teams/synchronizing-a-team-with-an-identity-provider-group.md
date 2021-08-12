@@ -4,13 +4,13 @@ intro: 'Puedes sincronizar un equipo de {% data variables.product.product_name %
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 product: '{% data reusables.gated-features.team-synchronization %}'
-permissions: 'Los propietarios de la organización y mantenedores de equipo pueden sincronizar un equipo de {% data variables.product.prodname_dotcom %} con un grupo de IdP.'
+permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -30,7 +30,7 @@ Todos los cambios a la membrecía de equipo que se hagan con tu IdP aparecerán 
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.product_name %} according to the schedule determined by your IdP. Cualquier solicitud que cambie la membrecía de organización o equipo de {% data variables.product.prodname_dotcom %} se registrará en la bitácora de auditoría como cambios que realizó la cuenta que se utilizó para configurar el aprovisionamiento de usuarios. Para obtener más información sobre esta cuenta, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)". Para obtener más información acerca de los itinerarios de solicitudes de SCIM, consulta la sección "[Verificar el estado del aprovisionamiento de usuarios](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)" en Microsoft Docs.
+Cuando cambia la membrecía de grupo en tu IdP, este envía una solicitud de SCIM con los cambios a {% data variables.product.product_name %} de acuerdo con la programación que determinó tu IdP. Cualquier solicitud que cambie la membrecía de organización o equipo de {% data variables.product.prodname_dotcom %} se registrará en la bitácora de auditoría como cambios que realizó la cuenta que se utilizó para configurar el aprovisionamiento de usuarios. Para obtener más información sobre esta cuenta, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)". Para obtener más información acerca de los itinerarios de solicitudes de SCIM, consulta la sección "[Verificar el estado del aprovisionamiento de usuarios](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)" en Microsoft Docs.
 {% endif %}
 
 Los equipos padre no pueden sincronizarse con los grupos de IdP. Si el equipo que quieres conectar a un grupo de IdP es un equipo padre, te recomendamos crear un equipo nuevo o eliminar las relaciones anidadas que hacen de tu equipo un equipo padre. Para obtener más información, consulta las secciónes "[Acerca de los equipos](/articles/about-teams#nested-teams)", "[Crear un equipo](/organizations/organizing-members-into-teams/creating-a-team)", y "[Mover un equipo en la jerarquía de tu organización](/articles/moving-a-team-in-your-organizations-hierarchy)".
@@ -47,7 +47,7 @@ Después de que conectas un equipo a un grupo de IdP, la sincronización de equi
 - La persona ya ingresó con su cuenta de usuario en {% data variables.product.product_name %} y se autenticó en la cuenta organizacional o empresarial a través del inicio de sesión único de SAML por lo menos una vez.
 - La identidad de SSO de la persona es miembro del grupo de IdP.
 
-Los equipos o miembros del grupo existentes que no cumplan con estos criterios se eliminarán automáticamente del equipo en {% data variables.product.product_name %} y perderán acceso a los repositorios. El revocar la identidad ligada a un usuario también eliminará a dicho usuario de cualquier equipo que se encuentre mapeado en los grupos de IdP. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+Los equipos o miembros del grupo existentes que no cumplan con estos criterios se eliminarán automáticamente del equipo en {% data variables.product.product_name %} y perderán acceso a los repositorios. El revocar la identidad ligada a un usuario también eliminará a dicho usuario de cualquier equipo que se encuentre mapeado en los grupos de IdP. Para obtener más información, consulta las secciones "[Visualizar y administrar el acceso SAML de un miembro para tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" y "[Visualizar y administrar el acceso SAML de un usuario para tu empresa](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)".
 
 Puedes volver a agregar automáticamente a aquellos miembros del equipo que hayas eliminado una vez que se autentiquen en la cuenta empresarial u organizacional utilizando el SSO y así se migren al grupo de IdP conectado.
 
@@ -60,24 +60,24 @@ Si tu organización pertenece a una cuenta empresarial, habilitar la sincronizac
 ### Prerrequisitos
 
 {% if currentVersion == "free-pro-team@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+Antes de que puedas conectar a un equipo de {% data variables.product.product_name %} con un grupo de proveedores de identidad, un propietario de empresa u organización debe habilitar la sincronización de equipos para tu organización o cuenta empresarial. Para obtener más información, consulta las secciones "[Administrar la sincronización de equipos para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" y "[Administrar la sincronización de equipos para las orgnizaciones de tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
 Para evitar el eliminar miembros del equipo accidentalmente, visita el protal administrativo para tu IdP y confirma que cada miembro actual del equipo también se encuentre en los grupos de IdP que quieras conectar a este equipo. Si no tienes este acceso a tu proveedor de identidad, puedes comunicarte con tu administrador de IdP.
 
 Debes autenticarte utilizando el SSO de SAML. Para obtener más información, consulta "[Acerca de la autenticación con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)".
 
 {% elsif currentVersion == "github-ae@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an IdP group, you must first configure user provisioning for {% data variables.product.product_location %} using a supported System for Cross-domain Identity Management (SCIM). Para obtener más información, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
+Antes de que puedas conectar a un equipo de {% data variables.product.product_name %} con un grupo de IdP, primero debes configurar el aprovisionamiento de usuarios para {% data variables.product.product_location %} utilizando un sistema compatible para la Administración de Identidad entre Dominios (SCIM). Para obtener más información, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
 
-Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. Para obtener más información, consulta la sección de [Configurar el aprovisionamiento automático de usuarios en GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) en los Microsoft Docs.
+Una vez que se configure el aprovisionamiento de usuarios para {% data variables.product.product_name %} utilizando SCIM, puedes asignar la aplicación de {% data variables.product.product_name %} a cada grupo de IdP que quieras utilizar en {% data variables.product.product_name %}. Para obtener más información, consulta la sección de [Configurar el aprovisionamiento automático de usuarios en GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) en los Microsoft Docs.
 {% endif %}
 
 ### Conectar un grupo de IdP a tu equipo
 
 Cuando conectas un grupo de IdP a un equipo de {% data variables.product.product_name %}, todos los usuarios en el grupo se agregan automáticamente al equipo. {% if currentVersion == "github-ae@latest" %}Cualquier usuario que no fuera un miembro de aquellos de la organización desde antes también se agregará a esta.{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -89,8 +89,8 @@ Cuando conectas un grupo de IdP a un equipo de {% data variables.product.product
 
 Si desconectas un grupo de IdP de un equipo de {% data variables.product.prodname_dotcom %}, los miembros de este equipo que fueran asignados al equipo {% data variables.product.prodname_dotcom %} a través del grupo de IdP se eliminarán de dicho equipo. {% if currentVersion == "github-ae@latest" %} Cualquier usuario que fuera miembro de la organización padre únicamente debido a esa conexión de equipo también se eliminará de la organización.{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}

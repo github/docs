@@ -12,8 +12,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - repositories
+  - Repositories
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 
 ### Visualizar la gráfica de dependencias
 
@@ -50,19 +52,6 @@ Se listará cualquier dependencia directa e indirecta que se especifique en los 
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-Se listará cualquier dependencia directa e indirecta que se especifique en los archivos de bloqueo o de manifiesto del repositorio, agrupadas por ecosistema. Si se detectan vulnerabilidades en el repositorio, estas se mostrarán en la parte superior de la vista para los usuarios con acceso a las alertas de seguridad.
-
-![Gráfico de dependencias](/assets/images/help/graphs/dependencies_graph_server.png)
-
-{% note %}
-
-**Nota:** {% data variables.product.prodname_ghe_server %} no llena la vista de **Dependientes**.
-
-{% endnote %}
-
-{% endif %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 #### Vista de dependientes
 
@@ -74,7 +63,7 @@ Para los repositorios públicos, la vista de dependientes muestra cómo otros re
 
 Los administradores del repositorio pueden habilitar o inhabilitar la gráfica de dependencias para los repositorios privados.
 
-También puedes habilitar o inhabilitar la gráfica de dependencias para todos los repositorios que pertenecen a tu cuenta de usuario u organización. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+También puedes habilitar o inhabilitar la gráfica de dependencias para todos los repositorios que pertenecen a tu cuenta de usuario u organización. Para obtener más información, consulta la sección "[Administrar la seguridad y la configuración de análisis para tu cuenta de usuario](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" o la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -113,9 +102,9 @@ Si un archivo de manifiesto o de bloqueo no se procesa, sus dependencias se omit
 
 ### Leer más
 
-- "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+- "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Ver la información de tu organización](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
-- "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "
 Entender cómo {% data variables.product.product_name %} utiliza y protege tus datos" </p> 
   

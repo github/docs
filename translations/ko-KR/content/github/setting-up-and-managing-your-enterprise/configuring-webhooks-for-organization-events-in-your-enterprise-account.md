@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 You can configure webhooks to receive events from organizations owned by your enterprise account. For more information about webhooks, see "[Webhooks](/webhooks/)."

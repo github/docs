@@ -1,8 +1,8 @@
 ---
 title: Colaboração com mantenedores usando as discussões
 shortTitle: Colaborando com mantenedores
-intro: Você pode contribuir para objetivos, planos, saúde e comunidade para um projeto em {% data variables.product.product_name %} comunicando-se com os mantenedores do projeto em uma discussão.
-permissions: Pessoas com permissões de leitura em um repositório podem iniciar e participar de discussões no repositório.
+intro: 'Você pode contribuir para objetivos, planos, saúde e comunidade para um projeto em {% data variables.product.product_name %} comunicando-se com os mantenedores do projeto em uma discussão.'
+permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -13,7 +13,9 @@ versions:
 
 {% data reusables.discussions.about-discussions %} Se você usar ou contribuir para um projeto, você pode iniciar uma discussão para fazer sugestões e envolver-se com mantenedores e integrantes da comunidade sobre seus planos, dúvidas, ideias e feedback. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-{% data reusables.discussions.about-categories-and-formats %} Os administradores do repositório e mantenedores do projeto podem excluir uma discussão. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".
+{% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
+
+Os administradores de repositório e mantenedores de projeto podem excluir uma discussão. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".
 
 {% data reusables.discussions.github-recognizes-members %} Estes membros aparecem em uma lista dos colaboradores mais úteis para as discussões do projeto. À medida que o seu projeto cresce, você pode conceder mais permissões de acesso aos integrantes ativos da sua comunidade. Para obter mais informações, consulte "[Conceder permissões mais elevadas aos melhores contribuidores](/discussions/guides/granting-higher-permissions-to-top-contributors)"
 

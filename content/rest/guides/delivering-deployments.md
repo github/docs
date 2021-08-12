@@ -6,11 +6,11 @@ redirect_from:
   - /guides/automating-deployments-to-integrators/
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
  
   
@@ -38,7 +38,7 @@ connections.
 Note: you can download the complete source code for this project
 [from the platform-samples repo][platform samples].
 
-### Writing your server
+## Writing your server
 
 We'll write a quick Sinatra app to prove that our local connections are working.
 Let's start with this:
@@ -99,7 +99,7 @@ merged (its state is `closed`, and `merged` is `true`), we'll kick off a deploym
 To test out this proof-of-concept, make some changes in a branch in your test
 repository, open a pull request, and merge it. Your server should respond accordingly!
 
-### Working with deployments
+## Working with deployments
 
 With our server in place, the code being reviewed, and our pull request
 merged, we want our project to be deployed.
@@ -172,7 +172,7 @@ switch the status to `pending`.
 
 After the deployment is finished, we set the status to `success`.
 
-### Conclusion
+## Conclusion
 
 At GitHub, we've used a version of [Heaven][heaven] to manage
 our deployments for years. The basic flow is essentially the exact same as the

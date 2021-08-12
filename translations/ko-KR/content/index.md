@@ -16,16 +16,20 @@ versions: '*'
 children:
   - github
   - admin
+  - billing
   - organizations
   - code-security
   - actions
-  - 패키지
+  - packages
   - developers
   - rest
   - graphql
   - insights
+  - issues
   - discussions
-  - 커뮤니티
+  - codespaces
+  - sponsors
+  - communities
   - pages
   - education
   - desktop
@@ -48,7 +52,7 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: 'CodeQL'
+    name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
 ---

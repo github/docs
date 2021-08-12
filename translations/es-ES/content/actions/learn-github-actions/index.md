@@ -4,8 +4,8 @@ shortTitle: Aprende sobre las GitHub Actions
 intro: 'Ya sea que seas nuevo en el uso de {% data variables.product.prodname_actions %} o que te interese aprender sobre todo lo que pueden ofrecer, esta guía te ayudará a utilizar las {% data variables.product.prodname_actions %} para acelerar tus flujos de trabajo de desarrollo de aplicaciones.'
 redirect_from:
   - /articles/about-github-actions
-  - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/about-GitHub-Actions
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/about-GitHub-Actions
+  - /github/automating-your-workflow-with-github-actions/about-github-actions
+  - /actions/automating-your-workflow-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions
   - /actions/getting-started-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions/overview
@@ -29,16 +29,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+children:
+  - /introduction-to-github-actions
+  - /finding-and-customizing-actions
+  - /essential-features-of-github-actions
+  - /managing-complex-workflows
+  - /sharing-workflows-with-your-organization
+  - /security-hardening-for-github-actions
+  - /migrating-from-azure-pipelines-to-github-actions
+  - /migrating-from-circleci-to-github-actions
+  - /migrating-from-gitlab-cicd-to-github-actions
+  - /migrating-from-jenkins-to-github-actions
+  - /migrating-from-travis-ci-to-github-actions
 ---
 
-{% link_with_intro /introduction-to-github-actions %}
-{% link_with_intro /finding-and-customizing-actions %}
-{% link_with_intro /essential-features-of-github-actions %}
-{% link_with_intro /managing-complex-workflows %}
-{% link_with_intro /sharing-workflows-with-your-organization %}
-{% link_with_intro /security-hardening-for-github-actions %}
-{% link_with_intro /migrating-from-azure-pipelines-to-github-actions %}
-{% link_with_intro /migrating-from-circleci-to-github-actions %}
-{% link_with_intro /migrating-from-gitlab-cicd-to-github-actions %}
-{% link_with_intro /migrating-from-jenkins-to-github-actions %}
-{% link_with_intro /migrating-from-travis-ci-to-github-actions %}

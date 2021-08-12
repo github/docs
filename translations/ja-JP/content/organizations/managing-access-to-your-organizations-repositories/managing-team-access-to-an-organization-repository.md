@@ -1,6 +1,6 @@
 ---
 title: Organization リポジトリへの Team のアクセスを管理する
-intro: 'リポジトリへのチームアクセスを付与、リポジトリへのチームアクセスを削除、またはリポジトリへのチームの権限レベルを変更することができます。'
+intro: リポジトリへのチームアクセスを付与、リポジトリへのチームアクセスを削除、またはリポジトリへのチームの権限レベルを変更することができます。
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program/
   - /articles/managing-team-access-to-an-organization-repository
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 リポジトリに対して管理者権限がある人は、リポジトリへのチームアクセスを管理できます。 チームメンテナは、リポジトリへのチームアクセスを削除できます。
@@ -26,8 +26,8 @@ topics:
 
 ### リポジトリへのアクセスをチームに付与する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. リポジトリ リストの上にある [**Add repository**] をクリックします。 ![[Add repository] ボタン](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ topics:
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. チームから削除するリポジトリ (複数選択も可) を選択します。 ![いくつかのリポジトリがチェックボックスで選択されたチーム リポジトリのリスト](/assets/images/help/teams/select-team-repositories-bulk.png)

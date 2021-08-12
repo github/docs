@@ -14,7 +14,6 @@ This directory contains custom Liquid tags for outputting dynamic content. These
 Tags can be used in:
 
 - Articles and TOCs (`content/**/*.md`)
-- Layout files (`layouts/*.html`)
 - Include files (`includes/*.html`)
 
 Tags always expect a single argument, a language agnostic href:
@@ -63,7 +62,7 @@ Note that link tags will only render links that are available in the current pag
 | `{% homepage_link_with_intro /href %}` | The linked page's title and intro, with homepage-specific styling.
 | `{% link_in_list /href %}` | The linked page's title in a list item.
 | `{% topic_link_in_list /href %}` | The linked map topic's title in a list item (used in category TOCs).
-| `{% indented_data_reference site.data.foo.bar spaces=NUMBER %}` | The data reference with the specified number of spaces prepended to each line.
+| `{% indented_data_reference foo.bar spaces=NUMBER %}` | A data reference with the specified number of spaces prepended to each line. Defaults to 2 spaces if no spaces included. For example: `{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}`
 
 ## Creating tags
 
@@ -74,7 +73,7 @@ Each custom tag has the following:
 
 The class and the template should have corresponding names, like `lib/liquid-tags/my-tag.js` and `includes/liquid-tags/my-tag.html`
 
-You must also register the new tag in `lib/render-content.js` with a line like this:
+You must also register the new tag in `lib/render-content/index.js` with a line like this:
 
 ```
 renderContent.liquid.registerTag('my_tag', require('./liquid-tags/my-tag'))

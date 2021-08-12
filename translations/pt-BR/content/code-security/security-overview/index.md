@@ -5,9 +5,11 @@ intro: 'Visualize, ordene e filtre os alertas de segurança de toda a sua organi
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'avançar'
+  github-ae: next
+topics:
+  - Security overview
+  - Advanced Security
+children:
+  - /exploring-security-alerts
 ---
 
-### Índice
-
-{% link_in_list /exploring-security-alerts %}

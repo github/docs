@@ -1,6 +1,6 @@
 ---
 title: 管理团队对组织项目板的访问
-intro: '作为组织所有者或项目板管理员，您可以向团队授予对组织拥有的项目板的访问权限。'
+intro: 作为组织所有者或项目板管理员，您可以向团队授予对组织拥有的项目板的访问权限。
 redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% warning %}
@@ -31,8 +31,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -45,8 +45,8 @@ topics:
 
 如果团队的项目板访问权限继承自父团队，您必须删除父团队的项目板访问权限，以更新子团队的访问权限。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. 在团队的对话上方，单击 {% octicon "project" aria-label="The Projects icon" %} **Projects（项目）**。 ![团队仓库选项卡](/assets/images/help/organizations/team-project-board-button.png)
-5. 要更改权限级别，在要更新的项目板右侧使用下拉列表。 要删除项目板，请单击 **{% octicon "trashcan" aria-label="The trashcan icon" %}**。 ![从团队删除项目板的垃圾桶按钮](/assets/images/help/organizations/trash-button.png)
+5. 要更改权限级别，在要更新的项目板右侧使用下拉列表。 要删除项目板，请单击 **{% octicon "trash" aria-label="The trash icon" %}**。 ![从团队删除项目板的垃圾桶按钮](/assets/images/help/organizations/trash-button.png)

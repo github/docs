@@ -6,14 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Trabajos
+  - Jobs
+children:
+  - /about-github-support
+  - /github-enterprise-cloud-support
+  - /about-github-premium-support-for-github-enterprise-cloud
+  - /github-marketplace-support
+  - /submitting-a-ticket
 ---
 
-
-### Índice
-
-{% link_in_list /about-github-support %}
-{% link_in_list /github-enterprise-cloud-support %}
-{% link_in_list /about-github-premium-support-for-github-enterprise-cloud %}
-{% link_in_list /github-marketplace-support %}
-{% link_in_list /submitting-a-ticket %}

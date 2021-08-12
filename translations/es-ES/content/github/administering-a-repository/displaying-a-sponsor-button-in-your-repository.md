@@ -7,12 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de los archivos FUNDING
 
-Puedes configurar tu botón de patrocinador editando un archivo _FUNDING.yml_ en la carpeta `.github` de tu repositorio, o bien en la rama predeterminada. Puedes configurar el botón para que incluya programadores patrocinados en {% data variables.product.prodname_sponsors %}, plataformas de financiamiento externo o URL de financiamiento personalizadas. Para obtener mas información acerca de {% data variables.product.prodname_sponsors %}, consulta "[Acerca de los patrocinadores de GitHub](/articles/about-github-sponsors)".
+Puedes configurar tu botón de patrocinador editando un archivo _FUNDING.yml_ en la carpeta `.github` de tu repositorio, o bien en la rama predeterminada. Puedes configurar el botón para que incluya programadores patrocinados en {% data variables.product.prodname_sponsors %}, plataformas de financiamiento externo o URL de financiamiento personalizadas. Para obtener mas información acerca de {% data variables.product.prodname_sponsors %}, consulta "[Acerca de los patrocinadores de GitHub](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)".
 
 Puedes agregar un nombre de usuario, un nombre de paquete o un nombre de proyecto por plataforma de financiamiento externo y hasta cuatro URL personalizadas. Puedes añadir hasta cuatro organizaciones o desarrolladores patrocinadores en {% data variables.product.prodname_sponsors %}. Agrega cada plataforma en una línea nueva, usando la siguiente sintaxis:
 
@@ -76,5 +76,5 @@ Cualquier usuario que cuente con permisos de administración puede habilitar un 
 {% data reusables.files.propose_new_file %}
 
 ### Leer más
-- "[Acerca de {% data variables.product.prodname_sponsors %} para colaboradores de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
+- "[Acerca de {% data variables.product.prodname_sponsors %} para colaboradores de código abierto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[Preguntas frecuentes con el equipo {% data variables.product.prodname_sponsors %} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {% data variables.product.prodname_blog %}

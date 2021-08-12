@@ -7,12 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 在 People（人员）选项卡上，单击 **Pending invitation（待定邀请）**。 ![待定邀请链接](/assets/images/help/organizations/pending-invitation-link.png)
 5. 在要编辑或取消其邀请的受邀人用户名或电子邮件地址旁边，单击 **Edit invitation（编辑邀请）**。 ![编辑邀请按钮](/assets/images/help/organizations/edit-invitation-button.png)

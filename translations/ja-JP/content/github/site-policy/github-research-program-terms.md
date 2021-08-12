@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub Research Program (「Program」) へようこそ。 「Program」に参加するためには、GitHub Research Program利用規約 (「利用規約」) という特別な規約に同意する必要があります。
@@ -35,7 +35,7 @@ GitHubは、本「Program」を通じて当社がフィードバックを得る�
 
 本「Program」に参加することにより、あなたはあなたの個人情報を研究目的で使用すること、またその他の目的には使用しないことに同意するものとします。 本「Program」の一環として、当社はあなたに連絡するため、あなたの個人情報を用いることができます。また、後日あなたに連絡するため、あなたの個人情報を保持することができます。 個人情報には、集約された個人を特定できない情報は含まれません。 当社は、プログラムを通じて収集された、集約されたまたはその他の個人を特定できない情報を、当社製品およびサービスの運用、分析、および改善のために用いることができます。
 
-あなたは随時、同意を撤回し、当社があなたについて保持する個人情報へのアクセスや削除を要求することができます。 For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {% data variables.contact.contact_privacy %}.
+あなたは随時、同意を撤回し、当社があなたについて保持する個人情報へのアクセスや削除を要求することができます。 GitHubが本「Program」を通じて収集する個人情報をアクセス、更新、修正、削除する方法についての詳細は、「[GitHub のプライバシーについての声明](/articles/github-privacy-statement/)」を参照いただくか、{% data variables.contact.contact_privacy %}から当社までご連絡ください。
 
 ### E. GitHubのサービスおよびソフトウェア利用規約
 

@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'CI'
-  - 'CD'
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,11 +48,13 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 一般的な用語の定義については「[{% data variables.product.prodname_actions %} の中核的概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
 ### サポートされている言語
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} では、各種言語およびフレームワークに応じて CI ワークフローテンプレートが提供されます。
 
 {% data variables.product.product_location %} 上の {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ{% else %} `actions/starter-workflows` リポジトリで {% data variables.product.product_name %} が提供する CI ワークフローテンプレートの完全なリストを参照します。{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 ### ワークフロー実行をスキップする
 
 ワークフローがトリガーされないようにする場合は、コミットメッセージにスキップ命令を追加できます。 `on: push` または `on: pull_request` でトリガーされるワークフローは、プッシュまたはプルリクエストの HEAD コミットで、次の文字列型のいずれかをコミットメッセージに追加した場合トリガーされません。
@@ -72,6 +74,7 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 **注釈:** スキップ命令は、`push` および `pull_request` イベントにのみ適用されます。 たとえば、コミットメッセージに `[skip ci]` を追加しても、`on: pull_request_target` でトリガーされたワークフロー実行は停止されません。
 
 {% endnote %}
+{% endif %}
 
 ### ワークフロー実行の通知
 
@@ -87,5 +90,5 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 
 - 「[{% data variables.product.prodname_actions %} を使用して継続的インテグレーションを設定する](/articles/setting-up-continuous-integration-using-github-actions)」
 {% if currentVersion == "free-pro-team@latest" %}
-- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)」
+- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
 {% endif %}

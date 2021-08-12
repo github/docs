@@ -11,9 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Princípios básicos'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

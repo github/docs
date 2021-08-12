@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### Acerca de los cambios sustanciales
@@ -27,7 +27,7 @@ Anunciaremos los cambios sustanciales por venir por lo menos tres meses antes de
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}border-red bg-red-light{% else %}border-purple bg-purple-light{% endif %}">{% if change.criticality == 'breaking' %}Sustancial{% else %}Peligroso{% endif %}</span>Se hará un cambio a <code>{{ change.location }}</code>.
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}Sustancial{% else %}Peligroso{% endif %}</span>Se hará un cambio a <code>{{ change.location }}</code>.
 
 <p><b>Descripción:</b> {{ change.description }}</p>
 

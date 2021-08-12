@@ -22,7 +22,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### About labels
@@ -48,6 +48,8 @@ Anyone with read access to a repository can view and search the repository’s l
 | `wontfix`          | Indicates that work won't continue on an issue or pull request                                                                                            |
 
 Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
+
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."

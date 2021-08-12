@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ## Límite de nodo
@@ -19,7 +19,7 @@ Para pasar la validación del [modelo](/graphql/guides/introduction-to-graphql#s
 * Los valores de `first` y `last` deben estar dentro de 1-100.
 * Las llamadas individuales no pueden solicitar más de 500,000 [nodos](/graphql/guides/introduction-to-graphql#node) en total.
 
-#### Calcular los nodos en una llamada
+### Calcular los nodos en una llamada
 
 Estos dos ejemplos te muestran cómo calcular los nodos totales en una llamada.
 
@@ -140,7 +140,7 @@ Nota que 5,000 puntos por hora no es lo mismo que 5,000 llamadas por hora: la AP
 
 {% endnote %}
 
-#### Recuperar el estado de límite de tasa de una llamada
+### Recuperar el estado de límite de tasa de una llamada
 
 Con la API v3 de REST, puedes revisar el estado de límite de tasa si [inspeccionas](/rest/overview/resources-in-the-rest-api#rate-limiting) los encabezados HTTP devueltos.
 
@@ -168,7 +168,7 @@ query {
 
 * EL campo `resetAt` devuelve la hora en la que se reinicia la ventana de límite de tasa actual en [segundos de satélite UTC](http://en.wikipedia.org/wiki/Unix_time).
 
-#### Calcular el puntaje de límite de tasa antes de ejecutar la llamada
+### Calcular el puntaje de límite de tasa antes de ejecutar la llamada
 
 Al consultar el objeto `rateLimit` se devuelve el puntaje de una llamada, pero ejecutar la llamada tiene un costo en el límite. Para evitar este dilema, puedes calcular el puntaje de una llamada antes de ejecutarla. Los siguientes cálculos funcionan casi de la misma manera que lo que devuelve `rateLimit { cost }`.
 

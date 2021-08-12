@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 5. Klicke neben der Teamdiskussion, die Du anheften möchtest, auf {% octicon "pin" aria-label="The pin icon" %}. Du kannst eine angeheftete Diskussion auch wieder entfernen, indem Du auf das Symbol klickst. ![Eine Diskussion anheften](/assets/images/help/projects/pin-discussion-button.png)

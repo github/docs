@@ -1,18 +1,18 @@
 ---
 title: Eine Einladung zum Beitritt zu Deiner Organisation abbrechen oder bearbeiten
-intro: Organisationsinhaber können eine Einladung zum Beitritt zu Deiner Organisation jederzeit abbrechen oder bearbeiten, solange der Benutzer sie noch nicht angenommen hat.
+intro: 'Organisationsinhaber können eine Einladung zum Beitritt zu Deiner Organisation jederzeit abbrechen oder bearbeiten, solange der Benutzer sie noch nicht angenommen hat.'
 redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Klicke auf der Registerkarte „People“ (Personen) auf **Pending invitation** (Ausstehende Einladung). ![Link zu ausstehender Einladung](/assets/images/help/organizations/pending-invitation-link.png)
 5. Klicke neben dem Benutzernamen oder der E-Mail-Adresse der Person, deren Einladung Du bearbeiten oder stornieren möchtest, auf **Edit invitation** (Einladung bearbeiten). ![Schaltfläche „Edit invitation“ (Einladung bearbeiten)](/assets/images/help/organizations/edit-invitation-button.png)

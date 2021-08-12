@@ -5,10 +5,11 @@
 
 # Engineering
 *.js @github/docs-engineering
+*.ts @github/docs-engineering
+*.tsx @github/docs-engineering
 /.github/ @github/docs-engineering
 /script/ @github/docs-engineering
 /includes/ @github/docs-engineering
-/layouts/ @github/docs-engineering
 app.json @github/docs-engineering
 Dockerfile @github/docs-engineering
 package-lock.json @github/docs-engineering
@@ -25,6 +26,9 @@ package.json @github/docs-engineering
 # Content strategy
 /contributing/content-markup-reference.md @github/docs-content-strategy
 /contributing/content-style-guide.md @github/docs-content-strategy
+/contributing/content-model.md @github/docs-content-strategy
+/contributing/content-style-guide.md @github/docs-content-strategy
+/contributing/content-templates.md @github/docs-content-strategy
 
 # Make sure that Octokit maintainers get notified about changes
 # relevant to the Octokit libraries (https://github.com/octokit)

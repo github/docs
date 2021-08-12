@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team_maintainers_can %}
@@ -20,8 +20,8 @@ topics:
 
 Bevor Du ein Organisationsmitglied zum Team-Betreuer ernennen kannst, muss die Person Mitglied des Teams sein.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. Wähle die Person(en) aus, die Du zum Team-Betreuer ernennen möchtest. ![Kontrollkästchen neben dem Organisationsmitglied](/assets/images/help/teams/team-member-check-box.png)

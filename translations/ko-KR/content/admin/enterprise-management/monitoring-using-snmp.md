@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.product.product_location %} and know when to add more memory, storage, or processor power to the host machine.

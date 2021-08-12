@@ -4,7 +4,14 @@ intro: 'Você pode visualizar, filtrar e classificar alertas de segurança para 
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'avançar'
+  github-ae: next
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.security-center.beta %}
@@ -13,7 +20,7 @@ versions:
 
 Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
-The security overview indicates whether {% data variables.product.prodname_GH_advanced_security %} features are enabled for repositories owned by your organization and consolidates alerts from {% data variables.product.prodname_advanced_security %} features, including {% data variables.product.prodname_code_scanning %} alerts, {% data variables.product.prodname_dependabot_alerts %}, and {% data variables.product.prodname_secret_scanning %} alerts. Para obter mais informações, consulte "[Sobre proteger seu repositório](/code-security/getting-started/about-securing-your-repository).
+A visão geral de segurança indica se as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão habilitadas para repositórios pertencentes à sua organização e consolida alertas das funcionalidades de {% data variables.product.prodname_advanced_security %}, incluindo alertas de {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot_alerts %} e alertas de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações, consulte "[Protegendo seu repositório](/code-security/getting-started/securing-your-repository)" e "[Protegendo sua organização](/code-security/getting-started/securing-your-organization)."
 
 No resumo da segurança, é possível visualizar, ordenar e filtrar alertas para entender os riscos de segurança na sua organização e nos repositórios específicos. Você pode aplicar vários filtros para concentrar-se em áreas de interesse. Por exemplo, você pode identificar repositórios privados que têm um número elevado de {% data variables.product.prodname_dependabot_alerts %} ou repositórios que não têm alertas {% data variables.product.prodname_code_scanning %}.
 
@@ -48,8 +55,8 @@ Os proprietários da organização podem ver a visão geral de segurança para u
 
 Os integrantes de uma equipe podem visualizar a visão geral de segurança dos repositórios para os quais a equipe tem privilégios de administrador.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}
@@ -87,33 +94,33 @@ O nível de risco para um repositório é determinado pelo número e gravidade d
 | `enabled:dependabot-alerts`     | Exibe repositórios com {% data variables.product.prodname_dependabot_alerts %} habilitado.         |
 | `not-enabled:dependabot-alerts` | Exibe repositórios que não têm {% data variables.product.prodname_dependabot_alerts %} habilitado. |
 
-#### Filter by repository type
+#### Filtrar por tipo de repositório
 
-| Qualifier       | Descrição                      |
-| --------------- | ------------------------------ |
-| `is:public`     | Display public repositories.   |
-| `is:internal`   | Display internal repositories. |
-| `is:private`    | Display private repositories.  |
-| `archived:true` | Display archived repositories. |
+| Qualifier       | Descrição                       |
+| --------------- | ------------------------------- |
+| `is:public`     | Exibir repositórios públicos.   |
+| `is:internal`   | Exibir repositórios internos.   |
+| `is:private`    | Exibir repositórios privados.   |
+| `archived:true` | Exibir repositórios arquivados. |
 
-#### Filter by team
+#### Filtrar por equipe
 
-| Qualifier                 | Descrição                                                        |
-| ------------------------- | ---------------------------------------------------------------- |
-| <code>team:<em>TEAM-NAME</em></code> | Displays repositories that *TEAM-NAME* has admin privileges for. |
+| Qualifier                 | Descrição                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| <code>team:<em>TEAM-NAME</em></code> | Exibe os repositórios para os quais *TEAM-NAME* tem privilégios de administrador. |
 
-#### Filter by topic
+#### Filtrar por tópico
 
 | Qualifier                 | Descrição                                                    |
 | ------------------------- | ------------------------------------------------------------ |
-| <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
+| <code>topic:<em>TOPIC-NAME</em></code> | Exibe repositórios que são classificados com o *TOPIC-NAME*. |
 
-#### Sort the list of alerts
+#### Classificar a lista de alertas
 
-| Qualifier                     | Descrição                                                                                                                     |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `sort:risk`                   | Sorts the repositories in your security overview by risk.                                                                     |
-| `sort:repos`                  | Sorts the repositories in your security overview alphabetically by name.                                                      |
-| `sort:code-scanning-alerts`   | Sorts the repositories in your security overview by number of {% data variables.product.prodname_code_scanning %} alerts.   |
-| `sort:secret-scanning-alerts` | Sorts the repositories in your security overview by number of {% data variables.product.prodname_secret_scanning %} alerts. |
-| `sort:dependabot-alerts`      | Sorts the repositories in your security overview by number of {% data variables.product.prodname_dependabot_alerts %}.      |
+| Qualifier                     | Descrição                                                                                                                                |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `sort:risk`                   | Classifica os repositórios na visão geral de segurança por risco.                                                                        |
+| `sort:repos`                  | Classifica alfabeticamente pelo nome os repositórios na sua visão geral de segurança.                                                    |
+| `sort:code-scanning-alerts`   | Classifica os repositórios na visão geral de segurança por número de alertas de {% data variables.product.prodname_code_scanning %}.   |
+| `sort:secret-scanning-alerts` | Classifica os repositórios na visão geral de segurança por número de alertas de {% data variables.product.prodname_secret_scanning %}. |
+| `sort:dependabot-alerts`      | Classifica os repositórios na sua visão geral de segurança por número de {% data variables.product.prodname_dependabot_alerts %}.      |

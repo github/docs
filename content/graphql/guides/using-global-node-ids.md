@@ -4,11 +4,11 @@ intro: You can get global node IDs of objects via the REST API and use them in G
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
 
 You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.
@@ -19,7 +19,7 @@ You can access most objects in GitHub (users, issues, pull requests, etc.) using
 
 {% endnote %}
 
-### Putting global node IDs to use
+## Putting global node IDs to use
 
 You can follow three steps to use global node IDs effectively:
 
@@ -29,7 +29,7 @@ You can follow three steps to use global node IDs effectively:
 
 Let's walk through an example.
 
-### 1. Call a REST endpoint that returns an object's node ID
+## 1. Call a REST endpoint that returns an object's node ID
 
 If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
 
@@ -87,7 +87,7 @@ you'll get a response that includes the `node_id` of the authenticated user:
 }
 ```
 
-### 2. Find the object type in GraphQL
+## 2. Find the object type in GraphQL
 
 In this example, the `node_id` value is `MDQ6VXNlcjU4MzIzMQ==`. You can use this value to query the same object in GraphQL.
 
@@ -105,7 +105,7 @@ This type of query&mdash;that is, finding the node by ID&mdash;is known as a "di
 
 When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/objects#user).
 
-### 3. Do a direct node lookup in GraphQL
+## 3. Do a direct node lookup in GraphQL
 
 Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
 
@@ -122,6 +122,6 @@ query {
 
 This type of query is the standard approach for looking up an object by its global node ID.
 
-### Using global node IDs in migrations
+## Using global node IDs in migrations
 
 When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."

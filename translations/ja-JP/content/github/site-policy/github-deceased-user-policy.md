@@ -3,8 +3,8 @@ title: GitHubユーザの死亡に関するポリシー
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 In the event that a GitHub user passes away, we can work with an authorized individual to determine what happens to the account's content.
@@ -12,7 +12,7 @@ In the event that a GitHub user passes away, we can work with an authorized indi
 If you are next of kin, a [pre-designated successor](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories), or other authorized individual (which could include a collaborator or business partner) of a deceased user and would like to make a request regarding their account, you can reach out to us at https://support.github.com/contact. Please provide the following information in your message:
 
 - 名前
-- Contact Information
+- 連絡先情報
 - Name of the deceased account holder
 - GitHub username of the deceased account holder
 - Your relationship to the deceased account holder (please include whether you have been designated as the account successor on GitHub.com)

@@ -1,7 +1,7 @@
 ---
 title: Administrar la configuración de seguridad y análisis para tu repositorio
 intro: 'Puedes controlar las características que dan seguridad y analizan tu código en tu proyecto dentro de {% data variables.product.prodname_dotcom %}.'
-permissions: Las personas con permisos administrativos en un repositorio pueden gestionar la configuración de análisis y seguridad del mismo.
+permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -35,10 +35,11 @@ Puedes administrar las características de seguridad y análisis para tu reposit
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**.
-{% endif %} {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}El control para "{% data variables.product.prodname_GH_advanced_security %}" se encuentra inhabilitado si no tienes plazas disponibles en tu licencia de {% data variables.product.prodname_GH_advanced_security %}.
-  ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**. El control para "
+{% data variables.product.prodname_GH_advanced_security %}" se inhabilitará si tu empresa no tiene licencias disponibles para la {% data variables.product.prodname_advanced_security %}.{% if currentVersion == "free-pro-team@latest" %}
+  ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
 **Nota:** Si inhabilitas
 
@@ -46,11 +47,11 @@ Puedes administrar las características de seguridad y análisis para tu reposit
   {% endnote %}
   {% endif %}
   {% if currentVersion == "enterprise-server@3.0" %}
-  ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
+4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**. ![Botón de "Habilitar" o "Inhabilitar" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
   {% if currentVersion == "github-ae@latest" %}
 4. Debajo de "Configurar la seguridad y las características de análisis", a la derecha de la característica, da clic en **Inhabilitar** o **Habilitar**. Antes de que puedas habilitar el "
-{% data variables.product.prodname_secret_scanning %}" para tu repositorio, necesitas habilitar la {% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_secret_scanning %}" para tu repositorio, es probable que necesites habilitar la {% data variables.product.prodname_GH_advanced_security %}.
    ![Habilitar o inhabilitar la {% data variables.product.prodname_GH_advanced_security %} o el {% data variables.product.prodname_secret_scanning %} para tu repositorio](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 

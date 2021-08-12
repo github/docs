@@ -5,9 +5,11 @@ intro: 'View, sort, and filter the security alerts from across your organization
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: '다음'
+  github-ae: next
+topics:
+  - Security overview
+  - Advanced Security
+children:
+  - /exploring-security-alerts
 ---
 
-### Table of Contents
-
-{% link_in_list /exploring-security-alerts %}

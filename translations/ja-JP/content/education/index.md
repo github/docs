@@ -1,7 +1,7 @@
 ---
 title: GitHub Educationのドキュメント
 shortTitle: 教育
-intro: "{% data variables.product.prodname_education %}は、{% data variables.product.company_short %}のプラットフォームとコミュニティの支援により、ソフトウェア開発の教育や学習に役立ちます。"
+intro: '{% data variables.product.prodname_education %}は、{% data variables.product.company_short %}のプラットフォームとコミュニティの支援により、ソフトウェア開発の教育や学習に役立ちます。'
 introLinks:
   quickstart: /education/quickstart
 featuredLinks:
@@ -20,11 +20,14 @@ featuredLinks:
     - /github/getting-started-with-github/github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
-  label: 'education'
+  label: education
 layout: product-landing
 versions:
   free-pro-team: '*'
+children:
+  - /quickstart
+  - /explore-the-benefits-of-teaching-and-learning-with-github-education
+  - /manage-coursework-with-github-classroom
+  - /guides
 ---
 
-<!-- {% link_with_intro /explore-the-benefits-of-teaching-and-learning-with-github-education %} -->
-<!-- {% link_with_intro /manage-coursework-with-github-classroom %} -->

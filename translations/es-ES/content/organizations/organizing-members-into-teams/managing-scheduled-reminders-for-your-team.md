@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de los recordatorios programados para equipos
@@ -20,8 +20,8 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Crear un recordatorio programado para un equipo
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -44,8 +44,8 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 {% data reusables.reminders.create-reminder %}
 
 ### Administrar un recordatorio programado para un equipo
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -55,8 +55,8 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 {% data reusables.reminders.update-buttons %}
 
 ### Borrar un recordatorio programado para un equipo
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

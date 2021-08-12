@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
@@ -26,13 +26,13 @@ topics:
 | 用户        | 许可日期                                          | 计入的天数 | 费用     |
 | --------- | --------------------------------------------- | ----- | ------ |
 | @octocat  | 1 月 1 日至 1 月 31 日                             | 31    | $39    |
-| @robocat  | 2 月 1 日至 2 月 28 日                             | 29    | $35.23 |
+| @robocat  | 2 月 1 日至 2 月 28 日                             | 28    | $35.23 |
 | @devtocat | 1 月 15 日至 1 月 31 日                            | 17    | $21.39 |
 | @doctocat | 1 月 1 日至 1 月 15 日                             | 31    | $39    |
 | @prodocat | 1 月 7 日至 1 月 15 日                             | 25    | $31.45 |
 | @monalisa | 1 月 1 日至 1 月 7 日，<br>1 月 15 日至 1 月 31 日 | 31    | $39    |
 
-企业可以包括一个或多个实例。 {% data variables.product.prodname_ghe_managed %} 的每个实例至少 500 个用户。 {% data variables.product.company_short %} 按每个实例至少 500 个用户计费，即使当天拥有许可证的用户少于 500 个也一样。
+{% data variables.product.prodname_ghe_managed %} 的每个实例至少 500 个用户。 {% data variables.product.company_short %} 按每个实例至少 500 个用户计费，即使当天拥有许可证的用户少于 500 个也一样。
 
 您可以在[Azure 帐户门户](https://portal.azure.com)中看到您当前的使用情况。
 

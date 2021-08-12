@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
-permissions: リポジトリの書き込み権限を持つ人は、そのリポジトリにパッケージを公開できます。
+permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

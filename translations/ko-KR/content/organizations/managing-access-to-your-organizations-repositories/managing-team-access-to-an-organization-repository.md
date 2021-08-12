@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.
@@ -26,8 +26,8 @@ People with admin access to a repository can manage team access to the repositor
 
 ### Giving a team access to a repository
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Above the list of repositories, click **Add repository**. ![The Add repository button](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ You can remove a team's access to a repository if the team has direct access to 
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Select the repository or repositories you'd like to remove from the team. ![List of team repositories with the checkboxes for some repositories selected](/assets/images/help/teams/select-team-repositories-bulk.png)

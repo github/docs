@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,7 +19,7 @@ topics:
 ### Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)“.
+{% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)“.
 {% else %}
 GitHub Actions usage is free for
 {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
@@ -49,6 +49,8 @@ There are some limits on
   | Team        | 60                       | 5                                |
   | Enterprise  | 180                      | 50                               |
 - **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 Usage limits apply to self-hosted runners. Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)“.
 {% endif %}

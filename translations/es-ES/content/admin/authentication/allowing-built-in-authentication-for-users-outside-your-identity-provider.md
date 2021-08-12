@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
 ---
 
 ### Acerca de la autenticación integrada para usuarios fuera de tu proveedor de identidad

@@ -5,9 +5,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 VIELEN DANK, DASS SIE SICH FÜR GITHUB ENTSCHIEDEN HABEN, UM DIE ANFORDERUNGEN IHRES UNTERNEHMENS ZU ERFÜLLEN. BITTE LESEN SIE DIESE VEREINBARUNG SORGFÄLTIG DURCH; SIE REGELT DIE VERWENDUNG DER PRODUKTE (WIE UNTEN DEFINIERT), ES SEI DENN, GITHUB HAT ZU DIESEM ZWECK EINE SEPARATE SCHRIFTLICHE VEREINBARUNG MIT DEM KUNDEN ABGESCHLOSSEN. WENN DER KUNDE AUF „I AGREE“ („ICH STIMME ZU“) ODER EINE ÄHNLICHE SCHALTFLÄCHE KLICKT ODER EINES DER PRODUKTE VERWENDET, AKZEPTIERT ER ALLE GESCHÄFTSBEDINGUNGEN DIESER VEREINBARUNG. WENN DER KUNDE DIESE VEREINBARUNG IM NAMEN EINES UNTERNEHMENS ODER EINER ANDEREN JURISTISCHEN PERSON ABSCHLIESST, SICHERT ER ZU, DASS ER RECHTLICH DAZU BEFUGT IST, DIESE VEREINBARUNG FÜR DAS UNTERNEHMEN ODER DIE JURISTISCHE PERSON ZU SCHLIESSEN.
 
@@ -24,7 +26,7 @@ Diese Vereinbarung gilt für die folgenden Angebote von GitHub, die nachfolgend 
 
 Ein **„verbundenes Unternehmen“** ist ein Unternehmen, das direkt oder indirekt eine Partei kontrolliert, von einer Partei kontrolliert wird oder unter gemeinsamer Kontrolle mit einer Partei steht, wobei „Kontrolle“ über fünfzig Prozent (50 %) der Anteile oder Rechte zur Steuerung der Unternehmensführung bedeutet.
 
-**„Vereinbarung"** bedeutet zusammenfassend alle Bestimmungen, Bedingungen, Hinweise, die in diesem Dokument enthalten sind oder auf die darin verwiesen wird, sowie alle anderen Betriebsregeln, Richtlinien und Verfahren, die GitHub von Zeit zu Zeit auf dem Dienst veröffentlichen kann. Die Website-Richtlinien von GitHub sind unter [https://docs.github.com/categories/site-policy](/categories/site-policy) verfügbar.
+**„Vereinbarung"** bedeutet zusammenfassend alle Bestimmungen, Bedingungen, Hinweise, die in diesem Dokument enthalten sind oder auf die darin verwiesen wird, sowie alle anderen Betriebsregeln, Richtlinien und Verfahren, die GitHub von Zeit zu Zeit auf dem Dienst veröffentlichen kann. GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 **„Alle Benutzer“** sind zusammenfassend die Benutzer des Kunden und externen Benutzer, die den Dienst nutzen.
 

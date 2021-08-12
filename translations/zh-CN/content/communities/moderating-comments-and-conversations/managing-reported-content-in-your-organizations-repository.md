@@ -1,12 +1,12 @@
 ---
 title: 管理组织仓库中报告的内容
-intro: '在贡献者报告仓库中的破坏性内容后，仓库维护员可以查看和管理报告。'
+intro: 在贡献者报告仓库中的破坏性内容后，仓库维护员可以查看和管理报告。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
-  - 社区
+  - Community
 ---
 
 对仓库具有管理员权限的任何人都可以查看和管理仓库的报告内容。

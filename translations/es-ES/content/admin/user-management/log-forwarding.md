@@ -9,8 +9,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Auditing
+  - Enterprise
+  - Logging
+  - Security
 ---
 
 Es compatible cualquier sistema de recopilación de registro que admita los flujos de registro syslog-style (p. ej., [Logstash](http://logstash.net/) y [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).

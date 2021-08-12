@@ -1,6 +1,6 @@
 ---
 title: Utilizar la API de GraphQL para los debates
-intro: 'Aprende cómo utilizar la API de GraphQL para los debates de GitHub.'
+intro: Aprende cómo utilizar la API de GraphQL para los debates de GitHub.
 versions:
   free-pro-team: '*'
 ---
@@ -8,8 +8,6 @@ versions:
 La API de GraphQL de {% data variables.product.prodname_discussions %} te permite obtener, crear, editar y borrar las publicaciones de debate. Para obtener más información sobre los {% data variables.product.prodname_discussions %}, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
 Esta API se encuentra disponible para los usuarios autenticados, Apps de OAuth y GitHub Apps. Los tokens de acceso requieren el alcance de `repo` para los repositorios privados y el de `public_repo` para los repositorios públicos. Para obtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
-
-Para utilizar esta API debes incluir `GraphQL-Features: discussions_api` en el encabezado de `HTTP`.
 
 ## Campos
 
@@ -1081,4 +1079,4 @@ Campos de tipo de retorno:
 
 ## Buscar
 
-El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. Para obtener más información, consulta la sección ["Consultas](/graphql/reference/queries#searchresultitemconnection)".
+El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. Para obtener más información, consulta las secciones "[Consultas](/graphql/reference/queries#searchresultitemconnection)" y "[Buscar debates](/github/searching-for-information-on-github/searching-discussions)".

@@ -4,9 +4,9 @@ intro: 'If you build tools that integrate with {% data variables.product.prodnam
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - api
+  - API
 ---
 
 Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)

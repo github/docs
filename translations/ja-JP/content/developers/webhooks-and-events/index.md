@@ -6,19 +6,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - webhook
-  - events
+  - Webhooks
+  - Events
+children:
+  - /webhooks
+  - /events
 ---
 
-### 目次
-
-{% topic_link_in_list /webhooks %}
-    {% link_in_list /about-webhooks %}
-    {% link_in_list /creating-webhooks %}
-    {% link_in_list /configuring-your-server-to-receive-payloads %}
-    {% link_in_list /testing-webhooks %}
-    {% link_in_list /securing-your-webhooks %}
-    {% link_in_list /webhook-events-and-payloads %}
-{% topic_link_in_list /events %}
-    {% link_in_list /github-event-types %}
-    {% link_in_list /issue-event-types %}

@@ -1,14 +1,14 @@
 ---
 title: 複雑なワークフローを管理する
 shortTitle: 複雑なワークフローを管理する
-intro: 'このガイドでは、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}環境、{% endif %}ラベルなど、{% data variables.product.prodname_actions %} のより高度な機能を使用する方法を説明します。'
+intro: 'このガイドでは、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}環境、{% endif %}ラベルなど、{% data variables.product.prodname_actions %} のより高度な機能を使用する方法を説明します。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'ワークフロー'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}

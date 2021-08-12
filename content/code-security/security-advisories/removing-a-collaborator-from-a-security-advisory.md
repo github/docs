@@ -4,14 +4,18 @@ intro: 'When you remove a collaborator from a security advisory, they lose read 
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - security
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
+shortTitle: Remove collaborators
 ---
 
 People with admin permissions to a security advisory can remove collaborators from the security advisory.
 
-### Removing a collaborator from a security advisory
+## Removing a collaborator from a security advisory
 
 {% data reusables.repositories.security-advisory-collaborators-public-repositories %}
 
@@ -25,7 +29,7 @@ People with admin permissions to a security advisory can remove collaborators fr
 6. Next to the collaborator you want to remove, click the **X** icon.
   ![X icon to remove security advisory collaborator](/assets/images/help/security/security-advisory-remove-collaborator-x.png)
 
-### Further reading
+## Further reading
 
 - "[Permission levels for security advisories](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
 - "[Adding a collaborator to a security advisory](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)"

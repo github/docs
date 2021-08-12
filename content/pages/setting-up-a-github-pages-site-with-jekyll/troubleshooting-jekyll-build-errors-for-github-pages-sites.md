@@ -27,19 +27,20 @@ redirect_from:
   - /github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - pages
+  - Pages
+shortTitle: Troubleshoot Jekyll errors
 ---
 
-### Troubleshooting build errors
+## Troubleshooting build errors
 
 If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
 
 If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% if currentVersion == "free-pro-team@latest" %}
+- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% ifversion fpt %}
 - Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
 - You changed the `source` setting in your *_config.yml* file. {% data variables.product.prodname_pages %} overrides this setting during the build process.
 - A filename in your publishing source contains a colon (`:`) which is not supported.
@@ -48,7 +49,7 @@ If you received a specific error message, review the troubleshooting information
 
 After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.
 
-### Config file error
+## Config file error
 
 This error means that your site failed to build because the *_config.yml* file contains syntax errors.
 
@@ -58,25 +59,25 @@ To troubleshoot, make sure that your *_config.yml* file follows these rules:
 
 {% data reusables.pages.yaml-linter %}
 
-### Date is not a valid datetime
+## Date is not a valid datetime
 
 This error means that one of the pages on your site includes an invalid datetime.
 
 To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see "[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)" in the Liquid documentation.
 
-### File does not exist in includes directory
+## File does not exist in includes directory
 
 This error means that your code references a file that doesn't exist in your *_includes* directory.
 
 {% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the *_includes* directory, copy or move the files into the *_includes* directory.
 
-### File is a symlink
+## File is a symlink
 
 This error means that your code references a symlinked file that does not exist in the publishing source for your site.
 
 {% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
 
-### File is not properly UTF-8 encoded
+## File is not properly UTF-8 encoded
 
 This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
 
@@ -85,13 +86,13 @@ To troubleshoot, force UTF-8 encoding by adding the following line to your *_con
 encoding: UTF-8
 ```
 
-### Invalid highlighter language
+## Invalid highlighter language
 
 This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
 
 To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[About {% data variables.product.product_name %} and Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)."
 
-### Invalid post date
+## Invalid post date
 
 This error means that a post on your site contains an invalid date in the filename or YAML front matter.
 
@@ -99,13 +100,13 @@ To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UT
 
 If you specify a date format in your *_config.yml* file, make sure the format is correct.
 
-### Invalid Sass or SCSS
+## Invalid Sass or SCSS
 
 This error means your repository contains a Sass or SCSS file with invalid content.
 
 To troubleshoot, review the line number included in the error message for invalid Sass or SCSS. To help prevent future errors, install a Sass or SCSS linter for your favorite text editor.
 
-### Invalid submodule
+## Invalid submodule
 
 This error means that your repository includes a submodule that hasn't been properly initialized.
 
@@ -113,7 +114,7 @@ This error means that your repository includes a submodule that hasn't been prop
 
 If do you want to use the submodule, make sure you use `https://` when referencing the submodule (not `http://`) and that the submodule is in a public repository.
 
-### Invalid YAML in data file
+## Invalid YAML in data file
 
 This error means that one of more files in the *_data* folder contains invalid YAML.
 
@@ -125,7 +126,7 @@ To troubleshoot, make sure the YAML files in your *_data* folder follow these ru
 
 For more information about Jekyll data files, see "[Data Files](https://jekyllrb.com/docs/datafiles/)" in the Jekyll documentation.
 
-### Markdown errors
+## Markdown errors
 
 This error means that your repository contains Markdown errors.
 
@@ -133,7 +134,7 @@ To troubleshoot, make sure you are using a supported Markdown processor. For mor
 
 Then, make sure the file in the error message uses valid Markdown syntax. For more information, see "[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)" on Daring Fireball.
 
-### Missing docs folder
+## Missing docs folder
 
 This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
 
@@ -142,7 +143,7 @@ To troubleshoot, if your `docs` folder was accidentally moved, try moving the `d
 - Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[Creating new files](/articles/creating-new-files)."
 - Change your publishing source. For more information, see "[Configuring a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)."
 
-### Missing submodule
+## Missing submodule
 
 This error means that your repository includes a submodule that doesn't exist or hasn't been properly initialized.
 
@@ -150,7 +151,7 @@ This error means that your repository includes a submodule that doesn't exist or
 
 If you do want to use a submodule, initialize the submodule. For more information, see "[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the _Pro Git_ book.
 
-### Relative permalinks configured
+## Relative permalinks configured
 
 This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your *_config.yml* file.
 
@@ -158,31 +159,31 @@ Permalinks are permanent URLs that reference a particular page on your site. Abs
 
 To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files in your repository](/articles/editing-files-in-your-repository)."
 
-### Symlink does not exist within your site's repository
+## Symlink does not exist within your site's repository
 
 This error means that your site includes a symbolic link (symlink) that does not exist in the publishing source for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the publishing source for your site. To include external assets, consider using {% if currentVersion == "free-pro-team@latest" %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the publishing source for your site. To include external assets, consider using {% ifversion fpt %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
 
-### Syntax error in 'for' loop
+## Syntax error in 'for' loop
 
 This error means that your code includes invalid syntax in a Liquid `for` loop declaration.
 
 To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see "[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" in the Liquid documentation.
 
-### Tag not properly closed
+## Tag not properly closed
 
 This error message means that your code includes a logic tag that is not properly closed. For example, {% raw %}`{% capture example_variable %}` must be closed by `{% endcapture %}`{% endraw %}.
 
 To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see "[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)" in the Liquid documentation.
 
-### Tag not properly terminated
+## Tag not properly terminated
 
 This error means that your code includes an output tag that is not properly terminated. For example, {% raw %}`{{ page.title }` instead of `{{ page.title }}`{% endraw %}.
 
 To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see "[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)" in the Liquid documentation.
 
-### Unknown tag error
+## Unknown tag error
 
 This error means that your code contains an unrecognized Liquid tag.
 

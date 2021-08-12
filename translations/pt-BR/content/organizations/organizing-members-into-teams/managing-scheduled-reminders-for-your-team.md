@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre os lembretes agendados para as equipes
@@ -20,8 +20,8 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Criar um lembrete agendado para uma equipe
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -44,8 +44,8 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.reminders.create-reminder %}
 
 ### Gerenciar um lembrete agendado para uma equipe
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -55,8 +55,8 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.reminders.update-buttons %}
 
 ### Excluir um lembrete agendado para uma equipe
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

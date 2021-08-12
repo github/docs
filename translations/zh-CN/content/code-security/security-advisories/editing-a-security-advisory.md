@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - 安全
+  - Security advisories
+  - Vulnerabilities
 ---
 
 对安全通告具有管理员权限的人员可以编辑安全通告。

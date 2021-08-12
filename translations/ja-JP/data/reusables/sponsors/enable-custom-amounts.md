@@ -1,2 +1,2 @@
-1. When you have at least one tier, you'll see an option to enable custom amounts above the monthly and one-time tiers. If you want to allow sponsors to set their payment amount, then select **Enable custom amounts**. ![Enable custom amounts](/assets/images/help/sponsors/enable-custom-amounts.png)
-1. Optionally, if you enable custom amounts you can set a default amount to display for the custom tiers. Specify a whole dollar amount and click **Set default amount**. ![Set a default amount](/assets/images/help/sponsors/set-default-amount.png)
+1. 少なくとも1つの層を持っているなら、カスタムの金額を有効化するオプションが月額及び1回の層の上に表示されます。 スポンサーが支払い額を設定できるようにしたいなら、**Enable custom amounts（カスタムの額を有効化）**を選択してください。 ![カスタムの額の有効化](/assets/images/help/sponsors/enable-custom-amounts.png)
+1. あるいは、カスタムの額を有効化した場合、カスタムの層に対して表示されるデフォルトの金額を設定できます。 ドルの全体の金額を指定し、**Set default amount（デフォルトの金額を設定）**をクリックしてください。 ![デフォルトの金額を設定](/assets/images/help/sponsors/set-default-amount.png)

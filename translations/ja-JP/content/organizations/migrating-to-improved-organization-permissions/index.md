@@ -1,6 +1,6 @@
 ---
 title: 改善された Organization の権限に移行する
-intro: '2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された Organization の権限モデルに移行する必要があるかもしれません。'
+intro: 2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された Organization の権限モデルに移行する必要があるかもしれません。
 redirect_from:
   - /articles/improved-organization-permissions/
   - /articles/github-direct-organization-membership-pre-release-guide/
@@ -11,10 +11,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /converting-an-owners-team-to-improved-organization-permissions
+  - /converting-an-admin-team-to-improved-organization-permissions
+  - /migrating-admin-teams-to-improved-organization-permissions
 ---
 
-{% link_in_list /converting-an-owners-team-to-improved-organization-permissions %}
-{% link_in_list /converting-an-admin-team-to-improved-organization-permissions %}
-{% link_in_list /migrating-admin-teams-to-improved-organization-permissions %}

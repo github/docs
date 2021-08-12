@@ -7,8 +7,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - 安全
+  - Security advisories
+  - Vulnerabilities
 ---
 
 任何对仓库有管理员权限的人都可以创建安全通告。

@@ -1,7 +1,7 @@
 ---
 title: Moderar discussões
 intro: 'Você pode promover uma colaboração saudável marcando comentários como respostas, bloqueando ou desbloqueando discussões, e convertendo problemas em discussões. e editando ou excluindo comentários, discussões e categorias que não estão alinhadas com o código de conduta da sua comunidade referente às discussões.'
-permissions: Pessoas com acesso de triagem a um repositório podem moderar as discussões no repositório.
+permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

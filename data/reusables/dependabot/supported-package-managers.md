@@ -11,7 +11,7 @@ Cargo          | `cargo`          | v1               | **✓** | **✓** | |
 Composer       | `composer`       | v1, v2           | **✓** | **✓** | |
 Docker         | `docker`         | v1               | **✓** | **✓** | |
 Hex            | `mix`            | v1               | | **✓** | |
-elm-package    | `elm`            | v0.18, v0.19     | **✓** | **✓** | |
+elm-package    | `elm`            | v0.19            | **✓** | **✓** | |
 git submodule  | `gitsubmodule`   | N/A (no version) | **✓** | **✓** | |
 GitHub Actions | `github-actions` | N/A (no version) | **✓** | **✓** | |
 Go modules     | `gomod`          | v1               | **✓** | **✓** | **✓** |
@@ -19,11 +19,11 @@ Gradle         | `gradle`         | N/A (no version)<sup>[1]</sup>   | **✓** |
 Maven          | `maven`          | N/A (no version)<sup>[2]</sup>   | **✓** | **✓** | |
 npm            | `npm`            | v6, v7           | **✓** | **✓** | |
 NuGet          | `nuget`          | <= 4.8<sup>[3]</sup> | **✓** | **✓** | |
-pip            | `pip`            | v20              | | **✓** | |
-pipenv         | `pip`            | <= 2018.11.26    | | **✓** | |
-pip-compile    | `pip`            | 5.5.0            | | **✓** | |
+pip            | `pip`            | v21.1.2          | | **✓** | |
+pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
+pip-compile    | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |
-Terraform      | `terraform`      | <= 0.11          | **✓** | **✓** | |
+Terraform      | `terraform`      | >= 0.13, <= 1.0  | **✓** | **✓** | |
 yarn           | `npm`            | v1               | **✓** | **✓** | |
 
 [1] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle` and `build.gradle.kts` (for Kotlin projects).

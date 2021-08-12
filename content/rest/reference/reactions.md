@@ -1,13 +1,15 @@
 ---
 title: Reactions
+intro: 'The Reactions API enables you to create, list and delete the reactions on comments.'
 redirect_from:
   - /v3/reactions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Reaction types

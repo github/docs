@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### Sobre alterações significativas
@@ -27,7 +27,7 @@ Vamos anunciar as próximas mudanças significativas em andamento pelo menos tr�
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}border-red bg-red-light{% else %}border-purple bg-purple-light{% endif %}">{% if change.criticality == 'breaking' %}Substancial{% else %}Perigoso{% endif %}</span>Será feita uma mudança em <code>{{ change.location }}</code>.
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}Substancial{% else %}Perigoso{% endif %}</span>Será feita uma mudança em <code>{{ change.location }}</code>.
 
 <p><b>Descrição:</b> {{ change.description }}</p>
 

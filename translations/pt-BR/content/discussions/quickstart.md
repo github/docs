@@ -43,9 +43,11 @@ Qualquer pessoa com acesso a um repositório pode criar uma discussão.
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Organizar discussões em categorias relevantes
+### Organizando discussões
 
 Os proprietários dos repositórios e pessoas com acesso de gravação podem criar novas categorias para manter as discussões organizadas. Os colaboradores que participam e criam novas discussões podem agrupar discussões nas categorias existentes mais relevantes. As discussões também podem ser recategorizadas depois que forem criadas. Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### Promover conversas saudáveis
 

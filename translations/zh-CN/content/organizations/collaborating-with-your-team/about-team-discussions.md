@@ -1,6 +1,6 @@
 ---
 title: 关于团队讨论
-intro: '您的团队可以共同计划、互相更新，或者在组织中团队页面的讨论帖子中讨论任何主题。'
+intro: 您的团队可以共同计划、互相更新，或者在组织中团队页面的讨论帖子中讨论任何主题。
 redirect_from:
   - /articles/about-team-discussions
   - /github/building-a-strong-community/about-team-discussions
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -43,7 +43,7 @@ topics:
 
 ### 延伸阅读
 
-- "[关于 {% data variables.product.prodname_dotcom %} 中的对话](/articles/about-conversations-on-github)"
+- "[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - "[关于团队](/articles/about-teams)"
 - "[创建团队讨论](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
 - "[编辑或删除团队讨论](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

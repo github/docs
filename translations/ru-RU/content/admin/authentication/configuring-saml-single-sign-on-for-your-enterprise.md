@@ -1,11 +1,18 @@
 ---
 title: Configuring SAML single sign-on for your enterprise
 shortTitle: Configuring SAML SSO
-intro: You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).
+intro: 'You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).'
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.
+permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### About SAML SSO

@@ -1,17 +1,17 @@
 ---
 title: Cambiar la visibilidad de tu sitio de GitHub Pages
-intro: 'Puedes administrar el control de acceso para tu sitio de proyecto si lo publicas de forma pública o privada.'
+intro: Puedes administrar el control de acceso para tu sitio de proyecto si lo publicas de forma pública o privada.
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
   free-pro-team: '*'
-permissions: Las personas con permisos administrativos en un repositorio pueden cambiar la visibilidad de un sitio de {% data variables.product.prodname_pages %}.
+permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 ---
 
 ### Acerca del control de acceso para los sitios de {% data variables.product.prodname_pages %}
 
-Si tu sitio de proyecto se publica desde un repositorio privado o interno que pertenezca a una organización que utiliza {% data variables.product.prodname_ghe_cloud %}, puedes administrar el control de accesos para el sitio. Con el control de acceso puedes elegir publicar el sitio de forma pública para cualquiera en internet o de forma privada para las personas con acceso de lectura en tu repositorio. Un sitio que se publica de forma privada puede utilizarse para compartir tu documentación o base de conocimientos internos con los miembros de tu empresa. No puedes administrar el control de accesos para el sitio de una organización. For more information about the types of {% data variables.product.prodname_pages %} sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Si tu sitio de proyecto se publica desde un repositorio privado o interno que pertenezca a una organización que utiliza {% data variables.product.prodname_ghe_cloud %}, puedes administrar el control de accesos para el sitio. Con el control de acceso puedes elegir publicar el sitio de forma pública para cualquiera en internet o de forma privada para las personas con acceso de lectura en tu repositorio. Un sitio que se publica de forma privada puede utilizarse para compartir tu documentación o base de conocimientos internos con los miembros de tu empresa. No puedes administrar el control de accesos para el sitio de una organización. Para obtener más información sobre los tipos de sitios de {% data variables.product.prodname_pages %}, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
 Los sitios que se publican de forma privada se encuentran disponibles en un subdominio diferente que el de aquellos sitios que se publican de forma pública. Esto garantiza que tu sitio de {% data variables.product.prodname_pages %} es seguro desde el momento en el que se publica:
 

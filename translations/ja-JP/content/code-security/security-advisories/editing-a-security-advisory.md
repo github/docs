@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - セキュリティ
+  - Security advisories
+  - Vulnerabilities
 ---
 
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリを編集できます。

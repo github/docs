@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 People with write permissions for a repository can add content to a {% data variables.product.prodname_pages %} site using Jekyll.
@@ -45,6 +45,11 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+{% data reusables.files.choose_pull_request %}
+{% data reusables.files.merge_pull_request %}
+{% data reusables.files.write_commit_message_pull_request %}
+{% data reusables.files.confirm_merge %}
+{% data reusables.files.delete_branch %}
 
 ### Adding a new post to your site
 
@@ -64,6 +69,11 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+{% data reusables.files.choose_pull_request %}
+{% data reusables.files.merge_pull_request %}
+{% data reusables.files.write_commit_message_pull_request %}
+{% data reusables.files.confirm_merge %}
+{% data reusables.files.delete_branch %}
 
 Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 

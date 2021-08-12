@@ -4,10 +4,10 @@ redirect_from:
   - /eu-safe-harbor/
   - /articles/global-privacy-practices
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Effective date: July 22, 2020
@@ -16,13 +16,13 @@ GitHub provides the same high standard of privacy protection—as described in G
 
 GitHub also complies with certain legal frameworks relating to the transfer of data from the European Economic Area, the United Kingdom, and Switzerland (collectively, “EU”) to the United States. When GitHub engages in such transfers, GitHub relies on Standard Contractual Clauses as the legal mechanism to help ensure your rights and protections travel with your personal information. In addition, GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks. To learn more about the European Commission’s decisions on international data transfer, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
-### Standard Contractual Clauses
+## Standard Contractual Clauses
 
 GitHub relies on the European Commission-approved Standard Contractual Clauses (“SCCs”) as a legal mechanism for data transfers from the EU. SCCs are contractual commitments between companies transferring personal data, binding them to protect the privacy and security of such data. GitHub adopted SCCs so that the necessary data flows can be protected when transferred outside the EU to countries which have not been deemed by the European Commission to adequately protect personal data, including protecting data transfers to the United States. 
 
 To learn more about SCCs, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en). 
 
-### Privacy Shield Framework
+## Privacy Shield Framework
 
 GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks and the commitments they entail, although GitHub does not rely on the EU-US Privacy Shield Framework as a legal basis for transfers of personal information in light of the judgment of the Court of Justice of the EU in Case C-311/18.
 
@@ -60,13 +60,13 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
   - We require our employees to respect our privacy promises, and violation of our privacy policies is subject to disciplinary action up to and including termination of employment.
 
 
-#### Dispute resolution process
+### Dispute resolution process
 
 As further explained in the [Resolving Complaints](/github/site-policy/github-privacy-statement#resolving-complaints) section of our [Privacy Statement](/github/site-policy/github-privacy-statement), we encourage you to contact us should you have a Privacy Shield-related (or general privacy-related) complaint. For any complaints that cannot be resolved with GitHub directly, we have selected to cooperate with the relevant EU Data Protection Authority, or a panel established by the European data protection authorities, for resolving disputes with EU individuals, and with the Swiss Federal Data Protection and Information Commissioner (FDPIC) for resolving disputes with Swiss individuals. Please contact us if you’d like us to direct you to your data protection authority contacts.
 
 Additionally, if you are a resident of an EU member state, you have the right to file a complaint with your local supervisory authority.
 
-#### Independent arbitration
+### Independent arbitration
 
 Under certain limited circumstances, EU, European Economic Area (EEA), Swiss, and UK individuals may invoke binding Privacy Shield arbitration as a last resort if all other forms of dispute resolution have been unsuccessful. To learn more about this method of resolution and its availability to you, please read more about [Privacy Shield](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). Arbitration is not mandatory; it is a tool you can use if you so choose.
 

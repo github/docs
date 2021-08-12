@@ -1,6 +1,6 @@
 ---
 title: About discussions
-intro: Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project on {% data variables.product.product_name %}.
+intro: 'Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project on {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
 ---
@@ -23,13 +23,19 @@ If a repository administrator or project maintainer enables discussions for a re
 
 For more information about management of discussions for your repository, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
 
-### About categories and formats for discussions
+### About discussion organization
+
+You can organize discussions with categories and labels.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### Best practices for discussions
 

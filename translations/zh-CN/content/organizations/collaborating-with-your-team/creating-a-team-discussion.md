@@ -1,6 +1,6 @@
 ---
 title: 创建团队讨论
-intro: '任何组织成员都可以创建公开的团队讨论帖子。 要创建私密的团队讨论帖子，您必须是团队成员或组织所有者。'
+intro: 任何组织成员都可以创建公开的团队讨论帖子。 要创建私密的团队讨论帖子，您必须是团队成员或组织所有者。
 redirect_from:
   - /articles/creating-a-team-discussion
   - /github/building-a-strong-community/creating-a-team-discussion
@@ -10,13 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. 输入团队讨论标题和评论以开始对话。 ![新的团队讨论评论](/assets/images/help/projects/team-discussions-comment.png)

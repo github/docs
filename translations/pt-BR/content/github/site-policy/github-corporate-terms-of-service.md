@@ -5,9 +5,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
+
+_Estes termos aplicam-se 1) aos clientes do GitHub.com (não corporativos) que aceitaram os Termos de Serviço Corporativos e 2) aos Clientes Corporativos que licenciaram o Serviço antes de 4 de janeiro de 2021 de janeiro. Os clientes corporativos que compram produtos ou serviços após essa data são direcionados para https://github.com/enterprise-legal por termos atuais._
 
 OBRIGADO POR ESCOLHER O GITHUB PARA AS NECESSIDADES COMERCIAIS DE SUA EMPRESA. LEIA ESTES TERMOS ATENTAMENTE, POIS ELES REGEM O USO DOS PRODUTOS (CONFORME DEFINIDO ABAIXO), A MENOS QUE O GITHUB TENHA FIRMADO COM VOCÊ UM CONTRATO A PARTE, POR ESCRITO, COM ESSE OBJETIVO. AO CLICAR NO BOTÃO "CONCORDO" OU SEMELHANTE OU ACESSAR OS PRODUTOS, O CLIENTE ACEITA TODOS OS TERMOS E CONDIÇÕES DESTE CONTRATO. SE VOCÊ ESTIVER CELEBRANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU OUTRA ENTIDADE JURÍDICA, O CLIENTE DECLARA QUE TEM OS PODERES LEGAIS DE VINCULAR A EMPRESA OU OUTRA ENTIDADE JURÍDICA A ESTE CONTRATO.
 
@@ -24,7 +26,7 @@ Este Contrato aplica-se às seguintes ofertas do GitHub, conforme definido a seg
 
 **"Afiliada"** significa qualquer entidade que controle direta ou indiretamente, ou que seja controlada por ou que esteja sob controle comum de uma parte, no qual "controle" signifique possuir mais de cinquenta por cento (50%) da propriedade ou o direito de conduzir a administração da entidade.
 
-**"Contrato"** significa, coletivamente, todos os termos, condições, avisos contidos ou referenciados neste documento e todas as outras regras de funcionamento, políticas e procedimentos que o GitHub possa publicar em algum momento no Serviço. As políticas de site do GitHub estão disponíveis em [https://docs.github.com/categories/site-policy](/categories/site-policy).
+**"Contrato"** significa, coletivamente, todos os termos, condições, avisos contidos ou referenciados neste documento e todas as outras regras de funcionamento, políticas e procedimentos que o GitHub possa publicar em algum momento no Serviço. As políticas do site do GitHub estão disponíveis em [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 **"Todos os usuários"** significa, coletivamente, Usuários e Usuários externos do Cliente que utilizam o Serviço.
 
@@ -111,7 +113,7 @@ O Cliente é responsável por: (i) todo o Conteúdo publicado e a atividade que 
 Em algumas situações, os termos de terceiros podem ser aplicados ao uso do GitHub pelo Cliente.  Por exemplo, o Cliente pode ser integrante de uma Organização com seus próprios termos ou contratos de licença. O cliente poderá baixar um aplicativo que se integra ao Serviço ou utilizar o Serviço para autenticar em outro serviço. Embora este Contrato seja o acordo completo do GitHub com o Cliente, os termos de outras partes regem as relações delas com o Cliente.
 
 #### 5. EUA Termos do Governo Federal
-Se o cliente é dos EUA. Se o Cliente for uma entidade do governo dos EUA ou que acessa ou usa o Serviço em instalações governamentais, a [Emenda do Governo Federal dos EUA](https://help.github.com/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) se aplicará e o Cliente concorda com as disposições dela. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
+Se o cliente é dos EUA. entidade do governo dos EUA ou que acessa ou usa o Serviço em instalações governamentais, [EUA Aplica-se a alteração do Governo Federal](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) e o Cliente concorda com suas disposições.
 
 #### 6. Acordo de Nível de Serviço de Nuvem Empresarial
 O compromisso trimestral de tempo de atividade do GitHub para o GitHub Enterprise Cloud é fornecido no [Contrato de Nível de Serviço Empresarial](/github/site-policy/github-enterprise-service-level-agreement). Se o cliente inscreveu-se no GitHub Enterprise Cloud, ele terá direito a um crédito de serviço se o GitHub não atender ao seu nível de serviço.
@@ -125,7 +127,7 @@ O uso dos Produtos pelo Cliente não deve violar quaisquer leis aplicáveis, inc
 O uso do Serviço pelo Cliente deve estar em conformidade com a [Política de Uso Aceitável do GitHub](/articles/github-acceptable-use-policies) e as [Diretrizes da Comunidade do GitHub](/articles/github-community-guidelines). O Cliente não deve usar o Serviço em qualquer jurisdição para atividade ou Conteúdo ilegal, obsceno, ofensivo ou fraudulento, como defender ou causar danos, interferir ou violar a integridade ou a segurança de uma rede ou um sistema, enganar os filtros, enviar vírus ou código nocivo e mensagens não solicitadas, abusivas ou enganosas ou violar direitos de terceiros.
 
 #### 3. Privacidade
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Qualquer pessoa, entidade ou serviço que colete dados do Serviço deve estar em conformidade com a Declaração de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais dos Usuários (conforme definido na Declaração de Privacidade do GitHub). Se o Cliente coletar qualquer Informação pessoal do usuário no GitHub, só a utilizará para a finalidade para a qual o Usuário externo o autorizou. O Cliente protegerá essas Informações pessoais, e o Cliente responderá prontamente a reclamações, solicitações de remoção e pedidos para "não contatar" do GitHub ou de Usuários externos.
+A [Declaração de Privacidade do GitHub](/articles/github-privacy-statement) e o [Contrato de Proteção de Dados do GitHub](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) fornecem aviso detalhado das práticas de privacidade e uso de dados do GitHub, bem como do processamento e das obrigações de segurança do GitHub no que diz respeito aos Dados Pessoais do Cliente. Qualquer pessoa, entidade ou serviço que colete dados do Serviço deve estar em conformidade com a Declaração de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais dos Usuários (conforme definido na Declaração de Privacidade do GitHub). Se o Cliente coletar qualquer Informação pessoal do usuário no GitHub, só a utilizará para a finalidade para a qual o Usuário externo o autorizou. O Cliente protegerá essas Informações pessoais, e o Cliente responderá prontamente a reclamações, solicitações de remoção e pedidos para "não contatar" do GitHub ou de Usuários externos.
 
 ### D. Responsabilidade pelo conteúdo; Propriedade; Direitos de licença
 

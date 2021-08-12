@@ -3,8 +3,8 @@ title: GitHub 关于《加州消费者隐私法案》的声明
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 2020 年 1 月 1 日起生效

@@ -1,12 +1,12 @@
 ---
 title: Optando por entrar ou sair do Programa de Arquivos do GitHub para seu repositório público
 intro: 'Você pode gerenciar se {% data variables.product.prodname_dotcom %} inclui seu repositório público no {% data variables.product.prodname_archive %} para ajudar a garantir a preservação, no longo prazo, do software de código aberto mundial.'
-permissions: 'Pessoas com permissões de administrador para um repositório público podem entrar ou sair do {% data variables.product.prodname_archive %}.'
+permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} Para mais informações, consulte "[Sobre arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."

@@ -1,10 +1,9 @@
 ---
 title: Instalar la información de GitHub
 intro: 'Puedes instalar {% data variables.product.prodname_insights %} y conectar la aplicación autónoma para {% data variables.product.prodname_ghe_server %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
-permissions: 'Los propietarios de la organización en {% data variables.product.prodname_enterprise %} con los permisos de lectura para el repositorio `github/insights-releases` y el acceso administrativo al servidor de aplicaciones pueden instalar {% data variables.product.prodname_insights %}.'
+permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

@@ -10,8 +10,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Notifications
 ---
 
 {% if currentVersion == "github-ae@latest" %}

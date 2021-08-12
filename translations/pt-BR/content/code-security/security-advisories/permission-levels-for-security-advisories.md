@@ -7,8 +7,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
 versions:
   free-pro-team: '*'
+type: reference
 topics:
-  - segurança
+  - Security advisories
+  - Vulnerabilities
+  - Permissions
 ---
 
 ### Visão geral das permissões

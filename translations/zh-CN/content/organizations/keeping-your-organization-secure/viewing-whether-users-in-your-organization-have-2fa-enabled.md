@@ -1,6 +1,6 @@
 ---
 title: 查看组织中的用户是否已启用 2FA
-intro: '您可以查看哪些组织所有者、成员和外部协作者已启用双因素身份验证。'
+intro: 您可以查看哪些组织所有者、成员和外部协作者已启用双因素身份验证。
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
   - /github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% note %}
@@ -18,8 +18,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 要查看已启用或已禁用双因素身份验证的组织成员（包括组织所有者），在右侧单击 **2FA**，然后选择 **Enabled（启用）**或 **Disabled（禁用）**。 ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
 5. 要查看组织中的外部协作者，在“People（人员）”选项卡下，单击 **Outside collaborators（外部协作者）**。 ![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)

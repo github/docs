@@ -15,7 +15,7 @@ versions:
 
 必須のレビュー担当者が設定された環境を参照するジョブは、開始前に承認を待ちます。 承認を待っている間のジョブは、ステータスが"Waiting"になります。 ジョブが30日以内に承認されなければ、そのワークフローは自動的にキャンセルされます。
 
-For more information about environments and required approvals, see "[Environments](/actions/reference/environments)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
+環境と必要な承認の詳細については、「[環境](/actions/reference/environments)」を参照してください。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}REST API を使用してデプロイメントをレビューする方法については、「[ワークフローの実行](/rest/reference/actions#workflow-runs)」を参照してください。{% endif %}
 
 ### ジョブの承認もしくは拒否
 

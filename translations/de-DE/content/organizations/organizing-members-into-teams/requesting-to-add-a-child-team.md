@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Du das Hinzufügen eines untergeordneten Teams anforderst, wird an die Betreuer dieses Teams eine Anfrage gesendet. Sobald ein Betreuer dieses Teams Deiner Anfrage zustimmt, wird das Team innerhalb der Hierarchie Deiner Organisation unter Deinem Team eingeordnet.
@@ -19,8 +19,8 @@ Wenn Du Organisationsinhaber bist oder über Team-Betreuer-Berechtigungen sowohl
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Klicke in der Teamliste auf den Namen des Teams, dem Du das untergeordnete Team hinzufügen möchtest. ![Liste der Teams der Organisation](/assets/images/help/teams/click-team-name.png)
 5. Klicke am Anfang der Teamseite auf {% octicon "people" aria-label="The people icon" %} **Teams**. ![Registerkarte „Teams" auf der Teamseite](/assets/images/help/teams/team-teams-tab.png)

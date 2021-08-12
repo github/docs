@@ -1,12 +1,12 @@
 ---
 title: Organization のリポジトリ内でレポートされたコンテンツを管理する
-intro: 'コントリビューターがリポジトリ内の混乱をもらたすコンテンツをレポートすると、リポジトリメンテナはレポートを表示および管理できます。'
+intro: コントリビューターがリポジトリ内の混乱をもらたすコンテンツをレポートすると、リポジトリメンテナはレポートを表示および管理できます。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
-  - コミュニティ
+  - Community
 ---
 
 リポジトリに対する管理者権限を持つユーザは、リポジトリについてレポートされたコンテンツを表示および管理できます。

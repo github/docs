@@ -7,15 +7,15 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Organization owners can add people to an organization.'
+permissions: Organization owners can add people to an organization.
 ---
 
 {% if currentVersion != "github-ae@latest" %}
 Wenn Deine Organisation [die Zwei-Faktor-Authentifizierung für Mitglieder vorschreibt](/articles/requiring-two-factor-authentication-in-your-organization), müssen die Benutzer [die Zwei-Faktor-Authentifizierung aktivieren](/articles/securing-your-account-with-two-factor-authentication-2fa), bevor Du sie zur Organisation hinzufügen kannst.
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

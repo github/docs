@@ -1,83 +1,91 @@
 ---
-title: About self-hosted runners
-intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
+title: Acerca de los ejecutores autoalojados
+intro: 'Puedes alojar tus propios ejecutores y personalizar el entorno utilizado para ejecutar trabajos en tus flujos de trabajo de {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+  github-ae: '*'
+type: overview
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### About self-hosted runners
+### Acerca de los ejecutores autoalojados
 
-{% data reusables.github-actions.self-hosted-runner-description %} Self-hosted runners can be physical, virtual, in a container, on-premises, or in a cloud.
+{% data reusables.github-actions.self-hosted-runner-description %} Los ejecutores auto-hospedados pueden ser físicos, virtuales, estar en un contenedor, en los servidores del usuario, o en la nube.
 
-You can add self-hosted runners at various levels in the management hierarchy:
-- Repository-level runners are dedicated to a single repository.
-- Organization-level runners can process jobs for multiple repositories in an organization.
-- Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
+Puedes agregar ejecutores auto-hospedados en varios niveles dentro de la jerarquía de administración:
+- Los ejecutores a nivel de repositorio están dedicados a un solo repositorio.
+- Los ejecutores a nivel de organización pueden procesar jobs para varios repositorios dentro de una organización.
+- Los ejecutores a nivel de empresa puede asignarse a varias organizaciones en una cuenta empresarial.
 
-Your runner machine connects to {% data variables.product.product_name %} using the {% data variables.product.prodname_actions %} self-hosted runner application. {% data reusables.github-actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+La máquina de tu ejecutor se conecta a{% data variables.product.product_name %} utilizando la aplicación para ejecutores auto-hospedados de {% data variables.product.prodname_actions %}. {% data reusables.github-actions.runner-app-open-source %} Cuando se lanza una nueva versión, la aplicación del ejecutor se actualiza automáticamente cuando se asigna un job al ejecutor, o dentro de una semana de lanzamiento si dicho ejecutor no se ha asignado a ningún job.
 
 {% data reusables.github-actions.self-hosted-runner-auto-removal %}
 
-For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+Para obtener más información acerca de la instalación y el uso de los ejecutores auto-alojados, consulta la sección "[Agregar ejecutores auto-alojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" y "[Usar ejecutores auto-alojados en un flujo de trabajo](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)".
 
-### Differences between {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners
+### Diferencias entre ejecutores alojados en {% data variables.product.prodname_dotcom %} y autoalojados
 
-{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted runners are a highly configurable way to run workflows in your own custom environment.
+Los ejecutores alojados en {% data variables.product.prodname_dotcom %} ofrecen una manera más rápida y sencilla de ejecutar tus flujos de trabajo, mientras que estos son una manera altamente configurable de ejecutar flujos de trabajo en tu propio entorno personalizado.
 
-**{% data variables.product.prodname_dotcom %}-hosted runners:**
-- Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
-- Are managed and maintained by {% data variables.product.prodname_dotcom %}.
-- Provide a clean instance for every job execution.
-- Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
+**Ejecutores alojados en {% data variables.product.prodname_dotcom %}:**
+- Reciben actualizaciones automáticas para el sistema operativo, paquetes y herramientas pre-instalados, y la aplicación del ejecutor auto-hospedado.
+- Son administrados y mantenidos por {% data variables.product.prodname_dotcom %}.
+- Proporcionan una instancia limpia para cada ejecución de trabajo.
+- Usan minutos libres en tu plan de {% data variables.product.prodname_dotcom %}, con tarifas por minuto aplicadas después de superar los minutos libres.
 
-**Self-hosted runners:**
-- Receive automatic updates for the self-hosted runner application only. You are responsible updating the operating system and all other software. 
-- Can use cloud services or local machines that you already pay for.
-- Are customizable to your hardware, operating system, software, and security requirements.
-- Don't need to have a clean instance for every job execution.
-- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.
+**Ejecutores auto-hospedados:**
+- Reciben actualizaciones automáticas únicamente para la aplicación del ejecutor auto-hospedado. Eres responsable de actualizar el sistema operativo y el resto del software.
+- Puedes usar los servicios en la nube o las máquinas locales que ya pagas.
+- Son personalizables para tu hardware, sistema operativo, software y requisitos de seguridad.
+- No es necesario tener una instancia limpia para cada ejecución de trabajo.
+- Son de uso gratuito con las {% data variables.product.prodname_actions %}, pero eres responsable del costo de mantener tus máquinas de ejecutores.
 
-### Requirements for self-hosted runner machines
+### Requisitos para máquinas de ejecutores autoalojados
 
-You can use any machine as a self-hosted runner as long at it meets these requirements:
+Puedes usar cualquier máquina como ejecutor autoalojado, siempre que cumpla con estos requisitos:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported operating systems for self-hosted runners](#supported-operating-systems-for-self-hosted-runners)."
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
-* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+* Puedes instalar y ejecutar la aplicación del ejecutor autoalojado en la máquina. Para obtener más información, consulta la sección "[Arquitecturas y sistemas operativos compatibles para ejecutores auto-hospedados](#supported-architectures-and-operating-systems-for-self-hosted-runners)".
+* La máquina puede comunicarse con {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[La comunicación entre ejecutores autoalojados y {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
+* La máquina tiene suficientes recursos de hardware para el tipo de flujos de trabajo que planeas ejecutar. La propia aplicación del ejecutor autoalojado solo requiere unos recursos mínimos.
+* Si quieres ejecutar flujos de trabajo que usan acciones del contenedor Docker o contenedores de servicio, debes usar una máquina Linux y Docker debe estar instalado.
 
-### Usage limits
+### Límites de uso
 
-There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
+Hay algunos límites para el uso de las {% data variables.product.prodname_actions %} cuando se utilizan ejecutores auto-hospedados. Estos límites están sujetos a cambios.
 
 {% data reusables.github-actions.usage-workflow-run-time %}
-- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+- **Tiempo de cola de espera para el job** - Cada job para ejecutores auto-hospedados puede ponerse en cola de espera por un máximo de 24 horas. Si un ejecutor auto-hospedado no comienza a ejecutar el job dentro de este límite de tiempo, dicho job se terminará y no se podrá completar.
 {% data reusables.github-actions.usage-api-requests %}
-- **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+- **Matiz de jobs** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### Supported architectures and operating systems for self-hosted runners
+### Continuidad de los flujos de trabajo para los ejecutores auto-hospedados
 
-The following operating systems are supported for the self-hosted runner application.
+{% data reusables.github-actions.runner-workflow-continuity %}
+
+### Sistemas operativos y arquitecturas compatibles para los ejecutores auto-hospedados
+
+Los siguientes sistemas operativos son compatibles con la aplicación del ejecutor auto-hospedado.
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 o superior
+- CentOS 7 o superior
 - Oracle Linux 7
-- Fedora 29 or later
-- Debian 9 or later
-- Ubuntu 16.04 or later
-- Linux Mint 18 or later
-- openSUSE 15 or later
-- SUSE Enterprise Linux (SLES) 12 SP2 or later
+- Fedora 29 o posterior
+- Debian 9 o posterior
+- Ubuntu 16.04 o posterior
+- Linux Mint 18 o posterior
+- openSUSE 15 o posterior
+- SUSE Enterprise Linux (SLES) 12 SP2 o posterior
 
 #### Windows
 
@@ -90,59 +98,73 @@ The following operating systems are supported for the self-hosted runner applica
 
 #### macOS
 
-- macOS 10.13 (High Sierra) or later
+- macOS 10.13 (High Sierra) o posterior
 
-#### Architectures
+#### Arquitecturas
 
-The following processor architectures are supported for the self-hosted runner application.
+Las siguientes arquitecturas de procesamiento son compatibles para la aplicación del ejecutor auto-hospedado.
 
 - `x64` - Linux, macOS, Windows.
-- `ARM64` - Linux only.
-- `ARM32` - Linux only.
+- `ARM64` - Solo Linux.
+- `ARM32` - Solo Linux.
 
 {% if enterpriseServerVersions contains currentVersion %}
 
-### Supported actions on self-hosted runners
+### La comunicación entre ejecutores autoalojados y {{ site.data.variables.product.prodname_dotcom }}
 
-Some extra configuration might be required to use actions from {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
+La máquina puede comunicarse con {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[La comunicación entre ejecutores autoalojados y {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)."
 
 {% endif %}
 
-### Communication between self-hosted runners and {% data variables.product.product_name %}
+### La comunicación entre ejecutores autoalojados y {% data variables.product.product_name %}
 
-The self-hosted runner polls {% data variables.product.product_name %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
+El ejecutor auto-hospedado sondea a {% data variables.product.product_name %} para solicitar actualizaciones de aplicaciones y para revisar si hay jobs en cola para su procesamiento. El ejecutor auto-hospedado utiliza un _sondeo largo_ de HTTPS que abre una conexión a {% data variables.product.product_name %} por 50 segundos, y si no recibe respuesta alguna, expira y crea un nuevo sondeo largo. La aplicación debe estar ejecutándose en la máquina para aceptar y ejecutar jobs de {% data variables.product.prodname_actions %}.
+
+{% if currentVersion == "github-ae@latest" %}
+Debes asegurarte de que el ejecutor auto-hospedado tenga un acceso adecuado a la red para comunicarse con la
+URL de {% data variables.product.prodname_ghe_managed %}.
+Por ejemplo, si el nombre de tu instancia es `octoghae`, entonces necesitarás permitir que el ejecutor auto-hospedado acceda a `octoghae.github.com`.
+Si utilizas una lista blanca para las direcciones IP para tu
+
+cuenta empresarial u organizacional de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-.hospedado a dicha lista. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
+Debes asegurarte de que la máquina tiene el acceso a la red adecuado para comunicarte con las URL de {% data variables.product.prodname_dotcom %} listadas a continuación.
 
 ```
 github.com
 api.github.com
 *.actions.githubusercontent.com
 github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
 codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
 ```
 
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Si utilizas un listado de direcciones IP permitidas para tu cuenta organizacional o empresarial de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-hospedado a dicha lista. Para obtener más información, consulta "[Administrar las direcciones IP permitidas para tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" o "[Hacer cumplir los parámetros de seguridad en tu cuenta de empresa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 
-You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.
+Debes asegurarte de que la máquina tenga el acceso de red adecuado para comunicarse con {% data variables.product.product_location %}.
 
 {% endif %}
 
-You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+También puedes usar ejecutores autoalojados con un servidor proxy. Para obtener más información, consulta "[Usar un servidor proxy con ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
-### Self-hosted runner security with public repositories
+### Seguridad de ejecutores autoalojdados con repositorios públicos
 
 {% data reusables.github-actions.self-hosted-runner-security %}
 
-This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+Este no es un problema con los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, ya que cada uno de ellos siempre constituye una máquina virtual limpia y aislada, la cual se destruya al final de la ejecución del job.
 
-Untrusted workflows running on your self-hosted runner poses significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
+Los flujos de trabajo que no son de confianza y se ejecutan en tu ejecutor autoalojado plantean riesgos de seguridad considerables para tu máquina y entorno de red, en especial si tu máquina se mantiene en su entorno entre trabajos. Algunos de los riesgos incluyen:
 
-* Malicious programs running on the machine.
-* Escaping the machine's runner sandbox.
-* Exposing access to the machine's network environment.
-* Persisting unwanted or dangerous data on the machine.
+* Programas maliciosos que se ejecutan en la máquina.
+* Escapar del entorno Sandbox del ejecutor de la máquina.
+* Exponer el acceso al entorno de red de la máquina.
+* Mantener datos peligrosos o no deseados en la máquina.

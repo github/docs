@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 ### サポートされているカスタムドメイン
@@ -52,7 +52,7 @@ Apex ドメインは、`example.com` といったようにサブドメインを�
 
 Apex ドメインは、DNS プロバイダを通じて、`A`、`ALIAS`、`ANAME` レコードで設定されます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)」を参照してください。
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)」を参照してください。
 
 ### {% data variables.product.prodname_pages %} サイトが無効化された際にカスタムドメインを更新する
 

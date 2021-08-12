@@ -1,1 +1,1 @@
-1. Proofread your tier, then click **Publish _TYPE_ tier**. ![Publish monthly tier button](/assets/images/help/sponsors/publish-tier-button.png)
+1. 層の確認をしてから、**Publish _TYPE_ tier（種類層の公開）**をクリックしてください。 ![月額層の公開ボタン](/assets/images/help/sponsors/publish-tier-button.png)

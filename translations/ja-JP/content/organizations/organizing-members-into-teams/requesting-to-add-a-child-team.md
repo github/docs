@@ -1,6 +1,6 @@
 ---
 title: 子チームの追加をリクエストする
-intro: 'あなたがある Team でメンテナーの権限を有している場合は、Organization の階層内で既存の Team を自分の Team の下にネストするようリクエストできます。'
+intro: あなたがある Team でメンテナーの権限を有している場合は、Organization の階層内で既存の Team を自分の Team の下にネストするようリクエストできます。
 redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ある Team を子として追加するようにリクエストすると、その子チームのメンテナーにリクエストが送信されます。 子チームのメンテナーがリクエストを受諾すると、その子チームは Organization の階層内で親チームの下にネストされます。
@@ -19,8 +19,8 @@ topics:
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Team のリストで、子チームを追加する先の Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 5. Team ページの上部で、{% octicon "people" aria-label="The people icon" %} [**Teams**] をクリックします。 ![Team ページでの [Teams] タブ](/assets/images/help/teams/team-teams-tab.png)

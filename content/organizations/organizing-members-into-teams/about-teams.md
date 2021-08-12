@@ -5,12 +5,12 @@ redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
@@ -24,7 +24,7 @@ For more information, see:
 
 ![Image of a team mention](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 You can also use LDAP Sync to synchronize {% data variables.product.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
@@ -32,11 +32,11 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 {% data reusables.organizations.team-synchronization %}
 
-### Team visibility
+## Team visibility
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### Team pages
+## Team pages
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
 
@@ -44,7 +44,7 @@ Organization members can create and participate in discussions with the team. Fo
 
 ![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### Nested teams
+## Nested teams
 
 You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
 
@@ -62,7 +62,7 @@ You can choose a parent when you create the team, or you can move a team in your
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### Preparing to nest teams in your organization
+## Preparing to nest teams in your organization
 
 If your organization already has existing teams, you should audit each team's repository access permissions before you nest teams above or below it. You should also consider the new structure you'd like to implement for your organization.
 
@@ -73,7 +73,7 @@ At the top of the team hierarchy, you should give parent teams repository access
 3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
 4. Add people directly to teams
 
-### Further reading
+## Further reading
 
 - "[Creating a team](/articles/creating-a-team)"
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

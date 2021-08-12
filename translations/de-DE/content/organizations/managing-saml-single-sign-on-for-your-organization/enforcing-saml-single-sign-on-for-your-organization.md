@@ -1,6 +1,6 @@
 ---
 title: SAML Single Sign-On für Deine Organisation erzwingen
-intro: Inhaber und Administratoren von Organisationen können SAML SSO erzwingen, sodass sich alle Organisationsmitglieder über einen Identitätsanbieter (IdP) authentifizieren müssen.
+intro: 'Inhaber und Administratoren von Organisationen können SAML SSO erzwingen, sodass sich alle Organisationsmitglieder über einen Identitätsanbieter (IdP) authentifizieren müssen.'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Du SAML SSO in Deiner Organisation erzwingst, werden alle Mitglieder einschließlich Administratoren, die sich nicht über Deinen SAML-Identitätsanbieter (IdP) authentifiziert haben, aus der Organisation entfernt und über diese Entfernung benachrichtigt. Bots und Dienstkonten, für die beim IdP Deiner Organisation keine externen Identitäten eingerichtet sind, werden ebenfalls entfernt. Weitere Informationen zu Bots und Dienstkonten findest Du unter „[Bots und Dienstkonten mit SAML Single Sign-On verwalten](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)“. Du kannst Organisationsmitglieder wiederherstellen, sobald sie sich erfolgreich mit Single Sign-On angemeldet haben.

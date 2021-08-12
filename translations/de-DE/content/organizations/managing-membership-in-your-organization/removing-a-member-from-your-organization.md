@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Nur Organisationsinhaber können Mitglieder aus einer Organisation entfernen.
@@ -48,8 +48,8 @@ Um einer Person, die Deine Organisation verlässt, den Umstieg zu erleichtern un
 
 ### Einem Benutzer die Mitgliedschaft entziehen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Wähle das oder die Mitglieder aus, die Du aus Deiner Organisation entfernen möchtest. ![Liste der Mitglieder mit zwei ausgewählten Mitgliedern](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Klicke im Dropdownmenü über der Mitgliederliste auf **Remove from organization** (Aus Organisation entfernen). ![Dropdownmenü mit Option zum Entfernen von Mitgliedern](/assets/images/help/teams/user-bulk-management-options.png)

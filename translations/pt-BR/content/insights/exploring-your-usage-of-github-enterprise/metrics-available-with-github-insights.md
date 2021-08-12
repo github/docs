@@ -1,6 +1,5 @@
 ---
 title: Métricas disponíveis com o GitHub Insights
-product: '{% data reusables.gated-features.github-insights %}'
 intro: '{% data variables.product.prodname_insights %} inclui uma variedade de métricas para dar visibilidade no processo de entrega de software da sua equipe.'
 redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights

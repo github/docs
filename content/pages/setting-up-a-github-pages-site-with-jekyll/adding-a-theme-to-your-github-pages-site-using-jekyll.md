@@ -8,18 +8,19 @@ redirect_from:
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - pages
+  - Pages
+shortTitle: Add theme to Pages site
 ---
 
 People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.
 
 {% data reusables.pages.test-locally %}
 
-### Adding a theme
+## Adding a theme
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -35,7 +36,7 @@ People with write permissions for a repository can add a theme to a {% data vari
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Customizing your theme's CSS
+## Customizing your theme's CSS
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -53,7 +54,7 @@ People with write permissions for a repository can add a theme to a {% data vari
   ```
 3. Add any custom CSS or Sass (including imports) you'd like immediately after the `@import` line.
 
-### Customizing your theme's HTML layout
+## Customizing your theme's HTML layout
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -68,6 +69,6 @@ People with write permissions for a repository can add a theme to a {% data vari
 7. Paste the default layout content you copied earlier.
 8. Customize the layout as you'd like.
 
-### Further reading
+## Further reading
 
 - "[Creating new files](/articles/creating-new-files)"

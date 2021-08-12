@@ -10,13 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-permissions %}Para obtener más información, consulta "[Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Escribe un título para el debate del equipo y agrega un comentario para iniciar una conversación. ![Nuevo comentario de los debates del equipo](/assets/images/help/projects/team-discussions-comment.png)

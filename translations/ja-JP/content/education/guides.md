@@ -21,6 +21,7 @@ versions:
 
 - [{% data variables.product.prodname_classroom %}のセットアップの基本 ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms)
+- [Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
 - [個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
 - [グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
 - [テンプレートリポジトリからの課題の作成](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)

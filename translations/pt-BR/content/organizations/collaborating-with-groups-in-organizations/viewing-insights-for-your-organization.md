@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Todos os integrantes de uma organização podem exibir informações da organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
@@ -26,8 +26,8 @@ Você pode usar informações de atividade da organização para entender melhor
 
 Com as informações de atividade da organização, é possível exibir visualizações de dados semanais, mensais e anuais de toda a organização ou de repositórios específicos, como atividade de pull requests e problemas, principais linguagens usadas e dados cumulativos sobre onde os integrantes da organização passam o tempo.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. No nome da organização, clique em {% octicon "graph" aria-label="The bar graph icon" %} **Insights** (Informações). ![Clique na guia Insights (Informações) da organização](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Como alternativa, no canto superior direito da página, opte por exibir dados do período de **1 semana**, **1 mês** ou **1 ano** mais recente. ![Escolha o período para visualizar informações da organização](/assets/images/help/organizations/org-insights-time-period.png)
 5. Ou, no canto superior direito da página, opte por exibir dados de até três repositórios e clique em **Apply** (Aplicar). ![Escolha os repositórios para visualizar informações da organização](/assets/images/help/organizations/org-insights-repos.png)
@@ -35,8 +35,8 @@ Com as informações de atividade da organização, é possível exibir visualiz
 ### Exibir informações de dependência da organização
 Com as informações de dependência, é possível visualizar vulnerabilidades, licenças e outras informações importantes dos projetos de código aberto dos quais a sua organização depende.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. No nome da organização, clique em {% octicon "graph" aria-label="The bar graph icon" %} **Insights** (Informações). ![Guia Insights (Informações) na principal barra de navegação da organização](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Clique em **Dependencies** (Dependências) para exibir as que pertencem a esta organização. ![Guia Dependencies (Dependências) na principal barra de navegação da organização](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. Para exibir informações de dependência para todas as suas organizações do {% data variables.product.prodname_ghe_cloud %}, clique em **My organizations** (Minhas organizações). ![Botão My organizations (Minhas organizações) na guia Dependencies (Dependências)](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)

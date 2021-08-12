@@ -1,0 +1,26 @@
+---
+date: '2020-10-09'
+sections:
+  security_fixes:
+    - 'LDAPディレクトリのユーザ名を標準化すると既存のGHESアカウントのログインになってしまうユーザが、その既存のアカウントとして認証されることがありました。{% comment %} https://github.com/github/github/pull/156518, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/22910, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+  bugs:
+    - '管理コンソールのNameID Fortmatドロップダウンが、"persistent"に設定された後に"unspecified"にリセットされます。{% comment %} https://github.com/github/enterprise2/pull/22403, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}'
+    - '[管理コンソール](/admin/configuration/accessing-the-management-console) での設定の保存によって、[TLS/SSLの証明書及びキー](/admin/configuration/configuring-tls)ファイルに改行を追加してしまい、不必要に再ロードされるサービスが生じました。{% comment %} https://github.com/github/enterprise2/pull/22607, https://github.com/github/enterprise2/pull/22540 {% endcomment %}'
+    - '依存関係グラフのシステムログがローテートされず、無制限にストレージを消費できてしまいました。{% comment %} https://github.com/github/enterprise2/pull/22765, https://github.com/github/enterprise2/pull/22733 {% endcomment %}'
+    - 'GitHubセキュリティアドバイザリへのリンクが、GitHub.comではなくGitHub Enterprise Serverインスタンスのホスト名を持つURLを使い、ユーザを存在しないURLにアクセスさせました。{% comment %} https://github.com/github/github/pull/153444, https://github.com/github/github/pull/151301 {% endcomment %}'
+    - '`ghe-migrator`でリポジトリをインポートする際に、不整合なデータが存在していると、予期しない例外が生じることがありました。{% comment %} https://github.com/github/github/pull/153848, https://github.com/github/github/pull/151552 {% endcomment %}'
+    - '`ghe-migrator`を使ってPRレビューリクエストをインポートする際に、削除されたユーザに関連付けられたレコードによって関係性を持たないデータベースレコードが残ります。{% comment %} https://github.com/github/github/pull/154958, https://github.com/github/github/pull/153169 {% endcomment %}'
+    - '`ghe-migrator`でユーザをインポートする際に、システムによって生成されたメールアドレスが100文字以上の長さになっていると、"Emails is invalid"エラーが生じます。{% comment %} https://github.com/github/github/pull/155112, https://github.com/github/github/pull/152418 {% endcomment %}'
+    - 'webhookのアクティビティのログが大量のディスク領域を使い、ルートディスクが一杯になってしまいます。{% comment %} https://github.com/github/github/pull/155655, https://github.com/github/github/pull/154100 {% endcomment %}'
+  changes:
+    - 'AWS EC2のインスタンスタイプ`m5.16xlarge`のサポートが追加されました。{% comment %} https://github.com/github/enterprise2/pull/22500, https://github.com/github/enterprise2/pull/22473 {% endcomment %}'
+    - '`ghe-migrator`アーカイブのSSHフィンガープリントはいつでも計算できるので、必須ではなくなりました。{% comment %} https://github.com/github/github/pull/156944, https://github.com/github/github/pull/155387 {% endcomment %}'
+    - 'GitHub Appマニフェストに`request_oauth_on_install`フィールドが含まれるようになりました。{% comment %} https://github.com/github/github/pull/156996, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'

@@ -10,10 +10,11 @@ redirect_from:
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
-  - comunidad
+  - Community
 ---
 
-Para ayudar a los colaboradores de tu proyecto a realizar un buen trabajo, puedes agregar un archivo con las pautas de colaboración a la raíz del repositorio de tu proyecto, carpeta `docs`, o `.github`. Cuando alguien abre una solicitud de extracción o crea una propuesta, verán un enlace a ese archivo.
+### Acerca de los lineamientos de contribución
+Para ayudar a los colaboradores de tu proyecto a realizar un buen trabajo, puedes agregar un archivo con las pautas de colaboración a la raíz del repositorio de tu proyecto, carpeta `docs`, o `.github`. Cuando alguien abre una solicitud de extracción o crea una propuesta, verán un enlace a ese archivo. El enlace a los lineamientos de contribución también aparece en la página de `contribute` de tu repositorio. Para encontrar un ejemplo de página de `contribute`, consulta [github/docs/contribute](https://github.com/github/docs/contribute).
 
 ![contributing-guidelines](/assets/images/help/pull_requests/contributing-guidelines.png)
 
@@ -39,9 +40,10 @@ Puedes crear lineamientos de colaboración predeterminados para tu cuenta de org
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. Decide si almacenar tus pautas de contribución en la raíz de tu repositorio, el directorio `docs`, o el directorio `.github`. Después, en el campo nombre de archivo, escribe el nombre y la extensión del archivo. Los nombres de archivos de las pautas de contribución no distinguen entre mayúsculas y minúsculas y pueden tener una extensión *.md* o *.txt*. ![Nombre del nuevo archivo](/assets/images/help/repository/new-file-name.png)
+3. Decide si almacenar tus pautas de contribución en la raíz de tu repositorio, el directorio `docs`, o el directorio `.github`. Después, en el campo nombre de archivo, escribe el nombre y la extensión del archivo. Los nombres de archivo de los lineamientos de contribución no distinguen entre mayúsculas y minúsculas. Los archivos se interpretan en formato de texto rico si la extensión de archivo se encuentra en un formato compatible. Para obtener más información, consulta la sección "[Interpretar las diferencias en los documentos en prosa](/github/managing-files-in-a-repository/rendering-differences-in-prose-documents)". ![Nombre del nuevo archivo](/assets/images/help/repository/new-file-name.png)
     - Para hacer visibles tus pautas de contribución en el directorio raíz del repositorio, escribe *CONTRIBUTING*.
     - Para hacer visibles tus pautas de contribución en el directorio `docs` del repositorio, escribe *docs/* para crear el nuevo directorio, y luego *CONTRIBUTING*.
+    - Si un repositorio contiene más de un archivo de *CONTRIBUCIÓN*, entonces el archivo que se muestra en los enlaces se elige de las ubicaciones en el siguiente orden: el directorio `.github`, luego el directorio raíz del repositorio y finalmente el directorio `docs`.
 4. En el nuevo archivo, agrega las pautas de contribución. Pueden incluir:
     - Pasos para crear buenas propuestas o solicitudes de extracción.
     - Enlaces a la documentación externa, listas de correos o un código de conducta.

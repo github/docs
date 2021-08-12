@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre a autenticação de dois fatores para organizações
@@ -42,9 +42,8 @@ Antes de exigir o uso da autenticação de dois fatores, recomendamos notificar 
 
 ### Exigir autenticação de dois fatores em sua organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
@@ -58,8 +57,8 @@ Para exibir as pessoas que foram removidas automaticamente da organização por 
 
 ![Evento do log de auditoria mostrando um usuário removido por motivo de não conformidade com a 2FA](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Faça a pesquisa. Para pesquisar:
     - Integrantes da organização removidos, use `action:org.remove_member` na pesquisa

@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - webhooks
+  - Webhooks
 ---
 
 
@@ -61,7 +61,7 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 #### Ejemplo de entrega
 
 ```shell
-> POST /payload HTTP/1.1
+> POST /payload HTTP/2
 
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
@@ -200,7 +200,9 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 
 Los eventos de webhook se desencadenan basándose en la especificidad del dominio que registres. Por ejemplo, si registras un subdominio (`https://subdomain.example.com`), entonces la única URL para el subdominio activarán este evento. Si registras un dominio (`https://example.com`) entonces las URL para el dominio y todos sus subdominios activarán este evento. Consulta la sección "[Crear un adjunto de contenido](/rest/reference/apps#create-a-content-attachment)" para crear un nuevo adjunto de contenido.
 
-Solo las {% data variables.product.prodname_github_app %}s podrán recibir este evento. Las {% data variables.product.prodname_github_app %}s deben tener el permiso `content_references` `write` para suscribirse a este evento.
+#### Disponibilidad
+
+- {% data variables.product.prodname_github_app %}s con el permiso `content_references:write`
 
 #### Ejemplo de carga útil del webhook
 
@@ -343,18 +345,18 @@ Solo las {% data variables.product.prodname_github_app %}s podrán recibir este 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
 #### Disponibilidad
 
 - Webhooks de repositorio
 - Webhooks de organización
-- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+- Las {% data variables.product.prodname_github_app %}s con el permiso de `discussions`
 
 #### Objeto de carga útil del webhook
 
-| Clave    | Type        | Descripción                                                                                                                                                             |
-| -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Acción` | `secuencia` | La acción realizada. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`. |
+| Clave    | Type        | Descripción                                                                                                                                                               |
+| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Acción` | `secuencia` | La acción realizada. Puede ser `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, o `unanswered`. |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -368,20 +370,20 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 #### Disponibilidad
 
 - Webhooks de repositorio
 - Webhooks de organización
-- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+- Las {% data variables.product.prodname_github_app %}s con el permiso de `discussions`
 
 #### Objeto de carga útil del webhook
 
-| Clave        | Type        | Descripción                                                                                                   |
-| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------- |
-| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                              |
-| `comentario` | `objeto`    | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource. |
+| Clave        | Type        | Descripción                                                                                                    |
+| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------- |
+| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                               |
+| `comentario` | `objeto`    | El recurso de [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -485,7 +487,7 @@ Este evento ocurre cuando alguien revoca su autorización de una {% data variabl
 
 {% note %}
 
-**Nota:** No recibirás un webhook para este evento cuando cargues más de tres etiquetas al mismo tiempo.
+**Nota:** Este evento reemplaza al evento obsoletizado de `integration_installation`.
 
 {% endnote %}
 
@@ -509,7 +511,7 @@ Este evento ocurre cuando alguien revoca su autorización de una {% data variabl
 
 {% note %}
 
-`repository` cuando el evento ocurre desde una actividad en un repositorio.
+**Nota:** Este evento remplaza al evento obsoletizado de `integration_installation_repositories`.
 
 {% endnote %}
 
@@ -1010,12 +1012,6 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 {% endnote %}
 
-{% tip %}
-
-**Nota**: El ejemplo de la carga útil del webhook siguiendo la tabla difiere significativamente de la carga útil de la API de Eventos descrita en la misma. Entre otras diferencias, la carga útil del webhook incluye ambos objetos, `sender` y `pusher`. El remitente y cargador son el mismo usuario que inició el evento `push`, pero el objeto `sender` contiene más detalles.
-
-{% endtip %}
-
 #### Disponibilidad
 
 - Webhooks de repositorio
@@ -1206,7 +1202,7 @@ Actividad relacionada con una asesoría de seguridad. Una asesoría de seguridad
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Configurar webhooks para eventos en tu cuenta patrocinada](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
+Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Configurar webhooks para eventos en tu cuenta patrocinada](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
 
 #### Disponibilidad
 

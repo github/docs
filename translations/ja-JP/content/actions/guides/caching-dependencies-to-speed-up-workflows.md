@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -59,7 +59,16 @@ topics:
 
 - `key`: **必須** このキーはキャッシュの保存時に作成され、キャッシュの検索に使われます。 変数、コンテキスト値、静的な文字列、関数の任意の組み合わせが使えます。 キーの長さは最大で512文字であり、キーが最大長よりも長いとアクションは失敗します。
 - `path`: **必須** ランナーがキャッシュあるいはリストアをするファイルパス。 このパスは、絶対パスでも、ワーキングディレクトリからの相対パスでもかまいません。
-  - `cache` アクションの `v2` では、単一のパスまたは複数のパスをリストとして指定できます。 パスはディレクトリまたは単一ファイルのいずれかで、glob パターンがサポートされています。
+  - パスはディレクトリまたは単一ファイルのいずれかで、glob パターンがサポートされています。
+  - `cache` アクションの `v2` では、単一のパスを指定することも、別々の行に複数のパスを追加することもできます。 例:
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - `cache` アクションの `v1` では、単一のパスのみがサポートされ、かつそれがディレクトリである必要があります。 単一のファイルをキャッシュすることはできません。
 - `restore-keys`: **オプション** `key`に対するキャッシュヒットがなかった場合にキャッシュを見つけるために使われる代理キーの順序付きリスト。
 
@@ -82,30 +91,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # npm キャッシュファイルは Linux/macOS の「~/.npm」に保存される
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm キャッシュファイルは Linux/macOS の `~/.npm` に保存される
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build
-      run: npm build
+      - name: Build
+        run: npm build
 
-    - name: Test
-      run: npm test
-
+      - name: Test
+        run: npm test
 ```
 {% endraw %}
 

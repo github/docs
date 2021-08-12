@@ -8,13 +8,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - repositories
+  - Secret scanning
+  - Advanced Security
+  - Alerts
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
 
-### Gerenciando alertas
+### Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -49,3 +53,11 @@ Uma vez que um segredo tenha sido committed a um repositório, você deve consid
 
 - Para um token de acesso pessoal do {% data variables.product.prodname_dotcom %}, exclua o token comprometido, crie outro token e atualize os serviços que usam o token antigo. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos os outros segredos, primeiro, verifique se o segredo commited para {% data variables.product.product_name %} é válido. Se sim, crie um novo segredo, atualize quaisquer serviços que utilizam o segredo antigo, e depois exclua o segredo antigo.
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Configurando notificações para alertas de {% data variables.product.prodname_secret_scanning %}
+
+Quando um novo segredo é detectado, {% data variables.product.prodname_dotcom %} notifica todos os usuários com acesso a alertas de segurança para o repositório, de acordo com suas preferências de notificação. Você receberá alertas se estiver acompanhando o repositório, tiver ativado notificações para alertas de segurança, ou o autor do commit que contém o segredo e não estiver ignorando o repositório.
+
+Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" e "[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
+{% endif %}

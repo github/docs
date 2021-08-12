@@ -15,9 +15,9 @@ redirect_from:
   - /actions/publishing-packages-with-github-actions
   - /actions/building-and-testing-code-with-continuous-integration
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
 learningTracks:
   - getting_started
   - continuous_integration
@@ -42,7 +42,9 @@ includeGuides:
   - /actions/guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-ant
+  - /actions/guide/building-and-testing-swift
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /actions/guides/building-and-testing-xamarin-applications
   - /actions/guides/publishing-nodejs-packages
   - /actions/guides/publishing-java-packages-with-maven
   - /actions/guides/publishing-java-packages-with-gradle
@@ -71,38 +73,42 @@ includeGuides:
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /actions/guides/managing-github-actions-with-github-cli
-
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
+children:
+  - /about-continuous-integration
+  - /setting-up-continuous-integration-using-workflow-templates
+  - /building-and-testing-nodejs
+  - /building-and-testing-net
+  - /building-and-testing-powershell
+  - /building-and-testing-python
+  - /building-and-testing-ruby
+  - /building-and-testing-java-with-maven
+  - /building-and-testing-java-with-gradle
+  - /building-and-testing-java-with-ant
+  - /building-and-testing-swift
+  - /installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /building-and-testing-xamarin-applications
+  - /about-packaging-with-github-actions
+  - /publishing-nodejs-packages
+  - /publishing-java-packages-with-maven
+  - /publishing-java-packages-with-gradle
+  - /publishing-docker-images
+  - /storing-workflow-data-as-artifacts
+  - /caching-dependencies-to-speed-up-workflows
+  - /about-service-containers
+  - /creating-redis-service-containers
+  - /creating-postgresql-service-containers
+  - /deploying-to-amazon-elastic-container-service
+  - /deploying-to-azure-app-service
+  - /deploying-to-google-kubernetes-engine
+  - /using-github-actions-for-project-management
+  - /closing-inactive-issues
+  - /scheduling-issue-creation
+  - /adding-labels-to-issues
+  - /commenting-on-an-issue-when-a-label-is-added
+  - /moving-assigned-issues-on-project-boards
+  - /removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /managing-github-actions-with-github-cli
 ---
-<!-- {% link_in_list /about-continuous-integration %} -->
-<!-- {% link_in_list /setting-up-continuous-integration-using-workflow-templates %} -->
-<!-- {% link_in_list /building-and-testing-nodejs %} -->
-<!-- {% link_in_list /building-and-testing-net %} -->
-<!-- {% link_in_list /building-and-testing-powershell %} -->
-<!-- {% link_in_list /building-and-testing-python %} -->
-<!-- {% link_in_list /building-and-testing-ruby %} -->
-<!-- {% link_in_list /building-and-testing-java-with-maven %} -->
-<!-- {% link_in_list /building-and-testing-java-with-gradle %} -->
-<!-- {% link_in_list /building-and-testing-java-with-ant %} -->
-<!-- {% link_in_list /installing-an-apple-certificate-on-macos-runners-for-xcode-development %} -->
-<!-- {% link_in_list /about-packaging-with-github-actions %} -->
-<!-- {% link_in_list /publishing-nodejs-packages %} -->
-<!-- {% link_in_list /publishing-java-packages-with-maven %} -->
-<!-- {% link_in_list /publishing-java-packages-with-gradle %} -->
-<!-- {% link_in_list /publishing-docker-images %} -->
-<!-- {% link_in_list /storing-workflow-data-as-artifacts %} -->
-<!-- {% link_in_list /caching-dependencies-to-speed-up-workflows %} -->
-<!-- {% link_in_list /about-service-containers %} -->
-<!-- {% link_in_list /creating-redis-service-containers %} -->
-<!-- {% link_in_list /creating-postgresql-service-containers %} -->
-<!-- {% link_in_list /deploying-to-amazon-elastic-container-service %} -->
-<!-- {% link_in_list /deploying-to-azure-app-service %} -->
-<!-- {% link_in_list /deploying-to-google-kubernetes-engine %} -->
-<!-- {% link_in_list /deploying-to-google-kubernetes-engine %} -->
-<!-- {% link_in_list /using-github-actions-for-project-management %} -->
-<!-- {% link_in_list /closing-inactive-issues %} -->
-<!-- {% link_in_list /scheduling-issue-creation %} -->
-<!-- {% link_in_list /adding-labels-to-issues %} -->
-<!-- {% link_in_list /commenting-on-an-issue-when-a-label-is-added %} -->
-<!-- {% link_in_list /moving-assigned-issues-on-project-boards %} -->
-<!-- {% link_in_list /removing-a-label-when-a-card-is-added-to-a-project-board-column %} -->
-<!-- {% link_in_list /managing-github-actions-with-github-cli %} -->
+

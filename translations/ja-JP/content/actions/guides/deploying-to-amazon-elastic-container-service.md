@@ -9,7 +9,7 @@ versions:
 type: tutorial
 topics:
   - CD
-  - コンテナ
+  - Containers
   - Amazon ECS
 ---
 
@@ -71,7 +71,6 @@ topics:
 
 ワークフローの`env`キー内のすべての変数について、自分の値を渡すようにしてください。
 
-{% raw %}
 ```yaml{:copy}
 name: Deploy to Amazon ECS
 
@@ -80,14 +79,14 @@ on:
     types: [ created ]
 
 env:
-  AWS_REGION: MY_AWS_REGION                   # これをお好みのAWSリージョンに設定します（us-west-1 など）
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           # これを Amazon ECR リポジトリ名に設定します
-  ECS_SERVICE: MY_ECS_SERVICE                 # これを Amazon ECS サービス名に設定します
-  ECS_CLUSTER: MY_ECS_CLUSTER                 # これを Amazon ECS クラスタ名に設定します
-  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # これを Amazon ECS タスク定義へのパスに設定します
-                                               # ファイル（aws/task-definition.json など）
-  CONTAINER_NAME: MY_CONTAINER_NAME           # これをコンテナの名前に設定します
-                                               # タスク定義の containerDefinitions セクション
+  AWS_REGION: MY_AWS_REGION                   # これをお好みの AWS リージョンに設定する (us-west-1 など)
+  ECR_REPOSITORY: MY_ECR_REPOSITORY           # これを Amazon ECR リポジトリ名に設定する
+  ECS_SERVICE: MY_ECS_SERVICE                 # これを Amazon ECS サービス名に設定する
+  ECS_CLUSTER: MY_ECS_CLUSTER                 # これを Amazon ECS クラスタ名に設定する
+  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # これを Amazon ECS タスク定義へのパスに設定する
+                                               # ファイル (.aws/task-definition.json など)
+  CONTAINER_NAME: MY_CONTAINER_NAME           # これをタスク定義の containerDefinitions セクションで
+                                               # コンテナの名前に設定する
 
 defaults:
   run:
@@ -96,9 +95,12 @@ defaults:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
+    {% raw %}steps:
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -120,8 +122,8 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Docker コンテナを作成し
-          # CR にプッシュして
-          # ECS にデプロイできるようにします。
+          # ECR にプッシュして
+          # ECS にデプロイできるようにする。
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
@@ -140,9 +142,9 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
-          wait-for-service-stability: true
+          wait-for-service-stability: true{% endraw %}
 ```
-{% endraw %}
+
 
 ### 追加リソース
 

@@ -1,6 +1,6 @@
 ---
 title: 编辑或删除团队讨论
-intro: '组织成员可在编辑或删除团队页面上的讨论 如果您是组织成员，您可以编辑或删除讨论。'
+intro: 组织成员可在编辑或删除团队页面上的讨论 如果您是组织成员，您可以编辑或删除讨论。
 redirect_from:
   - /articles/editing-or-deleting-a-team-discussion
   - /github/building-a-strong-community/editing-or-deleting-a-team-discussion
@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. 单击要编辑或删除的团队讨论旁边的 {% octicon "kebab-horizontal" aria-label="The edit icon" %}。

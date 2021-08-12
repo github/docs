@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
-permissions: 对仓库具有管理员权限的人可以临时限制该仓库中的交互。
+permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
-  - 社区
+  - Community
 ---
 
 ### 关于临时交互限制

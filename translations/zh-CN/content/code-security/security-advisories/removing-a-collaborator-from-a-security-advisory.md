@@ -1,12 +1,15 @@
 ---
 title: 从安全通告删除协作者
-intro: '协作者从安全通告中删除后，将失去对安全通告的讨论和元数据的读取和写入权限。'
+intro: 协作者从安全通告中删除后，将失去对安全通告的讨论和元数据的读取和写入权限。
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - 安全
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
 ---
 
 对安全通告具有管理员权限的人员可从安全通告删除协作者。

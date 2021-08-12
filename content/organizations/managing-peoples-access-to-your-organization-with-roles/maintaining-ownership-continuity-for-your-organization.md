@@ -9,15 +9,16 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Maintain ownership continuity
 ---
 
-### About maintaining ownership continuity for your organization
+## About maintaining ownership continuity for your organization
 
 {% data reusables.organizations.org-ownership-recommendation %}
 
@@ -29,10 +30,10 @@ Organization owners have full administrative access to the organization. {% data
 
 {% endnote %}
 
-### Appointing an organization owner
+## Appointing an organization owner
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Select the person or people you'd like to promote to owner.
   ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)

@@ -10,13 +10,12 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. En la barra lateral izquierda, haz clic en **Installed {% data variables.product.prodname_github_app %}s** ({% data variables.product.prodname_github_app %}s instaladas). ![Pestaña de {% data variables.product.prodname_github_app %}s instaladas en la barra lateral de parámetros de la organización](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. Al lado de la {% data variables.product.prodname_github_app %} que quieras revisar, haz clic en **Configure** (Configurar). ![Botón Configure (Configurar)](/assets/images/help/organizations/configure-installed-integration-button.png)
 6. Revisa el acceso al repositorio y los permisos de {% data variables.product.prodname_github_app %}. ![Opción para darle acceso a {% data variables.product.prodname_github_app %} a todos los repositorios o a repositorios específicos](/assets/images/help/organizations/toggle-integration-repo-access.png)

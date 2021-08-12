@@ -1,7 +1,7 @@
 ---
 title: 邀请用户参加您的组织
 intro: '您可以使用任何人的 {% data variables.product.product_name %} 用户名或电子邮件地址邀请其成为组织的成员。'
-permissions: 组织所有者可以邀请用户加入组织。
+permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
   - /articles/inviting-users-to-join-your-organization
@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -21,8 +21,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

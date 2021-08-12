@@ -6,19 +6,19 @@ redirect_from:
   - /articles/reviewing-your-organizations-installed-integrations
   - /github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: Review installed integrations
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-4. In the left sidebar, click **Installed {% data variables.product.prodname_github_app %}s**.
-  ![Installed {% data variables.product.prodname_github_app %}s tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
+{% data reusables.profile.org_settings %}
+4. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**.
+  ![Installed {% data variables.product.prodname_github_apps %} tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. Next to the {% data variables.product.prodname_github_app %} you'd like to review, click **Configure**.
   ![Configure button](/assets/images/help/organizations/configure-installed-integration-button.png)
 6. Review the {% data variables.product.prodname_github_app %}'s permissions and repository access.

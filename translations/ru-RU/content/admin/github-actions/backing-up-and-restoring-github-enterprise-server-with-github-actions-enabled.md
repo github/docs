@@ -4,8 +4,12 @@ shortTitle: Backing up and restoring
 intro: '{% data variables.product.prodname_actions %} data on your external storage provider is not included in regular {% data variables.product.prodname_ghe_server %} backups, and must be backed up separately.'
 versions:
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - корпоративный
+  - Actions
+  - Backups
+  - Enterprise
+  - Infrastructure
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

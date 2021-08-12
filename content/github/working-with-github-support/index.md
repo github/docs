@@ -4,16 +4,15 @@ redirect_from:
   - /categories/working-with-github-support
   - /forum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - jobs
+  - Jobs
+children:
+  - /about-github-support
+  - /github-enterprise-cloud-support
+  - /about-github-premium-support-for-github-enterprise-cloud
+  - /github-marketplace-support
+  - /submitting-a-ticket
+shortTitle: GitHub Support
 ---
 
-
-### Table of Contents
-
-{% link_in_list /about-github-support %}
-{% link_in_list /github-enterprise-cloud-support %}
-{% link_in_list /about-github-premium-support-for-github-enterprise-cloud %}
-{% link_in_list /github-marketplace-support %}
-{% link_in_list /submitting-a-ticket %}

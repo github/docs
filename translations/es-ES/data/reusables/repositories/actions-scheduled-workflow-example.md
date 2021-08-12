@@ -6,6 +6,6 @@ Este ejemplo activa el flujo de trabajo diariamente a las 5:30 y 17:30 UTC:
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/30 5,17 * * *'
+    - cron:  '30 5,17 * * *'
 
 ```

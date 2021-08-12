@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -130,9 +130,8 @@ To create a Probot App, follow these steps:
 2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
 
    ``` yml
-
     default_events:
-    - content_reference
+      - content_reference
     # The set of permissions needed by the GitHub App. The format of the object uses
     # the permission name for the key (for example, issues) and the access type for
     # the value (for example, write).
@@ -141,10 +140,10 @@ To create a Probot App, follow these steps:
       content_references: write
 
     content_references:
-    - type: domain
-      value: errors.ai
-    - type: domain
-      value: example.org
+      - type: domain
+        value: errors.ai
+      - type: domain
+        value: example.org
    ```
 
 3. Add this code to the `index.js` file to handle `content_reference` events and call the REST API:

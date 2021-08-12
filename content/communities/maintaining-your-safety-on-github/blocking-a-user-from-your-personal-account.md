@@ -5,12 +5,13 @@ redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - community
+  - Community
+shortTitle: Block from your account
 ---
 
-### About blocking users
+## About blocking users
 
 You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
@@ -51,7 +52,7 @@ In repositories you own, blocked users also cannot:
 - Comment on issues, pull requests, or commits
 - Add or edit wiki pages
 
-### Blocking a user in your account settings
+## Blocking a user in your account settings
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.blocked_users %}
@@ -60,7 +61,7 @@ In repositories you own, blocked users also cannot:
 4. Optionally, to display a warning when you visit a repository where a blocked user is a contributor, select **Warn me when a blocked user is a prior contributor to a repository**.
   ![Warn about blocked users option](/assets/images/help/settings/warn-block-user.png)
 
-### Blocking a user from their profile page
+## Blocking a user from their profile page
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
@@ -73,7 +74,7 @@ Use {% data variables.contact.report_abuse %} to contact us if you're being hara
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[Viewing users you've blocked from your personal account](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
 - "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"

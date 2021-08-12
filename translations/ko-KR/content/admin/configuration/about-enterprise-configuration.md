@@ -4,8 +4,11 @@ intro: 'You can use the site admin dashboard{% if enterpriseServerVersions conta
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: overview
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Fundamentals
+  - SSH
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -18,9 +21,7 @@ topics:
 
 {% if currentVersion == "github-ae@latest" %}
 The first time you access your enterprise, you will complete an initial configuration to get
-{% data variables.product.product_name %} ready to use. The initial configuration includes connecting your enterprise with an idP, authenticating with SAML SSO, and configuring policies for repositories and organizations in your enterprise. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
-
-For users to receive any emails from {% data variables.product.product_name %} after the initial configuration, you must ask {% data variables.contact.github_support %} to configure outbound email support with your SMTP server. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)."
+{% data variables.product.product_name %} ready to use. The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
 
 Later, you can use the site admin dashboard and enterprise settings to further configure your enterprise, manage users, organizations and repositories, and set policies that reduce risk and increase quality.
 

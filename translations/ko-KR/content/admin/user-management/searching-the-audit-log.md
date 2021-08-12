@@ -8,8 +8,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Auditing
+  - Enterprise
+  - Logging
 ---
 
 ### Search query syntax

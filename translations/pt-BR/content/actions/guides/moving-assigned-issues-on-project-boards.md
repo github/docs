@@ -1,15 +1,15 @@
 ---
 title: Transferir problemas atribuídos em quadros de projeto
-intro: Você pode usar {% data variables.product.prodname_actions %} para transferir automaticamente um problema para uma coluna específica no quadro de um projeto quando o problema for atribuído.
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para transferir automaticamente um problema para uma coluna específica no quadro de um projeto quando o problema for atribuído.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
-  - 'Gerenciamento de projeto'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

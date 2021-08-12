@@ -1,10 +1,13 @@
 ---
 title: Release notes
-intro: 'The release notes for {{ allVersions[currentVersion].versionTitle }}.'
 layout: release-notes
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Upgrades
+redirect_from:
+  - /admin/overview/github-ae-release-notes
 ---
 

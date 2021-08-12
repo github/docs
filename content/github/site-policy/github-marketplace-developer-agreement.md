@@ -3,17 +3,17 @@ title: GitHub Marketplace Developer Agreement
 redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 **THESE TERMS AND CONDITIONS (THE "AGREEMENT") GOVERN YOUR PARTICIPATION IN GITHUB’S MARKETPLACE PROGRAM. BY ENROLLING TO PARTICIPATE IN THE MARKETPLACE PROGRAM OR BY CLICKING “I ACCEPT” BELOW, YOU ARE CONFIRMING THAT YOU UNDERSTAND THIS AGREEMENT, AND THAT YOU ACCEPT ALL OF ITS TERMS AND CONDITIONS.  IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE LEGAL AUTHORITY TO BIND THE ENTITY TO THIS AGREEMENT, IN WHICH CASE “YOU” WILL MEAN THE ENTITY YOU REPRESENT.**
 
 Effective Date: January 1, 2021
 
-### 1.	DEFINITIONS
+## 1.	DEFINITIONS
 
 Capitalized terms utilized in this Agreement and not defined herein shall have the meaning set forth in the GitHub Terms of Service located at [https://docs.github.com/articles/github-terms-of-service](/articles/github-terms-of-service) (the “Terms” or “ToS”).
 
@@ -37,7 +37,7 @@ Capitalized terms utilized in this Agreement and not defined herein shall have t
 
 “Usage Data” means Marketplace related data generated in connection with End User use of GitHub Marketplace and licensure of Developer Products, including but not limited to usage statistics and aggregated sales data. Usage Data does not include and specifically excludes banking and payment information.
 
-### 2.	PURPOSE AND LICENSE GRANT
+## 2.	PURPOSE AND LICENSE GRANT
 
 **2.1**	This Agreement sets forth the terms and conditions pursuant to which Developer may publish Listings on GitHub Marketplace for purchase of Developer Products by End Users and use in connection with GitHub.com.  This Agreement is applicable to Developer Products distributed for free and Developer Products for which End Users are charged a fee.  Developer agrees to use the GitHub Marketplace solely for purposes permitted by this Agreement or as otherwise allowed by applicable law.  As between GitHub and Developer, Developer is solely responsible for Developer Products.
 
@@ -51,7 +51,7 @@ Capitalized terms utilized in this Agreement and not defined herein shall have t
 
 **2.6**	Developer acknowledges and agrees that GitHub shall be entitled to provide Developer’s name, address and other contact details to any third party that reasonably, in GitHub’s sole determination, claims that Developer does not possess all of the necessary intellectual property rights in or to the Developer Products.
 
-### 3.	RESTRICTIONS AND RESPONSIBILITIES
+## 3.	RESTRICTIONS AND RESPONSIBILITIES
 
 Notwithstanding any of the requirements set forth in Section 2, Purpose and License Grant, above, Developer acknowledges and agrees that its use of the Marketplace and participation in the Program is explicitly conditioned on Developer’s adherence to this Agreement, including without limitation, the restrictions and compliance requirements set forth in this Section 3.
 
@@ -90,7 +90,7 @@ Notwithstanding any of the requirements set forth in Section 2, Purpose and Lice
 
 **3.8** Nothing in this Agreement shall prevent either party from developing and/or publishing applications that are similar or otherwise compete with the other party's applications.
 
-### 4.	TAKEDOWNS
+## 4.	TAKEDOWNS
 
 **4.1**	Your Takedowns. Upon providing GitHub with thirty (30) days written notice in advance of the 1st day of the succeeding calendar month, you may remove your Listings from future distribution via Marketplace, but you must comply with this Agreement for any Listing distributed through Marketplace, including but not limited to refund requirements. Removing your Listing from future distribution via Marketplace does not (a) affect the license rights of End Users who have previously purchased or installed your Listing or (b) change your obligation to deliver or support Listing that has been previously purchased or installed by users.
 
@@ -129,7 +129,7 @@ In the event that your Listing is involuntarily removed because it is defective,
 
 **4.4**	End-User Takedowns. If an End-User uses your Developer Product in a way that violates the Terms, then we have the right to suspend or terminate that End-User's access to the Developer Product without any liability to you.
 
-### 5.	REPRESENTATIONS, WARRANTIES AND COVENANTS
+## 5.	REPRESENTATIONS, WARRANTIES AND COVENANTS
 
 **5.1**	Developer represents and warrants that Developer has notified all users of such Developer Applications that their account data will be transmitted outside the Service and Developer terms will control the privacy, security or integrity of such account data. Developer further represents and warrants that to the extent Developer’s Applications store, process or transmit account data, neither Developer nor Developer’s Application will, without appropriate prior user consent or except to the extent required by applicable law,
 - (i) modify the content of account data in a manner that adversely affects the integrity of account data;
@@ -142,7 +142,7 @@ In the event that your Listing is involuntarily removed because it is defective,
 
 **5.4**	DISCLAIMER OF WARRANTIES. ALL ASPECTS OF THE MARKETPLACE AND THE GITHUB API, INCLUDING ALL SERVER AND NETWORK COMPONENTS ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS, WITHOUT ANY WARRANTIES OF ANY KIND TO THE FULLEST EXTENT PERMITTED BY LAW, AND GITHUB EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, TITLE, FITNESS FOR A PARTICULAR PURPOSE, AND NON- INFRINGEMENT.  DEVELOPER ACKNOWLEDGES THAT GITHUB DOES  NOT WARRANT  THAT THE MARKETPLACE OR GITHUB API WILL BE UNINTERRUPTED, TIMELY, SECURE, ERROR-FREE OR FREE FROM VIRUSES, MALWARE, OR WORMS (OTHERWISE KNOWN AS COMPUTER CODE OR OTHER TECHNOLOGY  SPECIFICALLY  DESIGNED  TO  DISRUPT, DISABLE, OR  HARM YOUR SOFTWARE, HARDWARE, COMPUTER SYSTEM, OR NETWORK), AND NO INFORMATION OR ADVICE OBTAINED BY DEVELOPER FROM GITHUB OR THROUGH THE MARKETPLACE OR GITHUB API SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THESE TERMS.  GITHUB IS NOT RESPONSIBLE FOR AND SPECIFICALLY DISCLAIMS ANY LIABILITY FOR ANY UNAUTHORIZED USE OF DEVELOPER PRODUCTS OUTSIDE THE MARKETPLACE.
 
-### 6.	PRICING AND PAYMENT TERMS
+## 6.	PRICING AND PAYMENT TERMS
 
 **6.1**	GitHub will be the merchant of record for Developer Products purchased by End Users via Marketplace.
 
@@ -152,19 +152,19 @@ In the event that your Listing is involuntarily removed because it is defective,
 
 **6.4**	You Support Your Developer Product. You will be solely responsible for support and maintenance of your Developer Products and any complaints about your Developer Products. Your support contact information will be displayed in each application detail page and made available to users for customer support purposes. Failure to provide adequate support for your Developer Products may result in less prominent product exposure, or in some cases removal from Marketplace or anywhere else on GitHub.com where previously purchased or downloaded Developer Products are stored on behalf of users.
 
-### 7.	OWNERSHIP
+## 7.	OWNERSHIP
 
 Subject to the limited licenses expressly provided in this Agreement, nothing in this Agreement transfers or assigns to a party any of the other party’s intellectual property rights in its Brand Features or other technology, and nothing in this Agreement transfers or assigns a party any of the other party’s intellectual property rights.
 
-### 8.	LIMITATION OF LIABILITY
+## 8.	LIMITATION OF LIABILITY
 
 UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY (WHETHER IN CONTRACT, TORT, NEGLIGENCE OR OTHERWISE) WILL GITHUB, OR ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR SUPPLIERS BE LIABLE TO DEVELOPER OR ANY THIRD PARTY UNDER THIS AGREEMENT FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, PUNITIVE OR OTHER SIMILAR DAMAGES, INCLUDING LOST PROFITS, LOST SALES OR BUSINESS, LOST DATA, BUSINESS INTERRUPTION OR ANY OTHER LOSS INCURRED BY DEVELOPER OR ANY THIRD PARTY IN CONNECTION WITH THIS AGREEMENT, REGARDLESS OF WHETHER DEVELOPER HAS BEEN ADVISED OF THE POSSIBILITY OF OR COULD HAVE FORESEEN SUCH DAMAGES NOTWITHSTANDING ANYTHING TO THE CONTRARY IN THIS AGREEMENT, GITHUB’S AGGREGATE LIABILITY TO DEVELOPER OR ANY THIRD PARTY ARISING OUT OF THIS AGREEMENT SHALL NOT EXCEED SIX (6) MONTHS’ SPEND.
 
-### 9.	INDEMNIFICATION
+## 9.	INDEMNIFICATION
 
 **9.1**	To the maximum extent permitted by applicable law, Developer agrees to defend, indemnify and hold harmless GitHub, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising from or relating to (a) Developer’s use of the Marketplace in violation of this Agreement, the Terms or any applicable laws or regulations; (b) Developer’s Products that infringe any copyright, trademark, trade secret, patent or other intellectual property right of any third party; (c) any loss or disclosure of data or personal information by Developer Products; and (d) Developer’s EULA (or ToS).
 
-### 10.	TERMINATION
+## 10.	TERMINATION
 
 **10.1**	This Agreement will continue to apply until terminated by either party as set forth below.
 
@@ -176,37 +176,37 @@ UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY (WHETHER IN CONTRACT, TORT, NEG
 
 **10.5**	The obligations in Sections 2, 3, 4, 5, 8, 9 and 12-18 will survive any expiration or termination of this Agreement.
 
-### 11.	MODIFICATION
+## 11.	MODIFICATION
 
 Developer acknowledges and agrees that GitHub may modify this Agreement, Marketplace, the GitHub API, the General API Policies, GitHub Privacy Policy, the GitHub Developer Program ToS, and the GitHub.com ToS from time to time (a “Modification”). All Modifications shall be communicated through Marketplace, the GitHub website at www.GitHub.com or through a form of direct communication from GitHub to Developer. Developer further acknowledges and agrees that such Modifications may be implemented at any time and without any notice to Developer. Developer shall, within forty-five (45) days from the date of first notice of any Modification(s) (or such shorter period of time specified in the notice of the Modification(s)) (the “Conformance Period”) comply with such modification(s) by implementing and using the most current version of the GitHub API in the most current version of the Developer Products and making any changes to Developer Products that may be required as a result of such Modification(s). Developer acknowledges that a Modification may have an adverse effect on Developer Products, including but not limited to changing the manner in which applications communicate with the GitHub API. GitHub shall have no liability of any kind to Developer or any End User with respect to such Modifications or any adverse effects resulting from such Modifications. Developer’s continued access to or use of Marketplace or the GitHub API following the Conformance Period shall constitute binding acceptance of the Modification(s) at issue.
 
-### 12.	ASSIGNMENT; ENTIRE AGREEMENT; REVISIONS
+## 12.	ASSIGNMENT; ENTIRE AGREEMENT; REVISIONS
 
 **12.1**	Developer may not, directly or indirectly, by operation of law or otherwise, assign all or any part of this Agreement or Developer’s rights under this Agreement or delegate performance of Developer’s duties under this Agreement without GitHub’s prior written consent.  The rights granted in this Agreement may be assigned or transferred by GitHub without Developer’s prior approval.  In addition, GitHub may delegate its responsibilities or obligations under this Agreement without Developer’s consent.
 
 **12.2**	This Agreement, together with the Terms, constitute the entire agreement between the parties with respect to the subject matter of this Agreement. GitHub’s failure to enforce at any time any provision of this Agreement does not constitute a waiver of that provision or of any other provision of this Agreement.
 
-### 13.	SEVERABILITY
+## 13.	SEVERABILITY
 
 If any provision in this Agreement is held by a court of competent jurisdiction to be unenforceable, such provision shall be modified by the court and interpreted so as to best accomplish the original provision to the fullest extent permitted by law, and the remaining provisions of this Agreement shall remain in effect.
 
-### 14. RELATIONSHIP OF THE PARTIES
+## 14. RELATIONSHIP OF THE PARTIES
 
 The parties are independent contractors. This Agreement does not create a partnership, franchise, joint venture, agency, fiduciary or employment relationship among the parties.  Developer agrees that each member of the group of companies to which GitHub belongs shall be a third party beneficiary to this Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of this Agreement that confers a benefit or grants a right in favor or GitHub.  No other person, company or legal entity shall be a third party beneficiary to the Agreement.
 
-### 15. NOTICE
+## 15. NOTICE
 
 All notices to be provided by GitHub to Developer under this Agreement may be delivered in writing (i) by nationally recognized overnight delivery service (“Courier”) or U.S. mail to the contact mailing address provided by Developer to GitHub; or (ii) electronic mail to the electronic mail address provided by Developer. Developer must give notice to GitHub in writing by Courier or U.S. Mail to the following address: GitHub, Inc., Attn: Legal Department, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 USA. All notices shall be deemed to have been given immediately upon delivery by electronic mail, or if otherwise delivered upon receipt or, if earlier, two (2) business days after being deposited in the mail or with a Courier as permitted above.
 
-### 16. GOVERNING LAW
+## 16. GOVERNING LAW
 
 This Agreement shall be governed by the laws of the State of California without regard to conflict of law principles. Developer hereby expressly agrees to submit to the exclusive personal jurisdiction of the federal and state courts of the State of California, San Francisco County, for the purpose of resolving any dispute relating to this Agreement.  Notwithstanding the foregoing, GitHub shall be entitled to seek injunctive remedies or other types of urgent legal relief in any jurisdiction.
 
-### 17. EXPORT RESTRICTIONS
+## 17. EXPORT RESTRICTIONS
 
 DEVELOPER PRODUCTS DISTRIBUTED VIA MARKETPLACE MAY BE SUBJECT TO EXPORT CONTROLS OR RESTRICTIONS BY THE UNITED STATES OR OTHER COUNTRIES OR TERRITORIES.  DEVELOPER AGREES TO COMPLY WITH ALL APPLICABLE US AND INTERNATIONAL EXPORT LAWS AND REGULATIONS.  THESE LAWS MAY INCLUDE RESTRICTIONS ON DESTINATIONS, CONTENT AND/OR END USERS.
 
-### 18.  USAGE DATA
+## 18.  USAGE DATA
 In order to operate and improve Marketplace, GitHub may collect Usage Data from Marketplace and GitHub API or anywhere previously purchased or downloaded Developer Products are stored on behalf of End Users by GitHub.  The Usage Data will be maintained in accordance with GitHub’s then in effect privacy policies.  Limited Usage Data may be available for use by Developer in GitHub’s sole discretion.
 
 # Addendum1: Data Protection Addendum

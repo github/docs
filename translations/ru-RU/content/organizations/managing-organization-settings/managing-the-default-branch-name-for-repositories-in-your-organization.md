@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About management of the default branch name
@@ -23,9 +23,8 @@ If an enterprise owner has enforced a policy for the default branch name for you
 
 ### Setting the default branch name
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
 3. Under "Repository default branch", click **Change default branch name now**. ![Override button](/assets/images/help/organizations/repo-default-name-button.png)
 4. Type the default name that you would like to use for new branches. ![Text box for entering default name](/assets/images/help/organizations/repo-default-name-text.png)

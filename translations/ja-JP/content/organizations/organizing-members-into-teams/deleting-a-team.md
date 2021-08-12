@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -19,8 +19,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 削除対象の Team を 1 つまたは複数選択します。 ![2 つの Team を選択した状態の Team リスト](/assets/images/help/teams/list-of-teams-selected.png)
 5. Team のリストの上にあるドロップダウンメニューから [**Delete**] をクリックします。 ![Team の可視性を変更するオプションのあるドロップダウンメニュー](/assets/images/help/teams/team-bulk-management-options.png)

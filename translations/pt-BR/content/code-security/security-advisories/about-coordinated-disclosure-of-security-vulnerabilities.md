@@ -1,9 +1,13 @@
 ---
 title: Sobre a divulgação coordenada de vulnerabilidades de segurança
-intro: 'A divulgação das vulnerabilidades é um esforço coordenado entre os relatores de segurança e os mantenedores de repositório.'
+intro: A divulgação das vulnerabilidades é um esforço coordenado entre os relatores de segurança e os mantenedores de repositório.
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
 ---
 
 ### Sobre a divulgação de vulnerabilidades no setor
@@ -43,7 +47,7 @@ Publicar os detalhes de uma vulnerabilidade de segurança não faz com que os ma
 
 O processo de relatório e divulgação de vulnerabilidades para projetos em {% data variables.product.prodname_dotcom_the_website %} é o seguinte:
 
- Se você é um relator de vulnerabilidades (por exemplo, um pesquisador de segurança) que gostaria de relatar uma vulnerabilidade, primeiro verifique se existe uma política de segurança para o repositório relacionado. Para obter mais informações, consulte "[Sobre políticas de segurança](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)". Se houver uma, siga-a para entender o processo antes de entrar em contato com a equipe de segurança do repositório.
+ Se você é um relator de vulnerabilidades (por exemplo, um pesquisador de segurança) que gostaria de relatar uma vulnerabilidade, primeiro verifique se existe uma política de segurança para o repositório relacionado. Para obter mais informações, consulte "[Sobre políticas de segurança](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Se houver uma, siga-a para entender o processo antes de entrar em contato com a equipe de segurança do repositório.
 
  Se não houver uma política de segurança, a forma mais eficiente de estabelecer um meio privado de comunicação com os mantenedores é criar uma problema, solicitando um contato de segurança preferido. Vale a pena notar que o problema será imediatamente visível ao público. Portanto, não deve incluir nenhuma informação sobre o erro. Quando a comunicação for estabelecida, você poderá sugerir que os mantenedores definam uma política de segurança para uso futuro.
 
@@ -55,7 +59,7 @@ O processo de relatório e divulgação de vulnerabilidades para projetos em {% 
 
  Se você encontrou uma vulnerabilidade de segurança em {% data variables.product.prodname_dotcom_the_website %}, informe a vulnerabilidade por meio de nosso processo de divulgação coordenada. Para obter mais informações, consulte o site [{% data variables.product.prodname_dotcom %} Recompensa por Erros de Segurança](https://bounty.github.com/).
 
- Se for mantenedor, você poderá assumir a propriedade do processo no início do pipeline, configurando uma política de segurança para o seu repositório, ou disponibilizando as instruções de relatórios de segurança de forma clara, por exemplo, no arquivo LEIAME do seu projeto. Para obter informações sobre como adicionar uma política de segurança, consulte "[Sobre políticas de segurança](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository#about-security-policies)". Se não houver política de segurança, é provável que um relator de vulnerabilidade tente enviar um e-mail para você ou entrar em contato com você de forma privada. Como alternativa, alguém pode abrir um problema (público) com detalhes de um problema de segurança.
+ Se for mantenedor, você poderá assumir a propriedade do processo no início do pipeline, configurando uma política de segurança para o seu repositório, ou disponibilizando as instruções de relatórios de segurança de forma clara, por exemplo, no arquivo LEIAME do seu projeto. Para obter informações sobre como adicionar uma política de segurança, consulte "[Sobre políticas de segurança](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Se não houver política de segurança, é provável que um relator de vulnerabilidade tente enviar um e-mail para você ou entrar em contato com você de forma privada. Como alternativa, alguém pode abrir um problema (público) com detalhes de um problema de segurança.
 
  Como mantenedor, para divulgar uma vulnerabilidade no seu código, você primeiro cria um rascunho de uma consultoria de segurança no repositório do pacote em {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories).
 

@@ -10,7 +10,7 @@ versions:
 type: tutorial
 topics:
   - CircleCI
-  - 移行
+  - Migration
   - CI
   - CD
 ---
@@ -430,7 +430,7 @@ jobs:
           POSTGRES_PASSWORD: ""
         ports:
           - 5432:5432
-        # ヘルスチェックを追加
+        # ヘルスチェックを追加する
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -445,7 +445,9 @@ jobs:
           path: vendor/bundle
           key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
       - name: Install postgres headers
-        run: sudo apt-get install libpq-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
       - name: Install dependencies
         run: bundle install --path vendor/bundle
       - name: Setup environment configuration

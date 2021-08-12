@@ -1,6 +1,6 @@
 ---
 title: Team ディスカッションの編集または削除
-intro: 'Organization のメンバーは、Team のページでディスカッションを編集または削除できます。 Organization のメンバーであれば、ディスカッションを編集または削除できます。'
+intro: Organization のメンバーは、Team のページでディスカッションを編集または削除できます。 Organization のメンバーであれば、ディスカッションを編集または削除できます。
 redirect_from:
   - /articles/editing-or-deleting-a-team-discussion
   - /github/building-a-strong-community/editing-or-deleting-a-team-discussion
@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. 編集または削除する Team ディスカッションの横にある {% octicon "kebab-horizontal" aria-label="The edit icon" %} をクリックします。

@@ -8,13 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Ao lado do aplicativo que deseja desabilitar, clique em {% octicon "pencil" aria-label="The edit icon" %}. ![Ícone Edit (Editar)](/assets/images/help/settings/settings-third-party-deny-edit.png)
 6. Clique em **Deny access** (Negar). ![Botão Deny confirmation (Negar confirmação)](/assets/images/help/settings/settings-third-party-deny-confirm.png)

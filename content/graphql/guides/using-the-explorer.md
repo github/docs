@@ -4,16 +4,16 @@ intro: 'You can run queries on real {% data variables.product.prodname_dotcom %}
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
 
 ## About the GraphQL Explorer
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 [GraphQL Explorer](/graphql/overview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
 
@@ -29,11 +29,11 @@ topics:
 
 {% endif %}
 
-### Using GraphiQL
+## Using GraphiQL
 
 To use the GraphiQL app, download and install it from https://github.com/skevy/graphiql-app.
 
-#### Configuring GraphiQL
+### Configuring GraphiQL
 
 1. Get an [OAuth token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
 1. Launch GraphiQL.
@@ -63,7 +63,7 @@ query {
 
 If everything worked correctly, this will display your login. You're all set to start making queries.
 
-### Accessing the sidebar docs
+## Accessing the sidebar docs
 
 All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop deprecated fields.
 
@@ -73,7 +73,7 @@ The **Docs** sidebar contains the same content that is automatically generated f
 
 {% endnote %}
 
-### Using the variable pane
+## Using the variable pane
 
 Some example calls include [variables](/graphql/guides/forming-calls-with-graphql#working-with-variables) written like this:
 
@@ -103,11 +103,11 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
 }
 ```
 
-### Requesting support
+## Requesting support
 
 {% data reusables.support.help_resources %}
 
-### Troubleshooting errors
+## Troubleshooting errors
 
 Because GraphQL is [introspective](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), the Explorer supports:
 

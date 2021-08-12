@@ -1,1 +1,1 @@
-1. "{% data variables.large_files.product_name_short %} Data（{% data variables.large_files.product_name_short %}のデータ）"の隣の**Add more data（さらにデータを追加）**をクリックするか、Edit（編集）ドロップダウンを使って**Add more data packs（さらにデータパックを追加**をクリックしてください。 ![さらにデータを追加ボタン](/assets/images/help/billing/data-pack-purchase-more.png)
+1. "{% data variables.large_files.product_name_short %} Data"の隣で、**Add more data（データを追加）**をクリックするか、**Edit（編集）**ドロップダウンを使って**Add more data packs（データパックを追加）**をクリックしてください。 ![さらにデータを追加ボタン](/assets/images/help/billing/data-pack-purchase-more.png)

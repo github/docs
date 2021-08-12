@@ -1,80 +1,86 @@
 ---
-title: Adding self-hosted runners
-intro: 'You can add a self-hosted runner to a repository, an organization, or an enterprise.'
+title: Agregar ejecutores autoalojados
+intro: 'Puedes agregar un ejecutor auto-hospedado a {{ site.data.variables.product.prodname_actions }}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-You can add a self-hosted runner to a repository, an organization, or an enterprise.
+Puedes agregar un ejecutor auto-hospedado a {{ site.data.variables.product.prodname_actions }}.
 
-If you are an organization or enterprise administrator, you might want to add your self-hosted runners at the organization or enterprise level. This approach makes the runner available to multiple repositories in your organization or enterprise, and also lets you to manage your runners in one place.
+So eres un administrador de alguna organización o empresa, podría que quisieras agregar tus ejecutores auto-hospedados a nivel organizacional o empresarial. Este acercamiento hace que el ejecutor esté disponible para múltiples repositorios en tu organización o empresa y también te permite administrar tus ejecutores en un solo lugar.
 
-For information on supported operating systems for self-hosted runners, or using self-hosted runners with a proxy server, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+Para obtener información sobre los sistemas operativos compatibles con los ejecutores auto-hospedados o sobre el uso de ejecutores auto-hospedados con un servidor proxy, consulta "[Acerca de los ejecutores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
 
 {% warning %}
 
-**Warning:** {% data reusables.github-actions.self-hosted-runner-security %}
+**Advertencia:** {% data reusables.github-actions.self-hosted-runner-security %}
 
-For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+Para obtener más información, consulta la sección "[Acerca de los ejecutores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)".
 
 {% endwarning %}
 
-### Adding a self-hosted runner to a repository
+### Agregar un ejecutor auto-hospedado a un repositorio
 
-You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository.
+Puedes agregar ejecutores auto-hospedados a un solo repositorio. Para agregar un ejecutor auto-hospedado a un repositorio de usuario, debes ser el dueño del mismo. Para los repositorios organizacionales, debes ser el propietario de la organización o tener acceso de administrador a éste.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Under "Self-hosted runners," click **Add runner**.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Debajo de
+{% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar ejecutor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
-### Adding a self-hosted runner to an organization
+### Agregar un ejecutor auto-hospedado a una organización
 
-You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. 
+Puedes agregar ejecutores auto-hospedados a nivel organizacional, en donde se podrán utilizar para procesar jobs para varios repositorios en una organización. Para agregar un ejecutor auto-hospedado a una organización, debes ser el dueño de la misma.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Under "Self-hosted runners," click **Add new**, then click **New runner**.
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Debajo de
+{% if currentVersion == "free-pro-team@latest" %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar ejecutor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
 {% data reusables.github-actions.self-hosted-runner-public-repo-access %}
 
-### Adding a self-hosted runner to an enterprise
+### Agregar un ejecutor auto-hospedado a una empresa
 
-You can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. The organization admins are then able to control which repositories can use it.
+Puedes agregar ejecutores auto-hospedados a una empresa, en donde pueden asignarse a organizaciones múltiples. Los administradores de la organización podrán controlar entonces qué repositorios pueden utilizarlo.
 
 {% if currentVersion == "free-pro-team@latest" %}
-To add a self-hosted runner to an enterprise account, you must be an enterprise owner.
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
-To add a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator.
+Para agregar un ejecutor auto-hospedado a una cuenta empresarial, debes ser un propietario de la empresa.
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+Para agregar un ejecutor auto-hospedado a nivel empresarial de
+{% data variables.product.product_location %}, debes ser un administrador de sitio.
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Click the **Self-hosted runners** tab.
-1. Click **Add new**, then click **New runner**. New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Managing access to self-hosted runners](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+1. Da clic en **Agregar nuevo** y luego en **Ejecutor nuevo**. Los ejecutores nuevos se asignan al grupo predeterminado. Puedes modificar el grupo del ejecutor después de que lo hayas registrado. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)".
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
 {% data reusables.github-actions.self-hosted-runner-public-repo-access %}
 
-#### Making enterprise runners available to repositories
+#### Hacer que los ejecutores empresariales estén disponibles para los repositorios
 
-By default, runners in an enterprise's "Default" self-hosted runner group are available to all organizations in the enterprise, but are not available to all repositories in each organization.
+Predeterminadamente, los ejecutores en un grupo de ejecutores auto hospedados "Predeterminado" de una empresa se encontrarán disponibles para todas las organizaciones de ésta, pero no así para todos los repositorios en cada una de las organizaciones.
 
-To make an enterprise-level self-hosted runner group available to an organization repository, you might need to change the organization's inherited settings for the runner group to make the runner available to repositories in the organization.
+Para que un grupo de ejecutores auto-hospedados a nivel empresarial se encuentre disponible para el repositorio de una organización, podría que necesites cambiar la configuración heredada de dicha organización para que el grupo de ejecutores pueda poner el ejecutor disponible para sus repositorios.
 
-For more information on changing runner group access settings, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+Para obtener más información acerca de cómo cambiar la configuración de acceso en un grupo de ejecutores, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)".

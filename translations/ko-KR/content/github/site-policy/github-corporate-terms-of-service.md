@@ -5,9 +5,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 THANK YOU FOR CHOOSING GITHUB FOR YOUR COMPANY’S BUSINESS NEEDS. PLEASE READ THIS AGREEMENT CAREFULLY AS IT GOVERNS USE OF THE PRODUCTS (AS DEFINED BELOW), UNLESS GITHUB HAS EXECUTED A SEPARATE WRITTEN AGREEMENT WITH CUSTOMER FOR THAT PURPOSE. BY CLICKING ON THE "I AGREE" OR SIMILAR BUTTON OR BY ACCESSING THE PRODUCTS, CUSTOMER ACCEPTS ALL THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF CUSTOMER IS ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE COMPANY OR OTHER LEGAL ENTITY TO THIS AGREEMENT.
 

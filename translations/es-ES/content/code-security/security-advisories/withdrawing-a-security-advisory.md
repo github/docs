@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - seguridad
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Si publicas una asesoría de seguridad por error, puedes retirarla contactando a {% data variables.contact.contact_support %}.

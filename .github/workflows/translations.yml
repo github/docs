@@ -31,7 +31,7 @@ jobs:
           state: open
       - if: ${{ steps.pr.outputs.number }}
         name: Check if already labeled
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: has-label
         with:
           script: |
@@ -51,7 +51,7 @@ jobs:
           number: ${{ steps.pr.outputs.number }}
       - if: ${{ !steps.has-label.outputs.result }}
         name: Add automerge label
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

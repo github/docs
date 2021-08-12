@@ -5,14 +5,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 貴社のビジネスにおけるニーズを満たすために GitHub をお選びいただき、ありがとうございます。 本契約を注意深くお読みください。GitHub がお客様と書面による合意を別途行わない限り、本製品 (以下に定義) の利用に対しては、この契約が適用されます。 「同意する」またはそれに類似するボタンをクリックするか、本製品を利用することにより、お客様は本契約の規約および条件の全てに同意することになります。 お客様が、企業またはその他の法人を代表して契約を締結しようとする場合、お客様は、本契約を締結するためにその企業またはその他の法人に義務を負担させる法的権限を持つことを表明するものとします。
 
 ### GitHub企業向け利用規約
-Version Effective Date: November 16, 2020
+このバージョンの発効日: 2020 年 11 月 16 日
 
 本契約は、以下に詳述する GitHub の提供品 (併せて「**製品**」) に対して適用されます。
 - 「サービス」、
@@ -24,7 +26,7 @@ Version Effective Date: November 16, 2020
 
 「**関係会社**」とは、直接的または間接的に支配している、支配されている、あるいは当事者と共通の支配下にある、あらゆる法人を意味します。本定義において「支配」とは、所有権のうち 50% 超を持つか、当該法人の経営管理を指揮する権限を有することを意味します。
 
-「**契約**」とは、集合的に、本書に含まれるか、または本書で参照されるすべての規約、条件、通知、並びに、当社が適宜「サービス」に掲載する場合があるその他すべての操作規則、ポリシーおよび手順を指します。 GitHub のサイトポリシーは、[https://docs.github.com/categories/site-policy](/categories/site-policy) でご確認いただけます。
+「**契約**」とは、集合的に、本書に含まれるか、または本書で参照されるすべての規約、条件、通知、並びに、当社が適宜「サービス」に掲載する場合があるその他すべての操作規則、ポリシーおよび手順を指します。 GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 「**全ユーザ**」とは、「サービス」を利用する、「お客様」の「ユーザ」および「外部ユーザ」を総称的に意味します。
 
@@ -111,7 +113,7 @@ Version Effective Date: November 16, 2020
 場合によっては、お客様による GitHub の利用について、第三者による規約が適用されることがあります。 たとえば、お客様が独自の条項またはライセンス契約を持つ Organization の成員である場合、お客様が「サービス」に統合するアプリケーションをダウンロードしている場合、お客様が他のサービスに認証するために「サービス」を利用している場合などです。 本契約は、お客様と GitHub との完全な合意を示していますが、お客様と第三者との関係については第三者の規約が適用されます。
 
 #### 5. アメリカ合衆国の祝日 米国連邦政府の条項
-If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+お客様が米国 government entity or otherwise accessing or using the Service in a government capacity, the [U.S. 連邦政府修正条項](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)が適用され、お客様はその条項に同意するものとします。
 
 #### 6. Enterprise Cloud Service Level Agreement
 GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
@@ -281,7 +283,7 @@ GitHub は、独自の裁量により、いつでも本契約を修正する権�
 GitHub は、「アップデート」および新機能の追加により、サービスを変更します。 上記にかかわらず、GitHubは通知の有無にかかわらず、「サービス」(またはその一部) をいつでも変更する、あるいは一時的または恒久的に停止する権利を留保するものとします。
 
 ### S. サポート
-GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 日の標準的な技術「サポート」を、「サービス」に対して無料で提供するものとします。 （アメリカの祝日は除く） 「Standard Support」は、「GitHub Support」を通じたウェブベースのチケット発行によってのみ提供され、「サポート」の要請は、GitHub の「サポート」チームがやり取りできる「ユーザ」から行う必要があります。 GitHub may provide premium Support (subject to the [GitHub Premium Support for Enterprise Cloud](/articles/about-github-premium-support) terms) or dedicated technical Support for the Service at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
+GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 日の標準的な技術「サポート」を、「サービス」に対して無料で提供するものとします。 （アメリカの祝日は除く） 「Standard Support」は、「GitHub Support」を通じたウェブベースのチケット発行によってのみ提供され、「サポート」の要請は、GitHub の「サポート」チームがやり取りできる「ユーザ」から行う必要があります。 GitHub は、「注文書」または「SOW」に記載されている「サポート」レベル、「料金」、および「プラン契約期間」で、「サービス」に対してプレミアム「サポート」 (「[GitHub Enterprise Cloud の GitHub Premium Support](/articles/about-github-premium-support)」の規定に従う) または専用技術「サポート」を提供することができます。
 
 ### T. 雑則
 
@@ -313,4 +315,4 @@ GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 �
 各「当事者」は、本契約の主題に関して独立契約者です。 本契約に含まれるいかなる規定も、法的関係、パートナーシップ、合弁事業、雇用、代理、受託、その他これらに類する関係を両「当事者」間に構築するものとはいかなる場合にも見なされるまたは解釈されるものではなく、またいずれの「当事者」も、他方を契約上拘束することはできません。
 
 #### 10. 質問
-「利用規約」について質問がございましたら、 [Contact us](https://github.com/contact/).
+「利用規約」について質問がございましたら、 [お問い合わせください](https://github.com/contact/)。

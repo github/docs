@@ -1,11 +1,11 @@
 ---
 title: Solucionar problemas en las GitHub Actions de tu empresa
 intro: 'Solucionar problemas comunes que ocurren cuando se utilizan {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}.'
-permissions: 'Los administradores de sitio pueden solucionar problemas de {% data variables.product.prodname_actions %} y modificar las configuraciones de {% data variables.product.prodname_ghe_server %}.'
+permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Configurar los ejecutores auto-hospedados cuando utilizas un certificado auto-firmado para {% data variables.product.prodname_ghe_server %}

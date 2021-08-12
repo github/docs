@@ -17,9 +17,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
+children:
+  - /getting-started-with-github-pages
+  - /setting-up-a-github-pages-site-with-jekyll
+  - /configuring-a-custom-domain-for-your-github-pages-site
 ---
 
-{% link_with_intro /getting-started-with-github-pages %}
-{% link_with_intro /setting-up-a-github-pages-site-with-jekyll %}
-{% link_with_intro /configuring-a-custom-domain-for-your-github-pages-site %}

@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% note %}
@@ -22,8 +22,8 @@ topics:
 
 ### Otorgarle acceso a un miembro de la organización a un tablero de proyecto
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -35,8 +35,8 @@ topics:
 
 ### Cambiar el acceso de un miembro de la organización a un tablero de proyecto
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -48,8 +48,8 @@ topics:
 
 Cuando eliminas a un colaborador de un tablero de proyecto, es posible que conserve acceso a un tablero en base a los permisos que tiene por otros roles. Para eliminar de forma completa el acceso a un tablero de proyecto, debes eliminar el acceso para cada rol que tenga esa persona. Por ejemplo, una persona puede tener acceso al tablero de proyecto como miembro de la organización o miembro del equipo. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

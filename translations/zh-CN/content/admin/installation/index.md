@@ -11,8 +11,13 @@ redirect_from:
   - /enterprise/admin/installation
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 企业
+  - Enterprise
+  - Fundamentals
+  - Set up
+children:
+  - /setting-up-a-github-enterprise-server-instance
 ---
 
 如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
@@ -20,16 +25,3 @@ topics:
 {% data reusables.enterprise_installation.request-a-trial %}
 
 如果对安装过程存在疑问，请参阅“[使用 {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)”。
-
-### 目录
-
-
-{% topic_link_in_list /setting-up-a-github-enterprise-server-instance %}
-    {% link_in_list /installing-github-enterprise-server-on-aws %}
-    {% link_in_list /installing-github-enterprise-server-on-azure %}
-    {% link_in_list /installing-github-enterprise-server-on-google-cloud-platform %}
-    {% link_in_list /installing-github-enterprise-server-on-hyper-v %}
-    {% link_in_list /installing-github-enterprise-server-on-openstack-kvm %}
-    {% link_in_list /installing-github-enterprise-server-on-vmware %}
-    {% link_in_list /installing-github-enterprise-server-on-xenserver %}
-    {% link_in_list /setting-up-a-staging-instance %}

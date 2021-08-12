@@ -6,16 +6,19 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - security
+  - Security advisories
+  - Vulnerabilities
+shortTitle: Create advisories
 ---
 
 Anyone with admin permissions to a repository can create a security advisory.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### Creating a security advisory
+## Creating a security advisory
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -30,7 +33,7 @@ Anyone with admin permissions to a repository can create a security advisory.
 11. Click **Create draft security advisory**.
   ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-### Next steps
+## Next steps
 
 - Comment on the draft security advisory to discuss the vulnerability with your team.
 - Add collaborators to the security advisory. For more information, see "[Adding a collaborator to a security advisory](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory)."

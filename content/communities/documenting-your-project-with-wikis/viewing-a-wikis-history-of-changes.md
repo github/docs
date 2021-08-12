@@ -7,14 +7,15 @@ redirect_from:
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: View a history of changes
 ---
 
-### Viewing wiki history
+## Viewing wiki history
 
 Wiki history includes:
 - The user who made the change
@@ -27,7 +28,7 @@ Wiki history includes:
 4. At the top of the wiki, click the revision link.
    ![Wiki revision link](/assets/images/help/wiki/wiki_revision_link.png)
 
-### Viewing previous content
+## Viewing previous content
 
 On the wiki history table, you can click a [SHA-1 hash](http://en.wikipedia.org/wiki/SHA-1)
 (the sequence of letters and numbers to the far right) to see a wiki page as it
@@ -35,7 +36,7 @@ existed at a particular point in time.
 
 ![Wiki SHA number](/assets/images/help/wiki/wiki_sha_number.png)
 
-### Comparing two revisions
+## Comparing two revisions
 
 1. Select two rows that you want to compare.
 2. At the top of the history table, click **Compare Revisions**.
@@ -43,7 +44,7 @@ existed at a particular point in time.
 3. You'll see a diff of the changes showing which lines were added, removed, and
 modified.
 
-### Reverting previous changes
+## Reverting previous changes
 
 You can only revert changes if you have permission to edit the wiki.
 

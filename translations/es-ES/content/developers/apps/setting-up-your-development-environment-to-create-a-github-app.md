@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 
@@ -370,10 +370,10 @@ Después de que des clic en **Instalar**, revisa la salida en tu terminal. Deber
 ```shell
 > D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
 > D, [2018-06-29T15:45:43.773141 #30488] DEBUG -- : ----         action created
-> 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/1.1" 200 2 0.0067
+> 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0067
 > D, [2018-06-29T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
 > D, [2018-06-29T15:45:43.833062 #30488] DEBUG -- : ----         action created
-> 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/1.1" 200 2 0.0019
+> 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
 ```
 
 ¡Estas son buenas noticias! Esto significa que tu app recibió una notificación de que se instaló en tu cuenta de GitHub. Si ves algo como esto, tu app está ejecutándose en el servidor como lo esperabas. 🙌

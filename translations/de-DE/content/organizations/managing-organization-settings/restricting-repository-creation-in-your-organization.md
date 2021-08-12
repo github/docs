@@ -1,6 +1,6 @@
 ---
 title: Repository-Erstellung in Deiner Organisation einschränken
-intro: 'Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Erstellung von Repositorys innerhalb Deiner Organisation konfigurieren.'
+intro: Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Erstellung von Repositorys innerhalb Deiner Organisation konfigurieren.
 redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. If you allow members to create repositories, you can choose which types of repositories members can create.{% if currentVersion == "free-pro-team@latest" %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
@@ -27,9 +27,8 @@ Organisationsinhaber können immer jede Art von Repository erstellen.
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Repository creation", select one or more options. ![Optionen für die Repository-Erstellung](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Klicke auf **Save** (Speichern).

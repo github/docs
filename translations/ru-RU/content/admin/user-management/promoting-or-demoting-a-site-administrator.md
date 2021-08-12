@@ -7,8 +7,12 @@ redirect_from:
 intro: 'Site administrators can promote any normal user account to a site administrator, as well as demote other site administrators to regular users.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Access management
+  - Accounts
+  - User account
+  - Enterprise
 ---
 
 {% tip %}

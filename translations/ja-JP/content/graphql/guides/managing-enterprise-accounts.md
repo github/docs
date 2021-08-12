@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### GraphQLでのEnterpriseアカウントの管理について
@@ -93,7 +93,7 @@ GraphiQLもしくはベースURLの設定ができる他のスタンドアロー
 
 ### Enterprise Accounts APIを使ったクエリの例
 
-This GraphQL query requests the total number of {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. このクエリをカスタマイズするには、`<enterprise-account-name>`をお使いのEnterpriseインスタンスのスラッグで置き換えてください。
+このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% if currentVersion != "github-ae@latest" %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をお使いのEnterpriseインスタンスのスラッグで置き換えてください。
 
 {% if currentVersion != "github-ae@latest" %}
 
@@ -150,7 +150,7 @@ variables {
 ```
 {% endif %}
 
-The next GraphQL query example shows how challenging it is to retrieve the number of {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  単一の変数だけをカスタマイズすれば済むようになることから、EnterpriseにとってGraphQLのEnterprise Accounts APIがこのタスクをシンプルにしてくれていることに注意してください。 このクエリをカスタマイズするには、`<name-of-organization-one>`や`<name-of-organization-two>`などを 自分のインスタンス上のOrganization名で置き換えてください。
+次のGraphQLクエリの例は、Enterprise Accounts APIを使わずに各Organization内の{% if currentVersion != "github-ae@latest" %}`public`{% else %}` private`{% endif %}なリポジトリの数を取得するのがいかに難しいかを示します。  単一の変数だけをカスタマイズすれば済むようになることから、EnterpriseにとってGraphQLのEnterprise Accounts APIがこのタスクをシンプルにしてくれていることに注意してください。 このクエリをカスタマイズするには、`<name-of-organization-one>`や`<name-of-organization-two>`などを 自分のインスタンス上のOrganization名で置き換えてください。
 
 {% if currentVersion != "github-ae@latest" %}
 ```graphql
@@ -166,7 +166,7 @@ The next GraphQL query example shows how challenging it is to retrieve the numbe
   # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
 
-## How to define a fragment
+## フラグメントの定義方法
 fragment repositories on Organization {
   name
   repositories(privacy: PUBLIC){
@@ -176,19 +176,19 @@ fragment repositories on Organization {
 ```
 {% else %}
 ```graphql
-# Each organization is queried separately
+# 各organizationに対して個別にクエリを実行
 {
   organizationOneAlias: organization(login: "name-of-organization-one") {
-    # How to use a fragment
+    # フラグメントの使い方
     ...repositories
   }
   organizationTwoAlias: organization(login: "name-of-organization-two") {
     ...repositories
   }
-  # organizationThreeAlias ... and so on up-to lets say 100
+  # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
 
-## How to define a fragment
+## フラグメントの定義方法
 fragment repositories on Organization {
   name
   repositories(privacy: PRIVATE){
@@ -211,7 +211,7 @@ query publicRepositoriesByOrganization {
   organizationTwoAlias: organization(login: "<name-of-organization-two>") {
     ...repositories
   }
-  # organizationThreeAlias ... など、最大 100 とする
+  # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
 # フラグメントの定義方法
 fragment repositories on Organization {
@@ -227,15 +227,15 @@ fragment repositories on Organization {
 ```graphql
 query privateRepositoriesByOrganization {
   organizationOneAlias: organization(login: "<name-of-organization-one>") {
-    # How to use a fragment
+    # フラグメントの使用方法
     ...repositories
   }
   organizationTwoAlias: organization(login: "<name-of-organization-two>") {
     ...repositories
   }
-  # organizationThreeAlias ... and so on up-to lets say 100
+  # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
-# How to define a fragment
+# フラグメントの定義方法
 fragment repositories on Organization {
   name
   repositories(privacy: PRIVATE){

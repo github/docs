@@ -9,11 +9,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
-Effective date: **April 2, 2021**
+Data de entrada em vigor: **2 de abril de 2021**
 
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. Para essa finalidade, disponibilizamos esta página, que detalha os [nossos subprocessadores](#github-subprocessors) e como usamos [cookies](#cookies-on-github).
 

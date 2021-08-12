@@ -8,14 +8,15 @@ redirect_from:
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - pages
+  - Pages
+shortTitle: Add theme to a Pages site
 ---
 
 People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.
 
-### About the theme chooser
+## About the theme chooser
 
 The theme chooser adds a Jekyll theme to your repository. For more information about Jekyll, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
 
@@ -28,7 +29,7 @@ For more information about publishing sources, see "[About {% data variables.pro
 
 If you manually added a Jekyll theme to your repository in the past, those files may be applied even after you use the theme chooser. To avoid conflicts, remove all manually added theme folders and files before using the theme chooser. For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
-### Adding a theme with the theme chooser
+## Adding a theme with the theme chooser
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -44,6 +45,6 @@ If you manually added a Jekyll theme to your repository in the past, those files
 
 Your chosen theme will automatically apply to markdown files in your repository. To apply your theme to HTML files in your repository, you need to add YAML front matter that specifies a layout to each file. For more information, see "[Front Matter](https://jekyllrb.com/docs/front-matter/)" on the Jekyll site.
 
-### Further reading
+## Further reading
 
 - [Themes](https://jekyllrb.com/docs/themes/) on the Jekyll site

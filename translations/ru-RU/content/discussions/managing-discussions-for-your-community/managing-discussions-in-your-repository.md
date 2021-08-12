@@ -1,6 +1,6 @@
 ---
 title: Managing discussions in your repository
-intro: You can categorize, spotlight, transfer, or delete the discussions in a repository.
+intro: 'You can categorize, spotlight, transfer, or delete the discussions in a repository.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -18,6 +18,8 @@ As a discussions maintainer, you can create community resources to encourage dis
 
 For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
 
+{% data reusables.discussions.you-can-label-discussions %}
+
 ### Требования
 
 To manage discussions in a repository, discussions must be enabled for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
@@ -31,7 +33,8 @@ You can also move a discussion to a different category.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**. !["Pin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. In the right sidebar, to the right of "Category", click {% octicon "gear" aria-label="The gear icon" %}. !["Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
+1. Click a category. !["Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
 
 ### Pinning a discussion
 

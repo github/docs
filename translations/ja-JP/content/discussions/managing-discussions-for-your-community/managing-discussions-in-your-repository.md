@@ -1,7 +1,7 @@
 ---
 title: リポジトリ内のディスカッションを管理する
 intro: リポジトリ内のディスカッションを分類、スポットライト、転送、または削除できます。
-permissions: リポジトリ管理者およびリポジトリへの書き込み以上のアクセス権を持つユーザは、リポジトリ内のディスカッションを管理できます。
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -18,6 +18,8 @@ Organization のオーナーは、Organization が所有するリポジトリの
 
 健全なディスカッションの促進について詳しくは、「[コメントと会話のモデレーション](/communities/moderating-comments-and-conversations)」を参照してください。
 
+{% data reusables.discussions.you-can-label-discussions %}
+
 ### 必要な環境
 
 リポジトリ内のディスカッションを管理するには、リポジトリでディスカッションを有効にする必要があります。 詳しい情報については、「[リポジトリのディスカッションの有効化または無効化](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)」を参照してください。
@@ -31,7 +33,8 @@ Organization のオーナーは、Organization が所有するリポジトリの
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. 右のサイドバーで、{% octicon "pencil" aria-label="The pencil icon" %} [**Edit pinned discussion**] をクリックします。 ![ディスカッションの右のサイドバーにある [Pin discussion]](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. In the right sidebar, to the right of "Category", click {% octicon "gear" aria-label="The gear icon" %}. !["Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
+1. Click a category. !["Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
 
 ### ディスカッションをピン留めする
 

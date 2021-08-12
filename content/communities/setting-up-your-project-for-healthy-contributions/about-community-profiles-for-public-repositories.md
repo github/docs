@@ -6,14 +6,15 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - community
+  - Community
+shortTitle: Community profiles
 ---
 
 The community profile checklist checks to see if a project includes recommended community health files, such as README, CODE_OF_CONDUCT, LICENSE, or CONTRIBUTING, in a supported location. For more information, see "[Accessing a project's community profile](/articles/accessing-a-project-s-community-profile)."
 
-### Using the community profile checklist as a repository maintainer
+## Using the community profile checklist as a repository maintainer
 
 As a repository maintainer, use the community profile checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see "[Building community](https://opensource.guide/building-community/)" in the Open Source Guides.
 
@@ -25,7 +26,7 @@ If a project doesn't have a recommended file, you can click **Add** to draft and
 
 {% data reusables.repositories.security-guidelines %}
 
-### Using the community profile checklist as a community member or collaborator
+## Using the community profile checklist as a community member or collaborator
 
 As a potential contributor, use the community profile checklist to see if a project meets the recommended community standards and decide if you'd like to contribute. For more information, see "[How to contribute](https://opensource.guide/how-to-contribute/#anatomy-of-an-open-source-project)" in the Open Source Guides.
 
@@ -33,7 +34,7 @@ If a project doesn't have a recommended file, you can click **Propose** to draft
 
 ![Community profile checklist with recommended community standards for contributors](/assets/images/help/repository/propose-button-community-profile.png)
 
-### Further reading
+## Further reading
 
 - "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project)"
 - "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"

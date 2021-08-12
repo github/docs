@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Pakete erstellen'
-  - 'Publishing'
-  - 'Docker'
+  - Packaging
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +37,7 @@ Vielleicht findest Du es auch hilfreich, ein grundlegendes Verständnis von Folg
 
 - "[Encrypted secrets](/actions/reference/encrypted-secrets)"
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
-- „[Docker für den Einsatz mit {% data variables.product.prodname_registry %} konfigurieren](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)“
+- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"
 
 ### Informationen zur Image-Konfiguration
 
@@ -51,14 +51,17 @@ In dieser Anleitung wir werden die Docker-Aktion `build-push-action` verwenden, 
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-Im folgenden Beispiel-Workflow verwenden wir die Docker-Aktion `build-push-action`, um das Docker-Image zu bauen und, wenn der Build erfolgreich ist, das gebaute Image auf „Docker Hub“ zu übertragen.
+In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
 Um zum „Docker Hub“ zu pushen, benötigst Du ein Benutzerkonto auf „Docker Hub“ und musst ein „Docker Hub“-Repository erstellt haben. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
-„Docker Hub“ benötigt für `build-push-action` die folgenden Optionen:
+The `login-action` options required for Docker Hub are:
 
 * `username` und `password`: Dies ist Dein Benutzername und Passwort auf „Docker Hub“. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
-* `repository`: Dein „Docker Hub“-Repository im Format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
+
+„Docker Hub“ benötigt für `build-push-action` die folgenden Optionen:
+* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
+* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
 
 {% raw %}
 ```yaml{:copy}
@@ -73,13 +76,16 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: my-docker-hub-namespace/my-docker-hub-repository
-          tag_with_ref: true
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: my-docker-hub-namespace/my-docker-hub-repository:latest
 ```
 {% endraw %}
 
@@ -89,16 +95,17 @@ jobs:
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-Im folgenden Beispiel-Workflow verwenden wir die Docker-Aktion `build-push-action`, um das Docker-Image zu bauen und, wenn der Build erfolgreich ist, das gebaute Image nach {% data variables.product.prodname_registry %} zu übertragen.
+In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
-Die für {% data variables.product.prodname_registry %} erforderlichen `build-push-action`-Optionen sind:
-
+The `login-action` options required for {% data variables.product.prodname_registry %} are:
+* `registry`: Muss auf `docker.pkg.github.com` gesetzt werden.
 * `username`: Du kannst mithilfe des Kontexts von {% raw %}`${{ github.actor }}`{% endraw %} automatisch den Benutzernamen des Benutzers zu verwenden, der die Workflow-Ausführung angestoßen hat. Weitere Informationen findest Du unter „[Kontext- und Ausdrucks-Syntax für GitHub-Aktionen](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)“.
 * `password`: Du kannst das automatisch generierte Geheimnis `GITHUB_TOKEN` als Passwort verwenden. Weitere Informationen findest Du unter „[Authentifizierung mit dem GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)".
-* `registry`: Muss auf `docker.pkg.github.com` gesetzt werden.
-* `repository`: Muss im Format `OWNER/REPOSITORY/IMAGE_NAME` gesetzt werden. Beispiel: Für ein Bild namens `octo-image` auf {% data variables.product.prodname_dotcom %} unter `http://github. om/octo-org/octo-repo` sollte die Option `repository` auf `octo-org/octo-repo/octo-image` gesetzt werden.
 
-{% raw %}
+Die für {% data variables.product.prodname_registry %} erforderlichen `build-push-action`-Optionen sind:
+* `tags`: Must be set in the format `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`. You can set a single tag as shown below, or specify multiple tags in a list.
+* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
+
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -107,31 +114,36 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: my-org/my-repo/my-image
-          tag_with_ref: true
-
+          registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+      - name: Build container image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+            {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
 ```
-{% endraw %}
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
 ### Images auf dem „Docker Hub“ und in der {% data variables.product.prodname_registry %} veröffentlichen
 
-In einem einzigen Workflow kannst Du Dein Docker-Image in mehreren Registries veröffentlichen, indem Du die Aktion `build-push-action` auf jede Registry anwendest.
+In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
 
-Der folgende Beispiel-Workflow verwendet die Schritte der `build-push-action` aus den vorherigen Abschnitten („[Veröffentlichung von Bildern auf ‚Docker Hub‘](#publishing-images-to-docker-hub)“ und „[Veröffentlichung von Bildern in {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)“), um einen einzigen Workflow zu erstellen, der in beide Registries pusht.
+The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -140,26 +152,34 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
+          password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v1
+        with:
+          registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: my-docker-hub-namespace/my-docker-hub-repository
-          tag_with_ref: true
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+          push: true
+          tags: my-docker-hub-namespace/my-docker-hub-repository:{% raw %}${{ github.ref }}{% endraw %}
+      - name: Build container image
+        uses: docker/build-push-action@v2
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: my-org/my-repo/my-image
-          tag_with_ref: true
+          push: true
+          tags: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/my-image:${{ github.ref }}{% endraw %}
 ```
-{% endraw %}
 
-Der obige Workflow checkt das {% data variables.product.prodname_dotcom %}-Repository aus und verwendet die Aktion `build-push-action` zweimal, um das Docker-Image zu erstellen und sowohl auf den „Docker Hub“ als auch in die {% data variables.product.prodname_registry %} zu übertragen. Für beide Schritte, setzt er die Option `build-push-action` auf [`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref) um das gebaute Docker-Image automatisch mit der Git-Referenz des Workflow-Ereignisses zu kennzeichnen. Dieser Workflow wird bei der Veröffentlichung eines {% data variables.product.prodname_dotcom %}-Releases ausgelöst, so dass die Referenz für beide Registries das Git-Tag des Releases ist.
+The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` twice to log in to both registries, and then uses the `build-push-action` action twice to build and push the Docker image to Docker Hub and {% data variables.product.prodname_registry %}. For both steps, it tags the built Docker image with the Git reference of the workflow event. Dieser Workflow wird bei der Veröffentlichung eines {% data variables.product.prodname_dotcom %}-Releases ausgelöst, so dass die Referenz für beide Registries das Git-Tag des Releases ist.

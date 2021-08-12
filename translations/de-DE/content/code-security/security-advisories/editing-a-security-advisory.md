@@ -1,12 +1,14 @@
 ---
 title: Einen Sicherheitshinweis bearbeiten
-intro: Du kannst die Metadaten und die Beschreibung für einen Sicherheitshinweis bearbeiten, wenn Du Details aktualisieren oder Fehler korrigieren musst.
+intro: 'Du kannst die Metadaten und die Beschreibung für einen Sicherheitshinweis bearbeiten, wenn Du Details aktualisieren oder Fehler korrigieren musst.'
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - sicherheit
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können den Hinweise bearbeiten.

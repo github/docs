@@ -6,21 +6,26 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - security
+  - Security advisories
+  - Vulnerabilities
+  - CVEs
+  - Repositories
+shortTitle: Publish advisories
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
 Anyone with admin permissions to a security advisory can publish the security advisory.
 
-### Prerequisites
+## Prerequisites
 
 Before you can publish a security advisory or request a CVE identification number, you must create a draft security advisory and provide information about the versions of your project affected by the security vulnerability. For more information, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
 
 If you've created a security advisory but haven't yet provided details about the versions of your project that the security vulnerability affects, you can edit the security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
 
-### About publishing a security advisory
+## About publishing a security advisory
 
 When you publish a security advisory, you notify your community about the security vulnerability that the security advisory addresses. Publishing a security advisory makes it easier for your community to update package dependencies and research the impact of the security vulnerability.
 
@@ -55,7 +60,7 @@ After you publish a security advisory, the URL for the security advisory will re
 
 If you need to update or correct information in a security advisory that you've published, you can edit the security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
 
-### Requesting a CVE identification number
+## Requesting a CVE identification number
 
 Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
 
@@ -71,7 +76,7 @@ Anyone with admin permissions to a security advisory can request a CVE identific
 6. Click **Request CVE**.
   ![Request CVE button](/assets/images/help/security/security-advisory-request-cve-button.png)
 
-### Publishing a security advisory
+## Publishing a security advisory
 
 Publishing a security advisory deletes the temporary private fork for the security advisory.
 
@@ -83,10 +88,10 @@ Publishing a security advisory deletes the temporary private fork for the securi
 5. At the bottom of the page, click **Publish advisory**.
   ![Publish advisory button](/assets/images/help/security/publish-advisory-button.png)
   
-### {% data variables.product.prodname_dependabot_alerts %} for published security advisories
+## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}
 
-### Further reading
+## Further reading
 
 - "[Withdrawing a security advisory](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"

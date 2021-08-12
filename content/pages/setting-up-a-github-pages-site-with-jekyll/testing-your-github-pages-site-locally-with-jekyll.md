@@ -8,16 +8,17 @@ redirect_from:
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - pages
+  - Pages
+shortTitle: Test site locally with Jekyll
 ---
 
 Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.
 
-### Prerequisites
+## Prerequisites
 
 Before you can use Jekyll to test a site, you must:
   - Install [Jekyll](https://jekyllrb.com/docs/installation/).
@@ -27,7 +28,7 @@ Before you can use Jekyll to test a site, you must:
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-### Building your site locally
+## Building your site locally
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -48,7 +49,7 @@ Before you can use Jekyll to test a site, you must:
   ```
 3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
 
-### Updating the {% data variables.product.prodname_pages %} gem
+## Updating the {% data variables.product.prodname_pages %} gem
 
 Jekyll is an active open source project that is updated frequently. If the `github-pages` gem on your computer is out of date with the `github-pages` gem on the {% data variables.product.prodname_pages %} server, your site may look different when built locally than when published on {% data variables.product.product_name %}. To avoid this, regularly update the `github-pages` gem on your computer.
 
@@ -57,6 +58,6 @@ Jekyll is an active open source project that is updated frequently. If the `gith
     - If you installed Bundler, run `bundle update github-pages`.
     - If you don't have Bundler installed, run `gem update github-pages`.
 
-### Further reading
+## Further reading
 
 - [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) in the Jekyll documentation

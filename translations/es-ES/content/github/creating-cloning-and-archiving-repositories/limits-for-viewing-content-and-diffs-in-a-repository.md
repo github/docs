@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 La mayoría de los límites que aparecen a continuación afectan tanto {% data variables.product.product_name %} como la API.

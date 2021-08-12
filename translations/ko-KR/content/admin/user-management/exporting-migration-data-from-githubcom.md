@@ -11,8 +11,11 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - API
+  - Enterprise
+  - Migration
 ---
 
 ### Preparing the source organization on {% data variables.product.prodname_dotcom %}

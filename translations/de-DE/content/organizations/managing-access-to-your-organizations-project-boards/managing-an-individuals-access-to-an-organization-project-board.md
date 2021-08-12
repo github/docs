@@ -1,6 +1,6 @@
 ---
 title: Zugriff einer Einzelperson auf das Projektboard einer Organisation verwalten
-intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du den Zugriff einzelner Mitglieder auf ein Projektboard Deiner Organisation verwalten.'
+intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du den Zugriff einzelner Mitglieder auf ein Projektboard Deiner Organisation verwalten.
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% note %}
@@ -22,8 +22,8 @@ topics:
 
 ### Einem Organisationsmitglied Zugriff auf ein Projektboard gewähren
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -35,8 +35,8 @@ topics:
 
 ### Den Zugriff eines Organisationsmitglieds auf ein Projektboard ändern
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -48,8 +48,8 @@ topics:
 
 Wenn Du einen Mitarbeiter von einem Projektboard entfernst, kann er je nach den Berechtigungen seiner anderen Rollen möglicherweise dennoch weiterhin auf das Projektboard zugreifen. Um den Zugriff auf ein Projektboard komplett zu verhindern, musst Du den Zugriff für jede Rolle dieses Mitarbeiters entfernen. Eine Person kann beispielsweise als Organisationsmitglied oder Teammitglied Zugriff auf das Projektboard haben. Weitere Informationen finden Sie unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

@@ -1,20 +1,21 @@
 ---
 title: Managing disruptive comments
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
+intro: 'You can {% ifversion fpt %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - community
+  - Community
+shortTitle: Manage comments
 ---
 
-### Hiding a comment
+## Hiding a comment
 
 Anyone with write access to a repository can hide comments on issues, pull requests, and commits. 
 
@@ -26,13 +27,13 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
   ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete options](/assets/images/help/repository/comment-menu.png)
 3. Using the "Choose a reason" drop-down menu, click a reason to hide the comment. Then click, **Hide comment**.
-  {% if currentVersion == "free-pro-team@latest" %}
+  {% ifversion fpt %}
   ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
   ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-### Unhiding a comment
+## Unhiding a comment
 
 Anyone with write access to a repository can unhide comments on issues, pull requests, and commits.
 
@@ -42,11 +43,11 @@ Anyone with write access to a repository can unhide comments on issues, pull req
 3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
    ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
 
-### Editing a comment
+## Editing a comment
 
 Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
 
-It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
+It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
 When you edit a comment, note the location that the content was removed from and optionally, the reason for removing it.
 
@@ -65,11 +66,11 @@ Comment authors and anyone with write access to a repository can also delete sen
   ![Comment window with added note that content was redacted](/assets/images/help/issues/note-content-redacted-comment.png)
 5. Click **Update comment**.
 
-### Deleting a comment
+## Deleting a comment
 
 Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
 
-Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
+Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% ifversion fpt %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
 Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 

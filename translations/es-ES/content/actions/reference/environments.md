@@ -16,7 +16,7 @@ versions:
 Puedes configurr ambientes con reglas de protección y secretos. Cuando un job de un flujo de trabajo referencia un ambiente, el job no comenzará hasta que todas las reglas de protección del ambiente pasen. Un job tampoco puede acceder a los secretos que se definen en un ambiente sino hasta que todas las reglas de protección de dicho ambiente pasen.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Environment protection rules and environment secrets are only available on public repositories and private repositories on an enterprise plan. If you convert a repository from public to private on a non-enterprise plan, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
+Las reglas de protección de ambiente y los secretos de ambiente solo están disponibles en los repositorios públicos y privados de un plan empresarial. Si conviertes a un repositorio de público a privado en un plan no empresarial, cualquier regla de protección o secretos de ambiente configurados se ignorarán y no podrás configurar ningún ambiente. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
 {% endif %}
 
 #### Reglas de protección de ambiente
@@ -48,6 +48,12 @@ Utiliza ramas de despliegue para restringir las ramas que pueden hacer despliegu
 
 Los secretos que se almacenan en un ambiente sólo se encuentran disponibles para los jobs de flujo de trabajo que referencien el ambiente. Si el ambiente requiere aprobación, un job no puede acceder a secretos de ambiente hasta que uno de los revisores requeridos lo apruebe. Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
+{% note %}
+
+**Nota:** Los flujos de trabajo que se ejecutan en ejecutores auto-hospedados no se ejecutan en un contenedor aislado, incluso si utilizan ambientes. Los secretos de ambiente deben tratarse con el mismo nivel de seguridad que un secreto de repositorio u organización. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
+
+{% endnote %}
+
 ### Crear un ambiente
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -71,6 +77,9 @@ Para obtener más información sobre la sintaxis para referenciar ambientes en l
 
 Cuando un flujo de trabajo referencia un ambiente, éste aparecerá en los despliegues del repositorio. Para obtener más información acerca de visualizar los despliegues actuales y previos, consulta la sección "[Visualizar el historial de despliegues](/developers/overview/viewing-deployment-history)".
 
+### Utilizar la concurrencia para serializar los despliegues en un ambiente
+Puedes utilizar la concurrencia para que un ambiente tenga un máximo de un despliegue en progreso y un despliegue pendiente a la vez. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#concurrency)".
+
 ### Borrar un ambiente
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -80,7 +89,7 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. Junto al ambiente que quieres borrar, da clic en {% octicon "trashcan" aria-label="The trashcan icon" %}.
+1. Junto al ambiente que quieres borrar, haz clic en {% octicon "trash" aria-label="The trash icon" %}.
 2. Da clic en **Entiendo, borra este ambiente**.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}También puedes borrar los ambientes a través de la API de REST Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".{% endif %}

@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 标准服务条款是 {% data variables.product.prodname_dotcom %} 与您个人之间的协议。 要代表实体（例如公司、非营利性组织或团体）与 {% data variables.product.prodname_dotcom %} 签订协议，组织所有者可升级到公司服务条款。

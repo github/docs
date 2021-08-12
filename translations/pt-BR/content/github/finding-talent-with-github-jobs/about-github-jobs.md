@@ -7,7 +7,7 @@ intro: 'Você pode anunciar uma vaga no {% data variables.product.prodname_jobs 
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 Para poder anunciar uma vaga, é preciso criar uma conta do {% data variables.product.prodname_dotcom %} e verificar seu endereço de e-mail. Para obter mais informações, consulte "

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

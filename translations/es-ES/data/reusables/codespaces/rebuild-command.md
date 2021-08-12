@@ -1,0 +1,1 @@
+Accede a la paleta de comandos (`shift command P` / `shift control P`) y luego comienza a teclare "Codespaces: Rebuild Container". Haz clic en **Codespaces: Rebuild Container**. 

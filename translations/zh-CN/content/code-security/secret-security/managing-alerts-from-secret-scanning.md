@@ -8,13 +8,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - 仓库
+  - Secret scanning
+  - Advanced Security
+  - Alerts
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
 
-### 管理警报
+### 管理 {% data variables.product.prodname_secret_scanning %} 警报
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -49,3 +53,11 @@ topics:
 
 - 对于受到威胁的 {% data variables.product.prodname_dotcom %} 个人访问令牌，请删除该令牌，创建新令牌，然后更新使用旧令牌的任何服务。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)。”
 - 对于所有其他密码，请先确认提交到 {% data variables.product.product_name %} 的密码是有效的。 如果有效，请创建新密码，更新使用旧密码的任何服务，然后删除旧密码。
+
+{% if currentVersion == "free-pro-team@latest" %}
+### 配置 {% data variables.product.prodname_secret_scanning %} 警报的通知
+
+当检测到新的机密时，{% data variables.product.prodname_dotcom %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 如果您正在关注该仓库，已启用安全警报通知功能， 或者您是包含机密的提交的作者且未忽略该仓库，您将会收到警报。
+
+更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”和“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
+{% endif %}

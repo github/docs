@@ -7,12 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. [People] タブで、[**Pending invitation**] をクリックします。 ![招待の保留リンク](/assets/images/help/organizations/pending-invitation-link.png)
 5. 編集またはキャンセルしたい人の、ユーザ名またはメールアドレスの隣にある [**Edit invitation**] をクリックします。 ![招待の編集ボタン](/assets/images/help/organizations/edit-invitation-button.png)

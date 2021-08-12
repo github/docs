@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfil
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Para conocer más sobre cómo acceder a tu tablero personal, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
@@ -38,6 +38,10 @@ Haz clic en **Watch** (Ver) en la parte superior del repositorio que desas ver.
 
 {% data reusables.support.ask-and-answer-forum %}
 
+### Communicating on {% data variables.product.product_name %}
+
+{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+
 ### Hacer un poco más
 
 #### Crear solicitudes de extracción
@@ -54,7 +58,7 @@ Al colaborar en un repositorio, usa las propuestas para realizar el seguimiento 
 
 #### Participación en las organizaciones
 
-Las organizaciones son cuentas compartidas donde las empresas y los proyectos de código abierto pueden colaborar en muchos proyectos a la vez. Los propietarios y administradores pueden establecer equipos con permisos especiales, tener un perfil de organización pública y realizar el seguimiento de la actividad dentro de la organización. Para obtener más información, consulta "[Acerca de las organizaciones](/articles/about-organizations)".
+Las organizaciones son cuentas compartidas donde las empresas y los proyectos de código abierto pueden colaborar en muchos proyectos a la vez. Los propietarios y administradores pueden establecer equipos con permisos especiales, tener un perfil de organización pública y realizar el seguimiento de la actividad dentro de la organización. For more information, see "[About organizations](/articles/about-organizations/)."
 
 ![Desplegable de contexto para cambiar cuenta](/assets/images/help/overview/dashboard-contextswitcher.png)
 
@@ -68,8 +72,8 @@ Ahora estás conectado con la comunidad de {% data variables.product.product_nam
 
 ![Marcar un proyecto con una estrella](/assets/images/help/stars/star-a-project.png)
 
-- [Configurar Git](/articles/set-up-git)
-- [Crear un repositorio](/articles/create-a-repo)
-- [Bifurcar un repositorio](/articles/fork-a-repo)
+- "[Configurar Git](/articles/set-up-git)"
+- "[Crear un repositorio](/articles/create-a-repo)"
+- "[Bifurcar un repositorio](/articles/fork-a-repo)"
 - **Ser social**
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

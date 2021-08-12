@@ -1,6 +1,6 @@
 ---
 title: Sobre discussões
-intro: Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.
+intro: 'Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
 ---
@@ -23,13 +23,19 @@ Se um administrador de repositório ou mantenedor do projeto permitir discussõe
 
 Para obter mais informações sobre o gerenciamento de discussões para o repositório, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
-### Sobre categorias e formatos para discussões
+### Sobre a organização de discussão
+
+Você pode organizar discussões com categorias e etiquetas.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 Para discussões com um formato de pergunta/resposta, é possível marcar um comentário individual dentro da discussão como a resposta da discussão. {% data reusables.discussions.github-recognizes-members %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### Melhores práticas para discussões
 

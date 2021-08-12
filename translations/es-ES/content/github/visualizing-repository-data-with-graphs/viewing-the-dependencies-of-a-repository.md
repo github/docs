@@ -1,6 +1,6 @@
 ---
 title: Visualizar las dependencias de un repositorio
-intro: 'Puedes utilizar la gráfica de dependencias para explorar el código del cual depende tu repositorio.'
+intro: Puedes utilizar la gráfica de dependencias para explorar el código del cual depende tu repositorio.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'

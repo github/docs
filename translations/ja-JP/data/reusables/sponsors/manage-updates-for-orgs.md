@@ -1,1 +1,1 @@
-You can designate which email address receives updates from the accounts your organization sponsors. For more information, see "[Managing updates from accounts your organization sponsors](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)."
+Organizationがスポンサーするアカウントからの更新を受信するメールアドレスを指定できます。 詳しい情報については「[Organizationがスポンサーするアカウントからの更新の管理](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)」を参照してください。

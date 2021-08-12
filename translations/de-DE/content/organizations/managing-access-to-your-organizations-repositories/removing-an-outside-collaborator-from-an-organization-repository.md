@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -30,8 +30,8 @@ Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys 
 
 ### Externe Mitarbeiter von allen Repositorys einer Organisation entfernen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Wähle die externen Mitarbeiter aus, die Du aus der Organisation entfernen möchtest. ![Liste der externen Mitarbeiter mit zwei ausgewählten Mitarbeitern](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
@@ -42,8 +42,8 @@ Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys 
 
 Wenn Du einen externen Mitarbeiter nur von bestimmten Repositorys Deiner Organisation entfernen möchtest, kannst Du dessen Zugriff auf die einzelnen Repositorys nacheinander entziehen.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Klicken Sie rechts neben dem Benutzernamen der Person, die Sie entfernen möchten, im Dropdownmenü {% octicon "gear" aria-label="The Settings gear" %} auf **Manage** (Verwalten). ![Schaltfläche „Manage access“ (Zugriff verwalten)](/assets/images/help/organizations/member-manage-access.png)

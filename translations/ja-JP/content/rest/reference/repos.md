@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -139,12 +139,12 @@ GitHub は、新しいデプロイメント、デプロイメントのステー�
 
 GitHub は、あなたのサーバーに実際にアクセスすることはないということは覚えておきましょう。 デプロイメントイベントとやり取りするかどうかは、サードパーティインテグレーション次第です。 複数のシステムがデプロイメントイベントをリッスンできます。コードをサーバーにプッシュする、ネイティブコードを構築するなどを行うかどうかは、それぞれのシステムが決めることができます。
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% if currentVersion != "github-ae@latest" %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+{% if currentVersion != "github-ae@latest" %}`public_repo` スコープおよび{% endif %}`repo` スコープはコードにもアクセス権を付与するのに対し、</code>repo_deployment</0> [OAuth scope](/developers/apps/scopes-for-oauth-apps) は、リポジトリのコードにアクセス権を付与**せず**、デプロイメントおよびデプロイメントステータスに絞ってアクセス権を付与することに注意してください。
 
 
 ### 非アクティブのデプロイメント
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
+デプロイメントのステータスを `success` に設定すると、同じ環境に対する同じリポジトリ内の一時的でない、非本番環境のデプロイメントはすべて `inactive` になります。 これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
 
 `state` を `inactive` に設定することで、一時的な環境が存在しなくなったことを伝えることができます。  `state` を `inactive` に設定すると、{% data variables.product.prodname_dotcom %} でデプロイメントが `destroyed` と表示され、アクセス権が削除されます。
 
@@ -155,7 +155,8 @@ When you set the state of a deployment to `success`, then all prior non-transien
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 ## 環境
 
-The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)."
+Environments APIを使うと、環境を作成、設定、削除できます。 環境に関する詳しい情報については「[環境](/actions/reference/environments)」を参照してください。 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
@@ -193,7 +194,7 @@ Repo Merging API は、リポジトリ内にあるブランチのマージをサ
 
 ## ページ
 
-{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
+{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 サイトとビルドに関する情報は、{% if currentVersion != "github-ae@latest" %}Webサイトがパブリックの場合であっても{% endif %}認証を受けたユーザだけがアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
 
 レスポンスに `status` キーを持つ {% data variables.product.prodname_pages %} API エンドポイントにおいては、値は以下のいずれかになります。
 * `null`: サイトはまだビルドされていません。
@@ -337,9 +338,9 @@ PubSubHubbub リクエストは複数回送信できます。 フックがすで
 
 ##### パラメータ
 
-| 名前             | 種類       | 説明                                                                                                                                                                                                                                         |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                     |
-| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                 |
-| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                          |
-| `hub.secret`   | `string` | 送信する本文コンテンツの SHA1 HMAC を生成する共有秘密鍵。  Raw 形式のリクエスト本文と、`X-Hub-Signature` ヘッダのコンテンツを比較することで、 GitHub からのプッシュを検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `hub.secret`   | `string` | 送信する本文コンテンツの ハッシュ署名を生成する共有秘密鍵。  GitHubからきたプッシュを、そのリクエストのボディを{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`X-Hub-Signature-256`ヘッダの`X-Hub-Signature`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`ヘッダ{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` header{% endif %}と比較して、検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |

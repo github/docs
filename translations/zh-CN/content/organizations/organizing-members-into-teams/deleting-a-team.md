@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -19,8 +19,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 选择要删除的团队。 ![选择了两个团队的团队列表](/assets/images/help/teams/list-of-teams-selected.png)
 5. 在团队列表上方，使用下拉菜单并单击 **Delete（删除）**。 ![包含更改团队可见性选项的下拉菜单](/assets/images/help/teams/team-bulk-management-options.png)

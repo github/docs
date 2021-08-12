@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +36,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-存储构件时使用存储空间 {% data variables.product.product_name %}。 {% data reusables.github-actions.actions-billing %} 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)”。
+存储构件时使用存储空间 {% data variables.product.product_name %}。 {% data reusables.github-actions.actions-billing %} 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)”。
 
 {% else %}
 
@@ -252,6 +252,6 @@ jobs:
 
 ### 延伸阅读
 
-- "[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

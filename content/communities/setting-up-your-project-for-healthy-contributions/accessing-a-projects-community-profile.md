@@ -6,9 +6,10 @@ redirect_from:
   - /articles/accessing-a-projects-community-profile
   - /github/building-a-strong-community/accessing-a-projects-community-profile
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - community
+  - Community
+shortTitle: Access community profiles
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -16,6 +17,6 @@ topics:
 3. In the left sidebar, click **Community**.
 ![Community in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
-### Further reading
+## Further reading
 
 - "[About community profiles for public repositories](/articles/about-community-profiles-for-public-repositories)"

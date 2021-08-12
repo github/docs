@@ -1,6 +1,6 @@
 ---
 title: 以前の外部のコラボレータの Organization へのアクセスを復帰させる
-intro: 'Organization のリポジトリ、フォーク、設定に対する元外部のコラボレータのアクセス許可を元に戻すことができます。'
+intro: Organization のリポジトリ、フォーク、設定に対する元外部のコラボレータのアクセス許可を元に戻すことができます。
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization のプライベートリポジトリへの外部のコラボレータのアクセスが削除されると、ユーザのアクセス権限と設定は 3 か月間保存されます。 そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion == "free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
@@ -36,8 +36,8 @@ Organization のプライベートリポジトリへの外部のコラボレー�
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

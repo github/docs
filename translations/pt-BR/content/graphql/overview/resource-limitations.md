@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ## Limite de nó
@@ -19,7 +19,7 @@ Para passar a validação do [esquema](/graphql/guides/introduction-to-graphql#s
 * Os valores de `primeiro` e `último` devem ser entre 1 e 100.
 * As chamadas individuais não podem solicitar mais de 500.000 [nós](/graphql/guides/introduction-to-graphql#node)no total.
 
-#### Calcular nós em uma chamada
+### Calcular nós em uma chamada
 
 Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
@@ -140,7 +140,7 @@ Observe que 5.000 pontos por hora não é o mesmo que 5.000 chamadas por hora: a
 
 {% endnote %}
 
-#### Retornar o status de limite da chamada
+### Retornar o status de limite da chamada
 
 Com a API REST v3, você pode verificar o status do limite de taxa [inspecionando](/rest/overview/resources-in-the-rest-api#rate-limiting) os cabeçalhos HTTP retornados.
 
@@ -168,7 +168,7 @@ query {
 
 * O campo `resetAt` retorna o tempo em que a janela de limite de taxa atual é redefinida em [segundos de satélite de UTC](http://en.wikipedia.org/wiki/Unix_time).
 
-#### Calcular um limite de taxa antes de executar a chamada
+### Calcular um limite de taxa antes de executar a chamada
 
 Consultar o objeto `rateLimit` retorna a pontuação de uma chamada, mas executar a chamada tem um custo para o limite. Para evitar esse dilema, você pode calcular a pontuação de uma chamada antes de executá-la. O cálculo a seguir funciona quase da mesma maneira que o que retorna `taxteLimit { cost }`.
 

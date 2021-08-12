@@ -10,8 +10,12 @@ redirect_from:
 intro: 'Abre los puertos de red de forma selectiva en base a los servicios de red que necesitas exponer a los administradores, usuarios finales y apoyo de correo electrónico.'
 versions:
   enterprise-server: '*'
+type: reference
 topics:
-  - empresa
+  - Enterprise
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Puertos administrativos

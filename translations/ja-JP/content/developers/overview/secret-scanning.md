@@ -8,16 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 {% data variables.product.prodname_dotcom %}は、既知のシークレットフォーマットに対してリポジトリをスキャンし、誤ってコミットされたクレデンシャルが不正利用されることを防ぎます。 {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
 
 シークレットのフォーマットに対する一致がパブリックリポジトリで見つかった場合、選択したHTTPのエンドポイントにペイロードが送信されます。
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
 
-This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} program.
+This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
 ### The {% data variables.product.prodname_secret_scanning %} process
 
@@ -54,26 +54,20 @@ Send this information to <a href="mailto:secret-scanning@github.com">secret-scan
 
 #### シークレットアラートサービスの作成
 
-提供したURLに、パブリックでインターネットからアクセスできるHTTPエンドポイントを作成してください。 パブリックリポジトリで正規表現への一致が見つかった場合、{% data variables.product.prodname_dotcom %}はHTTPの`POST`メッセージをエンドポイントに送信します。
+提供したURLに、パブリックでインターネットからアクセスできるHTTPエンドポイントを作成してください。 When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
 ##### エンドポイントに送信されるPOSTの例
 
 ```http
-POST / HTTP/1.1
+POST / HTTP/2
 Host: HOST
 Accept: */*
 Content-Type: application/json
 GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCICop4nvIgmcY4+mBG6Ek=
+GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[
-  {
-    "token": "X-Header-Bearer: as09dalkjasdlfkjasdf09a",
-    "type": "ACompany_API_token",
-    "url": "https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"
-  }
-]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
 ```
 
 メッセージのボディはJSONの配列で、以下の内容を持つ1つ以上のオブジェクトを含みます。 複数の一致が見つかった場合には、{% data variables.product.prodname_dotcom %}は複数のシークレットの一致を含む1つのメッセージを送信することがあります。 エンドポイントは、タイムアウトすることなく大量の一致を含むリクエストを処理できなければなりません。
@@ -88,19 +82,31 @@ Content-Length: 0123
 
 {% data variables.product.prodname_dotcom %}のシークレットスキャンニング公開鍵はhttps://api.github.com/meta/public_keys/secret_scanningから取得でき、`ECDSA-NIST-P256V1-SHA256`アルゴリズムを使ってメッセージを検証できます。
 
-次のメッセージを受信したとして、以下のコードは署名検証の方法を示しています。 このコードはまた、`GITHUB_PRODUCTION_TOKEN`という環境変数に生成されたPATが設定されているものとしています(https://github.com/settings/tokens)。 このトークンには権限が設定されている必要はありません。
+{% note %}
+
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token (no scopes required) as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+
+{% endnote %}
+
+次のメッセージを受信したとして、以下のコードは署名検証の方法を示しています。 The code snippets assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens) to avoid hitting rate limits. The PAT does not need any scopes/permissions.
+
+{% note %}
+
+**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
+
+{% endnote %}
 
 **検証エンドポイントに送信されたサンプルのメッセージ**
 ```http
-POST / HTTP/1.1
+POST / HTTP/2
 Host: HOST
 Accept: */*
 content-type: application/json
 GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc=
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc=
 Content-Length: 0000
 
-[{"token": "some_token", "type": "some_type", "url": "some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 ```
 
 **Goでの検証のサンプル**
@@ -123,14 +129,14 @@ import (
 )
 
 func main() {
-  payload := `[{"token": "some_token", "type": "some_type", "url": "some_url"}]`
+  payload := `[{"token":"some_token","type":"some_type","url":"some_url"}]`
 
   kID := "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-  kSig := "MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc="
+  kSig := "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
-  // GitHub公開鍵のリストをフェッチ
-  req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/token_scanning", nil)
+  // Fetch the list of GitHub Public Keys
+  req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
   if err != nil {
     fmt.Printf("Error preparing request: %s\n", err)
     os.Exit(1)
@@ -156,7 +162,7 @@ func main() {
     os.Exit(3)
   }
 
-  // webhookの署名に使われた鍵を見つける
+  // Find the Key used to sign our webhook
   pubKey, err := func() (string, error) {
     for _, v := range keys.PublicKeys {
       if v.KeyIdentifier == kID {
@@ -172,21 +178,21 @@ func main() {
     os.Exit(4)
   }
 
-  // 公開鍵のデコード
+  // Decode the Public Key
   block, _ := pem.Decode([]byte(pubKey))
   if block == nil {
     fmt.Println("Error parsing PEM block with GitHub public key")
     os.Exit(5)
   }
 
-  // ECDSA公開鍵の生成
+  // Create our ECDSA Public Key
   key, err := x509.ParsePKIXPublicKey(block.Bytes)
   if err != nil {
     fmt.Printf("Error parsing DER encoded public key: %s\n", err)
     os.Exit(6)
   }
 
-  // ドキュメントから、これが*ecdsa.PublicKeyであることは分かっている
+  // Because of documentation, we know it's a *ecdsa.PublicKey
   ecdsaKey, ok := key.(*ecdsa.PublicKey)
   if !ok {
     fmt.Println("GitHub key was not ECDSA, what are they doing?!")
@@ -234,16 +240,16 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token": "some_token", "type": "some_type", "url": "some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 EOL
 
 payload = payload
 
-signature = "MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc="
+signature = "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
 key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-url = URI.parse('https://api.github.com/meta/public_keys/token_scanning')
+url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
 raise "Need to define GITHUB_PRODUCTION_TOKEN environment variable" unless ENV['GITHUB_PRODUCTION_TOKEN']
 request = Net::HTTP::Get.new(url.path)
@@ -349,4 +355,3 @@ A few important points:
 **Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}
-

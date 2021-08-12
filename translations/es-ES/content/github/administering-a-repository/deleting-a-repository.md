@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} elimina un repositorio de la organización. Si se ha deshabilitado **Permitir que los miembros eliminen o transfieran repositorios para esta organización**, solo los propietarios de la organización pueden eliminar los repositorios de la organización. {% data reusables.organizations.new-repo-permissions-more-info %}

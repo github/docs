@@ -36,12 +36,16 @@ Below is a list of some of the available keyboard shortcuts.
 | <kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."                                                                                                       |
-| <kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."                                                                                      |
+| <kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
+| <kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ### Source code editing
 
 | Keyboard shortcut                                               | Description                                                    |
 | --------------------------------------------------------------- | -------------------------------------------------------------- |
+| <kbd>control b</kbd> or <kbd>command b</kbd>                    | Inserts Markdown formatting for bolding text                   |
+| <kbd>control i</kbd> or <kbd>command i</kbd>                    | Inserts Markdown formatting for italicizing text               |
+| <kbd>control k</kbd> or <kbd>command k</kbd>                    | Inserts Markdown formatting for creating a link                |
 | <kbd>e</kbd>                                                    | Open source code file in the **Edit file** tab                 |
 | <kbd>control f</kbd> or <kbd>command f</kbd>                    | Start searching in file editor                                 |
 | <kbd>control g</kbd> or <kbd>command g</kbd>                    | Find next                                                      |

@@ -23,14 +23,19 @@ featuredLinks:
     - /discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
 changelog:
-  label: 'discussions'
-product_video: https://www.youtube-nocookie.com/embed/IpBw2SJkFyk
+  label: discussions
+examples_source: data/product-examples/discussions/community-examples.yml
+product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
+community_redirect: 
+  name: 'Provide GitHub Feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /quickstart
+  - /guides
+  - /collaborating-with-your-community-using-discussions
+  - /managing-discussions-for-your-community
 ---
 
-<!-- {% link_with_intro /quickstart %} -->
-<!-- {% link_with_intro /discussions-guides %} -->
-<!-- {% link_with_intro /collaborating-with-your-community-using-discussions %} -->
-<!-- {% link_with_intro /managing-discussions-for-your-community %} -->

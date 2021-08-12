@@ -1,7 +1,7 @@
 ---
 title: Gerenciar discussões no seu repositório
-intro: Você pode categorizar, destacar e transferir ou excluir as discussões de um repositório.
-permissions: Os administradores do repositório e as pessoas com acesso superior ou de gravação a um repositório podem gerenciar discussões no repositório.
+intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões de um repositório.'
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -18,6 +18,8 @@ Como mantenedor de discussões, você pode criar recursos da comunidade para inc
 
 Para obter mais informações sobre como facilitar uma discussão saudável, consulte "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)".
 
+{% data reusables.discussions.you-can-label-discussions %}
+
 ### Pré-requisitos
 
 Para gerenciar as discussões em um repositório, as discussões devem ser habilitadas para o repositório. Para obter mais informações, consulte "[Habilitar ou desabilitar discussões para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository). ".
@@ -31,7 +33,8 @@ Você também pode mover a discussão para uma categoria diferente.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar discussão fixada**. !["Fixar discussão" na barra lateral direita para discussão](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. Na barra lateral direita, à direita da "Categoria", clique em {% octicon "gear" aria-label="The gear icon" %}. !["Categoria" com ícone de engrenagem](/assets/images/help/discussions/category-in-sidebar.png)
+1. Clique em uma categoria. ![Menu suspenso "Alterar categoria"](/assets/images/help/discussions/change-category-drop-down.png)
 
 ### Fixar uma discussão
 

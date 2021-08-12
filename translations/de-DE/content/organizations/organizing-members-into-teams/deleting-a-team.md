@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -19,8 +19,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Wähle alle Teams aus, die Du löschen möchtest. ![Liste der Teams mit zwei ausgewählten Teams](/assets/images/help/teams/list-of-teams-selected.png)
 5. Klicke im Dropdownmenü über der Liste der Teams auf **Delete** (Löschen). ![Dropdownmenü mit Option zum Ändern der Teamsichtbarkeit](/assets/images/help/teams/team-bulk-management-options.png)

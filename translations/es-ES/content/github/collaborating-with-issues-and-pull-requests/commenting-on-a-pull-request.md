@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 ### Acerca de los comentarios de las solicitudes de extracción
@@ -36,7 +36,7 @@ Para responder un comentario en la línea que ya existe, deberás ir hasta el co
 
 **Tips:**
 - Los comentarios de las solicitudes de extracción soportan el mismo [ formato](/categories/writing-on-github) que los comentarios regulares en {% data variables.product.product_name %}, como @menciones, emojis y referencias.
-- Puedes [agregar reacciones](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) a los comentarios en las solicitudes de extracción en la pestaña **Files changed** (Archivos cambiados).
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 

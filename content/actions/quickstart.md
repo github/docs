@@ -5,25 +5,26 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: 'quick_start'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+type: quick_start
 topics:
-  - 'Fundamentals'
+  - Fundamentals
+shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}. 
 
 The following example shows you how {% data variables.product.prodname_actions %} jobs can be automatically triggered, where they run, and how they can interact with the code in your repository.
 
-### Creating your first workflow
+## Creating your first workflow
 
 1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
 2. Copy the following YAML contents into the `github-actions-demo.yml` file:
@@ -54,7 +55,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 
 Committing the workflow file to a branch in your repository triggers the `push` event and runs your workflow.
 
-### Viewing your workflow results
+## Viewing your workflow results
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -74,11 +75,11 @@ Committing the workflow file to a branch in your repository triggers the `push` 
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
    
-### More workflow templates
+## More workflow templates
 
 {% data reusables.actions.workflow-template-overview %}
 
-### Next steps
+## Next steps
 
 The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:
 

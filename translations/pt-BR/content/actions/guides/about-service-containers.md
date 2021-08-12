@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - Contêineres
+  - Containers
   - Docker
 ---
 

@@ -5,8 +5,10 @@ intro: '{% if currentVersion == "github-ae@latest" %}A sua empresa de {% data va
 versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - enterprise
+  - Enterprise
+  - Upgrades
 ---
 
 {% data variables.product.product_name %} está constantemente melhorando, com novas funcionalidades e correções de erros introduzidas por meio de versões maiores e menores. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado. Portanto, {% data variables.product.company_short %} conclui o processo de atualização da sua empresa.{% endif %}
@@ -43,5 +45,5 @@ Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/e
 
 - [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) no repositório  `github/roadmap`
 {% if currentVersion == "github-ae@latest" %}
-- [ Observações da versão de {% data variables.product.prodname_ghe_managed %}](/admin/overview/github-ae-release-notes)
+- [ Observações da versão de {% data variables.product.prodname_ghe_managed %}](/admin/release-notes)
 {% endif %}

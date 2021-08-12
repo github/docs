@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Solo los propietarios de la organización pueden eliminar usuarios de una organización.
@@ -48,8 +48,8 @@ Para ayudar con la transición de la persona que estás eliminando de tu organiz
 
 ### Revocar la membresía del usuario
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Selecciona el miembro o los miembros que quieres eliminar de la organización. ![Lista de miembros con dos miembros seleccionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Arriba de la lista de miembros, utiliza el menú desplegable y haz clic en **Remove from organization** (Eliminar de la organización). ![Menú desplegable con la opción para eliminar miembros](/assets/images/help/teams/user-bulk-management-options.png)

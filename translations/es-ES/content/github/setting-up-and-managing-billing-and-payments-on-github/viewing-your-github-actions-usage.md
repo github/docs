@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 También puedes ver los minutos de ejecución facturables para los jobs en una ejecución de flujo de trabajo individual. Para obtener más información, consulta la sección "[Visualizar el tiempo de ejecución del job](/actions/managing-workflow-runs/viewing-job-execution-time)".
@@ -15,7 +15,7 @@ También puedes ver los minutos de ejecución facturables para los jobs en una e
 Cualquiera puede ver el uso de {% data variables.product.prodname_actions %} para su cuenta de usuario personal.
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
@@ -24,10 +24,9 @@ Cualquiera puede ver el uso de {% data variables.product.prodname_actions %} par
 
 Los propietarios de la organización y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_actions %} para una organización. Para organizaciones que gestione una cuenta empresarial, únicamente los propietarios de éstas pueden ver el uso de {% data variables.product.prodname_actions %} en la página de facturación de la misma.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}

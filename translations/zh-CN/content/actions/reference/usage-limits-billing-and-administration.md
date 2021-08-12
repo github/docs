@@ -1,5 +1,5 @@
 ---
-title: '使用限制、计费和管理'
+title: 使用限制、计费和管理
 intro: '{% data variables.product.prodname_actions %} 工作流程有使用限制。 使用费适用于超出仓库免费分钟数和存储空间量的仓库。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,7 +19,7 @@ topics:
 ### 关于 {% data variables.product.prodname_actions %} 的计费
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.github-actions.actions-billing %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”。
+{% data reusables.github-actions.actions-billing %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 {% else %}
 GitHub Actions 使用对
 使用自托管运行器的 {% data variables.product.prodname_ghe_server %} 免费。
@@ -49,6 +49,8 @@ GitHub Actions 使用对
   | 团队        | 60        | 5                 |
   | 企业        | 180       | 50                |
 - **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 使用限制适用于自托管运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”。
 {% endif %}

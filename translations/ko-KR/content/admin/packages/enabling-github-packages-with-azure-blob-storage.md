@@ -4,7 +4,7 @@ intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob St
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 {% warning %}

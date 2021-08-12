@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 ### Domínios personalizados compatíveis
@@ -24,9 +24,9 @@ O {% data variables.product.prodname_pages %} trabalha com dois tipos de domíni
 | Subdomínio personalizado                 | `blog.example.com` |
 | Domínio apex                             | `example.com`      |
 
-You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
+Você pode definir as duas configurações apex e subdomínio de `www` para o seu site. Para obter mais informações sobre domínios apex, consulte "[Usar um domínio apex para o seu site {% data variables.product.prodname_pages %}](#using-an-apex-domain-for-your-github-pages-site)".
 
-É recomendável sempre usar um subdomínio `www`, mesmo se você também usar um domínio apex. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+É recomendável sempre usar um subdomínio `www`, mesmo se você também usar um domínio apex. Ao criar um novo site com um domínio apex, tentamos proteger automaticamente o subdomínio `www` para uso ao servir o conteúdo do seu site. Se você configurar um subdomínio `www`, nós tentaremos proteger automaticamente o domínio apex associado. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
 Depois que você configurar um domínio personalizado para um site de usuário ou organização, o domínio personalizado substituirá a parte `<user>.github.io` ou `<organization>.github.io` da URL para qualquer site de projeto de propriedade da conta que não tenha um domínio personalizado configurado. Por exemplo, se o domínio personalizado para o site de usuário for `www.octocat.com` e você tiver um site de projeto sem domínio personalizado configurado que seja publicado de um repositório chamado `octo-project`, o site do {% data variables.product.prodname_pages %} para esse repositório estará disponível em `www.octocat.com/octo-project`.
 
@@ -44,7 +44,7 @@ Os subdomínios `www` são o tipo mais estável de domínio personalizado, pois 
 
 #### Subdomínios personalizados
 
-A custom subdomain is a type of subdomain that doesn't use the standard `www` variant. Os subdomínios personalizados são usados mais frequentemente quando você deseja duas seções distintas do site. Por exemplo, você pode criar um site chamado `blog.example.com.` e personalizar essa seção independentemente de `www.example.com`.
+Um subdomínio personalizado é um tipo de subdomínio que não usa a variante padrão `www`. Os subdomínios personalizados são usados mais frequentemente quando você deseja duas seções distintas do site. Por exemplo, você pode criar um site chamado `blog.example.com.` e personalizar essa seção independentemente de `www.example.com`.
 
 ### Usar um domínio apex para seu site do {% data variables.product.prodname_pages %}
 
@@ -52,7 +52,7 @@ Um domínio apex é um domínio personalizado que não contém um subdomínio, c
 
 Um domínio apex é configurado com um registro `A`, `ALIAS` ou `ANAME` por meio do provedor DNS. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)".
 
 ### Atualizar domínios personalizados quando seu site do {% data variables.product.prodname_pages %} é desabilitado
 

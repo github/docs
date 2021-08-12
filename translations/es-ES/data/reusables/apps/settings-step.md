@@ -1,0 +1,3 @@
+1. Navigate to your account settings.
+   - For a {% data variables.product.prodname_github_app %} owned by a user account, in the upper-right corner of any page, click your profile photo, then click **Settings**. ![Icono Settings (Parámetros) en la barra de usuario](/assets/images/settings/userbar-account-settings_post2dot12.png)
+   - For a {% data variables.product.prodname_github_app %} owned by an organization, in the upper-right corner of any page, click your profile photo, then click **Your organizations**. Then, to the right of the organization, click **Settings**. ![Tus organizaciones en el menú de perfil](/assets/images/help/profile/your-organizations.png) ![El botón de configuración](/assets/images/help/organizations/settings-button.png)

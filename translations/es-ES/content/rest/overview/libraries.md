@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -19,7 +19,7 @@ topics:
   <div class="octokit-links"><br/>
      <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
 
@@ -71,7 +71,7 @@ Nombre de la biblioteca | Repositorio| Sitio web de metacpan para la biblioteca 
 
 ### PHP
 
-Nombre de biblioteca | Repositorio |---|---| **Cliente PHP de GitHub **|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **API de PHP de GitHub**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **API de GitHub**|[yiiext/github-api](https://github.com/yiiext/github-api) **Paquete de GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **Extensión de Nette para GitHub**|[kdyby/github](https://github.com/kdyby/github) **Acceso Fácil a la API de GitHub**|[milo/github-api](https://github.com/milo/github-api) **Puente de GitHub para Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & wrapper de WebHook**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
+Nombre de la biblioteca | Repositorio |---|---| **API PHP de GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **API de GitHub**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Paquete**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **puente de GitHub para Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
 
 ### PowerShell
 

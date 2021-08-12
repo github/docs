@@ -1,14 +1,14 @@
 ---
 title: Opciones de configuración para actualizaciones de dependencias
 intro: 'La información detallada para todas las opciones que puedes utilizar para personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus repositorios.'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar el {% data variables.product.prodname_dependabot %} para el mismo.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca del archivo *dependabot.yml*
@@ -164,7 +164,7 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Utiliza la opción `allow` para personalizar qué dependencias se actualizan. Esto no impacta en las actualizaciones de seguridad para las dependencias vulnerables. Puedes utilizar las siguientes opciones:
+Utiliza la opción `allow` para personalizar qué dependencias se actualizan. This applies to both version and security updates. Puedes utilizar las siguientes opciones:
 
 - `dependency-name`—se utiliza para permitir actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId`, por ejemplo: `org.kohsuke:github-api`.
 - `dependency-type`—utilízalo para permitir actualizaciones para dependencias de tipos específicos.
@@ -445,12 +445,12 @@ updates:
 
 #### `rebase-strategy`
 
-Predeterminadamente, el {% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de extracción abiertas cuando detecta conflictos. Utiliza `rebase-strategy` para inhabilitar este comportamiento.
+Predeterminadamente, el{% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de cambios abiertas y detecta cualquier cambio en ellas. Utiliza `rebase-strategy` para inhabilitar este comportamiento.
 
 Estrategias de rebase disponibles
 
 - `disabled` para inhabilitar el rebase automático.
-- `auto` para utilizar el comportamiento predeterminado y rebasar las solicitudes de extracción abiertas cuando se detecten conflictos.
+- `auto` para utilizar el comportamiento predeterminado y rebasar las solicitudes de cambios abiertas cuando se detecten cambios.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -473,11 +473,11 @@ Para permitir que el {% data variables.product.prodname_dependabot %} acceda a u
 
 Para permitir que el {% data variables.product.prodname_dependabot %} utilice los administradores de paquetes `bundler`, `mix`, y `pip` para actualizar dependencias en los registros privados, puedes elegir el permitir la ejecución de código externo. Para obtener más información, consulta [`insecure-external-code-execution`](#insecure-external-code-execution).
 
-{% raw %}
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
 # when updating dependency versions for this ecosystem
 
+{% raw %}
 version: 2
 registries:
   maven-github:
@@ -493,11 +493,11 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     registries:
-    - maven-github
+      - maven-github
     schedule:
       interval: "monthly"
-```
 {% endraw %}
+```
 
 #### `reviewers`
 
@@ -716,7 +716,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/docker-registry/dockerhub"
     registries:
-    - dockerhub # Allow version updates for dependencies in this registry
+      - dockerhub # Allow version updates for dependencies in this registry
     schedule:
       interval: "monthly"
 ```
@@ -724,14 +724,15 @@ updates:
 
 Utilizarás las siguientes opciones para especificar la configuración de acceso. La configuración del registro debe contener un `type` y una `url` y, habitualmente, ya sea una combinación de `username` y `password` o un `token`.
 
-| Opción&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Descripción                                                                                                                                                                                                                                                                                                                |
-|:------------------------------------------------------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                 | Identifica el tipo de registro. Consulta la lista completa de tipos más adelante.                                                                                                                                                                                                                                          |
-| `url`                                                                                                  | La URL a utilizar para acceder a las dependencias en el registro. El protocolo es opcional. Si no se especifica, se asumirá que es `https://`. El {% data variables.product.prodname_dependabot %} agrega o ignora las diagonales iniciales conforme sea necesario.                                                        |
-| `nombre de usuario`                                                                                    | El nombre de usuario que utilizará el {% data variables.product.prodname_dependabot %} para acceder al registro.                                                                                                                                                                                                           |
-| `contraseña`                                                                                           | Una referencia a un secreto del {% data variables.product.prodname_dependabot %} que contenga la contraseña del usuario específico. Para obtener más información, consulta la sección "[Administrar los secretos cifrados del Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)".  |
-| `token`                                                                                                | Una referencia a un secreto del {% data variables.product.prodname_dependabot %} que contenga un token de acceso para este registro. Para obtener más información, consulta la sección "[Administrar los secretos cifrados del Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)". |
-| `replaces-base`                                                                                        | Para los registros con `type: python-index`, si el valor booleano es `true`, pip resuleve las dependencias utilizando la URL especificada en vez de la URL base del Índice de Paquetes de Python (que predeterminadamente es `https://pypi.org/simple`).                                                                   |
+| Opción&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Descripción                                                                                                                                                                                                                                                                                                                 |
+|:------------------------------------------------------------------------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                 | Identifica el tipo de registro. Consulta la lista completa de tipos más adelante.                                                                                                                                                                                                                                           |
+| `url`                                                                                                  | La URL a utilizar para acceder a las dependencias en el registro. El protocolo es opcional. Si no se especifica, se asumirá que es `https://`. El {% data variables.product.prodname_dependabot %} agrega o ignora las diagonales iniciales conforme sea necesario.                                                         |
+| `nombre de usuario`                                                                                    | El nombre de usuario que utilizará el {% data variables.product.prodname_dependabot %} para acceder al registro.                                                                                                                                                                                                            |
+| `contraseña`                                                                                           | Una referencia a un secreto del {% data variables.product.prodname_dependabot %} que contenga la contraseña del usuario específico. Para obtener más información, consulta la sección "[Administrar los secretos cifrados del Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)".   |
+| `clave`                                                                                                | Una referencia a un secreto del {% data variables.product.prodname_dependabot %} que contenga una clave de acceso para este registro. Para obtener más información, consulta la sección "[Administrar los secretos cifrados del Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)". |
+| `token`                                                                                                | Una referencia a un secreto del {% data variables.product.prodname_dependabot %} que contenga un token de acceso para este registro. Para obtener más información, consulta la sección "[Administrar los secretos cifrados del Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)".  |
+| `replaces-base`                                                                                        | Para los registros con `type: python-index`, si el valor booleano es `true`, pip resuleve las dependencias utilizando la URL especificada en vez de la URL base del Índice de Paquetes de Python (que predeterminadamente es `https://pypi.org/simple`).                                                                    |
 
 
 Cada `type` de configuración requiere que proporciones ajustes en particular. Algunos tipos permiten más de una forma de conectarse. Las siguientes secciones proporcionan detalles de las configuraciones que deberías utilizar para cada `type`.
@@ -766,6 +767,19 @@ registries:
 ```
 {% endraw %}
 
+El tipo `docker-registry` también se puede utilizar para extraer información de Amazon ECR utilizando las credenciales estáticas de AWS.
+
+{% raw %}
+```yaml
+registries:
+  ecr-docker:
+    type: docker-registry
+    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
+    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
+```
+{% endraw %}
+
 #### `git`
 
 El tipo `git` es compatible con nombre de usuario y contraseña.
@@ -778,6 +792,20 @@ registries:
     url: https://github.com
     username: x-access-token
     password: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `hex-organization`
+
+El tipo `hex-organization` es compatible con organizaciones y claves.
+
+{% raw %}
+```yaml
+registries:
+  github-hex-org:
+    type: hex-organization
+    organization: github
+    key: ${{secrets.MY_HEX_ORGANIZATION_KEY}}
 ```
 {% endraw %}
 

@@ -1,6 +1,6 @@
 ---
 title: Crear una tarea desde un repositorio de plantilla
-intro: Puedes crear una tarea desde un repositorio de plantilla para proporcionar a tus alumnos código inicial, documentación y otros recursos.
+intro: 'Puedes crear una tarea desde un repositorio de plantilla para proporcionar a tus alumnos código inicial, documentación y otros recursos.'
 versions:
   free-pro-team: '*'
 redirect_from:

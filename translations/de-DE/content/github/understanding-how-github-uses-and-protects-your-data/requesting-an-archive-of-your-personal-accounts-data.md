@@ -7,8 +7,8 @@ intro: '{% data reusables.user_settings.export-data %}'
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 {% data variables.product.product_name %} speichert Repository- und Profil-Metadaten aus den Aktivitäten Ihres persönlichen Kontos. Die Daten Ihres persönlichen Kontos können Sie über die Einstellungen auf der {% data variables.product.prodname_dotcom_the_website %} oder mit der API für die Benutzermigration exportieren.

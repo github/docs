@@ -5,7 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 ### SCIM Provisioning for Organizations
@@ -14,7 +14,7 @@ The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provi
 
 {% note %}
 
-**Note:** The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim).“
+**Note:** The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim).“
 
 {% endnote %}
 

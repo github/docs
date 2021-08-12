@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
-  - 项目管理
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ topics:
 2. {% data reusables.actions.make-workflow-file %}
 3. 将以下 YAML 内容复制到工作流程文件中。
 
-    {% raw %}
     ```yaml{:copy}
     name: Add comment
     on:
@@ -39,16 +38,18 @@ topics:
     jobs:
       add-comment:
         if: github.event.label.name == 'help-wanted'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Add comment
             uses: peter-evans/create-or-update-comment@v1
             with:
-              issue-number: ${{ github.event.issue.number }}
+              issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |
                 This issue is available for anyone to work on. **请确保在您的拉请求中引用此议题。** :sparkles: 谢谢您的贡献！ :sparkles:
     ```
-    {% endraw %}
+
 4. 自定义工工作流程文件中的参数：
    - 将 `if: github.event.label.name == 'help-wanted'` 中的 `help-wanted` 替换为您想要操作的标签。 如果您想要操作多个标签，请用 `||` 分隔条件。 例如，只要 `bug` 或 `fix me` 标签添加到议题，`if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` 就会评论。
    - 将 `body` 的值更改为您想要添加的评论。 支持 GitHub Flavored Markdown。 有关 Markdown 的更多信息，请参阅“[基本撰写和格式语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。

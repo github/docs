@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+### Using Git rebase
+
 In this example, we will cover all of the `git rebase` commands available, except for `exec`.
 
 We'll start our rebase by entering `git rebase --interactive HEAD~7` on the terminal. Our favorite text editor will display the following lines:

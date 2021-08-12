@@ -15,7 +15,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 拥有仓库管理员权限的人可为 {% data variables.product.prodname_pages %} 站点配置自定义域。
@@ -46,7 +46,7 @@ topics:
 4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 这将创建一个在发布源根目录中添加 _CNAME _ 文件的提交。 ![保存自定义域按钮](/assets/images/help/pages/save-custom-subdomain.png)
 5. 导航到您的 DNS 提供程序并创建 `CNAME` 记录，使子域指向您站点的默认域。 例如，如果要对您的用户站点使用子域 `www.example.com`，您可以创建 `CNAME` 记录，使 `www.example.com` 指向 `<user>.github.io`。 如果要对您的组织站点使用子域 `www.anotherexample.com`，您可以创建 `CNAME` 记录，使 `www.anotherexample.com` 指向 `<organization>.github.io`。 `CNAME` 记录应该始终指向 `<user>.github.io` 或 `<organization>.github.io`，不包括仓库名称。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
-{% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
+{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. 要确认您的 DNS 记录配置正确，请使用 `dig` 命令，将 _WWW.EXAM.COM_ 替换为您的子域。
 ```shell
@@ -79,7 +79,7 @@ topics:
       185.199.111.153
       ```
 
-{% indented_data_reference site.data.reusables.pages.wildcard-dns-warning spaces=3 %}
+{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. 要确认您的 DNS 记录配置正确，请使用 `dig` 命令，将 _EXAM.COM_ 替换为您的 apex 域。 确认结果与上面 {% data variables.product.prodname_pages %} 的 IP 地址相匹配。
   ```shell
@@ -92,16 +92,16 @@ topics:
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-### Configuring an apex domain and the `www` subdomain variant
+### 配置 apex 域和 `www` 子域变种
 
-When using an apex domain, we recommend configuring your {% data variables.product.prodname_pages %} site to host content at both the apex domain and that domain's `www` subdomain variant.
+使用 apex 域时，我们建议配置您的 {% data variables.product.prodname_pages %} 站点，以便在 apex 域和该域的 `www` 子域变体中托管内容。
 
-To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain, which will create an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
+要与 apex 域一起设置 `www` 子域，您必须先配置 apex 域，这将通过您的 DNS 提供商创建 `ALIAS`、`ANAME` 或 `A` 记录。 更多信息请参阅“[配置 apex 域](#configuring-an-apex-domain)”。
 
-After you configure the apex domain, you must to configure a CNAME record with your DNS provider.
+配置 apex 域后，您必须通过 DNS 提供商配置 CNAME 记录。
 
-1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
-2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
+1. 导航到您的 DNS 提供商，并创建一个 `CNAME` 记录，指向您网站的默认域名 `www.example.com` ：`<user>.github.io` 或 `<organization>.github.io`。 不要包括仓库名称。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+2. 要确认您的 DNS 记录配置正确，请使用 `dig` 命令，将 _WWW.EXAM.COM_ 替换为您的 `www` 子域变体。
 ```shell
     $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
     > ;<em>WWW.EXAMPLE.COM.</em>                     IN      A
@@ -109,12 +109,12 @@ After you configure the apex domain, you must to configure a CNAME record with y
     > <em>YOUR-USERNAME</em>.github.io.      43192   IN      CNAME   <em> GITHUB-PAGES-SERVER </em>.
     > <em> GITHUB-PAGES-SERVER </em>.         22      IN      A       192.0.2.1
 ```
-### Removing a custom domain
+### 删除自定义域
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain," click **Remove**. ![保存自定义域按钮](/assets/images/help/pages/remove-custom-domain.png)
+4. 在“Custom domain（自定义域）”下，单击 **Remove（删除）**。 ![保存自定义域按钮](/assets/images/help/pages/remove-custom-domain.png)
 
 ### 延伸阅读
 

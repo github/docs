@@ -12,15 +12,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
+children:
+  - /about-github-pages
+  - /creating-a-github-pages-site
+  - /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
+  - /configuring-a-publishing-source-for-your-github-pages-site
+  - /changing-the-visibility-of-your-github-pages-site
+  - /creating-a-custom-404-page-for-your-github-pages-site
+  - /securing-your-github-pages-site-with-https
+  - /using-submodules-with-github-pages
+  - /unpublishing-a-github-pages-site
 ---
 
-{% link_in_list /about-github-pages %}
-{% link_in_list /creating-a-github-pages-site %}
-{% link_in_list /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser %}
-{% link_in_list /configuring-a-publishing-source-for-your-github-pages-site %}
-{% link_in_list /changing-the-visibility-of-your-github-pages-site %}
-{% link_in_list /creating-a-custom-404-page-for-your-github-pages-site %}
-{% link_in_list /securing-your-github-pages-site-with-https %}
-{% link_in_list /using-submodules-with-github-pages %}
-{% link_in_list /unpublishing-a-github-pages-site %}

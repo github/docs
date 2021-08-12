@@ -7,8 +7,11 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
   free-pro-team: '*'
+type: overview
 topics:
-  - безопасность
+  - Security advisories
+  - Vulnerabilities
+  - CVEs
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}

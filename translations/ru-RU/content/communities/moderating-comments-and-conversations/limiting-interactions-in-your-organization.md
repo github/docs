@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
-  - сообщество
+  - Community
 ---
 
 ### About temporary interaction limits
@@ -28,9 +28,9 @@ Organization owners can also block users for a specific amount of time. After th
 
 ### Limiting interactions in your organization
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. In the organization settings sidebar, click **Moderation settings**. !["Moderation settings" in the organization settings sidebar](/assets/images/help/organizations/org-settings-moderation-settings.png)
 1. Under "Moderation settings", click **Interaction limits**. !["Interaction limits" in the organization settings sidebar](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}

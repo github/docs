@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Cuando solicitas agregar o modificar el padre de tu equipo, se envía una solicitud a los mantenedores del equipo padre. Cuando un mantenedor del nuevo equipo padre aprueba tu solicitud, tu equipo se anida como equipo hijo en bajo el equipo padre en la jerarquía de tu organización.
@@ -19,8 +19,8 @@ Si eres propietario de la organización o tienes permisos de mantenedor del equi
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. En la lista de equipos, haz clic en el nombre del equipo que quieres anidar bajo un padre. ![Lista de los equipos de la organización](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

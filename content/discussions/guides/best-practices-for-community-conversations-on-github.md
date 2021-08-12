@@ -3,12 +3,12 @@ title: Best practices for community conversations on GitHub
 shortTitle: Best practices for community conversations
 intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to a discussion when you are ready to scope out the work.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Community conversations in {% data variables.product.prodname_discussions %}
+## Community conversations in {% data variables.product.prodname_discussions %}
 
 Since {% data variables.product.prodname_discussions %} is an open forum, there is an opportunity to bring non-code collaboration into a project's repository and gather diverse feedback and ideas more quickly. You can help drive a productive conversation by:
 
@@ -18,11 +18,11 @@ Since {% data variables.product.prodname_discussions %} is an open forum, there 
 
 For more information about opening an issue and cross-referencing a discussion, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-### Learning about conversations on GitHub
+## Learning about conversations on GitHub
 
 You can create and participate in discussions, issues, and pull requests, depending on the type of conversation you'd like to have.
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and spike out a project's specific details before committing it to an issue, which can then be scoped. Discussions are useful for teams if:
+You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and spike out a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams if:
 - You are in the discovery phase of a project and are still learning which director your team wants to go in
 - You want to collect feedback from a wider community about a project
 - You want to keep bug fixes, feature requests, and general conversations separate
@@ -31,17 +31,17 @@ Issues are useful for discussing specific details of a project such as bug repor
 
 {% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
-### Following contributing guidelines
+## Following contributing guidelines
 
 Before you open a discussion, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
 
 For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
-### Next steps
+## Next steps
 
 To continue learning about {% data variables.product.prodname_discussions %} and quickly create a discussion for your community, see "[Quickstart for {% data variables.product.prodname_discussions %}](/discussions/quickstart)."
 
-### Further reading
+## Further reading
 
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"

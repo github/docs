@@ -3,12 +3,12 @@ title: Administrar la creación de debates para los repositorios de tu organizac
 intro: Puedes elegir los niveles de permiso que requieren los miembros para crear los debates en los repositorios que pertenezcan a tu organización.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization
-permissions: Los propietarios de las organizaciones pueden administrar la creación de debates para los repositorios que pertenecen a éstas.
+permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.discussions.beta %}
@@ -17,9 +17,8 @@ topics:
 
 Predeterminadamente, los miembros de la organización que tengan acceso de lectura pueden crear debates si un administrador de repositorio o propietario de organización habilita los debates en cualquier repositorio que pertenezca a ella.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Debajo de "Debates del repositorio", selecciona o deselecciona **Permitir que los usuarios con acceso de lectura creen debates**. ![Casilla de verificación para permitir que las personas con acceso de lectura creen debates](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
 6. Haz clic en **Save ** (guardar). ![Botón de "Guardar" para la configuración de debates](/assets/images/help/discussions/click-save.png)

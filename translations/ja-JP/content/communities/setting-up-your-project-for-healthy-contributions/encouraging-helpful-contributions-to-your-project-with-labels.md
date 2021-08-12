@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 ラベルで検索した際に見つけられるよう、パブリックリポジトリの Issue に `good first issue` ラベルを適用できます。 ラベル別検索についての詳細は、「[Issue およびプルリクエストを検索する](/articles/searching-issues-and-pull-requests/#search-by-label)」を参照してください。

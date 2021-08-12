@@ -1,6 +1,6 @@
 ---
 title: ディスカッションについて
-intro: ディスカッションでは、質問、質問への回答、情報の共有、発表、{% data variables.product.product_name %} 上のプロジェクトについて会話を実施したり参加したりすることができます。
+intro: 'ディスカッションでは、質問、質問への回答、情報の共有、発表、{% data variables.product.product_name %} 上のプロジェクトについて会話を実施したり参加したりすることができます。'
 versions:
   free-pro-team: '*'
 ---
@@ -23,13 +23,19 @@ Issue やプルリクエストをクローズするように、ディスカッ�
 
 リポジトリのディスカッションの管理の詳細については、「[リポジトリでのディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)」を参照してください。
 
-### ディスカッションのカテゴリと形式について
+### About discussion organization
+
+You can organize discussions with categories and labels.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 質問/回答形式のディスカッションの場合、ディスカッション内の個々のコメントをディスカッションの回答としてマークできます。 {% data reusables.discussions.github-recognizes-members %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 詳しい情報については、「[リポジトリ内のディスカッションのカテゴリを管理する](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)」を参照してください。
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### ディスカッションのベストプラクティス
 

@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -35,14 +35,13 @@ Después de cambiar el nombre de tu organización, el nombre antiguo de tu organ
 Después de cambiar el nombre de tu organización:
 - Los enlaces a la página de perfil de tu organización anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, generarán un error 404. Te recomendamos que actualices los enlaces a tu organización desde otros sitios{% if currentVersion == "free-pro-team@latest" %}, tales como tus perfiles de LinkedIn o Twitter{% endif %}.
 - Las solicitudes API que utilizan el nombre de la organización antiguo generarán un error 404. Recomendamos que actualices el nombre de la organización antiguo en tus solicitudes API.
-- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% if currentVersion == "free-pro-team@latest" %}
-- If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[Connecting your identity provider to your organization](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
+- No hay redireccionamientos automáticos de [@mención](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) para los equipos que utilizan el nombre antiguo de la organización.{% if currentVersion == "free-pro-team@latest" %}
+- Si se habilita el inicio de sesión único (SSO) para la organización, debes actualizar el nombre de la misma en la aplicación para {% data variables.product.prodname_ghe_cloud %} en tu proveedor de identidad (IdP). Si no actualizas el nombre de organización en tu IdP, los miembros de esta ya no podrán autenticarse con tu IdP para acceder a los recursos de la organización. Para obtener más información, consulta la sección "[Conectar a tu proveedor de identidad con tu organización](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
 
 ### Cambiar el nombre de tu organización
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Cerca de la parte de abajo de la página de parámetros, en "Rename organization" (Renombrar organización), haz clic en **Rename Organization** (Renombrar organización). ![Botón Rename organization (Renombrar organización)](/assets/images/help/settings/settings-rename-organization.png)
 
 ### Leer más

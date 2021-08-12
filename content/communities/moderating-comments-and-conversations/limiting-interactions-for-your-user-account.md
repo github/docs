@@ -2,15 +2,16 @@
 title: Limiting interactions for your user account
 intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
 topics:
-  - community
+  - Community
+shortTitle: Limit interactions in account
 ---
 
-### About temporary interaction limits
+## About temporary interaction limits
 
 Limiting interactions for your user account enables temporary interaction limits for all public repositories owned by your user account. {% data reusables.community.interaction-limits-restrictions %}
 
@@ -22,7 +23,7 @@ When you enable user-wide activity limitations, you can't enable or disable inte
 
 You can also block users. For more information, see "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)." 
 
-### Limiting interactions for your user account
+## Limiting interactions for your user account
 
 {% data reusables.user_settings.access_settings %}
 1. In your user settings sidebar, under "Moderation settings", click **Interaction limits**.

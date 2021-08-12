@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 Los repositorios que son propiedad de una organización pueden conceder acceso más pormenorizado. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.product_name %}](/articles/access-permissions-on-github)".

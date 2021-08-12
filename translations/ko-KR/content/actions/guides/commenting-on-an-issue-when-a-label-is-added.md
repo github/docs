@@ -29,7 +29,6 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
-    {% raw %}
     ```yaml{:copy}
     name: Add comment
     on:
@@ -39,16 +38,18 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
     jobs:
       add-comment:
         if: github.event.label.name == 'help-wanted'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Add comment
             uses: peter-evans/create-or-update-comment@v1
             with:
-              issue-number: ${{ github.event.issue.number }}
+              issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |
                 This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
-    {% endraw %}
+
 4. Customize the parameters in your workflow file:
    - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
    - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."

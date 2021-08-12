@@ -5,18 +5,20 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de las acciones de configuración incluídas y el caché de la herramienta del ejecutor
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-La mayoría de las acciones de autoría de {% data variables.product.prodname_dotcom %} se agrupan automáticamente con {% data variables.product.prodname_ghe_server %}. Sin embargo, los ejecutores auto-hospedados sin acceso a internet requerirán que se les configure un poco antes de que puedan utilizar las acciones de `actions/setup-LANGUAGE` incluídas, tal como `setup-node`.
+La mayoría de las acciones de autoría de {% data variables.product.prodname_dotcom %} se agrupan automáticamente con {% data variables.product.product_name %}. Sin embargo, los ejecutores auto-hospedados sin acceso a internet requieren que se les configure un poco antes de que puedan utilizar las acciones de `actions/setup-LANGUAGE` incluídas, tal como `setup-node`.
 
 Las acciones de `actions/setup-LANGUAGE` habitualmente necesitan acceso a internet para descargar los binarios de ambiente requeridos en el caché de la herramienta del ejecutor. Los ejecutores auto-hospedados sin acceso a internet no pueden descargar los binarios, así que debes poblar el caché de la herramienta manualmente en el ejecutor.
 

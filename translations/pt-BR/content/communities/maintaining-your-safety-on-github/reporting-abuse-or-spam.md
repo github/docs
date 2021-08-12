@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 Proprietários, colaboradores, contribuidores anteriores e pessoas com acesso de gravação podem denunciar problemas, pull requests e comentários em problemas, pull requests e commits. Qualquer pessoa pode denunciar apps no {% data variables.product.prodname_marketplace %}.

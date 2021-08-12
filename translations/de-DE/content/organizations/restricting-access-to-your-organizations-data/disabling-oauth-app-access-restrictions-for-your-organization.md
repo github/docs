@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% danger %}
@@ -18,9 +18,8 @@ topics:
 
 {% enddanger %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Klicke auf **Remove restrictions** (Einschränkungen entfernen). ![Schaltfläche „Remove restrictions“ (Beschränkungen entfernen)](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
 6. Wenn Du die Informationen zum Deaktivieren der Beschränkungen von Drittanbieter-Anwendungen gelesen hast, klicke auf **Yes, remove application restrictions** (Ja, Anwendungsbeschränkungen entfernen). ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)

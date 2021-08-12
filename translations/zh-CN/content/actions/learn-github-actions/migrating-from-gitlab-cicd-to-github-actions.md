@@ -8,7 +8,7 @@ versions:
 type: tutorial
 topics:
   - GitLab
-  - 迁移
+  - Migration
   - CI
   - CD
 ---

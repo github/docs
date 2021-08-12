@@ -1,6 +1,6 @@
 ---
 title: Crear una acción de contenedor de Docker
-intro: 'Esta guía te muestra los pasos mínimos necesarios para desarrollar una acción de contenedor Docker.'
+intro: Esta guía te muestra los pasos mínimos necesarios para desarrollar una acción de contenedor Docker.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Desarrollo de las acciones'
-  - 'Docker'
+  - Action development
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -28,6 +28,8 @@ Esta guía te muestra los pasos mínimos necesarios para desarrollar una acción
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción de contenedor Docker y probarla en un flujo de trabajo.
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Prerrequisitos
 
@@ -195,14 +197,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

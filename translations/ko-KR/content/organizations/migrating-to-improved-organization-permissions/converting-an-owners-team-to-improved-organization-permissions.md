@@ -10,8 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 You have a few options to convert your legacy Owners team:
@@ -27,8 +27,8 @@ You have a few options to convert your legacy Owners team:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. In the team name field, choose a new name for the Owners team. 예시:
@@ -45,8 +45,8 @@ You have a few options to convert your legacy Owners team:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. At the bottom of the page, review the warning and click **Delete the Owners team**. ![Link for deleting the Owners team](/assets/images/help/teams/owners-team-delete.png)

@@ -1,15 +1,15 @@
 ---
 title: Cerrar las propuestas inactivas
-intro: Puedes utilizar las {% data variables.product.prodname_actions %} para comentar o cerrar las propuestas que han estado inactivas por algún tiempo.
+intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para comentar o cerrar las propuestas que han estado inactivas por algún tiempo.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
 2. {% data reusables.actions.make-workflow-file %}
 3. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
 
-    {% raw %}
     ```yaml{:copy}
     name: Close inactive issues
     on:
@@ -38,7 +37,10 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - uses: actions/stale@v3
             with:
@@ -49,10 +51,10 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
               close-issue-message: "This issue was closed because it has been inactive for 14 days since being marked as stale."
               days-before-pr-stale: -1
               days-before-pr-close: -1
-              repo-token: ${{ secrets.GITHUB_TOKEN }}
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
-4. Personaliza los parámetros en tu flujo de trabajo:
+
+4. Personaliza los parámetros en tu archivo de flujo de trabajo:
    - Cambia el valor de `on.schedule` para que dicte cuándo quieres que se ejecute este flujo de trabajo. En el ejemplo anterior, el flujo de trabajo se ejecutará diario a la 1:30 UTC. Para obtener más información sobre los flujos de trabajo que has programado, consulta la sección "[Ejemplos programados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
    - Cambia el valor de `days-before-issue-stale` a la cantidad de días de inactividad para esperar antes de que la acción `actions/stale` etiquete una propuesta. Si quieres que esta acción jamás etiquete las propuestas, configura el valor en `-1`.
    - Cambia el valor de `days-before-issue-close` a la cantidad de días sin actividad a esperar antes de que la acción `actions/stale` cierre una propuesta. Si quieres que esta acción jamás cierre las propuestas, configura el valor en `-1`.

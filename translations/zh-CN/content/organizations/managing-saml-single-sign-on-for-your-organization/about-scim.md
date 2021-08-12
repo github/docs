@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 如果在组织中使用 [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)，您可以实施 SCIM 来添加、管理和删除组织成员对 {% data variables.product.product_name %} 的访问权限。 例如，管理员可以使用 SCIM 撤销配置组织成员，以及从组织中自动删除成员。

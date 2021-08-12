@@ -1,7 +1,7 @@
 ---
 title: Invitar a usuarios para que se unan a tu organización
 intro: 'Puedes invitar a cualquier persona a que se convierta en miembro de tu organización usando su nombre de usuario o dirección de correo electrónico {% data variables.product.product_name %}.'
-permissions: Los propietarios de las organizaciones pueden invitar usuarios para volverse a unir a una organización.
+permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
   - /articles/inviting-users-to-join-your-organization
@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -21,8 +21,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

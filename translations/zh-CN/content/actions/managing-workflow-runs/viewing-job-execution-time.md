@@ -1,6 +1,6 @@
 ---
 title: 查看作业执行时间
-intro: '您可以查看作业的执行时间，包括某个作业累积的可计费分钟数。'
+intro: 您可以查看作业的执行时间，包括某个作业累积的可计费分钟数。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -20,6 +20,6 @@ versions:
 
    {% note %}
 
-   **注意：**显示的可计费时间不包括任何四舍五入或分钟乘数。 要查看您的 {% data variables.product.prodname_actions %} 总使用情况，包括四舍五入和分钟乘法，请参阅"[查看您的 {% data variables.product.prodname_actions %} 使用情况](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage)。"
+   **注意：**显示的可计费时间不包括任何四舍五入或分钟乘数。 要查看您的 {% data variables.product.prodname_actions %} 总使用情况，包括四舍五入和分钟乘法，请参阅"[查看您的 {% data variables.product.prodname_actions %} 使用情况](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)。"
 
    {% endnote %}

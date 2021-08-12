@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
-  - comunidad
+  - Community
 ---
 
 Cualquiera con permisos de administrador para un repositorio puede ver y administrar el contenido reportado del mismo.

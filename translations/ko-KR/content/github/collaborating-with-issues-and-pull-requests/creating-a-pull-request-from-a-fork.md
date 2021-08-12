@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 You can also give the upstream repository's maintainers permission to push commits to a user-owned fork. If your pull request compares your topic branch with a branch in the upstream repository as the base branch, then your topic branch is also called the compare branch of the pull request. For more information about pull request branches, including examples, see "[Creating a pull request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."

@@ -13,7 +13,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Action 開発
+  - Action development
   - JavaScript
 ---
 
@@ -31,25 +31,27 @@ topics:
 
 {% data reusables.github-actions.pure-javascript %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 必要な環境
 
-開始する前に、Node.js をダウンロードして、GitHub リポジトリを作成する必要があります。
+Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
 1. Node.js 12.x をダウンロードして、インストールします。npm も Node.js 12.x に含まれています。
 
   https://nodejs.org/en/download/current/
 
-1. {% data variables.product.product_location %} に新しいリポジトリを作成します。 リポジトリ名は任意です。この例のように "hello-world-javascript-action" を使ってもいいでしょう。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
+1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
 1. リポジトリをお手元のコンピューターにクローンします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
 1. ターミナルから、ディレクトリを新しいリポジトリに変更します。
 
   ```shell
-  cd ハローワールド-ジャバスクリプトアクション
+  cd hello-world-javascript-action
   ```
 
-1. ターミナルから、`package.json`ファイルでディレクトリを初期化します。
+1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
   ```shell
   npm init -y
@@ -57,10 +59,8 @@ topics:
 
 ### アクションのメタデータファイルの作成
 
-`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
+Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
-
-**action.yml**
 ```yaml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -106,7 +106,7 @@ GitHub Actions は、webhook イベント、Git ref、ワークフロー、ア�
 
 以下のコードで、`index.js` と名付けた新しいファイルを追加してください。
 
-**index.js**
+{% raw %}
 ```javascript
 const core = require('@actions/core');
 const github = require('@actions/github');
@@ -124,6 +124,7 @@ try {
   core.setFailed(error.message);
 }
 ```
+{% endraw %}
 
 上記の `index.js` の例でエラーがスローされた場合、`core.setFailed(error.message);` はアクションツールキット [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
 
@@ -141,7 +142,6 @@ try {
 - アクションが使用する環境変数
 - ワークフローでアクションを使う使用方法の例
 
-**README.md**
 ```markdown
 # Hello world javascript action
 
@@ -159,11 +159,11 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 挨拶した時間。
 
-##
+## 使用例
 
-使用例: アクション/ハローワールドjavascript-action@v1.1
-:
-  誰が挨拶する:'モナ・ザ・オクトキャット'
+uses: actions/hello-world-javascript-action@v1.1
+with:
+  who-to-greet: 'Mona the Octocat'
 ```
 
 ### アクションの GitHub へのコミットとタグ、プッシュ
@@ -178,7 +178,7 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
-git tag -a -m "My first action release" v1
+git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
@@ -198,7 +198,7 @@ git push --follow-tags
 ```shell
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
-git tag -a -m "My first action release" v1
+git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
@@ -210,28 +210,31 @@ git push --follow-tags
 
 #### パブリックアクションを使用する例
 
-次のワークフローコードでは、`actions/hello-world-javascript-action` というリポジトリにある完全な hello world アクションを使っています。 ワークフローコードを `.github/workflows/main.yml` ファイルにコピーし、`actions/hello-world-javascript-action` リポジトリをあなたが作成したリポジトリに置き換えます。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
+This example demonstrates how your new public action can be run from within an external repository.
+
+Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-**.github/workflows/main.yml**
 ```yaml
-オン
-  hello_world_job: [push]
+on: [push]
 
-ジョブ:  :  :
-    実行: ubuntu-最新の
-    名: こんにちは
-    ステップを言う仕事:
-    - 名前: こんにちは世界アクションステップ
-      id: こんにちは
-      使用: アクション/hello-world-javascript-action@v1.1
-      :
-        誰が挨拶: 'モナ・ザ・オクトキャット'
-    # 'hello' ステップからの出力を使用
-    - 名前
-      : echo{{ steps.hello.outputs.time }}
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: octocat/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
+
+When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
 
 #### プライベートアクションを使用する例
 

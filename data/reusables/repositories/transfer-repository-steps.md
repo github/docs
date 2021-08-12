@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 1. Under "Danger Zone", click **Transfer**.
  ![Transfer button](/assets/images/help/repository/repo-transfer.png)
 1. Read the information about transferring a repository, then type the name of the user or organization you'd like to transfer ownership of the repository to.

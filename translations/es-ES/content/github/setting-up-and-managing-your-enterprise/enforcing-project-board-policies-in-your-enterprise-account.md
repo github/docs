@@ -1,6 +1,6 @@
 ---
 title: Hacer cumplir políticas de tableros de proyecto en tu cuenta de empresa
-intro: 'Los propietarios de empresas pueden hacer cumplir determinadas políticas de tableros de proyecto para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.'
+intro: Los propietarios de empresas pueden hacer cumplir determinadas políticas de tableros de proyecto para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Para obtener más información acerca de los tipos de tableros de proyecto, consulta "[Acerca de los tableros de proyecto](/articles/about-project-boards)."

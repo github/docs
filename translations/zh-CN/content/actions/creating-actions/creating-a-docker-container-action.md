@@ -13,7 +13,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 操作开发
+  - Action development
   - Docker
 ---
 
@@ -28,6 +28,8 @@ topics:
 完成此项目后，您应了解如何构建自己的 Docker 容器操作和在工作流程测试该操作。
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### 基本要求
 
@@ -195,14 +197,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

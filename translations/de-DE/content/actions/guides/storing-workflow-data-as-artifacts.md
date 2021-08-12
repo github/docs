@@ -12,9 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Workflows'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +36,7 @@ Dies sind einige der gängigen Artefakte, die du hochladen kannst:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Das Speichern von Artefakten verwendet Speicherplatz auf {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Abrechnung für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“.
+Das Speichern von Artefakten verwendet Speicherplatz auf {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Abrechnung für {% data variables.product.prodname_actions %} verwalten](/billing/managing-billing-for-github-actions)“.
 
 {% else %}
 
@@ -252,6 +252,6 @@ The workflow run will archive any artifacts that it generated. For more informat
 
 ### Weiterführende Informationen
 
-- "[ Abrechnung für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[ Abrechnung für {% data variables.product.prodname_actions %} verwalten](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

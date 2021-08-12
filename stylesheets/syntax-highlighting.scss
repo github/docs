@@ -5,19 +5,6 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 
 */
 
-.markdown-body .code-extra {
-  margin-top: $spacer-4;
-
-  pre {
-    margin-top: 0 !important;
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    border-left: 1px var(--color-auto-gray-2) solid !important;
-    border-bottom: 1px var(--color-auto-gray-2) solid !important;
-    border-right: 1px var(--color-auto-gray-2) solid !important;
-  }
-}
-
 .hljs {
   display: block;
   overflow-x: auto;

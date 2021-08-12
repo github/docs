@@ -1,4 +1,5 @@
-const { getDOM } = require('../helpers/supertest')
+import { getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('curated homepage links', () => {
   jest.setTimeout(5 * 60 * 1000)

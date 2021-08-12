@@ -4,13 +4,13 @@ intro: 'Du kannst ein {% data variables.product.product_name %}-Team mit einer I
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 product: '{% data reusables.gated-features.team-synchronization %}'
-permissions: 'Organisationsinhaber und Team-Betreuer können ein {% data variables.product.prodname_dotcom %} -Team mit einer IdP-Gruppe synchronisieren.'
+permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -76,8 +76,8 @@ Once user provisioning for {% data variables.product.product_name %} is configur
 
 When you connect an IdP group to a {% data variables.product.product_name %} team, all users in the group are automatically added to the team. {% if currentVersion == "github-ae@latest" %}Any users who were not already members of the parent organization members are also added to the organization.{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -89,8 +89,8 @@ When you connect an IdP group to a {% data variables.product.product_name %} tea
 
 Wenn Du eine IdP-Gruppe von einem {% data variables.product.prodname_dotcom %}-Team trennst, werden Teammitglieder, die dem {% data variables.product.prodname_dotcom %}-Team durch die IdP Gruppe zugewiesen wurden, aus dem Team entfernt. {% if currentVersion == "github-ae@latest" %} Any users who were members of the parent organization only because of that team connection are also removed from the organization.{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}

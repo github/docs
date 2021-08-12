@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'CI'
-  - 'CD'
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,11 +48,13 @@ topics:
 有关常用术语的定义，请参阅“[{% data variables.product.prodname_actions %} 的核心概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)”。
 
 ### 支持的语言
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} 提供各种不同语言和框架的 CI 工作流程模板。
 
 在 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) 仓库{% else %}{% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览 {% data variables.product.product_name %} 提供的 CI 工作流程模板的完整列表。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 ### 跳过工作流程运行
 
 如果您想暂时阻止触发工作流程，可以对提交消息添加跳过指令。 本来会触发 `on: push` 或 `on: pull_request` 的工作流程，如果您将以下任何字符串添加到推送中的提交消息或者拉取请求的 HEAD 提交，则不会触发：
@@ -72,6 +74,7 @@ topics:
 **注意：**跳过指令仅适用于 `push` 和 `pull_request` 事件。 例如，将 `[skip ci]` 添加到提交消息不会停止触发 `on: pull_request_target` 的工作流程运行。
 
 {% endnote %}
+{% endif %}
 
 ### 工作流程运行通知
 
@@ -87,5 +90,5 @@ topics:
 
 - "[使用 {% data variables.product.prodname_actions %} 设置持续集成](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
 {% endif %}

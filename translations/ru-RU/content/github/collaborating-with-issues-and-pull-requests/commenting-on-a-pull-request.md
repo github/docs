@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### About pull request comments
@@ -36,7 +36,7 @@ To reply to an existing line comment, you'll need to navigate to the comment on 
 
 **Советы:**
 - Pull request comments support the same [formatting](/categories/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
-- You can [add reactions](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) to comments in pull requests in the **Files changed** tab.
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 

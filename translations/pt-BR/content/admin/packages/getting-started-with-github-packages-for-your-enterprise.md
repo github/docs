@@ -1,13 +1,16 @@
 ---
 title: Primeiros passos com o GitHub Packages para a sua empresa
+shortTitle: Primeiros passos com o GitHub Packages
 intro: 'Você pode começar a usar {% data variables.product.prodname_registry %} em {% data variables.product.product_location %} habilitando o recurso, configurando armazenamento de terceiros, configurando os ecossistemas que você deseja que sejam compatíveis e atualizando seu certificado TLS.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
-  - enterprise
+  - Enterprise
+  - Packages
 ---
 
 {% if currentVersion == "enterprise-server@2.22" %}

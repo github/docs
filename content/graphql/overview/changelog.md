@@ -4,17 +4,17 @@ intro: 'The GraphQL schema changelog is a list of recent and upcoming changes to
 redirect_from:
   - /v4/changelog
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
 ---
 
 Breaking changes include changes that will break existing queries or could affect the runtime behavior of clients. For a list of breaking changes and when they will occur, see our [breaking changes log](/graphql/overview/breaking-changes).
 
 {% for entry in graphql.changelog %}
-### Schema Changes for {{ entry.date }}
+## Schema Changes for {{ entry.date }}
 
 {% for schemaChange in entry.schemaChanges %}
 {{ schemaChange.title }}

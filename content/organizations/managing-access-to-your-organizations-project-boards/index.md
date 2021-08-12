@@ -6,17 +6,19 @@ redirect_from:
   - /articles/managing-access-to-your-organizations-project-boards
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /project-board-permissions-for-an-organization
+  - /managing-access-to-a-project-board-for-organization-members
+  - /managing-team-access-to-an-organization-project-board
+  - /managing-an-individuals-access-to-an-organization-project-board
+  - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
+  - /removing-an-outside-collaborator-from-an-organization-project-board
+shortTitle: Manage project board access
 ---
 
-{% link_in_list /project-board-permissions-for-an-organization %}
-{% link_in_list /managing-access-to-a-project-board-for-organization-members %}
-{% link_in_list /managing-team-access-to-an-organization-project-board %}
-{% link_in_list /managing-an-individuals-access-to-an-organization-project-board %}
-{% link_in_list /adding-an-outside-collaborator-to-a-project-board-in-your-organization %}
-{% link_in_list /removing-an-outside-collaborator-from-an-organization-project-board %}

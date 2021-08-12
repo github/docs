@@ -107,3 +107,31 @@ Após excluir os registros, o botão **Excluir todos os registros** será removi
 1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Depois que os registros forem excluídos, o botão **Excluir todos os registros** é removido para indicar que nenhum arquivo de registro permanece na execução do fluxo de trabalho.
 {% endif %}
+
+### Visualizar registros com {% data variables.product.prodname_cli %}
+
+{% data reusables.actions.actions-cli %}
+
+Para visualizar o registro para uma tarefa específica, use o subcomando `executar a vista`. Substitua `run-id` pelo ID da execução que você deseja visualizar os registros. {% data variables.product.prodname_cli %} retorna um menu interativo para você escolher um trabalho a partir da execução. Se você não especificar `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução recente e, em seguida, irá retornar outro menu interativo para você escolher um trabalho da execução.
+
+```shell
+gh run view <em>run-id</em> --log
+```
+
+Você também pode usar o sinalizador `--job` para especificar um ID de trabalho. Substitua `job-id` pelo ID do trabalho para o qual você deseja exibir os registros.
+
+```shell
+gh run view --job <em>job-id</em> --log
+```
+
+Você pode usar `grep` para pesquisar o registro. Por exemplo, este comando retornará todas as entradas do registro que contêm a palavra `erro`.
+
+```shell
+gh run view --job <em>job-id</em> --log | grep error
+```
+
+Para filtrar os registros para quaisquer etapas que falharam, use `--log-failed` em vez de `--log`.
+
+```shell
+gh run view --job <em>job-id</em> --log-failed
+```

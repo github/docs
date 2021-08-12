@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
-  - facturación
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 Los miembros del equipo Propietarios de tu organización pueden permitir que los *gerentes de facturación* proporcionen permisos a las personas. Una vez que una persona acepta la invitación para convertirse en gerente de facturación para tu organización, puede invitar a otras personas para convertirse en gerentes de facturación.
@@ -49,9 +49,6 @@ Los gerentes de facturación**no** pueden:
 
 La persona invitada recibirá una invitación por correo electrónico solicitándole que se convierta en gerente de facturación para tu organización. Una vez que la persona invitada hace clic en el enlace de aceptación en el correo electrónico de la invitación, se agregarán automáticamente a la organización como gerentes de facturación. Si todavía no tienen una cuenta GitHub, deberán iniciar sesión para una cuenta, y se agregarán automáticamente a la organización como gerentes de facturación luego de crear una cuenta.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-5. Junto a Billing managers (Gerentes de facturación), haz clic en **Add a billing manager** (Agregar un gerente de facturación). ![Invitar gerente de facturación](/assets/images/help/billing/settings_billing_managers_list.png)
+{% data reusables.organizations.billing-settings %}
+1. Debajo de "Administración de la facturación", junto a "Gerentes de facturación", haz clic en **Agregar**. ![Invitar gerente de facturación](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Escribe el nombre de usuario o la dirección de correo electrónico de la persona a la que deseas agregar y haz clic en **Send invitation** (Enviar invitación). ![Página Invitar gerente de facturación](/assets/images/help/billing/billing_manager_invite.png)

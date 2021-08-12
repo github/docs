@@ -6,14 +6,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Trabajos
+  - Jobs
 ---
 
-Si tu cuenta utiliza un producto pagado de {% data variables.product.prodname_dotcom %}, puedes contactar directamente a {% data variables.contact.github_support %}. Si tu cuenta utiliza {% data variables.product.prodname_free_user %} para cuentas organizacionales y de usuario, puedes contactar a {% data variables.contact.contact_support %} para reportar problemas con la cuenta, seguridad y abuso. Para obtener más informaciónm, consulta la sección "[Acerca de GitHub Support](/github/working-with-github-support/about-github-support)".
+### About ticket submission
+Si tu cuenta utiliza un producto pagado de {% data variables.product.prodname_dotcom %}, puedes contactar directamente a {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. Para obtener más informaciónm, consulta la sección "[Acerca de GitHub Support](/github/working-with-github-support/about-github-support)".
 
-If you do not have an enterprise account, please use the {% data variables.contact.enterprise_portal %} to submit tickets. For more information about enterprise accounts, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)."
+{% data reusables.enterprise-accounts.support-entitlements %}
 
-### Emitir un ticket utilizando el {% data variables.contact.support_portal %}
+Si no tienes una cuenta empresarial, por favor, utiliza el {% data variables.contact.enterprise_portal %} para emitir tickets. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Acerca de las cuentas empresariales](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)".
+
+### Enviar un ticket mediante el {% data variables.contact.support_portal %}
 
 1. Navega por el {% data variables.contact.contact_support_portal %}.
 2. Debajo de "Nombre", ingresa tu nombre. ![Campo de nombre](/assets/images/help/support/name-field.png)

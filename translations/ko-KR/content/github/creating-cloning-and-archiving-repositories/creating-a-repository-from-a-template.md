@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About repository templates
@@ -24,7 +24,7 @@ Anyone with read permissions to a template repository can create a repository fr
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-You can choose to include the directory structure and files from only the default branch of the template repository or to include all branches.
+You can choose to include the directory structure and files from only the default branch of the template repository or to include all branches. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
 {% endif %}
 
 Creating a repository from a template is similar to forking a repository, but there are important differences:

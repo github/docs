@@ -10,14 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team-synchronization %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 6. Encima de la lista de los miembros del equipo, haz clic en **Add a member** (Agregar un miembro). ![Botón Add member (Agregar miembro)](/assets/images/help/teams/add-member-button.png)

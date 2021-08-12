@@ -16,7 +16,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 ### Sobre o {% data variables.product.prodname_pages %}
@@ -66,14 +66,6 @@ O URL onde o site estará disponível depende da habilitação do isolamento do 
 `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Site do projeto pertencente a uma conta do usuário | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site do projeto pertencente a uma conta da organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
 Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" ou entre em contato com o administrador do site.
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-{% note %}
-
-**Observação:** os repositórios que usam o esquema de nomenclatura `<username>.github.com` herdado ainda são publicados, mas os visitantes serão redirecionados de `http(s)://<username>.github.com` para `http(s)://<username>.github.io`. Se ambos os repositórios, `<username>.github.com` e `<username>.github.io` existirem, somente o repositório `<username>.github.io` será publicado.
-
-{% endnote %}
 {% endif %}
 
 ### Publicar fontes para sites do {% data variables.product.prodname_pages %}
@@ -135,7 +127,7 @@ Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou 
 
 O {% data variables.product.prodname_pages %} não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS).
 
-In addition, {% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. Para uma lista de usos proibidos, consulte "[Termos Adicionais do Produto de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)".
+Além disso, {% data variables.product.prodname_dotcom %} não permite que {% data variables.product.prodname_pages %} seja usado para certos propósitos ou atividades. Para uma lista de usos proibidos, consulte "[Termos Adicionais do Produto de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)".
 {% endif %}
 
 ### Tipos de MIME no {% data variables.product.prodname_pages %}

@@ -1,6 +1,6 @@
 ---
 title: Secretos cifrados
-intro: Los secretos cifrados te permiten almacenar información sensible en tu organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambientes de repositorio{% else %} o repositorio{% endif %}.
+intro: 'Los secretos cifrados te permiten almacenar información sensible en tu organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambientes de repositorio{% else %} o repositorio{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -29,21 +29,17 @@ Para que los secretos se almacenen a nivel de ambiente, puedes habilitar los rev
 
 #### Nombrar tus secretos
 
-Las siguientes reglas aplican a los nombres secretos:
+{% data reusables.codespaces.secrets-naming %}
 
-* Los nombres secretos solo contienen caracteres alfanuméricos (`[a-z]`, `[A-Z]`, `[0-9]`) o guiones bajos (`_`). No se permiten espacios.
-* Los nombres secretos no deben comenzar con el prefijo `GITHUB_`.
-* Los nombres secretos no deben comenzar con un número.
-* Los nombres de secreto no distinguen entre mayúsculas y minúsculas.
-* Los nombres secretos deben ser únicos en el nivel en el que se hayan creado. Por ejemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}un secreto que se creó a nivel de ambiente debe tener un nombre único en este, {% endif %}un secreto que se cree a nivel de repositorio, debe tener un nombre único en dicho repositorio, y un secreto que se cree a nivel de organización debe tener un nombre único en este nivel.
+  Por ejemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}un secreto que se creó a nivel de ambiente debe tener un nombre único en este, {% endif %}un secreto que se cree a nivel de repositorio, debe tener un nombre único en dicho repositorio, y un secreto que se cree a nivel de organización debe tener un nombre único en este nivel.
 
-  Si un secreto con el mismo nombre existe en varios niveles, aquél en el nivel más bajo tomará presedencia. Por ejemplo, si un secreto a nivel de organización tiene el mismo nombre que un secreto a nivel de repositorio, entonces el secreto a nivel de repositorio tomará precedencia.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} De forma similar, si una organización, repositorio y ambiente tienen un secreto con el mismo nombre, el secreto a nivel de ambiente tomará precedencia.{% endif %}
+  {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} De forma similar, si una organización, repositorio y ambiente tienen el mismo secreto con el mismo nombre, el secreto a nivel de ambiente tomará precedencia.{% endif %}
 
 Para ayudarte a garantizar que {% data variables.product.prodname_dotcom %} redacta tus secretos en bitácoras, evita utilizar datos estructurados como los valores de los secretos. Por ejemplo, evita crear secretos que contengan JSON o blobs de Git codificados.
 
 #### Acceder a tus secretos
 
-Para hacer que un secreto esté disponible para una acción, debes configurar el secreto como una variable de entrada o de entorno en tu archivo de flujo de trabajo. Revisa el archivo README de la acción para saber qué variables de entrada y de entorno espera la acción. Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
+Para hacer que un secreto esté disponible para una acción, debes configurar el secreto como una variable de entrada o de entorno en tu archivo de flujo de trabajo. Revisa el archivo README de la acción para saber qué variables de entrada y de entorno espera la acción. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para{% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
 Puedes usar y leer secretos cifrados en un archivo de flujo de trabajo si tienes acceso para editar el archivo. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
@@ -83,7 +79,8 @@ Si tu repositorio {% if currentVersion == "free-pro-team@latest" or currentVersi
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" }
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+
 ### Crear secretos cifrados para un ambiente
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
@@ -125,7 +122,11 @@ Puedes revisar qué políticas de acceso se están aplicando a un secreto en tu 
 
 ### Usar secretos cifrados en un flujo de trabajo
 
-{% data reusables.actions.forked-secrets %}
+{% note %}
+
+**Nota:**{% data reusables.actions.forked-secrets %}
+
+{% endnote %}
 
 Para proporcionar una acción con un secreto como variable de entrada o de entorno, puedes usar el contexto de `secrets` para acceder a los secretos que has creado en tu repositorio. Para obtener más información, consulta "[Sintaxis de contexto y de expresiones para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions) y [Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
@@ -185,7 +186,13 @@ steps:
 
 ### Límites para los secretos
 
-Puedes almacenar hasta 1,000 secretos por organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 secretos por repositorio, y 100 secretos por ambiente{% else %} y 100 secretos por repositorio{% endif %}. Un flujo de trabajo puede utilizar hasta 100 secretos de organización y 100 de repositorio.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Adicionalmente, un job que referencie a un ambiente puede utilizar hasta 100 secretos de ambiente.{% endif %}
+You can store up to 1,000 organization secrets{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+
+A workflow created in a repository can access the following number of secrets:
+
+* All 100 repository secrets.
+* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}* All 100 environment secrets.{% endif %}
 
 Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamaño mayor a 64 KB, puedes almacenar los secretos cifrados en tu repositorio y guardar la contraseña de descifrado como un secreto en {% data variables.product.prodname_dotcom %}. Por ejemplo, puedes usar `gpg` para cifrar tus credenciales de manera local antes de verificar el archivo en tu repositorio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la página del manual "[gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 

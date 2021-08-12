@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Clique em {% octicon "kebab-horizontal" aria-label="The edit icon" %} ao lado da discussão de equipe que deseja editar ou excluir.

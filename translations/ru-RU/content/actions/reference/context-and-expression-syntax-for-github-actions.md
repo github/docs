@@ -12,6 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +33,9 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 {% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
-#### Example expression in an `if` conditional
+{% data reusables.github-actions.context-injection-warning %}
+
+##### Example expression in an `if` conditional
 
 ```yaml
 steps:
@@ -40,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+##### Example setting an environment variable
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -60,7 +63,7 @@ Contexts are a way to access information about workflow runs, runner environment
 | Context name | Тип      | Description                                                                                                                                                                                                                                       |
 | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `github`     | `объект` | Information about the workflow run. For more information, see [`github` context](#github-context).                                                                                                                                                |
-| `env`        | `объект` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context) .                                                                                                                         |
+| `env`        | `объект` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context).                                                                                                                          |
 | `задание`    | `объект` | Information about the currently executing job. For more information, see [`job` context](#job-context).                                                                                                                                           |
 | `steps`      | `объект` | Information about the steps that have been run in this job. For more information, see [`steps` context](#steps-context).                                                                                                                          |
 | `runner`     | `объект` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context).                                                                                                                      |
@@ -86,6 +89,7 @@ In order to use property dereference syntax, the property name must:
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Property name             | Тип      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -93,11 +97,11 @@ The `github` context contains information about the workflow run and the event t
 | `github.action`           | `строка` | The name of the action currently running. {% data variables.product.prodname_dotcom %} removes special characters or uses the name `run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name `run1`, and the second script will be named `run2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
 | `github.action_path`      | `строка` | The path where your action is located. You can use this path to easily access files located in the same repository as your action. This attribute is only supported in composite run steps actions.                                                                                                                                                                                                                                                                                                 |
 | `github.actor`            | `строка` | The login of the user that initiated the workflow run.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `github.base_ref`         | `строка` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`.                                                                                                                                                                                                                                                                                                                             |
+| `github.base_ref`         | `строка` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`.                                                                                                                                                                                                                                                                                               |
 | `github.event`            | `объект` | The full event webhook payload. For more information, see "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." You can access individual properties of the event using this context.                                                                                                                                                                                                                                                                                        |
 | `github.event_name`       | `строка` | The name of the event that triggered the workflow run.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `github.event_path`       | `строка` | The path to the full event webhook payload on the runner.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `github.head_ref`         | `строка` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`.                                                                                                                                                                                                                                                                                                                             |
+| `github.head_ref`         | `строка` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`.                                                                                                                                                                                                                                                                                               |
 | `github.job`              | `строка` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                                                                                                                                                                                                                                                |
 | `github.ref`              | `строка` | The branch or tag ref that triggered the workflow run. For branches this in the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                          |
 | `github.repository`       | `строка` | The owner and repository name. For example, `Codertocat/Hello-World`.                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -172,7 +176,7 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 | `needs.<job id>.outputs.<output name>` | `строка` | The value of a specific output for a job that the current job depends on.                                                 |
 | `needs.<job id>.result`                      | `строка` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
 
-#### Example printing context information to the log file
+##### Example printing context information to the log file
 
 To inspect the information that is accessible in each context, you can use this workflow file example.
 
@@ -225,7 +229,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON.                                          |
 | `строка`  | You must use single quotes. Escape literal single-quotes with a single quote. |
 
-#### Пример
+##### Пример
 
 {% raw %}
 ```yaml
@@ -323,7 +327,7 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces useing double braces.
+Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
 ##### Пример
 
@@ -381,15 +385,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
 ```
 {% endraw %}
 
@@ -408,9 +412,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - continue-on-error: ${{ fromJSON(env.continue) }}
-      timeout-minutes: ${{ fromJSON(env.time) }}
-      run: echo ...
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 

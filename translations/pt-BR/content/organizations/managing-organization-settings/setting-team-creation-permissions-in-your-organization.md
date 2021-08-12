@@ -9,17 +9,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Os proprietários da organização podem configurar permissões de criação de equipes.
 
 Se você não configurar as permissões de criação de equipes, todos os integrantes da organização poderão criar equipes por padrão.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Em "Team creation rules" (Regras de criação de equipes), marque ou desmarque a opção **Allow members to create teams** (Permitir que integrantes criem equipes). ![Caixa de seleção para permitir que integrantes criem equipes](/assets/images/help/organizations/allow-members-to-create-teams.png)
 6. Clique em **Salvar**.

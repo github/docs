@@ -4,4 +4,4 @@ user_migrations_intro: >-
 organization_migrations_intro: >-
   A API de migrações da organização permite que você transfira um repositório do GitHub para {% data variables.product.prodname_ghe_server %}.
 source_imports_intro: >-
-  A API de Importação de Código-Fonte permite que você inicie uma importação a partir de um repositório de origem no Git, Subversion, Mercurial ou Team Foundation Server. Esta é a mesma funcionalidade do Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Importar um repositório com o importador de {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)."
+  The Source Import API lets you start an import from a Git, Subversion, Mercurial, or Team Foundation Version Control source repository. This is the same functionality as the {% data variables.product.prodname_dotcom %} Importer. For more information, see "[Importing a repository with {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)."

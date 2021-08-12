@@ -1,14 +1,14 @@
 ---
 title: Geplante Erinnerungen für Dein Team verwalten
-intro: Du kannst in Slack Erinnerungen erhalten, wenn auf dein Team Pull-Request-Reviews warten.
+intro: 'Du kannst in Slack Erinnerungen erhalten, wenn auf dein Team Pull-Request-Reviews warten.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über geplante Erinnerungen für Teams
@@ -20,8 +20,8 @@ Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle P
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Erstellen einer geplanten Erinnerung für ein Team
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -44,8 +44,8 @@ Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle P
 {% data reusables.reminders.create-reminder %}
 
 ### Eine geplante Erinnerung für ein Team verwalten
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -55,8 +55,8 @@ Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle P
 {% data reusables.reminders.update-buttons %}
 
 ### Eine geplante Erinnerung für ein Team löschen
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

@@ -3,6 +3,10 @@ title: データの常駐について
 intro: '{% data variables.product.product_name %} は Enterprise のすべての顧客データを保存する地域を選択できます。'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 {% data reusables.github-ae.github-ae-enables-you %}{% data variables.product.product_location %} のすべての顧客データを保存する地域を選択できます。そして、Enterprise のメンバーは世界中のどこからでも {% data variables.product.product_name %} にアクセスできます。

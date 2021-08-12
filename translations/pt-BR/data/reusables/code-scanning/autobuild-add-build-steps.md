@@ -1,1 +1,1 @@
-Se o código de C/C++, C#, ou Java no seu repositório tiver um processo de criação não padrão, poderá ocorrer uma falha no `autobuild`. Você deverá remover a etapa `autobuild` do fluxo de trabalho e adicionar manualmente etapas de criação. 
+Se o código de C/C++, C#, ou Java no seu repositório tiver um processo de criação não padrão, poderá ocorrer uma falha no `autobuild`. Você deverá remover a etapa `autobuild` do fluxo de trabalho e adicionar manualmente etapas de criação. If you want to specify which Go files in your repository to extract, you will need to add build steps.

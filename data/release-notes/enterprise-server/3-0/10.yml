@@ -1,0 +1,18 @@
+date: '2021-06-24'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - A large number of `gauge-dependency-graph-api-dispatch_dispatch` metrics could accumulate in the Management Console.
+    - The sshd service would sometimes fail to start on instances running on Google Cloud Platform.
+    - Old upgrade files would persist on the user disk, sometimes resulting in out of space conditions.
+    - Log rotation could sometimes interrupt background jobs.
+    - '`gh-migrator` displayed an incorrect path to its log output.'
+    - An export archive would fail to import if it contained review requests from teams not present in the archive.
+  known_issues:
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.

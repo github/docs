@@ -5,9 +5,10 @@ redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - jobs
+  - Jobs
+shortTitle: GitHub Premium Support
 ---
 
 {% note %}
@@ -22,7 +23,7 @@ topics:
 
 {% endnote %}
 
-### About {% data variables.contact.premium_support %}
+## About {% data variables.contact.premium_support %}
 
 {% data variables.contact.premium_support %} offers:
   - Written support, in English, through our support portal 24 hours per day, 7 days per week
@@ -40,13 +41,13 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### Hours of operation
+## Hours of operation
 
 {% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### Assigning a priority to a support ticket
+## Assigning a priority to a support ticket
 
 When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
@@ -54,7 +55,7 @@ When you contact {% data variables.contact.premium_support %}, you can choose on
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### Resolving and closing support tickets
+## Resolving and closing support tickets
 
 {% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, or workaround instructions,
 
@@ -66,6 +67,6 @@ If you use a custom or unsupported plug-in, module, or custom code, {% data vari
 
 {% data reusables.support.accessing-premium-content %}
 
-### Further reading
+## Further reading
 
 - "[Submitting a ticket](/articles/submitting-a-ticket)"

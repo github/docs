@@ -6,6 +6,7 @@
     "translations",
     "dist",
     "javascripts",
-    "stylesheets"
+    "stylesheets",
+    "tests"
   ]
 }

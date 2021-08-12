@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.types-of-team-visibility %}
@@ -21,8 +21,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 3. 选择要更改其可见性的一个或多个团队。 ![选择了两个团队的团队列表](/assets/images/help/teams/list-of-teams-selected.png)
 4. 在团队列表的上方，使用下拉菜单并单击 **Change visibility（更改可见性）**。 ![包含更改团队可见性选项的下拉菜单](/assets/images/help/teams/team-bulk-management-options.png)

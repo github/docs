@@ -1,5 +1,6 @@
 ---
 title: Configurar e gerenciar seu perfil do GitHub
+intro: Você pode personalizar seu perfil do GitHub e gerenciar seu gráfico de contribuição.
 shortTitle: Perfis
 redirect_from:
   - /categories/setting-up-and-managing-your-github-profile
@@ -8,22 +9,9 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfis
+  - Profiles
+children:
+  - /customizing-your-profile
+  - /managing-contribution-graphs-on-your-profile
 ---
 
-
-### Índice
-
-{% topic_link_in_list /customizing-your-profile %}
-    {% link_in_list /about-your-profile %}
-    {% link_in_list /about-your-organizations-profile %}
-    {% link_in_list /personalizing-your-profile %}
-    {% link_in_list /managing-your-profile-readme %}
-    {% link_in_list /pinning-items-to-your-profile %}
-{% topic_link_in_list /managing-contribution-graphs-on-your-profile %}
-    {% link_in_list /viewing-contributions-on-your-profile %}
-    {% link_in_list /showing-an-overview-of-your-activity-on-your-profile %}
-    {% link_in_list /publicizing-or-hiding-your-private-contributions-on-your-profile %}
-    {% link_in_list /sending-your-github-enterprise-server-contributions-to-your-githubcom-profile %}
-    {% link_in_list /why-are-my-contributions-not-showing-up-on-my-profile %}
-    {% link_in_list /troubleshooting-commits-on-your-timeline %}

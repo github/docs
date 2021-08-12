@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Los propietarios de la empresa pueden crear nuevas organizaciones dentro de los parámetros de la cuenta de empresa.
