@@ -1941,10 +1941,6 @@ type CWE implements Node {
   A detailed description of this CWE
   """
   description: String!
-
-  """
-  ID of the object.
-  """
   id: ID!
 
   """
@@ -6736,7 +6732,7 @@ type DeclineTopicSuggestionPayload {
 }
 
 """
-The possible default permissions for repositories.
+The possible base permissions for repositories.
 """
 enum DefaultRepositoryPermissionField {
   """
@@ -9769,7 +9765,7 @@ type EnterpriseBillingInfo {
 }
 
 """
-The possible values for the enterprise default repository permission setting.
+The possible values for the enterprise base repository permission setting.
 """
 enum EnterpriseDefaultRepositoryPermissionSettingValue {
   """
@@ -9783,7 +9779,7 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
   NONE
 
   """
-  Organizations in the enterprise choose default repository permissions for their members.
+  Organizations in the enterprise choose base repository permissions for their members.
   """
   NO_POLICY
 
@@ -10269,7 +10265,7 @@ type EnterpriseOwnerInfo {
   defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue!
 
   """
-  A list of enterprise organizations configured with the provided default repository permission.
+  A list of enterprise organizations configured with the provided base repository permission.
   """
   defaultRepositoryPermissionSettingOrganizations(
     """
@@ -10419,7 +10415,7 @@ type EnterpriseOwnerInfo {
   ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
 
   """
-  Whether or not the default repository permission is currently being updated.
+  Whether or not the base repository permission is currently being updated.
   """
   isUpdatingDefaultRepositoryPermission: Boolean!
 
@@ -21586,12 +21582,12 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
   organizationUrl: URI
 
   """
-  The new default repository permission level for the organization.
+  The new base repository permission level for the organization.
   """
   permission: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
   """
-  The former default repository permission level for the organization.
+  The former base repository permission level for the organization.
   """
   permissionWas: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
@@ -22756,6 +22752,36 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   The viewer's sponsorship of this entity.
   """
   sponsorshipForViewerAsSponsor: Sponsorship
+
+  """
+  List of sponsorship updates sent from this sponsorable to sponsors.
+  """
+  sponsorshipNewsletters(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for sponsorship updates returned from the connection.
+    """
+    orderBy: SponsorshipNewsletterOrder = {field: CREATED_AT, direction: DESC}
+  ): SponsorshipNewsletterConnection!
 
   """
   This object's sponsorships as the maintainer.
@@ -37180,6 +37206,36 @@ interface Sponsorable {
   sponsorshipForViewerAsSponsor: Sponsorship
 
   """
+  List of sponsorship updates sent from this sponsorable to sponsors.
+  """
+  sponsorshipNewsletters(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for sponsorship updates returned from the connection.
+    """
+    orderBy: SponsorshipNewsletterOrder = {field: CREATED_AT, direction: DESC}
+  ): SponsorshipNewsletterConnection!
+
+  """
   This object's sponsorships as the maintainer.
   """
   sponsorshipsAsMaintainer(
@@ -37907,6 +37963,107 @@ type SponsorshipEdge {
   The item at the end of the edge.
   """
   node: Sponsorship
+}
+
+"""
+An update sent to sponsors of a user or organization on GitHub Sponsors.
+"""
+type SponsorshipNewsletter implements Node {
+  """
+  The contents of the newsletter, the message the sponsorable wanted to give.
+  """
+  body: String!
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+  id: ID!
+
+  """
+  Indicates if the newsletter has been made available to sponsors.
+  """
+  isPublished: Boolean!
+
+  """
+  The user or organization this newsletter is from.
+  """
+  sponsorable: Sponsorable!
+
+  """
+  The subject of the newsletter, what it's about.
+  """
+  subject: String!
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+}
+
+"""
+The connection type for SponsorshipNewsletter.
+"""
+type SponsorshipNewsletterConnection {
+  """
+  A list of edges.
+  """
+  edges: [SponsorshipNewsletterEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SponsorshipNewsletter]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SponsorshipNewsletterEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SponsorshipNewsletter
+}
+
+"""
+Ordering options for sponsorship newsletter connections.
+"""
+input SponsorshipNewsletterOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order sponsorship newsletters by.
+  """
+  field: SponsorshipNewsletterOrderField!
+}
+
+"""
+Properties by which sponsorship update connections can be ordered.
+"""
+enum SponsorshipNewsletterOrderField {
+  """
+  Order sponsorship newsletters by when they were created.
+  """
+  CREATED_AT
 }
 
 """
@@ -44444,6 +44601,36 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   The viewer's sponsorship of this entity.
   """
   sponsorshipForViewerAsSponsor: Sponsorship
+
+  """
+  List of sponsorship updates sent from this sponsorable to sponsors.
+  """
+  sponsorshipNewsletters(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for sponsorship updates returned from the connection.
+    """
+    orderBy: SponsorshipNewsletterOrder = {field: CREATED_AT, direction: DESC}
+  ): SponsorshipNewsletterConnection!
 
   """
   This object's sponsorships as the maintainer.
