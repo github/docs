@@ -14,11 +14,12 @@ body:
         * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
 
   - type: checkboxes
+    id: terms
     attributes:
-      label: Code of Conduct.
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
+      label: Code of Conduct
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
-        - label: I agree to follow this project's Code of Conduct.
+        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
           required: true
 
   - type: textarea
