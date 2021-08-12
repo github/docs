@@ -15,5 +15,6 @@ children:
   - /forwarding-ports-in-your-codespace
   - /changing-the-machine-type-for-your-codespace
   - /using-codespaces-in-visual-studio-code
+  - /web-based-editor
 ---
  
