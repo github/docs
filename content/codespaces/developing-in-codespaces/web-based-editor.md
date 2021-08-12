@@ -13,7 +13,7 @@ shortTitle: Web-based editor
 
 {% note %}
 
-**Note:** This web-based editor is currently in Technical Preview. You can provide feedback [in our Discussions](https://github.co/browser-editor-feedback).
+**Note:** This web-based editor is currently in beta preview. You can provide feedback [in our Discussions](https://github.co/browser-editor-feedback).
 
 {% endnote %}
 
