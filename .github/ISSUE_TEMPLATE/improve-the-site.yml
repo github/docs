@@ -1,6 +1,5 @@
 name: Improve the docs.github.com site
 description: Make a suggestion or report a problem about the technical implementation of docs.github.com.
-title: "'[What I really want the title to be]': "
 labels:
   - content
 body:
