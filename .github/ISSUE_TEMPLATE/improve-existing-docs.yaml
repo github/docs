@@ -17,9 +17,9 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: This project has a Code of Conduct that all participants are expected to understand and follow./main/CODE_OF_CONDUCT.md).
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
-        - label: I have read and agree to the GitHub Docs project's Code of Conduct.
+        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
           required: true
 
   - type: textarea
