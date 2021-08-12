@@ -1,6 +1,5 @@
 name: Improve existing content.
 description: Make a suggestion to improve the content in an existing article.
-title: "'[What I really want the title to be]': "
 labels:
   - content
 body:
