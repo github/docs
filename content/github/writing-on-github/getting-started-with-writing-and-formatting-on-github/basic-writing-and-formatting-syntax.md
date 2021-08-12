@@ -101,7 +101,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 ## Images
 
-{% data variables.product.product_name %} supports embedding images into your Issues,Pull Requests {% ifversion fpt %} ,Discussions {% endif %} ,Comments & `.md` files in your repository. You can either [upload](#uploading-assets) images or use a link to an image. Whenever you link to an image don't forget to put a exclamation mark (`!`) before the whole link. You can even link to an image in your own repository.
+{% data variables.product.product_name %} supports embedding images into your Issues,Pull Requests{% ifversion fpt %},Discussions{% endif %},Comments & `.md` files in your repository. You can either [upload](#uploading-assets) images or use a link to an image. Whenever you link to an image don't forget to put a exclamation mark (`!`) before the whole link. You can even link to an image in your own repository.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
@@ -122,7 +122,7 @@ Example : If you have a repository called `octocat/octocat.github.io` and it has
 | In a `.md` file on another branch | `/../../blob/master/images/blacktocat.png` |
 | In Issues,Pull Requests & comments of the repository | `../blob/master/images/blacktocat.png?raw=true` |
 
-A thing to note here is that `master` represents the branch name and it could vary from repository to repository.
+A thing to note here is that `master` represents the branch name and it could vary from repository to repository. [Learn more about Relative Links](#relative-links)
 
 {% endtip %}
 
