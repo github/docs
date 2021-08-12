@@ -99,6 +99,33 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 {% data reusables.repositories.relative-links %}
 
+## Images
+
+{% data variables.product.product_name %} supports embedding images into your Issues,Pull Requests {% ifversion fpt %} ,Discussions {% endif %} ,Comments & `.md` files in your repository. You can either [upload](#uploading-assets) images or use a link to an image. Whenever you link to an image don't forget to put a exclamation mark (`!`) before the whole link. You can even link to an image in your own repository.
+
+`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+
+![Rendered Image](/assets/images/help/writing/image-rendered.png)
+
+{% tip %}
+
+**Tip:** When you want to link a image which is in your repository, it is recommended that you use relative links instead of absolute links. This is because, absolute links won't render at all if the image is in a private repository even though you have rightful access to the image.
+
+Example : If you have a repository called `octocat/octocat.github.io` and it has a image called `blacktocat.png` in the `images` directory in the root of the repository on branch `master` (default branch). Then : 
+
+  * Absolute Link : `https://github.com/octocat/octocat.github.io/blob/master/images/blacktocat.png`
+  * Relative Link : 
+
+| Context | Relative Link |
+| ------ | -------- |
+| In a `.md` file on the same branch | `/images/blacktocat.png` |
+| In a `.md` file on another branch | `/../../blob/master/images/blacktocat.png` |
+| In Issues,Pull Requests & comments of the repository | `../blob/master/images/blacktocat.png?raw=true` |
+
+A thing to note here is that `master` represents the branch name and it could vary from repository to repository.
+
+{% endtip %}
+
 ## Lists
 
 You can make an unordered list by preceding one or more lines of text with `-` or `*`.
