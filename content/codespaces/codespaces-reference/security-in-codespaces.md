@@ -92,7 +92,7 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 
 There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_codespaces %}. 
 
-### Understanding a repository's devcontainer.json file
+#### Understanding a repository's devcontainer.json file
 
 When creating a codespace, the [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) is parsed and applied from the source repo, if one exists.  The devcontainer contains powerful features, such as installing third-party extensions and running arbitrary code through a supplied `postCreateCommand`.
 
