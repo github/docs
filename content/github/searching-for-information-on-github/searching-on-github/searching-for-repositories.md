@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghae: '*' 
 topics:
   - GitHub search
 shortTitle: Search for repositories
