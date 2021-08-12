@@ -16,6 +16,16 @@ body:
         Please be sure to complete all items in the checklists that follow, and feel free to comment with any questions. A member of the team will be glad to support you.
 
   - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
+      options:
+        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+          required: true
+          
+          
+  - type: checkboxes
     attributes:
       label: Pre-requisites
       description: Prior to submitting documentation, please apply to join the GitHub Technology Partner Program [partner.github.com/apply](https://partner.github.com/apply?partnershipType=Technology+Partner). Please feel free to proceed once your application is approved.
