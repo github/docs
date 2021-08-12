@@ -5,11 +5,9 @@ versions:
   fpt: '*'
 topics:
   - Codespaces
+product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Private image registry
 ---
-
-{% data reusables.codespaces.release-stage %}
-
 A registry is a secure space for storing and managing private container images, such as Azure Container Registry or DockerHub. You can create secrets in GitHub to store the access details for a private registry and use them to give your codespace access to images stored in the registry.
 
 When you launch a codespace, {% data variables.product.prodname_codespaces %} checks for three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_codespaces %} will make the registry available inside your codespace.

@@ -44,6 +44,8 @@ Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key{% endif %
 Clojars | Clojars Deploy Token | clojars_deploy_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Contentful | Contentful Personal Access Token | contentful_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Databricks | Databricks Access Token | databricks_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
