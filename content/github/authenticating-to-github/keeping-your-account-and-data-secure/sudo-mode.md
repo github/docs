@@ -11,7 +11,7 @@ topics:
   - Identity
   - Access management
 ---
-After you've performed a sudo-protected action, you'll only be asked to re-authenticate again after a few hours of inactivity. Every sudo-protected action resets this timer.
+After you've performed a sudo-protected action, you'll only be asked to re-authenticate again after a few hours of inactivity. Every sudo-protected action resets the timer.
 
 ![Sudo Mode Dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
