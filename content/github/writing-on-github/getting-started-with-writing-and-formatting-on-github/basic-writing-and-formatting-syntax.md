@@ -119,8 +119,8 @@ Example : If you have a repository called `octocat/octocat.github.io` and it has
 | Context | Relative Link |
 | ------ | -------- |
 | In a `.md` file on the same branch | `/images/blacktocat.png` |
-| In a `.md` file on another branch | `/../../blob/master/images/blacktocat.png` |
-| In Issues,Pull Requests & comments of the repository | `../blob/master/images/blacktocat.png?raw=true` |
+| In a `.md` file on another branch | `/../master/images/blacktocat.png` |
+| In Issues,Pull Requests & comments of the repository | `/../blob/master/images/blacktocat.png?raw=true` |
 
 A thing to note here is that `master` represents the branch name and it could vary from repository to repository. [Learn more about Relative Links](#relative-links)
 
