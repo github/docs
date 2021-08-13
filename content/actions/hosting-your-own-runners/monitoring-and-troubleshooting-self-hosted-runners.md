@@ -194,7 +194,12 @@ dial unix /var/run/docker.sock: connect: permission denied
 Check that the self-hosted runner's service account has permission to use the Docker service. You can identify this account by checking the configuration of the self-hosted runner in systemd. For example:
 
 ```shell
+# if the service name is known:
 $ sudo systemctl show -p User actions.runner.octo-org-octo-repo.runner01.service
+User=runner-user
+
+# if the service name is not known (look for a service name starting with "actions.runner"):
+$ sudo systemctl show -p User $(systemctl --type=service | grep actions.runner | grep -o "[^ ]*" | head -n 1)
 User=runner-user
 ```
 
