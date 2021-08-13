@@ -51,7 +51,7 @@ If you publish your site privately, the URL for your site will be different. For
 
 {% ifversion fpt %}
 For more information about how custom domains affect the URL for your site, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)."
-{% endif %}
+{% endif %} 
 
 You can only create one user or organization site for each account on {% data variables.product.product_name %}. Project sites, whether owned by an organization or a user account, are unlimited.
 
