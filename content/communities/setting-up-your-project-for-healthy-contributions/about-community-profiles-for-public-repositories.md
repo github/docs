@@ -27,7 +27,7 @@ If a project doesn't have a recommended file, you can click **Add** to draft and
 {% data reusables.repositories.security-guidelines %}
 
 ## Using the community profile checklist as a community member or collaborator
-
+ 
 As a potential contributor, use the community profile checklist to see if a project meets the recommended community standards and decide if you'd like to contribute. For more information, see "[How to contribute](https://opensource.guide/how-to-contribute/#anatomy-of-an-open-source-project)" in the Open Source Guides.
 
 If a project doesn't have a recommended file, you can click **Propose** to draft and submit a file to the repository maintainer for approval.
