@@ -1,14 +1,18 @@
 ---
-title: Managing access and security for your codespaces
+title: Managing repository access for your codespaces
+shortTitle: Repository access
 intro: 'You can manage the repositories that {% data variables.product.prodname_codespaces %} can access.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 topics:
   - Codespaces
-shortTitle: Access & security
+  - Security
+redirect_from:
+  - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 When you enable access and security for a repository owned by your user account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust. 
 

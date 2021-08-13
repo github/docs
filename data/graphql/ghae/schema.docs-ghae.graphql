@@ -1821,10 +1821,6 @@ type CWE implements Node {
   A detailed description of this CWE
   """
   description: String!
-
-  """
-  ID of the object.
-  """
   id: ID!
 
   """
@@ -6541,7 +6537,7 @@ An ISO-8601 encoded UTC date string.
 scalar DateTime
 
 """
-The possible default permissions for repositories.
+The possible base permissions for repositories.
 """
 enum DefaultRepositoryPermissionField {
   """
@@ -9336,7 +9332,7 @@ type EnterpriseBillingInfo {
 }
 
 """
-The possible values for the enterprise default repository permission setting.
+The possible values for the enterprise base repository permission setting.
 """
 enum EnterpriseDefaultRepositoryPermissionSettingValue {
   """
@@ -9350,7 +9346,7 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
   NONE
 
   """
-  Organizations in the enterprise choose default repository permissions for their members.
+  Organizations in the enterprise choose base repository permissions for their members.
   """
   NO_POLICY
 
@@ -9836,7 +9832,7 @@ type EnterpriseOwnerInfo {
   defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue!
 
   """
-  A list of enterprise organizations configured with the provided default repository permission.
+  A list of enterprise organizations configured with the provided base repository permission.
   """
   defaultRepositoryPermissionSettingOrganizations(
     """
@@ -9911,7 +9907,7 @@ type EnterpriseOwnerInfo {
   ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
 
   """
-  Whether or not the default repository permission is currently being updated.
+  Whether or not the base repository permission is currently being updated.
   """
   isUpdatingDefaultRepositoryPermission: Boolean!
 
@@ -20224,12 +20220,12 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
   organizationUrl: URI
 
   """
-  The new default repository permission level for the organization.
+  The new base repository permission level for the organization.
   """
   permission: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
   """
-  The former default repository permission level for the organization.
+  The former base repository permission level for the organization.
   """
   permissionWas: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
