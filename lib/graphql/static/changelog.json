@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Enum value `OTHER` was removed from enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `SponsorshipNewsletter` was added",
           "Type `SponsorshipNewsletterConnection` was added",
           "Type `SponsorshipNewsletterEdge` was added",
