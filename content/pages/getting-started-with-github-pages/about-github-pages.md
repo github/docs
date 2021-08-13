@@ -1,5 +1,5 @@
 ---
-title: About GitHub Pages
+title: About GitHub Pages 
 intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a {% data variables.product.product_name %} repository.'
 redirect_from:
   - /articles/what-are-github-pages/
