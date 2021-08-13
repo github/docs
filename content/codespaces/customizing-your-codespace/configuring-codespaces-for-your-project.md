@@ -13,10 +13,11 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
+product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Configure your project
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## About dev containers
 

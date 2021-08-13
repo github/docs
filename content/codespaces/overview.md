@@ -1,10 +1,15 @@
 ---
 title: GitHub Codespaces overview
 shortTitle: Overview
+product: '{% data reusables.gated-features.codespaces %}'
 intro: 'This guide introduces {% data variables.product.prodname_codespaces %} and provides details on how it works and how to use it.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/about-codespaces
+  - /github/developing-online-with-github-codespaces/about-github-codespaces
+  - /github/developing-online-with-codespaces/about-codespaces
+  - /codespaces/getting-started-with-codespaces/about-codespaces
+  - /codespaces/about-codespaces
 versions:
   free-pro-team: '*'
 type: quick_start
@@ -32,8 +37,7 @@ You can also personalize aspects of your codespace environment by using a public
 
 ## About billing for {% data variables.product.prodname_codespaces %}
 
-{% data reusables.codespaces.about-billing-for-codespaces %} For more information, see "[About billing for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-billing-for-codespaces)."
+{% data reusables.codespaces.codespaces-trial-period %}
 
-## Joining the beta
+For information on billing for {% data variables.product.prodname_codespaces %}, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
 
-A limited number of people will be invited to join the beta. To join the waitlist, see [Sign up for the Codespaces beta](https://github.com/features/codespaces/signup).

@@ -30,14 +30,15 @@ h3 {
   h3 {
     font-size: 1em;
   }
+  h4 {
+    font-size: 0.875em;
+  }
+  h5 {
+    font-size: 0.85em;
+  }
 }
 
 // needs specificity to override
 .markdown-body .lead-mktg p {
   color: var(--color-auto-gray-9);
-}
-
-.product-callout p,
-.contributor-callout p {
-  margin: 0;
 }
