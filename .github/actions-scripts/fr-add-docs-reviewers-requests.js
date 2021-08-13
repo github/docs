@@ -1,167 +1,12 @@
 import { graphql } from '@octokit/graphql'
 
-// Given a list of PR/issue node IDs and a project node ID,
-// adds the PRs/issues to the project
-// and returns the node IDs of the project items
-async function addItemsToProject(items, project) {
-  console.log(`Adding ${items} to project ${project}`)
-
-  const mutations = items.map(
-    (pr, index) => `
-    pr_${index}: addProjectNextItem(input: {
-      projectId: $project
-      contentId: "${pr}"
-    }) {
-      projectNextItem {
-        id
-      }
-    }
-    `
-  )
-
-  const mutation = `
-  mutation($project:ID!) {
-    ${mutations.join(' ')}
-  }
-  `
-
-  const newItems = await graphql(mutation, {
-    project: project,
-    headers: {
-      authorization: `token ${process.env.TOKEN}`,
-      'GraphQL-Features': 'projects_next_graphql',
-    },
-  })
-
-  // The output of the mutation is
-  // {"pr_0":{"projectNextItem":{"id":ID!}},...}
-  // Pull out the ID for each new item
-  const newItemIDs = Object.entries(newItems).map((item) => item[1].projectNextItem.id)
-
-  console.log(`New item IDs: ${newItemIDs}`)
-
-  return newItemIDs
-}
-
-// Given a list of project item node IDs and a list of corresponding authors
-// generates a GraphQL mutation to populate:
-//   - "Status" (as "Ready for review" option)
-//   - "Date posted" (as today)
-//   - "Review due date" (as today + 2 weekdays)
-//   - "Feature" (as "OpenAPI schema update")
-//   - "Contributor type" (as "Hubber or partner" option)
-// Does not populate "Review needs" or "Size"
-function generateUpdateProjectNextItemFieldMutation(items, authors) {
-  // Formats a date object into the required format for projects
-  function formatDate(date) {
-    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
-  }
-
-  // Calculate 2 weekdays from now (excluding weekends; not considering holidays)
-  const datePosted = new Date()
-  let daysUntilDue
-  switch (datePosted.getDay()) {
-    case 0: // Sunday
-      daysUntilDue = 3
-      break
-    case 6: // Saturday
-      daysUntilDue = 4
-      break
-    default:
-      daysUntilDue = 2
-  }
-  const millisecPerDay = 24 * 60 * 60 * 1000
-  const dueDate = new Date(datePosted.getTime() + millisecPerDay * daysUntilDue)
-
-  // Build the mutation for a single field
-  function generateMutation({ index, item, fieldID, value, literal = false }) {
-    let parsedValue
-    if (literal) {
-      parsedValue = `value: "${value}"`
-    } else {
-      parsedValue = `value: ${value}`
-    }
-
-    return `
-      set_${fieldID.substr(1)}_item_${index}: updateProjectNextItemField(input: {
-        projectId: $project
-        itemId: "${item}"
-        fieldId: ${fieldID}
-        ${parsedValue}
-      }) {
-      projectNextItem {
-        id
-      }
-    }
-    `
-  }
-
-  // Build the mutation for all fields for all items
-  const mutations = items.map(
-    (item, index) => `
-    ${generateMutation({
-      index: index,
-      item: item,
-      fieldID: '$statusID',
-      value: '$readyForReviewID',
-    })}
-    ${generateMutation({
-      index: index,
-      item: item,
-      fieldID: '$datePostedID',
-      value: formatDate(datePosted),
-      literal: true,
-    })}
-    ${generateMutation({
-      index: index,
-      item: item,
-      fieldID: '$reviewDueDateID',
-      value: formatDate(dueDate),
-      literal: true,
-    })}
-    ${generateMutation({
-      index: index,
-      item: item,
-      fieldID: '$contributorTypeID',
-      value: '$hubberTypeID',
-    })}
-    ${generateMutation({
-      index: index,
-      item: item,
-      fieldID: '$featureID',
-      value: 'OpenAPI schema update',
-      literal: true,
-    })}
-    ${generateMutation({
-      index: index,
-      item: item,
-      fieldID: '$authorID',
-      value: authors[index],
-      literal: true,
-    })}
-  `
-  )
-
-  // Build the full mutation
-  const mutation = `
-    mutation(
-      $project: ID!
-      $statusID: ID!
-      $readyForReviewID: String!
-      $datePostedID: ID!
-      $reviewDueDateID: ID!
-      $contributorTypeID: ID!
-      $hubberTypeID: String!
-      $featureID: ID!
-      $authorID: ID!
-
-    ) {
-      ${mutations.join(' ')}
-    }
-    `
-
-  return mutation
-}
+import {
+  addItemsToProject,
+  isDocsTeamMember,
+  findFieldID,
+  findSingleSelectID,
+  generateUpdateProjectNextItemFieldMutation,
+} from './projects.js'
 
 async function run() {
   // Get info about the docs-content review board project
@@ -268,43 +113,6 @@ async function run() {
   // If we are overwriting items, query for more items.
   const existingItemIDs = data.organization.projectNext.items.nodes.map((node) => node.id)
 
-  function findFieldID(fieldName, data) {
-    const field = data.organization.projectNext.fields.nodes.find(
-      (field) => field.name === fieldName
-    )
-
-    if (field && field.id) {
-      return field.id
-    } else {
-      throw new Error(
-        `A field called "${fieldName}" was not found. Check if the field was renamed.`
-      )
-    }
-  }
-
-  function findSingleSelectID(singleSelectName, fieldName, data) {
-    const field = data.organization.projectNext.fields.nodes.find(
-      (field) => field.name === fieldName
-    )
-    if (!field) {
-      throw new Error(
-        `A field called "${fieldName}" was not found. Check if the field was renamed.`
-      )
-    }
-
-    const singleSelect = JSON.parse(field.settings).options.find(
-      (field) => field.name === singleSelectName
-    )
-
-    if (singleSelect && singleSelect.id) {
-      return singleSelect.id
-    } else {
-      throw new Error(
-        `A single select called "${singleSelectName}" for the field "${fieldName}" was not found. Check if the single select was renamed.`
-      )
-    }
-  }
-
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', data)
   const reviewDueDateID = findFieldID('Review due date', data)
@@ -316,6 +124,7 @@ async function run() {
   // Get the ID of the single select values that we want to set
   const readyForReviewID = findSingleSelectID('Ready for review', 'Status', data)
   const hubberTypeID = findSingleSelectID('Hubber or partner', 'Contributor type', data)
+  const docsMemberTypeID = findSingleSelectID('Docs team', 'Contributor type', data)
 
   // Add the PRs to the project
   const itemIDs = await addItemsToProject(prIDs, projectID)
@@ -332,30 +141,33 @@ async function run() {
   }
 
   // Populate fields for the new project items
-  // Note: Since there is not a way to check if a PR is already on the board,
-  // this will overwrite the values of PRs that are on the board
-  const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation(
-    newItemIDs,
-    prAuthors
-  )
-  console.log(`Populating fields for these items: ${newItemIDs}`)
+  // (Using for...of instead of forEach since the function uses await)
+  for (const [index, itemID] of newItemIDs.entries()) {
+    const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation({
+      item: itemID,
+      author: prAuthors[index],
+      turnaround: 2,
+    })
+    const contributorType = isDocsTeamMember(prAuthors[index]) ? docsMemberTypeID : hubberTypeID
+    console.log(`Populating fields for item: ${itemID}`)
 
-  await graphql(updateProjectNextItemMutation, {
-    project: projectID,
-    statusID: statusID,
-    readyForReviewID: readyForReviewID,
-    datePostedID: datePostedID,
-    reviewDueDateID: reviewDueDateID,
-    contributorTypeID: contributorTypeID,
-    hubberTypeID: hubberTypeID,
-    featureID: featureID,
-    authorID: authorID,
-    headers: {
-      authorization: `token ${process.env.TOKEN}`,
-      'GraphQL-Features': 'projects_next_graphql',
-    },
-  })
-  console.log('Done populating fields')
+    await graphql(updateProjectNextItemMutation, {
+      project: projectID,
+      statusID: statusID,
+      statusValueID: readyForReviewID,
+      datePostedID: datePostedID,
+      reviewDueDateID: reviewDueDateID,
+      contributorTypeID: contributorTypeID,
+      contributorType: contributorType,
+      featureID: featureID,
+      authorID: authorID,
+      headers: {
+        authorization: `token ${process.env.TOKEN}`,
+        'GraphQL-Features': 'projects_next_graphql',
+      },
+    })
+    console.log('Done populating fields for item')
+  }
 
   return newItemIDs
 }

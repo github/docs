@@ -7,6 +7,7 @@ versions:
   fpt: '*'
 topics:
   - Codespaces
+  - Security
 redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
 ---
