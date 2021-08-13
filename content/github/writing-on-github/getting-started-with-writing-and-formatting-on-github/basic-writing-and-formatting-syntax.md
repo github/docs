@@ -101,7 +101,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 ## Images
 
-{% data variables.product.product_name %} supports embedding images into your Issues,Pull Requests{% ifversion fpt %},Discussions{% endif %},Comments & `.md` files in your repository. You can either [upload](#uploading-assets) images or use a link to an image. Whenever you link to an image don't forget to put a exclamation mark (`!`) before the whole link. You can even link to an image in your own repository.
+{% data variables.product.product_name %} supports embedding images into your Issues,Pull Requests{% ifversion fpt %},Discussions{% endif %},Comments & `.md` files in your repository. You can either [upload](#uploading-assets) images or use a link to an image. Whenever you link to an image don't forget to put a exclamation mark (`!`) before the whole link. You can even link to an image in your own repository. The text in the square brackets (`[]`) represents the alt text for the image.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
