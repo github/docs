@@ -57,10 +57,21 @@ $ cat ~/actions-runner/.service
 actions.runner.octo-org-octo-repo.runner01.service
 ```
 
+If that fails due to the service being installed elsewhere, the service name can be obtained from the list of running services. For example:
+
+```shell
+$ systemctl --type=service | grep actions.runner
+  actions.runner.org-repo.hostname.service loaded active running GitHub Actions Runner (org-repo.hostname)
+```
+
 You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
 
 ```shell
+# if the service name is known:
 $ sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
+
+# if the service name is not known:
+$ sudo journalctl -u $(systemctl --type=service | grep actions.runner | grep -o "[^ ]*" | head -n 1) -f
 ```
 
 In this example output, you can see `runner01` start, receive a job named `testAction`, and then display the resulting status:
