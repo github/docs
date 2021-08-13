@@ -36,7 +36,7 @@ children:
   - desktop
   - early-access
 externalProducts:
-  cli:
+  cli:@AfirstS
     id: cli
     name: GitHub CLI
     href: 'https://cli.github.com/manual'
