@@ -100,6 +100,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
       // Preference information
       application_preference: Cookies.get('toolPreferred'),
       color_mode_preference: getColorModePreference(),
+      os_preference: Cookies.get('osPreferred'),
     },
 
     ...props,
@@ -206,38 +207,11 @@ function initExitEvent() {
   document.addEventListener('visibilitychange', sendExit)
 }
 
-function initNavigateEvent() {
-  if (!document.querySelector('.sidebar-products')) return
-
-  Array.from(document.querySelectorAll('.sidebar-products details')).forEach((details) =>
-    details.addEventListener('toggle', (evt) => {
-      const target = evt.target as HTMLDetailsElement
-      sendEvent({
-        type: EventType.navigate,
-        navigate_label: `details ${target.open ? 'open' : 'close'}: ${
-          target?.querySelector('summary')?.innerText
-        }`,
-      })
-    })
-  )
-
-  document.querySelector('.sidebar-products')?.addEventListener('click', (evt) => {
-    const target = evt.target as HTMLElement
-    const link = target.closest('a') as HTMLAnchorElement
-    if (!link) return
-    sendEvent({
-      type: EventType.navigate,
-      navigate_label: `link: ${link.href}`,
-    })
-  })
-}
-
 export default function initializeEvents() {
   initPageEvent() // must come first
   initExitEvent()
   initLinkEvent()
   initClipboardEvent()
-  initNavigateEvent()
   // print event in ./print.js
   // survey event in ./survey.js
   // experiment event in ./experiment.js

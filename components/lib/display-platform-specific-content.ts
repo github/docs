@@ -1,4 +1,7 @@
+import Cookies from 'js-cookie'
 import parseUserAgent from './user-agent'
+import { sendEvent, EventType } from './events'
+
 const supportedPlatforms = ['mac', 'windows', 'linux']
 const detectedPlatforms = new Set()
 
@@ -35,6 +38,18 @@ export default function displayPlatformSpecificContent() {
       const target = event.target as HTMLElement
       setActiveSwitcherLinks(target.dataset.platform || '')
       showPlatformSpecificContent(target.dataset.platform || '')
+
+      Cookies.set('osPreferred', target.dataset.platform || '', {
+        sameSite: 'strict',
+        secure: true,
+      })
+
+      // Send event data
+      sendEvent({
+        type: EventType.preference,
+        preference_name: 'os',
+        preference_value: target.dataset.platform,
+      })
     })
   })
 }
@@ -108,6 +123,8 @@ function detectPlatforms(el: HTMLElement) {
 }
 
 function getDefaultPlatform() {
+  if (Cookies.get('osPreferred')) return Cookies.get('osPreferred')
+
   const el = document.querySelector('[data-default-platform]') as HTMLElement
   if (el) return el.dataset.defaultPlatform
 }

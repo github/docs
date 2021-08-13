@@ -1,7 +1,8 @@
 ---
 title: Reviewing your organization's audit logs for Codespaces
-shortTitle: Reviewing your organization's audit logs
+shortTitle: Audit logs
 intro: 'You can use the audit log to review all actions related to {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 type: how_to
@@ -11,7 +12,7 @@ topics:
   - Administrator
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 When any member of your organization performs an action related to {% data variables.product.prodname_codespaces %}, you can review the actions in the audit log. For information about accessing the log, see "[Reviewing your audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
 

@@ -15,7 +15,7 @@ const cssColorModeToJs: Record<string, string> = {
   dark: 'night',
 }
 
-export const getThemeProps = (req: any, mode?: 'css') => {
+export function getThemeProps(req: any, mode?: 'css') {
   let cookieValue: {
     color_mode?: 'auto' | 'light' | 'dark'
     dark_theme?: { name: string }

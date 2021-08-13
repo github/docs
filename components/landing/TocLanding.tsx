@@ -7,6 +7,7 @@ import { ArticleContent } from 'components/article/ArticleContent'
 import { ArticleList } from 'components/landing/ArticleList'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
+import { Callout } from 'components/ui/Callout'
 
 export const TocLanding = () => {
   const { title, introPlainText, tocItems, productCallout, variant, featuredLinks, renderedPage } =
@@ -26,10 +27,7 @@ export const TocLanding = () => {
           </div>
 
           {productCallout && (
-            <div
-              className="product-callout border rounded-1 mb-4 p-3 color-border-success color-bg-success"
-              dangerouslySetInnerHTML={{ __html: productCallout }}
-            />
+            <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />
           )}
 
           <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
