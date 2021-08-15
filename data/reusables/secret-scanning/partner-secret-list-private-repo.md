@@ -58,6 +58,8 @@ Doppler | Doppler Service Token | doppler_service_token{% endif %}
 Doppler | Doppler CLI Token | doppler_cli_token{% endif %}
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
 Doppler | Doppler SCIM Token | doppler_scim_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Doppler | Doppler Audit Token | doppler_audit_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Dropbox | Dropbox Access Token | dropbox_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
