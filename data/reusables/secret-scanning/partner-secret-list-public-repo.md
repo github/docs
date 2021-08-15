@@ -26,6 +26,7 @@ Doppler | Doppler Personal Token
 Doppler | Doppler Service Token
 Doppler | Doppler CLI Token
 Doppler | Doppler SCIM Token
+Doppler | Doppler Audit Token
 Dropbox | Dropbox Access Token
 Dropbox | Dropbox Short Lived Access Token
 Dynatrace | Dynatrace Access Token
