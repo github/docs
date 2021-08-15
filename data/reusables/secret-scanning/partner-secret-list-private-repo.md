@@ -90,6 +90,8 @@ Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key{
 Frame.io | Frame.io JSON Web Token | frameio_jwt{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Frame.io| Frame.io Developer Token | frameio_developer_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+FullStory | FullStory API Key | fullstory_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 GitHub | GitHub Personal Access Token | github_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
