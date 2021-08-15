@@ -61,6 +61,12 @@ Once you've authenticated successfully, your credentials are stored in the Windo
 
 {% endwarning %}
 
+{% warning %}
+
+**Warning:** If you had already used the Credential Manager for Windows to cache your basic credentials, git can still fail to access github. To reset your cached credentials so that you get prompted to enter your new one, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the github entry and delete it. 
+
+{% endwarning %}
+
 {% endwindows %}
 
 {% linux %}
