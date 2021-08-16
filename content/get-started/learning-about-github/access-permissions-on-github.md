@@ -23,13 +23,13 @@ A repository owned by a user account has two permission levels: the *repository 
 
 ## Organization accounts
 
-Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
+Organization members can have *owner*{ ifversion fpt }, *billing manager*,{ endif } or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
 - "[Permission levels for an organization](/articles/permission-levels-for-an-organization)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
 - "[About teams](/articles/about-teams)"
 
-{% ifversion fpt %}
+{ ifversion fpt }
 
 ## Enterprise accounts
 
@@ -37,8 +37,8 @@ Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% e
 
 {% data reusables.gated-features.enterprise-accounts %}
 
-{% endif %}
+{ endif }
 
 ## Further reading
 
-- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+- "[Types of { data variables.product.prodname_dotcom } accounts](/articles/types-of-github-accounts)"
