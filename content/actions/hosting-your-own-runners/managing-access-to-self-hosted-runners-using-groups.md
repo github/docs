@@ -102,7 +102,7 @@ You can update the access policy of a runner group, or rename a runner group.
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
     
 ## Creating a self-hosted runner in a group
-You can use the configuration script on the self-hosted runner to create it in a runner gropu. For example, this command creates a self-hosted runner in the runner group `rg-runnergroup`.
+You can use the configuration script on the self-hosted runner to create it in a runner group. For example, this command creates a self-hosted runner in the runner group `rg-runnergroup`.
 
 ```sh
 ./config.sh --url {orgUrl} --token {token} --runnergroup rg-runnergroup
@@ -112,7 +112,7 @@ The script fails if the runnergroup doesn't exist.
 
 ## Moving a self-hosted runner to a group
 
-If not specified otherwise with a `--runnergroup` argument, new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
+If you don't specify a runner group, new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
 1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
     ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
