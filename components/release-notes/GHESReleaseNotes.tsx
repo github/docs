@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import cx from 'classnames'
 import {
   ChevronDownIcon,
@@ -103,47 +103,12 @@ export function GHESReleaseNotes({ context }: Props) {
 
               if (release.version === currentVersion.currentRelease) {
                 return (
-                  <li key={release.version} className="border-bottom">
-                    <details
-                      className="my-0 details-reset release-notes-version-picker"
-                      aria-current="page"
-                      open
-                    >
-                      <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
-                        {release.version}
-                        <div className="d-flex">
-                          <span className="color-text-tertiary text-mono text-small text-normal mr-1">
-                            {release.patches.length} releases
-                          </span>
-                          <ChevronDownIcon />
-                        </div>
-                      </summary>
-                      <ul className="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
-                        {release.patches.map((patch) => {
-                          const isActive = patch.version === focusedPatch
-                          return (
-                            <li
-                              key={patch.version}
-                              className={cx(
-                                'js-release-notes-patch-link px-3 my-0 py-1',
-                                isActive && 'selected'
-                              )}
-                            >
-                              <Link
-                                href={`${releaseLink}#${patch.version}`}
-                                className="d-flex flex-items-center flex-justify-between"
-                              >
-                                {patch.version}
-                                <span className="color-text-tertiary text-mono text-small text-normal">
-                                  {dayjs(patch.date).format('MMMM DD, YYYY')}
-                                </span>
-                              </Link>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </details>
-                  </li>
+                  <CollapsibleReleaseSection
+                    key={release.version}
+                    release={release}
+                    focusedPatch={focusedPatch}
+                    releaseLink={releaseLink}
+                  />
                 )
               }
 
@@ -165,5 +130,61 @@ export function GHESReleaseNotes({ context }: Props) {
         </nav>
       </aside>
     </div>
+  )
+}
+
+const CollapsibleReleaseSection = ({
+  release,
+  releaseLink,
+  focusedPatch,
+}: {
+  release: GHESReleaseNotesContextT['releases'][0]
+  releaseLink: string
+  focusedPatch: string
+}) => {
+  const defaultIsOpen = true
+  const [isOpen, setIsOpen] = useState(defaultIsOpen)
+
+  const onToggle = (e: SyntheticEvent) => {
+    const newIsOpen = (e.target as HTMLDetailsElement).open
+    setIsOpen(newIsOpen)
+  }
+  return (
+    <li key={release.version} className="border-bottom">
+      <details
+        className="my-0 details-reset release-notes-version-picker"
+        aria-current="page"
+        open={defaultIsOpen}
+        onToggle={onToggle}
+      >
+        <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
+          {release.version}
+          <div className="d-flex">
+            <span className="color-text-tertiary text-mono text-small text-normal mr-1">
+              {release.patches.length} releases
+            </span>
+            <ChevronDownIcon className={isOpen ? 'rotate-180' : ''} />
+          </div>
+        </summary>
+        <ul className="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
+          {release.patches.map((patch) => {
+            const isActive = patch.version === focusedPatch
+            return (
+              <li key={patch.version} className={cx('px-3 my-0 py-1', isActive && 'color-bg-info')}>
+                <Link
+                  href={`${releaseLink}#${patch.version}`}
+                  className="d-flex flex-items-center flex-justify-between"
+                >
+                  {patch.version}
+                  <span className="color-text-tertiary text-mono text-small text-normal">
+                    {dayjs(patch.date).format('MMMM DD, YYYY')}
+                  </span>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </details>
+    </li>
   )
 }
