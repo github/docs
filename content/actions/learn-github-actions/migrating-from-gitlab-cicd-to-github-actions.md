@@ -131,7 +131,7 @@ For more information, see "[Workflow syntax for {% data variables.product.prodna
 
 ## Docker images
 
-Both GitLab CI/CD and {% data variables.product.prodname_actions %} support running jobs in a Docker image. In GitLab CI/CD, Docker images are defined with a `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
+Both GitLab CI/CD and {% data variables.product.prodname_actions %} support running jobs in a Docker image. In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
 
 Below is an example of the syntax for each system:
 

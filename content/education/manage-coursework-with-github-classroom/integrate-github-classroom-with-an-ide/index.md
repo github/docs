@@ -5,9 +5,9 @@ intro: 'You can help your students write, test, and debug code by preconfiguring
 versions:
   fpt: '*'
 children:
-  - /integrate-github-classroom-with-an-online-ide
+  - /integrate-github-classroom-with-an-ide
   - /about-using-makecode-arcade-with-github-classroom
   - /replit-with-github-classroom
-  - /run-student-code-in-an-online-ide
+  - /run-student-code-in-an-ide
 ---
 

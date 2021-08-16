@@ -27,6 +27,9 @@ changelog:
 examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
+community_redirect: 
+  name: 'Provide GitHub Feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
 versions:
   fpt: '*'
 children:

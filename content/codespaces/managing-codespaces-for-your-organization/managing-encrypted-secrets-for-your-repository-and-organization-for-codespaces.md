@@ -1,15 +1,18 @@
 ---
 title: Managing encrypted secrets for your repository and organization for Codespaces
-shortTitle: Managing secrets for your repository and organization
+shortTitle: Encrypted secrets
 intro: 'Encrypted secrets allow you to store sensitive information in your organization, repository, or {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
 topics:
   - Codespaces
+  - Secret store
+  - Security
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## About secrets
 
