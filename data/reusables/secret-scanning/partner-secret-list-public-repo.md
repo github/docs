@@ -57,6 +57,9 @@ npm | npm Access Token
 NuGet | NuGet API Key
 OpenAI | OpenAI API Key
 Palantir | Palantir JSON Web Token
+PlanetScale | PlanetScale Database Password
+PlanetScale | PlanetScale OAuth Token
+PlanetScale | PlanetScale Service Token
 Plivo | Plivo Auth Token
 Postman | Postman API Key
 Proctorio | Proctorio Consumer Key
