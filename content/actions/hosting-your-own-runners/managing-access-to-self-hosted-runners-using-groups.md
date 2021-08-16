@@ -105,7 +105,7 @@ You can update the access policy of a runner group, or rename a runner group.
 You can use the configuration script on the self-hosted runner to create it in a runner group. For example, this command creates a self-hosted runner in the runner group `rg-runnergroup`.
 
 ```sh
-./config.sh --url {orgUrl} --token {token} --runnergroup rg-runnergroup
+./config.sh --url $org --token $token --runnergroup rg-runnergroup
 ```
 
 The script fails if the runnergroup doesn't exist.
