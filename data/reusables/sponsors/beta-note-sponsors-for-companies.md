@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Sponsors for Companies is currently in beta and subject to change.
+**Note:** The Sponsors for Companies service is currently in beta and subject to change.
 
 {% endnote %}
