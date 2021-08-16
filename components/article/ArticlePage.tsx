@@ -9,6 +9,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { ArticleContent } from './ArticleContent'
 import { ArticleGridLayout } from './ArticleGridLayout'
+import { Callout } from 'components/ui/Callout'
 
 export const ArticlePage = () => {
   const {
@@ -36,14 +37,14 @@ export const ArticlePage = () => {
               <ArticleTitle>{title}</ArticleTitle>
 
               {contributor && (
-                <div className="contributor-callout border rounded-1 mb-4 p-3 color-border-info color-bg-info f5">
+                <Callout variant="info" className="mb-3">
                   <p>
                     <span className="mr-2">
                       <InfoIcon />
                     </span>
                     {t('contributor_callout')} <a href={contributor.URL}>{contributor.name}</a>.
                   </p>
-                </div>
+                </Callout>
               )}
 
               {intro && <div className="lead-mktg" dangerouslySetInnerHTML={{ __html: intro }} />}
@@ -86,8 +87,9 @@ export const ArticlePage = () => {
               )}
 
               {product && (
-                <div
-                  className="product-callout border rounded-1 mb-4 p-3 color-border-success color-bg-success"
+                <Callout
+                  variant="success"
+                  className="mb-4"
                   dangerouslySetInnerHTML={{ __html: product }}
                 />
               )}

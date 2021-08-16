@@ -51,7 +51,7 @@ jobs:
       - name: Update search indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: VERSION=free-pro-team@latest LANGUAGE=en npm run sync-search
+        run: npm run sync-search
 
       - name: Update private docs repository search indexes
         # Git pre-push hooks push the LFS objects, so if you don't run them and
@@ -66,14 +66,14 @@ jobs:
           git config user.email action@github.com
           echo 'git config pull.ff only'
           git config pull.ff only
+          echo 'git pull origin main --no-verify'
+          git pull origin main --no-verify
           echo 'git add lib/search/indexes/*'
           git add lib/search/indexes/*
           echo 'git commit -m "update search indexes"'
           git commit -m "update search indexes"
           echo 'git lfs push --all origin'
           git lfs push --all origin
-          echo 'git pull origin main' --no-verify
-          git pull origin main --no-verify
           echo 'git push origin main --no-verify'
           git push origin main --no-verify
 

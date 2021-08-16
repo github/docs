@@ -1,5 +1,6 @@
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
+import { Callout } from 'components/ui/Callout'
 
 export const DeprecationBanner = () => {
   const { data, enterpriseServerReleases } = useMainContext()
@@ -15,8 +16,8 @@ export const DeprecationBanner = () => {
 
   return (
     <div data-testid="deprecation-banner" className="container-xl mt-3 mx-auto p-responsive">
-      <div className="border rounded-1 color-bg-warning p-3 color-border-warning f5">
-        <p className="m-0">
+      <Callout variant="warning">
+        <p>
           <b className="text-bold">
             <span dangerouslySetInnerHTML={{ __html: message }} />{' '}
             <span
@@ -34,7 +35,7 @@ export const DeprecationBanner = () => {
             }}
           />
         </p>
-      </div>
+      </Callout>
     </div>
   )
 }
