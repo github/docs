@@ -38,7 +38,7 @@ describe('server', () => {
 
   test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
-    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
     const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
 
@@ -73,7 +73,7 @@ describe('server', () => {
 
   test('renders the Enterprise homepage with links to exptected products in both the sidebar and page body', async () => {
     const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}`)
-    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
     const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
 

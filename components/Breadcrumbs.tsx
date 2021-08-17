@@ -51,7 +51,11 @@ export const Breadcrumbs = ({ variant = 'default' }: Props) => {
               {breadcrumb.title}
             </Link>
           ),
-          i !== arr.length - 1 ? <span className="color-text-tertiary">/</span> : null,
+          i !== arr.length - 1 ? (
+            <span className="color-text-tertiary" key={`${i}-slash`}>
+              /
+            </span>
+          ) : null,
         ]
       })}
     </nav>

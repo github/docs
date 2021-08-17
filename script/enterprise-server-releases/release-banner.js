@@ -18,9 +18,6 @@ const allowedActions = ['create', 'remove']
 
 program
   .description('Create or remove a release candidate banner for the provided docs version.')
-  // The following two settings let us use `version` as a flag without clashing with reserved opts
-  .storeOptionsAsProperties(false)
-  .passCommandToAction(false)
   .option(`-a, --action <${allowedActions.join(' or ')}>`, 'Create or remove the banner.')
   .option(
     '-v, --version <version>',

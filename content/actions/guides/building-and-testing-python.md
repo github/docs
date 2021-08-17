@@ -219,7 +219,7 @@ steps:
 
 ### Requirements file
 
-After you update `pip`, a typical next step is to install dependencies from *requirements.txt*.
+After you update `pip`, a typical next step is to install dependencies from *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 {% raw %}
 ```yaml{:copy}
@@ -319,8 +319,11 @@ steps:
   run: |
     pip install flake8
     flake8 .
+  continue-on-error: true
 ```
 {% endraw %}
+
+The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
 
 ### Running tests with tox
 
