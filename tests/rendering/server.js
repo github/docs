@@ -38,7 +38,7 @@ describe('server', () => {
 
   test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
-    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
     const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
 
@@ -73,7 +73,7 @@ describe('server', () => {
 
   test('renders the Enterprise homepage with links to exptected products in both the sidebar and page body', async () => {
     const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}`)
-    const sidebarItems = $('.sidebar-products li a').get()
+    const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
     const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
 
@@ -298,14 +298,13 @@ describe('server', () => {
 
   test('renders product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
-    const note = $('.product-callout').eq(0)
-    expect(note.hasClass('color-border-success')).toBe(true)
-    expect(note.hasClass('color-bg-success')).toBe(true)
+    const note = $('[data-testid=callout]').eq(0)
+    expect(note).toBeTruthy()
   })
 
   test('renders liquid within liquid within product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
-    const note = $('.product-callout').eq(0)
+    const note = $('[data-testid=callout]').eq(0)
     expect(
       note
         .first()

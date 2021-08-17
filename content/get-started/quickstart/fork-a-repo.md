@@ -43,7 +43,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 {% endif %}
 
-## Prerequisties
+## Prerequisites
 
 If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.product.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 

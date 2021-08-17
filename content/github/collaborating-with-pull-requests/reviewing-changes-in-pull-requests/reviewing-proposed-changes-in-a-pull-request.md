@@ -21,6 +21,10 @@ You can review changes in a pull request one file at a time. While reviewing the
 
 ## Starting a review
 
+{% include tool-switcher %}
+
+{% webui %}
+
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
@@ -33,8 +37,21 @@ You can review changes in a pull request one file at a time. While reviewing the
 Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+{% endwebui %}
 
 {% ifversion fpt %}
+
+{% codespaces %}
+
+You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+
+{% data reusables.codespaces.review-pr %} 
+
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+
+
 ## Reviewing dependency changes
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."

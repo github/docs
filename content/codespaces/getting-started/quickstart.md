@@ -2,6 +2,7 @@
 title: Quickstart for Codespaces
 intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes.'
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
 type: quick_start
@@ -10,8 +11,6 @@ topics:
 redirect_from:
   - /codespaces/codespaces-quickstart
 ---
-
-{% data reusables.codespaces.release-stage %}
 
 ## Introduction
 
@@ -27,11 +26,7 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 2. Name your repository, select your preferred privacy setting, and click **Create repository from this template**.
 
-3. Navigate to the main page of the newly created repository. Under the repository name, use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**.
-
-  ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png)
-
-4. To create a codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
