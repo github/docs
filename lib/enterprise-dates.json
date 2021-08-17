@@ -1,5 +1,4 @@
 {
-  "comment": "This file is also used by Octokit. See https://github.com/octokit/openapi-types.ts/issues/109. Please reach out to the Octokit maintainer before removing or renaming this file.",
   "2.0": {
     "releaseDate": "2014-11-11",
     "deprecationDate": "2016-02-09"
