@@ -371,8 +371,6 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.macos-runner-preview %}
-
 #### Example
 
 ```yaml
