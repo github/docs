@@ -15,7 +15,6 @@ Workflow runs that have been awaiting approval for more than 30 days are automat
 
 ## Approving workflow runs on a pull request from a public fork
 
-Maintainers with write access to a repository can use the following procedure to review and run workflows on pull requests from contributors that require approval.
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
