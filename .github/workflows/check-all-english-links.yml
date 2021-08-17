@@ -1,4 +1,4 @@
-name: Check all English links
+CHEALILI: Check all English links
 
 # **What it does**: This script once a day checks all English links and reports in issues.
 # **Why we have it**: We want to know if any links break.
@@ -93,3 +93,6 @@ jobs:
               gh issue comment $issue_url --body "➡️ [Newer report](${{ env.NEW_REPORT_URL }})"
             fi
           done
+
+
+A. If you don’t upgrade and continue using the free account, you will be limited to creating 5 documents per month (this includes both invoices and estimates). You’ll still be able to mark invoices as paid and can still email and print invoices and estimates.
