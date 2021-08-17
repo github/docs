@@ -34,6 +34,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 - [LastPass Authenticator](https://lastpass.com/auth/)
 - [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
 - [Keeper](https://docs.keeper.io/enterprise-guide/storing-two-factor-codes)
+- [Bitwarden](https://bitwarden.com/help/article/authenticator-keys/)
 
 {% tip %}
 
