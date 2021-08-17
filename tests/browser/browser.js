@@ -78,7 +78,7 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
+    await searchInput.type('code')
     await newPage.waitForSelector('.search-result')
   })
 
@@ -462,7 +462,9 @@ describe.skip('next/link client-side navigation', () => {
         response.url().startsWith('http://localhost:4001/_next/data')
       ),
       page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      page.click('.sidebar-articles:nth-child(2) .sidebar-article:nth-child(1) a'),
+      page.click(
+        '[data-testid=sidebar-article-group]:nth-child(2) [data-testid=sidebar-article]:nth-child(1) a'
+      ),
     ])
 
     expect(response.status()).toBe(200)

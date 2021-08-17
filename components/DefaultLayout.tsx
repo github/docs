@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { SidebarNav } from 'components/SidebarNav'
+import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { Header } from 'components/page-header/Header'
 import { SmallFooter } from 'components/page-footer/SmallFooter'
 import { ScrollButton } from 'components/ScrollButton'

@@ -3,8 +3,10 @@ title: Disaster recovery for Codespaces
 intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
 versions:
   free-pro-team: '*'
+product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
+shortTitle: Disaster recovery
 ---
 
 We work hard to make sure that {% data variables.product.prodname_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
@@ -21,19 +23,7 @@ The following guidance provides options on how to handle service disruption to t
 
 ## Option 1: Create a new codespace in another region
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}.
-
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
-
-1. Under "Region", select the "Set manually" option and choose an unaffected region in the dropdown.
-  ![Radio buttons to manage region selection](/assets/images/help/codespaces/codespaces-region-selector-radio-buttons.png)
-
-2. Navigate back to your project's repository, use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu and select **Open with Codespaces**.
-  ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png)
-
-3. Click {% octicon "plus" aria-label="The plus icon" %} **New codespace** to create a new codespace in the specified region and continue working.
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manaully setting another region, see "[Setting your default region for Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
 
 You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
@@ -41,7 +31,7 @@ You can optimize recovery time by configuring a `devcontainer.json` in the proje
 
 In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
 
-Check our [{% data variables.product.prodname_discussions %} page](https://github.com/github/feedback/discussions/categories/codespaces-feedback) for any updates on service interruptions. Soon, you'll be able to see the current service status on the [Status Dashboard](https://www.githubstatus.com/). 
+You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
 
 ## Option 3: Clone the repository locally or edit in the browser
 
