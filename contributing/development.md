@@ -28,7 +28,7 @@ When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in
 
 Note that `npm ci` and `npm run build` are steps that should typically only need to be run once each time you pull the latest for a branch.
  - `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file
- - `npm run build` creates static assets, such as the `dist/index.js` and `dist/index.css` files
+ - `npm run build` creates static assets, such as JavaScript and CSS files
 
 ### Using GitHub Codespaces
 
