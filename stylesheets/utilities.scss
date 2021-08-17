@@ -64,3 +64,18 @@
 .list-style-inside {
   list-style: inside;
 }
+
+/* Gradient utilities
+------------------------------------------------------------------------------*/
+
+.fade-tertiary-left {
+  background: linear-gradient(to right, var(--color-bg-tertiary), transparent);
+}
+
+.fade-tertiary-right {
+  background: linear-gradient(to left, var(--color-bg-tertiary), transparent);
+}
+
+.fade-tertiary-bottom {
+  background: linear-gradient(to top, var(--color-bg-tertiary), transparent);
+}
