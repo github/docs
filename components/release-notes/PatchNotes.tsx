@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import cx from 'classnames'
 import slugger from 'github-slugger'
 import { ReleaseNotePatch } from './types'
@@ -62,29 +63,26 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
 
                 const slug = item.heading ? slugger.slug(item.heading) : ''
                 return (
-                  <li key={slug} className="list-style-none">
+                  <Fragment key={slug}>
                     <h4
                       id={slug}
                       className={cx(styles.sectionHeading, 'text-uppercase text-bold f4')}
-                      style={{ color: !withReleaseNoteLabel ? primaryColor : '' }}
+                      style={{ color: primaryColor }}
                     >
                       <Link href={`#${slug}`} className="text-inherit">
                         {item.heading}
                       </Link>
                     </h4>
-
-                    <ul className="pl-0 pb-4 mt-2">
-                      {item.notes.map((note) => {
-                        return (
-                          <li
-                            key={note}
-                            className="list-style-none f4"
-                            dangerouslySetInnerHTML={{ __html: note }}
-                          />
-                        )
-                      })}
-                    </ul>
-                  </li>
+                    {item.notes.map((note) => {
+                      return (
+                        <li
+                          key={note}
+                          className={cx(!withReleaseNoteLabel && 'list-style-none', 'f4')}
+                          dangerouslySetInnerHTML={{ __html: note }}
+                        />
+                      )
+                    })}
+                  </Fragment>
                 )
               })}
             </ul>

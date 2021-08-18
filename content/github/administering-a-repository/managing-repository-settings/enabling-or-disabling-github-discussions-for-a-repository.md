@@ -11,7 +11,6 @@ redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
 shortTitle: Discussions
 ---
-{% data reusables.discussions.beta %}
 
 ## Enabling or disabling {% data variables.product.prodname_discussions %} for your repository
 

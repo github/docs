@@ -42,6 +42,8 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% endif %}
 
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
+
 ## Auto-generated table of contents for README files
 
 For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
@@ -54,6 +56,8 @@ The auto-generated table of contents is enabled by default for all Markdown file
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features", deselect **Table of contents**.
 ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
+
+{% endif %}
 
 ## Section links in README files and blob pages
 

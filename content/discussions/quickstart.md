@@ -7,7 +7,6 @@ versions:
 shortTitle: Quickstart
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Introduction
 
