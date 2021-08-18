@@ -1,6 +1,5 @@
 ---
 title: GitHub Discussions Documentation
-beta_product: true
 shortTitle: GitHub Discussions
 intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
 introLinks:
