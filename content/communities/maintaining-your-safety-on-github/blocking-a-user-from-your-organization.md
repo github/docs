@@ -1,4 +1,4 @@
----
+Pllpp---
 title: Blocking a user from your organization
 intro: Organization owners can block a user to remove the user's ability to collaborate in the organization's repositories.
 redirect_from:
@@ -15,7 +15,7 @@ You can block a user from within your organization's settings or from a specific
 
 When you block a user, you can choose to block them indefinitely or for a specific amount of time. If you block someone for a specific amount of time, they are automatically unblocked after the chosen time expires. If you block someone indefinitely, you can unblock them manually at any time. For more information, see "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)."
 
-{% tip %}
+{% tip %}pp000
 
 **Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
 
