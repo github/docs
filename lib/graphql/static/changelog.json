@@ -4,6 +4,25 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `estimatedNextSponsorsPayoutInCents` was added to object type `Organization`",
+          "Field `monthlyEstimatedSponsorsIncomeInCents` was added to object type `Organization`",
+          "Enum value `INTERNAL` was added to enum `OrganizationMembersCanCreateRepositoriesSettingValue`",
+          "Field `estimatedNextSponsorsPayoutInCents` was added to interface `Sponsorable`",
+          "Field `monthlyEstimatedSponsorsIncomeInCents` was added to interface `Sponsorable`",
+          "Field `estimatedNextSponsorsPayoutInCents` was added to object type `User`",
+          "Field `monthlyEstimatedSponsorsIncomeInCents` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Enum value `OTHER` was removed from enum `SecurityAdvisoryEcosystem`"
         ]
       }
