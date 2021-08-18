@@ -83,4 +83,26 @@ jobs:
     - run: npm test
 ```
 
-Now if suppose someone sends in a Pull Request which changes a markdown file in the root of the repository, then the above workflow won't run at all. This will create a problem as you won't be able to merge the Pull Request. You can fix this by creating a generic workflow similar to the workflow below :
+Now if suppose someone sends in a Pull Request which changes a markdown file in the root of the repository, then the above workflow won't run at all. This will create a problem as you won't be able to merge the Pull Request. 
+
+
+You can fix this by creating a generic workflow which will return true in any case similar to the workflow below :
+
+```yaml
+name: ci
+on:
+  pull_request:
+    paths-ignore:
+      - 'scripts/**'
+      - 'middleware/**'
+jobs:
+  build:
+    steps:
+      - run: 'echo "No build required" '
+```
+
+{% note %}
+
+**Note**: Make sure that the `name` key in both the workflow files is the same.
+
+{% endnote %}
