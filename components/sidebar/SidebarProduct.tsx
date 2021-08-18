@@ -54,8 +54,8 @@ export const SidebarProduct = () => {
                 const isStandaloneCategory = childPage.page.documentType === 'article'
 
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
-
-                const isActive = routePath.includes(childPage.href) || routePath === childPage.href
+                const isActive =
+                  routePath.includes(childPage.href + '/') || routePath === childPage.href
                 const defaultOpen = hasExactCategory ? isActive : false
                 return (
                   <li
