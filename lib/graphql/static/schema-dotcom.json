@@ -32667,6 +32667,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "hasSponsorsListing",
           "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
           "type": "Boolean!",
@@ -32927,6 +32935,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "name",
@@ -58271,6 +58287,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "followers",
           "description": "<p>A list of users the given user is followed by.</p>",
           "type": "FollowerConnection!",
@@ -58811,6 +58835,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "name",
@@ -63673,6 +63705,14 @@
       "description": "<p>Entities that can be sponsored through GitHub Sponsors.</p>",
       "fields": [
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "hasSponsorsListing",
           "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
           "type": "Boolean!",
@@ -63707,6 +63747,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "sponsoring",
@@ -66164,6 +66212,10 @@
         {
           "name": "DISABLED",
           "description": "<p>Members will not be able to create public or private repositories.</p>"
+        },
+        {
+          "name": "INTERNAL",
+          "description": "<p>Members will be able to create only internal repositories.</p>"
         },
         {
           "name": "PRIVATE",
