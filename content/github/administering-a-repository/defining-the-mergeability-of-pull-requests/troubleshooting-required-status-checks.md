@@ -104,6 +104,13 @@ jobs:
 
 {% note %}
 
-**Note**: Make sure that the `name` key in both the workflow files is the same.
+**Note**: Make sure that the `name` key and required job name in both the workflow files is the same.
+
+{% endnote %}
+
+
+{% note %}
+
+**Note**: The example above uses {% data product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data product.company_short %}.
 
 {% endnote %}
