@@ -97,6 +97,7 @@ on:
       - 'middleware/**'
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - run: 'echo "No build required" '
 ```
