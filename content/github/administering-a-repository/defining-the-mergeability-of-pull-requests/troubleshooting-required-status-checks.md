@@ -36,7 +36,51 @@ remote: error: Required status check "ci-build" is failing
 
 {% ifversion fpt or ghae or ghes %}
 
+## Conflicts between head commit and test merge commit 
+
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
 
 ![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}
+
+## Handling skipped but required checks
+
+When you enable protected branches, you have a option of selecting checks which should pass mandatorily before the Pull Request can be merged into the branch with such rule.
+
+However, it may happen that the status check is skipped on some Pull Requests which don't require it. For example you may skip a Node.JS test on a Pull Request which fixes a typo in your README File (and doesn't touch the JS & TS Files at all !).
+
+Now if that check is required and it gets skipped probably because it's not needed, then the check's status would be shown as pending (because it's required) and you won't be able to merge the Pull Request.
+
+Here is a simple workaround for that. Suppose you have a workflow which is required to pass as given below : 
+
+```yaml
+name: ci
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - 'middleware/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+```
+
+Now if suppose someone sends in a Pull Request which changes a markdown file in the root of the repository, then the above workflow won't run at all. This will create a problem as you won't be able to merge the Pull Request. You can fix this by creating a generic workflow similar to the workflow below :
