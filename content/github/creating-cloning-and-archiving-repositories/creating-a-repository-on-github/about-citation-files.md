@@ -1,10 +1,10 @@
 ---
 title: About CITATION files
-intro: 'You can add a CITATION file to your repository to help users correctly cite your software.'
+intro: You can add a CITATION file to your repository to help users correctly cite your software.
 versions:
   fpt: '*'
   ghes: '>=3.3'
-  ghae: 'issue-4651'
+  ghae: issue-4651
 topics:
   - Repositories
 ---
