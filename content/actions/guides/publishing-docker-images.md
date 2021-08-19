@@ -6,7 +6,7 @@ redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -18,7 +18,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -132,7 +131,7 @@ The `build-push-action` options required for {% data variables.product.prodname_
 {% ifversion fpt %}
 {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow if triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it and uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+The above workflow if triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}

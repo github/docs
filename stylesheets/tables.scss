@@ -12,7 +12,7 @@
   width: 100%;
   /* We want to keep table-layout: auto so that column widths dynamically adjust;
   otherwise entries get needlessly squashed into narrow columns. As a workaround,
-  we use javascripts/wrap-code-terms.js to prevent some reference table content
+  we use components/lib/wrap-code-terms.js to prevent some reference table content
   from expanding beyond the horizontal boundaries of the parent element. */
   table-layout: auto;
 

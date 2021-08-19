@@ -75,7 +75,7 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt %}
 ### Dependency review
 
 Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."

@@ -8,7 +8,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/using-environment-variables
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -44,7 +44,7 @@ To use the value of an environment variable in a workflow file, you should use t
 
 If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
 
-You can also use the {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a workflow can use. The {% ifversion fpt or ghes > 2.22 or ghae %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
+You can also use the {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a job can use. The {% ifversion fpt or ghes > 2.22 or ghae %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
 
 ## Default environment variables
 
@@ -64,7 +64,7 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
 | `GITHUB_EVENT_NAME` | The name of the webhook event that triggered the workflow. |
 | `GITHUB_EVENT_PATH` | The path of the file with the complete webhook event payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path. The workspace directory is a copy of your repository if your workflow uses the [actions/checkout](https://github.com/actions/checkout) action. If you don't use the `actions/checkout` action, the directory will be empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
+| `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
 | `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
 | `GITHUB_REF` | The branch or tag ref that triggered the workflow. For example, `refs/heads/feature-branch-1`. If neither a branch or tag is available for the event type, the variable will not exist. |
 | `GITHUB_HEAD_REF` | Only set for pull request events. The name of the head branch.

@@ -26,7 +26,16 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+import dotenv from 'dotenv'
+import program from 'commander'
+import { has } from 'lodash'
+import getOctokit from './helpers/github'
+import parsePrUrl from './deployment/parse-pr-url'
+import deployToStaging from './deployment/deploy-to-staging'
+import undeployFromStaging from './deployment/undeploy-from-staging'
+
+dotenv.config()
+
 const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
 
 // Exit if GitHub Actions PAT is not found
@@ -38,13 +47,6 @@ if (!GITHUB_TOKEN) {
 if (!HEROKU_API_TOKEN) {
   throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
 }
-
-const program = require('commander')
-const { has } = require('lodash')
-const getOctokit = require('./helpers/github')
-const parsePrUrl = require('./deployment/parse-pr-url')
-const deployToStaging = require('./deployment/deploy-to-staging')
-const undeployFromStaging = require('./deployment/undeploy-from-staging')
 
 const STAGING_FLAG = '--staging'
 const PRODUCTION_FLAG = '--production'

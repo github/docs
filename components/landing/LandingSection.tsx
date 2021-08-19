@@ -23,7 +23,7 @@ export const LandingSection = ({ title, children, className, sectionLink, descri
       )}
       {description && (
         <div
-          className="lead-mktg color-text-secondary f4 description-text"
+          className="lead-mktg color-text-secondary f4"
           dangerouslySetInnerHTML={{ __html: description }}
         />
       )}

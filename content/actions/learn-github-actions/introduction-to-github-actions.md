@@ -8,7 +8,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/core-concepts-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:
@@ -77,6 +77,8 @@ You can create an example workflow in your repository that automatically trigger
         steps:
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v2
+            with:
+              node-version: '14'
           - run: npm install -g bats
           - run: bats -v
     ```
@@ -171,10 +173,12 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 
   ```yaml
       - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
   ```
 </td>
 <td>
-  This action installs the <code>node</code> software package on the runner, giving you access to the <code>npm</code> command.
+  This step uses the <code>actions/setup-node@v2</code> action to install the specified version of the <code>node</code> software package on the runner, which gives you access to the <code>npm</code> command.
 </td>
 </tr>
 <tr>
@@ -237,6 +241,8 @@ Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or gha
 ## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+
+To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
 
 ## Contacting support
 

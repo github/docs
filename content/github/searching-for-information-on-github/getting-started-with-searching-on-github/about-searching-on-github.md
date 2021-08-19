@@ -47,8 +47,8 @@ You can search for the following information across all repositories you can acc
 - [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Code](/articles/searching-code)
 - [Commits](/articles/searching-commits)
-- [Users](/articles/searching-users){% ifversion fpt or ghae or ghes > 2.21 %}
-- [Packages](/github/searching-for-information-on-github/searching-for-packages){% endif %}
+- [Users](/articles/searching-users)
+- [Packages](/github/searching-for-information-on-github/searching-for-packages)
 - [Wikis](/articles/searching-wikis)
 
 ## Searching using a visual interface

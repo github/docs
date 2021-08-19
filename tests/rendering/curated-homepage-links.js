@@ -1,11 +1,12 @@
-const { getDOM } = require('../helpers/supertest')
+import { getDOM } from '../helpers/supertest.js'
+import { jest } from '@jest/globals'
 
 describe('curated homepage links', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   test('English', async () => {
     const $ = await getDOM('/en')
-    const $links = $('a.link-with-intro')
+    const $links = $('a.Bump-link--hover')
     expect($links.length).toBeGreaterThanOrEqual(8)
 
     // Check that each link is localized and includes a title and intro
@@ -31,7 +32,7 @@ describe('curated homepage links', () => {
 
   test('Japanese', async () => {
     const $ = await getDOM('/ja')
-    const $links = $('a.link-with-intro')
+    const $links = $('a.Bump-link--hover')
     expect($links.length).toBeGreaterThanOrEqual(8)
 
     // Check that each link is localized and includes a title and intro

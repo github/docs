@@ -11,7 +11,7 @@ redirect_from:
   - /actions/reference/logging-commands-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -89,7 +89,7 @@ The following table shows which toolkit functions are available within a workflo
 
 `::set-env name={name}::{value}`
 
-Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
+Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
 ### Example
 
@@ -266,7 +266,7 @@ steps:
 
 `echo "{name}={value}" >> $GITHUB_ENV`
 
-Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
+Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
 ### Example
 
