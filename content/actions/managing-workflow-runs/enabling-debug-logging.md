@@ -4,7 +4,7 @@ intro: 'If the workflow logs do not provide enough detail to diagnose why a work
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

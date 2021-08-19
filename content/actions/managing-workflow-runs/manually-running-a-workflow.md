@@ -4,7 +4,7 @@ intro: 'When a workflow is configured to run on the `workflow_dispatch` event, y
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Manually run a workflow
 ---

@@ -6,7 +6,7 @@ redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

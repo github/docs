@@ -6,7 +6,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - Billing
