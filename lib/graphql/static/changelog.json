@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `CreateSponsorshipInput` was added",
+          "Type `CreateSponsorshipPayload` was added",
+          "Field `createSponsorship` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `estimatedNextSponsorsPayoutInCents` was added to object type `Organization`",
           "Field `monthlyEstimatedSponsorsIncomeInCents` was added to object type `Organization`",
           "Enum value `INTERNAL` was added to enum `OrganizationMembersCanCreateRepositoriesSettingValue`",
