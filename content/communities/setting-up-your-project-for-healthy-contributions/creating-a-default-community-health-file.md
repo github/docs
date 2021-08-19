@@ -15,7 +15,7 @@ shortTitle: Community health file
 
 ## About default community health files
 
-You can add default community health files to a public repository called `.github`, that is owned by an organization or user account. You can put the files in the root of the repository or in the `docs` or `.github` folders.
+You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders.
 
 {% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
 - the root of the repository
