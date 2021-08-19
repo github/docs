@@ -26,8 +26,8 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
@@ -37,8 +37,8 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 
 ### Visualizar e revogar uma sessão ativa de SAML
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-session %}
 {% data reusables.saml.saml-identity-linked %}
@@ -49,8 +49,8 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 
 {% data reusables.saml.about-authorized-credentials %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-credentials %}
 {% data reusables.saml.saml-identity-linked %}

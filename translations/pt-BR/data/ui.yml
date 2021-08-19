@@ -8,10 +8,14 @@ header:
     localization_complete: Publicamos atualizações frequentes em nossa documentação, e a tradução desta página ainda pode estar em andamento. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>. Se houver problemas com a tradução desta página, <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">entre em contato conosco</a>.
     localization_in_progress: Olá! No momento, esta página ainda está sendo desenvolvida ou traduzida. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>.
     early_access: '📣 <b>Não compartilhe</b> esta URL publicamente. Esta página contém conteúdo sobre um recurso de acesso antecipado.'
-    ghes_release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+release_notes:
+  banner_text_current: These changes will roll out over the next one week.
+  banner_text_past: These changes rolled out to enterprises during the week of
 search:
   need_help: Precisa de ajuda?
   placeholder: Pesquisar tópicos, produtos...
@@ -20,12 +24,13 @@ homepage:
   version_picker: Versão
 toc:
   getting_started: Introdução
-  popular_articles: Popular
+  popular: Popular
   guides: Guias
   whats_new: O que há de novo
 pages:
   article_version: 'Versão do artigo:'
   miniToc: Neste artigo
+  contributor_callout: This article is contributed and maintained by
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.
@@ -35,33 +40,28 @@ support:
   still_need_help: Ainda precisa de ajuda?
   contact_support: Entrar em contato com o suporte
   ask_community: Pergunte à comunidade do GitHub
-helpfulness:
+survey:
   able_to_find: Esse documento ajudou você?
   yes: true
   no: false
-  yes_feedback: Quer saber mais sobre novos recursos e atualizações da documentação? Inscreva-se para receber atualizações!
-  email_placeholder: email@example.com
+  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
   no_feedback: Estamos constantemente melhorando nossos documentos. Adoraríamos ouvir como podemos melhorar.
-  comment_label: Conte-nos como podemos melhorar
+  comment_yes_label: Let us know what we do well
+  comment_no_label: Conte-nos como podemos melhorar
   optional: Opcional
   required: Obrigatório
+  email_placeholder: email@example.com
   email_label: Podemos entrar em contato com você em caso de dúvidas?
   send: Enviar
-  feedback: Obrigado. Seu feedback foi recebido.
+  feedback: Thank you! We received your feedback.
+  not_support: If you need a reply, please contact support instead.
+  privacy_policy: Política de Privacidade
 contribution_cta:
   title: Ajude-nos a tornar esses documentos ótimos!
   body: Todos os documentos do GitHub são de código aberto. Você percebeu que algo que está errado ou não está claro? Envie um pull request.
   button: Faça uma contribuição
   or: Ou,
   to_guidelines: aprenda como contribuir.
-enterprise_releases_list:
-  title: Versões de servidor corporativo
-  currently_supported: Atualmente compatível
-  currently_supported_message: Consulte <a href="https://github.com/enterprise">o GitHub Enterprise</a> para obter informações sobre a versão mais recente.
-  deprecated: Obsoleto
-  deprecated_message: 'Esses documentos permanecem disponíveis, mas não são mais mantidos:'
-  deprecated_developer: Obsoleto no developer.github.com
-  deprecated_developer_message: 'Estes documentos permanecem disponíveis no legado do <a href="https://developer.github.com">site de desenvolvimento</a> mas não são mais mantidos:'
 products:
   graphql:
     reference:
@@ -127,19 +127,36 @@ footer:
       press: Imprensa
       shop: Loja
 product_landing:
-  quick_start: QuickStart
-  reference_guides: Guias de referência
+  quickstart: QuickStart
+  reference: Referência
   overview: Visão Geral
+  guides: Guias
+  code_examples: Exemplos de códigos
+  search_code_examples: Exemplos de código de pesquisa
+  show_more: Show more
+  explore_people_and_projects: Explore people and projects
+  sorry: Desculpe, não há resultados para
+  no_example: It looks like we don't have an example that fits your filter.
+  try_another: Try another filter or add your code example.
+  no_result: Desculpe, não há nenhum guia que corresponda ao seu filtro.
+  learn: Learn how to add a code example
+  communities_using_discussions: Comunidades que usam discussões
+  add_your_community: Add your community
+  sponsor_community: GitHub Sponsors community
+  supported_releases: Supported releases
+  release_notes_for: Release notes for
+  upgrade_from: Upgrade from
+  browse_all_docs: Browse all docs
+  explore_release_notes: Explore release notes
 product_sublanding:
   start: Início
   start_path: Caminho de início
-  learning_paths: '{{ allProducts[currentProduct].name }} learning paths'
+  learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Os caminhos de aprendizado são uma coleção de guias que ajudam você a dominar um assunto específico.
-  guides: '{{ allProducts[currentProduct].name }} guides'
+  guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: mais guias
   load_more: Carregar mais guias
-  all_guides: 'All {{ allProducts[currentProduct].name }} guides'
-  no_result: Desculpe, não há nenhum guia que corresponda ao seu filtro.
+  all_guides: 'All {{ productMap[currentProduct].name }} guides'
   filters:
     type: Tipo
     topic: Tópico
@@ -153,4 +170,10 @@ product_sublanding:
 learning_track_nav:
   prevGuide: Guia anterior
   nextGuide: Próximo guia
-contributor_callout: This article is contributed and maintained by
+toggle_images:
+  off: Images are off, click to show
+  on: Images are on, click to hide
+  hide_single: Hide image
+  show_single: Show image
+scroll_button:
+  scroll_to_top: Scroll to top

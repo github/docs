@@ -26,19 +26,20 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/migrating-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+children:
+  - /introduction-to-github-actions
+  - /finding-and-customizing-actions
+  - /essential-features-of-github-actions
+  - /managing-complex-workflows
+  - /sharing-workflows-with-your-organization
+  - /security-hardening-for-github-actions
+  - /migrating-from-azure-pipelines-to-github-actions
+  - /migrating-from-circleci-to-github-actions
+  - /migrating-from-gitlab-cicd-to-github-actions
+  - /migrating-from-jenkins-to-github-actions
+  - /migrating-from-travis-ci-to-github-actions
 ---
 
-{% link_with_intro /introduction-to-github-actions %}
-{% link_with_intro /finding-and-customizing-actions %}
-{% link_with_intro /essential-features-of-github-actions %}
-{% link_with_intro /managing-complex-workflows %}
-{% link_with_intro /sharing-workflows-with-your-organization %}
-{% link_with_intro /security-hardening-for-github-actions %}
-{% link_with_intro /migrating-from-azure-pipelines-to-github-actions %}
-{% link_with_intro /migrating-from-circleci-to-github-actions %}
-{% link_with_intro /migrating-from-gitlab-cicd-to-github-actions %}
-{% link_with_intro /migrating-from-jenkins-to-github-actions %}
-{% link_with_intro /migrating-from-travis-ci-to-github-actions %}

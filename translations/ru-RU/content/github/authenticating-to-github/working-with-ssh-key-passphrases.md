@@ -89,7 +89,7 @@ The `ssh-agent` process will continue to run until you log out, shut down your c
 
 ### Saving your passphrase in the keychain
 
-On OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

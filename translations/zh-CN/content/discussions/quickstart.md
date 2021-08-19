@@ -43,9 +43,11 @@ versions:
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### 将讨论组织到相关类别
+### 组织讨论
 
 仓库所有者和具有写入权限的人可以创建新类别来保持讨论井然有序。 参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”。
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### 促进健康的对话
 

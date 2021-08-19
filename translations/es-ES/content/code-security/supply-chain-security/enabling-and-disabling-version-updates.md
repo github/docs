@@ -18,7 +18,7 @@ Habilitarás {% data variables.product.prodname_dependabot_version_updates %} me
 
 {% data reusables.dependabot.initial-updates %} Para obtener más información, consulta la sección "[Personalizar las actualizaciones de las dependencias](/github/administering-a-repository/customizing-dependency-updates)".
 
-{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, el {% data variables.product.prodname_dependabot %} no es compatible con dependencias privadas de {% data variables.product.prodname_dotcom %} para todos los administradores de paquetes. Para obtener más información, consulta la sección "[Acerca de las actualizaciones de versión del Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, el {% data variables.product.prodname_dependabot %} no es compatible con dependencias privadas de {% data variables.product.prodname_dotcom %} para todos los administradores de paquetes. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
 
 ### Habilitar las {% data variables.product.prodname_dependabot_version_updates %}
 

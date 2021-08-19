@@ -20,9 +20,8 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 
 Prior to enforcing SAML SSO in your organization, ensure that you've set up your identity provider (IdP). For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Under "SAML single sign-on", select **Enable SAML authentication**. ![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
 

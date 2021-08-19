@@ -61,6 +61,10 @@
   term: Azure
   description: Microsoft 클라우드 컴퓨팅 플랫폼입니다.
 - 
+  term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+- 
   term: 베어 리포지토리
   description: >-
     베어 리포지토리는 일반적으로 .git 접미사와 함께 적절하게 명명된 디렉터리이며, 버전 관리 중인 파일의 로컬에서 체크아웃된 복사본을 가지고 있지 않습니다. 즉, 일반적으로 숨겨진 .git 하위 디렉터리에 존재하는 모든 Git 관리 및 제어 파일은 대신 repository.git 디렉터리에 직접 존재하며 다른 파일은 존재하지 않고 체크아웃되지 않습니다. 일반적으로 공개 리포지토리의 게시자는 베어 리포지토리를 사용할 수 있도록 합니다.
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    소스 코드 관리 및 기타 팀 서비스를 제공하는 Microsoft 제품입니다.
+    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
 - 
   term: Textile
   description: >-

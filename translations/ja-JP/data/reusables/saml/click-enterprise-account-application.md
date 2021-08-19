@@ -1,1 +1,1 @@
-1. Click the label for the application you created for your enterprise account.
+1. Enterpriseアカウント用に作成したアプリケーションのラベルをクリックしてください。

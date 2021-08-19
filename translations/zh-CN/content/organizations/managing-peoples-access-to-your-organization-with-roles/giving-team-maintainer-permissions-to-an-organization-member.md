@@ -20,8 +20,8 @@ topics:
 
 在将组织成员升级为团队维护员之前，此人必须已经是该团队的成员。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. 选择要将其升级为团队维护员的人员。 ![组织成员旁的复选框](/assets/images/help/teams/team-member-check-box.png)

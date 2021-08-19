@@ -23,10 +23,16 @@ topics:
 
 Organisationsinhaber haben vollen administrativen Zugriff auf die Organisation. {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
+
+{% endnote %}
+
 ### Einen Organisationsinhaber ernennen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Wähle die Person(en) aus, die Du als Inhaber festlegen möchtest. ![Liste der Mitglieder mit zwei ausgewählten Mitgliedern](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Klicke im Dropdownmenü über der Liste der Mitglieder auf **Change role** (Rolle ändern). ![Dropdownmenü mit Option zum Entfernen von Mitgliedern](/assets/images/help/teams/user-bulk-management-options.png)

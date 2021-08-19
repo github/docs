@@ -1,1 +1,1 @@
-`organization` | `object` | Webhook payloads contain the [`organization`](/graphql/reference/objects#organization) object when the webhook is configured for an organization or the event occurs from activity in a repository owned by an organization.
+`organization` | `object` | webhookがOrganizationに対して設定されている場合、あるいはOrganizationが所有するリポジトリ内のアクティビティからイベントが発生した場合の、[`organization`](/graphql/reference/objects#organization)オブジェクトを含むwebhookペイロード。

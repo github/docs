@@ -27,8 +27,8 @@ Organisationsinhaber können das übergeordnete Team jedes Teams ändern. Team-B
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Klicke in der Liste der Teams auf den Namen des Teams, dessen übergeordnetes Team Du ändern möchtest. ![Liste der Teams der Organisation](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

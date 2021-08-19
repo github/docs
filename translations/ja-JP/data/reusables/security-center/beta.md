@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The security overview is currently in beta and subject to change.
+**ノート：** セキュリティの概要は現在ベータで、変更されることがあります。
 
 {% endnote %}

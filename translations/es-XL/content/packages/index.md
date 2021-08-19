@@ -31,11 +31,10 @@ changelog:
   label: packages
   prefix: 'Packages: '
 layout: product-landing
+children:
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_with_intro /getting-started-with-github-container-registry %}
-{% link_with_intro /managing-container-images-with-github-container-registry %}
-{% link_with_intro /publishing-and-managing-packages %}
-{% link_with_intro /using-github-packages-with-your-projects-ecosystem %}

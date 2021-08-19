@@ -20,8 +20,8 @@ topics:
 
 Organization メンバーをチームメンテナに昇格させる前に、昇格対象の人物がすでに Team のメンバーである必要があります。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. チームメンテナに昇格させる人 (一人または複数人) を選択します。 ![Organization メンバーの横のチェックボックス](/assets/images/help/teams/team-member-check-box.png)

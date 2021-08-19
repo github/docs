@@ -61,6 +61,10 @@
   term: Azure
   description: Plataforma de computação em nuvem da Microsoft.
 - 
+  term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+- 
   term: repositório bare
   description: >-
     Normalmente, um repositório bare é um diretório nomeado com sufixo .git que não tem cópia local verificada de nenhum dos arquivos sob o controle de revisão. Ou seja, todos os arquivos administrativos e de controle do Git que estariam no subdiretório .git oculto estão presentes diretamente no diretório repositório .git, e nenhum outro arquivo está presente e verificado. Em geral, editores de repositórios públicos disponibilizam repositórios bare.
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    Produto da Microsoft que oferece gerenciamento de código-fonte e outros serviços de equipe.
+    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
 - 
   term: Textile
   description: >-

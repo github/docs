@@ -98,7 +98,7 @@ El proceso de `ssh-agent` continuará funcionando hasta que cierres sesión, apa
 
 ### Guardar tu contraseña en keychain
 
-En OS X Leopard a través de OS X El Capitan, los siguientes archivos de llave privada predeterminada se manejan automáticamente:
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

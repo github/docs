@@ -32,7 +32,7 @@ To remove a self-hosted runner from a user repository you must be the repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### Removing a runner from an organization
@@ -51,7 +51,7 @@ To remove a self-hosted runner from an organization, you must be an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### Removing a runner from an enterprise
@@ -66,15 +66,15 @@ To remove a self-hosted runner from an organization, you must be an organization
 
 {% if currentVersion == "free-pro-team@latest" %}
 To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"% or currentVersion == "github-ae@latest" }
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 To remove a self-hosted runner at the enterprise level of
 {% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
 {% endif %}
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

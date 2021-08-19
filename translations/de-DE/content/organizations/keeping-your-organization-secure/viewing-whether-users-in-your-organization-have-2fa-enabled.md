@@ -18,8 +18,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Um die Organisationsmitglieder, einschließlich der Organisationsinhaber, anzuzeigen, welche die Zwei-Faktor-Authentifizierung aktiviert oder deaktiviert haben, klicke auf der rechten Seite auf **2FA** (Zwei-Faktor-Authentifizierung), und wähle **Enabled** (Aktiviert) oder **Disabled** (Deaktiviert). ![Organisationsmitglieder nach Zwei-Faktor-Authentifizierung filtern](/assets/images/help/2fa/filter-org-members-by-2fa.png)
 5. Wenn Du externe Mitarbeiter in Deiner Organisation anzeigen möchtest, klicke unter der Registerkarte „People“ (Personen) auf **Outside collaborators** (Externe Mitarbeiter). ![Auswahl von externen Mitarbeitern](/assets/images/help/organizations/select-outside-collaborators.png)

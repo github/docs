@@ -21,6 +21,7 @@ versions:
 
 - [设置 {% data variables.product.prodname_classroom %} 的基本知识 ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms)
+- [使用 Git 和 {% data variables.product.company_short %} 起始作业](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
 - [创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
 - [创建组分配](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
 - [从模板仓库创建作业](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)

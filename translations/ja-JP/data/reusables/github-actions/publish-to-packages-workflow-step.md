@@ -1,1 +1,1 @@
-{% data variables.product.prodname_registry %}に公開するために`mvn --batch-mode deploy`コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
+{% data variables.product.prodname_registry %}に公開するために`mvn --batch-mode deploy`コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}`permissions`キーは、`GITHUB_TOKEN`に付与されたアクセス権を指定します。{% endif %}

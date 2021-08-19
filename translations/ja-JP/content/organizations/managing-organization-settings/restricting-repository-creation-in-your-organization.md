@@ -27,9 +27,8 @@ Organization のオーナーは、いつでもどんなタイプの Team でも�
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. [Repository creation] で、1 つ以上のオプションを選択します。 ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. [**Save**] をクリックします。

@@ -5,10 +5,11 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: View metrics & reports
 ---
 
-### About metrics and reports
+## About metrics and reports
 
 {% data reusables.github-insights.key-metrics-and-reports %} For more information about available metrics, see "[Metrics available with {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)."
 
@@ -18,14 +19,14 @@ You will only have access to the {% data variables.product.prodname_insights %} 
 
 You can filter the data included in key metrics or reports by teams, repositories, or date range.
 
-### Viewing key metrics
+## Viewing key metrics
 
 {% data reusables.github-insights.navigate-to-key-metrics %}
 {% data reusables.github-insights.choose-key-metric %}
 {% data reusables.github-insights.filter-reports %}
 {% data reusables.github-insights.view-events %}
 
-### Viewing reports
+## Viewing reports
 
 1. In {% data variables.product.prodname_insights %}, click **{% octicon "file" aria-label="The file icon" %} Reports**.
   ![Reports tab](/assets/images/help/insights/reports-tab.png)
@@ -34,7 +35,7 @@ You can filter the data included in key metrics or reports by teams, repositorie
 {% data reusables.github-insights.filter-reports %}
 {% data reusables.github-insights.view-events %}
 
-### Further reading
+## Further reading
 
 - "[Managing contributors and teams](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)"
 - "[Managing repositories](/insights/installing-and-configuring-github-insights/managing-repositories)"

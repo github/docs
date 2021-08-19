@@ -9,20 +9,19 @@ redirect_from:
   - /packages/publishing-and-managing-packages
   - /packages/manage-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=2.22'
+  ghae: '*'
+children:
+  - /introduction-to-github-packages
+  - /about-permissions-for-github-packages
+  - /configuring-a-packages-access-control-and-visibility
+  - /connecting-a-repository-to-a-package
+  - /publishing-a-package
+  - /viewing-packages
+  - /installing-a-package
+  - /deleting-and-restoring-a-package
+  - /deleting-a-package
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-
-{% link_in_list /introduction-to-github-packages %}
-{% link_in_list /about-permissions-for-github-packages %}
-{% link_in_list /configuring-a-packages-access-control-and-visibility %}
-{% link_in_list /connecting-a-repository-to-a-package %}
-{% link_in_list /publishing-a-package %}
-{% link_in_list /viewing-packages %}
-{% link_in_list /installing-a-package %}
-{% link_in_list /deleting-and-restoring-a-package %}
-{% link_in_list /deleting-a-package %}

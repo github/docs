@@ -11,7 +11,7 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 | Composer                   | `composer`       | v1, v2                          |           **✓**           |       **✓**        |                            |
 | Docker                     | `docker`         | v1                              |           **✓**           |       **✓**        |                            |
 | Hex                        | `mix`            | v1                              |                           |       **✓**        |                            |
-| elm-package                | `elm`            | v0.18, v0.19                    |           **✓**           |       **✓**        |                            |
+| elm-package                | `elm`            | v0.19                           |           **✓**           |       **✓**        |                            |
 | submódulo de git           | `gitsubmodule`   | N/A (sin versión)               |           **✓**           |       **✓**        |                            |
 | GitHub Actions             | `github-actions` | N/A (sin versión)               |           **✓**           |       **✓**        |                            |
 | Módulos de Go              | `gomod`          | v1                              |           **✓**           |       **✓**        |           **✓**            |
@@ -23,7 +23,7 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 | pipenv                     | `pip`            | <= 2018.11.26                   |                           |       **✓**        |                            |
 | pip-compile                | `pip`            | 5.5.0                           |                           |       **✓**        |                            |
 | poetry                     | `pip`            | v1                              |                           |       **✓**        |                            |
-| Terraform                  | `terraform`      | <= 0.11                         |           **✓**           |       **✓**        |                            |
+| Terraform                  | `terraform`      | <= 0.15                         |           **✓**           |       **✓**        |                            |
 | yarn                       | `npm`            | v1                              |           **✓**           |       **✓**        |                            |
 
 [1] El {% data variables.product.prodname_dependabot %} no ejecuta Gradle pero es compatible con las actualizaciones a los siguietnes archivos: `build.gradle` y `build.gradle.kts` (para los proyectos de Kotlin).

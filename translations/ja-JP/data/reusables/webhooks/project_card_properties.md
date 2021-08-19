@@ -1,7 +1,7 @@
-| キー                    | 種類        | 説明                                                                                                                           |
-| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `action`              | `string`  | The action performed on the project card. Can be `created`, `edited`, `moved`, `converted`, or `deleted`.                    |
-| `変更`                  | `オブジェクト`  | The changes to the project card if the action was `edited` or `converted`.                                                   |
-| `changes[note][from]` | `string`  | The previous version of the note if the action was `edited` or `converted`.                                                  |
-| `after_id`            | `integer` | The id of the card that this card now follows if the action was "moved". Will be `null` if it is the first card in a column. |
-| `project_card`        | `オブジェクト`  | The [project card](/rest/reference/projects#cards) itself.                                                                   |
+| キー                    | 種類        | 説明                                                                          |
+| --------------------- | --------- | --------------------------------------------------------------------------- |
+| `action`              | `string`  | プロジェクトカードで行われたアクション。 `created`、`edited`、`moved`、`converted`、`deleted`のいずれか。 |
+| `changes`             | `オブジェクト`  | アクションが`edited`もしくは`converted`だった場合、プロジェクトカードへの変更。                           |
+| `changes[note][from]` | `string`  | アクションが`edited`もしくは`converted`だった場合、以前のバージョンのノート。                            |
+| `after_id`            | `integer` | アクションが"moved"だった場合、このカードがフォローするようになったカードのid。 これが列内の最初のカードの場合は`null`になる。     |
+| `project_card`        | `オブジェクト`  | [プロジェクトカード](/rest/reference/projects#cards)自体。                              |

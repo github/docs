@@ -1,7 +1,7 @@
 ---
 - 
   term: '@mención'
-  description: para notificar a una persona en GitHub usando "@" antes de su nombre de usuario. Los usuarios en una organización en GitHub también pueden ser parte de un equipo que puede ser mencionado.
+  description: Para notificar a una persona en GitHub usando "@" antes de su nombre de usuario. Los usuarios en una organización en GitHub también pueden ser parte de un equipo que puede ser mencionado.
 - 
   term: token de acceso
   description: >-
@@ -78,7 +78,7 @@
   term: tarjeta
   description: Un cuadrado móvil dentro del tablero de proyecto asociado con una propuesta o una solicitud de extracción.
 - 
-  term: Verificación
+  term: check
   description: >-
     Una revisión es un tipo de revisión de estado en {% data variables.product.product_name %}. Ver "[Revisiones de estado](#status-checks)."
 - 
@@ -88,7 +88,7 @@
 - 
   term: selección minusciosa
   description: >-
-    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
+    Para elegir un subconjunto de cambios de una serie de cambios (habitualmente, confirmaciones) y registrarlos como una serie de cambios nueva en la parte superior de una base de código diferente. En Git, esto se lleva a cabo con el comando `git cherry-pick` para extraer el cambio que introdujo una confirmación existente en otra rama y para registrarlo con base en la punta de la rama actual como una confirmación nueva. Para obtener más información, consulta la sección [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) en la documentación de Git.
 - 
   term: equipo hijo
   description: >-
@@ -106,7 +106,7 @@
   description: >-
     La posibilidad de ejecutar los servicios GitHub Enterprise en varios nodos y equilibrar la carga de las solicitudes entre ellos.
 - 
-  term: Gráfico de frecuencia de código
+  term: gráfico de frecuencia de código
   description: >-
     Un gráfico del repositorio que muestra las adiciones y las eliminaciones de contenido para cada semana en el historial de un repositorio.
 - 
@@ -162,7 +162,7 @@
   description: >-
     Un colaborador es alguien que no tiene acceso de colaborador a un repositorio, pero ha contribuido en un proyecto y tenía una solicitud de extracción que había abierto fusionada en el repositorio.
 - 
-  term: Gráfico de contribuyentes
+  term: gráfico de contribuyentes
   description: Un gráfico del repositorio que muestra los principales 100 colaboradores de un repositorio.
 - 
   term: cupón
@@ -175,19 +175,19 @@
   term: cURL
   description: Se usa en las líneas de comandos o scripts para transferir datos.
 - 
-  term: Tablero
+  term: tablero
   description: >-
     Tu tablero personal es el concentrador principal para tu actividad en GitHub. Desde éste, puedes llevar el control de incidentes y solicitudes de extracción en los que estás trabajando o a los que estás siguiendo, navegar a tus repositorios y páginas de equipo principales, y aprender sobre la actividad reciente en los repositorios que estás observando o en los que estás participando. También puedes descubrir nuevos repositorios, los cuales se recomiendan con base en los usuarios que sigues y en los repositorios que has marcado con una estrella. Para ver únicamente la actividad de una organización específica, visita tu tablero de organización. Para obtener más información, consulta la sección "[Acerca de tu tablero profesional](/articles/about-your-personal-dashboard)" o "[Acerca de tu tablero de organización](/articles/about-your-organization-dashboard)."
 - 
   term: rama predeterminada
   description: >-
-    La rama base para las solicitudes de cambios nuevas y las confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. Habitualmente, la primera rama se llama `main`, y a menudo es la predeterminada.
+    La rama base para todas las solicitudes de cam bio y confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. La rama principal a menudo se llama {% if currentVersion ver_lt "enterprise-server@3.2" %} 'master'{% else %}'main'{% endif %}, y habitualmente es la rama predeterminada.
 - 
-  term: Gráfico de dependencias
+  term: gráfica de dependientes
   description: >-
     Un gráfico del repositorio que muestra los paquetes, los proyectos y los repositorios que dependen de un repositorio público.
 - 
-  term: Gráfico de dependencias
+  term: gráfica de dependencias
   description: >-
     Un gráfico del repositorio que muestra los paquetes y los proyectos de los que depende el respositorio.
 - 
@@ -213,7 +213,7 @@
   term: notificaciones por correo electrónico
   description: Las notificaciones enviadas a la dirección de correo electrónico de un usuario.
 - 
-  term: Cuenta empresarial
+  term: cuenta empresarial
   description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -250,7 +250,7 @@
   description: >-
     El plan de facturación de la cuenta de un usuario que es gratuito. Los usuarios pueden colaborar en repositorios públicos ilimitados con colaboradores ilimitados.
 - 
-  term: Gist
+  term: gist
   description: >-
     Un gist es un archivo que se puede compartir y que editas, clonas y bifurcas en GitHub. Puedes hacer que un gist sea {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o secreto, aunque los gists secretos estarán disponibles para {% if currentVersion == "github-ae@latest" %}cualquier miembro de la empresa{% else %}cualquiera{% endif %} que tenga la URL.
 - 
@@ -377,7 +377,7 @@
   description: >-
     Una cuenta personal a la que el usuario no puede acceder. Las cuentas se bloquean cuando los usuarios degradan su cuenta paga a una gratis o si su plan de pago se venció.
 - 
-  term: Consola de administración
+  term: consola de administración
   description: >-
     Una sección dentro de la interfaz GitHub Enterprise que contiene funciones administrativas.
 - 
@@ -385,18 +385,18 @@
   description: >-
     Markdown es un formato de archivo semántico increíblemente simple, no muy diferente a .doc, .rtf y .txt. Markdown que hace que sea fácil incluso para aquellos sin una formación en publicación web escribir prosa (incluso con enlaces, listas, viñetas, etc.) y mostrarla como un sitio web. GitHub admite Markdown y usa un formulario particular de Markdown llamado formato Markdown de GitHub. Consulta [Formato Markdown específico de GitHub](https://github.github.com/gfm/) o [Introducción a la escritura y el formato en GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
 - 
-  term: Markup
+  term: markup
   description: Un sistema para anotar y dar formato a un documento.
 - 
   term: main
   description: >-
-    La rama predeterminada de desarrollo. Cuando creas un repositorio de Git, se crea una rama que se llama `main` y se convierte en la rama activa. En la mayoría de los casos, esta contiene el desarrollo local, aunque esto es puramente por convención y no es forzoso.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} La rama predeterminada para desarrollo. Cada que creas un repositorio en Git, se creará una rama llamada 'main' y se convertirá en la rama activa. En la mayoría de los casos, esta contendrá el desarrollo local, aunque esto es solo por convención y no es algo que se requiera.{% else %}El nombre que se elige habitualmente es una alternativa a 'master' para la rama predeterminada de un repositorio.{% endif %}
 - 
   term: principal
   description: >-
-    La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se crea una rama que se llama `master`. Muchas de las herramientas ahora utilizan un nombre alterno para la rama predeterminada. Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama `main`.
+    La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se creará una rama denominada 'master'. Hoy en día, muchas herramientas utilizan un nombre alterno para la rama predeterminada.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama 'main'.{% endif %}
 - 
-  term: Gráfico de miembros
+  term: gráfico de miembros
   description: Un gráfico del repositorio que muestra todas las bifurcaciones de un repositorio.
 - 
   term: mención
@@ -422,11 +422,11 @@
   description: >-
     Un equipo hijo de un equipo padre. Puedes tener varios equipos hijo (o anidados).
 - 
-  term: Gráfico de red
+  term: gráfica de Red
   description: >-
     Un gráfico del repositorio que muestra el historial de la rama de toda la red del repositorio, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones de cambios únicas para la red.
 - 
-  term: Fuente de noticias
+  term: fuente de noticias
   description: >-
     Una vista de la actividad de los repositorios o de las personas que ves. Las Noticias de una organización muestran la actividad en los repositorios que son propiedad de la organización.
 - 
@@ -543,10 +543,10 @@
   description: >-
     Los comentarios de los colaboradores en una solicitud de extracción que aprueban los cambios o solicitan otros cambios antes de fusionar la solicitud de extracción.
 - 
-  term: Gráfico de pulso
+  term: gráfico de pulso
   description: Un gráfico del repositorio que te brinda una descripción de la actividad de un repositorio.
 - 
-  term: Gráfico de perforado
+  term: gráfico de perforado
   description: >-
     Un gráfico del repositorio que muestra la frecuencia de las actualizaciones para un repositorio en función del día de la semana y la hora del día.
 - 
@@ -680,7 +680,7 @@
   description: >-
     Una representación visual dentro de una solicitud de extracción de que tus confirmaciones cumplen las condiciones establecidas para el repositorio con el que estás contribuyendo.
 - 
-  term: Verificaciones de estado
+  term: verificaciones de estado
   description: >-
     Las verificaciones de estado son procesos externos, como compilaciones de integración continua, que se ejecutan para cada confirmación que realices en un repositorio. Para obtener más información, consulta "[acerca de las verificaciones de Estado] (/articles/about-status-checks)."
 - 
@@ -714,7 +714,7 @@
   description: >-
     Un modo de explorar repositorios en una área temática en particular, encontrar proyectos a los cuales contribuir y descubrir nuevas soluciones para un problema específico en GitHub.
 - 
-  term: Gráfico de tráfico
+  term: gráfico de tráfico
   description: >-
     Un gráfico del repositorio que muestra el tráfico de un repositorio, incluso clones completos (no recuperaciones), los visitantes de los últimos 14 días, sitios de referencia y contenido popular.
 - 
@@ -754,9 +754,6 @@
   term: webhooks
   description: >-
     Los webhooks te permiten generar o configurar Apps GitHub que se suscriben a ciertos eventos en GitHub.com. Los webhooks ofrecen una manera de enviar las notificaciones a un servidor web externo siempre que ciertas acciones ocurran en un repositorio o una organización. También llamado gancho de servicio.
-- 
-  term: Compatible con GitHub
-  description: Un listado de integraciones que son compatibles con GitHub.
 - 
   term: acceso de escritura
   description: >-

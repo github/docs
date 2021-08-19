@@ -15,7 +15,7 @@ versions:
 
 Cada vez que presionas <kbd>Enter</kbd> en tu teclado, insertas un caracter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.
 
-Cuando colaboras en proyectos con Git y {% data variables.product.product_name %}, Git puede producir resultados inesperados si, por ejemplo, trabajas en una máquina Windows y tu colaborador hizo un cambio desde OS X.
+When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
 
 Puedes configurar Git para que maneje los fines de línea automáticamente y así puedas colaborar eficazmente con las personas que utilizan otros sistemas operativos.
 
@@ -25,11 +25,11 @@ El comando `git config core.autocrlf` se usa para cambiar el modo en que Git man
 
 {% mac %}
 
-En OS X, simplemente escribes `input` en la configuración. Por ejemplo:
+On macOS, you simply pass `input` to the configuration. Por ejemplo:
 
 ```shell
 $ git config --global core.autocrlf input
-# Configure Git to ensure line endings in files you checkout are correct for OS X
+# Configure Git to ensure line endings in files you checkout are correct for macOS
 ```
 
 {% endmac %}

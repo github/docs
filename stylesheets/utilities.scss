@@ -1,0 +1,81 @@
+.color-unset {
+  color: unset;
+}
+
+.line-break-anywhere {
+  line-break: anywhere;
+}
+
+.transition-200 {
+  transition: 200ms;
+}
+
+.rotate-180 {
+  transform: rotateX(180deg);
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Print utilities
+------------------------------------------------------------------------------*/
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+/* Opacity utilities
+------------------------------------------------------------------------------*/
+
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-60 {
+  opacity: 0.6;
+}
+.opacity-70 {
+  opacity: 0.7;
+}
+.opacity-100 {
+  opacity: 1;
+}
+
+/* Text utilities
+------------------------------------------------------------------------------*/
+
+.underline-dashed {
+  padding-bottom: $spacer-1;
+  background-image: linear-gradient(
+    to right,
+    var(--color-auto-gray-3) 50%,
+    transparent 0%
+  );
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 10px 1px;
+}
+
+/* List utilities
+------------------------------------------------------------------------------*/
+
+.list-style-inside {
+  list-style: inside;
+}
+
+/* Gradient utilities
+------------------------------------------------------------------------------*/
+
+.fade-tertiary-left {
+  background: linear-gradient(to right, var(--color-bg-tertiary), transparent);
+}
+
+.fade-tertiary-right {
+  background: linear-gradient(to left, var(--color-bg-tertiary), transparent);
+}
+
+.fade-tertiary-bottom {
+  background: linear-gradient(to top, var(--color-bg-tertiary), transparent);
+}

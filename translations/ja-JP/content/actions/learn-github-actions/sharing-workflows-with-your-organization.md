@@ -21,13 +21,13 @@ type: how_to
 
 ### ワークフロー テンプレートの作成
 
-ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。 ワークフロー テンプレートを使用すると、Organizationのパブリック リポジトリに新しいワークフローを作成できます。テンプレートを使用してプライベートリポジトリにワークフローを作成するには、OrganizationがエンタープライズプランまたはGitHub Oneプランの一部である必要があります。
+ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。 ワークフロー テンプレートを使用すると、Organization のパブリック リポジトリに新しいワークフローを作成できます。テンプレートを使用してプライベートリポジトリにワークフローを作成するには、Organization が Enterprise プランの一部である必要があります。
 
 この手順では、ワークフロー テンプレートとメタデータ ファイルを作成する方法を示します。 メタデータ ファイルには、ユーザが新しいワークフローを作成するときにテンプレートがどのように表示されるかについて説明します。
 
 1. 存在しない場合は、Organization内で`.github`という名前の新しいパブリック リポジトリを作成します。
-1. `workflow-templates`という名前のディレクトリを作成します。
-1. `workflow-templates` ディレクトリ内に新しいワークフローファイルを作成します。
+2. `workflow-templates`という名前のディレクトリを作成します。
+3. `workflow-templates` ディレクトリ内に新しいワークフローファイルを作成します。
 
    リポジトリのデフォルトブランチを参照する必要がある場合は、 `$default-branch` プレースホルダを使用できます。 テンプレートを使用してワークフローを作成すると、プレースホルダはリポジトリのデフォルトブランチの名前に自動的に置き換えられます。
 
@@ -52,7 +52,7 @@ type: how_to
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-1. `workflow-templates` ディレクトリ内にメタデータファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前である必要がありますが、 `.yml` 拡張子の代わりに、 `.properties.json`を付ける必要があります。 たとえば`octo-organization-ci.properties.json`という名前のこのファイルには 、`octo-organization-ci.yml`という名前のワークフローファイルのメタデータが含まれています。
+4. `workflow-templates` ディレクトリ内にメタデータファイルを作成します。 メタデータ ファイルは、ワークフロー ファイルと同じ名前である必要がありますが、 `.yml` 拡張子の代わりに、 `.properties.json`を付ける必要があります。 たとえば`octo-organization-ci.properties.json`という名前のこのファイルには 、`octo-organization-ci.yml`という名前のワークフローファイルのメタデータが含まれています。
    ```yaml
    {
        "name": "Octo Organization Workflow",

@@ -15,8 +15,8 @@ Organization が所有しているリポジトリで外部のコラボレータ�
 
 保留中のコラボレーターごとに、Organization のリポジトリに参加する招待をすべて同時にキャンセルできます。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. [**X pending collaborators**] をクリックします。 ![[Pending collaborators] ボタン](/assets/images/help/organizations/pending-collaborator-list.png)

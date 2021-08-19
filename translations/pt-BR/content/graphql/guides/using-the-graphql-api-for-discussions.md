@@ -9,8 +9,6 @@ A API do GraphQL do {% data variables.product.prodname_discussions %} permite qu
 
 Esta API está disponível para usuários autenticados, aplicativos OAuth e aplicativos GitHub. Os tokens de acesso exigem o escopo `repo` para repositórios privados e o escopo `public_repo` para repositórios públicos. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)".
 
-Para usar esta API, você deve incluir `GraphQL-Featus: discussions_api` no cabeçalho `HTTP`.
-
 ## Campos
 
 ### Repository.discussions
@@ -1081,4 +1079,4 @@ Campos de tipo de retorno:
 
 ## Pesquisar
 
-A discussão pode ser retornada do campo de `pesquisa` de alto nível. Para pesquisar uma discussão, especifique o `tipo` como `DSCUSSÃO`. O tipo `SearchResultItemConnection` tem um campo `discussionCount` para relatar o número de discussões retornadas, e o tipo `Discussão` é adicionado à união DE `SearchResultItem`. Para obter mais informações, consulte ["Consultas](/graphql/reference/queries#searchresultitemconnection)".
+A discussão pode ser retornada do campo de `pesquisa` de alto nível. Para pesquisar uma discussão, especifique o `tipo` como `DSCUSSÃO`. O tipo `SearchResultItemConnection` tem um campo `discussionCount` para relatar o número de discussões retornadas, e o tipo `Discussão` é adicionado à união DE `SearchResultItem`. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."

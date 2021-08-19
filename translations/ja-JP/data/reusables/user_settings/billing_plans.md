@@ -1,1 +1,1 @@
-1. In your user settings sidebar, click **Billing & plans**. ![Billing & plans settings](/assets/images/help/settings/settings-sidebar-billing-plans.png)
+1. ユーザ設定サイドバーで**Billing & plans（支払いプラン）**をクリックしてください。 ![支払いプランの設定](/assets/images/help/settings/settings-sidebar-billing-plans.png)

@@ -29,16 +29,15 @@ topics:
 
 ### 迁移所有组织的旧管理员团队
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
 1. 检查组织的旧管理员团队，然后单击 **Migrate all teams（迁移所有团队）**。 ![迁移所有团队按钮](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. 阅读这些团队成员的可能权限更改的信息，然后单击 **Migrate all teams（迁移所有团队）**。 ![确认迁移按钮](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
 ### 迁移单一管理员团队
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. 在团队说明框中，单击 **Migrate team（迁移团队）**。 ![迁移团队按钮](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

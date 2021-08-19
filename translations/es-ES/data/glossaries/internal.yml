@@ -61,6 +61,10 @@
   term: Azure
   description: Una plataforma de informática en la nube de Microsoft.
 - 
+  term: Azure DevOps
+  description: >-
+    Un producto de Microsoft que ofrece hospedaje de código fuente, propuestas, mapas de IC/DC y otros servicios de desarrollador. Se le conocía a la versión interna como Team Foundation Services. La versión hospedada en la nube se conocía como Visual Studio Team Services.
+- 
   term: repositorio en blanco
   description: >-
     Normalmente, un repositorio en blanco es un directorio con un nombre apropiado con un sufijo .git que no tiene una copia revisada localmente de ninguno de los archivos bajo control de revisión. Es decir, todos los archivos de control y administrativos Git que normalmente estarían presentes en el subdirectorio .git oculto están presentes directamente en el directorio del repositorio.git y ningún otro archivo está presente y revisado. Generalmente, quienes publican los repositorios públicos ponen a disposición los repositorios en blanco.
@@ -648,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    Un producto de Microsoft que ofrece administración de código fuente y otros servicios de equipo.
+    El nombre anterior de un producto de Microsoft que proporciona administración de código fuente y otros servicios de equipo. Ahora se le conoce como Azure DevOps Server.
 - 
   term: Textile
   description: >-

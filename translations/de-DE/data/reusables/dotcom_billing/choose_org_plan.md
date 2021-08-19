@@ -1,1 +1,1 @@
-1. Wählen Sie bei einem Upgrade von {% data variables.product.prodname_free_team %} ein Produkt unter „Upgrading to“ (Upgrade auf) aus. ![Schaltfläche „Upgrade“](/assets/images/help/billing/upgrade-to-product.png)
+1. Under "Compare plans", you can compare the features of each plan. Depending on your current plan and what plan you have chosen, click either **Upgrade to Team** or **Upgrade to Enterprise**. ![Compare plans and upgrade](/assets/images/help/billing/settings-compare-and-upgrade-plans.png)

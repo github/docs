@@ -65,6 +65,7 @@ type: overview
 - **作业排队时间** - 自托管运行器的每个作业最多可排队 24 小时。 如果自托管运行器在此限制内没有开始执行作业，则作业将被终止，并且无法完成。
 {% data reusables.github-actions.usage-api-requests %}
 - **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
 ### 自托管运行器的工作流连续性
 
@@ -76,8 +77,8 @@ type: overview
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 或更新版本
+- CentOS 7 或更新版本
 - Oracle Linux 7
 - Fedora 29 或更高版本
 - Debian 9 或更高版本

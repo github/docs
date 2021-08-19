@@ -19,8 +19,8 @@ Organization のオーナーである場合、または子チームと親チー�
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Team のリストで、親の下にネストする Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

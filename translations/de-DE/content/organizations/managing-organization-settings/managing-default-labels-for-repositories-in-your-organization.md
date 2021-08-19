@@ -19,9 +19,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 ### Eine Standardkennzeichnung erstellen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -35,9 +34,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 ### Eine Standardkennzeichnung bearbeiten
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -51,9 +49,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 ### Eine Standardkennzeichnung löschen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}

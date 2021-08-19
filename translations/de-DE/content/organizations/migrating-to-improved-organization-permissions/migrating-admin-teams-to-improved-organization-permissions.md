@@ -29,16 +29,15 @@ Weitere Informationen finden Sie unter„[Berechtigungsebenen für die Repositor
 
 ### Alle früheren Administratorenteams der Organisation migrieren
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
 1. Überprüfe die früheren Administratorenteams Deiner Organisation, und klicke dann auf **Migrate all teams** (Alle Teams migrieren). ![Schaltfläche „Migrate all teams" (Migration aller Teams)](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. Lies die Informationen zu den Änderungen, die sich für die Berechtigungen der Mitglieder dieser Teams möglicherweise ergeben, und klicke dann auf **Migrate all teams** (Alle Teams migrieren). ![Schaltfläche „Confirm migration" (Migration bestätigen)](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
 ### Ein einzelnes Administratorenteam migrieren
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. Klicke im Teambeschreibungsfeld auf **Migrate team** (Team migrieren). ![Schaltfläche „Migrate team“ (Team migrieren)](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

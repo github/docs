@@ -1,6 +1,6 @@
-const Hydro = require('../lib/hydro')
+import Hydro from '../lib/hydro.js'
 
-module.exports = function reqUtils (req, res, next) {
+export default function reqUtils(req, res, next) {
   req.hydro = new Hydro()
   return next()
 }

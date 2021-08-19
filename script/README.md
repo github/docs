@@ -265,14 +265,6 @@ Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /ente
 ### [`graphql/utils/process-upcoming-changes.js`](graphql/utils/process-upcoming-changes.js)
 
 
-
----
-
-
-### [`graphql/utils/remove-hidden-schema-members.rb`](graphql/utils/remove-hidden-schema-members.rb)
-
-
-
 ---
 
 
@@ -342,13 +334,6 @@ Run this script to manually purge the Fastly cache. Note this script requires a 
 ### [`purge-fastly-by-url.js`](purge-fastly-by-url.js)
 
 Run this script to manually purge the Fastly cache for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
-
----
-
-
-### [`purge-redis-pages.js`](purge-redis-pages.js)
-
-Run this script to manually purge the Redis rendered page cache. This will typically only be run by Heroku during the deployment process, as triggered via our Procfile's "release" phase configuration.
 
 ---
 
@@ -473,7 +458,7 @@ Run this script to standardize frontmatter fields in all content files, per the 
 
 ### [`sync-search-indices.js`](sync-search-indices.js)
 
-This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+This script is run on a schedule very four hours to generate searchable data. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). For more info see [contributing/search.md](contributing/search.md)
 
 ---
 

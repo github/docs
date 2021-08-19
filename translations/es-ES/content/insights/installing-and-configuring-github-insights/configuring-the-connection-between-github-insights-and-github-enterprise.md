@@ -1,7 +1,6 @@
 ---
 title: Configurar la conexión entre GitHub Insights y GitHub Enterprise
 intro: 'Puedes administrar de qué manera {% data variables.product.prodname_insights %} se conecta con {% data variables.product.prodname_enterprise %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can configure the connection to {% data variables.product.prodname_enterprise %}.'
 versions:
   enterprise-server: '*'

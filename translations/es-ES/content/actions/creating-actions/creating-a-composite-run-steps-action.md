@@ -21,6 +21,8 @@ En esta guía aprenderás sobre los componentes básicos que se requieren para c
 
 Una vez que completes este proyecto, deberás entender cómo construir tu accion para pasos de ejecución compuestos para probarla en un flujo de trabajo.
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Prerrequisitos
 
 Antes de que comiences, crearás un repositorio de {% data variables.product.product_name %}.
@@ -121,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }}
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

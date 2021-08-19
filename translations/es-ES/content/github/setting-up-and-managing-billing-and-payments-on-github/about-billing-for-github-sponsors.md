@@ -17,5 +17,5 @@ topics:
 
 ### Leer más
 
-- "[Acerca de {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)"
-- "[Patrocinar a contribuyentes de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"
+- "[Acerca de {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[Patrocinar a contribuyentes de código abierto](/sponsors/sponsoring-open-source-contributors)"
