@@ -65,6 +65,6 @@ To change the default branch, your repository must have more than one branch. Fo
 {% data reusables.repositories.repository-branches %}
 1. In the default branch drop-down, choose the new default branch.
    ![Default branch dropdown selector](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. Click **Update**.
+1. Click **Update**
 
 {% endif %}
