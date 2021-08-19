@@ -1,5 +1,6 @@
 ---
 title: GitHub Enterprise administration
+intro: 'The enterprise endpoint provides various services to list and update the logs as well as administer the GitHub Actions in an enterprise.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
