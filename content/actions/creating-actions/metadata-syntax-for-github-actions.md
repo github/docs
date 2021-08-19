@@ -10,7 +10,7 @@ redirect_from:
   - /actions/building-actions/metadata-syntax-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: reference
 ---

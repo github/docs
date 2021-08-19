@@ -7,7 +7,7 @@ redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: reference
 ---

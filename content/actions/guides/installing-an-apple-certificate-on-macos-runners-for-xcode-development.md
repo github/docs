@@ -4,7 +4,7 @@ intro: 'You can sign Xcode apps within your continuous integration (CI) workflow
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

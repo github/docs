@@ -8,7 +8,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/using-environment-variables
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
