@@ -1,5 +1,5 @@
 ---
-title: Objects
+title: Objects 
 redirect_from:
   - /v4/object
   - /v4/reference/object
