@@ -5,7 +5,7 @@ redirect_from:
   - /v3/actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - API

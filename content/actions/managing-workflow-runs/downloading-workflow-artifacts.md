@@ -4,7 +4,7 @@ intro: You can download archived artifacts before they automatically expire.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Download workflow artifacts
 ---

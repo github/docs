@@ -131,7 +131,7 @@ Email notifications from {% data variables.product.product_name %} contain the f
 | --- | --- |
 | `From` address | This address will always be {% ifversion fpt %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
 | `To` field | This field connects directly to the thread.{% ifversion not ghae %} If you reply to the email, you'll add a new comment to the conversation.{% endif %} |
-| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li>{% ifversion fpt or ghes > 2.21 or ghae %}<li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li>{% endif %}<li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li>{% ifversion not ghae %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li>{% endif %}<li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
+| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li>{% ifversion not ghae %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li>{% endif %}<li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
 | `mailing list` field | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% ifversion fpt or ghes %}
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
 
@@ -141,9 +141,8 @@ Email notifications from {% data variables.product.product_name %} contain the f
 {% data reusables.notifications-v2.manage-notifications %}
 3. On the notifications settings page, choose how you receive notifications when:
     - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
-    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% ifversion fpt or ghes > 2.21 %}
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)." {% endif %}{% ifversion ghes = 2.21 %}
-    - There are new security alerts in your repository. For more information, see "[Security alert notification options](#security-alert-notification-options)." {% endif %} {% ifversion fpt %}
+    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% ifversion fpt or ghes %}
+    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)." {% endif %} {% ifversion fpt %}
     - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
 
 ## Automatic watching
@@ -203,7 +202,7 @@ If you are a member of more than one organization, you can configure each one to
 ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
 {% ifversion not ghae %}
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 ## {% data variables.product.prodname_dependabot_alerts %} notification options 
 {% else %}
 ## Security alert notification options 
@@ -212,10 +211,10 @@ If you are a member of more than one organization, you can configure each one to
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% ifversion fpt or ghes > 2.21 %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 ## {% data variables.product.prodname_actions %} notification options
 
 Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.

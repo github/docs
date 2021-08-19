@@ -10,7 +10,7 @@ redirect_from:
   - /actions/reference/contexts-and-expression-syntax-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 miniTocMaxHeadingLevel: 3
 ---

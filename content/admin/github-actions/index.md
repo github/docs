@@ -4,7 +4,7 @@ intro: 'Enable {% data variables.product.prodname_actions %} on {% ifversion gha
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - Enterprise
