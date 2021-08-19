@@ -101,7 +101,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 ## Images
 
-You can display an image starting by adding `!` and wrapping the alt text in`[ ]`. Then wrap the location of the image in parentheses `()`.
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the location of the image in parentheses `()`.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
@@ -109,18 +109,18 @@ You can display an image starting by adding `!` and wrapping the alt text in`[ ]
 
 ![Image by the user]()
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can add an image to your repository, add a link to an image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image to your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 {% tip %}
 
-**Tip:** When you want to link a image which is in your repository, it is recommended that you use relative links instead of absolute links. 
+**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links. 
 
-When linking an image from a different repository,
+When displaying an image from a different repository,
 obtain the raw link of the image from the **Download** page for the image.
 
 {% endtip %}
 
-For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image in a `.md` file. If you want to link an image in an issue, pull request, or a comment, use the raw link obtained from **Download** on the image page. You can use the same method for linking an image in an `.md` file from a different repository.
+For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image. If you want to display the same image in an issue, pull request, or a comment, use the raw link obtained from clicking **Download** on the image page. You can use the same method for linking an image in an `.md` file from a different repository.
 
 | Context | Relative link |
 | ------ | -------- |
