@@ -9,7 +9,7 @@ redirect_from:
   - /articles/creating-a-github-action/
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
   - /about-actions

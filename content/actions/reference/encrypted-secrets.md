@@ -8,7 +8,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

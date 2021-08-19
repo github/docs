@@ -2,7 +2,7 @@
 title: Codespaces guides
 shortTitle: Guides
 product: '{% data reusables.gated-features.codespaces %}'
-intro: 'Learn how to make the most of GitHub'
+intro: Learn how to make the most of GitHub
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
@@ -38,3 +38,5 @@ includeGuides:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/security-in-codespaces
+---
+
