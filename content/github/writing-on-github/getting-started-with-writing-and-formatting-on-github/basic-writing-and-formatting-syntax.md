@@ -109,25 +109,26 @@ You can display an image starting by adding `!` and wrapping the alt text in`[ ]
 
 ![Image by the user]()
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can either add an image to your repository, add a link to an image or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can add an image to your repository, add a link to an image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 {% tip %}
 
 **Tip:** When you want to link a image which is in your repository, it is recommended that you use relative links instead of absolute links. 
 
 When linking an image from a different repository,
-obtain raw link of the image from **Download** page of the image.
+obtain the raw link of the image from the **Download** page for the image.
 
 {% endtip %}
 
-Example : If you want to use an image that is in the docs repository, you can use the relative link to display the image in a `.md` file in the same repository. If you want to link an image in an issue, pull request or a comment, use the raw link obtained from **Download** on the image page. You can use the same method for linking an image in an `.md` file from a different repository.
+For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image in a `.md` file. If you want to link an image in an issue, pull request, or a comment, use the raw link obtained from **Download** on the image page. You can use the same method for linking an image in an `.md` file from a different repository.
 
-| Context | Relative Link |
+| Context | Relative link |
 | ------ | -------- |
 | In a `.md` file on the same branch | `/assets/images/electrocat.png` |
-| In a `.md` file on another branch | `/../docs/assets/images/electrocat.png` |
-| In Issues,Pull Requests & comments of the repository | `(https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png)` |
-| In `.md` file on another repository | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
+| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
+| In issues, pull requests and comments in any repository | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
+| In a `.md` file in another repository | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
+
 For more information see "[Relative Links](#relative-links)."
 
 ## Lists
