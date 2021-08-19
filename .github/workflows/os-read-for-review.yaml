@@ -1,0 +1,69 @@
+name: OS Ready for review
+
+# **What it does**: Adds pull requests and issues in the docs repository to the docs-content review board when the "waiting for review" label is added
+# **Why we have it**: So that contributors in the OS repo can easily get reviews from the docs-content team, and so that writers can see when a PR is ready for review
+# **Who does it impact**: Writers working in the docs repository
+
+on:
+  pull_request:
+    types: [labeled]
+  issues:
+    types: [labeled]
+
+jobs:
+  request_doc_review:
+    name: Request a review from the docs-content team
+    if: github.event.label.name == 'waiting for review' && github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exit if not triggered by a docs team member
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          members="$( gh api graphql -f query='
+            query {
+              organization(login: "github") {
+                team(slug: "docs") {
+                  members {
+                    nodes {
+                      login
+                    }
+                  }
+                }
+              }
+            }
+          ' --jq '.data.organization.team.members.nodes | [(.[].login)]')"
+
+          isMember=$(echo ${members[@]} | grep -ow $GITHUB_ACTOR | wc -w)
+
+          if [ $isMember -eq  0 ]
+          then
+            echo "$GITHUB_ACTOR is not a docs team member. exiting..."
+            exit 1
+          fi
+
+      - name: Check out repo content
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Setup Node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install @octokit/graphql
+
+      - name: Run script
+        run: |
+          node .github/actions-scripts/ready-for-docs-review.js
+        env:
+          TOKEN: ${{ secrets.DOCS_BOT }}
+          PROJECT_NUMBER: 2936
+          ORGANIZATION: 'github'
+          ITEM_NODE_ID: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}
+          AUTHOR_LOGIN: ${{ github.event.pull_request.user.login || github.event.issue.user.login }}
+          REPO: ${{ github.repository }}
+
+        # Since the projects API is still in beta, use the old workflow if something fails
+        # so that we don't miss these PRs
