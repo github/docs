@@ -101,7 +101,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 ## Images
 
-You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the location of the image in parentheses `()`.
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
