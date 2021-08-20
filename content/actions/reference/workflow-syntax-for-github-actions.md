@@ -47,7 +47,7 @@ on:
     types: [published, created, edited]
 ```
 
-## `on.<push|pull_request>.<branches|tags>`
+## `on.{push|pull_request}.{branches|tags}`
 
 When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
 
@@ -114,7 +114,7 @@ on:
       - '!releases/**-alpha'
 ```
 
-## `on.<push|pull_request>.paths`
+## `on.{push|pull_request}.paths`
 
 When using the `push` and `pull_request` events, you can configure a workflow to run when at least one file does not match `paths-ignore` or at least one modified file matches the configured `paths`. Path filters are not evaluated for pushes to tags.
 
@@ -1355,7 +1355,7 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)" and "[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)."
+For more information about branch, tag, and path filter syntax, see "[`on.{push|pull_request}.{branches|tags}`](#onpushpull_requestbranchestags)" and "[`on.{push|pull_request}.paths`](#onpushpull_requestpaths)."
 
 ### Patterns to match branches and tags
 
