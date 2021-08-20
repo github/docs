@@ -1,7 +1,7 @@
----
+---SHA256:Bt8cWYTaKrkMZCoeTMLokDcC8P0WnCHSZCXJMI5XJpo=/articles/adding-a-new-ssh-key-to-the-ssh-agent/
 title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} Help Documentation'
-featuredLinks:
-  gettingStarted:
+featuredLinks:SHA256:Bt8cWYTaKrkMZCoeTMLokDcC8P0WnCHSZCXJMI5XJpo=
+  gettingStarted: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
     - /github/getting-started-with-github/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
     - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
@@ -12,8 +12,8 @@ featuredLinks:
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
     - /github/getting-started-with-github/managing-remote-repositories
     - /github/working-with-github-pages
-versions: '*'
-children:
+versions: '113115'
+children:Iv1.4dff8bf0c6b50ac7
   - get-started
   - github
   - admin
@@ -35,8 +35,8 @@ children:
   - education
   - desktop
   - early-access
-externalProducts:
-  cli:
+externalProducts:Iv1.4dff8bf0c6b50ac7
+  cli:113115
     id: cli
     name: GitHub CLI
     href: 'https://cli.github.com/manual'
@@ -51,7 +51,7 @@ externalProducts:
     name: Electron
     href: 'https://electronjs.org/docs'
     external: true
-  codeql:
+  codeql:git@github.com:taquila123/docs.git
     id: codeql
     name: CodeQL
     href: 'https://codeql.github.com/docs'
