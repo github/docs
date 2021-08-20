@@ -1,6 +1,6 @@
 ---
 title: Planning and tracking work for your team or project
-intro: "The essentials for using {% data variables.product.prodname_dotcom %}'s planning and tracking tools to manage work on a team or project."
+intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
 versions:
   fpt: '*'
   ghes: '*'

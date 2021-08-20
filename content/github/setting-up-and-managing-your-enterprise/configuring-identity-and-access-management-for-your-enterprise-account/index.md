@@ -1,6 +1,6 @@
 ---
 title: Configuring identity and access management for your enterprise account
-intro: 'You can manage SAML single sign-on and team synchronization for your enterprise.'
+intro: You can manage SAML single sign-on and team synchronization for your enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   fpt: '*'

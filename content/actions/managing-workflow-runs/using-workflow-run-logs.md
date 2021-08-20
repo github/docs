@@ -4,7 +4,7 @@ intro: 'You can view, search, and download the logs for each job in a workflow r
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

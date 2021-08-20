@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-code-scanning-for-your-appliance
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Advanced Security

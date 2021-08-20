@@ -12,7 +12,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
   - /using-the-visualization-graph

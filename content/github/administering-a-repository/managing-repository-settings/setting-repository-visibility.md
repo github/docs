@@ -71,8 +71,6 @@ For information about improving repository security, see "[Securing your reposit
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes > 2.21 %}
-
 ## Changing a repository's visibility
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -88,48 +86,7 @@ For information about improving repository security, see "[Securing your reposit
 {% ifversion fpt %}
    ![Confirm change of repository visibility button](/assets/images/help/repository/repo-change-confirm.png){% else %}
    ![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
-{% endif %}
 
-{% ifversion ghes < 2.22 %}
-
-## Making a repository private
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", next to "Make this repository private", click **Make private**.
-   ![Make private button](/assets/images/help/repository/repo-makeprivate.png)
-4. Read the warnings about making a repository private.
-   ![Warnings popup](/assets/images/help/repository/repo-privateconfirm.png)
-5. Type the name of the repository that you want to make private, for example `accountname/reponame`.
-6. Click **I understand, make this repository private**.
-
-## Making a repository public
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", next to "Make this repository public", click **Make public**.
-   ![Make public button](/assets/images/help/repository/repo-makepublic.png)
-4. Read the warnings about making a repository public.
-  ![Pop-up with information about making a private repository public](/assets/images/help/repository/repo-publicconfirm.png)
-5. Type the name of the repository that you want to make public, for example `accountname/reponame`.
-6. Click **I understand, make this repository public**.
-
-{% ifversion ghes %}
-## Making a repository internal
-
-{% data reusables.organizations.internal-repos-enterprise %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", next to "Make this repository internal", click **Make internal**.
-   ![Make internal button](/assets/images/help/repository/repo-makeinternal.png)
-4. Read the warnings about making a repository internal.
-   ![Warnings popup](/assets/images/help/repository/repo-internalconfirm.png)
-5. Type the name of the repository that you want to make internal, for example `accountname/reponame`.
-6. Click **I understand, make this repository internal**.
-{% endif %}
-
-{% endif %}
 
 ## Further reading
 - "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"
