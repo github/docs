@@ -286,6 +286,63 @@ Take care to distinguish between product names and product elements. For more in
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
 
+## Product-specific conventions
+
+This section describes additional conventions that are specific to GitHub products. 
+
+### GitHub Actions
+
+#### Disclaimers for third-party actions
+
+Code examples that use third-party actions must include the following disclaimer as part of the code block:
+
+```
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+```
+To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example: 
+
+```
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+This is an example of a third-party action:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+Examples:
+- See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
+
+### Pinning version numbers to SHA
+
+Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+
 ## Punctuation
 
 Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
