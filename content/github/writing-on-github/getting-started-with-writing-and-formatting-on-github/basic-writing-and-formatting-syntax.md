@@ -111,20 +111,17 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 **Tip:** When you want to link a image which is in your repository, it is recommended that you use relative links instead of absolute links. This is because, absolute links won't render at all if the image is in a private repository even though you have rightful access to the image.
 
-Example : If you have a repository called `octocat/octocat.github.io` and it has a image called `blacktocat.png` in the `images` directory in the root of the repository on branch `master` (default branch). Then : 
-
-  * Absolute Link : `https://github.com/octocat/octocat.github.io/blob/master/images/blacktocat.png`
-  * Relative Link : 
+For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image. If you want to display the same image in an issue, pull request, or a comment, use the raw link obtained from the **Download** page of the image location. You can use the same method for linking an image in an `.md` file from a different repository.
 
 | Context | Relative Link |
 | ------ | -------- |
-| In a `.md` file on the same branch | `/images/blacktocat.png` |
-| In a `.md` file on another branch | `/../master/images/blacktocat.png` |
-| In Issues,Pull Requests & comments of the repository | `/../blob/master/images/blacktocat.png?raw=true` |
+| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
+| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
+| In Issues,Pull Requests & comments of the repository | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
+| In a `.md` file on another repo | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
 
-A thing to note here is that `master` represents the branch name and it could vary from repository to repository. [Learn more about Relative Links](#relative-links)
+For more information see "[Relative Links](#relative-links)."
 
-{% endtip %}
 
 ## Lists
 
