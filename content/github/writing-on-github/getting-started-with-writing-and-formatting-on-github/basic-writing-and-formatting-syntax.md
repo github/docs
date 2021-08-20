@@ -123,8 +123,15 @@ For example, if you want to use an image that is in the same repository as your 
 | ------ | -------- |
 | In a `.md` file on the same branch | `/assets/images/electrocat.png` |
 | In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In Issues,Pull Requests & comments of the repository | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
-| In a `.md` file on another repo | `https://raw.githubusercontent.com/github/docs/main/assets/images/electrocat.png` |
+| In Issues,Pull Requests & comments of the repository | `../blob/main/assets/images/electrocat.png` |
+| In a `.md` file on another repo | `/../../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| In Issues,Pull Requests & comments on another repo | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+
+{% note %}
+
+**Note**: The last two relative links in the table above will work across private repos only if the viewer has at least read access to the private repo.
+
+{% endnote %}
 
 For more information see "[Relative Links](#relative-links)."
 
