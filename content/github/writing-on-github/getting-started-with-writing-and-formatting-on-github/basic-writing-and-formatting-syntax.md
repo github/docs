@@ -113,11 +113,9 @@ You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then w
 
 **Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links. 
 
-When displaying an image from a different repository, obtain the raw link of the image from the **Download** page for the image.
-
 {% endtip %}
 
-For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image. If you want to display the same image in an issue, pull request, or a comment, use the raw link obtained from the **Download** page of the image location. You can use the same method for linking an image in an `.md` file from a different repository.
+For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image.
 
 | Context | Relative Link |
 | ------ | -------- |
