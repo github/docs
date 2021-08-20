@@ -3,7 +3,7 @@ title: Submitting content removal requests
 redirect_from:
   - /articles/submitting-content-removal-requests
 versions:
-  fpt: '*'
+  fpt: '$'
 topics:
   - Policy
   - Legal
