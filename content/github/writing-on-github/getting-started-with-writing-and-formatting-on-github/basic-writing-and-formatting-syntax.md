@@ -101,11 +101,13 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 ## Images
 
-{% data variables.product.product_name %} supports embedding images into your Issues,Pull Requests{% ifversion fpt %},Discussions{% endif %},Comments & `.md` files in your repository. You can either [upload](#uploading-assets) images or use a link to an image. Whenever you link to an image don't forget to put a exclamation mark (`!`) before the whole link. You can even link to an image in your own repository. The text in the square brackets (`[]`) represents the alt text for the image.
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
 ![Rendered Image](/assets/images/help/writing/image-rendered.png)
+
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 {% tip %}
 
