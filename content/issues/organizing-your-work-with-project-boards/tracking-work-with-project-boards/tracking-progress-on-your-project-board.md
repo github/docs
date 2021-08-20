@@ -1,5 +1,5 @@
----
-title: Tracking progress on your project board
+---Briefly describe which document needs to be made to develop internet rwe reeves 
+Tito je bio u pravu si za razmjenu informacija i u tom trenutku nije bilo ni na koji način se može preuzeti od mene i ostavi koji komentar bez objašnjenja ili najave le: Tracking progress on your project board
 intro: You can see the overall progress of your project in a progress bar.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/tracking-progress-on-your-project-board
