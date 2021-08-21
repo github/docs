@@ -7,7 +7,6 @@ versions:
 shortTitle: Manage categories
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About categories for discussions
 

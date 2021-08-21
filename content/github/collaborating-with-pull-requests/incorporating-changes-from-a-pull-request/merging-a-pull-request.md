@@ -69,14 +69,14 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
 The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
-   {% ifversion fpt or ghae or ghes > 2.21 %}
+   
    {% note %}
 
    **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
    For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
    {% endnote %}
-   {% endif %}
+   
 
 Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/articles/about-pull-request-merges), which are merged using the fast-forward option.
 

@@ -16,7 +16,7 @@ redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 learningTracks:
   - getting_started

@@ -21,9 +21,7 @@ When setting up an OAuth App on GitHub, requested scopes are displayed to the us
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see "[Authorizing OAuth apps](/developers/apps/authorizing-oauth-apps#device-flow)."
-{% endif %}
 
 Check headers to see what OAuth scopes you have, and what the API action accepts:
 
@@ -48,7 +46,7 @@ Name | Description
 &emsp;`repo_deployment`| Grants access to [deployment statuses](/rest/reference/repos#deployments) for {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, *without* granting access to the code.{% ifversion not ghae %}
 &emsp;`public_repo`| Limits access to public repositories. That includes read/write access to code, commit statuses, repository projects, collaborators, and deployment statuses for public repositories and organizations. Also required for starring public repositories.{% endif %}
 &emsp;`repo:invite` | Grants accept/decline abilities for invitations to collaborate on a repository. This scope is only necessary to grant other users or services access to invites *without* granting access to the code.{% ifversion fpt or ghes > 3.0 %}
-&emsp;`security_events` | Grants: <br/> read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) <br/> read and write access to security events in the [{% data variables.product.prodname_secret_scanning %} API](/rest/reference/secret-scanning) <br/> This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}{% ifversion ghes > 2.21 and ghes < 3.1 %}
+&emsp;`security_events` | Grants: <br/> read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) <br/> read and write access to security events in the [{% data variables.product.prodname_secret_scanning %} API](/rest/reference/secret-scanning) <br/> This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}{% ifversion ghes < 3.1 %}
 &emsp;`security_events` | Grants read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning). This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}
 **`admin:repo_hook`** | Grants read, write, ping, and delete access to repository hooks in {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. The `repo` {% ifversion not ghae %}and `public_repo` scopes grant{% else %}scope grants{% endif %} full access to repositories, including repository hooks. Use the `admin:repo_hook` scope to limit access to only repository hooks.
 &emsp;`write:repo_hook` | Grants read, write, and ping access to hooks in {% ifversion not ghae %}public{% else %}internal{% endif %} or private repositories.

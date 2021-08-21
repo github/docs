@@ -6,7 +6,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 ---

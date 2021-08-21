@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/creating-a-javascript-action
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

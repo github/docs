@@ -21793,6 +21793,11 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
   DISABLED
 
   """
+  Members will be able to create only internal repositories.
+  """
+  INTERNAL
+
+  """
   Members will be able to create only private repositories.
   """
   PRIVATE

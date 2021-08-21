@@ -19,7 +19,7 @@ topics:
 
 There are several types of user messages.
 - Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page{% ifversion ghes > 2.22 or ghae %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes > 2.21 or ghae %}
+- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
 - Announcement banners, which appear at the top of every page{% endif %}
 
 {% ifversion ghes %}
@@ -96,7 +96,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 
 {% endif %}
 
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 ## Creating a global announcement banner
 
 You can set a global announcement banner to be displayed to all users at the top of every page.

@@ -6,7 +6,6 @@ versions:
   fpt: '*'
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Community conversations in {% data variables.product.prodname_discussions %}
 

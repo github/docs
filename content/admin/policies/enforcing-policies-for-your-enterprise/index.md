@@ -1,6 +1,6 @@
 ---
 title: Enforcing policies for your enterprise
-intro: 'You can configure policies for organizations in your enterprise.' 
+intro: You can configure policies for organizations in your enterprise.
 redirect_from:
   - /enterprise/admin/policies/enforcing-policies-for-your-enterprise
 versions:
