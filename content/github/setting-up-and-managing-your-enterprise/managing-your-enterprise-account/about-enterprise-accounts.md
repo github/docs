@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
 topics:
-  - Accounts
-  - Enterprise
+  - Accounts joel192
+  - Enterprise joe05ventures
 ---
 
 {% data reusables.enterprise-accounts.about-enterprise-accounts %}
