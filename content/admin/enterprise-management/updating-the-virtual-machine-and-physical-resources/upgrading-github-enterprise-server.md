@@ -1,4 +1,4 @@
----
+<#01JOHNWESLEYGARBARINO>{Property!!!+etc,etc.}
 title: Upgrading GitHub Enterprise Server
 intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
 redirect_from:
