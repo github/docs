@@ -115,14 +115,14 @@ You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then w
 
 {% endtip %}
 
-For example, if you want to use an image that is in the same repository as your `.md` file, you can use a relative link for the image.
+Here are some examples for using relative links to display an image in a `.md` file.
 
 | Context | Relative Link |
 | ------ | -------- |
 | In a `.md` file on the same branch | `/assets/images/electrocat.png` |
 | In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
 | In Issues,Pull Requests & comments of the repository | `../blob/main/assets/images/electrocat.png` |
-| In a `.md` file on another repo | `/../../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| In a `.md` file on another repo | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
 | In Issues,Pull Requests & comments on another repo | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
