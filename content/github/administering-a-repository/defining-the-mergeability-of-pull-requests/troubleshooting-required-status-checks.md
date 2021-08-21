@@ -45,13 +45,11 @@ Sometimes, the results of the status checks for the test merge commit and head c
 
 ## Handling skipped but required checks
 
-When you enable protected branches, you have a option of selecting checks which should pass mandatorily before the Pull Request can be merged into the branch with such rule.
-
-However, it may happen that the status check is skipped on some Pull Requests which don't require it. For example you may skip a Node.JS test on a Pull Request which fixes a typo in your README File (and doesn't touch the JS & TS Files at all !).
+It may happen that the status check is skipped on some Pull Requests due to path filtering but it is required. For example you may skip a Node.JS test on a Pull Request which fixes a typo in your README File (and doesn't touch the JS & TS Files in the `scripts` folder at all !).
 
 Now if that check is required and it gets skipped probably because it's not needed, then the check's status would be shown as pending (because it's required) and you won't be able to merge the Pull Request.
 
-Here is a simple workaround for that. Suppose you have a workflow which is required to pass as given below : 
+Suppose you have a workflow which is required to pass as given below : 
 
 ```yaml
 name: ci
@@ -83,8 +81,9 @@ jobs:
     - run: npm test
 ```
 
-Now if suppose someone sends in a Pull Request which changes a markdown file in the root of the repository, then the above workflow won't run at all. This will create a problem as you won't be able to merge the Pull Request. 
+Now if suppose someone sends in a Pull Request which changes a markdown file in the root of the repository, then the above workflow won't run at all. This will create a problem as you won't be able to merge the Pull Request. You would see the following status :
 
+![Required Check Skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.jpeg)
 
 You can fix this by creating a generic workflow which will return true in any case similar to the workflow below :
 
@@ -101,10 +100,13 @@ jobs:
     steps:
       - run: 'echo "No build required" '
 ```
+Now the checks will always pass whenever someone sends a pull request which doesn't change the files listed under the `paths` key of the actual workflow.
+
+![Check skipped but passes due to Generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.jpeg)
 
 {% note %}
 
-**Note**: Make sure that the `name` key and required job name in both the workflow files is the same.
+**Note**: Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow Syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions)".
 
 {% endnote %}
 
