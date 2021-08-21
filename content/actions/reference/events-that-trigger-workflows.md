@@ -9,7 +9,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Events that trigger workflows
 ---

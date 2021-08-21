@@ -83,7 +83,6 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 ## GitHub Actions
 
 {% data reusables.actions.ae-beta %}
@@ -92,7 +91,6 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% endif %}
 
 {% ifversion ghae or ghes %}
 ## Admin stats
@@ -144,7 +142,6 @@ With the LDAP mapping endpoints, you're able to update the Distinguished Name (D
 {% endfor %}
 
 {% endif %}
-
 
 {% ifversion ghae or ghes %}
 ## License
@@ -215,7 +212,6 @@ The Organization Administration API allows you to create organizations on your e
 {% endfor %}
 
 {% endif %}
-
 
 {% ifversion ghes %}
 ## Organization pre-receive hooks

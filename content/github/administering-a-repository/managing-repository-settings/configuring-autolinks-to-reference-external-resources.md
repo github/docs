@@ -13,7 +13,7 @@ topics:
   - Repositories
 shortTitle: Configure autolinks
 ---
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests,{% ifversion fpt or ghae or ghes > 2.21 %} commit messages, and release descriptions{% else %} and commit messages{% endif %} to external third-party services.
+Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests, commit messages, and release descriptions to external third-party services.
 
 If you use Zendesk to track user-reported tickets, for example, you can reference a ticket number in the pull request you open to fix the issue.  
 

@@ -1,6 +1,6 @@
 ---
 title: Prebuilding Codespaces for your project
-intro: 'You can configure your project to prebuild a codespace automatically each time you push a change to your repository.'
+intro: You can configure your project to prebuild a codespace automatically each time you push a change to your repository.
 versions:
   fpt: '*'
 type: how_to

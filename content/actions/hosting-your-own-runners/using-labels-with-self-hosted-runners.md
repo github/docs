@@ -3,7 +3,7 @@ title: Using labels with self-hosted runners
 intro: You can use labels to organize your self-hosted runners based on their characteristics.
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 shortTitle: Label runners

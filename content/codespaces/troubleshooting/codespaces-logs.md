@@ -1,6 +1,6 @@
 ---
 title: Codespaces logs
-intro: Overview of the logging locations used by {% data variables.product.prodname_codespaces %}.
+intro: 'Overview of the logging locations used by {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

@@ -3,7 +3,7 @@ title: GitHub language support
 intro: 'An overview of the programming languages supported by {% data variables.product.prodname_dotcom %} features.'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - GitHub
