@@ -15,7 +15,7 @@ topics:
 ---
 ## About READMEs
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% ifversion fpt or ghes > 3.1 or ghae-issue-4651 %}, citation file{% endif %}{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 %}, citation file{% endif %}{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
 
 For more information about providing guidelines for your project, see {% ifversion fpt %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
@@ -30,9 +30,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 2.21 %}
-
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -40,7 +38,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% endif %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 
 ## Auto-generated table of contents for README files
 
@@ -54,6 +52,8 @@ The auto-generated table of contents is enabled by default for all Markdown file
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features", deselect **Table of contents**.
 ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
+
+{% endif %}
 
 ## Section links in README files and blob pages
 

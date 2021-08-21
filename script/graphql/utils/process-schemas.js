@@ -2,11 +2,11 @@
 import { sortBy } from 'lodash-es'
 import { parse, buildASTSchema } from 'graphql'
 import helpers from './schema-helpers.js'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 
 const externalScalars = JSON.parse(
-  fs.readFileSync(path.join(process.cwd(), './lib/graphql/non-schema-scalars.json'))
+  await fs.readFile(path.join(process.cwd(), './lib/graphql/non-schema-scalars.json'))
 ).map((scalar) => {
   scalar.id = helpers.getId(scalar.name)
   scalar.href = helpers.getFullLink('scalars', scalar.id)

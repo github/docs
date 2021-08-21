@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/about-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:
@@ -59,7 +59,7 @@ If you're developing a Node.js project, the {% data variables.product.prodname_a
 
 ### Composite run steps actions
 
-A _composite run steps_ action allows you to combine multiple workflow run steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands a single step using that action. To see an example, check out "[Creating a composite run steps action](/actions/creating-actions/creating-a-composite-run-steps-action)".
+A _composite run steps_ action allows you to combine multiple workflow run steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite run steps action](/actions/creating-actions/creating-a-composite-run-steps-action)".
 
 ## Choosing a location for your action
 

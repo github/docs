@@ -12,15 +12,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Code review assignment
+permissions: Team maintainers and organization owners can configure code review assignments.
 ---
-
-Team maintainers and organization owners can configure code review assignments.
 
 ## About code review assignments
 
 By using code review assignments, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. Code review assignments allow you to decide whether the whole team or just a subset of team members are notified when a team is requested for review.
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals. The individual approvals don't satisfy the requirement for code owner approval in a protected branch. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+
+{% ifversion fpt %}
+To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 
 ## Routing algorithms
 

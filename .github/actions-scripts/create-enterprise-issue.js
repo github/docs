@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import { getOctokit } from '@actions/github'
-import enterpriseDates from '../../lib/enterprise-dates.js'
 import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
+const enterpriseDates = JSON.parse(
+  await fs.readFile(path.join(process.cwd(), 'lib/enterprise-dates.json'))
+)
 
 const acceptedMilestones = ['release', 'deprecation']
 const teamsToCC = '/cc @github/docs-content @github/docs-engineering'
@@ -39,6 +41,8 @@ async function run() {
     process.exit(1)
   }
 
+  const repoToOpenIssue = milestone === 'release' ? 'docs-content' : 'docs-engineering'
+
   // Milestone-dependent values.
   const numberOfdaysBeforeMilestoneToOpenIssue =
     milestone === 'release'
@@ -49,7 +53,7 @@ async function run() {
 
   if (!versionNumber) {
     console.log(
-      `Could not find the next version number after ${latest} in enterprise-dates.json. Try running script/udpate-enterprise-dates.js, then rerun this script.`
+      `Could not find the next version number after ${latest} in enterprise-dates.json. Try running script/update-enterprise-dates.js, then rerun this script.`
     )
     process.exit(0)
   }
@@ -58,7 +62,7 @@ async function run() {
 
   if (!datesForVersion) {
     console.log(
-      `Could not find ${versionNumber} in enterprise-dates.json. Try running script/udpate-enterprise-dates.js, then rerun this script.`
+      `Could not find ${versionNumber} in enterprise-dates.json. Try running script/update-enterprise-dates.js, then rerun this script.`
     )
     process.exit(0)
   }
@@ -74,14 +78,16 @@ async function run() {
     process.exit(0)
   }
 
-  const milestoneSteps = fs.readFileSync(
+  const milestoneSteps = await fs.readFile(
     path.join(
       process.cwd(),
       `.github/actions-scripts/enterprise-server-issue-templates/${milestone}-issue.md`
     ),
     'utf8'
   )
-  const issueLabels = [`enterprise ${milestone}`, `engineering`]
+  const issueLabels = milestone === 'release'
+    ? ['enterprise release']
+    : ['enteprise deprecation', 'priority-3']
   const issueTitle = `[${nextMilestoneDate}] Enterprise Server ${versionNumber} ${milestone} (technical steps)`
 
   const issueBody = `GHES ${versionNumber} ${milestone} occurs on ${nextMilestoneDate}.
@@ -92,10 +98,11 @@ async function run() {
 
   // Create the milestone issue
   const octokit = getOctokit(token)
+  let issue
   try {
     issue = await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: 'github',
-      repo: 'docs-internal',
+      repo: repoToOpenIssue,
       title: issueTitle,
       body: issueBody,
       labels: issueLabels,

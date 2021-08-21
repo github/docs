@@ -2,10 +2,11 @@
 title: Setting up your Node.js project for Codespaces
 shortTitle: Setting up your Node.js project
 intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 redirect_from:
-  - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces 
+  - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
 type: tutorial
 topics:
   - Codespaces
@@ -14,7 +15,7 @@ topics:
   - JavaScript
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## Introduction
 
@@ -27,12 +28,12 @@ This guide shows you how to set up your JavaScript, Node.js, or TypeScript proje
 
 ## Step 1: Open your project in a codespace
 
-1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
-  
-  ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png) 
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
-2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png) 
+  
+  If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 

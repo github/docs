@@ -5,7 +5,7 @@ redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

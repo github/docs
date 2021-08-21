@@ -74,10 +74,15 @@ You can also require two-factor authentication for each of your organizations. F
 ### 2. Staying in compliance
 You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
 
+{% ifversion ghes > 2.22 %}
 ### 3. Configuring security features for your organizations
 {% data reusables.getting-started.configuring-security-features %}
-### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
+{% endif %}
+
+{% ifversion ghes %}
+### {% ifversion ghes = 2.22 %}3.{% else %}4.{% endif %} Enabling {% data variables.product.prodname_GH_advanced_security %} features
 You can upgrade your {% data variables.product.product_name %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see "[{% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+{% endif %}
 
 ## Part 4: Customizing and automating your enterprise's work on {% data variables.product.prodname_dotcom %}
 You can customize and automate work in organizations in your enterprise with {% data variables.product.prodname_dotcom %} and {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} , and {% data variables.product.prodname_pages %}.
@@ -86,6 +91,8 @@ You can customize and automate work in organizations in your enterprise with {% 
 You can build integrations with the {% data variables.product.prodname_dotcom %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)."
 ### 2. Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
+
+{% ifversion ghes %}
 ### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
@@ -95,6 +102,8 @@ For more information on enabling and configuring {% data variables.product.prodn
 {% data reusables.getting-started.packages %}
 
 For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+{% endif %}
+
 ### 5. Using {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}
 

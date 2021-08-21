@@ -13,14 +13,6 @@ type ProductT = {
   versions?: Array<string>
 }
 
-type LanguageItem = {
-  name: string
-  nativeName: string
-  code: string
-  hreflang: string
-  wip?: boolean
-}
-
 type VersionItem = {
   version: string
   versionTitle: string
@@ -70,6 +62,10 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
+  community_redirect: {
+    name: string
+    href: string
+  }
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
@@ -83,7 +79,6 @@ export type MainContextT = {
   currentPathWithoutLanguage: string
   currentLanguage: string
   userLanguage: string
-  languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
@@ -115,6 +110,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
+    community_redirect: req.context.page?.community_redirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
@@ -162,20 +158,6 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
-    languages: Object.fromEntries(
-      Object.entries(req.context.languages).map(([key, entry]: any) => {
-        return [
-          key,
-          {
-            name: entry.name,
-            nativeName: entry.nativeName || '',
-            code: entry.code,
-            hreflang: entry.hreflang,
-            wip: entry.wip || false,
-          },
-        ]
-      })
-    ),
     allVersions: req.context.allVersions,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)

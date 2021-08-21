@@ -44,6 +44,8 @@ Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key{% endif %
 Clojars | Clojars Deploy Token | clojars_deploy_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Contentful | Contentful Personal Access Token | contentful_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Databricks | Databricks Access Token | databricks_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -56,10 +58,16 @@ Doppler | Doppler Service Token | doppler_service_token{% endif %}
 Doppler | Doppler CLI Token | doppler_cli_token{% endif %}
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
 Doppler | Doppler SCIM Token | doppler_scim_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Doppler | Doppler Audit Token | doppler_audit_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Dropbox | Dropbox Access Token | dropbox_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Duffel | Duffel Live Access Token | duffel_live_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Duffel | Duffel Test Access Token | duffel_test_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
 Dynatrace | Dynatrace Access Token | dynatrace_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -82,6 +90,8 @@ Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key{
 Frame.io | Frame.io JSON Web Token | frameio_jwt{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Frame.io| Frame.io Developer Token | frameio_developer_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+FullStory | FullStory API Key | fullstory_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 GitHub | GitHub Personal Access Token | github_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
@@ -138,6 +148,12 @@ Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token{% endif %}
 OpenAI | OpenAI API Key | openai_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Palantir | Palantir JSON Web Token | palantir_jwt{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+PlanetScale | PlanetScale Database Password | planetscale_database_password{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Postman | Postman API Key | postman_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}

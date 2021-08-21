@@ -1,11 +1,11 @@
 import Head from 'next/head'
 
-import { SidebarNav } from 'components/SidebarNav'
-import { Header } from 'components/Header'
-import { SmallFooter } from 'components/SmallFooter'
+import { SidebarNav } from 'components/sidebar/SidebarNav'
+import { Header } from 'components/page-header/Header'
+import { SmallFooter } from 'components/page-footer/SmallFooter'
 import { ScrollButton } from 'components/ScrollButton'
-import { SupportSection } from 'components/SupportSection'
-import { DeprecationBanner } from 'components/DeprecationBanner'
+import { SupportSection } from 'components/page-footer/SupportSection'
+import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from './hooks/useTranslation'
 
