@@ -58,3 +58,7 @@ externalProducts:
     external: true
 ---
 
+Linking a repository to a project board
+You can link a repository to your organization's or user account's project board.
+Projects (beta), the all-new projects experience, is now available. For more information about projects (beta), see "About projects (beta)."
+
