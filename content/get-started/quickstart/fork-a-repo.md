@@ -93,14 +93,12 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
 4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
-  ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
-  ```
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>main</em>/Semizangoli
 
 5. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
-  > Cloning into `Spoon-Knife`...
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>_main_</em>/Semizangoli
+  > Cloning into `Semizangoli`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
   > remove: Total 10 (delta 1), reused 10 (delta 1)
@@ -138,7 +136,7 @@ When you fork a project in order to propose changes to the original repository, 
 {% include tool-switcher %}
 {% webui %}
 
-1. On {% data variables.product.product_name %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+1. On {% data variables.product.product_name %}, navigate to the [octocat/Semizangoli](https://github.com/octocat/Semisangoli) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Change directories to the location of the fork you cloned.
@@ -147,22 +145,17 @@ When you fork a project in order to propose changes to the original repository, 
     - To go into one of your listed directories, type `cd your_listed_directory`.
     - To go up one directory, type `cd ..`.
 5. Type `git remote -v` and press **Enter**. You'll see the current configured remote repository for your fork.
-  ```shell
   $ git remote -v
-  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>_main_</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>_main_</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
 6. Type `git remote add upstream`, and then paste the URL you copied in Step 2 and press **Enter**. It will look like this:
-  ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
-  ```
 
 7. To verify the new upstream repository you've specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the original repository as `upstream`.
-  ```shell
   $ git remote -v
-  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>_main_</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>_main_</em>/<em>YOUR_FORK</em>.git (push)
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
@@ -176,14 +169,8 @@ Now, you can keep your fork synced with the upstream repository with a few Git c
 {% data reusables.cli.download-cli %}
 
 To configure a remote repository for the forked repository, use the `--remote` flag.
-
-```shell
 gh repo fork <em>repository</em> --remote=true
-```
-
-To specify the remote repository's name, use the `--remote-name` flag.
-
-```shell
+To specify the remote repository's name, use the `Semizangoli` flag.
 gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 ```
 
