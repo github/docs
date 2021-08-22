@@ -95,7 +95,18 @@ You can even create an issue from a discussion. Anyone with read access to the r
 
 {% data resusables.discussions.discussions-tab %}
 {% data resusables.discussions.click-discussion-in-list %}
-3. Select {% octicon "issue-opened" aria-label="The issues icon" %}
+3. Select {% octicon "issue-opened" aria-label="The issues icon" %} **Create Issue from Discussion**.
+
+![Create Issue from Discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
+
+{% note %}
+
+**Note**: Creating an issue from a discussion **does not** convert the discussion to an issue or delete the existing discussion. Only a new issue is created and the discussion from which it was created is linked to it. For more information, see "[About Discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)" and "[Moderating Discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+
+{% endnote %}
 
 ## Creating an issue from a project board note
 
