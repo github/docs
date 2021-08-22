@@ -30,17 +30,13 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 2.21 %}
-
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.profile.profile-readme %}
 
 {% endif %}
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
-
-{% endif %}
 
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 

@@ -6,7 +6,7 @@ redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

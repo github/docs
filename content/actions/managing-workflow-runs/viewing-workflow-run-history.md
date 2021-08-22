@@ -4,7 +4,7 @@ intro: You can view logs for each run of a workflow. Logs include the status for
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: View workflow run history
 ---

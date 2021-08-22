@@ -34,8 +34,8 @@ children:
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
   - /guides
-community_redirect: 
-  name: 'Provide GitHub Feedback'
+community_redirect:
+  name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/sponsors-feedback'
 ---
 <!---->

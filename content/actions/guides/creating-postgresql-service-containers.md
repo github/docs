@@ -8,7 +8,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/creating-postgresql-service-containers
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

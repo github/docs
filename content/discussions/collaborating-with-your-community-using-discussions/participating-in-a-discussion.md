@@ -7,7 +7,6 @@ versions:
 shortTitle: Participate in discussion
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About participation in a discussion
 

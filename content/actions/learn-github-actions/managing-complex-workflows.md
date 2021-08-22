@@ -4,7 +4,7 @@ shortTitle: Managing complex workflows
 intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% ifversion fpt or ghes > 3.0 or ghae %} environments,{% endif %} and labels.'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:

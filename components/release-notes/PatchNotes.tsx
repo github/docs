@@ -73,19 +73,15 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
                         {item.heading}
                       </Link>
                     </h4>
-                    <li className={!withReleaseNoteLabel ? 'list-style-none' : ''}>
-                      <ul className={cx(styles.releaseNotesList, 'pl-0 pb-4 mt-2')}>
-                        {item.notes.map((note) => {
-                          return (
-                            <li
-                              key={note}
-                              className="list-style-none f4"
-                              dangerouslySetInnerHTML={{ __html: note }}
-                            />
-                          )
-                        })}
-                      </ul>
-                    </li>
+                    {item.notes.map((note) => {
+                      return (
+                        <li
+                          key={note}
+                          className={cx(!withReleaseNoteLabel && 'list-style-none', 'f4')}
+                          dangerouslySetInnerHTML={{ __html: note }}
+                        />
+                      )
+                    })}
                   </Fragment>
                 )
               })}

@@ -7,7 +7,7 @@ redirect_from:
   - /actions/publishing-packages-with-github-actions/about-packaging-with-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:

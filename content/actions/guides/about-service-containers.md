@@ -7,7 +7,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/about-service-containers
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:
