@@ -1,0 +1,24 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Message that will be displayed on users first issue'
+        pr-message: 'Message that will be displayed on users first pull request'
+{ "name": "RATE_LIMIT_REACHED", "message": "Too many requests. Blocked due to rate limiting.", "debugId": "f31172319f69f" }
+﻿SYMMER Fruit +Berry "3/4" 6/18 bar 
+t-20*C www.9arden.sYammer.ua
+    i 663m
+2k Dickbeschichtung
+    fweber301
+master/01042021
+     QC PASSED
