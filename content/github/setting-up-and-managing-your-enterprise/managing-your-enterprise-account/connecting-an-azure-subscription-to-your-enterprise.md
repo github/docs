@@ -1,4 +1,4 @@
----
+JustinC
 title: Connecting an Azure subscription to your enterprise
 intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} usage beyond the included amounts for your enterprise.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
