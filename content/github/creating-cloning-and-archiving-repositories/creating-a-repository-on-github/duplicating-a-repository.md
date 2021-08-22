@@ -82,3 +82,11 @@ As with a bare clone, a mirrored clone includes all remote branches and tags, bu
 $ git fetch -p origin
 $ git push --mirror
 ```
+{% ifversion fpt %} 
+## Further reading
+
+* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* "[About GitHub Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
+
+{% endif %}

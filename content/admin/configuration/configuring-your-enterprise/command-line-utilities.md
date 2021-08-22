@@ -23,7 +23,7 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
 {% endif %}
 
@@ -83,7 +83,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
@@ -530,7 +530,7 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 ### ghe-cluster-failover
 
 Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."

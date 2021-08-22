@@ -7,7 +7,7 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: next
 type: overview
 topics:

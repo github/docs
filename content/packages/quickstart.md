@@ -4,7 +4,7 @@ intro: 'Publish to {% data variables.product.prodname_registry %} with {% data v
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Quickstart
 ---

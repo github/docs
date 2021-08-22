@@ -8,7 +8,6 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
 ---
-{% data reusables.discussions.beta %}
 
 ## About searching for discussions
 

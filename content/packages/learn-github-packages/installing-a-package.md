@@ -9,7 +9,7 @@ redirect_from:
 permissions: You can install any package that you have permission to view.
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
