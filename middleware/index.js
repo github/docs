@@ -1,5 +1,4 @@
 import express from 'express'
-import basicAuth from 'express-basic-auth'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
@@ -62,7 +61,6 @@ import renderPage from './render-page.js'
 const { NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
-const isProduction = NODE_ENV === 'production' && process.env.HEROKU_PRODUCTION_APP
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
@@ -145,18 +143,6 @@ export default function (app) {
       instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
     )
   )
-  app.use('/storybook', [
-    (isProduction &&
-      basicAuth({ users: { octocat: process.env.STORYBOOK_PASSWORD }, challenge: true })) ||
-      ((req, res, next) => next()),
-    express.static('storybook', {
-      index: false,
-      etag: false,
-      immutable: true,
-      lastModified: false,
-      maxAge: '1 day', // Relatively short in case we update index.html
-    }),
-  ])
   app.use(
     '/assets',
     express.static('assets', {

@@ -95,7 +95,7 @@ The `github` context contains information about the workflow run and the event t
 |---------------|------|-------------|
 | `github` | `object` | The top-level context available during any job or step in a workflow. |
 | `github.action` | `string` | The name of the action currently running. {% data variables.product.prodname_dotcom %} removes special characters or uses the name `run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name `run1`, and the second script will be named `run2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `github.action_path` | `string` | The path where your action is located. You can use this path to easily access files located in the same repository as your action. This attribute is only supported in composite run steps actions. |
+| `github.action_path` | `string` | The path where your action is located. You can use this path to easily access files located in the same repository as your action. This attribute is only supported in composite actions. |
 | `github.actor` | `string` | The login of the user that initiated the workflow run. |
 | `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
 | `github.event` | `object` | The full event webhook payload. For more information, see "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." You can access individual properties of the event using this context. |

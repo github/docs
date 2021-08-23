@@ -58,7 +58,7 @@ For more information, see "[About code owners](/github/creating-cloning-and-arch
 
 ## Understanding the risk of script injections
 
-When creating workflows, [custom actions](/actions/creating-actions/about-actions), and [composite run step](/actions/creating-actions/creating-a-composite-run-steps-action) actions, you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
+When creating workflows, [custom actions](/actions/creating-actions/about-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action) actions, you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
 
  Attackers can add their own malicious content to the [`github` context](/actions/reference/context-and-expression-syntax-for-github-actions#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`.  For example: `github.event.issue.title`, or `github.event.pull_request.body`. 
  
