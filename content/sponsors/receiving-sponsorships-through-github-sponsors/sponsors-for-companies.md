@@ -1,7 +1,7 @@
 ---
 title: Receiving payments from Sponsors for Companies
 shortTitle: Sponsors for Companies
-intro: "To accept payments from the Sponsors for Companies service, you must accept some additional terms."
+intro: 'To accept payments from the Sponsors for Companies service, you must accept some additional terms.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

@@ -6,7 +6,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 shortTitle: Add self-hosted runners
@@ -61,7 +61,7 @@ You can add self-hosted runners to an enterprise, where they can be assigned to 
 
 {% ifversion fpt %}
 To add a self-hosted runner to an enterprise account, you must be an enterprise owner.
-{% elsif ghes > 2.21 or ghae %}
+{% elsif ghes or ghae %}
 To add a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator.
 {% endif %}
 

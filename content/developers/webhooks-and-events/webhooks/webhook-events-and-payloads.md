@@ -147,7 +147,6 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 ## code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -191,7 +190,6 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
-{% endif %}
 
 ## content_reference
 
@@ -1364,7 +1362,7 @@ The event’s actor is the [user](/rest/reference/users) who starred a repositor
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 ## workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."

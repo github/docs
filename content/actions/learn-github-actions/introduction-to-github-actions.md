@@ -8,7 +8,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/core-concepts-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:

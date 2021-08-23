@@ -60364,6 +60364,10 @@
           "description": "<p>Members will not be able to create public or private repositories.</p>"
         },
         {
+          "name": "INTERNAL",
+          "description": "<p>Members will be able to create only internal repositories.</p>"
+        },
+        {
           "name": "PRIVATE",
           "description": "<p>Members will be able to create only private repositories.</p>"
         }

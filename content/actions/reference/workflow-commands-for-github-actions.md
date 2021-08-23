@@ -11,7 +11,7 @@ redirect_from:
   - /actions/reference/logging-commands-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

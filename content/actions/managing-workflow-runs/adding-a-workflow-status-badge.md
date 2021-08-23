@@ -4,7 +4,7 @@ intro: You can display a status badge in your repository to indicate the status 
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Add a status badge
 ---

@@ -4,7 +4,7 @@ intro: You can deploy to Google Kubernetes Engine as part of your continuous dep
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

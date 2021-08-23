@@ -1,11 +1,11 @@
 ---
 title: Re-running a workflow
-intro: You can re-run an instance of a workflow up to 30 days after the initial run. 
+intro: You can re-run an instance of a workflow up to 30 days after the initial run.
 product: '{% data reusables.gated-features.actions %}'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

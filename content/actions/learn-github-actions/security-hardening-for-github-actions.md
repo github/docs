@@ -7,7 +7,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:
@@ -174,7 +174,6 @@ You can help mitigate this risk by following these good practices:
   {% endwarning %}
   {% endif %}
 
-
 * **Audit the source code of the action**
 
   Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
@@ -276,7 +275,7 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `environment.update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
 {% endif %}
 
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 ### Events for configuration changes
 | Action | Description
 |------------------|-------------------

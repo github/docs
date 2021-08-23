@@ -6,7 +6,7 @@ redirect_from:
   - /developers/apps/refreshing-user-to-server-access-tokens
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - GitHub Apps

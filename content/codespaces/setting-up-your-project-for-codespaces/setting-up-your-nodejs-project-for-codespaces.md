@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 redirect_from:
-  - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces 
+  - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
 type: tutorial
 topics:
   - Codespaces

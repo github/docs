@@ -2504,6 +2504,40 @@
       ]
     },
     {
+      "name": "createSponsorship",
+      "kind": "mutations",
+      "id": "createsponsorship",
+      "href": "/graphql/reference/mutations#createsponsorship",
+      "description": "<p>Start a new sponsorship of a maintainer in GitHub Sponsors, or reactivate a past sponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorshipInput!",
+          "id": "createsponsorshipinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createsponsorshipinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorship",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship",
+          "description": "<p>The sponsorship that was started.</p>"
+        }
+      ]
+    },
+    {
       "name": "createTeamDiscussion",
       "kind": "mutations",
       "id": "createteamdiscussion",
@@ -32667,6 +32701,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "hasSponsorsListing",
           "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
           "type": "Boolean!",
@@ -32927,6 +32969,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "name",
@@ -58271,6 +58321,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "followers",
           "description": "<p>A list of users the given user is followed by.</p>",
           "type": "FollowerConnection!",
@@ -58811,6 +58869,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "name",
@@ -63673,6 +63739,14 @@
       "description": "<p>Entities that can be sponsored through GitHub Sponsors.</p>",
       "fields": [
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "hasSponsorsListing",
           "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
           "type": "Boolean!",
@@ -63707,6 +63781,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "sponsoring",
@@ -66164,6 +66246,10 @@
         {
           "name": "DISABLED",
           "description": "<p>Members will not be able to create public or private repositories.</p>"
+        },
+        {
+          "name": "INTERNAL",
+          "description": "<p>Members will be able to create only internal repositories.</p>"
         },
         {
           "name": "PRIVATE",
@@ -72438,6 +72524,66 @@
           "id": "repositoryvisibility",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryvisibility"
+        }
+      ]
+    },
+    {
+      "name": "CreateSponsorshipInput",
+      "kind": "inputObjects",
+      "id": "createsponsorshipinput",
+      "href": "/graphql/reference/input-objects#createsponsorshipinput",
+      "description": "<p>Autogenerated input type of CreateSponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>Specify whether others should be able to see that the sponsor is sponsoring\nthe sponsorable. Public visibility still does not reveal which tier is used.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshipprivacy"
+        },
+        {
+          "name": "receiveEmails",
+          "description": "<p>Whether the sponsor should receive email updates from the sponsorable.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of user or organization who is acting as the sponsor, paying for the sponsorship.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of user or organization who is receiving the sponsorship.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of tier to sponsor at.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

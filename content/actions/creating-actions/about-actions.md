@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/about-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:

@@ -1,6 +1,6 @@
 ---
 title: Web-based editor
-intro: 'Use the web-based editor from your repository to create and commit code changes.'
+intro: Use the web-based editor from your repository to create and commit code changes.
 versions:
   fpt: '*'
 type: how_to

@@ -8,7 +8,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/authenticating-with-the-github_token
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Authentication in a workflow
 ---

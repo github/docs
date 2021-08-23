@@ -14,10 +14,7 @@ topics:
   - GitHub Apps
 shortTitle: Authentication
 ---
-{% ifversion ghes < 2.22 %}
-{% data reusables.pre-release-program.machine-man-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
+
 
 ## Generating a private key
 
@@ -98,15 +95,9 @@ Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_AP
 
 After creating the JWT, set it in the `Header` of the API request:
 
-{% ifversion ghes < 2.22 %}
-```shell
-$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.machine-man-preview+json" {% data variables.product.api_url_pre %}/app
-```
-{% else %}
 ```shell
 $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.v3+json" {% data variables.product.api_url_pre %}/app
 ```
-{% endif %}
 
 `YOUR_JWT` is the value you must replace.
 
@@ -133,61 +124,34 @@ By default, installation access tokens are scoped to all the repositories that a
 
 To list the installations for an authenticated app, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
 
-{% ifversion ghes < 2.22 %}
-```shell
-$ curl -i -X GET \
--H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.machine-man-preview+json" \
-{% data variables.product.api_url_pre %}/app/installations
-```
-{% else %}
 ```shell
 $ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
 -H "Accept: application/vnd.github.v3+json" \
 {% data variables.product.api_url_pre %}/app/installations
 ```
-{% endif %}
 
 The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[List installations for the authenticated app](/rest/reference/apps#list-installations-for-the-authenticated-app)."
 
 To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request and replace `:installation_id` with the installation's `id`:
 
-{% ifversion ghes < 2.22 %}
-```shell
-$ curl -i -X POST \
--H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.machine-man-preview+json" \
-{% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
-```
-{% else %}
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
 -H "Accept: application/vnd.github.v3+json" \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
-{% endif %}
 
 The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint.
 
 To authenticate with an installation access token, include it in the Authorization header in the API request:
 
-{% ifversion ghes < 2.22 %}
-```shell
-$ curl -i \
--H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
--H "Accept: application/vnd.github.machine-man-preview+json" \
-{% data variables.product.api_url_pre %}/installation/repositories
-```
-{% else %}
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github.v3+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
-{% endif %}
 
 `YOUR_INSTALLATION_ACCESS_TOKEN` is the value you must replace.
 

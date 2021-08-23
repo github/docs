@@ -58,15 +58,6 @@ Create, list, update, and delete environments for pre-receive hooks.
 **Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% ifversion ghes < 2.22 %}
-## Integrations
-
-Manage [integrations](/v3/integrations) through the API.
-
-**Custom media type:** `machine-man-preview`
-**Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)
-{% endif %}
-
 ## Projects
 
 Manage [projects](/rest/reference/projects).
@@ -106,14 +97,6 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 
 {% endif %}
 
-{% ifversion ghes < 2.22 %}
-## Add lock reason
-
-You can now add a reason when you [lock an issue](/rest/reference/issues#lock-an-issue).
-
-**Custom media type:** `sailor-v-preview`
-**Announced:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
-{% endif %}
 
 ## Require signed commits
 

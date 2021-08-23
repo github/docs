@@ -79,7 +79,7 @@ You can implement required status checks and commit verifications to enforce you
 {% data reusables.getting-started.configuring-security-features %}
 {% endif %}
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 ### {% ifversion ghes = 2.22 %}3.{% else %}4.{% endif %} Enabling {% data variables.product.prodname_GH_advanced_security %} features
 You can upgrade your {% data variables.product.product_name %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see "[{% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 {% endif %}
@@ -92,7 +92,7 @@ You can build integrations with the {% data variables.product.prodname_dotcom %}
 ### 2. Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 ### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
@@ -104,7 +104,7 @@ For more information on enabling and configuring {% data variables.product.prodn
 For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 {% endif %}
 
-### {% ifversion ghes = 2.21 %}3.{% else %}5.{% endif %} Using {% data variables.product.prodname_pages %}
+### 5. Using {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}
 
 ## Part 5: Connecting with other {% data variables.product.prodname_dotcom %} resources
