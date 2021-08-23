@@ -57,7 +57,7 @@ create_actions:
     - /actions/creating-actions/about-actions
     - /actions/creating-actions/creating-a-docker-container-action
     - /actions/creating-actions/creating-a-javascript-action
-    - /actions/creating-actions/creating-a-composite-run-steps-action
+    - /actions/creating-actions/creating-a-composite-action
     - /actions/creating-actions/metadata-syntax-for-github-actions
     - /actions/creating-actions/dockerfile-support-for-github-actions
     - /actions/creating-actions/setting-exit-codes-for-actions
