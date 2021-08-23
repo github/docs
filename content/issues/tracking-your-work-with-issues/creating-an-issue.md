@@ -95,8 +95,8 @@ You can open a new issue from a specific line or lines of code in a file or pull
 
 You can even create an issue from a discussion. Anyone with read access to the repository can create an issue from a discussion. Follow the steps below to create an issue from discussion :
 
-{% data resusables.discussions.discussions-tab %}
-{% data resusables.discussions.click-discussion-in-list %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
 1. Select {% octicon "issue-opened" aria-label="The issues icon" %} **Create Issue from Discussion**.
    ![Create Issue from Discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
