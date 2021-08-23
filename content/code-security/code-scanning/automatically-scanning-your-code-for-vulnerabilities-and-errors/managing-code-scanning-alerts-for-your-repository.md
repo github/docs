@@ -94,6 +94,21 @@ For example, you can see when the last scan ran, the number of lines of code ana
 {% endnote %}
 {% endif %}
 
+
+## Filtering {% data variables.product.prodname_code_scanning %} alerts
+
+You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed. 
+
+- To use a predefined filter, click **Filters**, or a filter shown in the header of the list of alerts, and choose a filter from the drop-down list.
+  {% ifversion fpt or ghes > 3.0 %}![Predefined filters](/assets/images/help/repository/code-scanning-predefined-filters.png)
+  {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
+- To use a keyword, either type directly in the filters text box, or:
+  1. Click in the filters text box to show a list of all available filter keywords.
+  2. Click the keyword you want to use and then choose a value from the drop-down list.
+  ![Keyword filters list](/assets/images/help/repository/code-scanning-filter-keywords.png)
+
+The benefit of using keyword filters is that only values with results are shown in the drop-down lists. This makes it easy to avoid setting filters that find no results.
+
 {% ifversion fpt or ghes > 3.1 %}
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
