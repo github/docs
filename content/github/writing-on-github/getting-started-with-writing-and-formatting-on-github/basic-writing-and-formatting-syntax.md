@@ -87,7 +87,7 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 {% tip %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLS](/articles/autolinked-references-and-urls)."
+**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
 {% endtip %}
 
@@ -115,23 +115,23 @@ You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then w
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image in a `.md` file.
+Here are some examples for using relative links to display an image.
 
 | Context | Relative Link |
 | ------ | -------- |
 | In a `.md` file on the same branch | `/assets/images/electrocat.png` |
 | In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In Issues,Pull Requests & comments of the repository | `../blob/main/assets/images/electrocat.png` |
-| In a `.md` file on another repo | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
-| In Issues,Pull Requests & comments on another repo | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png` |
+| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
+| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work across private repos only if the viewer has at least read access to the private repo.
+**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
 
 {% endnote %}
 
-For more information see "[Relative Links](#relative-links)."
+For more information, see "[Relative Links](#relative-links)."
 
 
 ## Lists
