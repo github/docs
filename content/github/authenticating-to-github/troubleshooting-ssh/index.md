@@ -10,6 +10,7 @@ versions:
 topics:
   - SSH
 children:
+  - /mismatched-auth-types
   - /using-ssh-over-the-https-port
   - /recovering-your-ssh-key-passphrase
   - /deleted-or-missing-ssh-keys
