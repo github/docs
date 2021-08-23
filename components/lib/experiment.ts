@@ -19,7 +19,7 @@ export function sendSuccess(test: string) {
   })
 }
 
-export default function () {
+export default function experiment() {
   // *** Example test code ***
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)

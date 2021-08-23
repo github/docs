@@ -12,7 +12,7 @@ redirect_from:
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
 shortTitle: GitHub-hosted runners
 ---
 

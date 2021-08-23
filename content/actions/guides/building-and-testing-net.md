@@ -4,9 +4,9 @@ intro: You can create a continuous integration (CI) workflow to build and test y
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
-shortTitle: Build & test .NET 
+shortTitle: Build & test .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}

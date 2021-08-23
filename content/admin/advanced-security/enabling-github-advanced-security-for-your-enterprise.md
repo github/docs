@@ -4,7 +4,7 @@ shortTitle: Enabling GitHub Advanced Security
 intro: 'You can configure {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Advanced Security

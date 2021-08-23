@@ -10,7 +10,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

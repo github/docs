@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration/about-continuous-integration
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:

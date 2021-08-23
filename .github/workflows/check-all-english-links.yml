@@ -62,13 +62,14 @@ jobs:
           # Link to the previous report from the new report that triggered this
           # workflow run.
 
-          for issue_url in $(gh list-reports \
+          previous_report_url=$(gh list-reports \
                                   --state all \
                                   --limit 2 \
                                   --json url \
-                                  --jq '.[].url' | grep -v ${{ env.NEW_REPORT_URL }}); do
-            gh issue comment ${{ env.NEW_REPORT_URL }} --body "⬅️ [Previous report]($issue_url)"
-          done
+                                  --jq '.[].url' \
+                                  | grep -v ${{ env.NEW_REPORT_URL }} | head -1)
+
+          gh issue comment ${{ env.NEW_REPORT_URL }} --body "⬅️ [Previous report]($previous_report_url)"
 
           # Link to the newer report from any older report that is still open,
           # then close the older report.

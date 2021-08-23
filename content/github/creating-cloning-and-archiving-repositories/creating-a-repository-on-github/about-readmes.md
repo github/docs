@@ -30,9 +30,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 2.21 %}
-
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -40,7 +38,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% endif %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 
 ## Auto-generated table of contents for README files
 
@@ -54,6 +52,8 @@ The auto-generated table of contents is enabled by default for all Markdown file
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features", deselect **Table of contents**.
 ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
+
+{% endif %}
 
 ## Section links in README files and blob pages
 

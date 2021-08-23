@@ -31,18 +31,10 @@ You can search for repositories that are associated with a particular topic. For
 
 ## Adding topics to your repository
 
-{% data reusables.repositories.navigate-to-repo %}{% ifversion ghes < 2.22 %}
-2. Under your repository description, click **Add topics**.
-  ![Add topics link on a repository's main page](/assets/images/help/repository/add-topics-link.png)
-3. Type the topic you want to add to your repository, then type a space.
-  ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
-4. After you've finished adding topics, click **Done**.
-  ![Form with a list of topics and Done button](/assets/images/help/repository/add-topics-done-button.png)
-{% else %}
+{% data reusables.repositories.navigate-to-repo %}
 2. To the right of "About", click {% octicon "gear" aria-label="The Gear icon" %}.
   ![Gear icon on main page of a repository](/assets/images/help/repository/edit-repository-details-gear.png)
 3. Under "Topics", type the topic you want to add to your repository, then type a space.
   ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
 4. After you've finished adding topics, click **Save changes**.
   !["Save changes" button in "Edit repository details"](/assets/images/help/repository/edit-repository-details-save-changes-button.png)
-{% endif %}
