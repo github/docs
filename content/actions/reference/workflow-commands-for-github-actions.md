@@ -268,6 +268,12 @@ steps:
 
 Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
+{% note %}
+
+**Note:** Environment variables must be explicitly referenced using the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) in expression syntax or through use of the `$GITHUB_ENV` file directly; environment variables are not implicitly available in shell commands.
+
+{% endnote %}
+
 ### Example
 
 {% raw %}
@@ -311,7 +317,7 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
+Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 ### Example
 
