@@ -498,7 +498,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
