@@ -39,7 +39,7 @@ You can build Docker container and JavaScript actions. Actions require a metadat
 | ---- | ------------------- |
 | Docker container | Linux |
 | JavaScript | Linux, macOS, Windows |
-| Composite run steps | Linux, macOS, Windows |
+| Composite Actions | Linux, macOS, Windows |
 
 ### Docker container actions
 
@@ -57,9 +57,9 @@ JavaScript actions can run directly on a runner machine, and separate the action
 
 If you're developing a Node.js project, the {% data variables.product.prodname_actions %} Toolkit provides packages that you can use in your project to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
 
-### Composite run steps actions
+### Composite Actions
 
-A _composite run steps_ action allows you to combine multiple workflow run steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite run steps action](/actions/creating-actions/creating-a-composite-run-steps-action)".
+A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)".
 
 ## Choosing a location for your action
 
