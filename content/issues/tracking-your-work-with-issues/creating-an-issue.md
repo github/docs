@@ -97,6 +97,7 @@ You can even create an issue from a discussion. Anyone with read access to the r
 
 {% data resusables.discussions.discussions-tab %}
 {% data resusables.discussions.click-discussion-in-list %}
+
 3. Select {% octicon "issue-opened" aria-label="The issues icon" %} **Create Issue from Discussion**.
 
 ![Create Issue from Discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
