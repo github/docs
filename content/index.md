@@ -1,3 +1,4 @@
+[logs.txt](https://github.com/github/docs/files/6965171/logs.txt)
 ---
 title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} Help Documentation'
 featuredLinks:
