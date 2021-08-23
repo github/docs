@@ -133,7 +133,14 @@ async function run() {
   // Exclude existing items going forward.
   // Until we have a way to check from a PR whether the PR is in a project,
   // this is how we (roughly) avoid overwriting PRs that are already on the board
-  const newItemIDs = itemIDs.filter((id) => !existingItemIDs.includes(id))
+  let newItemIDs = []
+  let newItemAuthors = []
+  itemIDs.forEach((id, index) => {
+    if (!existingItemIDs.includes(id)) {
+      newItemIDs.push(id)
+      newItemAuthors.push(prAuthors[index])
+    }
+  })
 
   if (newItemIDs.length === 0) {
     console.log('All found PRs are already on the project. Exiting.')
@@ -145,11 +152,14 @@ async function run() {
   for (const [index, itemID] of newItemIDs.entries()) {
     const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation({
       item: itemID,
-      author: prAuthors[index],
+      author: newItemAuthors[index],
       turnaround: 2,
+      feature: 'OpenAPI schema update',
     })
-    const contributorType = isDocsTeamMember(prAuthors[index]) ? docsMemberTypeID : hubberTypeID
-    console.log(`Populating fields for item: ${itemID}`)
+    const contributorType = (await isDocsTeamMember(newItemAuthors[index]))
+      ? docsMemberTypeID
+      : hubberTypeID
+    console.log(`Populating fields for item: ${itemID} with author ${newItemAuthors[index]}`)
 
     await graphql(updateProjectNextItemMutation, {
       project: projectID,
