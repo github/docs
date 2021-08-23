@@ -83,7 +83,7 @@ Git is available by default in your codespace and so you can rely on your existi
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. While you can only create one codespace for each branch, you can switch to a new or existing branch within your codespace.
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each user account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
 
 {% note %}
 
