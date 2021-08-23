@@ -4,7 +4,7 @@ intro: You can create a continuous integration (CI) workflow in GitHub Actions t
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

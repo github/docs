@@ -1,11 +1,15 @@
 import { getLiquidConditionalsWithContent } from './get-liquid-conditionals.js'
 import getVersionBlocks from './get-version-blocks.js'
 import { allVersions } from '../../lib/all-versions.js'
+import { Tokenizer } from 'liquidjs'
 const supportedShortVersions = Object.values(allVersions).map((v) => v.shortName)
 const updateRangeKeepGhes = 'updateRangeKeepGhes'
 const updateRangeRemoveGhes = 'updateRangeRemoveGhes'
 const removeRangeAndContent = 'removeRangeAndContent'
-
+const tokenize = (str) => {
+  const tokenizer = new Tokenizer(str)
+  return tokenizer.readTopLevelTokens()
+}
 // This module is used by script/enterprise-server-deprecations/remove-version-markup.js to remove
 // and update Liquid conditionals when a GHES release is being deprecated. It is also used by
 // tests/content/remove-liquid-statements.js.
@@ -187,9 +191,25 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
 
           // If the block has an else, remove the else, its content, and the endif.
           if (versionBlock.hasElse) {
-            const replaceRegex = /{%-? else -?%}[\S\s]+?{%-? endif -?%}\n?/
-
-            versionBlock.newContent = versionBlock.newContent.replace(replaceRegex, '')
+            let elseStartIndex
+            let ifCondFlag = false
+            // tokenize the content including the nested conditionals to find
+            // the unmatched else tag. Remove content from the start of the
+            // else tag to the end of the content. The tokens return have different
+            // `kind`s and can be liquid tags, HTML, and a variety of things.
+            // A value of 4 is a liquid tag. See https://liquidjs.com/api/enums/parser_token_kind_.tokenkind.html.
+            tokenize(versionBlock.newContent)
+              .filter((elem) => elem.kind === 4)
+              .forEach((tag) => {
+                if (tag.name === 'ifversion' || tag.name === 'if') {
+                  ifCondFlag = true
+                } else if (tag.name === 'endif' && ifCondFlag === true) {
+                  ifCondFlag = false
+                } else if (tag.name === 'else' && ifCondFlag === false) {
+                  elseStartIndex = tag.begin
+                }
+              })
+            versionBlock.newContent = versionBlock.newContent.slice(0, elseStartIndex)
           }
         }
       }

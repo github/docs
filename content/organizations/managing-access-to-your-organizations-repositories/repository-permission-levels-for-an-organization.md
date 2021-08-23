@@ -15,7 +15,6 @@ topics:
   - Teams
 shortTitle: Repository permissions
 permissions: People with admin permissions can manage individual and team access to an organization-owned repository.
-
 ---
 
 ## Permission levels for repositories owned by an organization
@@ -47,7 +46,7 @@ In addition to managing organization-level settings, organization owners have ad
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 {% note %}
 
 **Note:** Repository permissions required to use security features are listed in "[Permission requirements for security features](#permission-requirements-for-security-features)" below.
@@ -135,7 +134,6 @@ Some of the features listed below are limited to organizations using {% data var
 | [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion) | | | | **X** | **X** |{% endif %}{% ifversion fpt %}
 | Create [codespaces](/codespaces/about-codespaces) | | | **X** | **X** | **X** |{% endif %}
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 ### Permission requirements for security features
 
 In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
@@ -148,9 +146,9 @@ In this section, you can find the repository permission levels required for secu
 | Create [security advisories](/code-security/security-advisories/about-github-security-advisories) | | | | | **X** |{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %} 
 | Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |{% endif %}{% ifversion fpt %}<!--Set at site-level for GHES-->
 | [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |
-| [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}{% ifversion fpt or ghes > 2.21 or ghae %}
+| [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
-| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae-next %}
+| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% ifversion fpt or ghes > 3.0 or ghae-next %}
 | [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**<sup>[1]</sup> | **X**<sup>[1]</sup> | **X** |
 | [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**<sup>[1]</sup> | **X**<sup>[1]</sup> | **X** |{% endif %}{% ifversion ghes = 3.0 %}
 | [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
@@ -159,7 +157,6 @@ In this section, you can find the repository permission levels required for secu
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
 [1] Repository writers and maintainers can only see alert information for their own commits.
-{% endif %}
 {% endif %}
 
 ## Further reading

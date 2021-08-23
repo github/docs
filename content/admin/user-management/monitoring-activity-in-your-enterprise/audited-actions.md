@@ -39,7 +39,7 @@ Action                               | Description
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 ## {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
@@ -152,7 +152,6 @@ Action                            | Description
 `team.demote_maintainer`          | A user was demoted from a team maintainer to a team member.{% endif %}
 `team.destroy`                    | A team was deleted.{% ifversion ghes > 2.22 or ghae %}
 `team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
-
 
 ## Users
 

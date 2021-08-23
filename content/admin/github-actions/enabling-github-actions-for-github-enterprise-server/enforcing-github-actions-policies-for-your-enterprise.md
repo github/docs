@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:

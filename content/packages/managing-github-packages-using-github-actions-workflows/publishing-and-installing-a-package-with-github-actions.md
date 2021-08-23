@@ -8,7 +8,7 @@ redirect_from:
   - /packages/guides/using-github-packages-with-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Publish & install with Actions
 ---

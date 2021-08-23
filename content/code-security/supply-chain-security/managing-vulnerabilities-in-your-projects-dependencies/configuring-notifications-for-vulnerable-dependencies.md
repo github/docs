@@ -30,7 +30,7 @@ When {% data variables.product.prodname_dependabot %} detects vulnerable depende
 {% ifversion ghes %}
 By default, if your site administrator has configured email for notifications on your enterprise, you will receive {% data variables.product.prodname_dependabot_alerts %} by email.{% endif %}
 
-{% ifversion ghes > 2.21 %}Site administrators can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %}Site administrators can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
 ## Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}
 
