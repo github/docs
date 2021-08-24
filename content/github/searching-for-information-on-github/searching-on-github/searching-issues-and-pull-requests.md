@@ -50,17 +50,16 @@ With the `in` qualifier you can restrict your search to the title, body, comment
 
 To search issues and pull requests in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
 
+{% data reusables.pull_requests.large-search-workaround %} 
+
+
 | Qualifier        | Example
 | ------------- | -------------
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt ubuntu**](https://github.com/search?q=user%3Adefunkt+ubuntu&type=Issues) matches issues with the word "ubuntu" from repositories owned by @defunkt.
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Issues&utf8=%E2%9C%93) matches issues in repositories owned by the GitHub organization.
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway created:<2012-03-01**](https://github.com/search?q=repo%3Amozilla%2Fshumway+created%3A%3C2012-03-01&type=Issues) matches issues from @mozilla's shumway project that were created before March 2012.
 
-{% note %}
 
-**Note:** {% data reusables.pull_requests.large-search-workaround %} 
-
-{% endnote %}
 
 ## Search by open or closed state
 
