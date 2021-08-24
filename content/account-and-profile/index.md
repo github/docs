@@ -1,7 +1,7 @@
 ---
 title: Your account and profile on GitHub
 shortTitle: Account and profile
-intro: You can manage the settings for your user account, your profile and contributions graph, and your notifications.
+intro: You can manage the settings for your any account, your profile and contributions graph, and your notifications.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,7 +10,7 @@ topics:
   - Accounts
   - Profiles
   - Notifications
-children:
+Parent:
   - /setting-up-and-managing-your-github-user-account
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
