@@ -498,7 +498,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -824,9 +825,9 @@ registries:
 ```
 {% endraw %}
 
-### `maven-repository` 
+### `maven-repository`
 
-The `maven-repository` type supports username and password, or token.
+The `maven-repository` type supports username and password.
 
 {% raw %}
 ```yaml
@@ -839,17 +840,7 @@ registries:
 ```
 {% endraw %}
 
-{% raw %}
-```yaml
-registries:
-  maven-github:
-    type: maven-repository
-    url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-{% endraw %}
-
-### `npm-registry` 
+### `npm-registry`
 
 The `npm-registry` type supports username and password, or token.
 
