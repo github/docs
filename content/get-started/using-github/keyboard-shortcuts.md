@@ -38,11 +38,12 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt %}
 |<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
-|<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."
+
 ## Source code editing
 
 | Keyboard shortcut | Description
 |-----------|------------
+|<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see [Web-based editor](/codespaces/developing-in-codespaces/web-based-editor).
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
