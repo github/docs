@@ -41,13 +41,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 
 ## CODEOWNERS file size
 
-CODEOWNERS files must be under 1 MB in size. A CODEOWNERS file over this limit will not be loaded, causing code owner information not to be shown and for the appropriate code owners not to be requested to review changes in a pull request.
-
-To reduce the size of your CODEOWNERS file, consider using wildcard patterns (see syntax) to consolidate multiple entries into a single entry. 
-
-## CODEOWNERS file size
-
-CODEOWNERS files must be under 1 MB in size. A CODEOWNERS file over this limit will not be loaded, causing code owner information not to be shown and for the appropriate code owners not to be requested to review changes in a pull request.
+CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, causing code owner information not to be shown and for the appropriate code owners not to be requested to review changes in a pull request.
 
 To reduce the size of your CODEOWNERS file, consider using wildcard patterns (see syntax) to consolidate multiple entries into a single entry. 
 
