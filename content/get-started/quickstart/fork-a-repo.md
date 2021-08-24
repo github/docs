@@ -83,7 +83,7 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 ## Cloning your forked repository
 
-Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally your computer.
+Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
 
 {% include tool-switcher %}
 {% webui %}
