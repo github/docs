@@ -39,6 +39,12 @@ Each CODEOWNERS file assigns the code owners for a single branch in the reposito
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
+## CODEOWNERS file size
+
+CODEOWNERS files must be under 1 MB in size. A CODEOWNERS file over this limit will not be loaded, causing code owner information not to be shown and for the appropriate code owners not to be requested to review changes in a pull request.
+
+To reduce the size of your CODEOWNERS file, consider using wildcard patterns (see syntax) to consolidate multiple entries into a single entry. 
+
 ## CODEOWNERS syntax
 
 A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
