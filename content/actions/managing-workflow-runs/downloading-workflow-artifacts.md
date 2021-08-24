@@ -37,9 +37,7 @@ shortTitle: Download workflow artifacts
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
-
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 {% data variables.product.prodname_cli %} will download each artifact into separate directories based on the artifact name. If only a single artifact is specified, it will be extracted into the current directory.
 
