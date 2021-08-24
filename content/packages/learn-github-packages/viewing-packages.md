@@ -11,7 +11,7 @@ redirect_from:
 permissions: You must have at least read permissions to view a package.
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

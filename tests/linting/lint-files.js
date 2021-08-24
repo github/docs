@@ -19,7 +19,7 @@ import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
 import { allVersions } from '../../lib/all-versions.js'
-import { supported, next } from '../../lib/enterprise-server-releases.js'
+import { supported, next, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -1102,10 +1102,12 @@ function validateIfversionConditionals(conds) {
             `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
           )
         }
-        // NOTE: The following will throw errors when we deprecate a version until we run the script to remove the
-        // deprecated versioning. If we deprecate a version before we have a working version of that script,
-        // we can comment out this part of the test temporarily and re-enable it once the script is ready.
-        if (!(supported.includes(release) || release === next)) {
+        // Check that the versions in conditionals are supported
+        // versions of GHES or the first deprecated version. Allowing
+        // the first deprecated version to exist in code ensures
+        // allows us to deprecate the version before removing
+        // the old liquid content.
+        if (!(supported.includes(release) || release === next || deprecated[0] === release)) {
           errors.push(
             `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`
           )

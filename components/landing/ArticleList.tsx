@@ -45,10 +45,7 @@ export const ArticleList = ({
         {articles.map((link) => {
           return (
             <li key={link.href} className={cx(variant === 'compact' && 'border-top')}>
-              <Link
-                href={link.href}
-                className="link-with-intro Bump-link--hover no-underline d-block py-3"
-              >
+              <Link href={link.href} className="Bump-link--hover no-underline d-block py-3">
                 <h4 className="link-with-intro-title">
                   <span dangerouslySetInnerHTML={{ __html: link.title }} />
                   <span className="Bump-link-symbol">→</span>

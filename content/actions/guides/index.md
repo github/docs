@@ -16,7 +16,7 @@ redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 learningTracks:
   - getting_started
@@ -59,7 +59,7 @@ includeGuides:
   - /actions/learn-github-actions/security-hardening-for-github-actions
   - /actions/creating-actions/about-actions
   - /actions/creating-actions/creating-a-javascript-action
-  - /actions/creating-actions/creating-a-composite-run-steps-action
+  - /actions/creating-actions/creating-a-composite-action
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions

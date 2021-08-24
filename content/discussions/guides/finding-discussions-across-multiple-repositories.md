@@ -6,7 +6,6 @@ versions:
 shortTitle: Find discussions
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Finding discussions
 
