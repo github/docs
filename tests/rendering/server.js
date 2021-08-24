@@ -687,18 +687,15 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $h2s = $('a.Bump-link--hover')
-      expect($h2s.length).toBeGreaterThan(3)
-      $h2s.each((i, el) => {
-        expect($(el).next()[0].name).toBe('p')
-      })
+      const $bumpLinks = $('[data-testid=bump-link]')
+      expect($bumpLinks.length).toBeGreaterThan(3)
     })
 
     test('map topic intros are parsed', async () => {
       const $ = await getDOM(
         '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $intro = $('a.Bump-link--hover[href*="source-code-migration-tools"] + p')
+      const $intro = $('[data-testid=bump-link][href*="source-code-migration-tools"] > p')
       expect($intro.length).toBe(1)
       expect($intro.html()).toContain('You can use external tools to move your projects to GitHub')
     })
