@@ -122,6 +122,10 @@ Intercom | Intercom Access Token | intercom_access_token{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Ionic | Ionic Refresh Token | ionic_refresh_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Linear | Linear API Key | linear_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
