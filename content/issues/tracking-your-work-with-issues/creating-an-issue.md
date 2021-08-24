@@ -35,14 +35,6 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
 ## Creating an issue from a repository
 
-{% ifversion fpt or ghes or ghae %}
-{% tip %}
-
-**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
@@ -53,6 +45,22 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
+
+## Creating an issue with {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
+
+```shell
+gh issue create --title "My new issue" --body "Here are more details."
+```
+
+You can also specify assignees, labels, milestones, and projects.
+
+```shell
+gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
+```
 
 ## Creating an issue from a comment
 

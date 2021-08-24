@@ -62,7 +62,7 @@ You might fork a project to propose changes to the upstream, or original, reposi
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To create a fork of a repository, use the `gh repo fork` subcommand.
 
@@ -111,7 +111,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To create a clone of your fork, use the `--clone` flag.
 
@@ -173,7 +173,7 @@ Now, you can keep your fork synced with the upstream repository with a few Git c
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To configure a remote repository for the forked repository, use the `--remote` flag.
 
