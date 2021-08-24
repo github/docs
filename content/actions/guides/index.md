@@ -16,7 +16,7 @@ redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 learningTracks:
   - getting_started
@@ -59,7 +59,7 @@ includeGuides:
   - /actions/learn-github-actions/security-hardening-for-github-actions
   - /actions/creating-actions/about-actions
   - /actions/creating-actions/creating-a-javascript-action
-  - /actions/creating-actions/creating-a-composite-run-steps-action
+  - /actions/creating-actions/creating-a-composite-action
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
@@ -73,6 +73,8 @@ includeGuides:
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /actions/guides/managing-github-actions-with-github-cli
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
 children:
   - /about-continuous-integration
   - /setting-up-continuous-integration-using-workflow-templates

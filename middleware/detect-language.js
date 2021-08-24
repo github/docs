@@ -1,26 +1,28 @@
-const languageCodes = Object.keys(require('../lib/languages'))
-const parser = require('accept-language-parser')
+import libLanguages from '../lib/languages.js'
+import parser from 'accept-language-parser'
+const languageCodes = Object.keys(libLanguages)
 
 const chineseRegions = ['CN', 'HK']
 
-function translationExists (language) {
+function translationExists(language) {
   if (language.code === 'zh') {
     return chineseRegions.includes(language.region)
   }
   return languageCodes.includes(language.code)
 }
 
-function getLanguageCode (language) {
+function getLanguageCode(language) {
   return language.code === 'zh' && chineseRegions.includes(language.region) ? 'cn' : language.code
 }
 
-function getUserLanguage (browserLanguages) {
+function getUserLanguage(browserLanguages) {
   try {
     let userLanguage = getLanguageCode(browserLanguages[0])
     let numTopPreferences = 1
     for (let lang = 0; lang < browserLanguages.length; lang++) {
       // If language has multiple regions, Chrome adds the non-region language to list
-      if (lang > 0 && browserLanguages[lang].code !== browserLanguages[lang - 1].code) numTopPreferences++
+      if (lang > 0 && browserLanguages[lang].code !== browserLanguages[lang - 1].code)
+        numTopPreferences++
       if (translationExists(browserLanguages[lang]) && numTopPreferences < 3) {
         userLanguage = getLanguageCode(browserLanguages[lang])
         break
@@ -32,7 +34,7 @@ function getUserLanguage (browserLanguages) {
   }
 }
 
-module.exports = function detectLanguage (req, res, next) {
+export default function detectLanguage(req, res, next) {
   // determine language code from first part of URL, or default to English
   // /en/articles/foo
   //  ^^

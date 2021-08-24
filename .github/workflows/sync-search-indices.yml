@@ -1,0 +1,99 @@
+name: Sync search indexes
+
+# **What it does**: This workflow syncs the Lunr search indexes.
+#   The search indexes are checked into the lib/search/indexes directory.
+#   Search indexes are checked directly into the `main` branch on both the
+#   internal and open-source docs repositories. This workflow should be the
+#   only mechanism that the search indexes are modified. Because of that,
+#   repo-sync will not sync the search indexes because it should not detect
+#   a change.
+# **Why we have it**: We want our search indexes kept up to date.
+# **Who does it impact**: Anyone using search on docs.
+
+# **Testing: To test this workflow, use the workflow_dispatch event and trigger
+#   the workflow from the action tab. Select the branch with the changes to the
+#   workflow. Set `fetch-depth: 0` as an input to the checkout action to get all
+#   branches, including your test branch. Otherwise, you'll only get the main
+#   branch. For git lfs push and git push commands use the --dry-run switch to
+#   prevent pushes (e.g., git push --dry-run origin main --no-verify and
+#   git lfs push --dry-run public-docs-repo).
+#   The dry-run switch does everything but actually send the updates.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '53 0/4 * * *' # Run every four hours at 53 minutes past the hour
+
+jobs:
+  updateIndexes:
+    name: Update indexes
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      # Check out internal docs repository
+      - name: checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          token: ${{ secrets.DOCS_BOT }}
+
+      - name: Setup Node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build scripts
+        run: npm run build
+
+      - name: Update search indexes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run sync-search
+
+      - name: Update private docs repository search indexes
+        # Git pre-push hooks push the LFS objects, so if you don't run them and
+        # don't push the LFS objects manually, the LFS objects won't get
+        # pushed. That will likely result in the push getting rejected.
+        # So if you don't use the pre-push hooks or you run with --no-verify
+        # the LFS objects need to be pushed first.
+        run: |
+          echo 'git config user.name "GitHub Actions"'
+          git config user.name "GitHub Actions"
+          echo 'git config user.email action@github.com'
+          git config user.email action@github.com
+          echo 'git config pull.ff only'
+          git config pull.ff only
+          echo 'git pull origin main --no-verify'
+          git pull origin main --no-verify
+          echo 'git add lib/search/indexes/*'
+          git add lib/search/indexes/*
+          echo 'git commit -m "update search indexes"'
+          git commit -m "update search indexes"
+          echo 'git lfs push --all origin'
+          git lfs push --all origin
+          echo 'git push origin main --no-verify'
+          git push origin main --no-verify
+
+      - name: Update open-source docs repository search indexes
+        # Git pre-push hooks push the LFS objects, so if you don't run them and
+        # don't push the LFS objects manually, the LFS objects won't get
+        # pushed. That will likely result in the push getting rejected.
+        # So if you don't use the pre-push hooks or you run with --no-verify
+        # the LFS objects need to be pushed first.
+        run: |
+          echo 'git remote add public-docs-repo https://github.com/github/docs.git'
+          git remote add public-docs-repo https://github.com/github/docs.git
+          echo 'git lfs push --all public-docs-repo'
+          git lfs push --all public-docs-repo
+
+      - name: Send slack notification if workflow run fails
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: failure()
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last search index workflow run for ${{github.repository}} failed. Search actions for `workflow:search`

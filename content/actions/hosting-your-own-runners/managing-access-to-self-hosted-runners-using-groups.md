@@ -5,7 +5,7 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 shortTitle: Manage access groups
@@ -21,7 +21,7 @@ shortTitle: Manage access groups
 {% ifversion fpt %}
 {% note %}
 
-**Note:** All organizations have a single default self-hosted runner group. Creating and managing additional self-hosted runner groups is only available to enterprise accounts, and for organizations owned by an enterprise account.
+**Note:** All organizations have a single default self-hosted runner group. Only enterprise accounts and organizations owned by enterprise accounts can create and manage additional self-hosted runner groups.
 
 {% endnote %}
 {% endif %}

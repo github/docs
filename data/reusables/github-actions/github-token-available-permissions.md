@@ -8,6 +8,7 @@ permissions:
   deployments: read|write|none
   discussions: read|write|none
   issues: read|write|none
+  discussions: read|write|none
   packages: read|write|none
   pull-requests: read|write|none
   repository-projects: read|write|none

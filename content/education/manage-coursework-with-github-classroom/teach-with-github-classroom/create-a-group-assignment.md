@@ -80,7 +80,7 @@ If you've already created a group assignment for the classroom, you can reuse a 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an online integrated development environment (IDE)](#choosing-an-online-integrated-development-environment-ide)
+- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### Choosing a template repository
 
@@ -88,7 +88,7 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an online integrated development environment (IDE)
+### Choosing an integrated development environment (IDE)
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
@@ -101,16 +101,11 @@ By default, a new assignment will create an empty repository for each team that 
 Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
 
 - [Testing assignments automatically](#testing-assignments-automatically)
-- [Preventing changes to important files](#preventing-changes-to-important-files)
 - [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
 
 ### Testing assignments automatically
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
-
-### Preventing changes to important files
-
-{% data reusables.classroom.assignments-guide-prevent-changes %}
 
 ### Creating a pull request for feedback
 

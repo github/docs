@@ -1,5 +1,5 @@
 ---
-title: GitHub.com
+title: GitHub
 redirect_from:
   - /articles/
   - /common-issues-and-questions/
@@ -35,3 +35,4 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
+

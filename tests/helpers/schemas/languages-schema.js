@@ -1,14 +1,14 @@
-module.exports = {
+export default {
   properties: {
     name: {
       required: true,
       description: 'the English name',
-      type: 'string'
+      type: 'string',
     },
 
     nativeName: {
       description: 'the native name',
-      type: 'string'
+      type: 'string',
     },
 
     code: {
@@ -16,13 +16,13 @@ module.exports = {
       description: 'the code used in the URL',
       type: 'string',
       minLength: 2,
-      maxLength: 2
+      maxLength: 2,
     },
 
     dir: {
       required: true,
       description: 'the local relative path to files in this language',
-      type: 'string'
+      type: 'string',
     },
 
     // https://support.google.com/webmasters/answer/189077
@@ -32,17 +32,17 @@ module.exports = {
       required: true,
       description: 'the ISO 639-1, ISO 3166-1 Alpha 2, or ISO 15924 language code',
       type: 'string',
-      minLength: 2
+      minLength: 2,
     },
 
     redirectPatterns: {
       description: 'array of regular expressions used for redirecting incorrect URLs',
-      type: 'array'
+      type: 'array',
     },
 
     wip: {
       description: 'boolean indicating whether translations are incomplete',
-      type: 'boolean'
-    }
-  }
+      type: 'boolean',
+    },
+  },
 }

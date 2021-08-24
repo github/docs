@@ -7572,14 +7572,6 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
-          "name": "id",
-          "description": "<p>ID of the object.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        },
-        {
           "name": "name",
           "description": "<p>The name of this CWE.</p>",
           "type": "String!",
@@ -15891,6 +15883,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -16455,7 +16457,7 @@
         },
         {
           "name": "defaultRepositoryPermissionSettingOrganizations",
-          "description": "<p>A list of enterprise organizations configured with the provided default repository permission.</p>",
+          "description": "<p>A list of enterprise organizations configured with the provided base repository permission.</p>",
           "type": "OrganizationConnection!",
           "id": "organizationconnection",
           "kind": "objects",
@@ -16601,7 +16603,7 @@
         },
         {
           "name": "isUpdatingDefaultRepositoryPermission",
-          "description": "<p>Whether or not the default repository permission is currently being updated.</p>",
+          "description": "<p>Whether or not the base repository permission is currently being updated.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -29393,7 +29395,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The new default repository permission level for the organization.</p>",
+          "description": "<p>The new base repository permission level for the organization.</p>",
           "type": "OrgUpdateDefaultRepositoryPermissionAuditEntryPermission",
           "id": "orgupdatedefaultrepositorypermissionauditentrypermission",
           "kind": "enums",
@@ -29401,7 +29403,7 @@
         },
         {
           "name": "permissionWas",
-          "description": "<p>The former default repository permission level for the organization.</p>",
+          "description": "<p>The former base repository permission level for the organization.</p>",
           "type": "OrgUpdateDefaultRepositoryPermissionAuditEntryPermission",
           "id": "orgupdatedefaultrepositorypermissionauditentrypermission",
           "kind": "enums",
@@ -31587,6 +31589,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             }
           ]
@@ -37361,7 +37373,7 @@
         },
         {
           "name": "isCollapsed",
-          "description": "<p>Whether or not the thread has been collapsed (outdated or resolved).</p>",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -38940,6 +38952,56 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mentions",
+          "description": "<p>A list of users mentioned in the release description.</p>",
+          "type": "UserConnection",
+          "id": "userconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -43615,6 +43677,14 @@
           ]
         },
         {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRules",
           "description": "<p>A list of branch protection rules for this repository.</p>",
           "type": "BranchProtectionRuleConnection!",
@@ -46798,7 +46868,7 @@
       "kind": "objects",
       "id": "repositoryvulnerabilityalert",
       "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
-      "description": "<p>A alert for a repository with an affected vulnerability.</p>",
+      "description": "<p>A Dependabot alert for a repository with a dependency affected by a security vulnerability.</p>",
       "implements": [
         {
           "name": "Node",
@@ -58898,7 +58968,7 @@
       "kind": "enums",
       "id": "defaultrepositorypermissionfield",
       "href": "/graphql/reference/enums#defaultrepositorypermissionfield",
-      "description": "<p>The possible default permissions for repositories.</p>",
+      "description": "<p>The possible base permissions for repositories.</p>",
       "values": [
         {
           "name": "ADMIN",
@@ -59124,7 +59194,7 @@
       "kind": "enums",
       "id": "enterprisedefaultrepositorypermissionsettingvalue",
       "href": "/graphql/reference/enums#enterprisedefaultrepositorypermissionsettingvalue",
-      "description": "<p>The possible values for the enterprise default repository permission setting.</p>",
+      "description": "<p>The possible values for the enterprise base repository permission setting.</p>",
       "values": [
         {
           "name": "ADMIN",
@@ -59136,7 +59206,7 @@
         },
         {
           "name": "NO_POLICY",
-          "description": "<p>Organizations in the enterprise choose default repository permissions for their members.</p>"
+          "description": "<p>Organizations in the enterprise choose base repository permissions for their members.</p>"
         },
         {
           "name": "READ",
@@ -60292,6 +60362,10 @@
         {
           "name": "DISABLED",
           "description": "<p>Members will not be able to create public or private repositories.</p>"
+        },
+        {
+          "name": "INTERNAL",
+          "description": "<p>Members will be able to create only internal repositories.</p>"
         },
         {
           "name": "PRIVATE",

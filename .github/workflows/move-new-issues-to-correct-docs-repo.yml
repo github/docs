@@ -48,7 +48,7 @@ jobs:
               owner: owner,
               repo: originalRepo,
               issue_number: issueNo,
-              body: `👋  You opened this issue in `${context.repo.repo}`. Moving forward, we're asking that folks create new issues in the following repositories instead:\n- For issues with the docs site, please submit to the [${process.env.TEAM_ENGINEERING_REPO}](/${owner}/${process.env.TEAM_ENGINEERING_REPO}) repo.\n- For all new content issues, please submit to the [${process.env.TEAM_CONTENT_REPO}](/${owner}/${process.env.TEAM_CONTENT_REPO}) repo.\n\nWe will transfer this issue for you!`
+              body: `👋  You opened this issue in '${context.repo.repo}'. Moving forward, we're asking that folks create new issues in the following repositories instead:\n- For issues with the docs site, please submit to the [${process.env.TEAM_ENGINEERING_REPO}](/${owner}/${process.env.TEAM_ENGINEERING_REPO}) repo.\n- For all new content issues, please submit to the [${process.env.TEAM_CONTENT_REPO}](/${owner}/${process.env.TEAM_CONTENT_REPO}) repo.\n\nWe will transfer this issue for you!`
             })
 
             // Transfer the issue to the correct repo

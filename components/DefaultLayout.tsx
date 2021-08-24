@@ -1,24 +1,25 @@
 import Head from 'next/head'
 
-import { SidebarNav } from 'components/SidebarNav'
-import { Header } from 'components/Header'
-import { SmallFooter } from 'components/SmallFooter'
+import { SidebarNav } from 'components/sidebar/SidebarNav'
+import { Header } from 'components/page-header/Header'
+import { SmallFooter } from 'components/page-footer/SmallFooter'
 import { ScrollButton } from 'components/ScrollButton'
-import { SupportSection } from 'components/SupportSection'
-import { DeprecationBanner } from 'components/DeprecationBanner'
+import { SupportSection } from 'components/page-footer/SupportSection'
+import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from './hooks/useTranslation'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
-  const { page, error, isHomepageVersion } = useMainContext()
+  const { page, error, isHomepageVersion, currentPathWithoutLanguage } = useMainContext()
   const { t } = useTranslation('errors')
   return (
     <div className="d-lg-flex">
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
-        ) : !isHomepageVersion && page.fullTitle ? (
+        ) : (!isHomepageVersion && page.fullTitle) ||
+          (currentPathWithoutLanguage.includes('enterprise-server') && page.fullTitle) ? (
           <title>{page.fullTitle}</title>
         ) : null}
 

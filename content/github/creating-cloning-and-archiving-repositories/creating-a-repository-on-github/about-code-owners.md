@@ -41,7 +41,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 
 ## CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 ### Example of a CODEOWNERS file
@@ -66,6 +66,12 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # emails.
 *.go docs@example.com
 
+# Teams can be specified as code owners as well. Teams should
+# be identified in the format @org/team-name. Teams must have
+# explicit write access to the repository. In this example,
+# the octocats team in the octo-org organization owns all .txt files.
+*.txt @octo-org/octocats
+
 # In this example, @doctocat owns any files in the build/logs
 # directory at the root of the repository and any of its
 # subdirectories.
@@ -84,12 +90,41 @@ apps/ @octocat
 # directory in the root of your repository and any of its
 # subdirectories.
 /docs/ @doctocat
+
+# In this example, @octocat owns any file in the `/apps` 
+# directory in the root of your repository except for the `/apps/github` 
+# subdirectory, as its owners are left empty.
+/apps/ @octocat
+/apps/github 
 ```
 ### Syntax exceptions
 There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
 - Using `[ ]` to define a character range
+
+## CODEOWNERS and branch protection
+Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." 
+
+
+### Example of a CODEOWNERS file
+```
+# In this example, any change inside the `/apps` directory
+# will require approval from @doctocat.
+/apps/ @doctocat
+
+# In this example, any change inside the `/apps` directory
+# will require approval from @doctocat or @octocat.
+/apps/ @doctocat @octocat
+
+# In this example, any change inside the `/apps` directory
+# will require approval from a member of the @example-org/content team.
+# If a member of @example-org/content opens a pull request 
+# with a change inside the `/apps` directory, their approval is implicit.
+# The team is still added as a reviewer but not a required reviewer.
+# Anyone can approve the changes.
+/apps/ @example-org/content-team
+```
 
 
 

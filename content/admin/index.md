@@ -8,7 +8,7 @@ changelog:
   label: enterprise
 featuredLinks:
   guides:
-    - '{% ifversion ghae %}/admin/overview/managing-billing-for-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
@@ -27,7 +27,7 @@ featuredLinks:
     - '{% ifversion ghes %}/admin/installation{% endif %}'
     - '{% ifversion ghae %}/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
     - '{% ifversion ghae %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
-    - '{% ifversion ghes %}/admin/overview/managing-your-github-enterprise-license{% endif %}'
+    - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/command-line-utilities{% endif %}'
     - /admin/enterprise-support/about-github-enterprise-support
 layout: product-landing
