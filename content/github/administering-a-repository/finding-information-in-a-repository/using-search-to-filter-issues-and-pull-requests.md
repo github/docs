@@ -60,7 +60,7 @@ For pull requests, you can also use search to:
 
 {% note %}
 
-**Note:** {% data reusables.pull_requests.large-search-workaround %} You can limit your search with the `org:`, `user:`, or `repo:` qualifiers. For more information, see "[Searching issues and pull requests](/articles/searching-issues)"
+**Note:** {% data reusables.pull_requests.large-search-workaround %} You can limit your search with the `org:`, `user:`, or `repo:` qualifiers. For more information, see "[Searching issues and pull requests](/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories)."
 
 {% endnote %}
 
