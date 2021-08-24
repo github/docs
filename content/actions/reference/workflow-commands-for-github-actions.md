@@ -142,7 +142,7 @@ echo "::debug::Set the Octocat variable"
 
 `::warning file={name},line={line},col={col}::{message}`
 
-Creates a warning message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the warning occurred.
+Creates a warning message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the warning occurred. Line and column numbers start at 1.
 
 ### Example
 
@@ -154,7 +154,7 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 `::error file={name},line={line},col={col}::{message}`
 
-Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the error occurred.
+Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the error occurred. Line and column numbers start at 1.
 
 ### Example
 
