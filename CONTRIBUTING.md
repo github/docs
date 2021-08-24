@@ -126,7 +126,7 @@ Labels can help you find an issue you'd like to help with.
 - The [`engineering` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Aengineering) is for problems or updates in the docs.github.com website. These will usually require some knowledge of JavaScript/Node.js or YAML to fix.
 
 ## Opening a pull request
-You can use the GitHub user interface :pencil2: for some small changes, like fixing a typo or updating a readme. You can also fork the repo and then clone it locally, to view changes and run your tests on your machine.
+You can use the GitHub user interface :EkoRizki: for some small changes, like fixing a typo or updating a readme. You can also fork the repo and then clone it locally, to view changes and run your tests on your machine.
 
 ## Working in the github/docs repository
 Here's some information that might be helpful while working on a Docs PR:
