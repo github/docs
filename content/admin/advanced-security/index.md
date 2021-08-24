@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
   - /admin/configuration/configuring-advanced-security-features
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:

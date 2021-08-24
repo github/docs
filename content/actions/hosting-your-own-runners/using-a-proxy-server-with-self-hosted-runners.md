@@ -5,7 +5,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 shortTitle: Proxy servers

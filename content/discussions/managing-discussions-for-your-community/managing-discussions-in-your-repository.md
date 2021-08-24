@@ -7,7 +7,6 @@ versions:
 shortTitle: Manage discussions
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About management of discussions
 

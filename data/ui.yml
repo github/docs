@@ -29,6 +29,8 @@ release_notes:
 search:
   need_help: Need help?
   placeholder: Search topics, products...
+  loading: Loading
+  no_results: No results found
 homepage:
   explore_by_product: Explore by product
   version_picker: Version

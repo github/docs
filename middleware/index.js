@@ -144,16 +144,6 @@ export default function (app) {
     )
   )
   app.use(
-    '/storybook',
-    express.static('storybook', {
-      index: false,
-      etag: false,
-      immutable: true,
-      lastModified: false,
-      maxAge: '1 day', // Relatively short in case we update index.html
-    })
-  )
-  app.use(
     '/assets',
     express.static('assets', {
       index: false,

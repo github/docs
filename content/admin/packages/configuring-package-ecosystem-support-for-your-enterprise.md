@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

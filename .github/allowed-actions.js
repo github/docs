@@ -27,6 +27,7 @@ export default [
   'peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e',
   'peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd',
   'peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43',
+  'peter-evans/find-comment@0da1f4fc1f20cd898368bd56089d391df418f52f',
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',

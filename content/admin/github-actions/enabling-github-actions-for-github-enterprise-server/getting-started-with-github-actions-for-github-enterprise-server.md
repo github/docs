@@ -8,7 +8,7 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Actions

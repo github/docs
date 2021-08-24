@@ -5,7 +5,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
   - /workflow-syntax-for-github-actions

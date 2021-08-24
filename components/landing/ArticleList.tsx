@@ -5,6 +5,7 @@ import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink } from 'components/context/ProductLandingContext'
 import { TruncateLines } from 'components/TruncateLines'
+import { BumpLink } from 'components/ui/BumpLink'
 
 type Props = {
   title?: string
@@ -45,21 +46,26 @@ export const ArticleList = ({
         {articles.map((link) => {
           return (
             <li key={link.href} className={cx(variant === 'compact' && 'border-top')}>
-              <Link
+              <BumpLink
+                as={Link}
                 href={link.href}
-                className="link-with-intro Bump-link--hover no-underline d-block py-3"
+                className="py-3"
+                title={
+                  <h4 data-testid="link-with-intro-title">
+                    <span dangerouslySetInnerHTML={{ __html: link.title }} />
+                  </h4>
+                }
               >
-                <h4 className="link-with-intro-title">
-                  <span dangerouslySetInnerHTML={{ __html: link.title }} />
-                  <span className="Bump-link-symbol">→</span>
-                </h4>
                 {!link.hideIntro && link.intro && (
                   <TruncateLines
                     as="p"
                     maxLines={variant === 'spaced' ? 6 : 2}
-                    className="link-with-intro-intro color-text-secondary mb-0 mt-1"
+                    className="color-text-secondary mb-0 mt-1"
                   >
-                    <span dangerouslySetInnerHTML={{ __html: link.intro }} />
+                    <span
+                      data-testid="link-with-intro-intro"
+                      dangerouslySetInnerHTML={{ __html: link.intro }}
+                    />
                   </TruncateLines>
                 )}
                 {link.date && (
@@ -70,7 +76,7 @@ export const ArticleList = ({
                     {dayjs(link.date).format('MMMM DD')}
                   </time>
                 )}
-              </Link>
+              </BumpLink>
             </li>
           )
         })}
