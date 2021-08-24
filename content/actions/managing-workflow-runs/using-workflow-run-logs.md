@@ -112,7 +112,7 @@ After the logs have been deleted, the **Delete all logs** button is removed to i
 
 ## Viewing logs with {% data variables.product.prodname_cli %}
 
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
 
