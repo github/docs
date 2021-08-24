@@ -28,10 +28,7 @@ describe('sidebar', () => {
     ).toBe('GitHub')
   })
 
-  test('includes links to external products like the CLI, Atom, Electron, and CodeQL', async () => {
-    expect($homePage('[data-testid=sidebar] a[href="https://cli.github.com/manual"]')).toHaveLength(
-      1
-    )
+  test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
     expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
     expect($homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs"]')).toHaveLength(1)
     expect(
