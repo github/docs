@@ -15,6 +15,7 @@ featuredLinks:
 versions: '*'
 children:
   - get-started
+  - account-and-profile
   - github
   - admin
   - billing
