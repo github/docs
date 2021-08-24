@@ -13,6 +13,28 @@ jobs:
   PR-Preview-Links:
     name: Add staging/live links to PR
     runs-on: ubuntu-latest
+    outputs:
+      filterContentDir: ${{ steps.filter.outputs.filterContentDir }}
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: ${{ github.event.pull_request.base.ref }}
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            filterContentDir:
+              - 'content/**'
+  filterContentDir:
+    needs: PR-Preview-Links
+    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
+    runs-on: ubuntu-latest
     steps:
       - name: check out repo content
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
@@ -80,7 +102,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: Content Directory Changes
+          body-includes: '## ⚠️ Automatically generated comment ⚠️'
 
       - name: Update comment
         uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
