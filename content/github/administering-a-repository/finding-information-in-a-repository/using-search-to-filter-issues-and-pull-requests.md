@@ -60,7 +60,7 @@ For pull requests, you can also use search to:
 
 {% note %}
 
-**Note:** {% data reusables.pull_requests.large-search-workaround %} You can do this by adding the `org:`, `user:`, or `repo:` qualifier to your search.
+**Note:** {% data reusables.pull_requests.large-search-workaround %} You can limit your search with the `org:`, `user:`, or `repo:` qualifiers. 
 
 {% endnote %}
 
