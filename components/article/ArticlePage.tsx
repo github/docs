@@ -47,7 +47,12 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <div className="lead-mktg" dangerouslySetInnerHTML={{ __html: intro }} />}
+              {intro && (
+                <div
+                  className="lead-mktg markdown-body mb-3"
+                  dangerouslySetInnerHTML={{ __html: intro }}
+                />
+              )}
 
               {permissions && (
                 <div
