@@ -34,7 +34,7 @@ Only organization owners can remove members from an organization.
 
 **Warning:** When you remove members from an organization:
  - Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
- - For customers with [Enterprise Account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts), removed members will lose access to private forks of your organization's internal repositories, but only when the removed member is not a member of another organization under that Enterprise Account.
+ - In addition, for customers with [Enterprise Accounts](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts), removed members will lose access to private forks of your organization's internal repositories in this manner when and only when the removed member is not a member of another organization under that Enterprise Account.
  - Any organization invitations sent by the removed user, that have not been accepted, are cancelled and will not be accessible.
 
 {% endwarning %}
