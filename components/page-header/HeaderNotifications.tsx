@@ -12,7 +12,6 @@ enum NotificationType {
   RELEASE = 'RELEASE',
   TRANSLATION = 'TRANSLATION',
   EARLY_ACCESS = 'EARLY_ACCESS',
-  FEATURE = 'FEATURE',
 }
 
 type Notif = {
@@ -72,13 +71,6 @@ export const HeaderNotifications = () => {
     })
   }
 
-  const featureNotices: Array<Notif> = []
-  if (router.asPath.startsWith('/codespaces') && router.locale === 'en') {
-    featureNotices.push({
-      type: NotificationType.FEATURE,
-      content: `🎉 Codespaces is now available for Teams and Enterprise Cloud plans. Read <a href="https://github.co/codespaces-quickstart">how to get started</a>.`,
-    })
-  }
   const allNotifications: Array<Notif> = [
     ...translationNotices,
     ...releaseNotices,
@@ -89,7 +81,6 @@ export const HeaderNotifications = () => {
           content: t('notices.early_access'),
         }
       : null,
-    ...featureNotices,
   ].filter(ExcludesNull)
 
   return (
@@ -107,7 +98,6 @@ export const HeaderNotifications = () => {
               type === NotificationType.TRANSLATION && 'color-bg-info',
               type === NotificationType.RELEASE && 'color-bg-info',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
-              type === NotificationType.FEATURE && 'color-bg-info',
               !isLast && 'border-bottom color-border-tertiary'
             )}
             dangerouslySetInnerHTML={{ __html: content }}

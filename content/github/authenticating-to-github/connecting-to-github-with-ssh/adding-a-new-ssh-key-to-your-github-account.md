@@ -133,7 +133,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To add an SSH key to your GitHub account, use the `ssh-key add` subcommand.
 

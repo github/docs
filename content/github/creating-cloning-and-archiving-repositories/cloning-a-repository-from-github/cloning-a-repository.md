@@ -36,7 +36,7 @@ You can clone your existing repository or clone another person's existing reposi
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
 

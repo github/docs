@@ -28,9 +28,7 @@ shortTitle: View workflow run history
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
-
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 ### Viewing recent workflow runs
 
