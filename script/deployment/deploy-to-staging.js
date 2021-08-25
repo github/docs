@@ -8,10 +8,11 @@ const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
 export default async function deployToStaging({
-  herokuToken,
   octokit,
   pullRequest,
   forceRebuild = false,
+  // These parameters will only be set by Actions
+  sourceBlobUrl = null,
   runId = null,
 }) {
   // Start a timer so we can report how long the deployment takes
@@ -34,6 +35,25 @@ export default async function deployToStaging({
   // Verify the PR is still open
   if (state !== 'open') {
     throw new Error(`This pull request is not open. State is: '${state}'`)
+  }
+
+  // Put together application configuration variables
+  const isPrivateRepo = owner === 'github' && repo === 'docs-internal'
+  const isPrebuilt = !!sourceBlobUrl
+  const { DOCUBOT_REPO_PAT, HYDRO_ENDPOINT, HYDRO_SECRET } = process.env
+  const appConfigVars = {
+    // Track the git branch
+    GIT_BRANCH: branch,
+    // If prebuilt: prevent the Heroku Node.js buildpack from installing devDependencies
+    NPM_CONFIG_PRODUCTION: isPrebuilt.toString(),
+    // If prebuilt: prevent the Heroku Node.js buildpack from using `npm ci` as it would
+    // delete all of the vendored "node_modules/" directory.
+    USE_NPM_INSTALL: isPrebuilt.toString(),
+    // IMPORTANT: These secrets should only be set in the private repo!
+    // This is only required for cloning the `docs-early-access` repo
+    ...(isPrivateRepo && !isPrebuilt && DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT }),
+    // These are required for Hydro event tracking
+    ...(isPrivateRepo && HYDRO_ENDPOINT && HYDRO_SECRET && { HYDRO_ENDPOINT, HYDRO_SECRET }),
   }
 
   const workflowRunLog = runId ? `https://github.com/${owner}/${repo}/actions/runs/${runId}` : null
@@ -97,22 +117,8 @@ export default async function deployToStaging({
     })
     console.log('🚀 Deployment status: in_progress - Preparing to deploy the app...')
 
-    // Get a URL for the tarballed source code bundle
-    const {
-      headers: { location: tarballUrl },
-    } = await octokit.repos.downloadTarballArchive({
-      owner,
-      repo,
-      ref: sha,
-      // Override the underlying `node-fetch` module's `redirect` option
-      // configuration to prevent automatically following redirects.
-      request: {
-        redirect: 'manual',
-      },
-    })
-
     // Time to talk to Heroku...
-    const heroku = new Heroku({ token: herokuToken })
+    const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
     let appSetup = null
     let build = null
 
@@ -140,6 +146,19 @@ export default async function deployToStaging({
       }
     }
 
+    if (!sourceBlobUrl) {
+      try {
+        sourceBlobUrl = await getTarballUrl({
+          octokit,
+          owner,
+          repo,
+          sha,
+        })
+      } catch (error) {
+        throw new Error(`Failed to generate source blob URL. Error: ${error}`)
+      }
+    }
+
     // If an app does not exist, create one!
     // This action will also trigger a build as a by-product.
     if (!appExists) {
@@ -151,31 +170,19 @@ export default async function deployToStaging({
 
       const appSetupStartTime = Date.now()
       try {
-        // IMPORTANT: These secrets should only be set in the private repo!
-        const { DOCUBOT_REPO_PAT, HYDRO_ENDPOINT, HYDRO_SECRET } = process.env
-        const secretEnvVars = {
-          // This is required for cloning the `docs-early-access` repo
-          ...(DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT }),
-          // These are required for Hydro event tracking
-          ...(HYDRO_ENDPOINT && HYDRO_SECRET && { HYDRO_ENDPOINT, HYDRO_SECRET }),
-        }
-
         appSetup = await heroku.post('/app-setups', {
           body: {
             app: {
               name: appName,
             },
             source_blob: {
-              url: tarballUrl,
+              url: sourceBlobUrl,
             },
 
-            // Pass some secret environment variables to staging apps via Heroku
+            // Pass some environment variables to staging apps via Heroku
             // config variables.
             overrides: {
-              env: {
-                ...secretEnvVars,
-                GIT_BRANCH: branch,
-              },
+              env: appConfigVars,
             },
           },
         })
@@ -210,8 +217,12 @@ export default async function deployToStaging({
       // Poll until there is a Build object attached to the AppSetup.
       while (!build || !build.id) {
         await sleep(SLEEP_INTERVAL)
-        appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
-        build = appSetup.build
+        try {
+          appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
+          build = appSetup.build
+        } catch (error) {
+          throw new Error(`Failed to get AppSetup status. Error: ${error}`)
+        }
 
         console.log(
           `AppSetup status: ${appSetup.status} (after ${Math.round(
@@ -223,13 +234,28 @@ export default async function deployToStaging({
       console.log('Heroku build detected', build)
     } else {
       // If the app does exist, just manually trigger a new build
-      console.log(`Heroku app '${appName}' already exists. Building...`)
+      console.log(`Heroku app '${appName}' already exists.`)
+
+      console.log('Updating Heroku app configuration variables...')
+
+      // Reconfigure environment variables
+      // https://devcenter.heroku.com/articles/platform-api-reference#config-vars-update
+      try {
+        await heroku.patch(`/apps/${appName}/config-vars`, {
+          body: appConfigVars,
+        })
+      } catch (error) {
+        throw new Error(`Failed to update Heroku app configuration variables. Error: ${error}`)
+      }
+
+      console.log('Reconfigured')
+      console.log('Building Heroku app...')
 
       try {
         build = await heroku.post(`/apps/${appName}/builds`, {
           body: {
             source_blob: {
-              url: tarballUrl,
+              url: sourceBlobUrl,
             },
           },
         })
@@ -336,6 +362,12 @@ export default async function deployToStaging({
         const dynoList = await heroku.get(`/apps/${appName}/dynos`)
         const dynosForThisRelease = dynoList.filter((dyno) => dyno.release.id === releaseId)
 
+        // To track them afterward
+        newDynos = dynosForThisRelease
+
+        // Dynos for this release OR a newer release
+        const relevantDynos = dynoList.filter((dyno) => dyno.release.version >= release.version)
+
         // If this Heroku app was just newly created, often a secondary release
         // is requested to enable automatically managed SSL certificates. The
         // release description will read:
@@ -343,7 +375,7 @@ export default async function deployToStaging({
         //
         // If that is the case, we need to update to monitor that secondary
         // release instead.
-        if (newDynos.length > 0 && dynosForThisRelease.length === 0) {
+        if (relevantDynos.length > 0 && dynosForThisRelease.length === 0) {
           // If the app is NOT newly created, fail fast!
           if (!appIsNewlyCreated) {
             throw new Error('The dynos for this release disappeared unexpectedly')
@@ -379,7 +411,6 @@ export default async function deployToStaging({
           // else just keep monitoring and hope for the best
         }
 
-        newDynos = dynosForThisRelease
         console.log(
           `Dyno states: ${JSON.stringify(newDynos.map((dyno) => dyno.state))} (after ${Math.round(
             (Date.now() - dynoBootStartTime) / 1000
@@ -522,4 +553,21 @@ export default async function deployToStaging({
     // Re-throw the error to bubble up
     throw error
   }
+}
+
+async function getTarballUrl({ octokit, owner, repo, sha }) {
+  // Get a URL for the tarballed source code bundle
+  const {
+    headers: { location: tarballUrl },
+  } = await octokit.repos.downloadTarballArchive({
+    owner,
+    repo,
+    ref: sha,
+    // Override the underlying `node-fetch` module's `redirect` option
+    // configuration to prevent automatically following redirects.
+    request: {
+      redirect: 'manual',
+    },
+  })
+  return tarballUrl
 }
