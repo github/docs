@@ -31,6 +31,8 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 You can also enable team synchronization for organizations owned by an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)."
 
+{% data reusables.identity-and-permissions.team-sync-usage-limits %}
+
 ## Enabling team synchronization
 
 The steps to enable team synchronization depend on the IdP you want to use. There are prerequisites to enable team synchronization that apply to every IdP. Each individual IdP has additional prerequisites.
