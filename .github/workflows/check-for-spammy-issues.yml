@@ -23,7 +23,7 @@ jobs:
             const repo = 'docs'
 
             const titleWordCount = issue.title.trim().split(' ').length
-            const titleWordCountMin = 2
+            const titleWordCountMin = 3
 
             try {
               await github.teams.getMembershipForUserInOrg({
@@ -35,18 +35,18 @@ jobs:
               // Do not perform this workflow with GitHub employees. This return
               // statement only gets hit if the user is a GitHub employee
               return
-            } catch(err) {
+            } catch (err) {
               // An error will be thrown if the user is not a GitHub employee
               // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
 
-              if(titleWordCount > titleWordCountMin) {
+              if (titleWordCount >= titleWordCountMin) {
                 return
               }
             }
 
             //
             // Assuming the user is not a GitHub employee and the issue title
-            // has the minimum number of words required, proceed.
+            // does not contain the minimum number of words required, proceed.
             //
 
             // Close the issue and add the invalid label
@@ -63,7 +63,7 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: "This issue appears to have been opened accidentally. I'm going to close it now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title or ask any questions in [discussions](https://github.com/github/docs/discussions)!`
             });
 
             // Add the issue to the Done column on the triage board
