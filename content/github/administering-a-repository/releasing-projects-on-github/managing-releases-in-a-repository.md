@@ -39,10 +39,18 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% data reusables.repositories.releases %}
 3. Click **Draft a new release**.
    ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
-4. Type a version number for your release. Versions are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging). We recommend naming tags that fit within [semantic versioning](http://semver.org/).
-   ![Releases tagged version](/assets/images/help/releases/releases-tag-version.png)
+4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release.
+   {% ifversion fpt %}
+   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+1. Click **Create new tag**.
+![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+   {% else %}
+   ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
+{% endif %}
 5. Use the drop-down menu to select the branch that contains the project you want to release.
-   ![Releases tagged branch](/assets/images/help/releases/releases-tag-branch.png)
+   {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
+   {% endif %}
 6. Type a title and description for your release.
    ![Releases description](/assets/images/help/releases/releases_description.png)
 7. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
