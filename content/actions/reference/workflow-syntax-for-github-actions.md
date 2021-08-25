@@ -1243,6 +1243,12 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
+
 ## `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
@@ -1332,6 +1338,12 @@ volumes:
 ## `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
 
 ## Filter pattern cheat sheet
 
