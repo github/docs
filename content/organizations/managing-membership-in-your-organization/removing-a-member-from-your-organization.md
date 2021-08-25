@@ -23,6 +23,7 @@ Only organization owners can remove members from an organization.
 **Warning:** When you remove members from an organization:
 - The paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
 - Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+- For customers with [Enterprise Account](/articles/managing-your-enterprise-account/about-enterprise-accounts/), removed members will lose access to private forks of your organization's internal repositories, but only when the removed member is not a member of another organization under that Enterprise Account.
 - Any organization invitations sent by a removed member, that have not been accepted, are cancelled and will not be accessible.
 
 {% endwarning %}
