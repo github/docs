@@ -43,9 +43,6 @@ Below is a list of some of the available keyboard shortcuts.
 
 | Keyboard shortcut | Description
 |-----------|------------|
-{% ifversion fpt %}
-|<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see [Web-based editor](/codespaces/developing-in-codespaces/web-based-editor).
-{% endif %}
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
@@ -59,7 +56,8 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>control z</kbd> or <kbd>command z</kbd> | Undo
 |<kbd>control y</kbd> or <kbd>command y</kbd> | Redo
 |<kbd>cmd + shift + p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
-|<kbd>control s</kbd> or <kbd>command s</kbd> | Write a commit message
+|<kbd>control s</kbd> or <kbd>command s</kbd> | Write a commit message {% ifversion fpt %}
+|<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see [Web-based editor](/codespaces/developing-in-codespaces/web-based-editor).{% endif %}
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
