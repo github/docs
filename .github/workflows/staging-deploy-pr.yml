@@ -65,6 +65,7 @@ jobs:
         uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
         with:
           files: ${{ env.EARLY_ACCESS_SCRIPT_PATH }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Add any dependencies that are needed for this workflow below
       - if: ${{ github.repository == 'github/docs-internal' }}
