@@ -52,7 +52,11 @@ export const ArticleList = ({
                 className="py-3"
                 title={
                   <h4 data-testid="link-with-intro-title">
-                    <span dangerouslySetInnerHTML={{ __html: link.title }} />
+                    <span
+                      dangerouslySetInnerHTML={
+                        link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                      }
+                    />
                   </h4>
                 }
               >
