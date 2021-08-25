@@ -108,12 +108,9 @@ For more information on enabling and configuring {% data variables.product.prodn
 {% data reusables.getting-started.github-pages-enterprise %}
 
 ## Part 5: Connecting with other {% data variables.product.prodname_dotcom %} resources
-You can use {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_insights %} to share resources and understand and improve your processes.
+You can use {% data variables.product.prodname_github_connect %} to share resources.
 
-### 1. Enabling {% data variables.product.prodname_github_connect %}
 If you are the owner of both a {% data variables.product.product_name %} instance and a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account, you can enable {% data variables.product.prodname_github_connect %}. {% data variables.product.prodname_github_connect %} allows you to share specific workflows and features between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %}, such as unified search and contributions. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)."
-### 2. Using {% data variables.product.prodname_insights %}
-{% data variables.product.prodname_insights %} is a standalone application that provides analytic reports and metrics based on data from {% data variables.product.product_location %}. You can use these reports to understand and improve your software delivery process. For more information, see "[About {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights)."
 
 ## Part 6: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
 Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing {% data variables.product.product_location %} with {% data variables.product.prodname_dotcom %} Enterprise Support.
