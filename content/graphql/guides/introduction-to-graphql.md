@@ -120,6 +120,12 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
 
+  {% note %}
+
+  **Note**: You may get a `"message": "Bad credentials"` or `401 Unauthorized` response - if so please follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. 
+
+  {% endnote %}
+  
   Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
 
   ```shell
@@ -130,12 +136,6 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   {% note %}
 
   **Note**: The introspection query is probably the only `GET` request you'll run in GraphQL. If you're passing a body, the GraphQL request method is `POST`, whether it's a query or a mutation.
-
-  {% endnote %}
-
-  {% note %}
-
-  **Note**: You may get a `"message": "Bad credentials"` or `401 Unauthorized` response - if so please follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. 
 
   {% endnote %}
 
