@@ -102,7 +102,7 @@ You can update the access policy of a runner group, or rename a runner group.
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
     
 ## Creating a self-hosted runner in a group
-You can use the configuration script on the self-hosted runner to create it in a runner group. For example, this command creates a self-hosted runner in the runner group `rg-runnergroup`.
+You can use the configuration script on the self-hosted runner to create the runner in a group. For example, this command creates a self-hosted runner in the runner group `rg-runnergroup`.
 
 ```sh
 ./config.sh --url $org_or_enterprise_url --token $token --runnergroup rg-runnergroup
