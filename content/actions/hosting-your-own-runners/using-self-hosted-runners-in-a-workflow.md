@@ -74,5 +74,5 @@ When routing a job to a self-hosted runner, {% data variables.product.prodname_d
 2. The job is then sent to the first matching runner that is online and idle.
    - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
    - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
+   - If there are no matching runners at any level, the job will remain queued until one of the above conditions is met.
    - If the job remains queued for more than 24 hours, the job will fail.
