@@ -135,7 +135,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   {% note %}
 
-  **Note**: You might be getting a `"message": "Bad credentials"` or `401 Unauthorized` response at this point - if so please follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. 
+  **Note**: You may get a `"message": "Bad credentials"` or `401 Unauthorized` response - if so please follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. 
 
   {% endnote %}
 
