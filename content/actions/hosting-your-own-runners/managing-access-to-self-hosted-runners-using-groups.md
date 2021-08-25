@@ -108,7 +108,7 @@ You can use the configuration script on the self-hosted runner to create the run
 ./config.sh --url $org_or_enterprise_url --token $token --runnergroup rg-runnergroup
 ```
 
-The script fails if the runnergroup doesn't exist.
+The script fails if the runner group doesn't exist.
 
 ## Moving a self-hosted runner to a group
 
