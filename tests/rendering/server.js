@@ -630,16 +630,6 @@ describe('server', () => {
       expect(res.headers.location).toBe('https://desktop.github.com')
     })
 
-    test('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
-      const res = await get(
-        '/en/insights/installing-and-configuring-github-insights/about-github-insights'
-      )
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
-      )
-    })
-
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
     // we can reenable it down the road if needed
     test.skip('redirects versioned category page', async () => {
