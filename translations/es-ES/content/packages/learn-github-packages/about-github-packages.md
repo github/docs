@@ -14,9 +14,11 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### About {% data variables.product.prodname_registry %}
+### Acerca de {% data variables.product.prodname_registry %}
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management and billing, so you can centralize your software development on {% data variables.product.product_name %}.
+{% data variables.product.prodname_registry %} es una plataforma para alojar y gestionar paquetes, incluyendo contenedores y otras dependencias. {% data variables.product.prodname_registry %} combina su código fuente y sus paquetes en un solo lugar para proporcionar una gestión de permisos y una facturación integradas, para que pueda centralizar su desarrollo de software en {% data variables.product.product_name %}.
+
+Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
 
 You can integrate {% data variables.product.prodname_registry %} with {% data variables.product.product_name %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
 
