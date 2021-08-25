@@ -29,4 +29,8 @@ Once you enable GPG verification, it will immediately take effect for all your c
   !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
 
 
-> Note: once you have enabled this setting, ensure the "Git: Always Sign Off" and "Git: Enable Commit Signing" are enabled from the Visual Studio Code interface.
+{% note %}
+
+**Note:** Once you have enabled this setting, ensure the "Git: Always Sign Off" and "Git: Enable Commit Signing" are enabled from the Visual Studio Code interface.
+
+{% endnote %}
