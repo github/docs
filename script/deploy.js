@@ -12,27 +12,27 @@
 //    variable if you want to support content from the `docs-early-access` repo
 //
 // Examples:
-//  - Deploy a PR to Staging:
-//      script/deploy --staging https://github.com/github/docs-internal/pull/12345
+//  - Deploy a PR to Staging and force the Heroku App to be rebuilt from scratch (by default):
+//      script/deploy.js --staging https://github.com/github/docs/pull/9876
 //
-//  - Deploy a PR to Staging and force the Heroku App to be rebuilt from scratch:
-//      script/deploy --staging https://github.com/github/docs/pull/9876 --rebuild
+//  - Deploy a PR to Staging and DO NOT rebuild the Heroku App:
+//      script/deploy.js --staging https://github.com/github/docs-internal/pull/12345 --no-rebuild
 //
 //  - Undeploy a PR from Staging by deleting the Heroku App:
-//      script/deploy --staging https://github.com/github/docs/pull/9876 --destroy
+//      script/deploy.js --staging https://github.com/github/docs/pull/9876 --destroy
 //
 //  - Deploy the latest from docs-internal `main` to production:
-//      script/deploy --production
+//      script/deploy.js --production
 //
 // [end-readme]
 
 import dotenv from 'dotenv'
 import program from 'commander'
-import { has } from 'lodash'
-import getOctokit from './helpers/github'
-import parsePrUrl from './deployment/parse-pr-url'
-import deployToStaging from './deployment/deploy-to-staging'
-import undeployFromStaging from './deployment/undeploy-from-staging'
+import { has } from 'lodash-es'
+import getOctokit from './helpers/github.js'
+import parsePrUrl from './deployment/parse-pr-url.js'
+import deployToStaging from './deployment/deploy-to-staging.js'
+import undeployFromStaging from './deployment/undeploy-from-staging.js'
 
 dotenv.config()
 
@@ -52,13 +52,18 @@ const STAGING_FLAG = '--staging'
 const PRODUCTION_FLAG = '--production'
 const ALLOWED_OWNER = 'github'
 const ALLOWED_SOURCE_REPOS = ['docs', 'docs-internal']
-const EXPECTED_PR_URL_FORMAT = `https://github.com/${ALLOWED_OWNER}/(${ALLOWED_SOURCE_REPOS.join('|')})/pull/123`
+const EXPECTED_PR_URL_FORMAT = `https://github.com/${ALLOWED_OWNER}/(${ALLOWED_SOURCE_REPOS.join(
+  '|'
+)})/pull/123`
 
 program
   .description('Trigger a deployment to Heroku for either staging or production apps')
   .option(PRODUCTION_FLAG, 'Deploy the latest internal main branch to Production')
   .option(`${STAGING_FLAG} <PR_URL>`, 'Deploy a pull request to Staging')
-  .option('--rebuild', 'Force a Staging deployment to rebuild the Heroku App from scratch')
+  .option(
+    '--no-rebuild',
+    'Do NOT force a Staging deployment to rebuild the Heroku App from scratch'
+  )
   .option('--destroy', 'Undeploy a Staging deployment by deleting the Heroku App')
   .parse(process.argv)
 
@@ -66,35 +71,35 @@ const opts = program.opts()
 const isProduction = opts.production === true
 const isStaging = has(opts, 'staging')
 const prUrl = opts.staging
-const forceRebuild = opts.rebuild === true
+const forceRebuild = opts.rebuild !== false
 const destroy = opts.destroy === true
 
 //
 // Verify CLI options
 //
 if (!isProduction && !isStaging) {
-  return invalidateAndExit(
+  invalidateAndExit(
     'commander.missingArgument',
     `error: must specify option '${STAGING_FLAG} <PR_URL>' or '${PRODUCTION_FLAG}'`
   )
 }
 
 if (isProduction && isStaging) {
-  return invalidateAndExit(
+  invalidateAndExit(
     'commander.conflictingArgument',
     `error: must specify option '${STAGING_FLAG} <PR_URL>' or '${PRODUCTION_FLAG}' but not both`
   )
 }
 
 if (isProduction && forceRebuild) {
-  return invalidateAndExit(
+  invalidateAndExit(
     'commander.conflictingArgument',
     `error: cannot specify option '--rebuild' combined with option '${PRODUCTION_FLAG}'`
   )
 }
 
 if (isProduction && destroy) {
-  return invalidateAndExit(
+  invalidateAndExit(
     'commander.conflictingArgument',
     `error: cannot specify option '--destroy' combined with option '${PRODUCTION_FLAG}'`
   )
@@ -105,7 +110,7 @@ const { owner, repo, pullNumber } = parsePrUrl(prUrl)
 
 if (isStaging) {
   if (owner !== ALLOWED_OWNER || !ALLOWED_SOURCE_REPOS.includes(repo) || !pullNumber) {
-    return invalidateAndExit(
+    invalidateAndExit(
       'commander.invalidOptionArgument',
       `error: option '${STAGING_FLAG}' argument '${prUrl}' is invalid.
 Must match URL format '${EXPECTED_PR_URL_FORMAT}'`
@@ -119,12 +124,12 @@ deploy()
 // Function definitions
 //
 
-function invalidateAndExit (errorType, message) {
+function invalidateAndExit(errorType, message) {
   program._displayError(1, errorType, message)
   process.exit(1)
 }
 
-async function deploy () {
+async function deploy() {
   if (isProduction) {
     await deployProduction()
   } else if (isStaging) {
@@ -132,38 +137,36 @@ async function deploy () {
   }
 }
 
-async function deployProduction () {
+async function deployProduction() {
   // TODO: Request confirmation before deploying to production
 
-  return invalidateAndExit(
+  invalidateAndExit(
     'commander.invalidOptionArgument',
     `error: option '${PRODUCTION_FLAG}' is not yet implemented. SOON!`
   )
 }
 
-async function deployStaging ({ owner, repo, pullNumber, forceRebuild = false, destroy = false }) {
+async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, destroy = false }) {
   // This helper uses the `GITHUB_TOKEN` implicitly
   const octokit = getOctokit()
 
   const { data: pullRequest } = await octokit.pulls.get({
     owner,
     repo,
-    pull_number: pullNumber
+    pull_number: pullNumber,
   })
 
   try {
     if (destroy) {
       await undeployFromStaging({
-        herokuToken: HEROKU_API_TOKEN,
         octokit,
-        pullRequest
+        pullRequest,
       })
     } else {
       await deployToStaging({
-        herokuToken: HEROKU_API_TOKEN,
         octokit,
         pullRequest,
-        forceRebuild
+        forceRebuild,
       })
     }
   } catch (error) {
@@ -173,3 +176,5 @@ async function deployStaging ({ owner, repo, pullNumber, forceRebuild = false, d
     process.exit(1)
   }
 }
+
+export default deploy
