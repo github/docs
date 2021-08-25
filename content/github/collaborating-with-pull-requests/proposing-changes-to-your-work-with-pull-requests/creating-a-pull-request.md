@@ -65,7 +65,7 @@ After your pull request has been reviewed, it can be [merged into the repository
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To create a pull request, use the `gh pr create` subcommand.
 

@@ -52,9 +52,23 @@ You can authenticate with the API in different ways.
 
 You can access repositories on {% data variables.product.product_name %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
 
-* You can work with all repositories on {% data variables.product.product_name %} over HTTPS, even if you are behind a firewall or proxy. Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them with a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git). {% data reusables.user_settings.password-authentication-deprecation %}
+### HTTPS
 
-* You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxys might refuse to allow SSH connections. Using SSH requires you to generate an SSH public/private keypair on your local machine and add the public key to your {% data variables.product.product_name %} account. Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+You can work with all repositories on {% data variables.product.product_name %} over HTTPS, even if you are behind a firewall or proxy. 
+
+If you authenticate with {% data variables.product.prodname_cli %}, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+
+If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a personal access token. {% data reusables.user_settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+
+### SSH
+
+You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxys might refuse to allow SSH connections.
+
+If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your {% data variables.product.product_name %} account. Then, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+
+If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your {% data variables.product.product_name %} account. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
+
+### Authorizing for SAML single sign-on
 
 {% ifversion fpt %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
 

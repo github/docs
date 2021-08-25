@@ -102,6 +102,8 @@ Across all organizations owned by your enterprise, you can allow people with acc
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
+{% ifversion fpt or ghes %}
+
 ## Setting a policy for Git push limits
 
 To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
@@ -119,6 +121,8 @@ By default, when you enforce repository upload limits, people cannot add or upda
 ![Drop-down menu with maximum object size options](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
 ![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+
+{% endif %}
 
 ## Configuring the merge conflict editor for pull requests between repositories
 

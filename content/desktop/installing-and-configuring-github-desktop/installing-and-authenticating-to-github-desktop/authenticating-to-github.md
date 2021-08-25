@@ -65,8 +65,6 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 ## Authenticating an account on {% data variables.product.prodname_enterprise %}
 
 
-{% data reusables.user_settings.password-authentication-deprecation-desktop %}
-
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}

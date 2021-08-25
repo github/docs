@@ -70,9 +70,6 @@ The generally available version of Codespaces is not currently available for U.S
 ## Connect
 With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server {% ifversion ghae-next %}or GitHub AE {% endif %}instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server{% ifversion ghae-next %} or GitHub AE{% endif %}. Your use of GitHub Enterprise Cloud or GitHub.com through Connect is governed by the terms under which you license GitHub Enterprise Cloud or GitHub.com. Use of Personal Data is governed by the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
-## Dependabot Preview
-You can use Dependabot to keep the packages you use updated to the latest versions. Your use of Dependabot Preview is governed by a separate [Terms of Service](https://dependabot.com/terms) and [Privacy Policy](https://dependabot.com/privacy).
-
 ## Learning Lab
 GitHub Learning Lab offers free interactive courses that are built into GitHub with instant automated feedback and help.
 

@@ -34,7 +34,7 @@ describe('mobile-only products nav', () => {
     expect(
       (
         await getDOM(
-          '/en/enterprise/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address'
+          '/en/enterprise/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
         )
       )('#current-product')
         .text()
