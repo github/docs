@@ -245,29 +245,5 @@ You can use the `docker pull` command to install a docker image from {% data var
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
-<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% ifversion ghes > 2.22 %}
-If your instance has subdomain isolation enabled:
-{% endif %}
-```shell
-$ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
-```
-{% ifversion ghes > 2.22 %}
-If your instance has subdomain isolation disabled:
-```shell
-$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
-```
-{% endif %}
-{% endif %}
-
-{% note %}
-
-**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
-
-{% endnote %}
-
-## Further reading
-
-- "{% ifversion fpt or ghes > 3.0 %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
-
+<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it cang and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% e
 {% endif %}  <!-- End of main versioning block -->
