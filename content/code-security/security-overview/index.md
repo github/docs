@@ -10,6 +10,6 @@ topics:
   - Security overview
   - Advanced Security
 children:
-  - /exploring-security-alerts
+  - /about-the-security-overview
 ---
 
