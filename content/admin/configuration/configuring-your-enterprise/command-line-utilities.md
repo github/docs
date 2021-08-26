@@ -316,7 +316,7 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes < 2.22 %}
 
 {% tip %}
 
