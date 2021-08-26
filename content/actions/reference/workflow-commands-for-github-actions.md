@@ -276,7 +276,7 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-      echo "action_state=yellow" >> $GITHUB_ENV
+      echo "action_state=yellow" >> $GITHUB_ENV # If using Windows runners, replace $GITHUB_ENV with $env:GITHUB_ENV
   - name: Use the value
     id: step_two
     run: |
