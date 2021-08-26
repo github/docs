@@ -117,7 +117,7 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 
 ## Moving a self-hosted runner to a group
 
-If you don't specify a runner group, new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
+If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
 1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
     ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
