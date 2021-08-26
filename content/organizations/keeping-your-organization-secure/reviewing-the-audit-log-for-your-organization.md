@@ -524,7 +524,8 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+
 ### `pull_request` category actions
 
 | Action | Description
@@ -554,6 +555,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `create` | Triggered when a review comment is added.
 | `update` | Triggered when a review comment is changed.
 | `delete` | Triggered when a review comment is deleted.
+
 {% endif %}
 
 ### `repo` category actions
