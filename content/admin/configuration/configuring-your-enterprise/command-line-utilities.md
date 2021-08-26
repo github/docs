@@ -316,6 +316,8 @@ stop/waiting
   - ghe-replica-mode
 ```
 
+{% ifversion ghes > 2.22 %}
+
 {% tip %}
 
 The service names returned from this command can be used with [`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html) commands to stop, start, or restart these services manually, if needed. For example:
@@ -327,6 +329,8 @@ $ sudo systemctl restart github-resqued
 Stopping services will cause downtime on your installation, so we recommend you contact {% data variables.contact.contact_ent_support %} before stopping or restarting any service.
 
 {% endtip %}
+
+{% endif %}
 
 ### ghe-set-password
 
