@@ -1,8 +1,16 @@
 name: OpenAPI dev mode check
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Checks that the files in lib/rest/static/decorated match
+#   the files in lib/rest/static/dereferenced. Checks that the decorated
+#   schemas in lib/rest/static/decorated are not in development mode.
+#   Development mode schemas have a branch name and development mode tag in the
+#   info.version property.
+# **Why we have it**: To ensure that we aren't every shipping decorated schemas
+#   that are out of sync with the source derefereced schema. To ensure that
+#   decorated schemas generated locally are not published. Locally generated
+#   decorated schemas are pushing up to the remote for staging purposes only.
+# **Who does it impact**: Docs content writers updating REST API docs and
+#   the docs engineering team as maintainers of the scripts and workflows.
 
 on:
   workflow_dispatch:
@@ -12,6 +20,8 @@ on:
   pull_request:
     paths:
       - 'lib/rest/static/**'
+      - 'script/rest/**/*.js'
+      - 'package*.json'
 
 jobs:
   check-schema-versions:
