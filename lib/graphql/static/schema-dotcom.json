@@ -49763,6 +49763,14 @@
           "href": "/graphql/reference/enums#subscriptionstate"
         },
         {
+          "name": "visibility",
+          "description": "<p>Indicates the repository's visibility level.</p>",
+          "type": "RepositoryVisibility!",
+          "id": "repositoryvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvisibility"
+        },
+        {
           "name": "vulnerabilityAlerts",
           "description": "<p>A list of vulnerability alerts that are on this repository.</p>",
           "type": "RepositoryVulnerabilityAlertConnection",
@@ -63489,6 +63497,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>Indicates the repository's visibility level.</p>",
+          "type": "RepositoryVisibility!",
+          "id": "repositoryvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvisibility"
         }
       ]
     },
