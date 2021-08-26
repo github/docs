@@ -23,13 +23,8 @@ Files that you add to a repository via a browser are limited to {% data variable
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% ifversion ghes < 2.22 %}
-2. Under your repository name, click **Upload files**.
-  ![Upload files button](/assets/images/help/repository/upload-files-button.png)
-{% else %}
 2. Above the list of files, using the **Add file** drop-down, click **Upload files**.
   !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)
-{% endif %}
 3. Drag and drop the file or folder you'd like to upload to your repository onto the file tree.
 ![Drag and drop area](/assets/images/help/repository/upload-files-drag-and-drop.png)
 {% data reusables.files.write_commit_message %}

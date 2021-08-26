@@ -21793,6 +21793,11 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
   DISABLED
 
   """
+  Members will be able to create only internal repositories.
+  """
+  INTERNAL
+
+  """
   Members will be able to create only private repositories.
   """
   PRIVATE
@@ -31697,6 +31702,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   viewerSubscription: SubscriptionState
 
   """
+  Indicates the repository's visibility level.
+  """
+  visibility: RepositoryVisibility!
+
+  """
   A list of vulnerability alerts that are on this repository.
   """
   vulnerabilityAlerts(
@@ -32173,6 +32183,11 @@ interface RepositoryInfo {
   Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.
   """
   usesCustomOpenGraphImage: Boolean!
+
+  """
+  Indicates the repository's visibility level.
+  """
+  visibility: RepositoryVisibility!
 }
 
 """

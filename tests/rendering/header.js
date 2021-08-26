@@ -153,7 +153,7 @@ describe('header', () => {
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise/${oldestSupported}/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address`
+        `/en/enterprise/${oldestSupported}/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
       expect($(`#homepages a.active[href="/en/enterprise-server@${latest}/admin"]`).length).toBe(0)
       expect($('#homepages a[href="/en/github"]').length).toBe(1)

@@ -7,7 +7,6 @@ versions:
   fpt: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
-  
 type: tutorial
 topics:
   - Codespaces

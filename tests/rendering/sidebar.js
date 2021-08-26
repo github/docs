@@ -28,10 +28,7 @@ describe('sidebar', () => {
     ).toBe('GitHub')
   })
 
-  test('includes links to external products like the CLI, Atom, Electron, and CodeQL', async () => {
-    expect($homePage('[data-testid=sidebar] a[href="https://cli.github.com/manual"]')).toHaveLength(
-      1
-    )
+  test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
     expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
     expect($homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs"]')).toHaveLength(1)
     expect(
@@ -40,8 +37,7 @@ describe('sidebar', () => {
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url =
-      '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
+    const url = '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
     const $ = await getDOM(url)
     expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
     expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)

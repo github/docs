@@ -15,6 +15,7 @@ featuredLinks:
 versions: '*'
 children:
   - get-started
+  - account-and-profile
   - github
   - admin
   - billing
@@ -27,7 +28,7 @@ children:
   - developers
   - rest
   - graphql
-  - insights
+  - github-cli
   - discussions
   - sponsors
   - communities
@@ -36,11 +37,6 @@ children:
   - desktop
   - early-access
 externalProducts:
-  cli:
-    id: cli
-    name: GitHub CLI
-    href: 'https://cli.github.com/manual'
-    external: true
   atom:
     id: atom
     name: Atom

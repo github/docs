@@ -9,13 +9,13 @@ redirect_from:
   - /articles/creating-a-github-action/
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
   - /about-actions
   - /creating-a-docker-container-action
   - /creating-a-javascript-action
-  - /creating-a-composite-run-steps-action
+  - /creating-a-composite-action
   - /metadata-syntax-for-github-actions
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions

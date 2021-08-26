@@ -6,7 +6,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: how_to
 ---
