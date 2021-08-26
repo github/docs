@@ -104,6 +104,7 @@ export type MainContextT = {
 
   searchVersions: Record<string, string>
   nonEnterpriseDefaultVersion: string
+  fullUrl: string
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
@@ -165,6 +166,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+    fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
   }
 }
 
