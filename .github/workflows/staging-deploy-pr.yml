@@ -90,7 +90,9 @@ jobs:
         run: rm -rf script/
 
       - name: Create a gzipped archive
-        run: tar -czf app.tar.gz ./
+        run: |
+          touch app.tar.gz
+          tar --exclude=app.tar.gz -czf app.tar.gz ./
 
       - name: Install Heroku client development-only dependency
         run: npm install --no-save heroku-client
