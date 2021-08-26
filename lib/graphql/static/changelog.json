@@ -4,6 +4,39 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `visibility` was added to object type `Repository`",
+          "Field `visibility` was added to interface `RepositoryInfo`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Input field `amount` was added to input object type `CreateSponsorshipInput`",
+          "Input field `isRecurring` was added to input object type `CreateSponsorshipInput`",
+          "Input field `sponsorLogin` was added to input object type `CreateSponsorshipInput`",
+          "Input field `sponsorableLogin` was added to input object type `CreateSponsorshipInput`",
+          "Input field `CreateSponsorshipInput.sponsorId` changed type from `ID!` to `ID`",
+          "Input field `CreateSponsorshipInput.sponsorableId` changed type from `ID!` to `ID`",
+          "Input field `CreateSponsorshipInput.tierId` changed type from `ID!` to `ID`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `CreateSponsorshipInput` was added",
           "Type `CreateSponsorshipPayload` was added",
           "Field `createSponsorship` was added to object type `Mutation`"

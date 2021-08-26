@@ -177,6 +177,7 @@
   "license": "(MIT AND CC-BY-4.0)",
   "name": "docs.github.com",
   "optionalDependencies": {
+    "esm": "^3.2.25",
     "jest-puppeteer": "^5.0.4",
     "jimp": "^0.16.1",
     "pa11y-ci": "^2.4.2",
@@ -208,7 +209,6 @@
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.mjs",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.mjs",
     "sync-search": "start-server-and-test sync-search-server 4002 sync-search-indices",
-    "sync-search-dry-run": "cross-env DRY_RUN=1 npm run sync-search",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "script/sync-search-indices.js",
     "sync-search-server": "cross-env NODE_ENV=production WEB_CONCURRENCY=1 PORT=4002 node server.mjs",
