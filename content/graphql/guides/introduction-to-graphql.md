@@ -117,14 +117,14 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
-
-  The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
-
+  
   {% note %}
 
-  **Note**: You may get a `"message": "Bad credentials"` or `401 Unauthorized` response - if so please follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. 
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)." 
 
   {% endnote %}
+  
+  The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
   
   Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
 
