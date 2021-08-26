@@ -5,7 +5,7 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 shortTitle: Manage access groups

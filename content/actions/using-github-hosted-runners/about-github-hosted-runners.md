@@ -12,7 +12,7 @@ redirect_from:
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
 shortTitle: GitHub-hosted runners
 ---
 
@@ -61,8 +61,6 @@ Hardware specification for macOS virtual machines:
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.macos-runner-preview %}
-
 Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
 ## Supported software
@@ -78,6 +76,7 @@ For the overall list of included tools for each runner operating system, see the
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
+* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)

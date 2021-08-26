@@ -8,7 +8,10 @@ export function LearningTrackNav({ track }: Props) {
   const { t } = useTranslation('learning_track_nav')
   const { prevGuide, nextGuide, trackName } = track
   return (
-    <div className="py-3 px-4 rounded color-bg-primary border-gradient--purple-pink d-flex flex-justify-between learning-track-nav">
+    <div
+      data-testid="learning-track-nav"
+      className="py-3 px-4 rounded color-bg-primary border-gradient--purple-pink d-flex flex-justify-between"
+    >
       <span className="d-flex flex-column">
         {prevGuide && (
           <>

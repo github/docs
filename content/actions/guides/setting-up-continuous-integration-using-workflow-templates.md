@@ -10,7 +10,7 @@ redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration/setting-up-continuous-integration-using-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

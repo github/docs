@@ -15,7 +15,7 @@ We recommend a high-performance SSD with high input/output operations per second
 
 Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 
 To configure{% ifversion ghes = 2.22 %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)."
 
@@ -27,7 +27,7 @@ You can resize your instance's root disk by building a new instance or using an 
 
 The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 
 If you {% ifversion ghes = 2.22 %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 

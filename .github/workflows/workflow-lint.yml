@@ -28,4 +28,4 @@ jobs:
       - name: Run linter
         uses: cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa
         with:
-          workflows: '[".github/workflows/*.yml", ".github/workflows/*.yaml", "!.github/workflows/remove-from-fr-board.yaml"]'
+          workflows: '[".github/workflows/*.yml", ".github/workflows/*.yaml", "!.github/workflows/remove-from-fr-board.yaml", "!.github/workflows/staging-deploy-pr.yml"]'

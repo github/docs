@@ -4,7 +4,7 @@ intro: You can deploy to Azure App Service as part of your continuous deployment
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
