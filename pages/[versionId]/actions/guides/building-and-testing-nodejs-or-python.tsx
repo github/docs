@@ -1,11 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { BeakerIcon, ZapIcon } from '@primer/octicons-react'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
 import {
   PlaygroundContextProvider,
@@ -88,10 +84,11 @@ function PageInner() {
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
     },
   }
 }
