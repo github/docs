@@ -85,13 +85,13 @@ export const Editor: React.FC<Props> = ({ article }) => {
           })}
         </div>
 
-        <div className="editor border-left border-bottom border-right ">
+        <div className="border">
           {isEditorReady ? (
             <SyntaxHighlighter
-              style={theme.colorScheme === 'dark' ? vscDarkPlus : vs}
+              style={theme.colorMode === 'night' ? vscDarkPlus : vs}
               language={activeFile.language}
               PreTag="div"
-              customStyle={{ margin: '0', padding: '1rem 0' }}
+              customStyle={{ margin: '0', padding: '1rem 0', border: 0 }}
               showLineNumbers={true}
               wrapLines={true}
               lineProps={(lineNumber) => {
