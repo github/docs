@@ -5,6 +5,10 @@
   line-height: 1.5;
 }
 
+.markdown-body.playground table {
+  table-layout: fixed;
+}
+
 .markdown-body table {
   border-collapse: collapse;
   position: relative;
