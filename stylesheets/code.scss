@@ -1,6 +1,11 @@
 /* Code style overrides
 ------------------------------------------------------------------------------*/
 
+.markdown-body.playground pre {
+  padding: 0;
+  background-color: unset;
+}
+
 .markdown-body .highlight pre,
 .markdown-body pre {
   margin-top: 10px;

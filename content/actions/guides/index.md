@@ -77,6 +77,7 @@ includeGuides:
 children:
   - /about-continuous-integration
   - /setting-up-continuous-integration-using-workflow-templates
+  - /building-and-testing-nodejs-or-python
   - /building-and-testing-nodejs
   - /building-and-testing-net
   - /building-and-testing-powershell
