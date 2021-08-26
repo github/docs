@@ -11,7 +11,7 @@ import { useTranslation } from './hooks/useTranslation'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
-  const { page, error, isHomepageVersion, currentPathWithoutLanguage, fullUrl } = useMainContext()
+  const { page, error, isHomepageVersion, currentPathWithoutLanguage, fullUrl, status } = useMainContext()
   const { t } = useTranslation('errors')
   return (
     <div className="d-lg-flex">
@@ -26,6 +26,7 @@ export const DefaultLayout = (props: Props) => {
         {/* For Google and Bots */}
         {page.introPlainText && <meta name="description" content={page.introPlainText} />}
 
+        {/* For local site search indexing */}
         {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
 
         {page.hidden && <meta name="robots" content="noindex" />}
@@ -40,6 +41,11 @@ export const DefaultLayout = (props: Props) => {
             />
           )
         })}
+
+        {/* For analytics events */}
+        {status && <meta name="status" content={status.toString()} />}
+        {page.type && <meta name="page-type" content={page.type} />}
+        {page.documentType && <meta name="page-document-type" content={page.documentType} />}
 
         {page.fullTitle && (
           <>
