@@ -135,7 +135,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% data reusables.cli.download-cli %}
 
-To add an SSH key to your GitHub account, use the `ssh-key add` subcommand and your public key.
+To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
 gh ssh-key add <em>key-file</em>
