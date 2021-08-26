@@ -25,7 +25,7 @@ topics:
 ---
 ## Using Git
 
-To use Git on the command line, you'll need to download, install, and configure Git on your computer. {% ifversion fpt or ghes or ghae %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}
+To use Git on the command line, you'll need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 If you want to work with Git locally, but don't want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
 
@@ -45,6 +45,12 @@ If you don't need to work with files locally, {% data variables.product.product_
 ## Next steps: Authenticating with {% data variables.product.prodname_dotcom %} from Git
 
 When you connect to a {% data variables.product.product_name %} repository from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
+
+{% note %}
+
+**Note:** You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+
+{% endnote %}
 
 ### Connecting over HTTPS (recommended)
 

@@ -10,11 +10,8 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
-  - /setting-up-and-managing-your-github-user-account
-  - /setting-up-and-managing-your-github-profile
   - /authenticating-to-github
   - /copilot
-  - /managing-subscriptions-and-notifications-on-github
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github
   - /creating-cloning-and-archiving-repositories

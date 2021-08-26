@@ -25,8 +25,8 @@ If you create a new clone of the repository, you won't lose any of your Git hist
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
   ```
-5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-branch`](https://git-scm.com/docs/git-filter-branch), supplying this information:
-    - `FOLDER-NAME`: The folder within your project that you'd like to create a separate repository from.
+5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
+    - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
 
     {% windows %}
 
@@ -37,14 +37,14 @@ If you create a new clone of the repository, you won't lose any of your Git hist
       {% endtip %}
 
     {% endwindows %}
-    - `BRANCH-NAME`: The default branch for your current project, for example, `main` or `gh-pages`.
+  
     ```shell
-    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME BRANCH-NAME</em>
+    $ git filter-repo --path FOLDER-NAME1/ FOLDER-NAME2/
     # Filter the specified branch in your directory and remove empty commits
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
     ```
-  The repository should now only contain the files that were in your subfolder.
+  The repository should now only contain the files that were in your subfolder(s).
 
 6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
 7. At the top of your new {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.

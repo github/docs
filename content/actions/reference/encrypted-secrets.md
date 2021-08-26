@@ -58,9 +58,19 @@ You can also manage secrets using the REST API. For more information, see "[Secr
 
 When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
 
+{% note %}
+
+**Note:** You can use the REST API to manage secrets. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+
+{% endnote %}
+
 ## Creating encrypted secrets for a repository
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -72,11 +82,27 @@ When generating credentials, we recommend that you grant the minimum permissions
 
 If your repository {% ifversion fpt or ghes > 3.0 or ghae %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
-{% note %}
+{% endwebui %}
 
-**Note:** Users with collaborator access can use the REST API to manage secrets for a repository. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+{% cli %}
 
-{% endnote %}
+{% data reusables.cli.cli-learn-more %}
+
+To add a repository secret, use the `gh secret set` subcommand. Replace `secret-name` with the name of your secret.
+
+```shell
+gh secret set <em>secret-name</em>
+```
+
+The CLI will prompt you to enter a secret value. Alternatively, you can read the value of the secret from a file.
+
+```shell
+gh secret set <em>secret-name</em> < secret.txt
+```
+
+To list all secrets for the repository, use the `gh secret list` subcommand.
+
+{% endcli %}
 
 {% ifversion fpt or ghes > 3.0 or ghae %}
 
@@ -84,14 +110,37 @@ If your repository {% ifversion fpt or ghes > 3.0 or ghae %}has environment secr
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
+{% include tool-switcher %}
+
+{% webui %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
 1. Click on the environment that you want to add a secret to.
-1. Under **Environment secrets**, click **Add secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the value for your secret.
-1. Click **Add secret**.
+2. Under **Environment secrets**, click **Add secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the value for your secret.
+5. Click **Add secret**.
+
+{% endwebui %}
+
+{% cli %}
+
+To add a secret for an environment, use the `gh secret set` subcommand with the `--env` or `-e` flag followed by the environment name.
+
+```shell
+gh secret set --env <em>environment-name</em> <em>secret-name</em>
+```
+
+To list all secrets for an environment, use the `gh secret list` subcommand with the `--env` or `-e` flag followed by the environment name.
+
+```shell
+gh secret list --env <em>environment-name</em>
+```
+
+{% endcli %}
+
 {% endif %}
 
 ## Creating encrypted secrets for an organization
@@ -99,6 +148,10 @@ If your repository {% ifversion fpt or ghes > 3.0 or ghae %}has environment secr
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -108,6 +161,46 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. Enter the **Value** for your secret.
 1. From the **Repository access** dropdown list, choose an access policy.
 1. Click **Add secret**.
+
+{% endwebui %}
+
+{% cli %}
+
+{% note %}
+
+**Note:** By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
+
+```
+gh auth login --scopes "admin:org"
+```
+
+{% endnote %}
+
+To add a secret for an organization, use the `gh secret set` subcommand with the `--org` or `-o` flag followed by the organization name.
+
+```shell
+gh secret set --org <em>organization-name</em> <em>secret-name</em>
+```
+
+By default, the secret is only available to private repositories. To specify that the secret should be available to all repositories within the organization, use the `--visibility` or `-v` flag.
+
+```shell
+gh secret set --org <em>organization-name</em> <em>secret-name</em> --visibility all
+```
+
+To specify that the secret should be available to selected repositories within the organization, use the `--repos` or `-r` flag.
+
+```shell
+gh secret set --org <em>organization-name</em> <em>secret-name</em> --repos <em>repo-name-1</em>,<em>repo-name-2</em>"
+```
+
+To list all secrets for an organization, use the `gh secret list` subcommand with the `--org` or `-o` flag followed by the organization name.
+
+```shell
+gh secret list --org <em>organization-name</em>
+```
+
+{% endcli %}
 
 ## Reviewing access to organization-level secrets
 
