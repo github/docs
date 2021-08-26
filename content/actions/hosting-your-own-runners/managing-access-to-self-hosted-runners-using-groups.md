@@ -101,14 +101,19 @@ You can update the access policy of a runner group, or rename a runner group.
 
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
     
-## Creating a self-hosted runner in a group
-You can use the configuration script on the self-hosted runner to create the runner in a group. For example, this command creates a self-hosted runner in the runner group `rg-runnergroup`.
+## Automatically adding a self-hosted runner to a group
+
+You can use the configuration script to automatically add a new self-hosted runner to a group. For example, this command registers a new self-hosted runner and uses the `--runnergroup` parameter to add it to a group named `rg-runnergroup`.
 
 ```sh
 ./config.sh --url $org_or_enterprise_url --token $token --runnergroup rg-runnergroup
 ```
 
-The script fails if the runner group doesn't exist.
+The command will fail if the runner group doesn't exist:
+
+```
+Could not find any self-hosted runner group named "rg-runnergroup".
+```
 
 ## Moving a self-hosted runner to a group
 
