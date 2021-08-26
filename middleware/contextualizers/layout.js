@@ -1,5 +1,3 @@
-import layouts from '../../lib/layouts.js'
-
 export default function layoutContext(req, res, next) {
   if (!req.context.page) return next()
 
@@ -17,7 +15,6 @@ export default function layoutContext(req, res, next) {
 
   // Attach to the context object
   req.context.currentLayoutName = layoutName
-  req.context.currentLayout = layouts[layoutName]
 
   return next()
 }

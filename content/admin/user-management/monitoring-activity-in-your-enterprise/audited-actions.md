@@ -39,7 +39,7 @@ Action                               | Description
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 ## {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
@@ -153,7 +153,6 @@ Action                            | Description
 `team.destroy`                    | A team was deleted.{% ifversion ghes > 2.22 or ghae %}
 `team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
 
-
 ## Users
 
 Action                            | Description
@@ -175,3 +174,9 @@ Action                            | Description
 `user.suspend`                    | A user account was suspended by a site admin.{% ifversion ghes %}
 `user.two_factor_requested`       | A user was prompted for a two-factor authentication code.{% endif %}
 `user.unsuspend`                  | A user account was unsuspended by a site admin.
+
+{% ifversion ghes > 3.1 or ghae-issue-1157 %}
+## Workflows
+
+{% data reusables.actions.actions-audit-events-workflow %}
+{% endif %}

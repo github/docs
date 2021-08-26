@@ -1,13 +1,11 @@
 import next from 'next'
 
-const { NODE_ENV, FEATURE_NEXTJS } = process.env
+const { NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
 
-const nextApp = FEATURE_NEXTJS ? next({ dev: isDevelopment }) : null
-export const nextHandleRequest = nextApp ? nextApp.getRequestHandler() : null
-if (nextApp) {
-  nextApp.prepare()
-}
+export const nextApp = next({ dev: isDevelopment })
+export const nextHandleRequest = nextApp.getRequestHandler()
+await nextApp.prepare()
 
 function renderPageWithNext(req, res, next) {
   if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {

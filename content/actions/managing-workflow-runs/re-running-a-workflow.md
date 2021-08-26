@@ -1,10 +1,11 @@
 ---
 title: Re-running a workflow
-intro: You can re-run an instance of a workflow. Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run.
+intro: You can re-run an instance of a workflow up to 30 days after the initial run.
 product: '{% data reusables.gated-features.actions %}'
+permissions: People with write permissions to a repository can re-run workflows in the repository.
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -12,7 +13,7 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-{% data reusables.repositories.permissions-statement-write %}
+Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow up to 30 days after the initial run. 
 
 {% include tool-switcher %}
 
@@ -28,9 +29,7 @@ versions:
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
-
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 

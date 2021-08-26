@@ -1,6 +1,6 @@
-import xLanguages from '../lib/languages.js'
+import libLanguages from '../lib/languages.js'
 import parser from 'accept-language-parser'
-const languageCodes = Object.keys(xLanguages)
+const languageCodes = Object.keys(libLanguages)
 
 const chineseRegions = ['CN', 'HK']
 

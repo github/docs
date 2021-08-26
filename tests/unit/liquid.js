@@ -1,7 +1,7 @@
 import { liquid } from '../../lib/render-content/index.js'
 import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import loadSiteData from '../../lib/site-data.js'
 

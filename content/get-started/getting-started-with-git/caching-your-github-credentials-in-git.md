@@ -7,101 +7,99 @@ redirect_from:
   - /github/using-git/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git
-intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), you can use a credential helper to tell Git to remember your credentials.'
+intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or Git Credential Manager Core (GCM Core) to remember your credentials.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
 shortTitle: Caching credentials
 ---
-If you clone {% data variables.product.product_name %} repositories using SSH, then you authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
-
-{% mac %}
 
 {% tip %}
 
-**Tips:**
-
-- You need Git **1.7.10** or newer to use the osxkeychain credential helper.
-- If you installed Git using [Homebrew](http://brew.sh/), the `osxkeychain helper` will already be installed.
-- If you're running Mac OS X 10.7 and above and you installed Git through Apple's Xcode Command Line Tools, then `osxkeychain helper` is automatically included in your Git installation.
+**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
 
 {% endtip %}
 
-Install Git and the `osxkeychain helper` and tell Git to use it.
+## {% data variables.product.prodname_cli %}
 
-1. Find out if Git and the `osxkeychain helper` are already installed:
-  ```shell
-  $ git credential-osxkeychain
-  # Test for the cred helper
-  > Usage: git credential-osxkeychain &lt;get|store|erase>
-  ```
-2. If the `osxkeychain helper` isn't installed and you're running OS X version 10.9 or above, your computer will prompt you to download it as a part of the Xcode Command Line Tools:
-  ```shell
-  $ git credential-osxkeychain
-  > xcode-select: note: no developer tools were found at '/Applications/Xcode.app',
-  > requesting install. Choose an option in the dialog to download the command line developer tools.
-  ```
+{% data variables.product.prodname_cli %} will automatically store your Git credentials for you when you choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials.
 
- Alternatively,  you can install Git and the `osxkeychain helper` by using [Homebrew](http://brew.sh/):
+1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
+2. In the command line, enter `gh auth login`, then follow the prompts.
+   - When prompted for your preferred protocol for Git operations, select `HTTPS`.
+   - When asked if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials, enter `Y`.
+
+For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+
+## Git Credential Manager Core
+
+[Git Credential Manager Core](https://github.com/microsoft/Git-Credential-Manager-Core) (GCM Core) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM Core, you don't have to manually [create and store a PAT](/github/authenticating-to-github/creating-a-personal-access-token), as GCM Core manages authentication on your behalf, including 2FA (two-factor authentication).
+
+{% mac %}
+
+1. Install Git using [Homebrew](https://brew.sh/):
   ```shell
   $ brew install git
   ```
 
-4. Tell Git to use `osxkeychain helper` using the global `credential.helper` config:
+2. Install GCM Core using Homebrew:
   ```shell
-  $ git config --global credential.helper osxkeychain
-  # Set git to use the osxkeychain credential helper
+  $ brew tap microsoft/git
+  $ brew install --cask git-credential-manager-core
   ```
+  For MacOS, you don't need to run `git config` because GCM Core automatically configures Git for you.
 
-The next time you clone an HTTPS URL that requires authentication, Git will prompt you for your username and password. {% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.gcm-core.next-time-you-clone %}
 
-Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. You won't be required to type your credentials in to Git again unless you change your credentials.
+Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
 
 {% endmac %}
 
 {% windows %}
 
-{% tip %}
+1. Install Git for Windows, which includes GCM Core. For more information, see "[Git for Windows releases](https://github.com/git-for-windows/git/releases/latest)" from its [releases page](https://github.com/git-for-windows/git/releases/latest).
 
-**Tip:** You need Git **1.7.10** or newer to use the credential helper.
+We recommend always installing the latest version. At a minimum, install version 2.29 or higher, which is the first version offering OAuth support for GitHub.
 
-{% endtip %}
+{% data reusables.gcm-core.next-time-you-clone %}
 
-You can also install a native Git shell, such as [Git for Windows](https://git-for-windows.github.io/). With Git for Windows, running the following in the command line will store your credentials:
+Once you've authenticated successfully, your credentials are stored in the Windows credential manager and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
 
-```shell
-$ git config --global credential.helper wincred
-```
+<br>
+
+{% warning %}
+
+**Warning:** Older versions of Git for Windows came with Git Credential Manager for Windows. This older product is no longer supported and cannot connect to GitHub via OAuth. We recommend you upgrade to [the latest version of Git for Windows](https://github.com/git-for-windows/git/releases/latest).
+
+{% endwarning %}
+
+{% warning %}
+
+**Warning:** If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it. 
+
+{% endwarning %}
 
 {% endwindows %}
 
 {% linux %}
 
-{% tip %}
+For Linux, install Git and GCM Core, then configure Git to use GCM Core.
 
-**Tip:** You need Git **1.7.10** or newer to use the credential helper.
+1. Install Git from your distro's packaging system. Instructions will vary depending on the flavor of Linux you run.
 
-{% endtip %}
+2. Install GCM Core. See the [instructions in the GCM Core repo](https://github.com/microsoft/Git-Credential-Manager-Core#linux-install-instructions), as they'll vary depending on the flavor of Linux you run.
 
-Turn on the credential helper so that Git will save your password in memory for some time. By default, Git will cache your password for 15 minutes.
+3. Configure Git to use GCM Core. There are several backing stores that you may choose from, so see the GCM Core docs to complete your setup. For more information, see "[GCM Core Linux](https://aka.ms/gcmcore-linuxcredstores)."
 
-1. In Terminal, enter the following:
-  ```shell
-  $ git config --global credential.helper cache
-  # Set git to use the credential memory cache
-  ```
-2. To change the default password cache timeout, enter the following:
-  ```shell
-  $ git config --global credential.helper 'cache --timeout=3600'
-  # Set the cache to timeout after 1 hour (setting is in seconds)
-  ```
+{% data reusables.gcm-core.next-time-you-clone %}
+
+Once you've authenticated successfully, your credentials are stored on your system and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
 
 For more options for storing your credentials on Linux, see [Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) in Pro Git.
 
 {% endlinux %}
 
-## Further reading
+<br>
 
-- "[Updating credentials from the OSX Keychain](/articles/updating-credentials-from-the-osx-keychain/)"
-- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)"
+For more information or to report issues with GCM Core, see the official GCM Core docs at "[Git Credential Manager Core](https://github.com/microsoft/Git-Credential-Manager-Core)."

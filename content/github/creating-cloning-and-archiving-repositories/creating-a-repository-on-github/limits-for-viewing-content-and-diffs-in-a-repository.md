@@ -25,7 +25,8 @@ Text files over **5 MB** are only available through their raw URLs, which are se
 
 Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
-- No single file's diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
+- In a pull request, no total diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data.
+- No single file's diff may exceed *3,000 lines that you can load* or *100 KB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
 - The maximum number of files in a single diff is limited to *300*.
 - The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to *25*.
 

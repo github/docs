@@ -1,17 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import renderContent from '../lib/render-content/index.js'
-import loadSiteData from '../lib/site-data.js'
-import { loadPages } from '../lib/page-data.js'
-import languages from '../lib/languages.js'
-import { promisify } from 'util'
-import xChildProcess, { execSync } from 'child_process'
-import fs from 'fs'
-import frontmatter from '../lib/frontmatter.js'
-import chalk from 'chalk'
-import { YAMLException } from 'js-yaml'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -19,7 +6,22 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 //
 // [end-readme]
 
-const exec = promisify(xChildProcess.exec)
+import { fileURLToPath } from 'url'
+import path from 'path'
+import renderContent from '../lib/render-content/index.js'
+import loadSiteData from '../lib/site-data.js'
+import { loadPages } from '../lib/page-data.js'
+import languages from '../lib/languages.js'
+import { promisify } from 'util'
+import ChildProcess, { execSync } from 'child_process'
+import fs from 'fs'
+import frontmatter from '../lib/frontmatter.js'
+import chalk from 'chalk'
+import { YAMLException } from 'js-yaml'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const exec = promisify(ChildProcess.exec)
 
 main()
 

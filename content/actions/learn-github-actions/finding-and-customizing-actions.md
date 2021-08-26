@@ -9,7 +9,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/using-community-workflows-and-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:

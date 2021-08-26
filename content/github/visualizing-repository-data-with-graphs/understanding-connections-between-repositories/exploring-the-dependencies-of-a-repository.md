@@ -23,7 +23,7 @@ The dependency graph shows the dependencies of your repository. For information 
 
 ### Dependencies view
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
@@ -36,18 +36,6 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% endif %}
 
-{% ifversion ghes < 2.22 %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
-
-![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
-
-{% endif %}
 
 ## Troubleshooting the dependency graph
 

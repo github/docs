@@ -25,7 +25,7 @@ describe('products module', () => {
 describe('mobile-only products nav', () => {
   test('renders current product on various product pages for each product', async () => {
     // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
-    expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub.com')
+    expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub')
 
     // Enterprise server
     expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe(
@@ -34,12 +34,12 @@ describe('mobile-only products nav', () => {
     expect(
       (
         await getDOM(
-          '/en/enterprise/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address'
+          '/en/enterprise/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
         )
       )('#current-product')
         .text()
         .trim()
-    ).toBe('GitHub.com')
+    ).toBe('GitHub')
 
     expect((await getDOM('/desktop'))('#current-product').text().trim()).toBe('GitHub Desktop')
 

@@ -51,7 +51,8 @@ function LandingPage(props: LandingPageProps) {
     <div>
       {/* <!-- Hero --> */}
       <section id="landing" className="color-bg-tertiary">
-        <Search isStandalone={true}>
+        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+        <Search autoFocus={true} variant="expanded" isOverlay={false}>
           {({ SearchInput, SearchResults }) => {
             return (
               <div className="container-xl px-3 px-md-6 pb-6 pb-lg-9">
@@ -111,7 +112,7 @@ function LandingPage(props: LandingPageProps) {
       </section>
 
       <div className="px-3 px-md-6 container-xl">
-        <div className="featured-links container-xl">
+        <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
             <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
               <ArticleList

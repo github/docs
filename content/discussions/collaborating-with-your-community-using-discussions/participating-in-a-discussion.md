@@ -7,7 +7,6 @@ versions:
 shortTitle: Participate in discussion
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About participation in a discussion
 
@@ -19,7 +18,7 @@ You can block users and report disruptive content to maintain a safe and pleasan
 
 ## Prerequisites
 
-Discussions must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+{% data variables.product.prodname_discussions %} must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
 ## Creating a discussion
 

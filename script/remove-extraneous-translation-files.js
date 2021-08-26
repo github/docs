@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import findExtraneousFiles from './helpers/find-extraneous-translation-files.js'
 
 // [start-readme]
 //
@@ -9,6 +7,9 @@ import findExtraneousFiles from './helpers/find-extraneous-translation-files.js'
 // When the test fails, a human needs to run this script to remove the files.
 //
 // [end-readme]
+
+import fs from 'fs'
+import findExtraneousFiles from './helpers/find-extraneous-translation-files.js'
 
 main()
 

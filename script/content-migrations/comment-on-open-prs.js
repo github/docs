@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { listPulls, createIssueComment } from '../helpers/git-utils.js'
 
 // [start-readme]
 //
@@ -8,6 +7,8 @@ import { listPulls, createIssueComment } from '../helpers/git-utils.js'
 // open branches and mitigate conflicts with the main branch.
 //
 // [end-readme]
+
+import { listPulls, createIssueComment } from '../helpers/git-utils.js'
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {

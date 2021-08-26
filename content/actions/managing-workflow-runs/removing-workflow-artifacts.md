@@ -4,7 +4,7 @@ intro: 'You can reclaim used {% data variables.product.prodname_actions %} stora
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Remove workflow artifacts
 ---

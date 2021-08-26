@@ -10,7 +10,7 @@ redirect_from:
   - /packages/guides/configuring-rubygems-for-use-with-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: RubyGems registry
 ---
@@ -28,13 +28,15 @@ shortTitle: RubyGems registry
   $ gem --version
   ```
 
-  - You must have bundler 1.6.4 or higher. To find your Bundler version:
+- You must have bundler 1.6.4 or higher. To find your Bundler version:
+
   ```shell
   $ bundle --version
   Bundler version 1.13.7
   ```
 
-  - Install keycutter to manage multiple credentials. To install keycutter:
+- Install keycutter to manage multiple credentials. To install keycutter:
+
   ```shell
   $ gem install keycutter
   ```

@@ -9,7 +9,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -83,13 +83,13 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches-ignore:
-      # Push events to branches matching refs/heads/mona/octocat
+      # Do not push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/beta/3-alpha
+      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
     tags-ignore:
-      - v1.*           # Push events to tags v1.0, v1.1, and v1.9
+      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
 ```
 
 ### Excluding branches and tags
@@ -370,8 +370,6 @@ If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each jo
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
 {% data reusables.github-actions.supported-github-runners %}
-
-{% data reusables.github-actions.macos-runner-preview %}
 
 #### Example
 
@@ -655,7 +653,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
 jobs:
@@ -990,6 +988,8 @@ The maximum number of minutes to run the step before killing the process.
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
+
 ## `jobs.<job_id>.strategy`
 
 A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
@@ -1243,6 +1243,12 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
+
 ## `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
@@ -1332,6 +1338,12 @@ volumes:
 ## `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
 
 ## Filter pattern cheat sheet
 

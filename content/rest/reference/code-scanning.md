@@ -6,7 +6,7 @@ redirect_from:
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: reference
 topics:

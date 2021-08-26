@@ -1,25 +1,26 @@
 import { jest } from '@jest/globals'
-import xFs from 'fs'
+import { stat } from 'fs/promises'
 import path from 'path'
 import { testViaActionsOnly } from '../helpers/conditional-runs.js'
 import { getDOM } from '../helpers/supertest.js'
 import got from 'got'
-const fs = xFs.promises
+
+jest.useFakeTimers()
 
 describe('cloning early-access', () => {
   testViaActionsOnly('the content directory exists', async () => {
     const eaDir = path.join(process.cwd(), 'content/early-access')
-    expect(await fs.stat(eaDir)).toBeTruthy()
+    expect(await stat(eaDir)).toBeTruthy()
   })
 
   testViaActionsOnly('the data directory exists', async () => {
     const eaDir = path.join(process.cwd(), 'data/early-access')
-    expect(await fs.stat(eaDir)).toBeTruthy()
+    expect(await stat(eaDir)).toBeTruthy()
   })
 
   testViaActionsOnly('the assets/images directory exists', async () => {
     const eaDir = path.join(process.cwd(), 'assets/images/early-access')
-    expect(await fs.stat(eaDir)).toBeTruthy()
+    expect(await stat(eaDir)).toBeTruthy()
   })
 })
 

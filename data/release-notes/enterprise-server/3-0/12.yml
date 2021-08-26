@@ -1,0 +1,20 @@
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - 'Custom pre-receive hooks could lead to an error like `error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates`.'
+    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
+    - A significant number of 503 errors were logged every time a user visited a repository''s `/settings` page if the dependency graph was not enabled.
+    - Internal repositories were only returned when a user had affiliations with the repository through a team or through collaborator status, or queried with the `?type=internal` parameter.
+    - Failed background jobs had unlimited retries which could cause large queue depths.
+    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
+  changes:
+    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
