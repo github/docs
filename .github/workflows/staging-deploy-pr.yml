@@ -162,7 +162,7 @@ jobs:
         run: npm ci
 
       - name: Install one-off development-only dependencies
-        run: npm install --no-save esm
+        run: npm install --no-save --include=optional esm
 
       - name: Deploy
         id: deploy
