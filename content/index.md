@@ -29,7 +29,6 @@ children:
   - rest
   - graphql
   - github-cli
-  - insights
   - discussions
   - sponsors
   - communities
