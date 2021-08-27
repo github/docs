@@ -70,8 +70,9 @@ These labels operate cumulatively, so a self-hosted runner’s labels must match
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% ifversion ghes or ghae %}, then at the enterprise level{% endif %}. 
-   - If no online runner is found, the job will be queued to all levels and whichever level first has an online and enabled runner will pick up the job.
-2. The job is then sent to the first matching runner that is online and idle.
-   - 60 seconds after sending the job, if the job is not picked up by the preferred runner, the job will be sent to other levels to see if it can be picked up by another runner.
-3. If the job remains queued for more than 24 hours, the job will fail.
+- {% data variables.product.prodname_dotcom %} first searches for an online and enabled runner at the repository level, then at the organization level{% ifversion ghes or ghae %}, then at the enterprise level{% endif %}.
+- If {% data variables.product.prodname_dotcom %} doesn't find an online and enabled runner at any level, the job is queued to all levels and waits for any runner from any level to come online and pickup the job.
+   - If the job remains queued for more than 24 hours, the job will fail.
+- If {% data variables.product.prodname_dotcom %} finds an online and enabled runner (preferred runner) at a certain level, the job is then sent to the preferred runner.
+    - If the job is not picked up by the preferred runner within 60 seconds after sending the job, {% data variables.product.prodname_dotcom %} will try send the same job to all other levels as well.
+    - If the job remains queued for more than 24 hours, the job will fail.
