@@ -100,10 +100,24 @@ When creating a group, you must choose a policy that defines which organizations
 You can update the access policy of a runner group, or rename a runner group.
 
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+    
+## Automatically adding a self-hosted runner to a group
+
+You can use the configuration script to automatically add a new self-hosted runner to a group. For example, this command registers a new self-hosted runner and uses the `--runnergroup` parameter to add it to a group named `rg-runnergroup`.
+
+```sh
+./config.sh --url $org_or_enterprise_url --token $token --runnergroup rg-runnergroup
+```
+
+The command will fail if the runner group doesn't exist:
+
+```
+Could not find any self-hosted runner group named "rg-runnergroup".
+```
 
 ## Moving a self-hosted runner to a group
 
-New self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
+If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
 1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
     ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
