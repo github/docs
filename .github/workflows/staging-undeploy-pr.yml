@@ -36,7 +36,7 @@ jobs:
         run: npm ci
 
       - name: Install one-off development-only dependencies
-        run: npm install --no-save esm
+        run: npm install --no-save --include=optional esm
 
       - name: Undeploy
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
