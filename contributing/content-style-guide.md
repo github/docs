@@ -31,6 +31,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
 - [Reusables and variables](#reusables-and-variables)
 - [Tables](#tables)
 - [Titles](#titles)
+- [Short titles](#short-titles)
 - [User interface elements](#user-interface-elements)
   - [Boldface](#boldface)
   - [Branch names](#branch-names)
@@ -304,6 +305,20 @@ A table’s contents should be clear from the preceding content - avoid unneeded
 Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.
 
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
+
+## Short titles
+
+- Length should be 2-3 words.
+- Look contextually to see what to omit and how the full breadcrumb looks like.
+- Has to convey full meaning of the title and content of the category or map topic
+- :scissors: repeated words when possible
+- Short titles should be parallel to short titles for other similar content
+  - e.g. `Organizations and teams`, `Enterprise accounts`
+- Short titles should still mimic format of title
+  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, can use a noun sparingly, try to find a verb form
+  - e.g. Authenticating to GitHub :arrow_right: Authentication
+  - Installing and configuring GHE Server :arrow_right: Installation and configuration
+- Don’t introduce new words in short titles that aren’t in the full title
 
 ## User interface elements
 
