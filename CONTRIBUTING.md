@@ -1,6 +1,6 @@
 ## Introduction
 
-Thank you for your time in contributing to our project. Any contribution you make would reflect in the [docs.github.com](https://docs.github.com/en) page :sparkles:. 
+Thank you for investing your time in contributing to our project. Any contribution you make would reflect in the [docs.github.com](https://docs.github.com/en) page :sparkles:. 
 
 This guide helps your contribution experience to be a fun and educational :confetti_ball: :book:. Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
@@ -14,7 +14,7 @@ Use table of contents icon <img src="./assets/images/table-of-contents.png" widt
 
 ## New Contributor Guide
 
-  [README.md](README.md) gives an overview of the project. Here are some helpful resources if you are new to open source contribution.  
+  See [README.md](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution. 
 
 <!-- CodeTour/ codespaces intro (https://github.com/github/docs-team/issues/800) -->
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
@@ -25,7 +25,7 @@ Use table of contents icon <img src="./assets/images/table-of-contents.png" widt
 
 ## Getting started
 
-See [Understanding the docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [GitHub Markdown](contributing/content-markup-reference.md) for information on how we write our markdown files.
+See [working in docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [GitHub Markdown](contributing/content-markup-reference.md) for information on how we write our markdown files.
 
 Before making changes, see what [types contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
 

@@ -32,7 +32,7 @@ If you're having trouble with your GitHub account, contact [Support](https://sup
 
 That's how you can easily become a member of the GitHub Documentation community. :sparkles:
 
-If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
+If you want to know more, or you're making a more complex contribution, check out [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## READMEs
 
