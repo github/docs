@@ -13,6 +13,7 @@ on:
 
 env:
   EARLY_ACCESS_SCRIPT_PATH: script/early-access/clone-for-build.js
+  EARLY_ACCESS_SUPPORT_FILES: script/package.json
   # In this specific workflow relationship, the `github.event.workflow_run.pull_requests`
   # array will always contain only 1 item! Specifically, it will contain the PR associated
   # with the `github.event.workflow_run.head_branch` that triggered the preceding
@@ -64,7 +65,7 @@ jobs:
         name: Download the script to clone early access
         uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
         with:
-          files: ${{ env.EARLY_ACCESS_SCRIPT_PATH }}
+          files: ${{ env.EARLY_ACCESS_SCRIPT_PATH }} ${{ env.EARLY_ACCESS_SUPPORT_FILES }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Add any dependencies that are needed for this workflow below
@@ -85,11 +86,13 @@ jobs:
         run: npm prune --production
 
       - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Delete the script to clone early access
-        run: rm ${{ env.EARLY_ACCESS_SCRIPT_PATH }}
+        name: Delete the script directory after cloning early access
+        run: rm -rf script/
 
       - name: Create a gzipped archive
-        run: tar -cfz app.tar.gz ./
+        run: |
+          touch app.tar.gz
+          tar --exclude=app.tar.gz -czf app.tar.gz ./
 
       - name: Install Heroku client development-only dependency
         run: npm install --no-save heroku-client
@@ -159,7 +162,7 @@ jobs:
         run: npm ci
 
       - name: Install one-off development-only dependencies
-        run: npm install --no-save esm
+        run: npm install --no-save --include=optional esm
 
       - name: Deploy
         id: deploy
