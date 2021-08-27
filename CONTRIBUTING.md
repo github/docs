@@ -25,7 +25,7 @@ Use table of contents icon <img src="./assets/images/table-of-contents.png" widt
 
 ## Getting started
 
-See [Understanding the docs repository](/contributing/working-in-the-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [GitHub Markdown](contributing/content-markup-reference.md) for information on how we write our markdown files.
+See [Understanding the docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [GitHub Markdown](contributing/content-markup-reference.md) for information on how we write our markdown files.
 
 Before making changes, see what [types contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
 
