@@ -29,24 +29,28 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% endif %}
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
-{% tip %}
-
-**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
 ## Creating a release
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Click **Draft a new release**.
    ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
-4. Type a version number for your release. Versions are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging). We recommend naming tags that fit within [semantic versioning](http://semver.org/).
-   ![Releases tagged version](/assets/images/help/releases/releases-tag-version.png)
+4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release.
+   {% ifversion fpt %}
+   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+1. Click **Create new tag**.
+![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+   {% else %}
+   ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
+{% endif %}
 5. Use the drop-down menu to select the branch that contains the project you want to release.
-   ![Releases tagged branch](/assets/images/help/releases/releases-tag-branch.png)
+   {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
+   {% endif %}
 6. Type a title and description for your release.
    ![Releases description](/assets/images/help/releases/releases_description.png)
 7. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
@@ -60,9 +64,31 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 9. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
-You can also automatically create a release from the command line or in a script. For more information, see "[Releases](/rest/reference/repos/#create-a-release)."
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+1. To create a release, use the `gh release create` subcommand. Replace `tag` with the desired tag for the release.
+
+   ```shell
+   gh release create <em>tag</em>
+   ```
+
+2. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
+
+   ```shell
+   gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
+   ```
+
+{% endcli %}
 
 ## Editing a release
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -71,9 +97,19 @@ You can also automatically create a release from the command line or in a script
 4. Edit the details for the release in the form, then click **Update release**.
   ![Update a release](/assets/images/help/releases/update-release.png)
 
+{% endwebui %}
+
+{% cli %}
+
+Releases cannot currently be edited with {% data variables.product.prodname_cli %}.
+
+{% endcli %}
+
 ## Deleting a release
 
-You must remove all binary files attached to a release before you can delete a release.
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
@@ -83,3 +119,15 @@ You must remove all binary files attached to a release before you can delete a r
   ![Delete release button](/assets/images/help/releases/delete-release.png)
 5. Click **Delete this release**.
   ![Confirm delete release](/assets/images/help/releases/confirm-delete-release.png)
+
+{% endwebui %}
+
+{% cli %}
+
+1. To delete a release, use the `gh release delete` subcommand. Replace `tag` with the tag of the release to delete. Use the `-y` flag to skip confirmation.
+
+   ```shell
+   gh release delete <em>tag</em> -y
+   ```
+
+{% endcli %}
