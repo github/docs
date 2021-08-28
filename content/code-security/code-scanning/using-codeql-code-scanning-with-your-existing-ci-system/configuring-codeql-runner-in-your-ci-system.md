@@ -190,7 +190,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% ifversion fpt %}
+| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% ifversion fpt or ghes > 3.1 %}
 | <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |{% endif %}
 | `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
 | `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |

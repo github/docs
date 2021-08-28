@@ -70,10 +70,5 @@ export default function csp(req, res, next) {
     csp.directives.scriptSrc.push("'unsafe-inline'")
   }
 
-  if (req.path.startsWith('/storybook')) {
-    csp.directives.scriptSrc.push("'unsafe-eval'", "'unsafe-inline'")
-    csp.directives.frameSrc.push("'self'")
-  }
-
   return contentSecurityPolicy(csp)(req, res, next)
 }

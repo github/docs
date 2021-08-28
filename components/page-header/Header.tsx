@@ -19,6 +19,8 @@ export const Header = () => {
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  // the graphiql explorer utilizes `?query=` in the url and we don't want our search bar to mess that up
+  const updateSearchParams = router.asPath !== 'graphql/overview/explorer'
   const showVersionPicker =
     relativePath === 'index.md' ||
     currentLayoutName === 'product-landing' ||
@@ -48,7 +50,7 @@ export const Header = () => {
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
             <div className="d-inline-block ml-4">
-              {router.asPath !== '/graphql/overview/explorer' && <Search />}
+              <Search updateSearchParams={updateSearchParams} isOverlay={true} />
             </div>
           )}
         </div>
@@ -112,7 +114,7 @@ export const Header = () => {
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
                 <div className="pt-3 border-top">
-                  {router.asPath !== '/graphql/overview/explorer' && <Search />}
+                  <Search updateSearchParams={updateSearchParams} />
                 </div>
               )}
             </div>

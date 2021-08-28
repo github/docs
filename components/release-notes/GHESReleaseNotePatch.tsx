@@ -26,7 +26,7 @@ export function GHESReleaseNotePatch({
 }: Props) {
   const { t } = useTranslation('header')
   const containerRef = useRef<HTMLDivElement>(null)
-  const onScreen = useOnScreen(containerRef, '-40% 0px -50%')
+  const onScreen = useOnScreen(containerRef, { rootMargin: '-40% 0px -50%' })
   useEffect(() => {
     if (onScreen) {
       didEnterView()

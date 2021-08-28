@@ -1,0 +1,88 @@
+name: Staging - Build PR
+
+# **What it does**: Builds PRs before deploying them.
+# **Why we have it**: Because it's not safe to share our deploy secrets with forked repos: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - unlocked
+
+jobs:
+  build:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: staging_${{ github.head_ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Setup node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.x
+          cache: npm
+
+      # Required for `npm pkg ...` command support
+      - name: Update to npm@^7.20.0
+        run: npm install --global npm@^7.20.0
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Remove development-only dependencies
+        run: npm prune --production
+
+      - name: Remove all npm scripts
+        run: npm pkg delete scripts
+
+      - name: Set npm script for Heroku build to noop
+        run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
+
+      - name: Create an archive
+        run: |
+          tar -cf app.tar \
+            node_modules/ \
+            .next/ \
+            assets/ \
+            content/ \
+            data/ \
+            includes/ \
+            lib/ \
+            middleware/ \
+            translations/ \
+            server.mjs \
+            package*.json \
+            feature-flags.json \
+            next.config.js \
+            app.json \
+            Procfile
+
+      # Upload only the files needed to run this application.
+      # We are not willing to trust the rest (e.g. script/) for the remainder
+      # of the deployment process.
+      - name: Upload build artifact
+        uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
+        with:
+          name: pr_build
+          path: app.tar
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Staging build failed for PR ${{ github.event.pull_request.html_url }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

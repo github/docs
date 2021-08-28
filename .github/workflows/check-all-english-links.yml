@@ -34,6 +34,15 @@ jobs:
       - name: Run script
         run: |
           script/check-english-links.js > broken_links.md
+
+      # check-english-links.js returns 0 if no links are broken, and 1 if any links
+      # are broken. When an Actions step's exit code is 1, the action run's job status
+      # is failure and the run ends. The following steps create an issue for the
+      # broken link report only if any links are broken, so `if: ${{ failure() }}`
+      # ensures the steps run desite though the previous step's failure of the job.
+      #
+      # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
+
       - if: ${{ failure() }}
         name: Get title for issue
         id: check
@@ -62,13 +71,14 @@ jobs:
           # Link to the previous report from the new report that triggered this
           # workflow run.
 
-          for issue_url in $(gh list-reports \
+          previous_report_url=$(gh list-reports \
                                   --state all \
                                   --limit 2 \
                                   --json url \
-                                  --jq '.[].url' | grep -v ${{ env.NEW_REPORT_URL }}); do
-            gh issue comment ${{ env.NEW_REPORT_URL }} --body "⬅️ [Previous report]($issue_url)"
-          done
+                                  --jq '.[].url' \
+                                  | grep -v ${{ env.NEW_REPORT_URL }} | head -1)
+
+          gh issue comment ${{ env.NEW_REPORT_URL }} --body "⬅️ [Previous report]($previous_report_url)"
 
           # Link to the newer report from any older report that is still open,
           # then close the older report.
