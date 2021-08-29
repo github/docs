@@ -30,7 +30,7 @@ jobs:
           # Returns list of changed files matching each filter
           filters: |
             filterContentDir:
-              - 'content/**'
+              - 'content/**/*'
   filterContentDir:
     needs: PR-Preview-Links
     if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
@@ -72,12 +72,12 @@ jobs:
             })
 
             let changedFiles = response.data.files
-              .map(e => e.raw_url)
-              .filter(file => file.includes('/content/'))
+              .map(e => e.filename)
+              .filter(file => file.startsWith('content/') && !file.includes('index'))
 
             let markdownTable = '| **Article in Staging** | **Live Article** | **Source** | **Changes** |\n| ----------- | ----------- | ----------- | ----------- |\n'
             for (let file of changedFiles) {
-              file = file.split('/content')[1]
+              file = file.split('content')[1]
               const fileURL = file.substring(0, file.length-3)
               const stagingLink = `https://${stagingPrefix}.herokuapp.com${fileURL}`
               let fileTitle = file.split('/').pop()
