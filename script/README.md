@@ -109,6 +109,15 @@ This script turns a Google Sheets CSV spreadsheet into a YAML file.
 ---
 
 
+### [`deploy.js`](deploy.js)
+
+This script enables us to execute both staging and production deployments from our local machine (in case GitHub Actions is unavailable). :rocket:
+
+:warning: Deploy to production only with maximum caution!
+
+---
+
+
 ### [`early-access/clone-for-build.js`](early-access/clone-for-build.js)
 
 This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch in the early-access repo that matches the current branch in the docs repo; if one can't be found, it clones the `main` branch.
@@ -458,7 +467,7 @@ Run this script to standardize frontmatter fields in all content files, per the 
 
 ### [`sync-search-indices.js`](sync-search-indices.js)
 
-This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+This script is run on a schedule very four hours to generate searchable data. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). For more info see [contributing/search.md](contributing/search.md)
 
 ---
 

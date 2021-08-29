@@ -28,7 +28,7 @@ When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in
 
 Note that `npm ci` and `npm run build` are steps that should typically only need to be run once each time you pull the latest for a branch.
  - `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file
- - `npm run build` creates static assets, such as the `dist/index.js` and `dist/index.css` files
+ - `npm run build` creates static assets, such as JavaScript and CSS files
 
 ### Using GitHub Codespaces
 
@@ -41,10 +41,10 @@ In a matter of minutes, you will be ready to edit, preview and test your changes
 This repo has configuration for debugging with VS Code's built-in Node Debugger.
 
 1. After running the build steps, start the app by running `npm run debug`.
-2. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
-3. In the Debug View, select the **'Node: Nodemon'** configuration, then press F5 or click the green play button. You should see all of your running node processes.
-4. Select the node process that's started with the `--inspect` flag.
-5. Debugger has now been attached. Enjoy!
+1. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
+1. In the Debug View, select the **'Node: Nodemon'** configuration, then press F5 or click the green play button. You should see all of your running node processes.
+1. Select the node process that's started with the `--inspect` flag.
+1. Debugger has now been attached. Enjoy!
 
 For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).
 
@@ -53,6 +53,12 @@ For more detailed instructions, please see this [VS Code recipe](https://github.
 While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
 
 At the `/dev-toc` path, you'll see a list of available versions. Click a version, and a list of products will appear. Note that the TOC content is versioned. If you are viewing the `GitHub.com` version and you click the `Enterprise Admin` product, it will be empty, because there isn't any Admin content available on that version.
+
+### Enabling different languages
+
+By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
+
+The supported language codes are defined in [lib/lanuages.js](../lib/languages.js).
 
 ## Site structure
 

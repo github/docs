@@ -9,7 +9,6 @@ ownership:
     maintainer: chiedo
     exec_sponsor: scottdensmore
     product_manager: emilyistoofunky
-    mention: github/docs-engineering
     qos: critical
     dependencies: []
     sev1:

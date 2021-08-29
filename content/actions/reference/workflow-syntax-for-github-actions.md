@@ -9,7 +9,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -83,13 +83,13 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches-ignore:
-      # Push events to branches matching refs/heads/mona/octocat
+      # Do not push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/beta/3-alpha
+      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
     tags-ignore:
-      - v1.*           # Push events to tags v1.0, v1.1, and v1.9
+      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
 ```
 
 ### Excluding branches and tags
@@ -168,7 +168,7 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.
+**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
 
 {% endnote %}
 
@@ -178,6 +178,8 @@ The filter determines if a workflow should run by evaluating the changed files a
 - **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
 - **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
 - **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
+
+Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
 For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
 
@@ -370,8 +372,6 @@ If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each jo
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
 {% data reusables.github-actions.supported-github-runners %}
-
-{% data reusables.github-actions.macos-runner-preview %}
 
 #### Example
 
@@ -655,7 +655,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
 jobs:
@@ -1245,6 +1245,12 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
+
 ## `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
@@ -1334,6 +1340,12 @@ volumes:
 ## `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
 
 ## Filter pattern cheat sheet
 

@@ -3,7 +3,7 @@ import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { sendEvent, EventType } from './events'
 
-const supportedTools = ['cli', 'desktop', 'webui', 'curl']
+const supportedTools = ['cli', 'desktop', 'webui', 'curl', 'codespaces']
 
 export default function displayToolSpecificContent() {
   const toolElements = Array.from(document.querySelectorAll('.extended-markdown')).filter((el) =>

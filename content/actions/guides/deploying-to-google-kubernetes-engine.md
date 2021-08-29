@@ -4,7 +4,7 @@ intro: You can deploy to Google Kubernetes Engine as part of your continuous dep
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -79,7 +79,8 @@ This procedure demonstrates how to create the service account for your GKE integ
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.admin \
-    --role=roles/storage.admin
+    --role=roles/storage.admin \
+    --role=roles/container.clusterViewer
   ```
   {% endraw %}
 1. Download the JSON keyfile for the service account:
@@ -88,7 +89,7 @@ This procedure demonstrates how to create the service account for your GKE integ
   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
   ```
   {% endraw %}
-1. Store the project ID as a secret named `GKE_PROJECT`:
+1. Store the service account key as a secret named `GKE_SA_KEY`:
   {% raw %}
   ```
   $ export GKE_SA_KEY=$(cat key.json | base64)

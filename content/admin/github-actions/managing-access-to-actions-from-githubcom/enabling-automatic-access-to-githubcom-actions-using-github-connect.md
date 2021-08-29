@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: next
 type: how_to
 topics:

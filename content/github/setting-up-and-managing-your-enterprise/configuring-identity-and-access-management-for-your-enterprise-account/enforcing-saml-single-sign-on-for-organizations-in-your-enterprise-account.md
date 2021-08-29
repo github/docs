@@ -10,7 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
-shortTitle: Enforce SSO for organizations
+shortTitle: Enforce SAML
 ---
 ## About SAML single sign-on for enterprise accounts
 
@@ -28,7 +28,10 @@ shortTitle: Enforce SSO for organizations
 
 {% note %}
 
-**Note:** Enabling authentication with SAML single sign-on for your enterprise account will override any existing organization-level SAML configurations.
+**Notes:**
+
+- When you enable SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations.
+- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
 
 {% endnote %}
 

@@ -1,7 +1,8 @@
-import sleep from 'await-sleep'
 import { jest } from '@jest/globals'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
+
+jest.useFakeTimers()
 
 /* global page, browser */
 describe('homepage', () => {
@@ -20,8 +21,8 @@ describe('browser search', () => {
     await page.goto('http://localhost:4001/en')
     await page.click('[data-testid=site-search-input]')
     await page.type('[data-testid=site-search-input]', 'actions')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
@@ -30,8 +31,8 @@ describe('browser search', () => {
     await page.click('[data-testid=mobile-menu-button]')
     await page.click('[data-testid=mobile-header] [data-testid=site-search-input]')
     await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'workflows')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
@@ -41,18 +42,18 @@ describe('browser search', () => {
     await page.goto('http://localhost:4001/en/actions')
     await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
     await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'workflows')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
     await page.setViewport(initialViewport)
   })
   // 404 page is statically generated with next, so search is not available, but may possibly be brought back
   it.skip('works on 404 error page', async () => {
     await page.goto('http://localhost:4001/en/404')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'actions')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.click('[data-testid=search] input[type="search"]')
+    await page.type('[data-testid=search] input[type="search"]', 'actions')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
@@ -77,8 +78,8 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
-    await newPage.waitForSelector('.search-result')
+    await searchInput.type('code')
+    await newPage.waitForSelector('[data-testid=search-result]')
   })
 
   it('sends the correct data to search for GHAE', async () => {
@@ -103,11 +104,13 @@ describe('browser search', () => {
     )
     await searchInput.click()
     await searchInput.type('test')
-    await newPage.waitForSelector('.search-result')
+    await newPage.waitForSelector('[data-testid=search-result]')
   })
 })
 
 describe('survey', () => {
+  jest.setTimeout(3 * 60 * 1000)
+
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto(
@@ -135,8 +138,6 @@ describe('survey', () => {
 
     // When I fill in my email and submit the form
     await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
-
-    await sleep(1000)
 
     await page.click('[data-testid=survey-form] [type="submit"]')
     // (sent a PUT request to /events/{id})
@@ -271,7 +272,6 @@ describe('tool specific content', () => {
     const toolSelector = await page.$$('nav#tool-switcher')
     const switches = await page.$$('a.tool-switcher')
     const selectedSwitch = await page.$$('a.tool-switcher.selected')
-    console.log(switches.length)
     expect(toolSelector.length).toBeGreaterThan(1)
     expect(switches.length).toBeGreaterThan(1)
     expect(selectedSwitch.length).toEqual(toolSelector.length)
@@ -437,33 +437,6 @@ describe('language banner', () => {
   })
 })
 
-// The Explorer in the iFrame will not be accessible on localhost, but we can still
-// test the query param handling
-describe('GraphQL Explorer', () => {
-  it('preserves query strings on the Explorer page without opening search', async () => {
-    const queryString = `query {
-  viewer {
-    foo
-  }
-}`
-    // Encoded as: query%20%7B%0A%20%20viewer%20%7B%0A%20%20%20%20foo%0A%20%20%7D%0A%7D
-    const encodedString = encodeURIComponent(queryString)
-    const explorerUrl = 'http://localhost:4001/en/graphql/overview/explorer'
-
-    await page.goto(`${explorerUrl}?query=${encodedString}`)
-
-    // On non-Explorer pages, query params handled by search JS get form-encoded using `+` instead of `%20`.
-    // So on these pages, the following test will be false; but on the Explorer page, it should be true.
-    expect(page.url().endsWith(encodedString)).toBe(true)
-
-    // On non-Explorer pages, query params handled by search JS will populate in the search box and the `js-open`
-    // class is added. On these pages, the following test will NOT be null; but on the Explorer page, it should be null.
-    await page.waitForSelector('#search-results-container')
-    const searchResult = await page.$('#search-results-container.js-open')
-    expect(searchResult).toBeNull()
-  })
-})
-
 // Skipping because next/links are disabled by default for now
 describe.skip('next/link client-side navigation', () => {
   jest.setTimeout(60 * 1000)
@@ -478,7 +451,9 @@ describe.skip('next/link client-side navigation', () => {
         response.url().startsWith('http://localhost:4001/_next/data')
       ),
       page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      page.click('.sidebar-articles:nth-child(2) .sidebar-article:nth-child(1) a'),
+      page.click(
+        '[data-testid=sidebar-article-group]:nth-child(2) [data-testid=sidebar-article]:nth-child(1) a'
+      ),
     ])
 
     expect(response.status()).toBe(200)

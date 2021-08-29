@@ -1821,10 +1821,6 @@ type CWE implements Node {
   A detailed description of this CWE
   """
   description: String!
-
-  """
-  ID of the object.
-  """
   id: ID!
 
   """
@@ -6541,7 +6537,7 @@ An ISO-8601 encoded UTC date string.
 scalar DateTime
 
 """
-The possible default permissions for repositories.
+The possible base permissions for repositories.
 """
 enum DefaultRepositoryPermissionField {
   """
@@ -9336,7 +9332,7 @@ type EnterpriseBillingInfo {
 }
 
 """
-The possible values for the enterprise default repository permission setting.
+The possible values for the enterprise base repository permission setting.
 """
 enum EnterpriseDefaultRepositoryPermissionSettingValue {
   """
@@ -9350,7 +9346,7 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
   NONE
 
   """
-  Organizations in the enterprise choose default repository permissions for their members.
+  Organizations in the enterprise choose base repository permissions for their members.
   """
   NO_POLICY
 
@@ -9836,7 +9832,7 @@ type EnterpriseOwnerInfo {
   defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue!
 
   """
-  A list of enterprise organizations configured with the provided default repository permission.
+  A list of enterprise organizations configured with the provided base repository permission.
   """
   defaultRepositoryPermissionSettingOrganizations(
     """
@@ -9911,7 +9907,7 @@ type EnterpriseOwnerInfo {
   ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
 
   """
-  Whether or not the default repository permission is currently being updated.
+  Whether or not the base repository permission is currently being updated.
   """
   isUpdatingDefaultRepositoryPermission: Boolean!
 
@@ -20224,12 +20220,12 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
   organizationUrl: URI
 
   """
-  The new default repository permission level for the organization.
+  The new base repository permission level for the organization.
   """
   permission: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
   """
-  The former default repository permission level for the organization.
+  The former base repository permission level for the organization.
   """
   permissionWas: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
@@ -21795,6 +21791,11 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
   Members will not be able to create public or private repositories.
   """
   DISABLED
+
+  """
+  Members will be able to create only internal repositories.
+  """
+  INTERNAL
 
   """
   Members will be able to create only private repositories.
@@ -25474,7 +25475,7 @@ type PullRequestReviewThread implements Node {
   id: ID!
 
   """
-  Whether or not the thread has been collapsed (outdated or resolved)
+  Whether or not the thread has been collapsed (resolved)
   """
   isCollapsed: Boolean!
 
@@ -30489,6 +30490,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): UserConnection!
 
   """
+  Whether or not Auto-merge can be enabled on pull requests in this repository.
+  """
+  autoMergeAllowed: Boolean!
+
+  """
   A list of branch protection rules for this repository.
   """
   branchProtectionRules(
@@ -31696,6 +31702,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   viewerSubscription: SubscriptionState
 
   """
+  Indicates the repository's visibility level.
+  """
+  visibility: RepositoryVisibility!
+
+  """
   A list of vulnerability alerts that are on this repository.
   """
   vulnerabilityAlerts(
@@ -32172,6 +32183,11 @@ interface RepositoryInfo {
   Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.
   """
   usesCustomOpenGraphImage: Boolean!
+
+  """
+  Indicates the repository's visibility level.
+  """
+  visibility: RepositoryVisibility!
 }
 
 """
@@ -33807,11 +33823,6 @@ enum SecurityAdvisoryEcosystem {
   .NET packages hosted at the NuGet Gallery
   """
   NUGET
-
-  """
-  Applications, runtimes, operating systems and other kinds of software
-  """
-  OTHER
 
   """
   Python packages hosted at PyPI.org

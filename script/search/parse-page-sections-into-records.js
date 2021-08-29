@@ -30,7 +30,7 @@ export default function parsePageSectionsIntoRecords(href, $) {
 
   let records
 
-  const $sections = $('.article-grid-body h2')
+  const $sections = $('.markdown-body h2')
     .filter('[id]')
     .filter((i, el) => {
       return !ignoredHeadingSlugs.includes($(el).attr('id'))
