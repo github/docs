@@ -40,7 +40,7 @@ Selects the types of activity that will trigger a workflow run. Most GitHub even
 You can use an array of event `types`. For more information about each event and their activity types, see "[Events that trigger workflows](/articles/events-that-trigger-workflows#webhook-events)."
 
 ```yaml
-# Trigger the workflow on pull request activity
+# Trigger the workflow on release activity
 on:
   release:
     # Only use the types keyword to narrow down the activity types that will trigger your workflow.
