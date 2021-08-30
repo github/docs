@@ -213,7 +213,7 @@ Stops processing any workflow commands. This special command allows you to log a
 ### Example stopping workflow commands
 
 ``` bash
-echo "::stop-commands::pause-logging"
+echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
 ```
 
 To start workflow commands, pass the token that you used to stop workflow commands.
@@ -223,7 +223,7 @@ To start workflow commands, pass the token that you used to stop workflow comman
 ### Example starting workflow commands
 
 ``` bash
-echo "::pause-logging::"
+echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
 ```
 
 ## Sending values to the pre and post actions
