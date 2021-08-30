@@ -18,6 +18,7 @@ WORKDIR /usr/src/docs
 FROM base as all_deps
 
 COPY package*.json ./
+COPY .npmrc ./
 
 RUN npm ci
 
@@ -90,7 +91,6 @@ COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node translations ./translations
 COPY --chown=node:node server.mjs ./server.mjs
 COPY --chown=node:node package*.json ./
-COPY --chown=node:node .npmrc ./
 COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node next.config.js ./
 
