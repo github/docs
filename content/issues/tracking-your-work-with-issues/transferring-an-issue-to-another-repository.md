@@ -24,6 +24,10 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 ## Transferring an open issue to another repository
 
+{% include tool-switcher %}
+
+{% webui %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 3. In the list of issues, click the issue you'd like to transfer.
@@ -33,6 +37,20 @@ People or teams who are mentioned in the issue will receive a notification letti
 ![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
 6. Click **Transfer issue**.
 ![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+
+```shell
+gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
+```
+
+{% endcli %}
 
 ## Further reading
 

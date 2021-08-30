@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import cheerio from 'cheerio'
 import { liquid } from '../../../lib/render-content/index.js'
 import getMiniTocItems from '../../../lib/get-mini-toc-items.js'
 import rewriteLocalLinks from '../../../lib/rewrite-local-links.js'
 const includes = path.join(process.cwd(), 'includes')
-const objectIncludeFile = fs.readFileSync(path.join(includes, 'graphql-object.html'), 'utf8')
+const objectIncludeFile = await fs.readFile(path.join(includes, 'graphql-object.html'), 'utf8')
 
 export default async function prerenderObjects(context) {
   const objectsArray = []

@@ -63,7 +63,7 @@ You can use the dependency graph to:
 
 {% ifversion fpt %}To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% ifversion ghes > 2.21 %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt %} and every push to other repositories in the graph{% endif %}.
 
@@ -74,8 +74,9 @@ The recommended formats explicitly define which versions are used for all direct
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
-| `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
-| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
+| `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |{% ifversion fpt or ghes > 3.1 %}
+| Go modules | Go | `go.mod` | `go.mod` |
+{% endif %}| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |

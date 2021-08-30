@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/creating-a-docker-container-action
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -60,7 +60,7 @@ Before you begin, you'll need to create a {% data variables.product.prodname_dot
 In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
-```dockerfile{:copy}
+```Dockerfile{:copy}
 # Container image that runs your code
 FROM alpine:3.10
 

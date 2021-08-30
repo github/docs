@@ -7,7 +7,7 @@ redirect_from:
   - /actions/language-and-framework-guides/publishing-nodejs-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

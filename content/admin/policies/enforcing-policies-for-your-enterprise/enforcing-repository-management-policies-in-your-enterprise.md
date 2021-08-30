@@ -43,7 +43,7 @@ Each time someone creates a new repository on your enterprise, that person must 
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -102,6 +102,8 @@ Across all organizations owned by your enterprise, you can allow people with acc
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
+{% ifversion fpt or ghes %}
+
 ## Setting a policy for Git push limits
 
 To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
@@ -109,7 +111,7 @@ To keep your repository size manageable and prevent performance issues, you can 
 By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -120,12 +122,14 @@ By default, when you enforce repository upload limits, people cannot add or upda
 5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
 ![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
+{% endif %}
+
 ## Configuring the merge conflict editor for pull requests between repositories
 
 Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -141,7 +145,7 @@ Each repository inherits a default force push setting from the settings of the u
 ### Blocking all force pushes on your appliance
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -202,7 +206,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 ### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes > 2.21 or ghae %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

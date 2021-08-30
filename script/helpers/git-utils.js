@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import xGithub from './github.js'
-const github = xGithub()
+import Github from './github.js'
+const github = Github()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
 export async function getCommitSha(owner, repo, ref) {

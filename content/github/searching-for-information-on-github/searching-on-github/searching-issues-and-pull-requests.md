@@ -148,7 +148,8 @@ You can narrow your results by labels, using the `label` qualifier. Since issues
 | ------------- | -------------
 | <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.
 |  | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority."
-| | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."
+| | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae-next %}
+| | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."{% endif %}
 
 ## Search by milestone
 

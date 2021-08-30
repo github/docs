@@ -3,9 +3,9 @@ import Heroku from 'heroku-client'
 import createStagingAppName from './create-staging-app-name.js'
 
 export default async function undeployFromStaging({
-  herokuToken,
   octokit,
   pullRequest,
+  // These parameters will only be set by Actions
   runId = null,
 }) {
   // Start a timer so we can report how long the deployment takes
@@ -34,7 +34,7 @@ export default async function undeployFromStaging({
     console.log(`About to undeploy ${title}...`)
 
     // Time to talk to Heroku...
-    const heroku = new Heroku({ token: herokuToken })
+    const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
     // Is there already a Heroku App for this PR?
     let appExists = true

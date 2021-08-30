@@ -6,7 +6,7 @@ redirect_from:
   - /developers/apps/suspending-a-github-app-installation
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - GitHub Apps
