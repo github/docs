@@ -14,6 +14,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Examples](#examples)
   - [Indentation](#indentation)
   - [Scheduled workflows](#scheduled-workflows)
+- [Currency](#currency)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -153,6 +154,22 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 - Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
 - Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
+
+## Currency
+
+When referring to dollar, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+
+Use lowercase the for currency names, but capitalize the reference to the country or region (e.g. US dollar). Use uppercase for currency codes (e.g. USD).
+
+- Where there is only one reference in an article, use the currency name without a `$` sign preceding the amount.
+- Where an article contains several references to currency, define the currency being referenced by ensuring the first reference uses the currency name without a `$` sign preceding the amount and include the currency code in parentheses following the currency name.
+- For subsequent references to currency in an article or where appropriate (such as when space is a consideration, or when several amounts are presented in a table or list), include the `$` sign preceding the amount and use the ISO standard currency code following the amount.
+- Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+
+Examples:
+- Use `10 US dollars` for a single reference to currency.
+- Where an article contains more than one reference, use `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
+- When referring to non-dollar currency amounts, use `price of this plan in cents (US currency)` for the first reference, and `10,000 cents` for subsequent references.
 
 ## Headers
 
