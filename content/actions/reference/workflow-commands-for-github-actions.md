@@ -212,7 +212,7 @@ Stops processing any workflow commands. This special command allows you to log a
 
 ### Example stopping workflow commands
 
-``` bash
+``` yaml
 echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
 ```
 
@@ -227,7 +227,7 @@ echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
 
 To start workflow commands, pass the token that you used to stop workflow commands.
 
-``` bash
+``` yaml
 echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
 ```
 
