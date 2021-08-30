@@ -231,7 +231,7 @@ workflow-command-job:
         echo '::warning:: this is a warning'
         echo "::stop-commands::`echo -n ${{ notgithub.token }} | sha256sum | head -c 64`"
         echo '::warning:: this will NOT be a warning'
-        echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+        echo "::`echo -n ${{ something.else }} | sha256sum | head -c 64`::"
         echo '::warning:: this is a warning again'
 ```
 
