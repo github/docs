@@ -216,6 +216,10 @@ Stops processing any workflow commands. This special command allows you to log a
 echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
 ```
 
+{% warning %}
+
+**Warning:** Make sure the token you're using is randomly generated and different between runs. A **hash** of your `github.token` is a good choice for this.
+
 To start workflow commands, pass the token that you used to stop workflow commands.
 
 `::{endtoken}::`
