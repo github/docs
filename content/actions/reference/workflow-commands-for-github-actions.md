@@ -222,6 +222,8 @@ To start workflow commands, pass the token that you used to stop workflow comman
 
 ### Example stopping and starting workflow commands
 
+{% raw %}
+
 ```yaml
 workflow-command-job:
     runs-on: ubuntu-latest
@@ -229,11 +231,13 @@ workflow-command-job:
     - name: disable workflow commands
       run: |
         echo '::warning:: this is a warning'
-        echo "::stop-commands::`echo -n ${{ notgithub.token }} | sha256sum | head -c 64`"
+        echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
         echo '::warning:: this will NOT be a warning'
-        echo "::`echo -n ${{ something.else }} | sha256sum | head -c 64`::"
+        echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
         echo '::warning:: this is a warning again'
 ```
+
+{% endraw %}
 
 ## Sending values to the pre and post actions
 
