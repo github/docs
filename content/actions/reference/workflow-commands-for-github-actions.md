@@ -210,30 +210,35 @@ echo "::add-mask::$MY_NAME"
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-### Example stopping workflow commands
-
-``` yaml
-echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-```
-
 {% warning %}
 
 **Warning:** Make sure the token you're using is randomly generated and different between runs. A **hash** of your `github.token` is a good choice for this.
 
 {% endwarning %}
 
-
-### Example starting workflow commands
-
 To start workflow commands, pass the token that you used to stop workflow commands.
 
-``` yaml
-echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+`::{endtoken}::`
+
+### Example stopping and starting workflow commands
+
+```yaml
+    workflow-command-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: disable workflow commands
+          run: |
+            echo '::warning:: this is a warning'
+            echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+            echo '::warning:: this will NOT be a warning'
+            echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+            echo '::warning:: this is a warning again'
 ```
 
 ## Sending values to the pre and post actions
 
-You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
+You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For 
+, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
 If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for  data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)."
 
