@@ -48,7 +48,7 @@ The IRS allows non-resident and resident aliens to request an [Individual Taxpay
 
 ## 1099 forms
 
-If you are a taxpayer in the United States and earn more than $600 USD in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. We do not provide tax forms for international taxpayers.
+If you are a taxpayer in the United States and earn more than 600 US dollars in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. We do not provide tax forms for international taxpayers.
 
 ## General tax information
 
