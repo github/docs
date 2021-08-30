@@ -220,11 +220,12 @@ echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
 
 **Warning:** Make sure the token you're using is randomly generated and different between runs. A **hash** of your `github.token` is a good choice for this.
 
-To start workflow commands, pass the token that you used to stop workflow commands.
+{% endwarning %}
 
-`::{endtoken}::`
 
 ### Example starting workflow commands
+
+To start workflow commands, pass the token that you used to stop workflow commands.
 
 ``` bash
 echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
@@ -234,7 +235,7 @@ echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
 
 You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)."
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for  data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)."
 
 The `save-state`  command can only be run within an action, and is not available to YAML files. The saved value is stored as an environment value with the `STATE_` prefix.
 
