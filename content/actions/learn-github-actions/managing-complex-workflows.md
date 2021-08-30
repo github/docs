@@ -17,7 +17,7 @@ topics:
 
 ## Overview
 
-This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows.
+This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
 
 ## Storing secrets
 
