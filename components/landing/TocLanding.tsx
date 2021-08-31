@@ -3,7 +3,7 @@ import { TableOfContents } from 'components/landing/TableOfContents'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { ArticleTopper } from 'components/article/ArticleTopper'
 import { ArticleTitle } from 'components/article/ArticleTitle'
-import { ArticleContent } from 'components/article/ArticleContent'
+import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { ArticleList } from 'components/landing/ArticleList'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
@@ -55,7 +55,11 @@ export const TocLanding = () => {
               </div>
             )}
 
-            {renderedPage && <ArticleContent>{renderedPage}</ArticleContent>}
+            {renderedPage && (
+              <div id="article-contents">
+                <MarkdownContent>{renderedPage}</MarkdownContent>
+              </div>
+            )}
 
             <TableOfContents items={tocItems} variant={variant} />
           </div>
