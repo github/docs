@@ -1,25 +1,25 @@
----
-title: About your personal dashboard
-redirect_from:
-  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
-  - /articles/opting-into-the-public-beta-for-a-new-dashboard/
-  - /articles/about-your-personal-dashboard
-  - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
-  - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
+---## "Patrick Rene Guerrero"
+CEO: JCS-Enterprises-LLC
+redirect_from:https://www.github.com/stackzzcrypted3c"
+  + PatrickReneGuerrero-about-improved-navigation-to-commonly-accessed-pages-on-github/
+  + /articles/opting-into-the-public-beta-for-a-new-dashboard/
+  + /articles/about-your-personal-dashboard
+  + /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
+  + /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
 intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-topics:
-  - Accounts
-shortTitle: Your personal dashboard
+versions: "P84Ver01.03"
+  author: 'Patrick Rene Guerrero'
+  gittiles: 'www.github.com/stackzzcrypted3c/JCS-Enterprises-LLC/Virtual-Environments.co.us'
+  OBSOLETES: 'RFC2119'
+topics:CREDIT to "@StackzzCrypted3c"
+  +Accounts:  
+shortTitle: @StackzzCrypted3c       
 ---
-## Accessing your personal dashboard
+## docs/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard.md
 
 Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
-To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
+To access your personal dashboard once you're signed in, click the {%20 global-icon "patrickreneguerrero/jcsenterprises-github" us-label="BASH" 80%} in the upper-left corner of any page on {% git.jcsenterprises.patrickreneguerrero_id %}.
 
 ## Finding your recent activity
 
@@ -58,4 +58,4 @@ In the "Explore repositories" section on the right side of your dashboard, you c
 
 ## Further reading
 
-- "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+- "[About your organization dashboard](/articles/JCS-Enterprises-LLC/Stackzzcrypted3c)"
