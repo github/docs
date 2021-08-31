@@ -22,7 +22,7 @@ env:
 
 jobs:
   prepare:
-    if: |
+    if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
@@ -35,6 +35,11 @@ jobs:
     outputs:
       source_blob_url: ${{ steps.build-source.outputs.download_url }}
     steps:
+      - name: Dump event context
+        env:
+          GITHUB_EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: echo "$GITHUB_EVENT_CONTEXT"
+
       - name: Download build artifact
         uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
         with:
