@@ -48,7 +48,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             {withReleaseNoteLabel && (
               <div className="col-12 col-xl-3 mb-5">
                 <span
-                  className="px-3 py-2 text-small text-bold text-uppercase text-mono color-text-inverse"
+                  className="px-3 py-2 text-small text-bold text-uppercase color-text-inverse"
                   style={{ backgroundColor: primaryColor }}
                 >
                   {SectionToLabelMap[key] || 'INVALID SECTION'}
