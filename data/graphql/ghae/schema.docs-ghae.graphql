@@ -7389,12 +7389,11 @@ enum DeploymentOrderField {
 """
 A protection rule.
 """
-type DeploymentProtectionRule implements Node {
+type DeploymentProtectionRule {
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
-  id: ID!
 
   """
   The teams or users that can review the deployment
@@ -39865,6 +39864,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   isEmployee: Boolean!
 
   """
+  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  """
+  isFollowingViewer: Boolean!
+
+  """
   Whether or not this user is a member of the GitHub Stars Program.
   """
   isGitHubStar: Boolean!
@@ -40634,7 +40638,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   viewerCanFollow: Boolean!
 
   """
-  Whether or not this user is followed by the viewer.
+  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
   """
   viewerIsFollowing: Boolean!
 

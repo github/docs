@@ -109,7 +109,7 @@ steps:
 
 ## Caching dependencies
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Gradle package cache will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote package repositories. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Gradle package cache will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote package repositories. You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration. 
 
 {% raw %}
 ```yaml{:copy}
@@ -120,17 +120,9 @@ steps:
     with:
       java-version: '11'
       distribution: 'adopt'
+      cache: gradle
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - name: Cache Gradle packages
-    uses: actions/cache@v2
-    with:
-      path: |
-        ~/.gradle/caches
-        ~/.gradle/wrapper
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-      restore-keys: |
-        ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
   - name: Cleanup Gradle Cache
