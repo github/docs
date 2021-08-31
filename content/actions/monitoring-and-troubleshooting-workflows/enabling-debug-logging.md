@@ -2,6 +2,8 @@
 title: Enabling debug logging
 intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
 product: '{% data reusables.gated-features.actions %}'
+redirect_from:
+  - /actions/managing-workflow-runs/enabling-debug-logging
 versions:
   fpt: '*'
   ghes: '*'

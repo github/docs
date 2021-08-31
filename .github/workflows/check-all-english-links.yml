@@ -39,7 +39,7 @@ jobs:
       # are broken. When an Actions step's exit code is 1, the action run's job status
       # is failure and the run ends. The following steps create an issue for the
       # broken link report only if any links are broken, so `if: ${{ failure() }}`
-      # ensures the steps run desite though the previous step's failure of the job.
+      # ensures the steps run despite the previous step's failure of the job.
       #
       # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
 
