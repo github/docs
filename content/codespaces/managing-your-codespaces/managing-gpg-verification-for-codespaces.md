@@ -27,3 +27,4 @@ Once you enable GPG verification, it will immediately take effect for all your c
   ![Radio buttons to manage GPG verification](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png) 
 1. If you chose "Selected repositories", select the drop-down menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
   !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
+1. Make sure to update your Visual Studio Code settings to enable GPG verification: `"git.enableCommitSigning": true`.
