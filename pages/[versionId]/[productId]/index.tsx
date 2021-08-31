@@ -8,11 +8,7 @@ import displayToolSpecificContent from 'components/lib/display-tool-specific-con
 import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
@@ -100,10 +96,11 @@ export default GlobalPage
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       productLandingContext: getProductLandingContextFromRequest(req),
       productSubLandingContext: getProductSubLandingContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),

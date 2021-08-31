@@ -630,16 +630,6 @@ describe('server', () => {
       expect(res.headers.location).toBe('https://desktop.github.com')
     })
 
-    test('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
-      const res = await get(
-        '/en/insights/installing-and-configuring-github-insights/about-github-insights'
-      )
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
-      )
-    })
-
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
     // we can reenable it down the road if needed
     test.skip('redirects versioned category page', async () => {
@@ -687,18 +677,15 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $h2s = $('a.Bump-link--hover')
-      expect($h2s.length).toBeGreaterThan(3)
-      $h2s.each((i, el) => {
-        expect($(el).next()[0].name).toBe('p')
-      })
+      const $bumpLinks = $('[data-testid=bump-link]')
+      expect($bumpLinks.length).toBeGreaterThan(3)
     })
 
     test('map topic intros are parsed', async () => {
       const $ = await getDOM(
         '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $intro = $('a.Bump-link--hover[href*="source-code-migration-tools"] + p')
+      const $intro = $('[data-testid=bump-link][href*="source-code-migration-tools"] > p')
       expect($intro.length).toBe(1)
       expect($intro.html()).toContain('You can use external tools to move your projects to GitHub')
     })

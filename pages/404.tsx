@@ -9,6 +9,7 @@ const Custom404 = () => {
     <div className="min-h-screen d-flex flex-column">
       <Head>
         <title>404 - Page not found</title>
+        <meta name="status" content="404" />
       </Head>
 
       <SimpleHeader />

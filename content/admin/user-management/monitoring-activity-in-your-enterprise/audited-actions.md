@@ -81,14 +81,14 @@ Name                                 | Description
 
 {% endif %}
 
-## Issues and pull requests
+## Issues
 
 Action                               | Description
 ------------------------------------ | -----------------------------------------------------------
 `issue.update`                       | An issue's body text (initial comment) changed.
 `issue_comment.update`               | A comment on an issue (other than the initial one) changed.
-`pull_request_review_comment.delete` | A comment on a pull request was deleted.
 `issue.destroy`                      | An issue was deleted from the repository. For more information, see "[Deleting an issue](/github/managing-your-work-on-github/deleting-an-issue)."
+
 
 ## Organizations
 
@@ -97,6 +97,26 @@ Action             | Description
 `org.async_delete` | A user initiated a background job to delete an organization.
 `org.delete`       | An organization was deleted by a user-initiated background job.{% ifversion not ghae %}
 `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
+
+## Pull requests
+
+| Action | Description |
+| :- | :- |{% ifversion ghes > 3.1 or ghae-next %}
+| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
+| `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
+| `pull_request.reopen` | A pull request was reopened after previously being closed. |
+| `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)." |
+| `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. |
+| `pull_request.ready_for_review` | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
+| `pull_request.converted_to_draft` | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
+| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)." |
+| `pull_request_review.delete` | A review on a pull request was deleted. |
+| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %}
+| `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
 
 ## Protected branches
 
@@ -174,3 +194,9 @@ Action                            | Description
 `user.suspend`                    | A user account was suspended by a site admin.{% ifversion ghes %}
 `user.two_factor_requested`       | A user was prompted for a two-factor authentication code.{% endif %}
 `user.unsuspend`                  | A user account was unsuspended by a site admin.
+
+{% ifversion ghes > 3.1 or ghae-issue-1157 %}
+## Workflows
+
+{% data reusables.actions.actions-audit-events-workflow %}
+{% endif %}

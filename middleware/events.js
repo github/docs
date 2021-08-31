@@ -16,8 +16,7 @@ router.post('/', async function postEvents(req, res, next) {
   const fields = omit(req.body, '_csrf')
 
   if (!ajv.validate(schema, fields)) {
-    if (isDev) console.log(ajv.errorsText())
-    return res.status(400).json({})
+    return res.status(400).json(isDev ? ajv.errorsText() : {})
   }
 
   if (req.hydro.maySend()) {

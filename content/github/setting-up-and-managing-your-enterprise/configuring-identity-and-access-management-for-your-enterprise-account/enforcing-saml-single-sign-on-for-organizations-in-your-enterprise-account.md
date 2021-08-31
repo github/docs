@@ -10,7 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
-shortTitle: Enforce SSO for organizations
+shortTitle: Enforce SAML
 ---
 ## About SAML single sign-on for enterprise accounts
 

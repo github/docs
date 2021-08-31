@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 import {
   MainContextT,
   MainContext,
-  getMainContextFromRequest,
+  getMainContext,
   useMainContext,
 } from 'components/context/MainContext'
 
@@ -134,10 +134,11 @@ function LandingPage(props: LandingPageProps) {
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
         ({ title, href, intro }: any) => ({ title, href, intro })
       ),

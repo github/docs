@@ -1,0 +1,123 @@
+name: Content Changes Table Comment
+
+# **What it does**: When a PR is opened in docs-internal or docs, it adds the staging preview and live article links in a Content Directory Changes table in a comment
+# **Why we have it**: To help Docs Content team members and contributors automatically have their staging/live article links added to the table
+# **Who does it impact**: docs-internal/docs maintainers and contributors
+
+on:
+  workflow_dispatch:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  PR-Preview-Links:
+    name: Add staging/live links to PR
+    runs-on: ubuntu-latest
+    outputs:
+      filterContentDir: ${{ steps.filter.outputs.filterContentDir }}
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: ${{ github.event.pull_request.base.ref }}
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            filterContentDir:
+              - 'content/**/*'
+  filterContentDir:
+    needs: PR-Preview-Links
+    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out repo content
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Setup Node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Get changes table
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        id: changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          script: |
+            const slugify = require('github-slugger').slug
+
+            const HEROKU_APPNAME_MAX_LENGTH = 30
+
+            const repoName = context.payload.repository.name
+            const branchName = context.payload.pull_request.head.ref
+            const prNumber = context.payload.number
+            const stagingPrefix = getStagingPrefix(repoName, prNumber, branchName)
+
+            const response = await github.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: context.payload.pull_request.base.sha,
+              head: context.payload.pull_request.head.sha
+            })
+
+            let changedFiles = response.data.files
+              .map(e => e.filename)
+              .filter(file => file.startsWith('content/') && !file.includes('index'))
+
+            let markdownTable = '| **Article in Staging** | **Live Article** | **Source** | **Changes** |\n| ----------- | ----------- | ----------- | ----------- |\n'
+            for (let file of changedFiles) {
+              file = file.split('content')[1]
+              const fileURL = file.substring(0, file.length-3)
+              const stagingLink = `https://${stagingPrefix}.herokuapp.com${fileURL}`
+              let fileTitle = file.split('/').pop()
+              fileTitle = fileTitle.substring(0, fileTitle.length - 3)
+              const markdownLine = '| [' + fileTitle + '](' + stagingLink + ') | [' + fileTitle + '](https://docs.github.com' + fileURL + ') | | |\n' 
+              markdownTable += markdownLine
+            }
+
+            function getStagingPrefix (prefix, prNumber, branch) {
+              // Added a - in front of prNumber
+              return `${prefix}-${prNumber}--${slugify(branch)}`
+                .toLowerCase()
+                .slice(0, HEROKU_APPNAME_MAX_LENGTH)
+                .replace(/_/g, '-')
+                .replace(/-+$/, '')
+            }
+            core.setOutput('changesTable', markdownTable)
+
+      - name: Find content directory changes comment
+        uses: peter-evans/find-comment@0da1f4fc1f20cd898368bd56089d391df418f52f
+        id: findComment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '## ⚠️ Automatically generated comment ⚠️'
+
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ## ⚠️ Automatically generated comment ⚠️ 
+            **This comment is automatically generated and will be overwritten the every time changes are committed to this branch.**
+
+            The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the staging site. Please note that changes to the `data` directory will not show up in this table.
+
+            ---
+
+            ### Content directory changes
+            _You may find it useful to copy this table into the pull request summary. There you can edit it to share links to important articles or changes and to give a high-level overview of how the changes in your pull request support the overall goals of the pull request._
+            ${{ steps.changes.outputs.changesTable }}
+          edit-mode: replace

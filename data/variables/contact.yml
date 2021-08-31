@@ -39,7 +39,7 @@ contact_ae_portal: '[Azure Support portal](https://portal.azure.com/#blade/Micro
 
 # GitHub Support portal (for dotcom - this sends users to a contact form)
 support_portal: 'GitHub Support portal'
-contact_support_portal: '[GitHub Support portal](https://support.github.com/contact)'
+contact_support_portal: '[GitHub Support portal](https://support.github.com/contact?tags=docs-generic)'
 
 # GitHub Support portal (this sends users to the Support landing page)
 landing_page_portal: 'GitHub Support portal'
