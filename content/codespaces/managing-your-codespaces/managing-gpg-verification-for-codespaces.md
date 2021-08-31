@@ -31,6 +31,6 @@ Once you enable GPG verification, it will immediately take effect for all your c
 
 {% note %}
 
-**Note:** Once you have enabled this setting, ensure the "Git: Always Sign Off" and "Git: Enable Commit Signing" are enabled from the Visual Studio Code interface.
+**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_codespaces %}, you also must append `-s` to each commit in order for it to be signed. To do this in {% data variables.product.prodname_vscode %}, ensure the "Git: Enable Commit Signing" option is enabled from the Settings.
 
 {% endnote %}
