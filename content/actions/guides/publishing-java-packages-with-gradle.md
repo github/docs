@@ -142,7 +142,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to GitHub Packages by running the `gradle publish` command.
+With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
