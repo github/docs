@@ -18,6 +18,10 @@ Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secre
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Asana | Asana Personal Access Token | asana_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -110,6 +114,12 @@ GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token{%
 Google Cloud | Google API Key | google_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Google Cloud | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google Cloud | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google Cloud | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google Cloud | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Grafana | Grafana API Key | grafana_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
