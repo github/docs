@@ -2,6 +2,8 @@
 title: Viewing job execution time
 intro: 'You can view the execution time of a job, including the billable minutes that a job accrued.'
 product: '{% data reusables.gated-features.actions %}'
+redirect_from:
+  - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
 shortTitle: View job execution time
