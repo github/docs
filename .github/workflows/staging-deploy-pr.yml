@@ -22,7 +22,7 @@ env:
 
 jobs:
   prepare:
-    if: |
+    if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
