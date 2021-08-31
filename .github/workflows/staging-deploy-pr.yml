@@ -126,10 +126,8 @@ jobs:
       - name: Upload to the Heroku build source
         run: |
           curl '${{ steps.build-source.outputs.upload_url }}' \
-            --fail \
             -X PUT \
             -H 'Content-Type:' \
-            -H 'Authorization: Bearer ${{ secrets.HEROKU_API_TOKEN }}' \
             --data-binary @app.tar.gz
 
       - name: Send Slack notification if workflow fails
