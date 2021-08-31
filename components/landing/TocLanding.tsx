@@ -22,7 +22,7 @@ export const TocLanding = () => {
         <ArticleGridLayout className="mt-7">
           <ArticleTitle>{title}</ArticleTitle>
 
-          <div className="lead-mktg">
+          <div className="f2 color-text-secondary">
             <p>{introPlainText}</p>
           </div>
 
