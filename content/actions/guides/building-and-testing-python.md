@@ -1,14 +1,16 @@
 ---
 title: Building and testing Python
 intro: You can create a continuous integration (CI) workflow to build and test your Python project.
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
+hidden: true
 topics:
   - CI
   - Python
@@ -18,7 +20,6 @@ shortTitle: Build & test Python
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 
@@ -219,7 +220,7 @@ steps:
 
 ### Requirements file
 
-After you update `pip`, a typical next step is to install dependencies from *requirements.txt*.
+After you update `pip`, a typical next step is to install dependencies from *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 {% raw %}
 ```yaml{:copy}
@@ -319,8 +320,11 @@ steps:
   run: |
     pip install flake8
     flake8 .
+  continue-on-error: true
 ```
 {% endraw %}
+
+The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
 
 ### Running tests with tox
 
@@ -346,9 +350,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
-      - name: Install Tox and any other packages
+      - name: Install tox and any other packages
         run: pip install tox
-      - name: Run Tox
+      - name: Run tox
         # Run tox using the version of Python in `PATH`
         run: tox -e py
 ```

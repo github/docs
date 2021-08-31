@@ -1,6 +1,6 @@
-const getApplicableVersions = require('../../lib/get-applicable-versions')
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
-module.exports = async function productExamples (req, res, next) {
+export default async function productExamples(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'product-landing') return next()
 
@@ -12,10 +12,14 @@ module.exports = async function productExamples (req, res, next) {
 
   // We currently only support versioning in code examples.
   // TODO support versioning across all example types.
-  req.context.productCodeExamples = productExamples['code-examples'] && productExamples['code-examples']
-    .filter(example => {
+  req.context.productCodeExamples =
+    productExamples['code-examples'] &&
+    productExamples['code-examples'].filter((example) => {
       // If an example block does NOT contain the versions prop, assume it's available in all versions
-      return !example.versions || getApplicableVersions(example.versions).includes(req.context.currentVersion)
+      return (
+        !example.versions ||
+        getApplicableVersions(example.versions).includes(req.context.currentVersion)
+      )
     })
 
   return next()

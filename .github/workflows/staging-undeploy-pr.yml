@@ -5,7 +5,7 @@ name: Staging - Undeploy PR
 # **Who does it impact**: All contributors.
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
       - locked
@@ -20,32 +20,23 @@ jobs:
       group: staging_${{ github.head_ref }}
       cancel-in-progress: true
     steps:
-      - name: Check out repo
+      - name: Check out repo's default branch
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
-          # Enables cloning the Early Access repo later with the relevant PAT
+          # For enhanced security: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
           persist-credentials: 'false'
 
       - name: Setup node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
           node-version: 16.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Install one-off development-only dependencies
+        run: npm install --no-save --include=optional esm
 
       - name: Undeploy
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
@@ -66,8 +57,12 @@ jobs:
               throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
             }
 
-            const getOctokit = require('./script/helpers/github')
-            const undeployFromStaging = require('./script/deployment/undeploy-from-staging')
+            // Workaround to allow us to load ESM files with `require(...)`
+            const esm = require('esm')
+            require = esm({})
+
+            const { default: getOctokit } = require('./script/helpers/github')
+            const { default: undeployFromStaging } = require('./script/deployment/undeploy-from-staging')
 
             // This helper uses the `GITHUB_TOKEN` implicitly!
             // We're using our usual version of Octokit vs. the provided `github`
@@ -76,7 +71,6 @@ jobs:
 
             try {
               await undeployFromStaging({
-                herokuToken: HEROKU_API_TOKEN,
                 octokit,
                 pullRequest: context.payload.pull_request,
                 runId: context.runId

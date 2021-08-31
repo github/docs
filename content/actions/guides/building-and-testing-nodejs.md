@@ -7,9 +7,10 @@ redirect_from:
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
+hidden: true
 topics:
   - CI
   - Node
@@ -265,7 +266,27 @@ steps:
 - run: yarn test
 ```
 
-To cache dependencies, you must have a `package-lock.json` or `yarn.lock` file in the root of the repository. If you need more flexible customization, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
+The following example caches dependencies for pnpm (v6.10+).
+
+```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+# NOTE: pnpm caching support requires pnpm version >= 6.10.0
+
+steps:
+- uses: actions/checkout@v2
+- uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
+  with:
+    version: 6.10.0
+- uses: actions/setup-node@v2
+  with:
+    node-version: '14'
+    cache: 'pnpm'
+- run: pnpm install
+- run: pnpm test
+```
+
+To cache dependencies, you must have a `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml` file in the root of the repository. If you need more flexible customization, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
 
 ## Building and testing your code
 

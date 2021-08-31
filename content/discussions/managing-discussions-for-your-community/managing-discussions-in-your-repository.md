@@ -7,7 +7,6 @@ versions:
 shortTitle: Manage discussions
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About management of discussions
 
@@ -15,7 +14,9 @@ shortTitle: Manage discussions
 
 Organization owners can choose the permissions required to create a discussion for repositories owned by the organization. For more information, see "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
 
-As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)." 
+
+When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
 
 For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
 
@@ -23,7 +24,7 @@ For more information on facilitating a healthy discussion, see "[Moderating comm
 
 ## Prerequisites
 
-To manage discussions in a repository, discussions must be enabled for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
 ## Changing the category for a discussion
 

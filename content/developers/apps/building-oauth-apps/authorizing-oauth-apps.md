@@ -16,22 +16,14 @@ versions:
 topics:
   - OAuth Apps
 ---
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% ifversion fpt or ghes > 2.21 or ghae %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
+{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
-
-{% ifversion fpt or ghes > 2.21 or ghae %}
 
 To authorize your OAuth app, consider which authorization flow best fits your app.
 
 - [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
 - [device flow](#device-flow):  Used for headless apps, such as CLI tools.
-
-{% else %}
-
-For standard apps that run in the browser, use the [web application flow](#web-application-flow) to obtain an authorization code and exchange it for a token. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-
-{% endif %}
 
 ## Web application flow
 
@@ -113,7 +105,6 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 ## Device flow
 
 {% ifversion ghes < 3.1 %}
@@ -233,8 +224,6 @@ If you make more than one access token request (`POST {% data variables.product.
 
 For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
 
-{% endif %}
-
 ## Non-Web application flow
 
 Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a personal access token using your [Personal access tokens settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
@@ -307,9 +296,7 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 * "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghes > 2.21 or ghae %}
 * "[Device flow errors](#errors-for-the-device-flow)"
-{% endif %}
 
 ## Further reading
 

@@ -4,7 +4,7 @@ intro: 'You can use {% data variables.product.prodname_actions %} to automatical
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -17,7 +17,6 @@ shortTitle: Move assigned issues
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
-{% data reusables.actions.actions-not-certified-by-github-note %}
 
 ## Introduction
 

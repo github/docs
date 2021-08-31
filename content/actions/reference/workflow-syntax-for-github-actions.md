@@ -9,7 +9,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -40,7 +40,7 @@ Selects the types of activity that will trigger a workflow run. Most GitHub even
 You can use an array of event `types`. For more information about each event and their activity types, see "[Events that trigger workflows](/articles/events-that-trigger-workflows#webhook-events)."
 
 ```yaml
-# Trigger the workflow on pull request activity
+# Trigger the workflow on release activity
 on:
   release:
     # Only use the types keyword to narrow down the activity types that will trigger your workflow.
@@ -51,7 +51,7 @@ on:
 
 When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
 
-The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one branch or tag name. For more information, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
 
 ### Example: Including branches and tags
 
@@ -83,13 +83,13 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches-ignore:
-      # Push events to branches matching refs/heads/mona/octocat
+      # Do not push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push events to branches matching refs/heads/releases/beta/3-alpha
+      # Do not push events to branches matching refs/heads/releases/beta/3-alpha
       - 'releases/**-alpha'
     # Sequence of patterns matched against refs/tags
     tags-ignore:
-      - v1.*           # Push events to tags v1.0, v1.1, and v1.9
+      - v1.*           # Do not push events to tags v1.0, v1.1, and v1.9
 ```
 
 ### Excluding branches and tags
@@ -168,7 +168,7 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.
+**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
 
 {% endnote %}
 
@@ -179,7 +179,28 @@ The filter determines if a workflow should run by evaluating the changed files a
 - **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
 - **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
 
+Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
+
 For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
+
+## `on.workflow_dispatch.inputs`
+
+When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+
+```yaml
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+        required: false
+```
+
+The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 ## `on.schedule`
 
@@ -351,8 +372,6 @@ If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each jo
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
 {% data reusables.github-actions.supported-github-runners %}
-
-{% data reusables.github-actions.macos-runner-preview %}
 
 #### Example
 
@@ -621,22 +640,22 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ### Example: Using versioned actions
 
 ```yaml
-steps:    
+steps:
   # Reference a specific commit
-  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+  - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
   # Reference the major version of a release
-  - uses: actions/setup-node@v2
+  - uses: actions/checkout@v2
   # Reference a specific version
-  - uses: actions/setup-node@v2.2.0
+  - uses: actions/checkout@v2.2.0
   # Reference a branch
-  - uses: actions/setup-node@main
+  - uses: actions/checkout@main
 ```
 
 ### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
-You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
 jobs:
@@ -780,7 +799,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### Using a specific shell
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
+You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
@@ -970,6 +989,8 @@ The maximum number of minutes to run the step before killing the process.
 ## `jobs.<job_id>.timeout-minutes`
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
+
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
 
 ## `jobs.<job_id>.strategy`
 
@@ -1224,6 +1245,12 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
+
 ## `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
@@ -1313,6 +1340,12 @@ volumes:
 ## `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
 
 ## Filter pattern cheat sheet
 

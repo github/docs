@@ -4,7 +4,7 @@ intro: 'You can use {% data variables.product.prodname_actions %} to comment on 
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -71,7 +71,7 @@ Based on the `schedule` parameter (for example, every day at 1:30 UTC), your wor
 
 You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-This workflow will only label and/or close 30 issues at a time in order to avoid rate limit abuse. You can configure this with the `operations-per-run` setting. For more information, see the [`actions/stale` action documentation](https://github.com/marketplace/actions/close-stale-issues).
+This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. You can configure this with the `operations-per-run` setting. For more information, see the [`actions/stale` action documentation](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Next steps
 

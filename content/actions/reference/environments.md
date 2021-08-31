@@ -15,7 +15,9 @@ versions:
 You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the environment protection rules pass.
 
 {% ifversion fpt %}
-Environment protection rules and environment secrets are only available on public repositories and private repositories on an enterprise plan. If you convert a repository from public to private on a non-enterprise plan, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
+Environment protection rules and environment secrets are only available on private repositories with {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+If you don't use {% data variables.product.prodname_ghe_cloud %} and convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
 {% endif %}
 
 ### Environment protection rules

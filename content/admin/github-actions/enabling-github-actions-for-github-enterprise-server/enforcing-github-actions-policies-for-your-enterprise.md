@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -27,6 +27,18 @@ shortTitle: Enforce enterprise policies
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
+
+{% ifversion ghes > 2.22 %}
+## Allowing specific actions to run
+
+{% data reusables.actions.allow-specific-actions-intro %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
+   ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+{% endif %}
 
 {% ifversion ghes > 2.22 or ghae %}
 ## Enabling workflows for private repository forks

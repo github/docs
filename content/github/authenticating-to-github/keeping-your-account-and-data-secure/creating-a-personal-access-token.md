@@ -16,7 +16,14 @@ topics:
   - Access management
 shortTitle: Create a PAT
 ---
-Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line). 
+
+{% note %}
+
+**Note:** If you use {% data variables.product.prodname_cli %} to authenticate to {% data variables.product.product_name %} on the command line, you can skip generating a personal access token and authenticate via the web browser instead. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+
+{% endnote %}
+
+Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
 
 {% ifversion fpt %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" and "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
 
@@ -31,16 +38,17 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 4. Click **Generate new token**.
    ![Generate new token button](/assets/images/help/settings/generate_new_token.png)
 5. Give your token a descriptive name.
-   ![Token description field](/assets/images/help/settings/token_description.png)
-6. Select the scopes, or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
+   ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.
+   ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
+7. Select the scopes, or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
    {% ifversion fpt or ghes %}
    ![Selecting token scopes](/assets/images/help/settings/token_scopes.gif)
    {% elsif ghae %}
    ![Selecting token scopes](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
-7. Click **Generate token**.
+8. Click **Generate token**.
    ![Generate token button](/assets/images/help/settings/generate_token.png)
-8. Click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
    {% ifversion fpt %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
    {% elsif ghes > 3.1 or ghae-next %}
@@ -50,7 +58,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
    {% endif %}
    {% warning %}
 
-   **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
+   **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs. 
 
    {% endwarning %}
 

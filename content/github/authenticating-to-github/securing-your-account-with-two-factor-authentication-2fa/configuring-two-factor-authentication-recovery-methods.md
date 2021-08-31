@@ -24,7 +24,6 @@ In addition to securely storing your two-factor authentication recovery codes, w
 
 To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
 - [1Password](https://1password.com/)
-- [Keeper](https://keepersecurity.com/)
 - [LastPass](https://lastpass.com/)
 
 If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.

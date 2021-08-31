@@ -11,7 +11,7 @@ redirect_from:
   - /actions/reference/logging-commands-for-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 
@@ -89,7 +89,7 @@ The following table shows which toolkit functions are available within a workflo
 
 `::set-env name={name}::{value}`
 
-Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
+Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
 ### Example
 
@@ -142,7 +142,7 @@ echo "::debug::Set the Octocat variable"
 
 `::warning file={name},line={line},col={col}::{message}`
 
-Creates a warning message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the warning occurred.
+Creates a warning message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the warning occurred. Line and column numbers start at 1.
 
 ### Example
 
@@ -154,7 +154,7 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 `::error file={name},line={line},col={col}::{message}`
 
-Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the error occurred.
+Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the error occurred. Line and column numbers start at 1.
 
 ### Example
 
@@ -266,7 +266,7 @@ steps:
 
 `echo "{name}={value}" >> $GITHUB_ENV`
 
-Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
+Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
 ### Example
 

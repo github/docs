@@ -78,7 +78,7 @@ We have a few simple rules for User Accounts on GitHub's Service.
 You are responsible for keeping your Account secure while you use our Service. We offer tools such as two-factor authentication to help you maintain your Account's security, but the content of your Account and its security are up to you.
 - You are responsible for all content posted and activity that occurs under your Account (even when content is posted by others who have Accounts under your Account).
 - You are responsible for maintaining the security of your Account and password. GitHub cannot and will not be liable for any loss or damage from your failure to comply with this security obligation.
-- You will promptly [notify GitHub](https://support.github.com/contact) if you become aware of any unauthorized use of, or access to, our Service through your Account, including any unauthorized use of your password or Account.
+- You will promptly [notify GitHub](https://support.github.com/contact?tags=docs-policy) if you become aware of any unauthorized use of, or access to, our Service through your Account, including any unauthorized use of your password or Account.
 
 ### 5. Additional Terms
 In some situations, third parties' terms may apply to your use of GitHub. For example, you may be a member of an organization on GitHub with its own terms or license agreements; you may download an application that integrates with GitHub; or you may use GitHub to authenticate to another service. Please be aware that while these Terms are our full agreement with you, other parties' terms govern their relationships with you.
@@ -224,7 +224,7 @@ Our pricing and payment terms are available at [github.com/pricing](https://gith
 By agreeing to these Terms, you are giving us permission to charge your on-file credit card, PayPal account, or other approved methods of payment for fees that you authorize for GitHub.
 
 ### 5. Responsibility for Payment
-You are responsible for all fees, including taxes, associated with your use of the Service. By using the Service, you agree to pay GitHub any charge incurred in connection with your use of the Service.  If you dispute the matter, contact [GitHub Support](https://support.github.com/contact). You are responsible for providing us with a valid means of payment for paid Accounts. Free Accounts are not required to provide payment information.
+You are responsible for all fees, including taxes, associated with your use of the Service. By using the Service, you agree to pay GitHub any charge incurred in connection with your use of the Service.  If you dispute the matter, contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). You are responsible for providing us with a valid means of payment for paid Accounts. Free Accounts are not required to provide payment information.
 
 ## L. Cancellation and Termination
 **Short version:** *You may close your Account at any time. If you do, we'll treat your information responsibly.*
@@ -312,4 +312,4 @@ If any part of this Agreement is held invalid or unenforceable, that portion of 
 This Agreement may only be modified by a written amendment signed by an authorized representative of GitHub, or by the posting by GitHub of a revised version in accordance with [Section Q. Changes to These Terms](#q-changes-to-these-terms). These Terms of Service, together with the GitHub Privacy Statement, represent the complete and exclusive statement of the agreement between you and us. This Agreement supersedes any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms including any confidentiality or nondisclosure agreements.
 
 ### 6. Questions
-Questions about the Terms of Service? [Contact us](https://support.github.com/contact).
+Questions about the Terms of Service? [Contact us](https://support.github.com/contact?tags=docs-policy).

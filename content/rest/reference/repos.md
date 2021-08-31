@@ -1,6 +1,6 @@
 ---
 title: Repositories
-intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} respositories.' 
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} respositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -16,6 +16,24 @@ miniTocMaxHeadingLevel: 3
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
+
+{% ifversion fpt %}
+## Autolinks
+
+{% tip %}
+
+**Note:** The Autolinks API is in beta and may change.
+
+{% endtip %}
+
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+
+{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Branches
 
@@ -304,9 +322,11 @@ to the information provided in your repository graph. For more information, see 
 
 ## Webhooks
 
-The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository. {% data reusables.webhooks.webhooks-rest-api-links %} Webhooks can be managed using the JSON HTTP API, or the [PubSubHubbub](#pubsubhubbub) API.
+Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
+
+In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

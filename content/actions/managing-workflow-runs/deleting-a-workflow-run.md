@@ -4,7 +4,7 @@ intro: 'You can delete a workflow run that has been completed, or is more than t
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 ---
 

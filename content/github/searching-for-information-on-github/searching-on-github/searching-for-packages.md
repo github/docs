@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 permissions: Anyone can search for packages they have access to.
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - GitHub search

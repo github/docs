@@ -180,7 +180,7 @@ Use the `allow` option to customize which dependencies are updated. This applies
   | `direct` | All | All explicitly defined dependencies. |
   | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
   | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, also the dependencies of direct dependencies.|
-  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Product dependency group". |
+  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
   | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
 
 ```yaml
@@ -498,7 +498,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -824,9 +825,9 @@ registries:
 ```
 {% endraw %}
 
-### `maven-repository` 
+### `maven-repository`
 
-The `maven-repository` type supports username and password, or token.
+The `maven-repository` type supports username and password.
 
 {% raw %}
 ```yaml
@@ -839,19 +840,11 @@ registries:
 ```
 {% endraw %}
 
-{% raw %}
-```yaml
-registries:
-  maven-github:
-    type: maven-repository
-    url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-{% endraw %}
-
-### `npm-registry` 
+### `npm-registry`
 
 The `npm-registry` type supports username and password, or token.
+
+When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
 {% raw %}
 ```yaml
@@ -860,7 +853,7 @@ registries:
     type: npm-registry
     url: https://registry.npmjs.org
     username: octocat
-    password: ${{secrets.MY_NPM_PASSWORD}}
+    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
 ```
 {% endraw %}
 

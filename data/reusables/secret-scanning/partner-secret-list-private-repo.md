@@ -18,6 +18,10 @@ Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secre
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Asana | Asana Personal Access Token | asana_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -36,10 +40,16 @@ Azure | Azure Service Management Certificate | azure_management_certificate{% en
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Clojars | Clojars Deploy Token | clojars_deploy_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Contentful | Contentful Personal Access Token | contentful_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Databricks | Databricks Access Token | databricks_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -52,10 +62,16 @@ Doppler | Doppler Service Token | doppler_service_token{% endif %}
 Doppler | Doppler CLI Token | doppler_cli_token{% endif %}
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
 Doppler | Doppler SCIM Token | doppler_scim_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Doppler | Doppler Audit Token | doppler_audit_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Dropbox | Dropbox Access Token | dropbox_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Duffel | Duffel Live Access Token | duffel_live_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Duffel | Duffel Test Access Token | duffel_test_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.0 or ghae-next %}
 Dynatrace | Dynatrace Access Token | dynatrace_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -70,10 +86,16 @@ Facebook | Facebook Access Token | facebook_access_token{% endif %}
 Fastly | Fastly API Token | fastly_api_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Finicity | Finicity App Key | finicity_app_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Frame.io | Frame.io JSON Web Token | frameio_jwt{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Frame.io| Frame.io Developer Token | frameio_developer_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+FullStory | FullStory API Key | fullstory_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 GitHub | GitHub Personal Access Token | github_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
@@ -92,6 +114,12 @@ GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token{%
 Google Cloud | Google API Key | google_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Google Cloud | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google Cloud | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google Cloud | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google Cloud | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Grafana | Grafana API Key | grafana_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -104,6 +132,10 @@ Intercom | Intercom Access Token | intercom_access_token{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Ionic | Ionic Refresh Token | ionic_refresh_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Linear | Linear API Key | linear_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
@@ -130,6 +162,12 @@ Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token{% endif %}
 OpenAI | OpenAI API Key | openai_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Palantir | Palantir JSON Web Token | palantir_jwt{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+PlanetScale | PlanetScale Database Password | planetscale_database_password{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Postman | Postman API Key | postman_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}

@@ -11,7 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
-shortTitle: Configure SAML SSO
+shortTitle: Configure SAML with Okta
 ---
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
@@ -19,7 +19,7 @@ shortTitle: Configure SAML SSO
 
 You can control access to your enterprise account in {% data variables.product.product_name %} and other web applications from one central interface by configuring the enterprise account to use SAML SSO with Okta, an Identity Provider (IdP).
 
-SAML SSO controls and secures access to enterprise account resources like organizations, repositories, issues, and pull requests. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+SAML SSO controls and secures access to enterprise account resources like organizations, repositories, issues, and pull requests. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ SAML SSO controls and secures access to enterprise account resources like organi
 1. To the right of the drop-down menu, type `.*.*`.
 1. Click **Save**.
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 ## Creating groups in Okta
 

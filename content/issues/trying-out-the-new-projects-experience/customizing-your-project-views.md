@@ -96,9 +96,17 @@ In table layout, you can filter by field values.
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing "Filter by" or the name of the field you want to filter by.
 3. Select the desired command (e.g. "Filter by Status").
-4. Enter the value that you want to filter for (for example: "In progress").
-5. Alternatively, click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Enter the field name and value that you want to filter by. As you type, possible values will appear. Separate multiple filters with a space. For example, `status:"In progress" assignee:octocat`.
-6. Alternatively, select the drop-down menu next to the view name and click the menu item that indicates the current sort.
+4. Enter the value that you want to filter for (for example: "In progress"). You can also filter for the absence of specific values (for example: "Exclude status") or the absence of all values (for example: "No status").
+5. Alternatively, click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Enter the field name and value that you want to filter by. As you type, possible values will appear.
+
+   To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
+
+   To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+
+   To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+
+   Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+6. Alternatively, select the drop-down menu next to the view name and click the menu item that indicates the desired filter.
 
 ## Save views
 

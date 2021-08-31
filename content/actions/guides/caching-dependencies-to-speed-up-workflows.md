@@ -26,7 +26,9 @@ To cache dependencies for a job, you'll need to use {% data variables.product.pr
 
 If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically). 
 
-To cache and restore dependencies for npm or Yarn, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
+To cache and restore dependencies for npm, Yarn, or pnpm, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
+
+Gradle and Maven caching is available with [`actions/setup-java` action](https://github.com/actions/setup-java).
 
 {% warning %}
 

@@ -30,7 +30,7 @@ shortTitle: Update access credentials
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/).
+To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% endtip %}
 

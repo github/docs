@@ -48,6 +48,7 @@ dependency_version_updates:
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
+    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
@@ -67,7 +68,7 @@ security_alerts:
   title: 'Explore and manage security alerts'
   description: 'Learn where to find and resolve security alerts.'
   guides:
-    - /code-security/security-overview/exploring-security-alerts
+    - /code-security/security-overview/about-the-security-overview
     - '{% ifversion fpt %}/code-security/secret-security/managing-alerts-from-secret-scanning {% endif %}'
     - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
     - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'

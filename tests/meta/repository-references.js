@@ -1,5 +1,5 @@
-const walkSync = require('walk-sync')
-const readFileAsync = require('../../lib/readfile-async')
+import walkSync from 'walk-sync'
+import readFileAsync from '../../lib/readfile-async.js'
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 
@@ -35,7 +35,7 @@ const ALLOW_LIST = new Set([
   'renaming',
   'localization-support',
   'docs',
-  'securitylab'
+  'securitylab',
 ])
 
 describe('check if a GitHub-owned private repository is referenced', () => {
@@ -47,12 +47,12 @@ describe('check if a GitHub-owned private repository is referenced', () => {
   const filenames = walkSync(process.cwd(), {
     directories: false,
     ignore: [
-      '.algolia-cache',
       '.git',
       '.github/actions-scripts/enterprise-server-issue-templates/*.md',
       '.github/review-template.md',
+      '.github/workflows/sync-search-indices.yml',
       '.next',
-      'dist',
+      'contributing/search.md',
       'node_modules',
       'translations',
       'lib/rest/**/*.json',
@@ -69,15 +69,16 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       '**/*.pdf',
       '**/*.ico',
       '**/*.woff',
-      'script/deploy'
-    ]
+      'script/deploy.js',
+      'script/README.md',
+    ],
   })
 
   test.each(filenames)('in file %s', async (filename) => {
     const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
-      .filter(repoName => !ALLOW_LIST.has(repoName))
+      .filter((repoName) => !ALLOW_LIST.has(repoName))
     expect(matches).toHaveLength(0)
   })
 })
