@@ -1,10 +1,6 @@
 import { GetServerSideProps } from 'next'
 import { Liquid } from 'liquidjs'
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { GHAEReleaseNotes } from 'components/release-notes/GHAEReleaseNotes'
 import { GHESReleaseNotes } from 'components/release-notes/GHESReleaseNotes'
@@ -40,11 +36,12 @@ export default function ReleaseNotes({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
   const currentVersion = req.context.allVersions[req.context.currentVersion]
   const { latestPatch = '', latestRelease = '' } = req.context
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       currentVersion,
       ghesContext: {
         currentVersion,

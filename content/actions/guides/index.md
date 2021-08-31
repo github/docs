@@ -59,7 +59,7 @@ includeGuides:
   - /actions/learn-github-actions/security-hardening-for-github-actions
   - /actions/creating-actions/about-actions
   - /actions/creating-actions/creating-a-javascript-action
-  - /actions/creating-actions/creating-a-composite-run-steps-action
+  - /actions/creating-actions/creating-a-composite-action
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
@@ -72,12 +72,12 @@ includeGuides:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
-  - /actions/guides/managing-github-actions-with-github-cli
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
 children:
   - /about-continuous-integration
   - /setting-up-continuous-integration-using-workflow-templates
+  - /building-and-testing-nodejs-or-python
   - /building-and-testing-nodejs
   - /building-and-testing-net
   - /building-and-testing-powershell
@@ -109,6 +109,6 @@ children:
   - /commenting-on-an-issue-when-a-label-is-added
   - /moving-assigned-issues-on-project-boards
   - /removing-a-label-when-a-card-is-added-to-a-project-board-column
-  - /managing-github-actions-with-github-cli
+  - /using-github-cli-in-workflows
 ---
 

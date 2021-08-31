@@ -68,7 +68,7 @@ security_alerts:
   title: 'Explore and manage security alerts'
   description: 'Learn where to find and resolve security alerts.'
   guides:
-    - /code-security/security-overview/exploring-security-alerts
+    - /code-security/security-overview/about-the-security-overview
     - '{% ifversion fpt %}/code-security/secret-security/managing-alerts-from-secret-scanning {% endif %}'
     - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
     - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'

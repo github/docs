@@ -168,7 +168,7 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.
+**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
 
 {% endnote %}
 
@@ -178,6 +178,8 @@ The filter determines if a workflow should run by evaluating the changed files a
 - **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
 - **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
 - **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
+
+Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
 For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
 
@@ -1243,6 +1245,12 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
+
 ## `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
@@ -1332,6 +1340,12 @@ volumes:
 ## `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+
+{% warning %}
+
+**Warning:** The `--network` option is not supported.
+
+{% endwarning %}
 
 ## Filter pattern cheat sheet
 
