@@ -64,6 +64,7 @@ jobs:
             translations/ \
             server.mjs \
             package*.json \
+            .npmrc \
             feature-flags.json \
             next.config.js \
             app.json \
