@@ -63,7 +63,11 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <MarkdownContent className="lead-mktg mb-3">{intro}</MarkdownContent>}
+              {intro && (
+                <MarkdownContent className="f2 color-text-secondary mb-3" data-testid="lead">
+                  {intro}
+                </MarkdownContent>
+              )}
 
               {permissions && (
                 <div

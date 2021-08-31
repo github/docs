@@ -84,7 +84,7 @@ const CollapsibleReleaseSection = ({
         <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between outline-none">
           {release.version}
           <div className="d-flex">
-            <span className="color-text-tertiary text-mono text-small text-normal mr-1">
+            <span className="color-text-tertiary text-small text-normal mr-1">
               {release.patches.length} releases
             </span>
             <ChevronDownIcon className={isOpen ? 'rotate-180' : ''} />
