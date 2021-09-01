@@ -30,7 +30,7 @@ jobs:
           # Returns list of changed files matching each filter
           filters: |
             filterContentDir:
-              - 'content/**'
+              - 'content/**/*'
   filterContentDir:
     needs: PR-Preview-Links
     if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
@@ -71,20 +71,25 @@ jobs:
               head: context.payload.pull_request.head.sha
             })
 
-            let changedFiles = response.data.files
-              .map(e => e.raw_url)
-              .filter(file => file.includes('/content/'))
+            const files = response.data.files
 
-            let markdownTable = '| **Article in Staging** | **Live Article** | **Source** | **Changes** |\n| ----------- | ----------- | ----------- | ----------- |\n'
-            for (let file of changedFiles) {
-              file = file.split('/content')[1]
-              const fileURL = file.substring(0, file.length-3)
-              const stagingLink = `https://${stagingPrefix}.herokuapp.com${fileURL}`
-              let fileTitle = file.split('/').pop()
-              fileTitle = fileTitle.substring(0, fileTitle.length - 3)
-              const markdownLine = '| [' + fileTitle + '](' + stagingLink + ') | [' + fileTitle + '](https://docs.github.com' + fileURL + ') | | |\n' 
-              markdownTable += markdownLine
-            }
+            let markdownTable = '| **Source** | **Staging** | **Production** | **What Changed** |\n|:----------- |:----------- |:----------- |:----------- |\n'
+
+            files.filter(({ filename }) => filename.startsWith('content/') && !filename.endsWith('/index.md'))
+                 .forEach(file => {
+                   const fileName = file.filename.split('content/')[1]
+                   const sourceUrl = file.blob_url
+                   const fileUrl = fileName.substring(0, fileName.split('.')[0])
+                   const stagingLink = `https://${stagingPrefix}.herokuapp.com/${fileUrl}`
+                   let markdownLine = ''
+                   
+                   if (file.status == 'modified') {
+                     markdownLine = '| [content/' + fileName + '](' + sourceUrl + ') | [Modified](' + stagingLink + ') | [Original](https://docs.github.com/' + fileUrl + ') | | |\n' 
+                   } else if (file.status == 'added') {
+                     markdownLine = '| New file: [content/' + fileName + '](' + sourceUrl + ') | [Modified](' + stagingLink + ') | | | |\n' 
+                   }
+                   markdownTable += markdownLine
+                 })
 
             function getStagingPrefix (prefix, prNumber, branch) {
               // Added a - in front of prNumber
@@ -102,7 +107,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: '## ⚠️ Automatically generated comment ⚠️'
+          body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
         uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
@@ -110,8 +115,9 @@ jobs:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            ## ⚠️ Automatically generated comment ⚠️ 
-            **This comment is automatically generated and will be overwritten the every time changes are committed to this branch.**
+            <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
+            ## Automatically generated comment ℹ️ 
+            **This comment is automatically generated and will be overwritten every time changes are committed to this branch.**
 
             The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the staging site. Please note that changes to the `data` directory will not show up in this table.
 

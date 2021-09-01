@@ -22,7 +22,7 @@ name: Sync search indexes
 on:
   workflow_dispatch:
   schedule:
-    - cron: '53 0/4 * * *' # Run every four hours at 53 minutes past the hour
+    - cron: '53 0/8 * * *' # Run every eight hours at 53 minutes past the hour
 
 jobs:
   updateIndexes:

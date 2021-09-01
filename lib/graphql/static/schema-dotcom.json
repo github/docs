@@ -14519,13 +14519,6 @@
       "id": "deploymentprotectionrule",
       "href": "/graphql/reference/objects#deploymentprotectionrule",
       "description": "<p>A protection rule.</p>",
-      "implements": [
-        {
-          "name": "Node",
-          "id": "node",
-          "href": "/graphql/reference/interfaces#node"
-        }
-      ],
       "fields": [
         {
           "name": "databaseId",
@@ -49763,6 +49756,14 @@
           "href": "/graphql/reference/enums#subscriptionstate"
         },
         {
+          "name": "visibility",
+          "description": "<p>Indicates the repository's visibility level.</p>",
+          "type": "RepositoryVisibility!",
+          "id": "repositoryvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvisibility"
+        },
+        {
           "name": "vulnerabilityAlerts",
           "description": "<p>A list of vulnerability alerts that are on this repository.</p>",
           "type": "RepositoryVulnerabilityAlertConnection",
@@ -58637,6 +58638,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isFollowingViewer",
+          "description": "<p>Whether or not this user is following the viewer. Inverse of viewer_is_following.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isGitHubStar",
           "description": "<p>Whether or not this user is a member of the GitHub Stars Program.</p>",
           "type": "Boolean!",
@@ -60523,7 +60532,7 @@
         },
         {
           "name": "viewerIsFollowing",
-          "description": "<p>Whether or not this user is followed by the viewer.</p>",
+          "description": "<p>Whether or not this user is followed by the viewer. Inverse of is_following_viewer.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -63489,6 +63498,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>Indicates the repository's visibility level.</p>",
+          "type": "RepositoryVisibility!",
+          "id": "repositoryvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvisibility"
         }
       ]
     },
