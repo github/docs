@@ -19,7 +19,7 @@ Owners or collaborators can assign a pull request review to any person that has 
 
 {% note %}
 
-**Note:** Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.
+**Note:** Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.  This applies to teams as well. [Managing team access to an organization repository](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)
 
 {% endnote %}
 
