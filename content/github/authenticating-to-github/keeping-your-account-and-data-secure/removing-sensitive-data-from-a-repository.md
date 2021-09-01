@@ -86,9 +86,10 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   ```shell
   $ cd <em>YOUR-REPOSITORY</em>
   ```
+  
   {% note %}
 
-  **Note:** You should be aware that the `filter-repo` command removes some configurations such as the remote url stored in the file `.git/config`. You may want to back up the config file and restore it before executing `git push` commands in the next steps.
+  **Note:** You should be aware that the command `filter-repo` removes some configurations such as the remote url stored in the file `.git/config`. You may want to back up the config file and restore it before executing `git push` commands in the next steps.
 
   {% endnote %}
   
