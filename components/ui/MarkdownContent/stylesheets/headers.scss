@@ -23,9 +23,4 @@
   h5 {
     font-size: 0.85em;
   }
-
-  // needs specificity to override
-  [class~="lead-mktg"] p {
-    color: var(--color-auto-gray-9);
-  }
 }

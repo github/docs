@@ -37,7 +37,9 @@ export default function Storybook() {
   return (
     <div className="p-4 mx-auto" style={{ maxWidth: 1200 }}>
       <h1>GitHub Docs Storybook</h1>
-      <p className="f3">This page lists React components unique to the GitHub docs.</p>
+      <p className="f2 color-text-secondary">
+        This page lists React components unique to the GitHub docs.
+      </p>
       <div className="my-4 d-lg-flex flex-items-start">
         <nav className="menu col-12 col-lg-3 mr-4 color-bg-secondary position-lg-sticky top-0">
           {stories.map(({ name }) => (
