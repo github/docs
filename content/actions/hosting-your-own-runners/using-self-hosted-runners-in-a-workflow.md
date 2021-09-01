@@ -71,7 +71,7 @@ These labels operate cumulatively, so a self-hosted runner’s labels must match
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
 {% ifversion fpt or ghes > 3.2 or ghae %}
-- {% data variables.product.prodname_dotcom %} first searches for an online and idle runner at the repository level, then at the organization level, and if the organization is part of an enterprise, then at the enterprise level.
+- {% data variables.product.prodname_dotcom %} first searches for an online and idle runner at the repository level, then at the organization level, {% ifversion fpt %} and if the organization is part of an enterprise,{% endif %} then at the enterprise level.
 - If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
   - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
 - If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
