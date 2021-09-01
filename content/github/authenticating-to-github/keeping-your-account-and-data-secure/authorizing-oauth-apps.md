@@ -83,6 +83,12 @@ When you authorize an {% data variables.product.prodname_oauth_app %} for your p
 
 If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
 
+{% tip %}
+
+**Tip:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize it.
+
+{% endtip %}
+
 ## Further reading
 
 - "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
