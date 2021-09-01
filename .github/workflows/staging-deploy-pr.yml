@@ -45,7 +45,7 @@ jobs:
             const { owner, repo } = context.repo
 
             // Create a check run
-            const CHECK_NAME = '${{ github.workflow }} / ${{ github.job }} (${{ github.event_name }})'
+            const CHECK_NAME = '${{ github.workflow }} check run'
             const { data } = await github.checks.create({
               name: CHECK_NAME,
               head_sha: '${{ github.event.workflow_run.head_sha }}',
