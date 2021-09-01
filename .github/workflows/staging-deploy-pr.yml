@@ -42,13 +42,15 @@ jobs:
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           script: |
+            const { owner, repo } = context.repo
+
             // Create a check run
             const CHECK_NAME = '${{ github.workflow }} / ${{ github.job }} (${{ github.event_name }})'
             const { data } = await github.checks.create({
               name: CHECK_NAME,
               head_sha: '${{ github.event.workflow_run.head_sha }}',
-              owner: 'github',
-              repo: 'docs-internal',
+              owner,
+              repo,
               status: 'in_progress',
               started_at: new Date()
             })
@@ -238,8 +240,8 @@ jobs:
               })
 
               await octokit.checks.update({
-                owner: 'github',
-                repo: 'docs-internal',
+                owner,
+                repo,
                 conclusion: 'success',
                 status: 'completed',
                 name: CHECK_RUN_NAME,
@@ -253,8 +255,8 @@ jobs:
               })
             } catch (error) {
               await octokit.checks.update({
-                owner: 'github',
-                repo: 'docs-internal',
+                owner,
+                repo,
                 conclusion: 'failure',
                 status: 'completed',
                 name: CHECK_RUN_NAME,
