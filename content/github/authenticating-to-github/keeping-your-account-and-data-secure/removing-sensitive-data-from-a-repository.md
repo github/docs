@@ -181,5 +181,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 ## Further reading
 
 - [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
-- [Secret scanning](/code-security/secret-security/about-secret-scanning)
+- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History){% ifversion fpt or ghae or ghes > 2.22 %}
+- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"{% endif %}

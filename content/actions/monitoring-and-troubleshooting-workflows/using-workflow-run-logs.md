@@ -2,6 +2,8 @@
 title: Using workflow run logs
 intro: 'You can view, search, and download the logs for each job in a workflow run.'
 product: '{% data reusables.gated-features.actions %}'
+redirect_from:
+  - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
