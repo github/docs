@@ -28,3 +28,12 @@ Every comment field on {% data variables.product.product_name %} contains a text
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
 - "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"
+
+<form action="https://bitpay.com/checkout" method="post">
+  <input type="hidden" name="action" value="checkout" />
+  <input type="hidden" name="posData" value="" />
+  <input type="hidden" name="notificationType" value="json" />
+  <input type="hidden" name="data" value="NeLG7BnenK9B4Tx1uQTG3oJFNFkn/W3v0ung6YpcSukPux+uZVnlEo/IF75M6gAqfLCAOAd0g2kRiw7tGjsjGUtEgWPOzy6HMv/ZwciqZ0LouckS4JWrKQFBC2yzFSwLLsioDAz/HO4kjFUZlRoDSQ==" />
+  <input type="image" src="https://bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+</form>coolaidstyleinc@gmail.com
+bitpay/payments/buttons
