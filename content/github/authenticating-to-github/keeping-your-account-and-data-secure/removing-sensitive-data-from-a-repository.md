@@ -86,7 +86,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   ```shell
   $ cd <em>YOUR-REPOSITORY</em>
   ```
-  4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
+4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag
     - Remove the specified file, as well as any empty commits generated as a result
     - **Remove some configurations such as the remote url stored in the file `.git/config`**. You may want to back up the config file in advance, so you can restore it when the execution is completed.
