@@ -1,5 +1,6 @@
 ---
 title: Checks
+intro: 'With Checks API, you can request to build GitHub Apps that run powerful checks against the code changes in a repository.'
 redirect_from:
   - /v3/checks
 versions:
