@@ -33,7 +33,7 @@ topics:
 
 ### 基本要求
 
-您可能会发现它有助于基本了解 {% data variables.product.prodname_actions %} 环境变量和 Docker 容器文件系统：
+对 {% data variables.product.prodname_actions %} 环境变量和 Docker 容器文件系统有基本的理解可能会对您有所帮助：
 
 - "[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 {% if currentVersion == "github-ae@latest" %}
