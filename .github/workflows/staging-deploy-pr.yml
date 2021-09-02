@@ -37,23 +37,20 @@ jobs:
       check_run_id: ${{ steps.create-check-run.outputs.check_run_id }}
       check_run_name: ${{ steps.create-check-run.outputs.check_run_name }}
     steps:
-      - name: Dump event context
-        env:
-          GITHUB_EVENT_CONTEXT: ${{ toJSON(github.event) }}
-        run: echo "$GITHUB_EVENT_CONTEXT"
-
       - name: Create check run
         id: create-check-run
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           script: |
+            const { owner, repo } = context.repo
+
             // Create a check run
-            const CHECK_NAME = '${{ github.workflow }} / ${{ github.job }} (${{ github.event_name }})'
+            const CHECK_NAME = '${{ github.workflow }} check run'
             const { data } = await github.checks.create({
               name: CHECK_NAME,
-              head_sha: '${{github.sha}}',
-              owner: 'github',
-              repo: 'docs-internal',
+              head_sha: '${{ github.event.workflow_run.head_sha }}',
+              owner,
+              repo,
               status: 'in_progress',
               started_at: new Date()
             })
@@ -68,16 +65,10 @@ jobs:
           name: pr_build
           path: ./
 
-      - name: Show contents
-        run: ls -l
-
       - name: Extract the archive
         run: |
           tar -xf app.tar -C ./
           rm app.tar
-
-      - name: Show contents again
-        run: ls -l
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Setup node to clone early access
@@ -198,7 +189,7 @@ jobs:
           PR_URL: ${{ env.PR_URL }}
           SOURCE_BLOB_URL: ${{ needs.prepare.outputs.source_blob_url }}
           CHECK_RUN_ID: ${{ needs.prepare.outputs.check_run_id }}
-          CHECK_RUN_NAME: ${{ needs.prepare.outputs.check_run_name }}
+          CHECK_RUN_NAME: '${{ needs.prepare.outputs.check_run_name }}'
         with:
           script: |
             const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
@@ -249,8 +240,8 @@ jobs:
               })
 
               await octokit.checks.update({
-                owner: 'github',
-                repo: 'docs-internal',
+                owner,
+                repo,
                 conclusion: 'success',
                 status: 'completed',
                 name: CHECK_RUN_NAME,
@@ -264,8 +255,8 @@ jobs:
               })
             } catch (error) {
               await octokit.checks.update({
-                owner: 'github',
-                repo: 'docs-internal',
+                owner,
+                repo,
                 conclusion: 'failure',
                 status: 'completed',
                 name: CHECK_RUN_NAME,

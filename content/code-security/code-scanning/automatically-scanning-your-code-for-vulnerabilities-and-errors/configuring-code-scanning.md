@@ -303,7 +303,7 @@ Your specified category will not overwrite the details of the `runAutomationDeta
 {% if codeql-packs %}
 ### Using {% data variables.product.prodname_codeql %} query packs
 
-{% data reusables.code-scanning.beta-codeql-packs-actions %}
+{% data reusables.code-scanning.beta-codeql-packs-cli %}
 
 To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
@@ -389,7 +389,7 @@ The settings in the configuration file are written in YAML format.
 {% if codeql-packs %}
 ### Specifying {% data variables.product.prodname_codeql %} query packs
 
-{% data reusables.code-scanning.beta-codeql-packs-actions %}
+{% data reusables.code-scanning.beta-codeql-packs-cli %}
 
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 
