@@ -15,7 +15,6 @@ on:
 jobs:
   build:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:

@@ -3,17 +3,18 @@ import cx from 'classnames'
 
 import styles from './MarkdownContent.module.scss'
 
-type Props = {
+export type MarkdownContentPropsT = {
   children: string | ReactNode
   className?: string
   as?: keyof JSX.IntrinsicElements
 }
+
 export const MarkdownContent = ({
   children,
   as: Component = 'div',
   className,
   ...restProps
-}: Props) => {
+}: MarkdownContentPropsT) => {
   return (
     <Component
       {...restProps}
