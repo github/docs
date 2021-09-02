@@ -15,7 +15,6 @@ on:
 jobs:
   build:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
@@ -64,6 +63,7 @@ jobs:
             translations/ \
             server.mjs \
             package*.json \
+            .npmrc \
             feature-flags.json \
             next.config.js \
             app.json \

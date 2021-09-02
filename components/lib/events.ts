@@ -220,12 +220,18 @@ function initExitEvent() {
   document.addEventListener('visibilitychange', sendExit)
 }
 
+function initPrintEvent() {
+  window.addEventListener('beforeprint', () => {
+    sendEvent({ type: EventType.print })
+  })
+}
+
 export default function initializeEvents() {
   initPageEvent() // must come first
   initExitEvent()
   initLinkEvent()
   initClipboardEvent()
-  // print event in ./print.js
+  initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js
   // search event in ./search.js

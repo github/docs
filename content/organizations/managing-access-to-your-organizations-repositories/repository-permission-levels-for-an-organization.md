@@ -76,6 +76,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Apply milestones |  | **X** | **X** | **X** | **X** |
 | Mark [duplicate issues and pull requests](/articles/about-duplicate-issues-and-pull-requests)| | **X** | **X** | **X** | **X** |
 | Request [pull request reviews](/articles/requesting-a-pull-request-review) | | **X** | **X** | **X** | **X** |
+| Merge a [pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges) | | | **X** | **X** | **X** |
 | Push to (write) the person or team's assigned repositories | | | **X** | **X** | **X** |
 | Edit and delete anyone's comments on commits, pull requests, and issues | | | **X** | **X** | **X** |
 | [Hide anyone's comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments) | | | **X** | **X** | **X** |

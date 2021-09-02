@@ -22,16 +22,12 @@ export const LandingHero = () => {
   return (
     <header className="d-lg-flex gutter-lg mb-6">
       <div className={cx(product_video && 'col-12 col-lg-6 mb-3 mb-lg-0')}>
-        <span className="text-mono color-text-secondary">Product</span>
-        <h1 className="mb-3 font-mktg">
+        <h1 className="mb-3">
           {shortTitle}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 
-        <div
-          className="lead-mktg color-text-secondary"
-          dangerouslySetInnerHTML={{ __html: intro }}
-        />
+        <div className="f2 color-text-secondary" dangerouslySetInnerHTML={{ __html: intro }} />
 
         {introLinks &&
           Object.entries(introLinks)
@@ -46,7 +42,7 @@ export const LandingHero = () => {
                 <FullLink
                   key={link}
                   href={link}
-                  className={cx('btn-mktg bt-large f4 mt-3 mr-3', i !== 0 && 'btn-outline-mktg')}
+                  className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary-matte')}
                 >
                   {t(key)}
                 </FullLink>
