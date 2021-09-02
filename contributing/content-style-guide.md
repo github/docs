@@ -473,7 +473,7 @@ GitHub Apps is always capitalized, because it’s a feature name.
 
 ### Currency
 
-When referring to dollar, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
 
 Use lowercase the for currency names, but capitalize the reference to the country or region (e.g. US dollar). Use uppercase for currency codes (e.g. USD).
 
