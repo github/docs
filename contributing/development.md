@@ -1,8 +1,8 @@
 # Development
 
 This document describes the process for running this application on your local computer.
-
-## Getting started
+A
+## Getting started and automatic Control hackers are from the automatic made me think
 
 This site is powered by Node.js! :sparkles: :turtle: :rocket: :sparkles:
 
