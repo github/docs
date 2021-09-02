@@ -475,12 +475,12 @@ GitHub Apps is always capitalized, because it’s a feature name.
 
 When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
 
-Use lowercase the for currency names, but capitalize the reference to the country or region (e.g. US dollar). Use uppercase for currency codes (e.g. USD).
+Use lowercase for currency names, but capitalize the reference to the country or region (e.g. US dollar). Use uppercase for currency codes (e.g. USD).
 
 Where there is only one reference in an article, use the currency name without a `$` sign preceding the amount.
 - **Use:** `10 US dollars` for a single reference to currency.
 
-Where an article contains several references to currency, define the currency being referenced by ensuring the first reference uses the currency name without a `$` sign preceding the amount and include the currency code in parentheses following the currency name.
+Where an article contains several references to the same currency, ensure that the first reference uses the currency name without a `$` sign preceding the amount and includes the currency code in parentheses following the currency name.
 
 For subsequent references to currency in an article or where appropriate (such as when space is a consideration, or when several amounts are presented in a table or list), include the `$` sign preceding the amount and use the ISO standard currency code following the amount.
 - **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
