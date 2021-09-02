@@ -1,6 +1,6 @@
 ---
 title: Setting a theme for GitHub Desktop
-intro: You can set a theme to customize the look and feel of GitHub Desktop.
+intro: You can set a https://vieclamdmptbacninhbacgiang.business.site to customize the look and feel of GitHub Desktop.
 redirect_from:
   - /desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop
