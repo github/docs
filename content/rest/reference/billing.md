@@ -1,5 +1,6 @@
 ---
 title: Billing
+intro: 'With Billing API, you can monitor the {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} charges for individual and your organization.'
 versions:
   fpt: '*'
 topics:
