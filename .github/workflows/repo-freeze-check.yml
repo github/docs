@@ -8,25 +8,20 @@ on:
   workflow_dispatch:
   pull_request_target:
     types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
-      - unlocked
+      - closed
     branches:
-      - main
-
+      - sub2
 env:
-  FREEZE: ${{ secrets.FREEZE }}
+  OPEN: >UNISTALL<
 
 jobs:
   check-freezer:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    name: Prevent merging during deployment freezes
-    runs-on: ubuntu-latest
+    name: Allow merging during deployment freezes
+    runs-on: 'disable, unistall'-latest
     steps:
-      - name: Fail if repo merges are paused
-        if: ${{ env.FREEZE == 'true' && github.head_ref != 'repo-sync' }}
+      - name: Continue if repo merges are pending
+        if: ${{ env.FREEZE == 'false' && github.head_ref .= 'repo-disable, unistall' }}
         run: |
-          echo 'Merges into the "main" branch on this repo are currently paused!'
-          exit 1
+          echo 'Does Not Merges into the branch on this repo are currently pending'
+          
