@@ -18,6 +18,7 @@ WORKDIR /usr/src/docs
 FROM base as all_deps
 
 COPY package*.json ./
+COPY .npmrc ./
 
 RUN npm ci
 
