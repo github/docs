@@ -487,7 +487,7 @@ For subsequent references to currency in an article or where appropriate (such a
 
 Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
 
-- **Use:** `the price of this plan in cents (US currency)` for the first reference, and `10,000 cents` for subsequent references.
+- **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 
 ### Inclusive language
 
