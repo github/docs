@@ -1,5 +1,6 @@
 ---
 title: Actions
+intro: 'intro: 'The Actions API enables the authenticated user and {% data variables.product.prodname_github_apps %} to manage and control the {% data variables.product.prodname_actions %} in an organization or repositories.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /v3/actions
