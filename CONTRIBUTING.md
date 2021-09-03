@@ -94,7 +94,7 @@ Congratulations :tada::tada: The whole GitHub community thanks you :sparkles:.
 
 Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors). 
 
-Now that you are part of the GitHub docs community, see what other ways you [contribute to the docs](/contributing/types-of-contributions.md).
+Now that you are part of the GitHub docs community, see how else you can [contribute to the docs](/contributing/types-of-contributions.md).
 
 ## Windows
 
