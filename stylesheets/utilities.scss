@@ -18,9 +18,12 @@
   min-height: 100vh;
 }
 
+.outline-none {
+  outline: none;
+}
+
 /* Print utilities
 ------------------------------------------------------------------------------*/
-
 @media print {
   .no-print {
     display: none;
@@ -29,7 +32,6 @@
 
 /* Opacity utilities
 ------------------------------------------------------------------------------*/
-
 .opacity-0 {
   opacity: 0;
 }
@@ -45,7 +47,6 @@
 
 /* Text utilities
 ------------------------------------------------------------------------------*/
-
 .underline-dashed {
   padding-bottom: $spacer-1;
   background-image: linear-gradient(
@@ -58,23 +59,24 @@
   background-size: 10px 1px;
 }
 
+.font-weight-semibold {
+  font-weight: $font-weight-semibold;
+}
+
 /* List utilities
 ------------------------------------------------------------------------------*/
-
 .list-style-inside {
   list-style: inside;
 }
 
 /* Hover utilities
 ------------------------------------------------------------------------------*/
-
 .hover\:color-bg-info:hover {
   background: var(--color-bg-info);
 }
 
 /* Z-Index utilities
 ------------------------------------------------------------------------------*/
-
 .-z-1 {
   z-index: -1;
 }
@@ -87,7 +89,6 @@
 
 /* Gradient utilities
 ------------------------------------------------------------------------------*/
-
 .fade-tertiary-left {
   background: linear-gradient(to right, var(--color-bg-primary), transparent);
 }
@@ -114,12 +115,8 @@
   background-color: var(--color-auto-blue-6);
 }
 
-/* Semibold text
+/* Border colors
 ------------------------------------------------------------------------------*/
-.font-weight-semibold {
-  font-weight: $font-weight-semibold;
-}
-
-.outline-none {
-  outline: none;
+.color-border-transparent {
+  border-color: transparent !important;
 }
