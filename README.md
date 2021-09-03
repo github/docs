@@ -32,8 +32,6 @@ If you're having trouble with your GitHub account, contact [Support](https://sup
 
 That's how you can easily become a member of the GitHub Documentation community. :sparkles:
 
-If you want to know more, or you're making a more complex contribution, check out [CONTRIBUTING.md](/CONTRIBUTING.md).
-
 ## READMEs
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
