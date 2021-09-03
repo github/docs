@@ -11,8 +11,6 @@ on:
       - reopened
       - synchronize
       - unlocked
-    branches:
-      - 'docker-*'
 
 jobs:
   build:
