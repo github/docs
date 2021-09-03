@@ -75,21 +75,23 @@ jobs:
 
             let markdownTable = '| **Source** | **Staging** | **Production** | **What Changed** |\n|:----------- |:----------- |:----------- |:----------- |\n'
 
-            files.filter(({ filename }) => filename.startsWith('content/') && !filename.endsWith('/index.md'))
-                 .forEach(file => {
-                   const fileName = file.filename.split('content/')[1]
-                   const sourceUrl = file.blob_url
-                   const fileUrl = fileName.substring(0, fileName.split('.')[0])
-                   const stagingLink = `https://${stagingPrefix}.herokuapp.com/${fileUrl}`
-                   let markdownLine = ''
-                   
-                   if (file.status == 'modified') {
-                     markdownLine = '| [content/' + fileName + '](' + sourceUrl + ') | [Modified](' + stagingLink + ') | [Original](https://docs.github.com/' + fileUrl + ') | | |\n' 
-                   } else if (file.status == 'added') {
-                     markdownLine = '| New file: [content/' + fileName + '](' + sourceUrl + ') | [Modified](' + stagingLink + ') | | | |\n' 
-                   }
-                   markdownTable += markdownLine
-                 })
+            const pathPrefix = 'content/'
+            const articleFiles = files.filter(({ filename }) => filename.startsWith(pathPrefix) && !filename.endsWith('/index.md'))
+            for (const file of articleFiles) {
+              const sourceUrl = file.blob_url
+              const fileName = file.filename.slice(pathPrefix.length)
+              const fileUrl = fileName.slice(0, fileName.lastIndexOf('.'))
+              const stagingLink = `https://${stagingPrefix}.herokuapp.com/${fileUrl}`
+              const productionLink = `https://docs.github.com/${fileUrl}`
+              let markdownLine = ''
+
+              if (file.status == 'modified') {
+                markdownLine = `| [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | [Original](${productionLink}) | |\n'
+              } else if (file.status == 'added') {
+                markdownLine = `| New file: [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | | |\n'
+              }
+              markdownTable += markdownLine
+            }
 
             function getStagingPrefix (prefix, prNumber, branch) {
               // Added a - in front of prNumber
