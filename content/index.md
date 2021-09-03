@@ -1,4 +1,4 @@
----
+https://github.com/moboxio/
 title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
@@ -53,4 +53,3 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
-
