@@ -75,8 +75,8 @@ The recommended formats explicitly define which versions are used for all direct
 | --- | --- | --- | ---|
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |{% ifversion fpt or ghes > 3.1 %}
-| Go modules | Go | `go.mod` | `go.mod` |
-{% endif %}| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
+| Go modules | Go | `go.mod` | `go.mod` |{% endif %}
+| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
