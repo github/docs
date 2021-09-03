@@ -58,7 +58,7 @@ inputs:
 
 When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-run-steps-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually. 
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually. 
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
@@ -106,7 +106,7 @@ outputs:
 
 **Required** A `string` description of the output parameter.
 
-## `outputs` for composite run steps actions
+## `outputs` for composite actions
 
 **Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), but also includes the `value` token.
 
@@ -205,21 +205,29 @@ For example, this `cleanup.js` will only run on Linux-based runners:
   post-if: runner.os == 'linux'
 ```
 
-## `runs` for composite run steps actions
+## `runs` for composite actions
 
 **Required** Configures the path to the composite action, and the application used to execute the code.
 
 ### `runs.using`
 
-**Required** To use a composite run steps action, set this to `"composite"`.
+**Required** To use a composite action, set this to `"composite"`.
 
 ### `runs.steps`
 
-**Required** The run steps that you plan to run in this action.
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+**Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
+{% else %}
+**Required** The steps that you plan to run in this action.
+{% endif %}
 
 #### `runs.steps[*].run`
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+**Optional** The command you want to run. This can be inline or a script in your action repository:
+{% else %}
 **Required** The command you want to run. This can be inline or a script in your action repository:
+{% endif %}
 
 {% raw %}
 ```yaml
@@ -245,11 +253,15 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 #### `runs.steps[*].shell`
 
-**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+{% else %}
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+{% endif %}
 
 #### `runs.steps[*].name`
 
-**Optional** The name of the composite run step.
+**Optional** The name of the composite step.
 
 #### `runs.steps[*].id`
 
@@ -257,11 +269,62 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 #### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite step.
 
 #### `runs.steps[*].working-directory`
 
 **Optional**  Specifies the working directory where the command is run.
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+#### `runs.steps[*].uses`
+
+**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+
+We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
+- Using the commit SHA of a released action version is the safest for stability and security.
+- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+
+Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    # Reference a specific commit
+    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+    # Reference the major version of a release
+    - uses: actions/checkout@v2
+    # Reference a specific version
+    - uses: actions/checkout@v2.2.0
+    # Reference a branch
+    - uses: actions/checkout@main
+    # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
+    - uses: actions/aws/ec2@main
+    # References a local action
+    - uses: ./.github/actions/my-action
+    # References a docker public registry action
+    - uses: docker://gcr.io/cloud-builders/gradle
+    # Reference a docker image published on docker hub
+    - uses: docker://alpine:3.8
+```
+
+#### `runs.steps[*].with`
+
+**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair.  Input parameters are set as environment variables. The variable is prefixed with INPUT_ and converted to upper case.
+
+```yaml
+runs:
+  using: "composite"
+  steps:
+    - name: My first step
+      uses: actions/hello_world@main
+      with:
+        first_name: Mona
+        middle_name: The
+        last_name: Octocat  
+```
+{% endif %}
 
 ## `runs` for Docker actions
 

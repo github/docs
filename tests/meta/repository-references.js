@@ -69,9 +69,8 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       '**/*.pdf',
       '**/*.ico',
       '**/*.woff',
-      'script/deploy',
+      'script/deploy.js',
       'script/README.md',
-      'storybook',
     ],
   })
 
