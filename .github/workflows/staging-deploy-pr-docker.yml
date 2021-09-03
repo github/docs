@@ -149,8 +149,8 @@ jobs:
             const esm = require('esm')
             require = esm({})
 
-            const { default: createApp } = require('./scripts/create-app.js')
-            const { default: parsePrUrl } = require('./scripts/parse-pr-url.js')
+            const { default: createApp } = require('./script/create-app.js')
+            const { default: parsePrUrl } = require('./script/parse-pr-url.js')
 
             // This helper uses the `GITHUB_TOKEN` implicitly!
             // We're using our usual version of Octokit vs. the provided `github`
