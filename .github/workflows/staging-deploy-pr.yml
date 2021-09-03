@@ -52,7 +52,7 @@ jobs:
               owner,
               repo,
               status: 'in_progress',
-              started_at: new Date()
+              started_at: (new Date()).toISOString()
             })
             core.setOutput('check_run_id', data.id)
             core.setOutput('check_run_name', CHECK_NAME)
@@ -217,6 +217,8 @@ jobs:
             // instance to avoid versioning discrepancies.
             const octokit = getOctokit()
 
+            const actionsRunLog = 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+
             try {
               const { PR_URL, SOURCE_BLOB_URL, CHECK_RUN_ID, CHECK_RUN_NAME } = process.env
               const { owner, repo, pullNumber } = parsePrUrl(PR_URL)
@@ -246,12 +248,13 @@ jobs:
                 status: 'completed',
                 name: CHECK_RUN_NAME,
                 check_run_id: CHECK_RUN_ID,
+                details_url: actionsRunLog,
                 output: {
                   title: 'Successfully deployed to staging',
                   summary: 'Success',
-                  text: 'Succeeded! 🚀\n\nSee full logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+                  text: `Succeeded! 🚀\n\nSee full logs: ${actionsRunLog}`
                 },
-                completed_at: new Date()
+                completed_at: (new Date()).toISOString()
               })
             } catch (error) {
               await octokit.checks.update({
@@ -261,12 +264,13 @@ jobs:
                 status: 'completed',
                 name: CHECK_RUN_NAME,
                 check_run_id: CHECK_RUN_ID,
+                details_url: actionsRunLog,
                 output: {
                   title: `Failed to deploy to staging: ${error.message}`,
                   summary: error.message,
-                  text: 'Failed! 🚫\n\nSee full logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
-                }
-                completed_at: new Date()
+                  text: `Failed! 🚫\n\nSee full logs: ${actionsRunLog}`
+                },
+                completed_at: (new Date()).toISOString()
               })
               console.error(`Failed to deploy to staging: ${error.message}`)
               console.error(error)
