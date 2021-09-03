@@ -67,7 +67,7 @@ More resources may be required depending on your usage, such as user activity an
 
   {% note %}
 
-**Note:** If your GHES is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to the GHES instance.
+  **Note:** If your GHES is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to the GHES instance.
 
   {% endnote %}
 
