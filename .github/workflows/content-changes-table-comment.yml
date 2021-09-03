@@ -85,10 +85,10 @@ jobs:
               const productionLink = `https://docs.github.com/${fileUrl}`
               let markdownLine = ''
 
-              if (file.status == 'modified') {
-                markdownLine = `| [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | [Original](${productionLink}) | |\n'
-              } else if (file.status == 'added') {
-                markdownLine = `| New file: [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | | |\n'
+              if (file.status === 'modified') {
+                markdownLine = `| [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | [Original](${productionLink}) | |\n`
+              } else if (file.status === 'added') {
+                markdownLine = `| New file: [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | | |\n`
               }
               markdownTable += markdownLine
             }
