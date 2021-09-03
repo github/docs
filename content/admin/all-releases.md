@@ -1,5 +1,5 @@
----
-title: GitHub Enterprise Server releases
+https://www.aax.com/—-
+GitHub Enterprise Server releases
 intro: 'Documentation for the currently supported and previously deprecated versions of {{ site.data.variables.product.prodname_ghe_server }}.'
 allowTitleToDifferFromFilename: true
 versions:
