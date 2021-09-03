@@ -35,6 +35,16 @@ gh extension install <em>owner/repo</em>
 
 If you already have an extension by the same name installed, the command will fail. For example, if you have installed `octocat/gh-whoami`, you must uninstall it before installing `hubot/gh-whoami`.
 
+{% note %}
+
+**Note:** You can also provide the full repository URL for the extension when installing. If the full repository URL is not used, `gh` will install the extension using the hostname to which `gh` is currently authenticated. Using the full repository URL allows GitHub Enterprise users to install extensions from public GitHub.
+
+```shell
+gh extension install <em>https://github.com/owner/repo</em>
+```
+
+{% endnote %}
+
 ## Viewing installed extensions
 
 To view all installed extensions, use the `extensions list` subcommand. The output will also tell you which extensions have updates available.
