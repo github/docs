@@ -46,7 +46,7 @@ jobs:
           script: |
             const { CONTEXT_NAME, ACTIONS_RUN_LOG } = process.env
             const { owner, repo } = context.repo
-            await github.repos.createStatus({
+            await github.repos.createCommitStatus({
               owner,
               repo,
               sha: '${{ github.event.workflow_run.head_sha }}',
@@ -155,7 +155,7 @@ jobs:
           script: |
             const { CONTEXT_NAME, ACTIONS_RUN_LOG } = process.env
             const { owner, repo } = context.repo
-            await github.repos.createStatus({
+            await github.repos.createCommitStatus({
               owner,
               repo,
               sha: '${{ github.event.workflow_run.head_sha }}',
@@ -260,7 +260,7 @@ jobs:
                 runId: context.runId
               })
 
-              await github.repos.createStatus({
+              await github.repos.createCommitStatus({
                 owner,
                 repo,
                 sha: '${{ github.event.workflow_run.head_sha }}',
@@ -294,7 +294,7 @@ jobs:
           script: |
             const { CONTEXT_NAME, ACTIONS_RUN_LOG } = process.env
             const { owner, repo } = context.repo
-            await github.repos.createStatus({
+            await github.repos.createCommitStatus({
               owner,
               repo,
               sha: '${{ github.event.workflow_run.head_sha }}',
