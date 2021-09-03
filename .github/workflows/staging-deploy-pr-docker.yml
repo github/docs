@@ -88,56 +88,6 @@ jobs:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.workflow_run.head_branch }}
 
-      # Remove any dependencies installed for this workflow below
-      # - if: ${{ github.repository == 'github/docs-internal' }}
-      #   name: Remove development-only dependencies
-      #   run: npm prune --production
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Delete the script directory after cloning early access
-        run: rm -rf script/
-
-      # - name: Create a gzipped archive
-      #   run: |
-      #     touch app.tar.gz
-      #     tar --exclude=app.tar.gz -czf app.tar.gz ./
-
-      # - name: Install Heroku client development-only dependency
-      #   run: npm install --no-save heroku-client
-
-      # - name: Create a Heroku build source
-      #   id: build-source
-      #   uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
-      #   env:
-      #     HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-      #   with:
-      #     script: |
-      #       const { owner, repo } = context.repo
-
-      #       if (owner !== 'github') {
-      #         throw new Error(`Repository owner must be 'github' but was: ${owner}`)
-      #       }
-      #       if (repo !== 'docs-internal' && repo !== 'docs') {
-      #         throw new Error(`Repository name must be either 'docs-internal' or 'docs' but was: ${repo}`)
-      #       }
-
-      #       const Heroku = require('heroku-client')
-      #       const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
-
-      #       const { source_blob: sourceBlob } = await heroku.post('/sources')
-      #       const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
-
-      #       core.setOutput('upload_url', uploadUrl)
-      #       core.setOutput('download_url', downloadUrl)
-
-      # # See: https://devcenter.heroku.com/articles/build-and-release-using-the-api#sources-endpoint
-      # - name: Upload to the Heroku build source
-      #   run: |
-      #     curl '${{ steps.build-source.outputs.upload_url }}' \
-      #       -X PUT \
-      #       -H 'Content-Type:' \
-      #       --data-binary @app.tar.gz
-
       - name: Install one-off development-only dependencies
         run: npm install --no-save --include=optional esm
 
