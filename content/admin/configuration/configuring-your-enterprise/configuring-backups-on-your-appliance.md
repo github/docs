@@ -64,9 +64,16 @@ More resources may be required depending on your usage, such as user activity an
   ```
 2. Copy the included `backup.config-example` file to `backup.config` and open in an editor.
 3. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
-4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
-5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
-5. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
+
+{% note %}
+
+**Note:** If your GHES is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH (on port 122) access to the GHES instance.
+
+{% endnote %}
+
+5. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
+6. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+7. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
   ```shell
   $ bin/ghe-host-check		  
   ```		  
@@ -94,6 +101,14 @@ In the event of prolonged outage or catastrophic event at the primary site, you 
 
 {% endnote %}
 {% endif %}
+
+{% note %}
+
+**Note:** When performing backup restores to a GHES instance, the same version supportibility rules apply. You can only restore data from at most 2 feature releases behind.
+
+For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be 3 jumps between versions (ie. 2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+
+{% endnote %}
 
 To restore {% data variables.product.product_location %} from the last successful snapshot, use the `ghe-restore` command. You should see output similar to this:
 
