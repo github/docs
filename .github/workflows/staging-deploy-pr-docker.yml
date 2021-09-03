@@ -43,6 +43,8 @@ jobs:
 
       - name: Check out repo's default branch
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          persist-credentials: 'false'
 
       - name: Download build artifact
         uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
