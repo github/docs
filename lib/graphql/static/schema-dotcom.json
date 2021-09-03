@@ -33911,7 +33911,15 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
@@ -52987,6 +52995,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isSponsorOptedIntoEmail",
+          "description": "<p>Check if the sponsor has chosen to receive sponsorship update emails sent from\nthe sponsorable. Only returns a non-null value when the viewer has permission to know this.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",
@@ -60129,7 +60145,15 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
@@ -64018,7 +64042,15 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
