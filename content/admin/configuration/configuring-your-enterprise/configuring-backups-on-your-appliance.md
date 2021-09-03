@@ -65,11 +65,11 @@ More resources may be required depending on your usage, such as user activity an
 2. Copy the included `backup.config-example` file to `backup.config` and open in an editor.
 3. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
-{% note %}
+  {% note %}
 
 **Note:** If your GHES is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to the GHES instance.
 
-{% endnote %}
+  {% endnote %}
 
 4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
 5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
