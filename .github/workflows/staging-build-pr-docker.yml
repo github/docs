@@ -12,7 +12,7 @@ on:
       - synchronize
       - unlocked
     branches:
-      - 'docker-*'
+      - 'docker-**'
 
 jobs:
   build:
