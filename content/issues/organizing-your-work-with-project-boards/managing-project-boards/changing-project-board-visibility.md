@@ -23,6 +23,12 @@ shortTitle: Change visibility
 
 {% endtip %}
 
+{% tip %}
+
+**Tip:** Repository based project boards cannot change visibility and they are public by default. For private repo project boards see "[Linking a repository to a project board](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
+
+{% endtip %}
+
 1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
