@@ -1,0 +1,92 @@
+name: Staging - Build PR Docker
+
+# **What it does**: Builds PRs before deploying them.
+# **Why we have it**: Because it's not safe to share our deploy secrets with forked repos: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - unlocked
+
+jobs:
+  build:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: staging_${{ github.head_ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      # Make sure only approved files are changed if it's in github/docs
+      - name: Check changed files
+        if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            notAllowed:
+              - '*.mjs'
+              - '*.ts'
+              - '*.tsx'
+              - '*.json'
+              - 'Dockerfile*'
+
+      # When there are changes to files we can't accept
+      - name: 'Fail when not allowed files are changed'
+        if: ${{ steps.filter.outputs.notAllowed }}
+        run: exit 1
+
+      - name: Create an archive
+        run: |
+          tar -cf app.tar \
+            assets/ \
+            content/ \
+            stylesheets/ \
+            pages/ \
+            data/ \
+            includes/ \
+            lib/ \
+            middleware/ \
+            translations/ \
+            server.mjs \
+            package*.json \
+            .npmrc \
+            feature-flags.json \
+            next.config.js \
+            tsconfig.json \
+            next-env.d.ts \
+            Dockerfile
+
+      # Upload only the files needed to run + build this application.
+      # We are not willing to trust the rest (e.g. script/) for the remainder
+      # of the deployment process.
+      - name: Upload build artifact
+        uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
+        with:
+          name: pr_build_docker
+          path: app.tar
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Staging build (docker) failed for PR ${{ github.event.pull_request.html_url }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
