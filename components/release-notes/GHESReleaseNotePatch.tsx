@@ -6,7 +6,6 @@ import { PatchNotes } from './PatchNotes'
 import { Link } from 'components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
 import { useOnScreen } from 'components/hooks/useOnScreen'
-import { PrintAction } from 'components/PrintAction'
 
 type Props = {
   patch: ReleaseNotePatch
@@ -65,10 +64,6 @@ export function GHESReleaseNotePatch({
               Download
             </Link>
           )}
-
-          <PrintAction>
-            <button className="btn-link ml-3 text-small text-bold">Print</button>
-          </PrintAction>
         </div>
 
         <p className="color-text-secondary mt-1">{dayjs(patch.date).format('MMMM, DD, YYYY')}</p>
