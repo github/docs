@@ -1,4 +1,4 @@
----
+
 title: Configuring the retention period for GitHub Actions artifacts and logs in your organization
 intro: 'You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your organization.'
 redirect_from:
