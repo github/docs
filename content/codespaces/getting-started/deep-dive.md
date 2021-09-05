@@ -58,7 +58,7 @@ As you develop in your codespace, it will save any changes to your files every f
 
 ### Closing or stopping your codespace
 
-To stop your codespace you can [use the command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command, such as closing the browser tab, running processes will continue until a window of inactivity occurs. 
+To stop your codespace you can [use the command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command, i.e. by closing the browser tab, your browser tab going to sleep, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  
 
 When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
 
