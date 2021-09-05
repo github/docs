@@ -37,6 +37,17 @@ If you create a new clone of the repository, you won't lose any of your Git hist
       {% endtip %}
 
     {% endwindows %}
+    
+    
+    {% linux %}
+
+      {% tip %}
+
+      **Tip:** Linux users may need to install the `git-filter-repo` package
+
+      {% endtip %}
+
+    {% endlinux %}
   
     ```shell
     $ git filter-repo --path FOLDER-NAME1/ FOLDER-NAME2/
