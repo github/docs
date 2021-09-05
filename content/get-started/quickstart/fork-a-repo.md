@@ -5,7 +5,7 @@ redirect_from:
   - /forking/
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
-  - /github/getting-started-with-github/quickstart/fork-a-repo
+  - /github/getting-started-with-github/quickstart/fork-a-repo  
 intro: A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 versions:
   fpt: '*'
