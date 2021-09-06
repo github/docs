@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Resolve conflicts after rebase
+shortTitle: Special characters in names
 ---
 Most repositories use simple branch names like `main` or `update-icons`. Likewise, tag names usually follow a basic format, such as a version number like `v1.2.3`. Both branch and tag names may also use the path separator (`/`) to provide organization (for example, `area/item`, or `level-1/level-2/level-3`). Apart from a handful of exceptions &mdash; such as not starting or ending a name with a slash, or having consecutive slashes in the name &mdash; Git places [very few restrictions](https://git-scm.com/docs/git-check-ref-format) on what characters may be used.
 
