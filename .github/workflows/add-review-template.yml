@@ -16,8 +16,11 @@ jobs:
     if: github.event.label.name == 'add-review-template' && github.repository == 'github/docs-internal'
 
     steps:
-      - name: check out repo content
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Download the template file
+        uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
+        with:
+          files: .github/review-template.md
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Jump through some hoops to work with a multi-line file
       - name: Store review template in variable
@@ -31,6 +34,6 @@ jobs:
         run: |
           gh pr comment $PR --body "$TEMPLATE"
         env:
-          GITHUB_TOKEN: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
           PR: ${{ github.event.pull_request.html_url }}
           TEMPLATE: ${{ env.TEMPLATE }}

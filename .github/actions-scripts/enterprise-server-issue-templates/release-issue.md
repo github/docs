@@ -47,13 +47,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   ```
 
   **Note:** All of the content in this file will be updated when the release notes are created in the megabranch including the filename `PLACEHOLDER.yml`. You can update the date or leave it as-is and wait to update it when the release notes are finalized.
-- [ ] Create the search indices for the new release:
 
-  ```
-  npm run sync-search-ghes-release
-  ```
-
-  Check in the updated `lib/search/cached-index-names.json`.
 - [ ] (Optional) Add a Release Candidate banner:
 
   ```

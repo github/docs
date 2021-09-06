@@ -1,6 +1,6 @@
 ---
 title: Using search to filter issues and pull requests
-intro: Every issues and pull requests view comes with a search bar for advanced filter management.
+intro: You can use advanced filters to search for issues and pull requests that meet specific criteria.
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/using-search-to-filter-issues-and-pull-requests
   - /articles/using-search-to-filter-issues-and-pull-requests
@@ -13,6 +13,13 @@ topics:
   - Pull requests
 shortTitle: Use search to filter
 ---
+
+## Searching for issues and pull requests
+
+{% include tool-switcher %}
+
+{% webui %}
+
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/articles/viewing-all-of-your-issues-and-pull-requests).
 
 ![The issues and pull requests search bar](/assets/images/help/issues/issues_search_bar.png)
@@ -22,6 +29,30 @@ The issues and pull requests search bar allows you to define your own custom fil
 **Tip:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+You can use the {% data variables.product.prodname_cli %} to search for issues or pull requests. Use the `gh issue list` or `gh pr list` subcommand along with the `--search` argument and a search query.
+
+For example, you can list, in order of date created, all issues that have no assignee and that have the label `help wanted` or `bug`.
+
+```shell
+gh issue list --search 'no:assignee label:"help wanted",bug sort:created-asc'
+```
+
+You can also list all pull requests that mention the `octo-org/octo-team` team.
+
+```shell
+gh pr list --search "team:octo-org/octo-team"
+```
+
+{% endcli %}
+
+## About search terms
 
 With issue and pull request search terms, you can:
 

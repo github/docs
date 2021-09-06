@@ -18,9 +18,12 @@
   min-height: 100vh;
 }
 
+.outline-none {
+  outline: none;
+}
+
 /* Print utilities
 ------------------------------------------------------------------------------*/
-
 @media print {
   .no-print {
     display: none;
@@ -29,7 +32,6 @@
 
 /* Opacity utilities
 ------------------------------------------------------------------------------*/
-
 .opacity-0 {
   opacity: 0;
 }
@@ -45,7 +47,6 @@
 
 /* Text utilities
 ------------------------------------------------------------------------------*/
-
 .underline-dashed {
   padding-bottom: $spacer-1;
   background-image: linear-gradient(
@@ -58,23 +59,24 @@
   background-size: 10px 1px;
 }
 
+.font-weight-semibold {
+  font-weight: $font-weight-semibold;
+}
+
 /* List utilities
 ------------------------------------------------------------------------------*/
-
 .list-style-inside {
   list-style: inside;
 }
 
 /* Hover utilities
 ------------------------------------------------------------------------------*/
-
 .hover\:color-bg-info:hover {
   background: var(--color-bg-info);
 }
 
 /* Z-Index utilities
 ------------------------------------------------------------------------------*/
-
 .-z-1 {
   z-index: -1;
 }
@@ -87,15 +89,34 @@
 
 /* Gradient utilities
 ------------------------------------------------------------------------------*/
-
 .fade-tertiary-left {
-  background: linear-gradient(to right, var(--color-bg-tertiary), transparent);
+  background: linear-gradient(to right, var(--color-bg-primary), transparent);
 }
 
 .fade-tertiary-right {
-  background: linear-gradient(to left, var(--color-bg-tertiary), transparent);
+  background: linear-gradient(to left, var(--color-bg-primary), transparent);
 }
 
 .fade-tertiary-bottom {
-  background: linear-gradient(to top, var(--color-bg-tertiary), transparent);
+  background: linear-gradient(to top, var(--color-bg-primary), transparent);
+}
+
+/* Blue primary button
+------------------------------------------------------------------------------*/
+.btn-primary-matte {
+  color: var(--color-text-inverse);
+  background-color: var(--color-auto-blue-5);
+  border-color: var(--color-btn-primary-border);
+  box-shadow: var(--color-btn-primary-shadow),
+    var(--color-btn-primary-inset-shadow);
+}
+
+.btn-primary-matte:hover {
+  background-color: var(--color-auto-blue-6);
+}
+
+/* Border colors
+------------------------------------------------------------------------------*/
+.color-border-transparent {
+  border-color: transparent !important;
 }

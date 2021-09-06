@@ -18,7 +18,7 @@ Before adding a new SSH key to your {% data variables.product.product_name %} ac
 
 After adding a new SSH key to your {% data variables.product.product_name %} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
 
-{% data reusables.ssh.dsa-support %}
+{% data reusables.ssh.key-type-support %}
 
 {% mac %}
 
@@ -133,9 +133,9 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
-To add an SSH key to your GitHub account, use the `ssh-key add` subcommand.
+To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
 gh ssh-key add <em>key-file</em>

@@ -23,6 +23,8 @@ If you use Azure AD as your IdP, you can enable team synchronization for your en
 
 You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
+{% data reusables.identity-and-permissions.team-sync-usage-limits %}
+
 ## Prerequisites
 
 You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.

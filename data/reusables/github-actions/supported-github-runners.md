@@ -15,7 +15,7 @@ Windows Server 2022<sup>[beta]</sup>
 <code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the windows server 2019 runner image.
+The <code>windows-latest</code> label currently uses the Windows Server 2019 runner image.
 </td>
 </tr>
 <tr>
