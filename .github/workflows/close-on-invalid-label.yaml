@@ -6,6 +6,10 @@ on:
   pull_request:
     types: [labeled]
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   close-on-adding-invalid-label:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
