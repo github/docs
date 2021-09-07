@@ -22,4 +22,4 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr close ${{ github.event.pull_request.html_url }} -d
+        run: gh pr close ${{ github.event.pull_request.html_url }}
