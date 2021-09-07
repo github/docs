@@ -27,7 +27,7 @@ jobs:
         startsWith(github.event.workflow_run.head_branch, 'docker-')
       }}
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     concurrency:
       group: staging_docker_${{ github.event.workflow_run.head_branch }}
       cancel-in-progress: true
@@ -128,7 +128,7 @@ jobs:
 
       - name: Build, tag, push, and release the Docker image
         env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
         run: |
           docker image build --target production_early_access -t registry.heroku.com/${{ steps.create-app.outputs.app_name}}/web .
           heroku container:login
