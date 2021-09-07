@@ -40,7 +40,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   ```
 
   {% endnote %}  
-  This creates a new ssh key, using the provided email as a label.
+  This creates a new SSH key, using the provided email as a label.
   ```shell
   > Generating public/private ed25519 key pair.
   ```
