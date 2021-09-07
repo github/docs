@@ -8,7 +8,7 @@ on:
 
 jobs:
   close-on-adding-invalid-label:
-    if: github.repository == 'github/docs'  && github.event.label.name == 'invalid'
+    if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
     
     steps:
