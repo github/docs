@@ -6,6 +6,10 @@ on:
   pull_request:
     types: [labeled]
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   close-on-adding-invalid-label:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
@@ -22,4 +26,4 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr close ${{ github.event.pull_request.html_url }} -d
+        run: gh pr close ${{ github.event.pull_request.html_url }}
