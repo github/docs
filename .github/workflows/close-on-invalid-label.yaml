@@ -1,0 +1,26 @@
+name: Close issue/PR on adding invalid label
+
+on:
+  issues:
+    types: [labeled]
+  pull_request:
+    types: [labeled]
+
+jobs:
+  close-on-adding-invalid-label:
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Close issue
+        if: ${{ github.event_name == 'issues' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh issue close ${{ github.event.issue.html_url }}
+
+      - name: Close PR
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr close ${{ github.event.pull_request.html_url }} -d
+          
