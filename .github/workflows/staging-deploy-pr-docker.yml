@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
-      group: staging_${{ github.event.workflow_run.head_branch }}
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
       cancel-in-progress: true
     outputs:
       source_blob_url: ${{ steps.build-source.outputs.download_url }}
@@ -149,8 +149,8 @@ jobs:
             const esm = require('esm')
             require = esm({})
 
-            const { default: createApp } = require('./script/create-app.js')
-            const { default: parsePrUrl } = require('./script/parse-pr-url.js')
+            const { default: createApp } = require('./script/deployment/create-app.js')
+            const { default: parsePrUrl } = require('./script/deployment/parse-pr-url.js')
 
             // This helper uses the `GITHUB_TOKEN` implicitly!
             // We're using our usual version of Octokit vs. the provided `github`
@@ -209,7 +209,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
-      group: staging_${{ github.event.workflow_run.head_branch }}
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
       cancel-in-progress: true
     steps:
       - name: Check out repo's default branch
