@@ -364,6 +364,7 @@ Use quotation marks around article titles, whether the article is hosted on GitH
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
 
 ## Short titles
+We use short titles to populate the sidebar navigation. They should give users contextual understanding of the article, but align to the following standards:
 
 - Short titles are 2-3 words long, yet should still convey the full meaning of the title.
 - To help cut words, look at the title in context:
