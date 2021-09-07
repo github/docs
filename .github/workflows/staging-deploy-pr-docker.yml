@@ -97,6 +97,7 @@ jobs:
 
             const { default: createApp } = require('./script/deployment/create-app.js')
             const { default: parsePrUrl } = require('./script/deployment/parse-pr-url.js')
+            const { default: getOctokit } = require('./script/helpers/github')
 
             // This helper uses the `GITHUB_TOKEN` implicitly!
             // We're using our usual version of Octokit vs. the provided `github`
