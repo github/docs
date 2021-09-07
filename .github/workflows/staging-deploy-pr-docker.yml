@@ -90,6 +90,9 @@ jobs:
       - name: Create app
         id: create-app
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
         with:
           script: |
             const esm = require('esm')
@@ -107,7 +110,7 @@ jobs:
             try {
               const { owner, repo, pullNumber } = parsePrUrl(process.env.PR_URL)
               if (!owner || !repo || !pullNumber) {
-                throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${PR_URL}'`)
+                throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${process.env.PR_URL}'`)
               }
 
               const { data: pullRequest } = await octokit.pulls.get({
