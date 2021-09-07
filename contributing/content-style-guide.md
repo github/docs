@@ -365,17 +365,22 @@ For further guidance, see “[Formatting titles](https://docs.microsoft.com/styl
 
 ## Short titles
 
-- Length should be 2-3 words.
-- Look contextually to see what to omit and how the full breadcrumb looks like.
-- Has to convey full meaning of the title and content of the category or map topic
-- :scissors: repeated words when possible
-- Short titles should be parallel to short titles for other similar content
-  - e.g. `Organizations and teams`, `Enterprise accounts`
-- Short titles should still mimic format of title
-  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, can use a noun sparingly, try to find a verb form
-  - e.g. Authenticating to GitHub :arrow_right: Authentication
-  - Installing and configuring GHE Server :arrow_right: Installation and configuration
+- Short titles are 2-3 words long, yet should still convey the full meaning of the title.
+- To help cut words, look at the title in context:
+  - Are there words in the breadcrumb that you can omit in the short title?
+  - Remove repeated words possible
 - Don’t introduce new words in short titles that aren’t in the full title
+- Short titles should be parallel to short titles for similar content
+  - **Use:** 
+    - Organizations and teams
+    - Enterprise accounts
+- Short titles should still mimic format of the full title
+  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
+  
+| Instead of | Use |
+|---|---|
+| Authenticating to GitHub | Authentication |
+| Installing and configuring GHE Server | Installation and configuration |
 
 ## User interface elements
 
