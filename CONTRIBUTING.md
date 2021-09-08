@@ -28,7 +28,7 @@ Before making changes, see what [types contributions](/contributing/types-of-con
 ### Issues
 #### Solve an issue
 
-Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See "[Labels](/contributing/how-to-use-labels.md)" for more information.
+Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See [Labels](/contributing/how-to-use-labels.md) for more information.
 
 #### Create a new issue
 
