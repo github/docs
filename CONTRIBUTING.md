@@ -32,7 +32,7 @@ Scan through our [existing issues](https://github.com/github/docs/issues) to fin
 
 #### Create a new issue
 
-If you spot an issue with the docs and if a related issue doesn't exist, you can open a new issue using a relavent [issue form](https://github.com/github/docs/issues/new/choose).
+If you spot a problem with the docs and a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose).
 
 ### Make Changes
 
