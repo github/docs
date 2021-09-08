@@ -12,7 +12,6 @@ Use table of contents icon <img src="./assets/images/table-of-contents.png" widt
 
   See [README.md](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution. 
 
-<!-- CodeTour/ codespaces intro (https://github.com/github/docs-team/issues/800) -->
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
 - [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
