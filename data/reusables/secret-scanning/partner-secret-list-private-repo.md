@@ -110,16 +110,18 @@ GitHub | GitHub SSH Private Key | github_ssh_private_key{% endif %}
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
-Google Cloud | Google API Key | google_api_key{% endif %}
+Google | Google API Key | google_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
-Google Cloud | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
+Google | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae-next %}
-Google Cloud | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
+Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae-next %}
-Google Cloud | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
+Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae-next %}
-Google Cloud | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
+Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Grafana | Grafana API Key | grafana_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
