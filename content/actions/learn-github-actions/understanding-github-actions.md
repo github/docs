@@ -1,11 +1,12 @@
 ---
-title: Introduction to GitHub Actions
-shortTitle: Introduction to GitHub Actions
-intro: 'Learn about the core concepts and various components of {% data variables.product.prodname_actions %}, and see an example that shows you how to add automation to your repository.'
+title: Understanding GitHub Actions
+shortTitle: Understanding GitHub Actions
+intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/getting-started-with-github-actions/core-concepts-for-github-actions
+  - /actions/learn-github-actions/introduction-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
