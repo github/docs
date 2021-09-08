@@ -1,6 +1,6 @@
 ## Welcome to GitHub docs contributing guide
 
-Thank you for investing your time in contributing to our project. Any contribution you make would reflect in the [docs.github.com](https://docs.github.com/en) page :sparkles:. 
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
 This guide helps your contribution experience to be a fun and educational :confetti_ball: :book:. Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
