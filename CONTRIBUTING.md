@@ -4,7 +4,7 @@ Thank you for investing your time in contributing to our project! Any contributi
 
 Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing and merging the PR.
+In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
 
 <!-- Use [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) a VScode extension playback walkthroughs of how to get started with. Depends on this issue https://github.com/github/docs-team/issues/800  -->
 
