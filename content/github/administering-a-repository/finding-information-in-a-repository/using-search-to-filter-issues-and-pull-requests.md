@@ -89,6 +89,14 @@ For pull requests, you can also use search to:
 - Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
 - Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
 
+{% note %}
+
+**Note:** {% data reusables.pull_requests.large-search-workaround %} You can limit your search with the `org:`, `user:`, or `repo:` qualifiers. For more information, see "[Searching issues and pull requests](/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories)."
+
+{% endnote %}
+
+
+
 ## Further reading
 
 - "[Searching issues and pull requests](/articles/searching-issues)"

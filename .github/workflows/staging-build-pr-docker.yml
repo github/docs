@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
-      group: staging_${{ github.head_ref }}
+      group: staging_docker_${{ github.head_ref }}
       cancel-in-progress: true
     steps:
       - name: Check out repo
@@ -49,7 +49,7 @@ jobs:
 
       # When there are changes to files we can't accept
       - name: 'Fail when not allowed files are changed'
-        if: ${{ steps.filter.outputs.notAllowed }}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' }}
         run: exit 1
 
       - name: Create an archive
