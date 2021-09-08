@@ -37,3 +37,5 @@ Membership is open to individual developers and companies who have:
 
 * An integration in production or development using the GitHub API.
 * An email address where GitHub users can contact you for support.
+
+<h3>improve your technical skills.... and then crack the whole world</h3>
