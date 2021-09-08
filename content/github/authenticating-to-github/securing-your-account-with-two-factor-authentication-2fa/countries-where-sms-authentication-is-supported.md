@@ -123,6 +123,7 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Togo</li>
 <li>Trinidad and Tobago</li>
 <li>Turks and Caicos Islands</li>
+<li>Turkey</li>
 <li>Uganda</li>
 <li>Ukraine</li>
 <li>United Arab Emirates</li>
