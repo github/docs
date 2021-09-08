@@ -6,10 +6,6 @@ Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
 
-<!-- Use [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) a VScode extension playback walkthroughs of how to get started with. Depends on this issue https://github.com/github/docs-team/issues/800  -->
-
-**Table of contents**
-
 Use table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
 
 ## New contributor guide
