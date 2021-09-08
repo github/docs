@@ -1,4 +1,4 @@
-## Introduction
+## Welcome to GitHub docs contributing guide
 
 Thank you for investing your time in contributing to our project. Any contribution you make would reflect in the [docs.github.com](https://docs.github.com/en) page :sparkles:. 
 
@@ -8,11 +8,11 @@ In this guide you will get an overview of the contribution workflow from opening
 
 <!-- Use [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) a VScode extension playback walkthroughs of how to get started with. Depends on this issue https://github.com/github/docs-team/issues/800  -->
 
-**Table of Contents**
+**Table of contents**
 
 Use table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
 
-## New Contributor Guide
+## New contributor guide
 
   See [README.md](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution. 
 
@@ -65,7 +65,9 @@ Forking repository
 Install/Update your to **Node.js v16**. For more information, see "[contributing/development.md](contributing/development.md)."
 
 Create a working branch and start with your changes!
+
 ### Commit your update:
+
 Commit the changes once you are happy with them. Here are some commonly used short and fun commit messages.
 
   - :pencil2: `:pencil2:` fix typos
@@ -75,6 +77,7 @@ Commit the changes once you are happy with them. Here are some commonly used sho
  (Cant think of more, any ideas?)
 
 Once you are ready with your changes, don't forget to [self review](/contributing/self-review.md), to quicken the review process :zap:.
+
 ### Pull Request
 
 - When you're done making the changes, open a PR (pull request). 
@@ -84,17 +87,16 @@ Once you are ready with your changes, don't forget to [self review](/contributin
 - Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so the branch can be updated for a merge.
 - Once you submit your PR, one of the writers would review your proposal. Keep an eye for any questions or request for additional information.
 - We may ask for changes to be made before a PR can be merged, either using [suggested changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
-
 - As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
-- After that, we may have questions, check back on your PR to keep up with the conversation.
 - If you run into any merge issues, checkout this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
 
 ### Your PR is merged!
+
 Congratulations :tada::tada: The whole GitHub community thanks you :sparkles:. 
 
 Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors). 
 
-Now that you are part of the GitHub docs community, see what other ways you [contribute to the docs](/contributing/types-of-contributions.md).
+Now that you are part of the GitHub docs community, see how else you can [contribute to the docs](/contributing/types-of-contributions.md).
 
 ## Windows
 

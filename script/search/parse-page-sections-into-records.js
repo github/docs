@@ -30,7 +30,7 @@ export default function parsePageSectionsIntoRecords(href, $) {
 
   let records
 
-  const $sections = $('.markdown-body h2')
+  const $sections = $('[data-search=article-content] h2')
     .filter('[id]')
     .filter((i, el) => {
       return !ignoredHeadingSlugs.includes($(el).attr('id'))
@@ -69,7 +69,7 @@ export default function parsePageSectionsIntoRecords(href, $) {
     const objectID = href
     const url = [urlPrefix, objectID].join('')
     const content = $(
-      '.article-grid-body p, .article-grid-body ul, .article-grid-body ol, .article-grid-body table'
+      '[data-search=article-body] p, [data-search=article-body] ul, [data-search=article-body] ol, [data-search=article-body] table'
     )
       .map((i, el) => $(el).text())
       .get()

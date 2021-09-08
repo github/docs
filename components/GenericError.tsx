@@ -12,6 +12,7 @@ export function GenericError() {
     <div className="min-h-screen d-flex flex-column">
       <Head>
         <title>GitHub Documentation</title>
+        <meta name="status" content="500" />
       </Head>
 
       <SimpleHeader />

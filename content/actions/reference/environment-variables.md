@@ -58,7 +58,7 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_RUN_NUMBER` | {% data reusables.github-actions.run_number_description %} |
 | `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
 | `GITHUB_ACTION` | The unique identifier (`id`) of the action. |
-| `GITHUB_ACTION_PATH` | The path where your action is located. You can use this path to access files located in the same repository as your action. This variable is only supported in composite run steps actions. |
+| `GITHUB_ACTION_PATH` | The path where your action is located. You can use this path to access files located in the same repository as your action. This variable is only supported in composite actions. |
 | `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
 | `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |

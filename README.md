@@ -14,13 +14,13 @@ See our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions of how to g
 
 We accept different [types of contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
-For quick fixes like typos, updates, link fixes etc., use **make a contribution** to make changes and submit a PR.
+On the GitHub Docs site, you can click **make a contribution** to open a PR for quick fixes like typos, updates, or link fixes.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
-**Open an issue** using an [issue template](https://github.com/github/docs/issues/new/choose).
+For more complex contribution, you can **open an issue** using an [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
-**Solve an issue** by first scanning through our [existing issues](https://github.com/github/docs/issues). When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
+If you're looking for a way to contribute, you can scan through our [existing issues](https://github.com/github/docs/issues) for something to work on. When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
 
 ### Join us in discussions
 
@@ -31,8 +31,6 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 
 That's how you can easily become a member of the GitHub Documentation community. :sparkles:
-
-If you want to know more, or you're making a more complex contribution, check out [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## READMEs
 

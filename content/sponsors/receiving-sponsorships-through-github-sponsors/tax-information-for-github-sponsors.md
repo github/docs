@@ -15,7 +15,7 @@ shortTitle: Tax information
 
 ## W-9/W-8 tax forms
 
-By law, {% data variables.product.prodname_dotcom %} is required by the U.S. Inland Revenue Service (IRS) to collect tax information from all U.S. and non-U.S. maintainers. These forms are held by {% data variables.product.prodname_dotcom %} and are not required to be submitted to the IRS. 
+By law, {% data variables.product.prodname_dotcom %} is required by the U.S. Internal Revenue Service (IRS) to collect tax information from all U.S. and non-U.S. maintainers. These forms are held by {% data variables.product.prodname_dotcom %} and are not required to be submitted to the IRS. 
 
 ### W-9 (U.S.)
 
