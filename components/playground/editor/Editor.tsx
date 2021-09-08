@@ -103,6 +103,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
                 }
                 return { style: { display: 'block' }, class: className }
               }}
+              lineNumberStyle={{ minWidth: '3.25em' }}
             >
               {activeFile.code}
             </SyntaxHighlighter>

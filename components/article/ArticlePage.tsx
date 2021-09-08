@@ -11,7 +11,7 @@ import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
-import { ArticleContent } from './ArticleContent'
+import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { ArticleGridLayout } from './ArticleGridLayout'
 
 // Mapping of a "normal" article to it's interactive counterpart
@@ -64,10 +64,9 @@ export const ArticlePage = () => {
               )}
 
               {intro && (
-                <div
-                  className="lead-mktg markdown-body mb-3"
-                  dangerouslySetInnerHTML={{ __html: intro }}
-                />
+                <MarkdownContent className="f2 color-text-secondary mb-3" data-testid="lead">
+                  {intro}
+                </MarkdownContent>
               )}
 
               {permissions && (
@@ -153,7 +152,9 @@ export const ArticlePage = () => {
             </>
           }
         >
-          <ArticleContent>{renderedPage}</ArticleContent>
+          <div id="article-contents">
+            <MarkdownContent>{renderedPage}</MarkdownContent>
+          </div>
         </ArticleGridLayout>
 
         {currentLearningTrack?.trackName ? (

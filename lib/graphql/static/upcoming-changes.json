@@ -668,14 +668,6 @@
     ],
     "2020-10-01": [
       {
-        "location": "Sponsorship.sponsor",
-        "description": "<p><code>sponsor</code> will be removed. Use <code>Sponsorship.sponsorEntity</code> instead.</p>",
-        "reason": "<p><code>Sponsorship.sponsor</code> will be removed.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "nholden"
-      },
-      {
         "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
         "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
         "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
@@ -716,16 +708,6 @@
         "date": "2020-07-01",
         "criticality": "breaking",
         "owner": "BrentWheeldon"
-      }
-    ],
-    "2020-04-01": [
-      {
-        "location": "Sponsorship.maintainer",
-        "description": "<p><code>maintainer</code> will be removed. Use <code>Sponsorship.sponsorable</code> instead.</p>",
-        "reason": "<p><code>Sponsorship.maintainer</code> will be removed.</p>",
-        "date": "2020-04-01",
-        "criticality": "breaking",
-        "owner": "antn"
       }
     ],
     "2020-01-01": [
