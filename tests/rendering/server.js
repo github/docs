@@ -242,7 +242,7 @@ describe('server', () => {
     let $ = await getDOM(
       '/en/github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line'
     )
-    const articleIntro = $('.lead-mktg').text()
+    const articleIntro = $('[data-testid="lead"]').text()
     $ = await getDOM(
       '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github'
     )
@@ -291,9 +291,9 @@ describe('server', () => {
 
   test('renders liquid within liquid within liquid in intros', async () => {
     const $ = await getDOM('/en/github/administering-a-repository/about-merge-methods-on-github')
-    expect($('div.lead-mktg').first().text().includes('merge their pull requests on GitHub')).toBe(
-      true
-    )
+    expect(
+      $('[data-testid="lead"]').first().text().includes('merge their pull requests on GitHub')
+    ).toBe(true)
   })
 
   test('renders product frontmatter callouts', async () => {
@@ -628,16 +628,6 @@ describe('server', () => {
       const res = await get('/desktop-classic')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('https://desktop.github.com')
-    })
-
-    test('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
-      const res = await get(
-        '/en/insights/installing-and-configuring-github-insights/about-github-insights'
-      )
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
-      )
     })
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity

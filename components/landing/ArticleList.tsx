@@ -28,8 +28,8 @@ export const ArticleList = ({
           <h3
             className={cx(
               titleVariant === 'large'
-                ? 'f4 text-normal text-mono text-uppercase'
-                : 'f5 text-normal text-mono underline-dashed color-text-secondary'
+                ? 'f4 font-weight-semibold'
+                : 'f5 text-normal underline-dashed color-text-secondary'
             )}
           >
             {title}
@@ -52,7 +52,11 @@ export const ArticleList = ({
                 className="py-3"
                 title={
                   <h4 data-testid="link-with-intro-title">
-                    <span dangerouslySetInnerHTML={{ __html: link.title }} />
+                    <span
+                      dangerouslySetInnerHTML={
+                        link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                      }
+                    />
                   </h4>
                 }
               >

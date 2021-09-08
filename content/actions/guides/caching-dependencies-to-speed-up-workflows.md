@@ -28,6 +28,8 @@ If you are caching Ruby gems, instead consider using the Ruby maintained action,
 
 To cache and restore dependencies for npm, Yarn, or pnpm, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
 
+Gradle and Maven caching is available with [`actions/setup-java` action](https://github.com/actions/setup-java).
+
 {% warning %}
 
 **Warning**: We recommend that you don't store any sensitive information in the cache of public repositories. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of the cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.

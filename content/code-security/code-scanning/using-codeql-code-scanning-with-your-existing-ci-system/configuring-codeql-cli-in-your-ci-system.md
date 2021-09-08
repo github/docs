@@ -143,7 +143,7 @@ $
     codeql pack download &lt;packs&gt; 
     ```
     {% endif %}
-3. Run `codeql database analyze` on the database and specify which {% if codeql-packs %}packs and/or{% endif %}queries to use.
+3. Run `codeql database analyze` on the database and specify which {% if codeql-packs %}packs and/or {% endif %}queries to use.
   ```shell
   codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
       --output=&lt;output&gt;  {% if codeql-packs %}&lt;packs,queries&gt;{% else %} &lt;queries&gt;{% endif %} 

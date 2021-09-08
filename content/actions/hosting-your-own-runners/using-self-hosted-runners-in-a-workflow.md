@@ -70,9 +70,17 @@ These labels operate cumulatively, so a self-hosted runner’s labels must match
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% ifversion ghes or ghae %}, then at the enterprise level{% endif %}. 
+{% ifversion fpt or ghes > 3.2 or ghae-next %}
+- {% data variables.product.prodname_dotcom %} first searches for an online and idle runner at the repository level, then at the organization level, {% ifversion fpt %} and if the organization is part of an enterprise,{% endif %} then at the enterprise level.
+- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
+  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
+- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
+- If the job remains queued for more than 24 hours, the job will fail.
+{% else %}
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
 2. The job is then sent to the first matching runner that is online and idle.
    - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
    - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
    - If there are no matching runners at any level, the job will fail.
    - If the job remains queued for more than 24 hours, the job will fail.
+{% endif %}

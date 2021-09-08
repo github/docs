@@ -109,6 +109,15 @@ This script turns a Google Sheets CSV spreadsheet into a YAML file.
 ---
 
 
+### [`deploy.js`](deploy.js)
+
+This script enables us to execute both staging and production deployments from our local machine (in case GitHub Actions is unavailable). :rocket:
+
+:warning: Deploy to production only with maximum caution!
+
+---
+
+
 ### [`early-access/clone-for-build.js`](early-access/clone-for-build.js)
 
 This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch in the early-access repo that matches the current branch in the docs repo; if one can't be found, it clones the `main` branch.

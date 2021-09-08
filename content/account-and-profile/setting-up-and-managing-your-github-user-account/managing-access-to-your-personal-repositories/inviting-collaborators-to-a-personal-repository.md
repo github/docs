@@ -19,9 +19,7 @@ shortTitle: Invite collaborators
 ---
 Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.product_name %}](/articles/access-permissions-on-github)."
 
-{% ifversion fpt or ghes or ghae %}
 {% data reusables.organizations.org-invite-expiration %}
-{% endif %}
 
 {% ifversion fpt %}
 
