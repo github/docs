@@ -7895,12 +7895,11 @@ enum DeploymentOrderField {
 """
 A protection rule.
 """
-type DeploymentProtectionRule implements Node {
+type DeploymentProtectionRule {
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
-  id: ID!
 
   """
   The teams or users that can review the deployment
@@ -22842,9 +22841,16 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   sponsorsListing: SponsorsListing
 
   """
-  The viewer's sponsorship of this entity.
+  The sponsorship from the viewer to this user/organization; that is, the
+  sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
   """
   sponsorshipForViewerAsSponsor: Sponsorship
+
+  """
+  The sponsorship from this user/organization to the viewer; that is, the
+  sponsorship you're receiving. Only returns a sponsorship if it is active.
+  """
+  sponsorshipForViewerAsSponsorable: Sponsorship
 
   """
   List of sponsorship updates sent from this sponsorable to sponsors.
@@ -37314,9 +37320,16 @@ interface Sponsorable {
   sponsorsListing: SponsorsListing
 
   """
-  The viewer's sponsorship of this entity.
+  The sponsorship from the viewer to this user/organization; that is, the
+  sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
   """
   sponsorshipForViewerAsSponsor: Sponsorship
+
+  """
+  The sponsorship from this user/organization to the viewer; that is, the
+  sponsorship you're receiving. Only returns a sponsorship if it is active.
+  """
+  sponsorshipForViewerAsSponsorable: Sponsorship
 
   """
   List of sponsorship updates sent from this sponsorable to sponsors.
@@ -37983,6 +37996,12 @@ type Sponsorship implements Node {
   Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
   """
   isOneTimePayment: Boolean!
+
+  """
+  Check if the sponsor has chosen to receive sponsorship update emails sent from
+  the sponsorable. Only returns a non-null value when the viewer has permission to know this.
+  """
+  isSponsorOptedIntoEmail: Boolean
 
   """
   The entity that is being sponsored
@@ -43958,6 +43977,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isEmployee: Boolean!
 
   """
+  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  """
+  isFollowingViewer: Boolean!
+
+  """
   Whether or not this user is a member of the GitHub Stars Program.
   """
   isGitHubStar: Boolean!
@@ -44721,9 +44745,16 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   sponsorsListing: SponsorsListing
 
   """
-  The viewer's sponsorship of this entity.
+  The sponsorship from the viewer to this user/organization; that is, the
+  sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
   """
   sponsorshipForViewerAsSponsor: Sponsorship
+
+  """
+  The sponsorship from this user/organization to the viewer; that is, the
+  sponsorship you're receiving. Only returns a sponsorship if it is active.
+  """
+  sponsorshipForViewerAsSponsorable: Sponsorship
 
   """
   List of sponsorship updates sent from this sponsorable to sponsors.
@@ -44933,7 +44964,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   viewerCanSponsor: Boolean!
 
   """
-  Whether or not this user is followed by the viewer.
+  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
   """
   viewerIsFollowing: Boolean!
 

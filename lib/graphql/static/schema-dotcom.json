@@ -14519,13 +14519,6 @@
       "id": "deploymentprotectionrule",
       "href": "/graphql/reference/objects#deploymentprotectionrule",
       "description": "<p>A protection rule.</p>",
-      "implements": [
-        {
-          "name": "Node",
-          "id": "node",
-          "href": "/graphql/reference/interfaces#node"
-        }
-      ],
       "fields": [
         {
           "name": "databaseId",
@@ -33918,7 +33911,15 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
@@ -52994,6 +52995,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isSponsorOptedIntoEmail",
+          "description": "<p>Check if the sponsor has chosen to receive sponsorship update emails sent from\nthe sponsorable. Only returns a non-null value when the viewer has permission to know this.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",
@@ -58645,6 +58654,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isFollowingViewer",
+          "description": "<p>Whether or not this user is following the viewer. Inverse of viewer_is_following.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isGitHubStar",
           "description": "<p>Whether or not this user is a member of the GitHub Stars Program.</p>",
           "type": "Boolean!",
@@ -60128,7 +60145,15 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
@@ -60531,7 +60556,7 @@
         },
         {
           "name": "viewerIsFollowing",
-          "description": "<p>Whether or not this user is followed by the viewer.</p>",
+          "description": "<p>Whether or not this user is followed by the viewer. Inverse of is_following_viewer.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -64017,7 +64042,15 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",

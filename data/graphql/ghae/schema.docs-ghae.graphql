@@ -7389,12 +7389,11 @@ enum DeploymentOrderField {
 """
 A protection rule.
 """
-type DeploymentProtectionRule implements Node {
+type DeploymentProtectionRule {
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
-  id: ID!
 
   """
   The teams or users that can review the deployment
@@ -20636,7 +20635,7 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type Organization implements Actor & MemberStatusable & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -21159,73 +21158,6 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   The Organization's SAML identity providers
   """
   samlIdentityProvider: OrganizationIdentityProvider
-
-  """
-  This object's sponsorships as the maintainer.
-  """
-  sponsorshipsAsMaintainer(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Whether or not to include private sponsorships in the result set
-    """
-    includePrivate: Boolean = false
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
-  This object's sponsorships as the sponsor.
-  """
-  sponsorshipsAsSponsor(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
 
   """
   Find an organization's team by its slug.
@@ -34048,200 +33980,6 @@ type SmimeSignature implements GitSignature {
 }
 
 """
-Entities that can sponsor others via GitHub Sponsors
-"""
-union Sponsor = Organization | User
-
-"""
-Entities that can be sponsored through GitHub Sponsors
-"""
-interface Sponsorable {
-  """
-  This object's sponsorships as the maintainer.
-  """
-  sponsorshipsAsMaintainer(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Whether or not to include private sponsorships in the result set
-    """
-    includePrivate: Boolean = false
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
-  This object's sponsorships as the sponsor.
-  """
-  sponsorshipsAsSponsor(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-}
-
-"""
-A sponsorship relationship between a sponsor and a maintainer
-"""
-type Sponsorship implements Node {
-  """
-  Identifies the date and time when the object was created.
-  """
-  createdAt: DateTime!
-  id: ID!
-
-  """
-  Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
-  """
-  isOneTimePayment: Boolean!
-
-  """
-  The entity that is being sponsored
-  """
-  maintainer: User!
-    @deprecated(
-      reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC."
-    )
-
-  """
-  The privacy level for this sponsorship.
-  """
-  privacyLevel: SponsorshipPrivacy!
-
-  """
-  The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.
-  """
-  sponsor: User
-    @deprecated(
-      reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC."
-    )
-
-  """
-  The user or organization that is sponsoring, if you have permission to view them.
-  """
-  sponsorEntity: Sponsor
-
-  """
-  The entity that is being sponsored
-  """
-  sponsorable: Sponsorable!
-
-  """
-  Identifies the date and time when the current tier was chosen for this sponsorship.
-  """
-  tierSelectedAt: DateTime
-}
-
-"""
-The connection type for Sponsorship.
-"""
-type SponsorshipConnection {
-  """
-  A list of edges.
-  """
-  edges: [SponsorshipEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [Sponsorship]
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  Identifies the total count of items in the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-An edge in a connection.
-"""
-type SponsorshipEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: Sponsorship
-}
-
-"""
-Ordering options for sponsorship connections.
-"""
-input SponsorshipOrder {
-  """
-  The ordering direction.
-  """
-  direction: OrderDirection!
-}
-
-"""
-The privacy of a sponsorship
-"""
-enum SponsorshipPrivacy {
-  """
-  Private
-  """
-  PRIVATE
-
-  """
-  Public
-  """
-  PUBLIC
-}
-
-"""
 Ways in which star connections can be ordered.
 """
 input StarOrder {
@@ -39600,7 +39338,7 @@ type UpdateTopicsPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -39863,6 +39601,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   Whether or not this user is a GitHub employee.
   """
   isEmployee: Boolean!
+
+  """
+  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  """
+  isFollowingViewer: Boolean!
 
   """
   Whether or not this user is a member of the GitHub Stars Program.
@@ -40457,73 +40200,6 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   ): SavedReplyConnection
 
   """
-  This object's sponsorships as the maintainer.
-  """
-  sponsorshipsAsMaintainer(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Whether or not to include private sponsorships in the result set
-    """
-    includePrivate: Boolean = false
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
-  This object's sponsorships as the sponsor.
-  """
-  sponsorshipsAsSponsor(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
   Repositories the user has starred.
   """
   starredRepositories(
@@ -40634,7 +40310,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   viewerCanFollow: Boolean!
 
   """
-  Whether or not this user is followed by the viewer.
+  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
   """
   viewerIsFollowing: Boolean!
 

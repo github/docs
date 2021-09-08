@@ -22,8 +22,8 @@ If you want to skip authorizing your app in the standard way, such as when testi
 
 To authorize your OAuth app, consider which authorization flow best fits your app.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.){% ifversion fpt or ghae or ghes > 3.0 %}
+- [device flow](#device-flow):  Used for headless apps, such as CLI tools.{% endif %}
 
 ## Web application flow
 
@@ -105,15 +105,15 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
+{% ifversion fpt or ghae or ghes > 3.0 %}
+
 ## Device flow
 
-{% ifversion ghes < 3.1 %}
 {% note %}
 
 **Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
-{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
@@ -223,6 +223,8 @@ If you make more than one access token request (`POST {% data variables.product.
 | `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.
 
 For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
+
+{% endif %}
 
 ## Non-Web application flow
 

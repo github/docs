@@ -4,6 +4,37 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `sponsorshipForViewerAsSponsorable` was added to object type `Organization`",
+          "Field `sponsorshipForViewerAsSponsorable` was added to interface `Sponsorable`",
+          "Field `isSponsorOptedIntoEmail` was added to object type `Sponsorship`",
+          "Field `sponsorshipForViewerAsSponsorable` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "`DeploymentProtectionRule` object type no longer implements `Node` interface",
+          "Field `id` was removed from object type `DeploymentProtectionRule`",
+          "Field `isFollowingViewer` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `visibility` was added to object type `Repository`",
           "Field `visibility` was added to interface `RepositoryInfo`"
         ]
