@@ -62,4 +62,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 
 ## Thanks :purple_heart:
 
-Thanks for all your contributions and efforts towards the GitHub documentation. We thank you being part of our enormous community!!
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our ✨ community ✨ !
