@@ -27,23 +27,15 @@ You can find extensions by browsing [repositories with the `gh-extension` topic]
 
 ## Installing extensions
 
-To install an extension, use the `extensions install` subcommand. Replace the `owner/repo` parameter with the name of the extension, such as `octocat/gh-whoami`.{% ifversion ghes %} If the extension is on {% data variables.product.prodname_ghe_server %}, also include the hostname, such as `https://ghe.io/octocat/gh-whoami`.{% endif %}
+To install an extension, use the `extensions install` subcommand. Replace the `repo` parameter with the repository of the extension. You can use the full URL, such as `https://github.com/octocat/gh-whoami`, or just the owner and repository, such as `octocat/gh-whoami`. If the full URL is not used, `gh` will install the extension using the hostname to which `gh` is currently authenticated.
+
+The URL format is useful when installing extensions from a different host. For example, users on {% data variables.product.prodname_ghe_server %} should use the full repository URL to install extensions from GitHub.com or any other host.
 
 ```shell
-gh extension install <em>owner/repo</em>
+gh extension install <em>repo</em>
 ```
 
 If you already have an extension by the same name installed, the command will fail. For example, if you have installed `octocat/gh-whoami`, you must uninstall it before installing `hubot/gh-whoami`.
-
-{% note %}
-
-**Note:** You can also provide the full repository URL for the extension when installing. If the full repository URL is not used, `gh` will install the extension using the hostname to which `gh` is currently authenticated. Using the full repository URL allows GitHub Enterprise users to install extensions from public GitHub.
-
-```shell
-gh extension install <em>https://github.com/owner/repo</em>
-```
-
-{% endnote %}
 
 ## Viewing installed extensions
 
