@@ -212,7 +212,7 @@ Stops processing any workflow commands. This special command allows you to log a
 
 {% warning %}
 
-**Warning:** Make sure the token you're using is randomly generated and different between runs. A **hash** of your `github.token` is a good choice for this.
+**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
 
 {% endwarning %}
 
