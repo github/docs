@@ -1,14 +1,14 @@
 # Creating and updating screenshots
 
-Screenshots are typically used in procedures to help situate a reader in the flow (for an example, see "[Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)"), but they can also be helpful in conceptual articles about areas of the UI (for an example, see "[Configuring notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#about-participating-and-watching-notifications)").
+Screenshots are typically used to help situate a reader in the flow for procedures an is "[Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)"), and conceptual articles about areas of the UI as in "[Configuring notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#about-participating-and-watching-notifications)").
 
-When taking a screenshot, only the portion that needs to be highlighted is selected.
+When taking a screenshot, select only the portion that needs focus.
 
 ![screenshot example](../assets/images/screenshot-example.png)
 
 ## Versioning images in Markdown content
 
-Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Server, GitHub AE, and GitHub Enterprise Cloud). In this case, there is no versioning required. When an image does differ from plan to plan or changes in a newer release of Github Enterprise server or GitHub AE, the images need to be versioned with Liquid conditional statements. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or Enterprise release.
+Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Server, GitHub AE, and GitHub Enterprise Cloud). In this case, there is no versioning required. When an image does differ from plan to plan or changes in a newer release of Github Enterprise server or GitHub AE, the images need to be versioned with [Liquid](liquid-helpers.md) conditional statements. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or Enterprise release.
 
 Images are located in the `/assets/images` directory. This directory has some folders that can be used to organize content by plan and release number.
 
