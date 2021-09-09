@@ -225,16 +225,17 @@ To start workflow commands, pass the token that you used to stop workflow comman
 {% raw %}
 
 ```yaml
-workflow-command-job:
+jobs:
+  workflow-command-job:
     runs-on: ubuntu-latest
     steps:
-    - name: disable workflow commands
-      run: |
-        echo '::warning:: this is a warning'
-        echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-        echo '::warning:: this will NOT be a warning'
-        echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-        echo '::warning:: this is a warning again'
+      - name: disable workflow commands
+        run: |
+          echo '::warning:: this is a warning'
+          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+          echo '::warning:: this will NOT be a warning'
+          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+          echo '::warning:: this is a warning again'
 ```
 
 {% endraw %}
