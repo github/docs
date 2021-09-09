@@ -1,0 +1,64 @@
+{
+  "changes": {
+  },
+  "action": "edited",
+  "team": {
+    "name": "github",
+    "id": 3,
+    "node_id": "MDQ6VGVhbTM=",
+    "slug": "github",
+    "description": "Open-source team",
+    "privacy": "secret",
+    "url": "https://octocoders.github.io/api/v3/teams/3",
+    "html_url": "https://octocoders.github.io/orgs/Octocoders/teams/github",
+    "members_url": "https://octocoders.github.io/api/v3/teams/3/members{/member}",
+    "repositories_url": "https://octocoders.github.io/api/v3/teams/3/repos",
+    "permission": "pull"
+  },
+  "organization": {
+    "login": "Octocoders",
+    "id": 6,
+    "node_id": "MDEyOk9yZ2FuaXphdGlvbjY=",
+    "url": "https://octocoders.github.io/api/v3/orgs/Octocoders",
+    "repos_url": "https://octocoders.github.io/api/v3/orgs/Octocoders/repos",
+    "events_url": "https://octocoders.github.io/api/v3/orgs/Octocoders/events",
+    "hooks_url": "https://octocoders.github.io/api/v3/orgs/Octocoders/hooks",
+    "issues_url": "https://octocoders.github.io/api/v3/orgs/Octocoders/issues",
+    "members_url": "https://octocoders.github.io/api/v3/orgs/Octocoders/members{/member}",
+    "public_members_url": "https://octocoders.github.io/api/v3/orgs/Octocoders/public_members{/member}",
+    "avatar_url": "https://octocoders.github.io/avatars/u/6?",
+    "description": ""
+  },
+  "enterprise": {
+    "id": 1,
+    "slug": "github",
+    "name": "GitHub",
+    "node_id": "MDg6QnVzaW5lc3Mx",
+    "avatar_url": "https://octocoders.github.io/avatars/b/1?",
+    "description": null,
+    "website_url": null,
+    "html_url": "https://octocoders.github.io/businesses/github",
+    "created_at": "2019-05-14T19:31:12Z",
+    "updated_at": "2019-05-14T19:31:12Z"
+  },
+  "sender": {
+    "login": "Codertocat",
+    "id": 4,
+    "node_id": "MDQ6VXNlcjQ=",
+    "avatar_url": "https://octocoders.github.io/avatars/u/4?",
+    "gravatar_id": "",
+    "url": "https://octocoders.github.io/api/v3/users/Codertocat",
+    "html_url": "https://octocoders.github.io/Codertocat",
+    "followers_url": "https://octocoders.github.io/api/v3/users/Codertocat/followers",
+    "following_url": "https://octocoders.github.io/api/v3/users/Codertocat/following{/other_user}",
+    "gists_url": "https://octocoders.github.io/api/v3/users/Codertocat/gists{/gist_id}",
+    "starred_url": "https://octocoders.github.io/api/v3/users/Codertocat/starred{/owner}{/repo}",
+    "subscriptions_url": "https://octocoders.github.io/api/v3/users/Codertocat/subscriptions",
+    "organizations_url": "https://octocoders.github.io/api/v3/users/Codertocat/orgs",
+    "repos_url": "https://octocoders.github.io/api/v3/users/Codertocat/repos",
+    "events_url": "https://octocoders.github.io/api/v3/users/Codertocat/events{/privacy}",
+    "received_events_url": "https://octocoders.github.io/api/v3/users/Codertocat/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+}
