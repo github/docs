@@ -1,3 +1,5 @@
+[єлектронний протокол.pdf](https://github.com/github/docs/files/7136245/default.pdf)
+[гаватар розпознавание данних аватаров.pdf](https://github.com/github/docs/files/7136248/default.pdf)
 ---
 title: Updating credentials from the macOS Keychain
 intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
