@@ -49,7 +49,7 @@ Repositories owned by an organization can grant more granular access. For more i
 7. Select the collaborator's username from the drop-down menu.
    ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
 8. Click **Add collaborator**.
-   ![Add button](/assets/images/help/repository/repo-settings-collab-add.png)
+   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
 {% ifversion fpt %}
 9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
