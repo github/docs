@@ -210,13 +210,13 @@ echo "::add-mask::$MY_NAME"
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
+To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
+
 {% warning %}
 
 **Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
 
 {% endwarning %}
-
-To start workflow commands, pass the token that you used to stop workflow commands.
 
 `::{endtoken}::`
 
