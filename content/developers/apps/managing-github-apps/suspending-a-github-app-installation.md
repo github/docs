@@ -18,11 +18,7 @@ The integrator who owns and maintains a GitHub app, also called a GitHub App own
 
 People who have installed a GitHub App, also called installation owners, can only suspend or unsuspend a GitHub App through their app's installation settings. Installation owners cannot use the API to suspend or unsuspend their app installation.
 
-{% note %}
-
-**Note:** If an installation has been suspended by the GitHub App owner, then the option to unsuspend the installation is removed from the installation owner's app's settings and thus they will not be able to unsuspend it on their own. They can still change other settings (e.g., repository selection) while the app is suspended.
-
-{% endnote %}
+If an installation has been suspended by the {% data variables.product.prodname_github_app %} owner, installation owners cannot unsuspend their installations of the {% data variables.product.prodname_github_app %}. However, installation owners can change other settings, such as repository selection, while the app is suspended.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
