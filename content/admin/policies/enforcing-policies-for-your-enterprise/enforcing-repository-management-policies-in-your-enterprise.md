@@ -38,7 +38,7 @@ shortTitle: Enforce repository policies
 ---
 ## Configuring the default visibility of new repositories in your enterprise
 
-Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. For more information on repository visibility, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
@@ -102,6 +102,8 @@ Across all organizations owned by your enterprise, you can allow people with acc
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
+{% ifversion fpt or ghes %}
+
 ## Setting a policy for Git push limits
 
 To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
@@ -119,6 +121,8 @@ By default, when you enforce repository upload limits, people cannot add or upda
 ![Drop-down menu with maximum object size options](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
 ![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+
+{% endif %}
 
 ## Configuring the merge conflict editor for pull requests between repositories
 

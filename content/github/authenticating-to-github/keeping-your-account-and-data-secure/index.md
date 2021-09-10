@@ -22,6 +22,7 @@ children:
   - /reviewing-your-authorized-integrations
   - /connecting-with-third-party-applications
   - /reviewing-your-authorized-applications-oauth
+  - /token-expiration-and-revocation
   - /reviewing-your-security-log
   - /removing-sensitive-data-from-a-repository
   - /about-anonymized-urls

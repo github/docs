@@ -65,7 +65,7 @@ export const Header = () => {
 
               <Link
                 href={`/${router.locale}`}
-                className="h4-mktg color-text-primary no-underline no-wrap pl-2"
+                className="f4 font-weight-semibold color-text-primary no-underline no-wrap pl-2"
               >
                 {t('github_docs')}
               </Link>
@@ -92,9 +92,7 @@ export const Header = () => {
               )}
             >
               <div className="mt-3 mb-2">
-                <h4 className="text-mono f5 text-normal color-text-secondary">
-                  {t('explore_by_product')}
-                </h4>
+                <h4 className="f5 text-normal color-text-secondary">{t('explore_by_product')}</h4>
 
                 <ProductPicker />
               </div>

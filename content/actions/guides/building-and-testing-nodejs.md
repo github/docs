@@ -10,6 +10,7 @@ versions:
   ghes: '*'
   ghae: '*'
 type: tutorial
+hidden: true
 topics:
   - CI
   - Node

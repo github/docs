@@ -97,6 +97,24 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
+{% ifversion fpt %}
+
+## Creating an issue from discussion
+
+People with triage permission to a repository can create an issue from a discussion.
+
+When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**.
+   ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
+
+{% endif %}
+
 ## Creating an issue from a project board note
 
 If you're using a project board to track and prioritize your work, you can convert project board notes to issues. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a project board](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."

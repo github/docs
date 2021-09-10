@@ -51,23 +51,9 @@ You can locally generate search indexes, but please do not check them into your 
 
 To locally generate the English version of the Dotcom search index locally, run `LANGUAGE=en VERSION=free-pro-team@latest npm run sync-search`. See [Build and sync](#build-and-sync) below for more details. To revert those files run `git checkout lib/search/indexes`.
 
-### Build without sync (dry run)
-
-To build all the indices without uploading them (this takes about an hour):
-```
-npm run sync-search-dry-run
-```
-To build indices for a specific language and/or version (this is much faster):
-```
-VERSION=<PLAN@RELEASE> LANGUAGE=<TWO-LETTER CODE> npm run sync-search-dry-run
-```
-You can set `VERSION` and `LANGUAGE` individually, too.
-
-Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`.
-
 ### Build and sync
 
-To build all the indices and sync them (this also takes about an hour):
+To build all the indices (this takes about an hour):
 ```
 npm run sync-search
 ```
