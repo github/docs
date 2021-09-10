@@ -170,6 +170,10 @@ PlanetScale | PlanetScale Database Password | planetscale_database_password{% en
 PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae-next %}
 PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Plivo | Plivo Auth Token | plivo_auth_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Postman | Postman API Key | postman_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
