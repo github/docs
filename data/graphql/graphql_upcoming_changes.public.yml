@@ -38,14 +38,6 @@ upcoming_changes:
     date: '2020-01-01T00:00:00+00:00'
     criticality: breaking
     owner: tambling
-  - location: Query.sponsorsListing
-    description:
-      '`sponsorsListing` will be removed. Use `Sponsorable.sponsorsListing`
-      instead.'
-    reason: '`Query.sponsorsListing` will be removed.'
-    date: '2020-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: antn
   - location: Sponsorship.maintainer
     description: '`maintainer` will be removed. Use `Sponsorship.sponsorable` instead.'
     reason: '`Sponsorship.maintainer` will be removed.'
