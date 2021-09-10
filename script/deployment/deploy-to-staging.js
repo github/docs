@@ -2,6 +2,7 @@
 import sleep from 'await-sleep'
 import got from 'got'
 import Heroku from 'heroku-client'
+import { setOutput } from '@actions/core'
 import createStagingAppName from './create-staging-app-name.js'
 
 const SLEEP_INTERVAL = 5000
@@ -105,6 +106,12 @@ export default async function deployToStaging({
 
     // Store this ID for later updating
     deploymentId = deployment.id
+
+    // Set some output variables for workflow steps that run after this script
+    if (process.env.GITHUB_ACTIONS) {
+      setOutput('deploymentId', deploymentId)
+      setOutput('logUrl', logUrl)
+    }
 
     await octokit.repos.createDeploymentStatus({
       owner,

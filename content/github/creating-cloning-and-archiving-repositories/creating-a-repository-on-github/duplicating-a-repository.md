@@ -1,6 +1,6 @@
 ---
 title: Duplicating a repository
-intro: 'To duplicate a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
+intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
@@ -12,7 +12,7 @@ versions:
 topics:
   - Repositories
 ---
-Before you can duplicate a repository and push to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
+Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
 
 ## Mirroring a repository
 
