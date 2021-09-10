@@ -61,7 +61,7 @@ Palantir | Palantir JSON Web Token
 PlanetScale | PlanetScale Database Password
 PlanetScale | PlanetScale OAuth Token
 PlanetScale | PlanetScale Service Token
-Plivo | Plivo Auth Token
+Plivo | Plivo Auth ID and Token
 Postman | Postman API Key
 Proctorio | Proctorio Consumer Key
 Proctorio | Proctorio Linkage Key
