@@ -192,6 +192,10 @@ Samsara | Samsara API Token | samsara_api_token{% endif %}
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Sendinblue | Sendinblue API Key | sendinblue_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
