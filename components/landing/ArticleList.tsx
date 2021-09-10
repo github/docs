@@ -28,8 +28,8 @@ export const ArticleList = ({
           <h3
             className={cx(
               titleVariant === 'large'
-                ? 'f4 text-normal text-mono text-uppercase'
-                : 'f5 text-normal text-mono underline-dashed color-text-secondary'
+                ? 'f4 font-weight-semibold'
+                : 'f5 text-normal underline-dashed color-text-secondary'
             )}
           >
             {title}

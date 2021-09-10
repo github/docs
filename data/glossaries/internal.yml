@@ -214,7 +214,7 @@
   description: An agreement users sign when using GitHub Marketplace.
 - term: GPG
   description: >-
-    GNU Privacy Guard. Encyrption software that you can use to encrypt (and
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and
     decrypt) files that contain sensitive data
 - term: GPG key
   description: An encryption key used with GPG.

@@ -2,10 +2,15 @@
 import sleep from 'await-sleep'
 import got from 'got'
 import Heroku from 'heroku-client'
+import { setOutput } from '@actions/core'
 import createStagingAppName from './create-staging-app-name.js'
 
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
+
+// Allow for a few 404 (Not Found) or 429 (Too Many Requests) responses from the
+// semi-unreliable Heroku API when we're polling for status updates
+const ALLOWED_MISSING_RESPONSE_COUNT = 5
 
 export default async function deployToStaging({
   octokit,
@@ -101,6 +106,12 @@ export default async function deployToStaging({
 
     // Store this ID for later updating
     deploymentId = deployment.id
+
+    // Set some output variables for workflow steps that run after this script
+    if (process.env.GITHUB_ACTIONS) {
+      setOutput('deploymentId', deploymentId)
+      setOutput('logUrl', logUrl)
+    }
 
     await octokit.repos.createDeploymentStatus({
       owner,
@@ -215,12 +226,20 @@ export default async function deployToStaging({
 
       // A new Build is created as a by-product of creating an AppSetup.
       // Poll until there is a Build object attached to the AppSetup.
+      let setupAcceptableErrorCount = 0
       while (!build || !build.id) {
         await sleep(SLEEP_INTERVAL)
         try {
           appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
           build = appSetup.build
         } catch (error) {
+          // Allow for a few bad responses from the Heroku API
+          if (error.statusCode === 404 || error.statusCode === 429) {
+            setupAcceptableErrorCount += 1
+            if (setupAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+              continue
+            }
+          }
           throw new Error(`Failed to get AppSetup status. Error: ${error}`)
         }
 
@@ -273,11 +292,19 @@ export default async function deployToStaging({
     console.log('🚀 Deployment status: in_progress - Building a new Heroku slug...')
 
     // Poll until the Build's status changes from "pending" to "succeeded" or "failed".
+    let buildAcceptableErrorCount = 0
     while (!build || build.status === 'pending' || !build.release || !build.release.id) {
       await sleep(SLEEP_INTERVAL)
       try {
         build = await heroku.get(`/apps/${appName}/builds/${buildId}`)
       } catch (error) {
+        // Allow for a few bad responses from the Heroku API
+        if (error.statusCode === 404 || error.statusCode === 429) {
+          buildAcceptableErrorCount += 1
+          if (buildAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            continue
+          }
+        }
         throw new Error(`Failed to get build status. Error: ${error}`)
       }
       console.log(
@@ -305,6 +332,7 @@ export default async function deployToStaging({
     let release = null
 
     // Poll until the associated Release's status changes from "pending" to "succeeded" or "failed".
+    let releaseAcceptableErrorCount = 0
     while (!release || release.status === 'pending') {
       await sleep(SLEEP_INTERVAL)
       try {
@@ -321,6 +349,13 @@ export default async function deployToStaging({
 
         release = result
       } catch (error) {
+        // Allow for a few bad responses from the Heroku API
+        if (error.statusCode === 404 || error.statusCode === 429) {
+          releaseAcceptableErrorCount += 1
+          if (releaseAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            continue
+          }
+        }
         throw new Error(`Failed to get release status. Error: ${error}`)
       }
 
@@ -356,6 +391,7 @@ export default async function deployToStaging({
 
     // Keep checking while there are still dynos in non-terminal states
     let newDynos = []
+    let dynoAcceptableErrorCount = 0
     while (newDynos.length === 0 || newDynos.some((dyno) => dyno.state === 'starting')) {
       await sleep(SLEEP_INTERVAL)
       try {
@@ -417,6 +453,13 @@ export default async function deployToStaging({
           )} seconds)`
         )
       } catch (error) {
+        // Allow for a few bad responses from the Heroku API
+        if (error.statusCode === 404 || error.statusCode === 429) {
+          dynoAcceptableErrorCount += 1
+          if (dynoAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            continue
+          }
+        }
         throw new Error(`Failed to find dynos for this release. Error: ${error}`)
       }
     }
