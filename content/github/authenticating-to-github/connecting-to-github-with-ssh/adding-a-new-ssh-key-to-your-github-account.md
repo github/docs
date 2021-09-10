@@ -103,7 +103,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
   ```shell
   $ cat ~/.ssh/id_ed25519.pub
-  # Then select and copy the contents of the id_ed25519.pub file displayed in the terminal to your clipboard
+  # Then select and copy the contents of the id_ed25519.pub file
+  # displayed in the terminal to your clipboard
   ```
 
   {% tip %}
