@@ -77,3 +77,4 @@ Instead of manually entering your PAT for every HTTPS Git operation, you can cac
 ## Further reading
 
 - "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+- "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
