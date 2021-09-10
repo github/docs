@@ -20,6 +20,8 @@ env:
 
 jobs:
   prepare:
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
     if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
@@ -127,13 +129,17 @@ jobs:
             }
 
       - name: Build, tag, push, and release the Docker image
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
         run: |
           docker image build --target production_early_access -t registry.heroku.com/${{ steps.create-app.outputs.app_name}}/web .
           heroku container:login
           docker push registry.heroku.com/${{ steps.create-app.outputs.app_name }}/web
           heroku container:release web --app=${{ steps.create-app.outputs.app_name }}
+
+      # This command will fail for a brand new app since they don't have a
+      # process type yet so we need to scale after `heroku container:release`.
+      - name: Scale Heroku App size
+        run: |
+          heroku ps:scale --app=${{ steps.create-app.outputs.app_name}} web=1:Standard-2X
 
       # https://devcenter.heroku.com/articles/container-registry-and-runtime#getting-a-docker-image-id
       - name: Get Docker Image ID
