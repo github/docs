@@ -26,15 +26,39 @@ env:
   PR_URL: ${{ github.event.workflow_run.repository.html_url }}/pull/${{ github.event.workflow_run.pull_requests[0].number }}
 
 jobs:
-  prepare:
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
+  check-pr-before-prepare:
     if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
         startsWith(github.event.workflow_run.head_branch, 'docker-')
       }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await octokit.pulls.get({
+              owner,
+              repo,
+              pull_number: pullNumber
+            })
+            core.setOutput('state', pullRequest.state)
+
+  prepare:
+    needs: check-pr-before-prepare
+    if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
@@ -167,8 +191,32 @@ jobs:
           color: failure
           text: Staging preparation (docker) failed for PR ${{ env.PR_URL }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-  deploy:
+  check-pr-before-deploy:
     needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await octokit.pulls.get({
+              owner,
+              repo,
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
+            })
+            core.setOutput('state', pullRequest.state)
+
+  deploy:
+    needs: [prepare, check-pr-before-deploy]
+    if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
