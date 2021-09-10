@@ -72,7 +72,7 @@ require 'openssl'
 require 'jwt'  # https://rubygems.org/gems/jwt
 
 # Private key contents
-private_pem = File.read(YOUR_PATH_TO_PEM)
+private_pem = File.read("YOUR_PATH_TO_PEM")
 private_key = OpenSSL::PKey::RSA.new(private_pem)
 
 # Generate the JWT
@@ -82,7 +82,7 @@ payload = {
   # JWT expiration time (10 minute maximum)
   exp: Time.now.to_i + (10 * 60),
   # {% data variables.product.prodname_github_app %}'s identifier
-  iss: YOUR_APP_ID
+  iss: "YOUR_APP_ID"
 }
 
 jwt = JWT.encode(payload, private_key, "RS256")
