@@ -92,7 +92,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>c</kbd> | Create an issue
-| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)."||
+| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
 |<kbd>u</kbd> | Filter by author
 |<kbd>l</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
 | <kbd>alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."

@@ -89,9 +89,6 @@ export default async function deployToStaging({
       // For our many staging apps, we must use the unique appName as the environment.
       environment: appName,
 
-      // Indicate this environment will no longer exist at some point in the future.
-      transient_environment: true,
-
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a
       // deployment. To bypass checking entirely, pass an empty array. Defaults

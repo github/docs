@@ -143,7 +143,7 @@ You can search repositories by the type of license in the repositories. You must
 
 ## Search by repository visibility
 
-You can filter your search based on the visibility of the repositories. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+You can filter your search based on the visibility of the repositories. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes %}
@@ -166,7 +166,7 @@ You can search repositories based on whether the repositories are mirrors and ho
 
 ## Search based on whether a repository is archived
 
-You can search repositories based on whether or not the repositories are archived. For more information, see "[About archiving repositories](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)."
+You can search repositories based on whether or not the repositories are archived. For more information, see "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)."
 
 | Qualifier  | Example
 | ------------- | -------------
