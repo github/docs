@@ -19,6 +19,7 @@ Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
+Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
 Discord | Discord Bot Token

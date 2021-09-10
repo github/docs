@@ -157,7 +157,7 @@ This errors means that you have relative permalinks, which are not supported by 
 
 Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
 
-To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files in your repository](/articles/editing-files-in-your-repository)."
+To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
 
 ## Symlink does not exist within your site's repository
 
