@@ -18,7 +18,7 @@ shortTitle: Remove sensitive data
 ---
 The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
-You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[Removing files from a repository's history](/articles/removing-files-from-a-repository-s-history)."
+You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
 
 {% warning %}
 
