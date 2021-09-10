@@ -501,7 +501,10 @@ export default async function deployToStaging({
     try {
       await got(homepageUrl, {
         timeout: 10000, // Maximum 10 second timeout per request
-        retry: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
+        retry: {
+          limit: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
+          statusCodes: [404].concat(got.defaults.options.retry.statusCodes), // 404 is extra
+        },
         hooks: {
           beforeRetry: [
             (options, error = {}, retryCount = '?') => {
