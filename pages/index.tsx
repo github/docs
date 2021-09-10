@@ -61,7 +61,7 @@ function LandingPage(props: LandingPageProps) {
                     <OctocatHeader />
                   </div>
                   <div className="col-lg-5 mt-6">
-                    <h1 className="h1-mktg mb-3">{t('search:need_help')}</h1>
+                    <h1 className="font-weight-semibold mb-3">{t('search:need_help')}</h1>
                     {SearchInput}
                   </div>
                 </div>
@@ -76,7 +76,7 @@ function LandingPage(props: LandingPageProps) {
       {/* <!-- Explore by product --> */}
       <section className="container-xl pb-lg-4 my-8 px-3 px-md-6">
         <div className="">
-          <h2 className="text-mono f5 text-normal color-text-secondary text-md-center mb-4">
+          <h2 className="f5 text-normal color-text-secondary text-md-center mb-4">
             {t('explore_by_product')}
           </h2>
           <div className="d-flex flex-wrap gutter gutter-xl-spacious">
@@ -93,7 +93,7 @@ function LandingPage(props: LandingPageProps) {
               return (
                 <div className="d-flex flex-column col-12 col-sm-6 col-lg-3 pb-4" key={product.id}>
                   <a
-                    className="btn-mktg flex-auto d-flex flex-items-center btn-outline-mktg btn-large-mktg ws-normal "
+                    className="f4 flex-auto d-flex flex-items-center ws-normal btn btn-outline py-3"
                     href={href}
                     target={product.external ? '_blank' : undefined}
                   >

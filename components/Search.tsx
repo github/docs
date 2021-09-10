@@ -37,7 +37,7 @@ export function Search({
   const [query, setQuery] = useState(router.query.query || '')
   const [results, setResults] = useState<Array<SearchResult>>([])
   const [isLoading, setIsLoading] = useState(false)
-  const [activeHit, setActiveHit] = useState(0)
+  const [activeHit, setActiveHit] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
@@ -164,52 +164,53 @@ export function Search({
       <div
         id="search-results-container"
         className={cx(
-          'z-1',
+          'z-1 pb-4 px-3',
           styles.resultsContainer,
           isOverlay && styles.resultsContainerOverlay,
           query && styles.resultsContainerOpen
         )}
       >
         {results.length > 0 ? (
-          <ol data-testid="search-results" className="d-block">
-            {results.map(({ url, breadcrumbs, heading, title, content }, index) => (
-              <li
-                key={url}
-                data-testid="search-result"
-                className={cx(
-                  'list-style-none overflow-hidden hover:color-bg-info',
-                  index + 1 === activeHit && 'color-bg-info'
-                )}
-              >
-                <div className="border-top color-border-secondary py-3 px-2">
-                  <a className="no-underline" href={url}>
-                    {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
-                    <div
-                      className="d-block color-text-primary opacity-60 text-small pb-1"
-                      dangerouslySetInnerHTML={{ __html: breadcrumbs }}
-                    />
-                    <div
-                      className={cx(styles.searchResultTitle, 'd-block h4-mktg color-text-primary')}
-                      dangerouslySetInnerHTML={{
-                        __html: heading ? `${title}: ${heading}` : title,
-                      }}
-                    />
-                    <div
-                      className={cx(
-                        styles.searchResultContent,
-                        'd-block color-text-secondary overflow-hidden'
-                      )}
-                      style={{ maxHeight: '4rem' }}
-                      dangerouslySetInnerHTML={{ __html: content }}
-                    />
-                  </a>
-                </div>
-              </li>
-            ))}
+          <ol data-testid="search-results" className="d-block mt-2">
+            {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
+              const isActive = index === activeHit
+              return (
+                <li
+                  key={url}
+                  data-testid="search-result"
+                  className={cx(
+                    'list-style-none overflow-hidden rounded-3 color-text-primary border',
+                    isActive ? 'color-bg-tertiary' : 'color-border-transparent'
+                  )}
+                  onMouseEnter={() => setActiveHit(index)}
+                >
+                  <div className={cx('py-3 px-3', isActive && 'color-border-secondary')}>
+                    <a className="no-underline color-text-primary" href={url}>
+                      {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
+                      <div
+                        className={'d-block opacity-60 text-small pb-1'}
+                        dangerouslySetInnerHTML={{ __html: breadcrumbs }}
+                      />
+                      <div
+                        className={cx(styles.searchResultTitle, 'd-block f4 font-weight-semibold')}
+                        dangerouslySetInnerHTML={{
+                          __html: heading ? `${title}: ${heading}` : title,
+                        }}
+                      />
+                      <div
+                        className={cx(styles.searchResultContent, 'd-block overflow-hidden')}
+                        style={{ maxHeight: '4rem' }}
+                        dangerouslySetInnerHTML={{ __html: content }}
+                      />
+                    </a>
+                  </div>
+                </li>
+              )
+            })}
           </ol>
         ) : (
           isOverlay && (
-            <div className="mt-2">
+            <div className="mt-2 px-6">
               {isLoading ? <span>{t('loading')}...</span> : <span>{t('no_results')}.</span>}
             </div>
           )
