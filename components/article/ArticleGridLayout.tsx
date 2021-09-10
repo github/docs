@@ -22,7 +22,9 @@ export const ArticleGridLayout = ({ head, toc, children, className }: Props) => 
       )}
 
       {/* content */}
-      <div className={styles.content}>{children}</div>
+      <div data-search="article-body" className={styles.content}>
+        {children}
+      </div>
     </div>
   )
 }

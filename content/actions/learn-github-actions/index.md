@@ -27,10 +27,10 @@ redirect_from:
   - /actions/migrating-to-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
-  - /introduction-to-github-actions
+  - /understanding-github-actions
   - /finding-and-customizing-actions
   - /essential-features-of-github-actions
   - /managing-complex-workflows

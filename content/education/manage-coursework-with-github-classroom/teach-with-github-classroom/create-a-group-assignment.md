@@ -101,16 +101,11 @@ By default, a new assignment will create an empty repository for each team that 
 Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
 
 - [Testing assignments automatically](#testing-assignments-automatically)
-- [Preventing changes to important files](#preventing-changes-to-important-files)
 - [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
 
 ### Testing assignments automatically
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
-
-### Preventing changes to important files
-
-{% data reusables.classroom.assignments-guide-prevent-changes %}
 
 ### Creating a pull request for feedback
 

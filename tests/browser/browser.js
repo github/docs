@@ -21,8 +21,8 @@ describe('browser search', () => {
     await page.goto('http://localhost:4001/en')
     await page.click('[data-testid=site-search-input]')
     await page.type('[data-testid=site-search-input]', 'actions')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
@@ -31,8 +31,8 @@ describe('browser search', () => {
     await page.click('[data-testid=mobile-menu-button]')
     await page.click('[data-testid=mobile-header] [data-testid=site-search-input]')
     await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'workflows')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
@@ -42,18 +42,18 @@ describe('browser search', () => {
     await page.goto('http://localhost:4001/en/actions')
     await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
     await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'workflows')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
     await page.setViewport(initialViewport)
   })
   // 404 page is statically generated with next, so search is not available, but may possibly be brought back
   it.skip('works on 404 error page', async () => {
     await page.goto('http://localhost:4001/en/404')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'actions')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+    await page.click('[data-testid=search] input[type="search"]')
+    await page.type('[data-testid=search] input[type="search"]', 'actions')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
@@ -79,7 +79,7 @@ describe('browser search', () => {
     )
     await searchInput.click()
     await searchInput.type('code')
-    await newPage.waitForSelector('.search-result')
+    await newPage.waitForSelector('[data-testid=search-result]')
   })
 
   it('sends the correct data to search for GHAE', async () => {
@@ -104,7 +104,7 @@ describe('browser search', () => {
     )
     await searchInput.click()
     await searchInput.type('test')
-    await newPage.waitForSelector('.search-result')
+    await newPage.waitForSelector('[data-testid=search-result]')
   })
 })
 
@@ -437,17 +437,6 @@ describe('language banner', () => {
   })
 })
 
-// The Explorer in the iFrame will not be accessible on localhost
-// There's a url in github.com that uses ?query= for a graphql query instead of a search query, so we're hiding the Search bar on this page
-describe('GraphQL Explorer', () => {
-  it('hides search bar on GraphQL Explorer page', async () => {
-    const explorerUrl = 'http://localhost:4001/en/graphql/overview/explorer'
-    await page.goto(`${explorerUrl}`)
-    const searchBar = await page.$$('[data-testid=site-search-input]')
-    expect(searchBar.length).toBe(0)
-  })
-})
-
 // Skipping because next/links are disabled by default for now
 describe.skip('next/link client-side navigation', () => {
   jest.setTimeout(60 * 1000)
@@ -462,7 +451,9 @@ describe.skip('next/link client-side navigation', () => {
         response.url().startsWith('http://localhost:4001/_next/data')
       ),
       page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      page.click('.sidebar-articles:nth-child(2) .sidebar-article:nth-child(1) a'),
+      page.click(
+        '[data-testid=sidebar-article-group]:nth-child(2) [data-testid=sidebar-article]:nth-child(1) a'
+      ),
     ])
 
     expect(response.status()).toBe(200)

@@ -56,7 +56,7 @@ To change the default branch, your repository must have more than one branch. Fo
 1. Click **Update**.
    !["Update" button after choosing a new default branch](/assets/images/help/repository/repository-options-defaultbranch-update.png)
 1. Read the warning, then click **I understand, update the default branch.**
-   !["Update" button after choosing a new default branch](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)  
+   !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
 {% else %}
 

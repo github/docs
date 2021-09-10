@@ -7,7 +7,6 @@ versions:
   fpt: '*'
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
 

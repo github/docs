@@ -13,7 +13,11 @@ export const ProductPicker = () => {
 
   return (
     <Details {...getDetailsProps()} className="details-reset">
-      <summary className="color-text-link" role="button" aria-label="Toggle products list">
+      <summary
+        className="color-text-link outline-none"
+        role="button"
+        aria-label="Toggle products list"
+      >
         <div id="current-product" className="d-flex flex-items-center flex-justify-between py-2">
           {/* <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
     <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those --> */}

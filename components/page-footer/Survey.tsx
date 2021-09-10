@@ -63,6 +63,7 @@ export const Survey = () => {
             hidden
             onChange={vote(ViewState.YES)}
             defaultChecked={state === ViewState.YES}
+            checked={state === ViewState.YES}
           />
           <label
             className={cx('btn mr-1', state === ViewState.YES && 'color-bg-info-inverse')}
@@ -82,6 +83,7 @@ export const Survey = () => {
             hidden
             onChange={vote(ViewState.NO)}
             defaultChecked={state === ViewState.NO}
+            checked={state === ViewState.NO}
           />
           <label
             className={cx('btn', state === ViewState.NO && 'color-bg-danger-inverse')}
@@ -97,10 +99,6 @@ export const Survey = () => {
 
       {[ViewState.YES, ViewState.NO].includes(state) && (
         <>
-          <p className="color-text-secondary f6">
-            {state === ViewState.YES && t`yes_feedback`}
-            {state === ViewState.NO && t`no_feedback`}
-          </p>
           <p className="mb-3">
             <label className="d-block mb-1 f6" htmlFor="survey-comment">
               <span>

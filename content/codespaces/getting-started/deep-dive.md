@@ -2,6 +2,7 @@
 title: Deep dive into Codespaces
 intro: 'Understand how {% data variables.product.prodname_codespaces %} works.'
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
 type: quick_start
@@ -24,7 +25,7 @@ Your codespace can be ephemeral if you need to test something or you can return 
 
 Once you've selected the option to create a new codespace, some steps happen in the background before the codespace is available to you.
 
-![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button-smaller.png)
+![Open with Codespaces button](/assets/images/help/codespaces/new-codespace-button.png)
 ### Step 1: VM and storage are assigned to your codespace
 
 When you create a codespace, a [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) of your repository is made on a Linux virtual machine that is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
@@ -72,7 +73,7 @@ Port forwarding determines which ports are made accessible to you from the remot
 
 When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
-While ports can be forwarded automatically, they are not are publicly accessible to the internet. By default, all ports are private, but you can [manually make a port public](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) to share access through a URL.
+While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can [manually make a port public](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) to share access through a URL.
 
 Running your application when you first land in your codespace can make for a fast inner dev loop. As you edit, your changes are automatically saved and available on your forwarded port. To view changes, go back to the running application tab in your browser and refresh it.
 
@@ -82,7 +83,7 @@ Git is available by default in your codespace and so you can rely on your existi
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. While you can only create one codespace for each branch, you can switch to a new or existing branch within your codespace.
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each user account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
 
 {% note %}
 

@@ -7,9 +7,10 @@ redirect_from:
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
+hidden: true
 topics:
   - CI
   - Node

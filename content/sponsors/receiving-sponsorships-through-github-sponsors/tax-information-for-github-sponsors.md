@@ -15,7 +15,7 @@ shortTitle: Tax information
 
 ## W-9/W-8 tax forms
 
-By law, {% data variables.product.prodname_dotcom %} is required by the U.S. Inland Revenue Service (IRS) to collect tax information from all U.S. and non-U.S. maintainers. These forms are held by {% data variables.product.prodname_dotcom %} and are not required to be submitted to the IRS. 
+By law, {% data variables.product.prodname_dotcom %} is required by the U.S. Internal Revenue Service (IRS) to collect tax information from all U.S. and non-U.S. maintainers. These forms are held by {% data variables.product.prodname_dotcom %} and are not required to be submitted to the IRS. 
 
 ### W-9 (U.S.)
 
@@ -48,7 +48,7 @@ The IRS allows non-resident and resident aliens to request an [Individual Taxpay
 
 ## 1099 forms
 
-If you are a taxpayer in the United States and earn more than $600 USD in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. We do not provide tax forms for international taxpayers.
+If you are a taxpayer in the United States and earn more than 600 US dollars in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. We do not provide tax forms for international taxpayers.
 
 ## General tax information
 

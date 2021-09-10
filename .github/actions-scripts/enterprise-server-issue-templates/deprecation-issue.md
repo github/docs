@@ -36,16 +36,25 @@ The day after a GHES version's [deprecation date](https://github.com/github/docs
 In your `docs-internal` checkout:
 - [ ] Create a new branch: `git checkout -b deprecate-<version>`.
 - [ ] Edit `lib/enterprise-server-releases.js` by moving the number to be deprecated into the `deprecated` array.
-- [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
-- [ ] Run `script/enterprise-server-deprecations/remove-redirects.js` and commit results.
 - [ ] Open a new PR. Make sure to check the following:
     - [ ] Tests are passing.
-    - [ ] The deprecated version renders on staging as expected.
-    - [ ] The new oldest supported version renders on staging as expected. Also check the banner text.
-- [ ] Remove the outdated Liquid markup and frontmatter. It's recommended to create a topic branch off of your `deprecate-<version>` branch to isolate the changes for review. 
-    - [ ] In your `docs-internal` checkout, from your `deprecate-<version>` branch: `git checkout -b remove-<version>-markup`
+    - [ ] The deprecated version renders on staging as expected. You should be able to navigate to docs.github.com/enterprise/<DEPRECATED VERSION> to access the docs. You should also be able to navigate to a page that is available in the deprecated version and change the version in the URL to the deprecated version, to test redirects.
+    - [ ] The new oldest supported version renders on staging as expected. You should see a banner on the top of every page for the oldest supported version that notes when the version will be deprecated.
+
+## Step 5: Remove static files for the version
+
+- [ ] In your `docs-internal` checkout, from your `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files`
+- [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
+- [ ] Run `script/enterprise-server-deprecations/remove-redirects.js` and commit results.
+- [ ] Open a new PR.
+- [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
+
+## Step 6: Remove the liquid conditionals and content for the version
+
+- [ ] In your `docs-internal` checkout, from your `remove-<version>-markup` branch: `git checkout -b remove-<version>-markup`
+- [ ] Remove the outdated Liquid markup and frontmatter.
     - [ ] Run the script: `script/enterprise-server-deprecations/remove-version-markup.js --release <number>`.
     - [ ] Spot check a few changes. Content, frontmatter, and data files should all have been updated.
     - [ ] Open a PR with the results. The diff may be large and complex, so make sure to get a review from `@github/docs-content`.
     - [ ] Debug any test failures or unexpected results. 
-- [ ] When the PR is approved, merge it in to complete the deprecation.
+- [ ] When the PR is approved, merge it in to complete the deprecation. This can be merged independently from step 5. 

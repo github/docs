@@ -1,24 +1,24 @@
 name: Improve existing content
-description: Make a suggestion to improve the content in an existing article
+description: Make a suggestion to improve the content in an existing article.
 labels:
   - content
 body:
   - type: markdown
     attributes:
       value: |
-        **HUBBERS:** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
+        **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
 
-        * For questions, ask in [Discussions](https://github.com/github/docs/discussions)
-        * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
-        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues)
+        * For questions, ask in [Discussions](https://github.com/github/docs/discussions).
+        * Before you file an issue read the [Contributing guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
+        * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
 
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: This project has a [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md) that all participants are expected to understand and follow.
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
-        - label: I have read and agree to the GitHub Docs project's Code of Conduct.
+        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
           required: true
 
   - type: textarea

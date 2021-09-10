@@ -4,7 +4,7 @@ intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your 
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:

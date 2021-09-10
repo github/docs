@@ -1,15 +1,14 @@
-import React, { ReactNode, ReactHTML } from 'react'
+import React, { ReactNode } from 'react'
 import cx from 'classnames'
 
 type Props = {
-  as?: keyof ReactHTML
+  as?: keyof JSX.IntrinsicElements
   maxLines: number
   children: ReactNode
   className?: string
 }
 export const TruncateLines = (props: Props) => {
-  const { as, maxLines, className, children } = props
-  const Component = as || 'div'
+  const { maxLines, className, children, as: Component = 'div' } = props
   return (
     <Component className={cx('root', className)}>
       {children}

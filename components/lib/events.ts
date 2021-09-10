@@ -65,7 +65,17 @@ type SendEventProps = {
   preference_value?: string
 }
 
+function getMetaContent(name: string) {
+  const metaTag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement
+  return metaTag?.content
+}
+
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
+  let site_language = location.pathname.split('/')[1]
+  if (location.pathname.startsWith('/playground')) {
+    site_language = 'en'
+  }
+
   const body = {
     _csrf: getCsrf(),
 
@@ -85,7 +95,10 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
       referrer: document.referrer,
       search: location.search,
       href: location.href,
-      site_language: location.pathname.split('/')[1],
+      site_language,
+      page_document_type: getMetaContent('page-document-type'),
+      page_type: getMetaContent('page-type'),
+      status: Number(getMetaContent('status') || 0),
 
       // Device information
       // os, os_version, browser, browser_version:
@@ -207,29 +220,9 @@ function initExitEvent() {
   document.addEventListener('visibilitychange', sendExit)
 }
 
-function initNavigateEvent() {
-  if (!document.querySelector('.sidebar-products')) return
-
-  Array.from(document.querySelectorAll('.sidebar-products details')).forEach((details) =>
-    details.addEventListener('toggle', (evt) => {
-      const target = evt.target as HTMLDetailsElement
-      sendEvent({
-        type: EventType.navigate,
-        navigate_label: `details ${target.open ? 'open' : 'close'}: ${
-          target?.querySelector('summary')?.innerText
-        }`,
-      })
-    })
-  )
-
-  document.querySelector('.sidebar-products')?.addEventListener('click', (evt) => {
-    const target = evt.target as HTMLElement
-    const link = target.closest('a') as HTMLAnchorElement
-    if (!link) return
-    sendEvent({
-      type: EventType.navigate,
-      navigate_label: `link: ${link.href}`,
-    })
+function initPrintEvent() {
+  window.addEventListener('beforeprint', () => {
+    sendEvent({ type: EventType.print })
   })
 }
 
@@ -238,8 +231,7 @@ export default function initializeEvents() {
   initExitEvent()
   initLinkEvent()
   initClipboardEvent()
-  initNavigateEvent()
-  // print event in ./print.js
+  initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js
   // search event in ./search.js

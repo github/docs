@@ -53,7 +53,6 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       '.github/workflows/sync-search-indices.yml',
       '.next',
       'contributing/search.md',
-      'dist',
       'node_modules',
       'translations',
       'lib/rest/**/*.json',
@@ -70,7 +69,7 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       '**/*.pdf',
       '**/*.ico',
       '**/*.woff',
-      'script/deploy',
+      'script/deploy.js',
       'script/README.md',
     ],
   })
