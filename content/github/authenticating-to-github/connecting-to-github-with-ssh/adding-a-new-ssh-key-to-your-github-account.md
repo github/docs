@@ -106,6 +106,12 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   # Then select and copy the contents of the id_ed25519.pub file displayed in the terminal to your clipboard
   ```
 
+  {% tip %}
+
+  **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+
+  {% endtip %}
+  
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
