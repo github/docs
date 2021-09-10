@@ -117,7 +117,7 @@ Community Forum moderators who do not follow or enforce the Code of Conduct in g
 
 ## Contacting GitHub Staff
 
-If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact?tags=community-support). Contacting any member of GitHub Staff via unsolicited mentions or pings, or via channels other than the forum itself, or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
+If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact?tags=docs-community-support). Contacting any member of GitHub Staff via unsolicited mentions or pings, or via channels other than the forum itself, or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
 
 Let's work together to keep the forum a place where people feel safe to participate by being respectful of them and their time.
 
