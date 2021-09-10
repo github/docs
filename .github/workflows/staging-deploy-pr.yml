@@ -11,6 +11,13 @@ on:
     types:
       - completed
 
+permissions:
+  actions: read
+  contents: read
+  deployments: write
+  pull-requests: read
+  statuses: write
+
 env:
   EARLY_ACCESS_SCRIPT_PATH: script/early-access/clone-for-build.js
   EARLY_ACCESS_SUPPORT_FILES: script/package.json
