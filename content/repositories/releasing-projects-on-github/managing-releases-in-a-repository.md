@@ -23,6 +23,8 @@ shortTitle: Manage releases
 
 ## About release management
 
+You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
+
 {% ifversion fpt %}
 You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
 
@@ -53,6 +55,9 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
    {% endif %}
 6. Type a title and description for your release.
+   {%- ifversion fpt %}
+   If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with a "facepile" of all the mentioned users.
+   {%- endif %}
    ![Releases description](/assets/images/help/releases/releases_description.png)
 7. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
@@ -64,6 +69,12 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {%- endif %}
 9. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
+
+   {%- ifversion fpt %}
+   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Viewing your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+
+   ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
+   {%- endif %}
 
 {% endwebui %}
 
@@ -82,6 +93,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
+If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.prodname_dotcom_the_website %} will include a **Contributors** section with a "facepile" of all the mentioned users.
 
 {% endcli %}
 
