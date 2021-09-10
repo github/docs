@@ -73,7 +73,7 @@ jobs:
         name: Setup node to clone early access
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - if: ${{ github.repository == 'github/docs-internal' }}
@@ -188,7 +188,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies
@@ -276,13 +276,35 @@ jobs:
             }
 
       - name: Mark the deployment as inactive if timed out
-        if: ${{ steps.deploy.outcome == 'cancelled' }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        if: ${{ steps.deploy.outcome == 'cancelled' }}
+        env:
+          DEPLOYMENT_ID: ${{ steps.deploy.outputs.deploymentId }}
+          LOG_URL: ${{ steps.deploy.outputs.logUrl }}
         with:
           script: |
-            // TODO: Find the relevant deployment
-            // TODO: Create a new deployment status for it as "inactive"
-            return 'TODO'
+            const { DEPLOYMENT_ID, LOG_URL }  = process.env
+            const { owner, repo } = context.repo
+
+            if (!DEPLOYMENT_ID) {
+              throw new Error('A deployment wasn't created before a timeout occurred!')
+            }
+
+            await github.repos.createDeploymentStatus({
+              owner,
+              repo,
+              deployment_id: DEPLOYMENT_ID,
+              state: 'error',
+              description: 'The deployment step timed out. See workflow logs.',
+              log_url: LOG_URL,
+              // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+              // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+              // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
+              mediaType: {
+                previews: ['ant-man', 'flash'],
+              },
+            })
+            console.log('⏲️ Deployment status: error - The deployment timed out...')
 
       - name: Create failure status
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d

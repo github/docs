@@ -74,7 +74,7 @@ You can filter issues and pull requests based on whether they're open or closed 
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes %}
