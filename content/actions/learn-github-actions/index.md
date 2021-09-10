@@ -30,7 +30,7 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
-  - /introduction-to-github-actions
+  - /understanding-github-actions
   - /finding-and-customizing-actions
   - /essential-features-of-github-actions
   - /managing-complex-workflows

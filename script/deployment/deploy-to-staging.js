@@ -2,6 +2,7 @@
 import sleep from 'await-sleep'
 import got from 'got'
 import Heroku from 'heroku-client'
+import { setOutput } from '@actions/core'
 import createStagingAppName from './create-staging-app-name.js'
 
 const SLEEP_INTERVAL = 5000
@@ -89,9 +90,6 @@ export default async function deployToStaging({
       // For our many staging apps, we must use the unique appName as the environment.
       environment: appName,
 
-      // Indicate this environment will no longer exist at some point in the future.
-      transient_environment: true,
-
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a
       // deployment. To bypass checking entirely, pass an empty array. Defaults
@@ -105,6 +103,12 @@ export default async function deployToStaging({
 
     // Store this ID for later updating
     deploymentId = deployment.id
+
+    // Set some output variables for workflow steps that run after this script
+    if (process.env.GITHUB_ACTIONS) {
+      setOutput('deploymentId', deploymentId)
+      setOutput('logUrl', logUrl)
+    }
 
     await octokit.repos.createDeploymentStatus({
       owner,
