@@ -11,6 +11,13 @@ on:
     types:
       - completed
 
+permissions:
+  actions: read
+  contents: read
+  deployments: write
+  pull-requests: read
+  statuses: write
+
 env:
   # In this specific workflow relationship, the `github.event.workflow_run.pull_requests`
   # array will always contain only 1 item! Specifically, it will contain the PR associated
