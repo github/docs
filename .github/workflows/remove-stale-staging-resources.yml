@@ -15,7 +15,6 @@ on:
 
 permissions:
   contents: read
-  deployments: write
   pull-requests: read
 
 jobs:
@@ -40,7 +39,7 @@ jobs:
         run: script/remove-stale-staging-apps.js
         env:
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   remove_stale_staging_envs:
     name: Remove stale staging environments
@@ -61,5 +60,5 @@ jobs:
       - name: Run script
         run: script/remove-stale-staging-envs.js
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
           REPO: ${{ github.repository }}
