@@ -91,7 +91,7 @@ Here is an example *config.yml* file.
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
-    url: https://github.community/
+    url: https://github.community/i
     about: Please ask and answer questions here.
   - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
