@@ -29,6 +29,7 @@ if (!process.env.REPO) {
 const octokit = getOctokit()
 
 const protectedEnvNames = ['production']
+const maxEnvironmentsToProcess = 50
 
 // How long must a PR be closed without being merged to be considered stale?
 const ONE_HOUR = 60 * 60 * 1000
@@ -48,6 +49,7 @@ async function main() {
   const prInfoMatch = /^(?:gha-|ghd-)?(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
   const legacyPrInfoMatch = /^help-docs-pr-(?<pullNumber>\d+)$/
 
+  let exceededLimit = false
   let matchingCount = 0
   let staleCount = 0
   let spammyCount = 0
@@ -99,6 +101,19 @@ async function main() {
       if (isSpammy || isStale) {
         await deleteEnvironment(ewpi.env.name)
       }
+
+      if (spammyCount + staleCount >= maxEnvironmentsToProcess) {
+        exceededLimit = true
+        break
+      }
+    }
+
+    if (exceededLimit) {
+      console.log(
+        '🛑',
+        chalk.bgRed(`STOP! Exceeded limit, halting after ${maxEnvironmentsToProcess}.`)
+      )
+      break
     }
   }
 
