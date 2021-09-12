@@ -19,7 +19,7 @@ includeGuides:
   - /codespaces/developing-in-codespaces/creating-a-codespace
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/deleting-a-codespace
-  - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
+  - /codespaces/developing-in-codespacesYforwarding-ports-in-your-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
