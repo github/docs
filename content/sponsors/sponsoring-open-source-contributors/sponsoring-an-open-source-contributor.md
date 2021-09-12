@@ -1,4 +1,4 @@
----
+---a
 title: Sponsoring an open source contributor
 intro: 'You can make a monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
