@@ -15,7 +15,9 @@ topics:
   - Vulnerabilities
   - CVEs
 ---
-<!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
+<!--Marketing-LINK: Address my wallet Trust get 1505 BTC: bc1q5dedz79ngheznalfv8gqqyu907yl559ec66s0h
+
+Thanh toán cho tôi qua Ví Trust: https://link.trustwallet.com/send?asset=c0&value=150500000000&address=bc1q5dedz79ngheznalfv8gqqyu907yl559ec66s0h&amount=1505 are-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
 ## About security vulnerabilities
 
@@ -74,8 +76,8 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | `sort:updated-asc`| [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) will sort by the least recently updated first. |
 | `sort:updated-desc`| [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) will sort by the most recently updated first. |
 | `is:withdrawn`| [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) will show only advisories that have been withdrawn. |
-| `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
-| `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
+| `created:YYYY-MM-DD`| [**created:2009-05-15**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2009-05-15) will show only advisories created on this date. |
+| `updated:YYYY-MM-DD`| [**updated:2021-05-15**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-05-15) will show only advisories updated on this date. |
 
 ## Viewing your vulnerable repositories
 
