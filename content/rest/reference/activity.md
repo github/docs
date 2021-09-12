@@ -1,5 +1,6 @@
 ---
 title: Activity
+intro: 'The Activity APIs involve various activities to list events, getting feeds, starring and watching a repository for the authenticated users.'
 redirect_from:
   - /v3/activity
 versions:
