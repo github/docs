@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Jeder Eintrag im Auditprotokoll zeigt die zutreffenden Informationen zu einem Ereignis an, beispielsweise:
 
 - die Organisation, in der eine Aktion ausgeführt wurde,

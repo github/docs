@@ -1,6 +1,6 @@
 ---
 title: Criando arquivos padrão de integridade da comunidade
-intro: 'Você pode criar arquivos padrão de integridade da comunidade, como CONTRIBUTING e CODE_OF_CONDUCT. Os arquivos padrão serão usados para qualquer repositório público de propriedade da conta que não contenha seu próprio arquivo desse tipo.'
+intro: 'Você pode criar arquivos padrão de integridade da comunidade, como CONTRIBUTING e CODE_OF_CONDUCT. Default files will be used for any repository owned by the account that does not contain its own file of that type.'
 redirect_from:
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
@@ -16,12 +16,12 @@ topics:
 
 Você pode adicionar arquivos padrão de saúde da comunidade à raiz de um repositório público denominado `.github` pertencente a uma organização{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} ou conta de usuário{% endif %}.
 
-{% data variables.product.product_name %} usará e exibirá arquivos padrão para qualquer repositório público de propriedade da conta que não tenha seu próprio arquivo desse tipo em nenhum dos seguintes locais:
+{% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
 - a raiz do repositório
 - a pasta `.github`
 - a pasta `docs`
 
-Por exemplo, qualquer pessoa que cria um problema ou uma pull request em um repositório público que não tem o próprio arquivo CONTRIBUTING verá um link para o arquivo CONTRIBUTING padrão. Se um repositório tiver arquivos na usa própria pasta `.github/ISSUE_TEMPLATE`{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}, incluindo modelos de problema ou um arquivo *config.yml*,{% endif %} nenhum conteúdo da pasta padrão `.github/ISSUE_TEMPLATE` será usado.
+For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. Se um repositório tiver arquivos na usa própria pasta `.github/ISSUE_TEMPLATE`{% if currentVersion == "free-pro-team@latest" or currentversion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}, incluindo modelos de problema ou um arquivo *config.yml*,{% endif %} nenhum conteúdo da pasta padrão `.github/ISSUE_TEMPLATE` será usado.
 
 Os arquivos padrão não são incluídos em clones, pacotes ou downloads de repositórios individuais, pois eles são armazenados somente no repositório `.github`.
 
@@ -35,7 +35,7 @@ Você pode criar padrões na sua organização{% if currentVersion == "free-pro-
 | *CONTRIBUTING.md*                                                                                                                                                                                        | Um arquivo CONTRIBUTING comunica como as pessoas devem contribuir com o seu projeto. Para obter mais informações, consulte "[Definir diretrizes para contribuidores de repositórios](/articles/setting-guidelines-for-repository-contributors/)".{% if currentVersion == "free-pro-team@latest" %}
 | *FUNDING.yml*                                                                                                                                                                                            | Um arquivo FUNDING exibe um botão de patrocinador no repositório para aumentar a visibilidade das opções de financiamento para seu projeto de código aberto. Para obter mais informações, consulte "[Exibir um botão de patrocinador no seu repositório](/articles/displaying-a-sponsor-button-in-your-repository)".{% endif %}
 | Modelos de problemas e pull request{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} e *config.yml*{% endif %} | Os modelos de problema e pull request personalizam e padronizam as informações que você deseja que contribuidores incluam quando eles abrem problemas e pull requests no seu repositório. Para obter mais informações, consulte "[Sobre problemas e modelos de pull request](/articles/about-issue-and-pull-request-templates/).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-| *SECURITY.md*                                                                                                                                                                                            | A SECURITY file gives instructions for how to report a security vulnerability in your project. Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".{% endif %}
+| *SECURITY.md*                                                                                                                                                                                            | Um arquivo SECURITY fornece instruções sobre como relatar uma vulnerabilidade de segurança no seu projeto. Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".{% endif %}
 | *SUPPORT.md*                                                                                                                                                                                             | Um arquivo SUPPORT permite que as pessoas conheçam maneiras de obter ajudar com seu projeto. Para obter mais informações, consulte "[Adicionar recursos de suporte ao projeto](/articles/adding-support-resources-to-your-project/)".                                                                                                                                                                                              |
 
 Você não pode criar um arquivo de licença padrão. Os arquivos de licença devem ser adicionados a repositórios individuais para que o arquivo seja incluído quando um projeto for clonado, empacotado ou baixado.

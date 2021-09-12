@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
 ---
+
 ### Sobre os lembretes agendados para os usuários
 
 Os lembretes agendados são usados para garantir que os usuários se concentrem nos pedidos de revisão mais importantes que exigem sua atenção. Os lembretes agendados para pull requests enviarão uma mensagem para você no Slack com pull requests abertos que precisam de revisão em um determinado momento. Por exemplo, você pode configurar lembretes agendados para enviar uma mensagem no Slack todas as manhãs às 10h, com pull requests que devem ser revisados por você ou uma das suas equipes.

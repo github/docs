@@ -6,11 +6,12 @@ redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
   - /github/collaborating-with-issues-and-pull-requests/approving-a-pull-request-with-required-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Required reviews
 ---
 For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
@@ -35,7 +36,7 @@ You can comment on a pull request, approve the changes, or request improvements 
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Further reading
+## Further reading
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"

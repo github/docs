@@ -14,6 +14,7 @@ children:
   - /configuring-network-settings
   - /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
 ---
+
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
@@ -21,4 +22,3 @@ children:
 
 {% endnote %}
 {% endif %}
-### 目录

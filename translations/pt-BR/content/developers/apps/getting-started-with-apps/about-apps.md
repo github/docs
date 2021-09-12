@@ -14,6 +14,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 Os aplicativos no {% data variables.product.prodname_dotcom %} permitem que você automatize e melhore seu fluxo de trabalho. Você pode criar aplicativos para melhorar o seu fluxo de trabalho.{% if currentVersion == "free-pro-team@latest" %} Você também pode compartilhar ou vender aplicativos em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender como listar um aplicativo no {% data variables.product.prodname_marketplace %}, consulte "[Introdução ao GitHub Marketplace](/marketplace/getting-started/)".{% endif %}
 
 {% data reusables.marketplace.github_apps_preferred %}, mas o GitHub é compatível com {% data variables.product.prodname_oauth_app %}s e {% data variables.product.prodname_github_apps %}. Para obter informações sobre a escolha de um tipo de aplicativo, consulte "[Diferenças entre os aplicativos GitHub e os aplicativos OAuth](/developers/apps/differences-between-github-apps-and-oauth-apps)".

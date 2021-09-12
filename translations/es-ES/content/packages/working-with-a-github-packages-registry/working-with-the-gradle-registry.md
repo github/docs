@@ -1,6 +1,6 @@
 ---
-title: Working with the Gradle registry
-intro: 'You can configure Gradle to publish packages to the {% data variables.product.prodname_registry %} Gradle registry and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+title: Trabajar con el registro de Gradle
+intro: 'Puedes configurar a Gradle para que publique paquetes en el registro de Gradle del {% data variables.product.prodname_registry %} y para utilizar los paquetes almacenados en el {% data variables.product.prodname_registry %} como dependencias en un proyecto de Java.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-gradle-for-use-with-github-package-registry
@@ -23,7 +23,7 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
+{% data reusables.package_registry.authenticate-packages-github-token %} Para obtener más información sobre cómo utilizar el `GITHUB_TOKEN` con Gradle, consulta la sección "[Publicar paquetes de Java con Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)".
 
 #### Autenticarte con un token de acceso personal
 
@@ -34,7 +34,7 @@ Puedes autenticar a {% data variables.product.prodname_registry %} con Gradle us
 {% if enterpriseServerVersions contains currentVersion %}
 Reemplaza *REGISTRY-URL* con la URL para el registro Maven de tu instancia. Si tu instancia tiene habilitado el aislamiento de subdominios, utiliza `maven.HOSTNAME`. Si tu instancia tiene inhabilitado el aislamiento de subdominios, utiliza `HOSTNAME/_registry/maven`. Cualquiera que sea el caso, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.
 {% elsif currentVersion == "github-ae@latest" %}
-Reemplaza a *REGISTRY-URL* con la URL del registro de MAven de tu empresa, `maven.HOSTNAME`. Replace *HOSTNAME* with the host name of {% data variables.product.product_location %}.
+Reemplaza a *REGISTRY-URL* con la URL del registro de MAven de tu empresa, `maven.HOSTNAME`. Reemplaza a *HOSTNAME* con el nombre de host de {% data variables.product.product_location %}.
 {% endif %}
 
 Reemplaza *USERNAME* con tu nombre de usuario {% data variables.product.prodname_dotcom %}, *TOKEN* con tu token de acceso personal, *REPOSITORY* con el nombre del repositorio que contiene el paquete que deseas publicar y *OWNER* con el nombre de la cuenta de usuario o de organización en {% data variables.product.prodname_dotcom %} que posee el repositorio. Dado que las letras mayúsculas no son compatibles, debes usar minúsculas para el propietario del repositorio si el nombre de usuario o el nombre de la organización de {% data variables.product.prodname_dotcom %} contiene letras mayúsculas.
@@ -207,5 +207,5 @@ Puedes instalar un paquete agregando el paquete como una dependencia a tu proyec
 
 ### Leer más
 
-- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
+- "[Trabajar con el registro de Apache Maven](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

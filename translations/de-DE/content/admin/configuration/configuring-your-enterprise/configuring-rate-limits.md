@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Performance
 ---
+
 ### Begrenzungen für {% data variables.product.prodname_enterprise_api %} aktivieren
 
 Die Aktivierung von Begrenzungen auf {% data variables.product.prodname_enterprise_api %} kann verhindern, dass einzelne oder nicht authentifizierte Benutzer Ressourcen übermäßig verwenden. For more information, see "[Rate Limiting](/enterprise/{{ page.version }}/v3/#rate-limiting)."

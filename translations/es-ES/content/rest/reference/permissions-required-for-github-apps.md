@@ -84,6 +84,7 @@ _Eventos_
 - [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 - [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
 - [`GET /repos/:owner/:repo/events`](/rest/reference/activity#list-repository-events)
+- [`GET /repos/:owner/:repo/events/issues`](/rest/reference/issues#list-issue-events-for-a-repository)
 - [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
 - [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
@@ -456,6 +457,14 @@ _Lanzamientos_
 - [`GET /user/gpg_keys/:gpg_key_id`](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user) (:read)
 - [`DELETE /user/gpg_keys/:gpg_key_id`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user) (:write)
 
+{% if currentVersion == "free-pro-team@latest" %}
+### Permiso sobre "límites de interacción"
+
+- [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (:read)
+- [`PUT /user/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-your-public-repositories) (:write)
+- [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (:write)
+{% endif %}
+
 ### Permiso sobre los "informes de problemas"
 
 Los informes de problemas y las solicitudes de extracción están estrechamente relacionadas. Para obtener más información, consulta la sección "[Listar informes de problemas asignados al usuario autenticado](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)". Si tu GitHub App tiene permisos sobre los informes de problemas pero no los tiene en las solicitudes de extracción, entonces estas terminales se limitaran a los informes de problemas. Se filtrarán las terminales que devuelvan tanto informes de problemas como solicitudes de extracción. Las terminales que permitan operaciones tanto en los informes de problemas como en las solicitudes de extracción se restringirán a los informes de problemas únicamente.
@@ -624,6 +633,10 @@ _Equipos_
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
 {% endif %}
 
+### Permisos para "eventos organizacionales"
+
+- [`GET /users/:username/events/orgs/:org`](/rest/reference/activity#list-organization-events-for-the-authenticated-user) (:read)
+
 ### Permiso sobre los "ganchos de la organización"
 
 - [`GET /orgs/:org/hooks`](/rest/reference/orgs#webhooks/#list-organization-webhooks) (:read)
@@ -776,7 +789,7 @@ _Revisiones_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments`](/rest/reference/pulls#list-comments-for-a-pull-request-review) (:read)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (:write)
 
-### Permission on "profile"
+### Permiso en "perfil"
 
 - [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (:write)
 

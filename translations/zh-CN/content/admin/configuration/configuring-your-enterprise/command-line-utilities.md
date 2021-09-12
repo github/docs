@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - SSH
 ---
+
 以 SSH 管理员用户身份登录后，您可以在虚拟机上的任何位置执行这些命令。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
 
 ### 常规
@@ -24,8 +25,7 @@ topics:
 此实用程序会在每个 {% data variables.product.prodname_enterprise %} 页面顶部设置横幅， 您可以使用横幅向用户广播消息。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-您还可以使用
-{% data variables.product.product_name %} 上的企业设置来设置公告横幅。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”。
+您也可以使用企业设置在 {% data variables.product.product_name %} 上设置一个公告横幅。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”。
 {% endif %}
 
 ```shell
@@ -499,7 +499,7 @@ ghe-webhook-logs -g <em>delivery-guid</em> -v
 
 #### ghe-cluster-status
 
-Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
+在 {% data variables.product.prodname_ghe_server %} 的集群部署中检查节点和服务的运行状况。
 
 ```shell
 $ ghe-cluster-status
@@ -652,14 +652,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
+此实用程序可从 Team Foundation Version Control (TFVC) 导入。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-此实用程序可重写导入的仓库。 This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
+此实用程序可重写导入的仓库。 这样，您将有机会重命名作者，对于 Subversion 和 TFVC，可基于文件夹生成 Git 分支。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-rewrite
 ```

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 ### トピックを {% data variables.product.product_name %} で検索
 
 {% data variables.product.product_name %} 上でトピックを検索したり、関連するトピックを調べたり、特定のトピックに関連するリポジトリがどのくらいあるのかを確認したりできます。

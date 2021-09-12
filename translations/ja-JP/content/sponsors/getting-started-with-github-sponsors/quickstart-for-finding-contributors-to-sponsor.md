@@ -1,6 +1,6 @@
 ---
-title: Quickstart for finding contributors to sponsor
-intro: Learn some best practices for finding open source contributors to sponsor.
+title: スポンサーにコントリビューターを見つけるためのクイックスタート
+intro: スポンサーにオープンソース コントリビューターを見つけるためのベスト プラクティスを学びましょう。
 versions:
   free-pro-team: '*'
 type: quick_start
@@ -8,35 +8,35 @@ topics:
   - Open Source
 ---
 
-### Explore projects you depend on
+### 依存しているプロジェクトを調べる
 
-As you consider where to find open source contributors to sponsor, consider starting at https://github.com/sponsors/community.
+どこでスポンサーへのオープン ソース コントリビューターを見つけるかを検討するときは、https://github.com/sponsors/community から始めてみてください。
 
-If you're logged in, the sponsors results will start with public dependencies that your repositories depend on.
+ログインしている場合、スポンサーの結果は、リポジトリが依存しているパブリックの依存関係から始まります。
 
 ![The Babel open source project with highlighted text that says "4 of your repositories depend on this"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
 
-You can also toggle which of your accounts to view results for and further filter or search.
+また、結果を表示するアカウントを切り替えて、さらにフィルタまたは検索することもできます。
 
 ![Search options on sponsors community search page](/assets/images/help/sponsors/sponsors-search-options.png)
 
-### Explore whom others sponsor
+### 他の人がスポンサーしている相手を調べる
 
-You can see whom a user or organization sponsors on their {% data variables.product.prodname_dotcom %} profile page.
+{% data variables.product.prodname_dotcom %} プロフィールページで、ユーザまたは Organization がスポンサーしている人を確認できます。
 
-### Consider how you benefit from different contributions
+### さまざまなコントリビューションから利益を得る方法を検討する
 
-Consider whether you benefit from the work of open source contributions, such as:
+次のようなオープンソースコントリビューションの仕事から利益を得ることを検討します。
  - ドキュメント
- - Design
- - Translation
- - Newsletters
- - Code reviews
+ - デザイン
+ - 翻訳
+ - メールマガジン
+ - コードレビュー
  - チュートリアル
- - Mentoring
- - Triaging issues and helping with project management
- - Answering questions
- - Event planning
+ - メンタリング
+ - Issue のトリアージとプロジェクト管理の支援
+ - 質問への回答
+ - イベント計画
 
 For more information on different types of open source contributions, see the [Open source guide](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
 

@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 通常、`git rebase`は以下の目的で使われます。
 
 * 以前のコミットメッセージの編集

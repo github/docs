@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Vorrausetzungen
 
 - {% data reusables.enterprise_installation.software-license %}

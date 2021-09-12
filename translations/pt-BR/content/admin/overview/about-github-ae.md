@@ -38,3 +38,7 @@ Acesso seguro à sua empresa em {% data variables.product.prodname_ghe_managed %
 ### Ambientes comercial e governamental
 
 {% data variables.product.prodname_ghe_managed %} está disponível na nuvem do Azure Government, na nuvem de confiança das agências governamentais dos EUA e seus parceiros. {% data variables.product.prodname_ghe_managed %} também está disponível na nuvem comercial. Portanto, você pode escolher o ambiente de hospedagem correto para a sua organização.
+
+### Leia mais
+
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

@@ -53,7 +53,7 @@ on:
 
 `branches`、`branches-ignore`、`tags`、および `tags-ignore`のキーワードは、`*`と`**`のワイルドカード文字を使って複数のブランチやタグ名と一致させるglobパターンを受け付けます。 詳しい情報については、「[フィルタパターンのチートシート](#filter-pattern-cheat-sheet)」を参照してください。
 
-#### ブランチとタグを含める例
+#### Example: Including branches and tags
 
 `branches`および`tags`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、`branches`で`mona/octocat`とパターンを定義すると、`refs/heads/mona/octocat`というGit refにマッチします。 `releases/**`というパターンは、`refs/heads/releases/10`というGit refにマッチします。
 
@@ -74,7 +74,7 @@ on:
       - v1.*           # イベントを v1.0、v1.1、および v1.9 タグにプッシュする
 ```
 
-#### ブランチとタグを無視する例
+#### Example: Ignoring branches and tags
 
 パターンが`branches-ignore`または`tags-ignore`とマッチする場合は常に、ワークフローは実行されません。 `branches-ignore`および`tags-ignore`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、`branches`で`mona/octocat`とパターンを定義すると、`refs/heads/mona/octocat`というGit refにマッチします。 `branches`のパターン`releases/**-alpha`は、`refs/releases/beta/3-alpha`というGit refにマッチします。
 
@@ -98,7 +98,7 @@ on:
 - `branches` または `branches-ignore` - ワークフロー内の同じイベントに対して、`branches` と `branches-ignore` のフィルタを両方使うことはできません。 肯定のマッチに対してブランチをフィルタし、ブランチを除外する必要がある場合は、`branches` フィルタを使います。 ブランチ名のみを除外する必要がある場合は、`branches-ignore` フィルタを使います。
 - `tags` または `tags-ignore` - ワークフロー内の同じイベントに対して、`tags` と `tags-ignore` のフィルタを両方使うことはできません。 肯定のマッチに対してタグをフィルタし、タグを除外する必要がある場合は、`tags` フィルタを使います。 タグ名のみを除外する必要がある場合は、`tags-ignore` フィルタを使います。
 
-#### 肯定と否定のパターンを使用する例
+#### Example: Using positive and negative patterns
 
 "`!`" の文字を使うことで、`tags` と `branches` を除外できます。 パターンを定義する順序により、結果に違いが生じます。
   - 肯定のマッチングパターンの後に否定のマッチングパターン ("`!`" のプレフィクス) を定義すると、Git ref を除外します。
@@ -120,9 +120,9 @@ on:
 
 `paths-ignore` および `paths` キーワードは、`*` と `**` のワイルドカード文字を使って複数のパス名と一致させる glob パターンを受け付けます。 詳しい情報については、「[フィルタパターンのチートシート](#filter-pattern-cheat-sheet)」を参照してください。
 
-#### パスを無視する例
+#### Example: Ignoring paths
 
-When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
+すべてのパス名が `paths-ignore` のパターンと一致する場合、ワークフローは実行されません。 {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
 
 ```yaml
 on:
@@ -131,7 +131,7 @@ on:
       - 'docs/**'
 ```
 
-#### パスを含む例
+#### Example: Including paths
 
 `paths`フィルタのパターンにマッチするパスが1つでもあれば、ワークフローは実行されます。 JavaScriptファイルをプッシュしたときにビルドを走らせるには、ワイルドカードパターンが使えます。
 
@@ -148,7 +148,7 @@ on:
 - `paths-ignore` - パス名を除外する必要だけがある場合には`paths-ignore`フィルタを使ってください。
 - `paths` - 肯定のマッチのパスとパスの除外のフィルタが必要な場合は`paths`フィルタを使ってください。
 
-#### 肯定と否定のパターンを使用する例
+#### Example: Using positive and negative patterns
 
 `!`文字を使って、`paths`を除外できます。 パターンを定義する順序により、結果に違いが生じます:
   - 肯定のマッチの後に否定のマッチングパターン（`!`がプレフィックスされている）を置くと、パスが除外されます。
@@ -190,16 +190,16 @@ cron構文に関する詳しい情報については、「[ワークフローを
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 ### `権限`
 
-You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
+`GITHUB_TOKEN` に付与されているデフォルトの権限を変更し、必要に応じてアクセスを追加または削除して、必要最小限のアクセスのみを許可することができます。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
 
-You can use `permissions` either as a top-level key, to apply to all jobs in the workflow, or within specific jobs. When you add the `permissions` key within a specific job, all actions and run commands within that job that use the `GITHUB_TOKEN` gain the access rights you specify.  For more information, see [`jobs.<job_id>.permissions`](#jobsjob_idpermissions).
+`permissions` は、最上位キーとしてワークフロー内のすべてのジョブに適用するために、または特定のジョブ内で使用できます。 特定のジョブ内に `permissions` キーを追加すると、`GITHUB_TOKEN` を使用するそのジョブ内のすべてのアクションと実行コマンドが、指定したアクセス権を取得します。  詳しい情報については、[`jobs.<job_id>.permissions`](#jobsjob_idpermissions) を参照してください。
 
 {% data reusables.github-actions.github-token-available-permissions %}
 {% data reusables.github-actions.forked-write-permission %}
 
 #### サンプル
 
-This example shows permissions being set for the `GITHUB_TOKEN` that will apply to all jobs in the workflow. All permissions are granted read access.
+この例は、ワークフロー内のすべてのジョブに適用される `GITHUB_TOKEN` に設定されている権限を示しています。 すべての権限に読み取りアクセスが付与されます。
 
 ```yaml
 name: "My workflow"
@@ -248,13 +248,13 @@ defaults:
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-### `concurrency`
+### `並行処理`
 
 {% data reusables.actions.concurrency-beta %}
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the `github` context. 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+並行処理により、同じ並行処理グループを使用する単一のジョブまたはワークフローのみが一度に実行されます。 並行処理グループには、任意の文字列または式を使用できます。 式は `github` コンテキストのみを使用できます。 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+ジョブレベルで `concurrency` を指定することもできます。 詳しい情報については、[`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency) を参照してください。
 
 {% data reusables.actions.actions-group-concurrency %}
 
@@ -291,7 +291,7 @@ jobs:
 
 このジョブの実行前に正常に完了する必要があるジョブを示します。 文字列型または文字列の配列です。 1つのジョブが失敗した場合、失敗したジョブを続行するような条件式を使用していない限り、そのジョブを必要としている他のジョブはすべてスキップされます。
 
-#### 依存対象のジョブの成功が必要になる例
+#### Example: Requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -310,7 +310,7 @@ jobs:
 2. `job2`
 3. `job3`
 
-#### 依存対象のジョブの成功が必要ではない例
+#### Example: Not requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -380,16 +380,16 @@ runs-on: [self-hosted, linux]
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 ### `jobs.<job_id>.permissions`
 
-You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
+`GITHUB_TOKEN` に付与されているデフォルトの権限を変更し、必要に応じてアクセスを追加または削除して、必要最小限のアクセスのみを許可することができます。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
 
-By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](#permissions).
+ジョブ定義内で権限を指定することで、必要に応じて、ジョブごとに `GITHUB_TOKEN` に異なる権限のセットを設定できます。 または、ワークフロー内のすべてのジョブの権限を指定することもできます。 ワークフローレベルでの権限の定義については、 [`permissions`](#permissions) を参照してください。
 
 {% data reusables.github-actions.github-token-available-permissions %}
 {% data reusables.github-actions.forked-write-permission %}
 
 #### サンプル
 
-This example shows permissions being set for the `GITHUB_TOKEN` that will only apply to the job named `stale`. Write access is granted for the `issues` and `pull-requests` scopes. All other scopes will have no access.
+この例では、`stale` という名前のジョブにのみ適用される `GITHUB_TOKEN` に設定されている権限を示しています。 `issues` および `pull-requests` のスコープに対して書き込みアクセスが許可されます。 他のすべてのスコープにはアクセスできません。
 
 ```yaml
 jobs:
@@ -434,7 +434,7 @@ URLは式でもよく、`secrets`コンテキスト以外の任意のコンテ�
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
@@ -447,13 +447,13 @@ environment:
 
 {% note %}
 
-**Note:** When concurrency is specified at the job level, order is not guaranteed for jobs or runs that queue within 5 minutes of each other.
+**注釈:** ジョブレベルで並行処理が指定されている場合、ジョブの順序は保証されないか、互いに 5 分以内にそのキューを実行します。
 
 {% endnote %}
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can use any context except for the `secrets` context. 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+並行処理により、同じ並行処理グループを使用する単一のジョブまたはワークフローのみが一度に実行されます。 並行処理グループには、任意の文字列または式を使用できます。 式は、`secrets` コンテキストを除く任意のコンテキストを使用できます。 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-You can also specify `concurrency` at the workflow level. For more information, see [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+ワークフローレベルで `concurrency` を指定することもできます。 詳しい情報については、[`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency) を参照してください。
 
 {% data reusables.actions.actions-group-concurrency %}
 
@@ -473,7 +473,7 @@ You can also specify `concurrency` at the workflow level. For more information, 
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # Map a step output to a job output
+    # ステップの出力をジョブの出力にマップする
     outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
@@ -577,7 +577,7 @@ jobs:
 
 {% data reusables.github-actions.expression-syntax-if %} 詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-#### コンテキストの使用例
+#### Example: Using contexts
 
  このステップは、イベントの種類が`pull_request`でイベントアクションが`unassigned`の場合にのみ実行されます。
 
@@ -588,7 +588,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### ステータスチェック関数の使用例
+#### Example: Using status check functions
 
 `my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)」を参照してください。
 
@@ -618,7 +618,7 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 
 アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合は、Linux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
 
-#### バージョンされたアクションを使用する例
+#### Example: Using versioned actions
 
 ```yaml
 steps:    
@@ -632,7 +632,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-#### パブリックアクションを使用する例
+#### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
@@ -650,7 +650,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### サブディレクトリのパブリックアクションを使用する例
+#### Example: Using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -664,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### ワークフローと同じリポジトリにあるアクションを使用する例
+#### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -680,7 +680,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Docker Hubアクションを使用する例
+#### Example: Using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -695,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+##### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+{% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} の Docker イメージ
 
 ```yaml
 jobs:
@@ -709,7 +709,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-##### Dockerパブリックレジストリアクションを使用する例
+##### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -723,11 +723,11 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### ワークフローとは異なるプライベートリポジトリ内でのアクションの使用例
+#### Example: Using an action inside a different private repository than the workflow
 
-ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。 Generate a personal access token and add the token as an encrypted secret. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。 個人アクセストークンを生成し、暗号化されたシークレットとしてトークンを追加します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
-Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+例にある `PERSONAL_ACCESS_TOKEN` をシークレットの名前に置き換えます。
 
 {% raw %}
 ```yaml
@@ -792,7 +792,7 @@ jobs:
 | Windows           | `pwsh`        | これはWindowsで使われるデフォルトのシェルです。 PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。 セルフホストのWindowsランナーに_PowerShell Core_がインストールされていない場合、その代わりに_PowerShell Desktop_が使われます。 | `pwsh -command ". '{0}'"`.                      |
 | Windows           | `powershell`  | PowerShell Desktop. {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                                                                                                                  | `powershell -command ". '{0}'"`.                |
 
-#### bashを使用してスクリプトを実行する例
+#### Example: Running a script using bash
 
 ```yaml
 steps:
@@ -801,7 +801,7 @@ steps:
     shell: bash
 ```
 
-#### Windowsの`cmd`を使用してスクリプトを実行する例
+#### Example: Running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -810,7 +810,7 @@ steps:
     shell: cmd
 ```
 
-#### PowerShell Coreを使用してスクリプトを実行する例
+#### Example: Running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -828,7 +828,7 @@ steps:
     shell: powershell
 ```
 
-#### Python scriptを実行する例
+#### Example: Running a python script
 
 ```yaml
 steps:
@@ -985,7 +985,7 @@ strategy (戦略) によって、ジョブのビルドマトリクスが作成�
 
 `matrix`を定義する順序は意味を持ちます。 最初に定義したオプションは、ワークフロー中で最初に実行されるジョブになります。
 
-#### 複数のバージョンの Node.js を使用して実行する例
+#### Example: Running multiple versions of Node.js
 
 設定オプションに配列を指定すると、マトリクスを指定できます。 たとえばランナーがNode.jsのバージョン10、12、14,をサポートしている場合、これらのバージョンの配列を`matrix`で指定できます。
 
@@ -997,7 +997,7 @@ strategy:
   matrix:
     node: [10, 12, 14]
 steps:
-  # Configures the node version used on GitHub-hosted runners
+  # GitHub でホストされているランナーで使用されるノードバージョンを設定する
   - uses: actions/setup-node@v2
     with:
       # The Node.js version to configure
@@ -1007,7 +1007,7 @@ steps:
 
 {% data variables.product.prodname_dotcom %}ホストランナーを使う場合にNode.jsのバージョンを設定する方法としては、`setup-node`アクションをおすすめします。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node)アクションを参照してください。
 
-#### 複数のオペレーティングシステムで実行する例
+#### Example: Running with multiple operating systems
 
 複数のランナーオペレーティングシステムでワークフローを実行するマトリックスを作成できます。 複数のマトリックス設定を指定することもできます。 この例では、6つのジョブのマトリックスを作成します。
 
@@ -1034,7 +1034,7 @@ steps:
 {% else %}{% data variables.product.prodname_dotcom %} ホストランナーでサポートされている設定オプションについては、「[{% data variables.product.prodname_dotcom %} の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
 {% endif %}
 
-#### 組み合わせに追加の値が含まれる例
+#### Example: Including additional values into combinations
 
 既存のビルドマトリクスジョブに、設定オプションを追加できます。 たとえば、`windows-latest` を使うジョブで`node` のバージョン 8 を実行しているときに、`npm` の特定のバージョンを使いたい場合は、`include` を使って追加のオプションを指定できます。
 
@@ -1046,15 +1046,15 @@ strategy:
     os: [macos-latest, windows-latest, ubuntu-18.04]
     node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 6
-      # for the matrix leg matching the os and version
+      # osとバージョンに一致するマトリックスレッグの値が
+      # 6 の npm の新しい変数を含む
       - os: windows-latest
         node: 8
         npm: 6
 ```
 {% endraw %}
 
-#### 新しい組み合わせを含む例
+#### Example: Including new combinations
 
 `include`を使って新しいジョブを追加し、マトリックスを構築できます。 マッチしなかったincludeの設定があれば、マトリックスに追加されます。 たとえば、`node`のバージョン14を使って複数のオペレーティングシステム上でビルドを行い、追加で実験的なジョブをUbuntu上でnodeバージョン15で行いたいなら、`include`を使ってこの追加のジョブを指定できます。
 
@@ -1072,7 +1072,7 @@ strategy:
 ```
 {% endraw %}
 
-#### マトリクスから設定を除外する例
+#### Example: Excluding configurations from a matrix
 
 `exclude` オプションを使って、ビルドマトリクスに定義されている特定の設定を削除できます。 `exclude` を使うと、ビルドマトリクスにより定義されたジョブが削除されます。 ジョブの数は、指定する配列に含まれるオペレーティングシステム (`os`) の外積から、任意の減算 (`exclude`) で引いたものです。
 
@@ -1084,7 +1084,7 @@ strategy:
     os: [macos-latest, windows-latest, ubuntu-18.04]
     node: [8, 10, 12, 14]
     exclude:
-      # excludes node 8 on macOS
+      # macOS のノード 8 を除外する
       - os: macos-latest
         node: 8
 ```
@@ -1119,7 +1119,7 @@ strategy:
 
 ジョブが失敗した時に、ワークフローの実行が失敗にならないようにします。 `true`に設定すれば、ジョブが失敗した時にワークフローの実行が次へ進めるようになります。
 
-#### 失敗した特定のマトリックスジョブがワークフローの実行を失敗させないようにする例
+#### Example: Preventing a specific failing matrix job from failing a workflow run
 
 ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 たとえば、`node`が`15`に設定された実験的なジョブが失敗しても、ワークフローの実行を失敗させないようにしたいとしましょう。
 
@@ -1236,7 +1236,7 @@ volumes:
 
 ネットワーキングサービスコンテナ間の差異に関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers)」を参照してください。
 
-#### localhostを使用する例
+#### Example: Using localhost
 
 この例では、nginxとredisという2つのサービスを作成します。 Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %}は、割り当てられたコンテナポートを{% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}コンテキストに設定します。 以下の例では、サービスコンテナのポートへは{% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 及び{% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} コンテキストでアクセスできます。
 
@@ -1365,7 +1365,7 @@ YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パタ
 | `docs/*`                                                                | リポジトリのルートの`docs`のルートにあるすべてのファイルにマッチします。                                                                     | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
 | `docs/**`                                                               | リポジトリのルートの`docs`内にあるすべてのファイルにマッチします。                                                                        | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | `docs`ディレクトリ内にある`.md`というサフィックスを持つファイルにマッチします。                                                               | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | リポジトリ内にある`docs`ディレクトリ内のすべてのファイルにマッチします、                                                                     | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | リポジトリ内にある`docs`ディレクトリ内のすべてのファイルにマッチします、                                                                     | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
 | `'**/README.md'`                                                        | リポジトリ内にあるREADME.mdファイルにマッチします。                                                                              | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | リポジトリ内にある`src`というサフィックスを持つフォルダ内のすべてのファイルにマッチします。                                                            | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | リポジトリ内にある`-post.md`というサフィックスを持つファイルにマッチします。                                                                 | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

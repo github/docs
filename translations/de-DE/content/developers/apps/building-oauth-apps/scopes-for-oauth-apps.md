@@ -13,6 +13,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.
 
 {% note %}
@@ -22,8 +23,7 @@ When setting up an OAuth App on GitHub, requested scopes are displayed to the us
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-If your
-{% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see "[Authorizing OAuth apps](/developers/apps/authorizing-oauth-apps#device-flow)."
+If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see "[Authorizing OAuth apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 {% endif %}
 
 Check headers to see what OAuth scopes you have, and what the API action accepts:
@@ -76,7 +76,7 @@ X-Accepted-OAuth-Scopes: user
 | **`admin:gpg_key`**      | Fully manage GPG keys.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | &emsp;`write:gpg_key`    | Create, list, and view details for GPG keys.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | &emsp;`read:gpg_key`     | List and view details for GPG keys.{% if currentVersion == "free-pro-team@latest" %}
-| **`Workflow`**           | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes, see https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token for details.{% endif %}
+| **`Workflow`**           | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% endif %}
 
 {% note %}
 

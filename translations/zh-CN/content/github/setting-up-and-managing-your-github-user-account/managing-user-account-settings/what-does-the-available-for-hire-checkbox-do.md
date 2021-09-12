@@ -9,6 +9,13 @@ versions:
 topics:
   - Accounts
 ---
+
+{% warning %}
+
+弃用说明：GitHub Jobs 现已弃用。 最后一次发布工作日期是 2021 年 5 月 19 日。 GitHub Jobs 网站将在 2021 年 8 月 19 日全部关闭。 更多信息请参阅 [GitHub 博客帖子](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/)。
+
+{% endwarning %}
+
 [GitHub Jobs](https://jobs.github.com/) 版块是在技术领域求职的一种绝佳途径。 您可选择查看在 GitHub 仪表板上发布的职位。
 
 ![仪表板上的 GitHub Jobs 广告](/assets/images/help/settings/jobs-ads-on-dashboard.png)

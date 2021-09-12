@@ -98,7 +98,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 
 ### Visualizar tu paquete publicado
 
-You can view all of the packages you have published.
+Puedes ver todos los paquetes que has publicado.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -107,14 +107,14 @@ You can view all of the packages you have published.
 
 ### Instalar un paquete publicado
 
-Ahora que publicaste el paquete, querrás utilizarlo como una dependencia en tus proyectos. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+Ahora que publicaste el paquete, querrás utilizarlo como una dependencia en tus proyectos. Para obtener más información, consulta la sección "[Trabajar con el registro de npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)".
 
 ### Pasos siguientes
 
-El flujo básico que acabas de agregar se ejecuta en cualquier momento que se cree un lanzamiento nuevo en tu repositorio. But this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. Puedes publicar tu paquete en varios registros con un solo flujo de trabajo, activar el flujo de trabajo para que se ejecute en eventos diferentes tales como una solicitud de cambios fusionada, administrar contenedores, y más.
+El flujo básico que acabas de agregar se ejecuta en cualquier momento que se cree un lanzamiento nuevo en tu repositorio. Pero esto es solo el inicio de lo que puedes hacer con el {% data variables.product.prodname_registry %}. Puedes publicar tu paquete en varios registros con un solo flujo de trabajo, activar el flujo de trabajo para que se ejecute en eventos diferentes tales como una solicitud de cambios fusionada, administrar contenedores, y más.
 
 El combinar el {% data variables.product.prodname_registry %} y las {% data variables.product.prodname_actions %} puede ayudarte a automatizar casi cualquier aspecto de tu proceso de desarrollo de aplicaciones. ¿Listo para comenzar? Aquí hay algunos recursos útiles para llevar a cabo los siguientes pasos con el {% data variables.product.prodname_registry %} y las {% data variables.product.prodname_actions %}:
 
 - "[Aprende sobre el {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" para un tutorial más a fondo de GitHub Packages
 - "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para un tutorial más a fondo de GitHub Actions
-- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+- "[Trabajar con un registro de {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" para casos de uso y ejemplos específicos

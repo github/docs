@@ -12,6 +12,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 Wenn auf Ihrem Datendienstcluster nur drei Knoten vorhanden sind, können Sie die Knoten nicht evakuieren, da `ghe-spokes` keinen anderen Platz besitzt, um eine Kopie vorzunehmen. Bei mindestens vier Knoten verschiebt `ghe-spokes` alle Repositorys vom evakuierten Knoten.
 
 Wenn Sie einen Knoten offline nehmen, der Datendienste aufweist (wie Git, Pages oder Storage), evakuieren Sie jeden Knoten, bevor Sie ihn offline nehmen.

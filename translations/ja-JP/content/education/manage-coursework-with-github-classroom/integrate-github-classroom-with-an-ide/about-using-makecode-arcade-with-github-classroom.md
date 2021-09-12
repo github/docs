@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ---
+
 ### MakeCode Arcadeについて
 
 MakeCode Arcadeとは、ドラッグアンドドロップのブロックプログラミングとJavaScriptを使用してレトロなアーケードゲームを開発するためのオンライン統合開発環境 (IDE) です。 学生はMakeCode Arcadeを使ってブラウザでコードを記述、編集、実行、テスト、デバッグできます。 オンラインIDEおよび{% data variables.product.prodname_classroom %}に関する詳しい情報については、「[{% data variables.product.prodname_classroom %}とオンラインIDEの統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)」を参照してください。

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 教授、教師、メンバーはCampus Advisorsオンライントレーニングを使ってGitと{% data variables.product.prodname_dotcom %}をマスターし、{% data variables.product.prodname_dotcom %}で生徒に教えるためのベストプラクティスを学ぶことができます。  詳しい情報については[Campus Advisors](https://education.github.com/teachers/advisors)を参照してください。
 
 {% note %}

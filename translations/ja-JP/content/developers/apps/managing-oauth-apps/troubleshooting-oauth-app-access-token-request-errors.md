@@ -12,6 +12,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% note %}
 
 **注釈:** この例ではJSONのレスポンスのみ示しています。

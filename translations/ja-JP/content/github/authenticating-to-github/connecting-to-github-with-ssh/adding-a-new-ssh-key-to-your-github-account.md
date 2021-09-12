@@ -11,6 +11,7 @@ versions:
 topics:
   - SSH
 ---
+
 新しい SSH キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:
 * [既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)
 * [新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)

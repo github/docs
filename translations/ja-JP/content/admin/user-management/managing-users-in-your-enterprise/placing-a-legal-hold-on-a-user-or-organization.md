@@ -15,6 +15,7 @@ topics:
   - Organizations
   - User account
 ---
+
 通常は、誰かがリポジトリを削除するとそのリポジトリは90日間はディスク上にあり、サイト管理ダッシュボード経由でリストアできます。 90日を過ぎると、そのリポジトリはパージされ、恒久的に削除されます。 ユーザあるいはOrganizationに訴訟ホールドを配置すると、所有しているリポジトリは無期限にリストアできるようになります。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}

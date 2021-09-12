@@ -1,6 +1,6 @@
 ---
-title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://ghcr.io`.'
+title: Trabajar con el registro de contenedores
+intro: 'Puedes almacenar y administrar DOcker y las imágenes de OCI en el {% data variables.product.prodname_container_registry %}, el cual utiliza el espacio de nombre para paquetes `https://ghcr.io`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -16,18 +16,18 @@ versions:
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### About {% data variables.product.prodname_container_registry %} support
+### Acerca del soporte para el {% data variables.product.prodname_container_registry %}
 
-To push and pull container images, an organization admin or the owner of a personal account must enable the {% data variables.product.prodname_container_registry %}. For more information, see "[Enabling improved container support with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)."
+Para subir y extraer imágenes de contenedor, cualquier administración de organización o propietario de una cuenta personal debe habilitar el {% data variables.product.prodname_container_registry %}. Para obtener más información, consulta la sección "[Habilitar la compatibilidad mejorada de contenedores con el {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)".
 
-When installing or publishing a Docker image, the Container registry supports foreign layers, such as Windows images.
+Cuando instalas o publicas una imagen de Docker, el registro del contenedor es compatible con capas externas, tales como imágenes de Windows.
 
 El {% data variables.product.prodname_container_registry %} es actualmente compatible con los siguientes formatos de contenedores de imagen:
 
 * [Docker Image Manifest V2, Modelo 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Especificaciones de Open Container Initiavie (OCI)](https://github.com/opencontainers/image-spec)
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### Autenticarse en el {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
@@ -45,7 +45,7 @@ Este ejemplo sube la versión `2.5` de la imagen.
   $ docker push ghcr.io/OWNER/IMAGE-NAME:2.5
   ```
 
-Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. Para cambiar la visibilidad o configurar permisos de acceso, consulta la sección "[Configurar la visibilidad y el control de accesos de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
 ### Extraer imágenes de contenedor
 

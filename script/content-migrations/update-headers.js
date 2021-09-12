@@ -7,20 +7,22 @@
 //
 // [end-readme]
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const re = /^#.*\n/gm
 
-async function updateMdHeaders (dir) {
+async function updateMdHeaders(dir) {
   walk(dir, { includeBasePath: true, directories: false })
-    .filter(file => !file.endsWith('README.md'))
-    .forEach(file => {
+    .filter((file) => !file.endsWith('README.md') && !file.includes('content/rest/reference'))
+    .forEach((file) => {
       fs.readFile(file, 'utf8', (err, data) => {
         if (err) return console.error(err)
         const matchHeader = data.match(re)
-        let firstHeader = (matchHeader) ? matchHeader[0].split(' ')[0] : null
+        let firstHeader = matchHeader ? matchHeader[0].split(' ')[0] : null
         if (firstHeader) {
           for (let index = 1; index < matchHeader.length; index++) {
             const nextHeader = matchHeader[index].split(' ')[0]
@@ -31,7 +33,10 @@ async function updateMdHeaders (dir) {
           }
         }
         if (file.includes('data/reusables/')) {
-          if (!file.endsWith('data/reusables/actions/actions-group-concurrency.md') && !file.endsWith('data/reusables/github-actions/actions-on-examples.md')) {
+          if (
+            !file.endsWith('data/reusables/actions/actions-group-concurrency.md') &&
+            !file.endsWith('data/reusables/github-actions/actions-on-examples.md')
+          ) {
             firstHeader = 'reusable-' + firstHeader
           }
         }
@@ -56,18 +61,13 @@ async function updateMdHeaders (dir) {
               .replace(/^###### /gm, '#### ')
             break
           case 'reusable-####':
-            result = data
-              .replace(/^#### /gm, '### ')
-              .replace(/^##### /gm, '#### ')
+            result = data.replace(/^#### /gm, '### ').replace(/^##### /gm, '#### ')
             break
           case 'reusable-#####':
-            result = data
-              .replace(/^##### /gm, '#### ')
+            result = data.replace(/^##### /gm, '#### ')
             break
           case '#####':
-            result = data
-              .replace(/^##### /gm, '### ')
-              .replace(/^###### /gm, '#### ')
+            result = data.replace(/^##### /gm, '### ').replace(/^###### /gm, '#### ')
             break
           default:
             return
@@ -79,10 +79,10 @@ async function updateMdHeaders (dir) {
     })
 }
 
-async function main () {
+async function main() {
   const mdDirPaths = [
     path.join(__dirname, '../../content'),
-    path.join(__dirname, '../../data/reusables')
+    path.join(__dirname, '../../data/reusables'),
   ]
 
   for (const dir of mdDirPaths) {

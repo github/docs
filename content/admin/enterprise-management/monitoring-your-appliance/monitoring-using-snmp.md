@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -19,7 +19,7 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
 
 {% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
 
-### Configuring SNMP v2c
+## Configuring SNMP v2c
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -37,14 +37,14 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
 
 This should return the system time on {% data variables.product.product_location %} host.
 
-### User-based security
+## User-based security
 
 If you enable SNMP v3, you can take advantage of increased user based security through the User Security Model (USM). For each unique user, you can specify a security level:
 - `noAuthNoPriv`: This security level provides no authentication and no privacy.
 - `authNoPriv`: This security level provides authentication but no privacy. To query the appliance you'll need a username and password (that must be at least eight characters long). Information is sent without encryption, similar to SNMPv2. The authentication protocol can be either MD5 or SHA and defaults to SHA.
 - `authPriv`: This security level provides authentication with privacy. Authentication, including a minimum eight-character authentication password, is required and responses are encrypted. A privacy password is not required, but if provided it must be at least eight characters long. If a privacy password isn't provided, the authentication password is used. The privacy protocol can be either DES or AES and defaults to AES.
 
-### Configuring users for SNMP v3
+## Configuring users for SNMP v3
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -70,7 +70,7 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 ![Button to add SNMP v3 user](/assets/images/enterprise/management-console/snmpv3-adduser.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-##### Querying SNMP data
+#### Querying SNMP data
 
 Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the "[OID reference documentation](http://oidref.com/1.3.6.1.2.1.25.4)." 
 

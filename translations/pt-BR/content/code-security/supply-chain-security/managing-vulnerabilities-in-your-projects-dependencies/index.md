@@ -10,6 +10,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
+  - Pull requests
+  - Vulnerabilities
+  - Alerts
 children:
   - /about-managing-vulnerable-dependencies
   - /browsing-security-vulnerabilities-in-the-github-advisory-database

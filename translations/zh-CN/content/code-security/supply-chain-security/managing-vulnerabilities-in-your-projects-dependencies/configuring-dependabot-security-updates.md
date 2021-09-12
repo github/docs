@@ -11,9 +11,16 @@ redirect_from:
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
+
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
 ### 关于配置 {% data variables.product.prodname_dependabot_security_updates %}

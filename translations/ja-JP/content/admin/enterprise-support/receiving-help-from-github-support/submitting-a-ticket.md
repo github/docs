@@ -1,6 +1,6 @@
 ---
 title: チケットのサブミット
-intro: '{% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} または{% endif %} GitHub Enterprise サポートページからサポートチケットをサブミットできます。'
+intro: 'You can submit a support ticket using {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the support portal{% elsif currentVersion == "github-ae@latest" %}{% data variables.contact.ae_azure_portal %}{% endif %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
   - /admin/enterprise-support/submitting-a-ticket
@@ -12,13 +12,19 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### チケットのサブミットについて
+
+{% if currentVersion == "github-ae@latest" %}
+
+You can submit a ticket for support with {% data variables.product.prodname_ghe_managed %} from the {% data variables.contact.ae_azure_portal %}.
+
+{% endif %}
 
 チケットをサブミットする前に、{% data variables.contact.github_support %} のための情報を収集し、担当者を選択してください。 詳しい情報については[チケットのサブミットの準備](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)を参照してください。
 
 {% if enterpriseServerVersions contains currentVersion %}
-サポートリクエストとオプションの Diagnostics 情報をサブミットした後、
-{% data variables.contact.github_support %} が Support Bundle をダウンロードして共有するように求める場合があります。 詳細は「[{% data variables.contact.github_support %} にデータを提供する](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)」を参照してください。
+サポートリクエストと、場合によっては Diagnostic 情報をサブミットした後、{% data variables.contact.github_support %} は Support Bundle のダウンロードと共有をお願いすることがあります。 詳細は「[{% data variables.contact.github_support %} にデータを提供する](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)」を参照してください。
 
 ### {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
 
@@ -52,10 +58,24 @@ topics:
 7. **Submit（サブミット）**をクリックしてください。
 
 {% endif %}
+
 {% if currentVersion == "github-ae@latest" %}
+
+### 必要な環境
+
+To submit a ticket for {% data variables.product.prodname_ghe_managed %} in the {% data variables.contact.ae_azure_portal %}, you must provide the ID for your {% data variables.product.prodname_ghe_managed %} subscription in Azure to your Customer Success Account Manager (CSAM) at Microsoft.
+
 ### {% data variables.contact.ae_azure_portal %} を使ってチケットをサブミットする
 
-法人のお客様は、{% data variables.contact.contact_ae_portal %} でサポートリクエストをサブミットできます。 政府機関のお客様は、[政府機関のお客様向けの Azure ポータル](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)をご利用ください。 詳しい情報については、Microsoft ドキュメントの「[Azure サポートリクエストの作成](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)」を参照してください。
+法人のお客様は、{% data variables.contact.contact_ae_portal %} でサポートリクエストをサブミットできます。 政府機関のお客様は、[政府機関のお客様向けの Azure ポータル](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)をご利用ください。 For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft Docs.
+
+### Troubleshooting problems in the {% data variables.contact.ae_azure_portal %}
+
+{% data variables.product.company_short %} is unable to troubleshoot access and subscription issues in the Azure portal. For help with the Azure portal, contact your CSAM at Microsoft or review the following information.
+
+- If you cannot sign into the Azure portal, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue) in the Microsoft Docs or [submit a request directly](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178).
+
+- If you can sign into the Azure portal but you cannot submit a ticket for {% data variables.product.prodname_ghe_managed %}, review the prerequisites for submitting a ticket. For more information, see "[Prerequisites](#prerequisites)".
 
 {% endif %}
 

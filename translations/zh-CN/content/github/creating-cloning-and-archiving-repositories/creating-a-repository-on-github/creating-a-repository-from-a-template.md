@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于仓库模板
 
 任何对模板仓库具有读取权限的人都可以从该模板创建仓库。 更多信息请参阅“[创建模板仓库](/articles/creating-a-template-repository)”。
@@ -24,7 +25,7 @@ topics:
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-您可以选择仅包括模板仓库的默认分支中的目录结构和文件，或者包括所有分支。 Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
+您可以选择仅包括模板仓库的默认分支中的目录结构和文件，或者包括所有分支。 从模板创建的分支具有不相关的历史记录，这意味着您无法创建拉取请求或在分支之间合并。
 {% endif %}
 
 从模板创建仓库类似于创建仓库的复刻，但存在一些重要差异：

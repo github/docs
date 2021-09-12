@@ -9,6 +9,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 {% note %}
 
 **ノート:** データの集計には時間がかかるので、表示される日付には若干の遅れが生じます。 期間を選択すると、ページの上部にそのメトリクスの正確な日付が表示されます。
@@ -39,7 +40,7 @@ topics:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. 取引を表示させたい{% data variables.product.prodname_github_app %}を選択してください。
+4. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. **Transactions（取引）**タブをクリックしてください。
 7. 取引ページの右上にあるPeriod（期間）ドロップダウンをクリックして、異なる期間を選択することもできます。 ![Marketplaceの期間](/assets/images/marketplace/marketplace_insights_time_period.png)

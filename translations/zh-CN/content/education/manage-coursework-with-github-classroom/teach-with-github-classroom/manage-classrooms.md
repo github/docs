@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/archive-a-classroom
   - /education/manage-coursework-with-github-classroom/manage-classrooms
 ---
+
 ### 关于教室
 
 {% data reusables.classroom.about-classrooms %}
@@ -44,7 +45,7 @@ redirect_from:
 1. 单击 **New classroom（新教室）**。 !["New classroom（新教室）"按钮](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-创建教室后，您便可开始为学生创建作业。 更多信息请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”或“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
+创建教室后，您便可开始为学生创建作业。 更多信息请参阅“[使用 Git 和 {% data variables.product.company_short %} 起始作业](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)”、“[创建个别作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”或“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
 
 ### 为教室创建名册
 
@@ -56,7 +57,9 @@ redirect_from:
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
 1. 要将 {% data variables.product.prodname_classroom %} 连接到 LMS 并导入名册，请单击 {% octicon "mortar-board" aria-label="The mortar board icon" %} **从学习管理系统导入**并按照说明操作。 更多信息请参阅“[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)”。 !["Import from a learning management system（从学习管理系统导入）"按钮](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. 要手动创建名册，请键入学生标识符。 （可选）单击 **Upload a CSV or text file（上传 CSV 或文本文件）**以上传包含标识符的文件。 ![用于键入学生标识符的文本字段和"上传 CSV 或文本文件"按钮](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
+1. 为您的名册提供学生标识符。
+     - 要通过上传包含学生标识符的文件来导入名册，请单击 **Upload a CSV or text file（上传 CSV 或文本文件）**。
+     - 要手动创建名册，请键入学生标识符。 ![用于键入学生标识符的文本字段和"上传 CSV 或文本文件"按钮](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
 1. 单击 **Create roster（创建名册）**。 !["创建名册" 按钮](/assets/images/help/classroom/click-create-roster-button.png)
 
 ### 将学生添加到教室的名册

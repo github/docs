@@ -26,8 +26,8 @@ topics:
 
 ### リポジトリへのアクセスをチームに付与する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. リポジトリ リストの上にある [**Add repository**] をクリックします。 ![[Add repository] ボタン](/assets/images/help/organizations/add-repositories-button.png)
@@ -40,8 +40,8 @@ topics:
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. チームから削除するリポジトリ (複数選択も可) を選択します。 ![いくつかのリポジトリがチェックボックスで選択されたチーム リポジトリのリスト](/assets/images/help/teams/select-team-repositories-bulk.png)

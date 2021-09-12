@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Sobre a verificação de e-mail
 
 Você pode verificar seu endereço de e-mail depois de se inscrever em uma nova conta ou ao adicionar um novo endereço de e-mail. Se um endereço de e-mail não puder ser entregue ou retornar, ele será considerado como não verificado.

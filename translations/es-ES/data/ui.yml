@@ -8,10 +8,14 @@ header:
     localization_complete: Frecuentemente publicamos actualizaciones de nuestra documentación. Es posible que la traducción de esta página esté en curso. Para conocer la información más actual, visita la <a id="to-english-doc" href="/en">documentación en inglés</a>. Si existe un problema con las traducciones en esta página, por favor <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">infórmanos</a>.
     localization_in_progress: '¡Hola, explorador! Esta página está bajo desarrollo activo o todavía está en la etapa de traducción. Para obtener información más actualizada y precisa, visita nuestra <a id="to-english-doc" href="/en">documentación en inglés</a>.'
     early_access: '📣 Por favor, <b>no compartas</b> esta URL públicamente. Esta página tiene contenido sobre una característica de acceso temprano.'
-    ghes_release_notes_use_latest: Por favor, utiliza el lanzamiento más reciente para las últimas correcciones de seguridad, rendimiento y errores.
-    ghes_release_notes_upgrade_patch_only: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: Por favor, utiliza el lanzamiento más reciente para las últimas correcciones de seguridad, rendimiento y errores.
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server.'
+release_notes:
+  banner_text_current: These changes will roll out over the next one week.
+  banner_text_past: These changes rolled out to enterprises during the week of
 search:
   need_help: '¿Necesitas ayuda?'
   placeholder: Busca temas, productos...
@@ -26,6 +30,7 @@ toc:
 pages:
   article_version: 'Versión del artículo:'
   miniToc: En este artículo
+  contributor_callout: En este artículo contribuye y lo mantiene
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.
@@ -35,19 +40,22 @@ support:
   still_need_help: '¿Aún necesitas ayuda?'
   contact_support: Contactar con soporte técnico
   ask_community: Pregúntale a la comunidad de GitHub
-helpfulness:
+survey:
   able_to_find: '¿Te ayudó este documento?'
   yes: true
   no: false
-  yes_feedback: '¿Quieres saber sobre las características y actualizaciónes de los documentos nuevos? ¡Regístrate para recibir actualizaciones!'
-  email_placeholder: email@ejemplo.com
+  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
   no_feedback: Estamos mejorando nuestros documentos constantemente. Nos encantaría saber cómo crees que podemos hacerlo aún mejor.
-  comment_label: Déjanos saber lo que podemos mejorar
+  comment_yes_label: Let us know what we do well
+  comment_no_label: Déjanos saber lo que podemos mejorar
   optional: Opcional
   required: Requerido
+  email_placeholder: email@ejemplo.com
   email_label: '¿Podemos contactarte si tenemos más preguntas?'
   send: Enviar
-  feedback: '¡Gracias! Tu retroalimentación se ha emitido.'
+  feedback: Thank you! We received your feedback.
+  not_support: If you need a reply, please contact support instead.
+  privacy_policy: Política de privacidad
 contribution_cta:
   title: '¡Ayúdanos a hacer geniales estos documentos!'
   body: Todos los documentos de GitHub son de código abierto. ¿Notas algo que esté mal o que no sea claro? Emite una solicitud de cambios.
@@ -135,11 +143,11 @@ product_landing:
   communities_using_discussions: Comunidades que utilizan debates
   add_your_community: Agrega tu comunidad
   sponsor_community: Comunidad de GitHub Sponsors
-  supported_releases: Supported releases
-  release_notes_for: Release notes for
-  upgrade_from: Upgrade from
-  browse_all_docs: Browse all docs
-  explore_release_notes: Explore release notes
+  supported_releases: Lanzamientos compatibles
+  release_notes_for: Notas de lanzamiento para
+  upgrade_from: Mejorar desde
+  browse_all_docs: Buscar todos los documentos
+  explore_release_notes: Explorar las notas de lanzamiento
 product_sublanding:
   start: Inicio
   start_path: Ruta de inicio
@@ -162,11 +170,10 @@ product_sublanding:
 learning_track_nav:
   prevGuide: Guía previa
   nextGuide: Guía siguiente
-contributor_callout: En este artículo contribuye y lo mantiene
 toggle_images:
-  off: Images are off, click to show
-  on: Images are on, click to hide
-  hide_single: Hide image
-  show_single: Show image
+  off: Las imágenes están inactivas, haz clic para mostrar
+  on: Las imágenes están activas, haz clic para ocultar
+  hide_single: Ocultar imagen
+  show_single: Mostrar imagen
 scroll_button:
-  scroll_to_top: Scroll to top
+  scroll_to_top: Desplazarse hasta arriba

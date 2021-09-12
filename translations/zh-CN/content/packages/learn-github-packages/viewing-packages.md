@@ -20,7 +20,7 @@ versions:
 
 ### 查看仓库的包
 
-Your ability to view a package depends on several factors. By default, you can view all packages you have published.
+查看包的权限取决于几个因素。 默认情况下，您可以查看您发布的所有包。
 
 {% data reusables.package_registry.repo-scoped-and-granular-permissions-packages %}
 
@@ -28,7 +28,7 @@ Your ability to view a package depends on several factors. By default, you can v
 
 ### 查看仓库的包
 
-You can find and view a package located in a particular repository.
+您可以查找并查看位于特定仓库中的包。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -36,16 +36,16 @@ You can find and view a package located in a particular repository.
 
 ### 查看组织的包
 
-You can find and view a package located in the repositories of an organization you belong to.
+您可以查找并查看位于您所属组织的仓库中的包。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. 在组织名称下，单击 {% octicon "package" aria-label="The package icon" %} **Packages（包）**。
 {% data reusables.package_registry.navigate-to-packages %}
 
 ### 查看您的包
 
-You can find and view any package you've published across all organizations and repositories.
+您可以跨所有组织和仓库查找并查看您发布的任何包。
 
 {% data reusables.profile.access_profile %}
 2. 在个人资料页面顶部的主导航栏中，单击 **Packages（包）**。 ![项目选项卡](/assets/images/help/package-registry/user-packages-tab.png)

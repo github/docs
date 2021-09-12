@@ -15,13 +15,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Upgrading GHES
 ---
-### Preparing to upgrade
+## Preparing to upgrade
 
 1. Determine an upgrade strategy and choose a version to upgrade to. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 3. Create a fresh backup of your primary instance with the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
@@ -35,7 +36,7 @@ topics:
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### Taking a snapshot
+## Taking a snapshot
 
 A snapshot is a checkpoint of a virtual machine (VM) at a point in time. We highly recommend taking a snapshot before upgrading your virtual machine so that if an upgrade fails, you can revert your VM back to the snapshot. If you're upgrading to a new feature release, you must take a VM snapshot. If you're upgrading to a patch release, you can attach the existing data disk.
 
@@ -61,24 +62,24 @@ There are two types of snapshots:
 | VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>
 | XenServer | VM | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>
 
-### Upgrading with a hotpatch
+## Upgrading with a hotpatch
 
 {% data reusables.enterprise_installation.hotpatching-explanation %} Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 
 {% note %}
 
-**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes > 2.22 %}Notes{% else %}Note{% endif %}**:
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 - If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
 
 - {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 
-#### Upgrading a single appliance with a hotpatch
+### Upgrading a single appliance with a hotpatch
 
-##### Installing a hotpatch using the {% data variables.enterprise.management_console %}
+#### Installing a hotpatch using the {% data variables.enterprise.management_console %}
 
 1. Enable automatic updates. For more information, see "[Enabling automatic updates](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)."
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -91,7 +92,7 @@ There are two types of snapshots:
 5. Click **Install**.
   ![Hotpatch install button](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-##### Installing a hotpatch using the administrative shell
+#### Installing a hotpatch using the administrative shell
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -105,7 +106,7 @@ There are two types of snapshots:
   ```
 5. If a reboot is required for updates for kernel, MySQL, Elasticsearch or other programs, the hotpatch upgrade script notifies you.
 
-#### Upgrading an appliance that has replica instances using a hotpatch
+### Upgrading an appliance that has replica instances using a hotpatch
 
 {% note %}
 
@@ -115,11 +116,11 @@ There are two types of snapshots:
 
 Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
 
-##### Upgrading the primary instance
+#### Upgrading the primary instance
 
 1. Upgrade the primary instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
 
-##### Upgrading a replica instance
+#### Upgrading a replica instance
 
 {% note %}
 
@@ -131,11 +132,11 @@ Appliances configured for high-availability and geo-replication use replica inst
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
-### Upgrading with an upgrade package
+## Upgrading with an upgrade package
 
 While you can use a hotpatch to upgrade to the latest patch release within a feature series, you must use an upgrade package to upgrade to a newer feature release. For example to upgrade from `2.11.10` to `2.12.4` you must use an upgrade package since these are in different feature series. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 
-#### Upgrading a single appliance with an upgrade package
+### Upgrading a single appliance with an upgrade package
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -171,11 +172,11 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
   {% endnote %}
 
-#### Upgrading an appliance that has replica instances using an upgrade package
+### Upgrading an appliance that has replica instances using an upgrade package
 
 Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
 
-##### Upgrading the primary instance
+#### Upgrading the primary instance
 
 {% warning %}
 
@@ -188,7 +189,7 @@ Appliances configured for high-availability and geo-replication use replica inst
 3. On the replica instance, or on all replica instances if you're running multiple replica instances as part of geo-replication, run `ghe-repl-stop` to stop replication.
 4. Upgrade the primary instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)."
 
-##### Upgrading a replica instance
+#### Upgrading a replica instance
 
 {% note %}
 
@@ -218,22 +219,22 @@ Appliances configured for high-availability and geo-replication use replica inst
    {% data reusables.enterprise_installation.replication-status %}
 6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
-### Restoring from a failed upgrade
+## Restoring from a failed upgrade
 
 If an upgrade fails or is interrupted, you should revert your instance back to its previous state. The process for completing this depends on the type of upgrade.
 
-#### Rolling back a patch release
+### Rolling back a patch release
 
 To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
 
-#### Rolling back a feature release
+### Rolling back a feature release
 
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Further reading
+{% ifversion ghes > 2.22 %}
+## Further reading
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

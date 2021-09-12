@@ -11,9 +11,10 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### 测试应用程序
 
-您可以使用 {% data variables.product.prodname_marketplace %} 上架草稿来模拟每个帐单流程。 上架信息处于草稿状态意味着它尚未提交以供审批。 使用 {% data variables.product.prodname_marketplace %} 上架草稿进行的任何购买都_不会_产生真正的交易，GitHub 不会从您的信用卡中扣款。 更多信息请参阅“[起草应用程序上架信息](/developers/github-marketplace/drafting-a-listing-for-your-app)”和“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+您可以使用 {% data variables.product.prodname_marketplace %} 上架草稿来模拟每个帐单流程。 上架信息处于草稿状态意味着它尚未提交以供审批。 使用 {% data variables.product.prodname_marketplace %} 上架草稿进行的任何购买都_不会_产生真正的交易，GitHub 不会从您的信用卡中扣款。 请注意，您只能模拟在列表草案中公布的计划的购买情况，而不能模拟计划草案中的购买情况。 更多信息请参阅“[起草应用程序上架信息](/developers/github-marketplace/drafting-a-listing-for-your-app)”和“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
 #### 使用带有上架草稿的开发应用程序来测试更改
 

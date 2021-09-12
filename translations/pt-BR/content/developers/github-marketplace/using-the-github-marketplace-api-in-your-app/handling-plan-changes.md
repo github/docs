@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 Para obter mais informações sobre atualização e downgrade com relação à cobrança, consulte "[Integração com a API do {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/)".
 
 ### Etapa 1. Evento de mudança de plano de preços

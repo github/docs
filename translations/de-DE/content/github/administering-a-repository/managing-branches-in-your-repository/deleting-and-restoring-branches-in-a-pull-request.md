@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Löschen eines Branches, der für einen Pull-Request verwendet wurde
 
 Du kannst einen mit einem Pull Request verbundenen Branch löschen, wenn der Pull Request zusammengeführt oder geschlossen wurden und wenn keine weiteren, offenen Pull Request mit Referenz zum Branch vorhanden sind. Weitere Informationen über das Schließen von Branches, die nicht mit Pull Requests verbunden sind, findest Du unter „[Erstellen und Löschen von Branches innerhalb Deines Repositorys](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."

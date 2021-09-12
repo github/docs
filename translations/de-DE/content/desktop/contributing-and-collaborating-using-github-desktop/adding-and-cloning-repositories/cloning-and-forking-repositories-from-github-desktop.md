@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### About local repositories
 Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
 
@@ -42,6 +43,14 @@ You can change how a fork behaves with the upstream repository in {% data variab
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
+
+### Creating an alias for a local repository
+You can create an alias for a local repository to help differentiate between repositories of the same name in {% data variables.product.prodname_desktop %}. Creating an alias does not affect the repository's name on {% data variables.product.prodname_dotcom %}. In the repositories list, aliases appear in italics.
+
+1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
+2. Right-click the repository you want to create an alias for, then click **Create Alias**.
+3. Type an alias for the repository.
+4. Click **Create Alias**.
 
 ### Weiterführende Informationen
 - [Informationen zu Remote-Repositorys](/github/getting-started-with-github/about-remote-repositories)

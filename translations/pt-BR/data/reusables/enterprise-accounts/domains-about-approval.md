@@ -10,4 +10,4 @@ To receive email notifications, the owner of the user account must verify the em
 
 Organization owners cannot see the email address or which user account is associated with an email address from an approved domain.
 
-Organization owners can also approve additional domains for their organizations. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Organization owners can also approve additional domains for their organizations. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".

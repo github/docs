@@ -9,6 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### ディレクトリ構造
 
 プロジェクトのそれぞれの *reference* やコミットのラベルスナップショットは、`trunk`、`branches`、`tags` などの特定のサブディレクトリにまとめられます。 たとえば、2 つの feature のある開発中の SVN プロジェクトは、このようになるでしょう:

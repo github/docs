@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### 生成 GPG 密钥

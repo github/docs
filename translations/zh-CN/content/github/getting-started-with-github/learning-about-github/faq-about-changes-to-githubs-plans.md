@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
 ---
+
 ### GitHub 在 4 月 14 日宣布了哪些计划和价格变更？
 
 GitHub 宣布了以下计划和价格变更：
@@ -24,11 +25,11 @@ GitHub 宣布了以下计划和价格变更：
 
 ### 如何升级我的计划？
 
-要升级用户帐户的计划，请参阅“[升级个人帐户的订阅](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)”。 要升级组织的计划，请参阅“[升级组织的订阅](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-organizations-subscription)”。
+要升级用户帐户的计划，请参阅“[升级个人帐户的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)”。 要升级组织的计划，请参阅“[升级组织的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)”。
 
 ### 如何降级我的计划？
 
-要降级用户帐户的计划，请参阅“[降级用户帐户的订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)”。 要降级组织的计划，请参阅“[降级组织的订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-organizations-subscription)”。
+要降级用户帐户的计划，请参阅“[降级用户帐户的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)”。 要降级组织的计划，请参阅“[降级组织的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)”。
 
 ### 如果我从 GitHub Team 或旧计划降级到 GitHub Free，我会失去哪些功能？
 - 私有仓库中的必需审查者
@@ -64,11 +65,11 @@ GitHub 宣布了以下计划和价格变更：
 
 ### 如果 GitHub Team 计划中分配的时间不够，如何获得更多 Actions 分钟数？
 
-大多数小型团队每月用量不到 3,000 Actions 分钟数，但有些团队可能会使用更多时间。 如果您的团队需要在私有仓库中使用更多分钟数，您可以增加对 GitHub Actions 的支出限额。 公共仓库中的 Actions 分钟数和 Packages 存储空间仍然是免费的。 更多信息请参阅“[管理 GitHub Actions 的支出限额](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
+大多数小型团队每月用量不到 3,000 Actions 分钟数，但有些团队可能会使用更多时间。 如果您的团队需要在私有仓库中使用更多分钟数，您可以增加对 GitHub Actions 的支出限额。 公共仓库中的 Actions 分钟数和 Packages 存储空间仍然是免费的。 更多信息请参阅“[管理 GitHub Actions 的支出限额](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”。
 
 ### 席位限制变更对我有何影响？
 
-现在 {% data variables.product.prodname_team %} 没有最低席位要求，如果您的组织中使用的席位少于 5 个，您可以删除付费席位以减少费用。 更多信息请参阅“[降级您的 {% data variables.product.prodname_dotcom %} 订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)”。
+现在 {% data variables.product.prodname_team %} 没有最低席位要求，如果您的组织中使用的席位少于 5 个，您可以删除付费席位以减少费用。 更多信息请参阅“[降级您的 {% data variables.product.prodname_dotcom %} 订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)”。
 
 ### GitHub Team for Open Source 计划中的团队有什么变化？
 

@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 在提交事件单之前，您应当：
 
 - 获取可帮助 {% data variables.contact.github_support %} 跟踪、排列优先级、重现或调查问题的信息。

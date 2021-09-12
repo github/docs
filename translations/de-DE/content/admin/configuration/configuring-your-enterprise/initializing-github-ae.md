@@ -9,21 +9,29 @@ topics:
 redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
+
 ### About initialization
 
 Before you can initialize your enterprise, you must purchase {% data variables.product.product_name %}. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
 After you purchase {% data variables.product.product_name %}, we'll ask you to provide an email address and username for the person you want to initialize the enterprise. Your dedicated technical account manager in {% data variables.contact.enterprise_support %} will create an account for the enterprise owner and send the enterprise owner an email to log into {% data variables.product.product_name %} and complete the initialization. Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
+{% note %}
+
+**Hinweise**:
+
+- If the initial password for {% data variables.product.prodname_ghe_managed %} expires before you finish initialization, you can request a password reset at any time from your invitation email.
+
+- Store the initial username and password for {% data variables.product.prodname_ghe_managed %} securely in a password manager. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+
+{% endnote %}
+
 During initialization, the enterprise owner will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users.
 
 ### Vorrausetzungen
 
-{% note %}
+To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
-**Note**: Before you begin initialization, store the initial username and password for {% data variables.product.prodname_ghe_managed %} securely in a password manager. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
-
-{% endnote %}
 
 1. To initialize {% data variables.product.product_location %}, you must have a SAML identity provider (IdP). {% data reusables.saml.ae-uses-saml-sso %} To connect your IdP to your enterprise during initialization, you should have your IdP's Entity ID (SSO) URL, Issuer ID URL, and public signing certificate (Base64-encoded). For more information, see "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)."
 

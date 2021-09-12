@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
 ---
+
 Se você seguir essas práticas recomendadas, elas ajudarão você a oferecer uma boa experiência para o cliente.
 
 ### Comunicação com o cliente

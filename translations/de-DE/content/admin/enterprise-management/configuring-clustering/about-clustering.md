@@ -14,6 +14,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 ### Clustering-Architektur
 
 {% data variables.product.prodname_ghe_server %} besteht aus einer Reihe an Diensten. In einem Cluster werden diese Dienste knotenübergreifend ausgeführt, und die Last der Anforderungen wird zwischen ihnen ausgeglichen. Änderungen werden automatisch mit redundanten Kopien auf separaten Knoten gespeichert. Die meisten Dienste sind gleichwertige Peers mit anderen Instanzen desselben Diensts. Die Dienste `mysql-server` und `redis-server` bilden hierzu die Ausnahmen. Diese werden mit einem einzelnen _primären_ Knoten betrieben, der mindestens einen _Replikatknoten_ aufweist.

@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Verifique a ortografia
 
 Erros de digitação acontecem e os nomes dos repositórios diferenciam maiúsculas de minúsculas.  Ao tentar clonar `git@{% data variables.command_line.codeblock %}:user/repo.git` e o repositório estiver nomeado `User/Repo`, você receberá essa mensagem de erro.

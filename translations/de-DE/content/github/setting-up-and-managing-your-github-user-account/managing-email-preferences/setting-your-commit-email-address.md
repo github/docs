@@ -19,6 +19,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### Informationen zu E-Mail-Adressen für Commits
 
 {% data variables.product.product_name %} verwendet Ihre E-Mail-Adresse für Commits zur Verknüpfung Ihrer Commits mit Ihrem {% data variables.product.product_name %}-Konto. Du kannst den Commits, die Du über die Befehlszeile überträgst, wie auch Deinen webbasierten Git-Operationen jeweils eine eigene E-Mail-Adresse zuordnen.

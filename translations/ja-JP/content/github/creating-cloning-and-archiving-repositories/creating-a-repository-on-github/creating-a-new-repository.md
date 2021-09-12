@@ -17,6 +17,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% tip %}
 
 **ヒント:** オーナーは Organization でのリポジトリの作成権限を制限できます。 詳しい情報については「[Organization でのリポジトリ作成の制限](/articles/restricting-repository-creation-in-your-organization)」を参照してください。

@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### 外部 `collectd` サーバーを設置
 
 {% data variables.product.product_location %}に`collectd` の転送をまだ有効にしていない場合は、外部の `collectd` サーバを設置する必要があります。 `collectd` サーバは、`collectd` 5.x 以降のバージョンを実行している必要があります。

@@ -1,0 +1,166 @@
+---
+date: '2021-06-03'
+intro: '有关最低的基础架构要求，请参阅“[关于 {% data variables.product.prodname_ghe_server %} 3.0 及更高版本的最低要求](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)”。'
+sections:
+  features:
+    - 
+      heading: GitHub Advanced Security 密码扫码
+      notes:
+        - |
+          [密钥扫描](https://github.com/features/security) 现在一般在 {% data variables.product.prodname_ghe_server %} 3.1 + 上提供。扫描公共和私有仓库以查找提交的凭据，查找密钥，并在密钥提交到仓库时通知提供商或管理员。
+
+          此版本包括 {% data variables.product.prodname_ghe_server %} 密钥扫描测试版的几项改进：
+
+          - 扩展了我们的 [模式覆盖](/enterprise-server@3.1/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-private-repositories) 合作伙伴从 24 个到 37 个
+          - 添加了 [API](/rest/reference/secret-scanning) and [webhooks](/developers/webhooks-and-events/webhook-events-and-payloads#secret_scanning_alert)
+          - 添加了[提交作者的通知](https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/) 当他们提交密钥时通知
+          - 更新了索引视图，使大量分类密钥更容易
+          - 减少了使用许多模式中的误报率
+
+          使用 {% data variables.product.prodname_GH_advanced_security %} 的管理员可以[启用和配置] (/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} 密钥扫描。您可以在打开 {% data variables.product.prodname_GH_advanced_security %} 密钥扫描之前查看[平台的更新最低要求](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance)。
+    - 
+      heading: GitHub Advanced Security 计费改进
+      notes:
+        - |
+          本版本包括 {% data variables.product.prodname_ghe_server %}中 {% data variables.product.prodname_GH_advanced_security %} 计费的几项改进：
+
+          - {% data variables.product.prodname_GH_advanced_security %} 客户现在可以在其组织或企业帐户的帐单页面上查看其活跃的提交者人数和未使用的提交者席位剩余数。如果为企业购买了 Advanced Security，管理员还可以查看其企业内其他组织正在使用的活跃提交者席位。更多信息请参阅“[关于 GitHub Advanced Security 许可](/enterprise-server@3.1/admin/advanced-security/about-licensing-for-github-advanced-security)”和“[查看 GitHub Advanced Security 安全使用情况](/enterprise-server@3.1/admin/advanced-security/viewing-your-github-advanced-security-usage)”。
+          - GitHub Advanced Security 客户现在可以在其组织或企业帐户的帐单页面上查看其启用的任何 Advanced Security 仓库的活跃提交者人数。这些更改有助于帐单管理员根据他们购买的提交许可证数量跟踪其使用情况。更多信息请参阅“[管理组织的安全性和分析设置](/enterprise-server@3.1/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+    - 
+      heading: Dependabot 改进
+      notes:
+        - |
+          本版本包括对 {% data variables.product.prodname_ghe_server %} 中 Dependabot 警报的改进：
+
+          - 启用 Dependabot 警报的用户可以通过导航到 [GitHub 公告数据库](https://github.com/advisories) 中的条目，查看其哪些仓库受到指定漏洞的影响。此功能可在公共测试版中使用。更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
+          - 对于中低严重程度漏洞的 Dependabot 警报，您将不再收到 [电子邮件和 Web 通知](https://github.com/notifications)。这些警报仍然可以从仓库的 Security（安全）选项卡访问。更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
+          - 您现在可以通过在仓库的 `root`、`docs` 或 `.github` 文件夹中添加 `SECURITY.md` 文件，向人们说明如何负责任地报告项目中的安全漏洞。当某人在您的仓库中创建议题时，他们将看到指向项目安全策略的链接。更多信息请参阅“[将安全策略添加到仓库](/enterprise-server@3.1/code-security/getting-started/adding-a-security-policy-to-your-repository)”。
+    - 
+      heading: GitHub Actions 工作流程可视化试用版
+      notes:
+        - |
+          {% data variables.product.prodname_actions %} 现在可以在每次运行时生成工作流程的可视图。通过工作流程可视化， 您可以：
+          - 查看和理解复杂的工作流程
+          - 实时跟踪工作流程的进度 
+          - 通过轻松访问日志和工作元数据进行疑难排解
+          - 监控部署作业的进度，并轻松访问部署目标
+
+          更多信息请参阅“[使用可视化图](/actions/managing-workflow-runs/using-the-visualization-graph)”。
+    - 
+      heading: OAuth 2.0 设备授权授予
+      notes:
+        - |
+          [OAuth 2.0 设备授权授予](https://github.com/login/device) 允许任何 CLI 客户端或开发者工具使用辅助系统通过浏览器进行身份验证。
+
+          使用 [OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow) 和 [GitHub Apps](/developers/apps/authorizing-oauth-apps#device-flow) 的管理员可以启用和配置 OAuth 2.0 设备授权流，及现有的 Web 应用程序流。在启用 OAuth 2.0 设备授权流之前，您可以查看[平台的更新最低要求](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance)。
+    - 
+      heading: 拉取请求自动合并
+      notes:
+        - |
+          通过自动合并，当所有合并要求都得到满足时，拉取请求可以自动设置为合并。这样可以避免用户需要不断检查其拉取请求的状态来合并它们。自动合并可以由有权限合并的用户启用，也可以在对合并要求不满意的拉取请求上启用。更多信息请参阅“[自动合并拉取请求](/enterprise-server@3.1/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)”。
+    - 
+      heading: 自定义通知
+      notes:
+        - |
+          您可以自定义要从单个仓库接收的通知类型。更多信息请参阅“[配置通知](/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
+    - 
+      heading: GitHub Mobile 过滤
+      notes:
+        - |
+          [{% data variables.product.prodname_mobile %}](https://github.com/mobile) 过滤允许您从设备搜索和查找议题、拉取请求及讨论。议题和拉取请求列表项的新元数据可让您按受理人、检查状态、审查状态及评论数过滤。
+
+          {% data variables.product.prodname_mobile %} 测试版可用于 {% data variables.product.prodname_ghe_server %}。使用我们的 [Android](https://play.google.com/store/apps/details?id=com.github.android) 和 [iOS](https://apps.apple.com/app/github/id1477376905) app 登录，以随时对通知分类以及管理议题和拉取请求。管理员可以使用管理控制台或运行 `ghe-config app.mobile.enabled false` 来禁用对其企业的移动支持。更多信息请参阅“[GitHub for mobile](/github/getting-started-with-github/using-github/github-for-mobile)”。
+  changes:
+    - 
+      heading: 管理更改
+      notes:
+        - 通过预先计算校验和，仓库处于锁定状态的时间大大减少， 允许更多的写入操作立即成功并改进单仓库性能。
+        - 最新版本的 CodeQL CLI 支持上传分析结果到 GitHub。这更便于为想要使用 {% data variables.product.prodname_actions %} 以外的 CI/CD 系统的客户运行代码分析。 以前，这些用户必须使用单独的 CodeQL 运行器，这将继续可用。更多信息请参阅“[[关于 CI 系统中的 CodeQL 扫描](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-screing-in-your-ci-system)”。
+        - '{% data variables.product.prodname_actions %} 现在支持通过在您的提交消息中寻找一些常见的关键字，以跳过 `push` 和 `pull_request` 工作流程。'
+        - 超过四个月的检查注释将存档。
+    - 
+      heading: 安全性更改
+      notes:
+        - '仍然支持在未提交拉取请求 ID 时在拉取请求上显示跟进反馈、代码扫描结果。更多信息请参阅“[配置代码扫描](/enterprise-server@3.1/code-security/secure-coding/configuring-code-scanning#scanning-pull-requests)”和“[在 CI 系统中配置 CodeQL 扫描](/enterprise-server@3.1/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system#scanning-pull-requests)”。'
+        - SAIF 上传支持增加至每次上传最多 5000 个结果。
+    - 
+      heading: 开发者更改
+      notes:
+        - 您可以在配置 GitHub 应用程序时指定多个回调URL。这可以用于多个域名或子域的服务。 如果来自请求的回调 URL 不在授权回调 URL 列表中，GitHub 将始终拒绝授权。
+        - GitHub 应用程序文件权限已更新，以允许应用程序开发者指定最多 10 个文件可供其应用程序申请只读或读写访问权限。
+        - CodeQL 现在支持多种语言（[C++](https://github.com/github/codeql/tree/main/cpp)、[JavaScript](https://github.com/github.com/github/codaql/tree/main/javascript)、[Python](https://github.com/github/codql/tree/main/python)、[Java](https://github. om/github/codeql/tree/main/java)、[Go](https://github.com/github/codeql-go/tree/main)）的更多 [仓库和框架](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)。CodeQL 引擎现在可以检测到更多不信任的用户数据来源，这提高了代码扫描警报的质量和深度。更多信息请参阅“[关于 CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)”。
+        - 配置 GitHub 应用程序时，授权回调 URL 是必填字段。现在，我们允许开发者指定多个回调 URL。 这可以用于多个域或子域的服务。 如果来自请求的回调 URL 不在授权回调 URL 列表，GitHub 将始终拒绝授权。
+        - '从 Web 浏览器中删除整个文件目录（包括子目录）。更多信息请参阅“[删除文件或目录](/enterprise-server@3.1/github/managing-files-in-a-repository/deleting-files-in-a-repository#deleting-a-directory)”。'
+        - '在议题、讨论或拉取请求评论的 `#` 后包括多个单词以进一步缩小搜索范围。'
+        - '当您撰写议题、拉取请求或讨论评论时，项目符号、编号和任务的列表语法在按下 `return` 或 `enter` 后自动完成。'
+    - 
+      heading: API 更改
+      notes:
+        - 代码扫描 API 允许用户上传有关静态分析安全测试结果的数据，或导出有关警报的数据。更多信息请参阅[代码扫描 API 引用](/rest/reference/code-scanning)。
+        - 用于管理安装的 [GitHub Apps API](/rest/reference/apps) 现已从 API 预览升级到一般可用的 API。 访问这些端点不再需要 [预览头](/rest/overview/api-previews)。
+  security_fixes:
+    - '**中** 在某些情况下，从团队或组织中删除的用户可以保留对现有拉取请求打开的分支的写入权限。'
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 
+      heading: 修复候选版中的已知问题
+      notes:
+        - 除“已知问题”部分所列问题外，候选版 1 中的所有已知问题均已解决。
+    - 
+      heading: 其他问题的修复
+      notes:
+        - 在初始安装过程的“Configure Actions and Packages（配置 Actions 和 Packages）”页面，点击“Test domain settings（测试域设置）”按钮未完成测试。
+        - '运行 `ghe-btop` 失败并有错误，找不到 ''babeld'' 容器。'
+        - 如果您更改了自动故障转移设置，MySQL 可能会重新加载并导致停机。
+        - 升级后，内部和外部超时值不匹配导致服务不可用。
+        - MSSQL 中的预期复制延迟会生成警告。
+        - '管理控制台上的“[配置集群](/admin/enterprise-management/configuring-clustering)”链接不正确。'
+        - 在创建或编辑预接收挂钩时，用户界面中的竞争情况意味着在选择仓库后，仓库中的文件有时不会填充到文件下拉列表中。
+        - 当使用“Create Whitelist Entry（创建白名单条目）”按钮将 IP 地址添加到白名单时，它仍然可能显示为锁定。
+        - 对“依赖关系图”和“Dependabot 警报”功能的引用在某些仓库上未显示为禁用。
+        - 在企业帐户设置中设置公告可能导致 500 内部服务器错误。
+        - 对 `/hooks` 端点的 HTTP POST 请求可能会因为 `hookID` 配置不正确而失败，出现 401 响应。
+        - '`build-server`进程未能清理进程，将它们留在 `defunct` 状态下。'
+        - '`spond` 创建了过多的日志条目，包括“修复位置已跳过”短语。'
+        - 升级 Actions 时，如果实例无法通过其配置的主机名自行提出请求，升级可能会失败。
+        - 从 2.22.x 升级到 3.1.0.rc1 可能会导致与 `BackfillIntegrationApplicationCallbackUrlsTransition` 数据转换相关的数据库迁移错误。
+  known_issues:
+    - 使用"ghe-repo <owner>/<reponame>"通过管理 shell 访问仓库将挂起。作为解决方法，可使用"ghe-repo <owner>/<reponame> -c"bash-i"，直到下一个版本中进行了修正。
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级期间不会保持。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 升级以前运行过 2.13 版本但未运行 2.14 版本的实例，会导致与 `AddRepositoryIdToCheckRuns` 数据转换相关的数据库迁移错误。
+  deprecations:
+    - 
+      heading: GitHub Enterprise Server 2.20 的弃用
+      notes:
+        - '*{% data variables.product.prodname_ghe_server %} 2.20 自 2021 年 3 月 2 日起停止使用。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - 
+      heading: 弃用 GitHub Enterprise Server 2.21
+      notes:
+        - '*{% data variables.product.prodname_ghe_server %} 2.21 自 2021 年 6 月 9 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - 
+      heading: 弃用旧版的 GitHub App web 挂钩事件
+      notes:
+        - '从 {% data variables.product.prodname_ghe_server %} 2.21.0 开始，两个旧的 GitHub 应用程序相关的 web 挂钩事件已弃用，并将在 {% data variables.product.prodname_ghe_server %} 3.2.0 中删除。弃用的事件 `integration_installation` 和 `integration_installation_repositories` 都有受支持的相应事件。更多信息请见[弃用公告博文](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)。'
+    - 
+      heading: 弃用旧版 GitHub Apps 端点
+      notes:
+        - 从 {% data variables.product.prodname_ghe_server %} 2.21.0 开始，用于创建安装访问令牌的旧 GitHub 应用程序端点已弃用，并将在 {% data variables.product.prodname_ghe_server %} 3.2.0 中删除。更多信息请见[弃用公告博文](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)。
+    - 
+      heading: 弃用 OAuth Application API
+      notes:
+        - 'GitHub 不再支持包含 `access_token` 作为路径参数的 OAuth 应用程序端点。我们引入了新的端点，允许您通过将 `access_token` 移动到请求正文来安全地管理 OAuth 应用程序的令牌。虽然已弃用，但这些端点仍然可以在这个版本中访问。我们打算在 {% data variables.product.prodname_ghe_server %} 3.4 中删除这些端点。更多信息请参阅[弃用公告博文](https://developer.github.com/changes/2020-02-14-decreasating-oauth-app-endpoint/)。'
+    - 
+      heading: GitHub Actions 短 SHA 支持弃用
+      notes:
+        - '{% data variables.product.prodname_actions %} 将取消对使用 git commit SHA 短版本的引用操作的支持。 这可能会导致仓库中的一些工作流程中断。 要修复这些工作流程，您需要更新操作引用以使用完整提交 SHA。 更多信息请参阅“[{% data variables.product.prodname_actions %} 安全强化](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)”。'
+    - 
+      heading: XenServer Hypervisor 支持终止
+      notes:
+        - 从 {% data variables.product.prodname_ghe_server %} 3.1 开始，我们将开始停止对 Xen Hypervisor 的支持。计划对 {% data variables.product.prodname_ghe_server %} 3.3 完全停止支持，遵循标准的一年停止窗口期。
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.1 至少需要 [GitHub Enterprise Backup Utilities 3.1.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance)。'

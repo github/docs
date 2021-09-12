@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **Dica:** {% data reusables.education.about-github-education-link %}
@@ -41,7 +42,7 @@ Se você tiver outras dúvidas sobre o domínio da instituição de ensino, peç
 
 ### Endereço de e-mail acadêmico já usado
 
-Se o seu endereço de e-mail acadêmico já tiver sido usado para solicitar um {% data variables.product.prodname_student_pack %} para outra conta do {% data variables.product.prodname_dotcom %}, você não poderá reutilizá-lo para se candidatar a outro {% data variables.product.prodname_student_pack %} enquanto o desconto estiver válido.
+Se seu endereço de e-mail acadêmico já foi usado para solicitar um {% data variables.product.prodname_student_pack %} para uma conta de {% data variables.product.prodname_dotcom %} diferente, você não poderá reutilizar o endereço de e-mail acadêmico para se inscrever com sucesso em outro {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 

@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Sie können Repositorys global auf {% data variables.product.product_location %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github).“
 
 Um Forks in die Suchergebnisse einzuschließen, musst du Deiner Abfrage den Qualifizierer `fork:true` oder `fork:only` hinzufügen. Weitere Informationen finden Sie unter „[Forks durchsuchen](/articles/searching-in-forks)“.

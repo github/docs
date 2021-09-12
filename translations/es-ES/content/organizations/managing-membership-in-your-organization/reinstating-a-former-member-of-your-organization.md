@@ -39,8 +39,8 @@ Si tu organización tiene una suscripción de pago por usuario, debes de contar 
 
 ### Volver a admitir a un miembro anterior de tu organización
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

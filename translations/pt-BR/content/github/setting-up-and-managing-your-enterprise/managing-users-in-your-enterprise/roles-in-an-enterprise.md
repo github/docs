@@ -14,6 +14,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Sobre funções em uma empresa
 
 Todas as pessoas em uma empresa são integrantes da empresa. Você também pode atribuir funções administrativas aos integrantes da sua empresa. Cada função de administrador está associada a uma função empresarial e fornece permissão para a execução de tarefas específicas na empresa.
@@ -26,7 +27,7 @@ Para mais informações sobre como adicionar pessoas à sua empresa, consulte "{
 
 Os proprietários corporativos têm controle total da empresa e podem executar todas as ações, incluindo:
 - Gerenciar os administradores
-- {% if currentVersion == "free-pro-team@latest" %}Adicionar e remover {% elsif currentVersion == "github-ae@latest" %}Managing{% endif %} organizações{% if currentVersion == "free-pro-team@latest" %}para e de {% elsif currentVersion == "github-ae@latest" %} na{% endif %} empresa
+- {% if currentVersion == "free-pro-team@latest" %}Adicionar e remover {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Managing{% endif %} organizações{% if currentVersion == "free-pro-team@latest" %}para e de {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} na{% endif %} empresa
 - Gerenciar as configurações da empresa
 - Aplicar a política nas organizações
 {% if currentVersion == "free-pro-team@latest" %}- Managing billing settings{% endif %}
@@ -55,6 +56,10 @@ Os gerentes de cobrança só têm acesso às configurações de cobrança da sua
 - Adicionar ou remover outros gerentes de cobrança
 
 Os gerentes de cobrança só consumirão uma licença se forem um proprietário ou integrante de pelo menos uma organização dentro da empresa. Os gerentes de cobrança não têm acesso a organizações ou repositórios na sua empresa e não podem adicionar ou remover os proprietários da empresa. Os gerentes de cobrança devem ter uma conta pessoal no {% data variables.product.prodname_dotcom %}.
+
+### About support entitlements
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 ### Leia mais
 

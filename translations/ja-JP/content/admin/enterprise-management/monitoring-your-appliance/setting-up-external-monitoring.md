@@ -14,6 +14,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### SNMPについて
 
 Simple Network Management Protocol (SNMP) は、ネットワークデバイスやサーバのモニタリングの方法として広くサポートされています。 SNMPはデフォルトでは無効化されていますが、{% data variables.product.prodname_enterprise %}モニタリングダッシュボードを通じて設定できます。 UDPポート161は、オープンでネットワーク管理ステーションから到達可能でなければなりません。 詳細は「[SNMPを使用したモニタリング](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)」を参照してください。

@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Excluindo um branch usado para uma pull request
 
 Você pode excluir um branch que esteja associado a uma pull request se a pull request tiver sofrido merge ou estiver encerrada e não houver outras pull requests abertas que referenciem o branch. Para obter informações sobre branches de fechamento que não estão associados a pull requests, consulte "[Criar e excluir branches dentro do seu repositório.](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)".

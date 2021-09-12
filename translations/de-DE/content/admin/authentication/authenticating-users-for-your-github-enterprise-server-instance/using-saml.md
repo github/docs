@@ -17,6 +17,7 @@ topics:
   - Identity
   - SSO
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
 ### Unterstützte SAML-Dienste

@@ -21,8 +21,8 @@ topics:
 如果您的组织[要求成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则{% if currentVersion == "free-pro-team@latest" %}您邀请的用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)之后才能接受邀请。{% else %}要添加的用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)之后您才能将其添加到组织。{% endif %}
 {% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}

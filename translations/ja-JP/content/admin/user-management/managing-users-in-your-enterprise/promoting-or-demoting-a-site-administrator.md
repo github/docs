@@ -15,6 +15,7 @@ topics:
   - User account
   - Enterprise
 ---
+
 {% tip %}
 
 **メモ:** [ユーザの LDAP アクセスの設定](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)時に [LDAP Sync が有効](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)になっており、`Administrators group` 属性が設定されている場合、それらのユーザは自動的にインスタンスに対するサイト管理者アクセスを持つことになります。 この場合、以下のステップで手動でユーザを昇格させることはできません。ユーザを昇格させるにはLDAPの管理者グループに追加してください。

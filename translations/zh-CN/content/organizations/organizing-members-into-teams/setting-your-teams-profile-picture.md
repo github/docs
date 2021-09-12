@@ -16,8 +16,8 @@ topics:
 
 除非您设置团队的头像，否则团队头像将与组织的头像一致。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. 单击 **Upload new picture（上传新图片）**并选择所需的头像。 ![上传新图片](/assets/images/help/teams/org-team-profile-picture-upload.png)

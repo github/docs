@@ -11,6 +11,7 @@ versions:
 topics:
   - SSH
 ---
+
 ### 对 Git 是否应该使用 `sudo` 命令？
 
 不应对 Git 使用 `sudo` 命令。 如果有*很好的原因*必须使用 `sudo`，请确保对每个命令使用它（可能使用 `su` 获取 shell 作为该点的根更好）。 如果[生成 SSH 密钥](/articles/generating-an-ssh-key)而不使用 `sudo`，则尝试使用 `sudo git push` 而不使用生成的相同密钥。

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Eine Tabelle erstellen
 
 Tabellen werden mit senkrechten Strichen (`|`) und Bindestrichen (`-`) erstellt. Mit Bindestrichen werden die Überschriften der Tabelle erstellt; die senkrechten Striche trennen die Spalten voneinander ab. Vor der Tabelle musst Du eine Zeile frei lassen, damit sie korrekt dargestellt wird.
@@ -60,7 +61,7 @@ Du kannst den Text links oder rechts ausrichten oder zentrieren, indem Du links 
 
 ![Gerenderte Tabelle mit nach links, nach rechts oder zentriert ausgerichtetem Text](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-Wenn Du einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchtest, verwende das Zeichen '\' vor dem senkrechten Strich:
+Wenn Sie einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchten, verwenden Sie vor dem senkrechten Strich einen Rückwärtsschrägstrich (`\`):
 
 ```markdown
 | Name     | Character |

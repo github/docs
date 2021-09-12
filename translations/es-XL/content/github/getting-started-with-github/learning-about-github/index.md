@@ -15,15 +15,10 @@ topics:
   - Security
 children:
   - /githubs-products
-  - /exploring-early-access-releases-with-feature-preview
+  - /github-language-support
+  - /about-github-advanced-security
   - /types-of-github-accounts
-  - /faq-about-changes-to-githubs-plans
-  - /github-cli
-  - /github-desktop
-  - /github-for-mobile
   - /access-permissions-on-github
-  - /github-glossary
-  - /git-cheatsheet
-  - /git-and-github-learning-resources
+  - /faq-about-changes-to-githubs-plans
 ---
 

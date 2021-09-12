@@ -23,6 +23,7 @@ topics:
   - LFS
   - Storage
 ---
+
 ### {% data variables.large_files.product_name_long %}について
 
 {% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} {% data variables.large_files.product_name_long %} は、単一のリポジトリ、すべての個人または Organization のリポジトリ、または Enterprise 内のすべてのリポジトリで使用できます。 特定のリポジトリまたは Organization に対して {% data variables.large_files.product_name_short %} を有効にする前に、Enterprise に対して {% data variables.large_files.product_name_short %} を有効にする必要があります。

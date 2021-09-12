@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Wenn in Ihrem Repository bereits Dateien vorhanden sind, für die Sie {% data variables.product.product_name %} verwenden möchten, müssen Sie sie zunächst aus dem Repository entfernen und lokal zu {% data variables.large_files.product_name_short %} hinzufügen. Weitere Informationen findest Du unter „[Eine Datei in Deinem Repository zu {% data variables.large_files.product_name_short %} verschieben](/articles/moving-a-file-in-your-repository-to-git-large-file-storage).“
 
 {% data reusables.large_files.resolving-upload-failures %}

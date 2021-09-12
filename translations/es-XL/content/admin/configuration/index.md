@@ -13,7 +13,6 @@ children:
   - /configuring-your-enterprise
   - /configuring-network-settings
   - /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
-  - /configuring-advanced-security-features
 ---
 ### Índice
 <!-- if currentVersion ver_gt "enterprise-server@2.15" -->

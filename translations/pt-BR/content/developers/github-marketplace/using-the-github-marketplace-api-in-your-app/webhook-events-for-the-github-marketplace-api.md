@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### Carga do webhook de compra no {% data variables.product.prodname_marketplace %}
 
 As solicitações de `POST` têm cabeçalhos especiais. Consulte "[Cabeçalhos de entrega de Webhook](/webhooks/event-payloads/#delivery-headers)" para obter mais informações. O GitHub não reenvia tentativas falhas de entrega. Certifique-se de que seu aplicativo possa receber todas as cargas do webhook enviadas pelo GitHub.

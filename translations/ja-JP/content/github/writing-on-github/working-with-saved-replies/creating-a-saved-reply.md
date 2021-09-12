@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. [Add a saved reply] の下に返信テンプレートのタイトルを追加します。 ![返信テンプレートタイトル](/assets/images/help/settings/saved-replies-title.png)

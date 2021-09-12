@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 有关项目板类型的更多信息，请参阅“[关于项目板](/articles/about-project-boards)”。
 
 ### 实施组织范围项目板的策略

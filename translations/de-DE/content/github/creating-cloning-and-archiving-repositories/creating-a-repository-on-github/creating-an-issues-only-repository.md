@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 1. Erstelle ein **privates** Repository, um den Quellcode von Deinem Projekt zu verwalten.
 2. Erstelle ein zweites Repository mit den gewünschten Berechtigungen, um den Issue-Tracker zu hosten.
 3. Füge eine README-Datei zum Issues-Repository hinzu, in der Du den Zweck dieses Repositorys erläuterst und zum Issues-Abschnitt verknüpfst.

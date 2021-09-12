@@ -10,9 +10,16 @@ shortTitle: 查看和更新有漏洞的依赖项
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
+
 仓库的 {% data variables.product.prodname_dependabot %} 警报选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %}{% if currentVersion == "free-pro-team@latest" %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}。 您可以使用下拉菜单对警报列表进行排序，并且可以单击特定警报以获取更多详细信息。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -45,5 +45,5 @@ Para mejorar tu empresa a un lanzamiento nuevo, consulta las secciones "[Notas d
 
 - [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`
 {% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} notas de lanzamiento](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_ghe_managed %} notas de lanzamiento](/admin/release-notes)
 {% endif %}

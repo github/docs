@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Cada entrada do log de auditoria mostra informações aplicáveis sobre um evento, como:
 
 - A organização em que foi executada uma ação

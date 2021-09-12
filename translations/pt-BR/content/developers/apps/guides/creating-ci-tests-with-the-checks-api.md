@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### Introdução
 
 Este guia irá apresentá-lo aos [aplicativos GitHub](/apps/) e à [API de verificação](/rest/reference/checks), que você usará para criar um servidor de integração contínua (CI) que executa testes.
@@ -171,7 +172,7 @@ end
 ```
 {% endif %}
 
-This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
+Este código chama o ponto de extremidade "[Crie uma verificação de execução](/rest/reference/checks#create-a-check-run)" usando o [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
 
 Para criar uma execução de verificação, são necessários apenas dois parâmetros de entrada: `nome` e `head_sha`. Vamos usar o [Rubocop](https://rubocop.readthedocs.io/en/latest/) para implementar o teste CI mais adiante início rápido. Por esse motivo, o nome "Octo Rubocop" é usado aqui, mas você pode escolher qualquer nome que desejar para a execução da verificação.
 
@@ -282,9 +283,9 @@ end
 ```
 {% endif %}
 
-The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) to update the check run that you already created.
+O código acima chama o ponto de extremidade da API de "[Atualizar uma execução de verificação](/rest/reference/checks#update-a-check-run)" usando o [`update_check_run` Octokit](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) para atualizar o método de verificação que você já criou.
 
-Veja o que este código está fazendo. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. Na [Parte 2](#part-2-creating-the-octo-rubocop-ci-test) deste início rápido, você irá adicionar um código que inicia um teste de CI real em `***** EXECUTAR UM TEST DE CI *****`. Por enquanto, você sairá da seção como um espaço reservado, para que o código que o segue apenas simule que o processo de CI seja bem-sucedido e todos os testes sejam aprovados. Finalmente, o código atualiza o status da execução de verificação novamente para `concluído`.
+Veja o que este código está fazendo. Primeiro, ele atualiza o status de verificação de execução para `in_progress` e define implicitamente a hora de `started_at` para o momento atual. Na [Parte 2](#part-2-creating-the-octo-rubocop-ci-test) deste início rápido, você irá adicionar um código que inicia um teste de CI real em `***** EXECUTAR UM TEST DE CI *****`. Por enquanto, você sairá da seção como um espaço reservado, para que o código que o segue apenas simule que o processo de CI seja bem-sucedido e todos os testes sejam aprovados. Finalmente, o código atualiza o status da execução de verificação novamente para `concluído`.
 
 Na documentação "[Atualizar uma execução de verificação](/rest/reference/checks#update-a-check-run)", você observará que, ao fornecer um status de `concluído`, são necessários os parâmetros `conclusão` e `completed_at`. A conclusão `` resume o resultado de uma verificação de resultado e pode ser `sucesso`, `falha`, `neutro`, `cancelado`, `timed_out` ou `action_required`. Você irá definir a conclusão como `sucesso`, o tempo `completed_at` como a hora atual e o status como `concluído`.
 

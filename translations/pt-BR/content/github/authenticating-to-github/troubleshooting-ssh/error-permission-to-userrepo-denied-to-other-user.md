@@ -12,4 +12,5 @@ versions:
 topics:
   - SSH
 ---
+
 Para corrigir isso, o proprietário do repositório (`user`) deve incluir a conta (`other-user`) como um colaborador do repositório ou associá-la a uma equipe com acesso de gravação ao repositório.

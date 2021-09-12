@@ -8,10 +8,14 @@ header:
     localization_complete: 문서에 대한 업데이트가 자주 게시되며, 이 페이지의 번역이 아직 진행 중일 수 있습니다. 최신 정보는<a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오. 이 페이지에서 번역에 문제가 있는 경우 <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">알려주십시오</a>.
     localization_in_progress: 안녕하세요! 이 페이지는 현재 개발 중이거나 아직 번역 중입니다. 정확한 최신 정보를 확인하려면 <a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오.
     early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
-    ghes_release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+release_notes:
+  banner_text_current: These changes will roll out over the next one week.
+  banner_text_past: These changes rolled out to enterprises during the week of
 search:
   need_help: 도움이 필요하십니까?
   placeholder: 검색 주제, 제품...
@@ -26,6 +30,7 @@ toc:
 pages:
   article_version: '문서 버전:'
   miniToc: 기사 내용
+  contributor_callout: This article is contributed and maintained by
 errors:
   oops: 이런!
   something_went_wrong: 뭔가 잘못된 것 같습니다.
@@ -35,19 +40,22 @@ support:
   still_need_help: Still need help?
   contact_support: Contact support
   ask_community: Ask the GitHub community
-helpfulness:
+survey:
   able_to_find: 이 문서가 도움이 되었습니까?
   yes: true
   no: false
-  yes_feedback: 새로운 문서 기능 및 업데이트에 대해 배우고 싶으십니까? 업데이트에 가입하십시오!
-  email_placeholder: email@example.com
+  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
   no_feedback: 지속적으로 문서를 개선하고 있습니다. 더욱 잘 개선할 수 있도록 고객의 의견을 듣고 싶습니다.
-  comment_label: 개선할 점을 알려주십시오.
+  comment_yes_label: Let us know what we do well
+  comment_no_label: 개선할 점을 알려주십시오.
   optional: 선택 사항
   required: 필수 사항
+  email_placeholder: email@example.com
   email_label: 더 많은 질문이 생기면 연락드려도 되겠습니까?
   send: 보내기
-  feedback: 감사합니다! 고객님의 피드백이 제출되었습니다.
+  feedback: Thank you! We received your feedback.
+  not_support: If you need a reply, please contact support instead.
+  privacy_policy: Privacy policy
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
@@ -162,7 +170,6 @@ product_sublanding:
 learning_track_nav:
   prevGuide: Previous guide
   nextGuide: Next guide
-contributor_callout: This article is contributed and maintained by
 toggle_images:
   off: Images are off, click to show
   on: Images are on, click to hide

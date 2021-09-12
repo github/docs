@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Infrastructure
 ---
+
 ### 一時的なレプリケーションの停止
 
 1. 必要に応じて、Geo-replication レプリカ用の Geo DNS エントリを削除することで、そのレプリカにユーザトラフィックを処理させないようにします。

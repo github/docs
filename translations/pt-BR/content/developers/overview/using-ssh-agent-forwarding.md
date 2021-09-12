@@ -149,7 +149,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. No entanto, você poderá importar suas chaves SSH para o Keychain usando este comando:
+No macOS, `ssh-agent` irá "esquecer" essa chave, assim que ela for reiniciada durante reinicializações. No entanto, você poderá importar suas chaves SSH para o Keychain usando este comando:
 
 ```shell
 $ ssh-add -K <em>yourkey</em>

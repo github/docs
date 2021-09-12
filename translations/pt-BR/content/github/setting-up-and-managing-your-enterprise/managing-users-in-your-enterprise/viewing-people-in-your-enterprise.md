@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Visualizar proprietários corporativos{% if currentVersion == "free-pro-team@latest" %} e gerentes de cobrança{% endif %}
 
 Você pode ver os proprietários corporativos {% if currentVersion == "free-pro-team@latest" %} e gerentes de cobrança, {% endif %}bem como uma lista de convites pendentes para se tornarem proprietários{% if currentVersion == "free-pro-team@latest" %} e gerentes de cobrança. Você pode filtrar a lista de administradores corporativos por função{% endif %}. ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome completo dela.

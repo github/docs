@@ -16,8 +16,8 @@ topics:
 
 {% data reusables.organizations.team-synchronization %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 6. Team メンバーのリストの上部で、[**Add a member**] をクリックします。 ![[Add member] ボタン](/assets/images/help/teams/add-member-button.png)

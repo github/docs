@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
 ---
+
 ### Replication or redundancy of your {% data variables.product.prodname_actions %} data
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

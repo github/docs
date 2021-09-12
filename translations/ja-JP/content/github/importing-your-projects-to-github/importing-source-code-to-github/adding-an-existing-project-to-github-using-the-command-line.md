@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
@@ -22,10 +23,7 @@ versions:
 
 {% mac %}
 
-1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -60,10 +58,7 @@ versions:
 
 {% windows %}
 
-1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -98,10 +93,7 @@ versions:
 
 {% linux %}
 
-1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。

@@ -4,6 +4,10 @@ intro: 漏洞披露是安全报告者与仓库维护者之间的协调工作。
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
 ---
 
 ### 关于披露行业漏洞

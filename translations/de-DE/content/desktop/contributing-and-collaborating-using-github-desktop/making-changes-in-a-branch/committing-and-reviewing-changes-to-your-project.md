@@ -7,20 +7,37 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Informationen zu Commits
 
 {% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
 
 {% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
 
-### 1. Branch auswählen und Änderungen vornehmen
+### Branch auswählen und Änderungen vornehmen
 
 1. [Erstelle einen neuen Branch](/desktop/guides/contributing-to-projects/managing-branches), oder wähle einen vorhandenen Branch aus. Klicke dazu auf der Symbolleiste auf {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** (Aktueller Branch), und wähle den Branch aus der Liste aus.
 
   ![Dropdownmenü, um Deinen aktuellen Branch zu wechseln](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### 2. Die in einen Commit einzubeziehenden Änderungen auswählen
+### Choosing how to display diffs
+
+You can change the way diffs are displayed in {% data variables.product.prodname_desktop %} to suit your reviewing needs.
+
+To change how you view diffs, in the top-right corner of the diff view, click {% octicon "gear" aria-label="The Gear icon" %}.
+- To change how the entire diff is displayed, under "Diff display", select  **Unified** or **Split**. The Unified view shows changes linearly, while the Split view shows old content on the left side and new content on the right side.
+- To hide whitespace changes so you can focus on more substantive changes, select **Hide Whitespace Changes**.
+
+![Diff option menu](/assets/images/help/desktop/diff-selection.png)
+
+If you need to see more of the file than {% data variables.product.prodname_desktop %} shows by default, you can expand the diff.
+- To see the next few lines above or below the highlighted changes, click the arrow above or below the line numbers.
+- To see the entire file, right-click in the diff view and click **Expand Whole File**.
+
+![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
+
+### Die in einen Commit einzubeziehenden Änderungen auswählen
 
 Wenn Sie in Ihrem Texteditor Änderungen an Dateien vornehmen und Sie diese lokal speichern, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
 
@@ -41,20 +58,11 @@ Wenn Sie in Ihrem Texteditor Änderungen an Dateien vornehmen und Sie diese loka
 
 If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. Der Rest Deiner Änderungen bleibt erhalten, sodass Du zusätzliche Änderungen und Commits vornehmen kannst. Dadurch kannst Du separate, aussagekräftige Commits erstellen, beispielsweise kannst Du Änderungen der Zeilenumbrüche in einem Commit vom Code oder von Fließtextänderungen getrennt halten.
 
-{% note %}
-
-**Note:** Split diff displays are currently in beta and subject to change.
-
-{% endnote %}
-
-1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**.
-
-  ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
-2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
+To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
 
   ![Zeilen in einer Datei aus der Auswahl entfernen](/assets/images/help/desktop/partial-commit.png)
 
-### 3. Änderungen verwerfen
+### Änderungen verwerfen
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
 
 Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
@@ -87,7 +95,7 @@ To discard a group of changed lines, right click the vertical bar to the right o
   ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 4. Eine Commit-Mitteilung schreiben und Deine Änderungen per Push übertragen
+### Eine Commit-Mitteilung schreiben und Deine Änderungen per Push übertragen
 
 Sobald Sie mit den Änderungen zufrieden sind, die Sie in Ihren Commit aufnehmen möchten, schreiben Sie Ihre Commit-Mitteilung, und übertragen Sie Ihre Änderungen per Push-Vorgang. Wenn Sie an einem Commit mitgewirkt haben, können Sie einen Commit auch mehr als einem Autor zuweisen.
 

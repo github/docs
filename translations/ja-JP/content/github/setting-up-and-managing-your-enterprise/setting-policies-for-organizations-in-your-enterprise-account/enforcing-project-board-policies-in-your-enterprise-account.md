@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 プロジェクトボードの詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
 
 ### Organization 全体のプロジェクトボードでポリシーを施行する

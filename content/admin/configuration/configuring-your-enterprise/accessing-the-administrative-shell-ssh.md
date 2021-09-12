@@ -13,18 +13,19 @@ redirect_from:
   - /admin/configuration/accessing-the-administrative-shell-ssh
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - SSH
+shortTitle: Access the admin shell (SSH)
 ---
-### About administrative shell access
+## About administrative shell access
 
 If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
 
-### Enabling access to the administrative shell via SSH
+## Enabling access to the administrative shell via SSH
 
 To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys.
 
@@ -40,7 +41,7 @@ To enable administrative SSH access, you must add your SSH public key to your in
   ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Connecting to the administrative shell over SSH
+## Connecting to the administrative shell over SSH
 
 After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
 
@@ -50,7 +51,7 @@ Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-#### Troubleshooting SSH connection problems
+### Troubleshooting SSH connection problems
 
 If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
@@ -69,10 +70,10 @@ Host <em>hostname</em>
   Port 122
 ```
 
-### Accessing the administrative shell using the local console
+## Accessing the administrative shell using the local console
 
 In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
 
-### Access limitations for the administrative shell
+## Access limitations for the administrative shell
 
 Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.

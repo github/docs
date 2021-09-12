@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
@@ -31,9 +32,7 @@ topics:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 在 OpenStack Horizon 中，上传
-
-您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 OpenStack 指南“[上传和管理图像](https://docs.openstack.org/horizon/latest/user/manage-images.html)”的“上传图像”部分。
+1. 在 OpenStack Horizon 中，上传您下载的 {% data variables.product.prodname_ghe_server %} 映像。 有关说明，请参阅 OpenStack 指南“[上传和管理图像](https://docs.openstack.org/horizon/latest/user/manage-images.html)”的“上传图像”部分。
 {% data reusables.enterprise_installation.create-attached-storage-volume %}有关说明，请参阅 OpenStack 指南“[创建和管理卷](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)”。
 3. 创建安全组，并为下表中的各个端口添加新的安全组规则。 有关说明，请参阅 OpenStack 指南“[为实例配置访问和安全](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)”。
 

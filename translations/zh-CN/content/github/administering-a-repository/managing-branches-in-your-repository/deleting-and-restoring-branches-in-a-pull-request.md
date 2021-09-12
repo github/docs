@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 删除用于拉取请求的分支
 
 如果拉取请求已合并或关闭，并且没有打开的其他拉取请求在引用分支，则可以删除与该拉取请求关联的分支。 有关关闭未与拉取请求关联的分支的信息，请参阅“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。

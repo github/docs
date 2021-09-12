@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于教育者和研究人员折扣
 
 {% data reusables.education.about-github-education-link %}

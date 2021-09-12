@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### Criar e compartilhar arquivos de diagnóstico
 
 Os diagnósticos são uma visão geral das configurações e do ambiente de uma instância do {% data variables.product.prodname_ghe_server %}. Os diagnósticos contêm:

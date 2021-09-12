@@ -7,20 +7,37 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### コミットについて
 
 {% data reusables.commits.about-commits %} コラボレーションしているコミットに共作者を追加することもできます。
 
 {% data reusables.desktop.update-email-address %} 詳しい情報については、「[GitHub Desktop 用の Git を設定する](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)」を参照してください。
 
-### 1. ブランチの選択と変更の実行
+### ブランチの選択と変更の実行
 
 1. [新規ブランチを作成する](/desktop/guides/contributing-to-projects/managing-branches)か、ツールバーにある{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch**をクリックし、既存ブランチをリストから選択します。
 
   ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### 2. コミットに含める変更の選択方法
+### Choosing how to display diffs
+
+You can change the way diffs are displayed in {% data variables.product.prodname_desktop %} to suit your reviewing needs.
+
+To change how you view diffs, in the top-right corner of the diff view, click {% octicon "gear" aria-label="The Gear icon" %}.
+- To change how the entire diff is displayed, under "Diff display", select  **Unified** or **Split**. The Unified view shows changes linearly, while the Split view shows old content on the left side and new content on the right side.
+- To hide whitespace changes so you can focus on more substantive changes, select **Hide Whitespace Changes**.
+
+![Diff option menu](/assets/images/help/desktop/diff-selection.png)
+
+If you need to see more of the file than {% data variables.product.prodname_desktop %} shows by default, you can expand the diff.
+- To see the next few lines above or below the highlighted changes, click the arrow above or below the line numbers.
+- To see the entire file, right-click in the diff view and click **Expand Whole File**.
+
+![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
+
+### コミットに含める変更の選択方法
 
 テキストエディタでファイルに変更を加えて保存していくと、変更は、{% data variables.product.prodname_desktop %}にも反映されます。
 
@@ -41,20 +58,11 @@ versions:
 
 1 つのファイルに複数の変更があり、それらの変更の一部のみをコミットに含める場合は、部分的なコミットを作成できます。 追加変更やコミットできるように、他の変更はそのまま残ります。 これにより、改行の変更をコードや構文の変更から区別するなど、個別で有意義なコミットの作成が可能になります。
 
-{% note %}
-
-**注釈:** split diff 表示は現在ベータで、変更される可能性があります。
-
-{% endnote %}
-
-1. 変更の表示方法を選択するには、変更したファイルの右上隅で、{% octicon "gear" aria-label="The Gear icon" %} を使用して [**Unified**] または [**Split**] を選択します。
-
-  ![統合および split diff のギアアイコン](/assets/images/help/desktop/gear-diff-select.png)
-2. 変更した行をコミットから除外するには、変更した行を複数クリックして、青色が消えるようにします。 青色で強調表示されている行は、コミットに含まれます。
+変更した行をコミットから除外するには、変更した行を複数クリックして、青色が消えるようにします。 青色で強調表示されている行は、コミットに含まれます。
 
   ![ファイルで選択解除された行](/assets/images/help/desktop/partial-commit.png)
 
-### 3. 変更の廃棄
+### 変更の廃棄
 保持する必要がない未コミットの変更がある場合は、変更を破棄できます。 これにより、コンピュータ上のファイルから変更が削除されます。 複数のファイル内の未コミットの変更をすべて破棄することも、追加した特定の行を破棄することもできます。
 
 破棄した変更は、ゴミ箱内の日付つきのファイルに保存されます。 ゴミ箱を空にするまでは、破棄した変更を復元できます。
@@ -87,7 +95,7 @@ versions:
   ![確認ダイアログ内の [Discard a group of added lines]](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 4. コミットメッセージの入力と変更のプッシュ
+### コミットメッセージの入力と変更のプッシュ
 
 コミットに含めたい変更を決めたら、コミットメッセージを入力して変更をプッシュします。 コミットで共同作業した場合、コミットに 1 人以上の作者を追加できます。
 

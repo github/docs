@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### {% data variables.product.prodname_dotcom %} でソース Organization を準備する
 
 1. ソースOrganizationのリポジトリに[オーナー権限](/articles/permission-levels-for-an-organization/)を持っていることを確認してください。

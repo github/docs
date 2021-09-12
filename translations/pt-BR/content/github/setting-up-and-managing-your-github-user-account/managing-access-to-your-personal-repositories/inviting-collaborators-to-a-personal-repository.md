@@ -15,6 +15,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.product_name %}](/articles/access-permissions-on-github)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
@@ -31,9 +32,7 @@ Os repositórios de propriedade de uma organização podem conceder mais acesso 
 
 {% endif %}
 
-1. Pergunte o nome de usuário da pessoa que você está convidando como colaborador.
-
-{% if currentVersion == "free-pro-team@latest" %} Se eles ainda não têm um nome de usuário, eles podem se inscrever em {% data variables.product.prodname_dotcom %} Para obter mais informações, consulte "[Inscrever-se para uma nova conta de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
+1. Pergunte o nome do usuário da pessoa que você está convidando a colaborar.{% if currentVersion == "free-pro-team@latest" %} Caso a pessoa não tenha um nome de usuário ainda, deve se inscrever em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}

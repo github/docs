@@ -9,9 +9,15 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependabot-version-updates
 versions:
   free-pro-team: '*'
+type: overview
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 ### {% data variables.product.prodname_dependabot_version_updates %} について
 
 {% data variables.product.prodname_dependabot %} は、依存関係を維持する手間を省きます。 これを使用して、リポジトリが依存するパッケージおよびアプリケーションの最新リリースに自動的に対応できるようにすることができます。

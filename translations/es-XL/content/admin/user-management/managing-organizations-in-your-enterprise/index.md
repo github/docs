@@ -12,7 +12,6 @@ versions:
 topics:
   - Enterprise
 children:
-  - /creating-organizations
   - /configuring-visibility-for-organization-membership
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization

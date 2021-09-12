@@ -12,6 +12,7 @@ children:
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
   - /configuring-the-self-hosted-runner-application-as-a-service
+  - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners
   - /using-self-hosted-runners-in-a-workflow
   - /managing-access-to-self-hosted-runners-using-groups
@@ -20,4 +21,3 @@ children:
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% link_in_list/Using-a-Proxy-Server-With-Self-Hosted-Runners%}

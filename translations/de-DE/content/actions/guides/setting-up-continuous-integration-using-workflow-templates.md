@@ -45,5 +45,5 @@ For more information, see "[Learn {% data variables.product.prodname_actions %}]
 - „[Informationen zur kontinuierlichen Integration](/articles/about-continuous-integration)“
 - „[Einen Workflow-Lauf verwalten](/articles/managing-a-workflow-run)“
 {% if currentVersion == "free-pro-team@latest" %}
-- „[Abrechnung für {{ site.data.variables.product.prodname_actions }} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“
+- "[ Abrechnung für {% data variables.product.prodname_actions %} verwalten](/billing/managing-billing-for-github-actions)"
 {% endif %}

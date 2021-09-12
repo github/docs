@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 使用 *.gitattributes* 文件标记与给定“模式”（含指定属性）匹配的文件。 *.gitattributes* 文件采用与 _.gitignore_ 文件相同的匹配规则。 更多信息请参阅 Git 文档中的[模式格式](https://www.git-scm.com/docs/gitignore#_pattern_format)。
 
 1. 除非 *.gitattributes* 文件已存在，否则请在仓库的根目录中创建 *.gitattributes* 文件。

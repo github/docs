@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
@@ -22,10 +23,7 @@ versions:
 
 {% mac %}
 
-1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf
-
-{% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde.
-    ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
+1. [Erstelle ein neues Repository](/articles/creating-a-new-repository) auf {% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde. ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
@@ -60,10 +58,7 @@ versions:
 
 {% windows %}
 
-1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf
-
-{% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde.
-    ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
+1. [Erstelle ein neues Repository](/articles/creating-a-new-repository) auf {% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde. ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
@@ -98,10 +93,7 @@ versions:
 
 {% linux %}
 
-1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf
-
-{% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde.
-    ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
+1. [Erstelle ein neues Repository](/articles/creating-a-new-repository) auf {% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde. ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.

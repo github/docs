@@ -14,6 +14,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 ### 创建预接收挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -45,9 +46,8 @@ topics:
 
 仅当站点管理员在创建预接收挂钩时选择了 **Administrators can enable or disable this hook** 选项，组织管理员才能为组织配置挂钩权限。 要为仓库配置预接收挂钩，您必须是组织管理员或所有者。
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. 在左侧侧边栏中，单击 **Hooks**。 ![挂钩侧边栏](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. 在要配置的预接收挂钩旁边，单击 **Hook permissions** 下拉菜单。 选择要启用还是禁用预接收挂钩，或者允许仓库管理员对其进行配置。 ![挂钩权限](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 

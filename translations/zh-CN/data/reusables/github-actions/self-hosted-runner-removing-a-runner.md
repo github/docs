@@ -1,4 +1,4 @@
-1. 在 **Self-hosted runners（自托管运行器）**下，找到列表中的运行器。 如果您的运行器在一个组中，请单击 {% octicon "chevron-down" aria-label="The downwards chevron" %} 以展开列表。
+1. 在 {% if currentVersion == "free-pro-team@latest" %}“运行器”{% else %}“自托管运行器”{% endif %} 下，找到列表中的运行器。 如果您的运行器在一个组中，请单击 {% octicon "chevron-down" aria-label="The downwards chevron" %} 以展开列表。
 1. 单击要删除的运行器旁边的 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Remove（删除）**。
 
     ![删除自托管运行器设置](/assets/images/help/settings/actions-runner-remove.png)

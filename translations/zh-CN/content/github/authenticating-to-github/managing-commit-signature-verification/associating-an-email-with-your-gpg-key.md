@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% note %}
 
 如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。

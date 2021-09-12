@@ -36,6 +36,8 @@ children:
   - /converting-an-organization-into-a-user
   - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-corporate-terms-of-service
+  - /disabling-project-boards-in-your-organization
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 {% endif %}

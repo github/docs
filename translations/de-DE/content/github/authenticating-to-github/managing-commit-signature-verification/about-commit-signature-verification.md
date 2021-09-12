@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### Informationen zur Verifizierung einer Commit-Signatur
 
 You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% if currentVersion == "free-pro-team@latest" %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
@@ -38,8 +39,7 @@ Commits and tags have the following verification statuses, depending on whether 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
 {% else %}
-If a commit or tag has a signature that can't be verified,
-{% data variables.product.product_name %} marks the commit or tag "Unverified."
+If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
 {% endif %}
 
 Repository-Administratoren können die obligatorische Commit-Signatur auf einem Branch erzwingen, um alle Commits zu blockieren, die nicht signiert und verifiziert sind. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-signed-commits).“
@@ -47,7 +47,7 @@ Repository-Administratoren können die obligatorische Commit-Signatur auf einem 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. Commits, die von {% data variables.product.product_name %} signiert sind, werden auf {% data variables.product.product_name %} einen verifizierten Status haben. Sie können die Signatur lokal mit dem unter https://github.com/web-flow.gpg verfügbaren öffentlichen Schlüssel verifizieren. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits, die von {% data variables.product.product_name %} signiert sind, werden auf {% data variables.product.product_name %} einen verifizierten Status haben. Sie können die Signatur lokal mit dem unter https://github.com/web-flow.gpg verfügbaren öffentlichen Schlüssel verifizieren. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
 {% endif %}
 
 ### GPG-Verifizierung einer Commit-Signatur
@@ -85,9 +85,8 @@ Du musst Deinen öffentlichen Schlüssel nicht auf {% data variables.product.pro
 ### Signaturverifizierung für Bots
 
 Organisationen und {% data variables.product.prodname_github_app %}s, bei denen Commit-Signaturen vorgeschrieben sind, können Bots für das Signieren von Commits verwenden. Wenn ein Commit oder Tag eine Bot-Signatur hat, die kryptografisch verifiziert werden kann, wird der Commit oder das Tag von {% data variables.product.product_name %} als verifiziert gekennzeichnet.
-Signature verification for bots will only work if the request is verified and authenticated as the
 
-{% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
+Die Signaturverifizierung für Bots funktioniert nur, wenn die Anforderung als {% data variables.product.prodname_github_app %} oder Bot verifiziert und authentifiziert ist und keine benutzerdefinierten Informationen zum Autor, zum Beitragenden oder zur Signatur aufweist, also z. B. keine Commits-API.
 {% endif %}
 
 ### Weiterführende Informationen

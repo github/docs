@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 {% data reusables.marketplace.marketplace-org-perms %}

@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Para obter mais informações sobre tipos de quadros de projeto, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
 ### Aplicar política para quadros de projeto de toda a organização

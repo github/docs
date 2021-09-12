@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
 ---
+
 ### 简介
 {% data variables.product.prodname_desktop %} 是一个可让您使用 GUI 而非命令行或网络浏览器与 {% data variables.product.prodname_dotcom %} 交互的应用程序。 {% data variables.product.prodname_desktop %} 鼓励您和您的团队使用最佳实践协作处理 Git 和 {% data variables.product.prodname_dotcom %}。 您可以使用 {% data variables.product.prodname_desktop %}，通过视觉确认更改从桌面完成大部分 Git 命令。 您可以使用 {% data variables.product.prodname_desktop %} 推送到、从中拉取和克隆远程仓库，以及使用协作工具，如归因提交和创建拉取请求。
 

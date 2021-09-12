@@ -5,8 +5,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können den Hinweise bearbeiten.

@@ -39,8 +39,8 @@ Wenn Deine Organisation ein benutzerabhängiges Abonnement hat, muss eine ungenu
 
 ### Ehemaliges Mitglied Deiner Organisation wieder einsetzen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

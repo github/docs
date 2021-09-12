@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
 ---
+
 ### Sobre atribuições em grupo
 
 {% data reusables.classroom.assignments-group-definition %} Os alunos podem trabalhar juntos em uma tarefa em grupo em um repositório compartilhado, como uma equipe de desenvolvedores profissionais.

@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 ---
+
 ### 個人課題について
 
 {% data reusables.classroom.assignments-individual-definition %}
@@ -111,7 +112,7 @@ redirect_from:
 
 ### 次のステップ
 
-- 課題を作成した後、学生はGitおよび{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたも学生も、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
+- 課題を作成した後、学生はGitおよび{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたも学生も、リポジトリのコミット履歴をレビューできます。 詳しい情報については、「[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)}を使ってみる」、「[リポジトリを作成、クローン、アーカイブする](/github/creating-cloning-and-archiving-repositories)」、「[Gitを使用する](/github/getting-started-with-github/using-git)」、および「[Issueおよびプルリクエストでコラボレーションする](/github/collaborating-with-issues-and-pull-requests)」を参照してください。
 
 - 課題を完了した学生がいる場合には、その学生のリポジトリにあるファイルをレビューできます。また、学生の作業についてをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳しい情報については、「[リポジトリデータをグラフで可視化する](/github/visualizing-repository-data-with-graphs)」を参照してください。
 

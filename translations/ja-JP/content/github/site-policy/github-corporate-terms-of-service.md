@@ -113,7 +113,7 @@ _These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted
 場合によっては、お客様による GitHub の利用について、第三者による規約が適用されることがあります。 たとえば、お客様が独自の条項またはライセンス契約を持つ Organization の成員である場合、お客様が「サービス」に統合するアプリケーションをダウンロードしている場合、お客様が他のサービスに認証するために「サービス」を利用している場合などです。 本契約は、お客様と GitHub との完全な合意を示していますが、お客様と第三者との関係については第三者の規約が適用されます。
 
 #### 5. アメリカ合衆国の祝日 米国連邦政府の条項
-If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+お客様が米国 government entity or otherwise accessing or using the Service in a government capacity, the [U.S. 連邦政府修正条項](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)が適用され、お客様はその条項に同意するものとします。
 
 #### 6. Enterprise Cloud Service Level Agreement
 GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
@@ -315,4 +315,4 @@ GitHub は、週末および米国の休日を除き、1 日 24時間、週 5 �
 各「当事者」は、本契約の主題に関して独立契約者です。 本契約に含まれるいかなる規定も、法的関係、パートナーシップ、合弁事業、雇用、代理、受託、その他これらに類する関係を両「当事者」間に構築するものとはいかなる場合にも見なされるまたは解釈されるものではなく、またいずれの「当事者」も、他方を契約上拘束することはできません。
 
 #### 10. 質問
-「利用規約」について質問がございましたら、 [Contact us](https://github.com/contact/).
+「利用規約」について質問がございましたら、 [お問い合わせください](https://github.com/contact/)。

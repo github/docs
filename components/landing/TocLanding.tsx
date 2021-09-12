@@ -1,54 +1,69 @@
-import { Grid } from '@primer/components'
-
 import { DefaultLayout } from 'components/DefaultLayout'
 import { TableOfContents } from 'components/landing/TableOfContents'
-import { ArticleVersionPicker } from 'components/article/ArticleVersionPicker'
-import { Breadcrumbs } from 'components/Breadcrumbs'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
+import { ArticleTopper } from 'components/article/ArticleTopper'
 import { ArticleTitle } from 'components/article/ArticleTitle'
+import { MarkdownContent } from 'components/ui/MarkdownContent'
+import { ArticleList } from 'components/landing/ArticleList'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
+import { Callout } from 'components/ui/Callout'
 
-type Props = {
-  variant?: 'compact' | 'expanded'
-}
-export const TocLanding = ({ variant = 'expanded' }: Props) => {
-  const { title, introPlainText, tocItems } = useTocLandingContext()
+export const TocLanding = () => {
+  const { title, introPlainText, tocItems, productCallout, variant, featuredLinks, renderedPage } =
+    useTocLandingContext()
+  const { t } = useTranslation('toc')
+
   return (
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-        <div className="d-lg-flex flex-justify-between">
-          <div className="d-block d-lg-none">
-            <ArticleVersionPicker />
-          </div>
-          <div className="d-flex flex-items-center">
-            <Breadcrumbs />
-          </div>
-          <div className="d-none d-lg-block">
-            <ArticleVersionPicker />
-          </div>
-        </div>
+        <ArticleTopper />
 
-        <Grid
-          gridTemplateColumns="minmax(500px, 720px) minmax(220px, 1fr)"
-          gridTemplateRows="auto 1fr"
-          gridGap={16}
-        >
-          <div>
-            <div className="mt-8">
-              <ArticleTitle>{title}</ArticleTitle>
+        <ArticleGridLayout className="mt-7">
+          <ArticleTitle>{title}</ArticleTitle>
 
-              <div className="lead-mktg">
-                <p>{introPlainText}</p>
+          <div className="f2 color-text-secondary">
+            <p>{introPlainText}</p>
+          </div>
+
+          {productCallout && (
+            <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />
+          )}
+
+          <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
+
+          <div className={variant === 'expanded' ? 'mt-7' : 'mt-2'}>
+            {featuredLinks.gettingStarted && featuredLinks.popular && (
+              <div className="pb-8 container-xl">
+                <div className="gutter gutter-xl-spacious clearfix">
+                  <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
+                    <ArticleList
+                      title={t('getting_started')}
+                      variant="spaced"
+                      articles={featuredLinks.gettingStarted}
+                    />
+                  </div>
+
+                  <div className="col-12 col-lg-6 float-left">
+                    <ArticleList
+                      title={t('popular')}
+                      variant="spaced"
+                      articles={featuredLinks.popular}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0" />
+            {renderedPage && (
+              <div id="article-contents">
+                <MarkdownContent>{renderedPage}</MarkdownContent>
+              </div>
+            )}
 
-            <div className={variant === 'expanded' ? 'mt-7' : 'mt-2'}>
-              <TableOfContents items={tocItems} variant={variant} />
-            </div>
+            <TableOfContents items={tocItems} variant={variant} />
           </div>
-          <div></div>
-        </Grid>
+        </ArticleGridLayout>
       </div>
     </DefaultLayout>
   )

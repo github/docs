@@ -12,6 +12,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 Se houver somente três nós no seu cluster de serviços de dados, não será possível removê-los porque o `ghe-spokes` não tem outro local para fazer cópia. Se houver quatro ou mais nós, o `ghe-spokes` vai retirar todos os repositórios do nó removido.
 
 Se você estiver usando um nó offline que tenha qualquer tipo de serviços de dados (como git, páginas ou armazenamento), remova cada nó antes de deixar o nó offline.

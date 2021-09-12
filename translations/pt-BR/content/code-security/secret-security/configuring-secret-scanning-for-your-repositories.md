@@ -10,7 +10,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
+  - Secret scanning
+  - Advanced Security
   - Repositories
 ---
 
@@ -29,7 +32,7 @@ topics:
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Você pode habilitar {% data variables.product.prodname_secret_scanning %} para qualquer repositório que pertença a uma organização.
-{% endif %}
+{% endif %} Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -77,3 +80,4 @@ Você também pode ignorar alertas individuais de {% data variables.product.prod
 ### Leia mais
 
 - "[Gerenciando configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}

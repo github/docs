@@ -19,9 +19,9 @@ topics:
 children:
   - /setting-up-a-github-enterprise-server-instance
 ---
+
 詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
 インストールプロセスについて質問がある場合は、「[{% data variables.product.prodname_enterprise %} Support への相談](/enterprise/admin/guides/enterprise-support/)」を参照してください。
-### 目次

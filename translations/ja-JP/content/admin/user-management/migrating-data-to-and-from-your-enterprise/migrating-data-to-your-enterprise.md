@@ -19,6 +19,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
 [移行の準備](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)ができたら、次のステップで移行を完了できます。

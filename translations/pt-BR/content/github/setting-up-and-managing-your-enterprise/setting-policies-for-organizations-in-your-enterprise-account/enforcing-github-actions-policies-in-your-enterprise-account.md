@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Sobre as permissões de {% data variables.product.prodname_actions %} para a sua conta corporativa
 
 Por padrão, {% data variables.product.prodname_actions %} é habilitado em todas as organizações que pertencem a uma conta corporativa. Você pode optar por desabilitar {% data variables.product.prodname_actions %} para todas as organizações que pertencem a uma conta corporativa ou apenas permitir organizações especificadas. Você também pode limitar o uso de ações públicas, de modo que as pessoas só possam usar ações locais que existem na sua organização.

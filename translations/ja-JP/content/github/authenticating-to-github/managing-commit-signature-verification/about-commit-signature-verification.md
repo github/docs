@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### コミット署名の検証について
 
 コミットとタグにローカルで署名して、行った変更の根拠を他のユーザに信頼してもらうことができます。 コミットまたはタグに暗号で検証可能な GPG または S/MIME 署名がある場合、GitHub はコミットまたはタグに{% if currentVersion == "free-pro-team@latest" %}「Verified」または「Partially verified」{% else %}「Verified」のマークを付けます。{% endif %}
@@ -38,8 +39,7 @@ topics:
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
 {% else %}
-コミットまたはタグに検証できない署名がある場合、
-{% data variables.product.product_name %} はコミットまたはタグに「Unverified」のマークを付けます。
+コミットまたはタグに検証できない署名がある場合、{% data variables.product.product_name %} はコミットまたはタグを「未検証」としてマークします。
 {% endif %}
 
 リポジトリ管理者は、ブランチでコミット署名を必須として、署名および検証されていないすべてのコミットをブロックできます。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-signed-commits)」を参照してください。
@@ -47,7 +47,7 @@ topics:
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.product_name %} は GPG を自動的に使用して、{% data variables.product.product_name %} Web インターフェースを使用して行ったコミットに署名します。ただし、作者ではないプルリクエストを squash してマージする場合は除きます。 オプションとして、{% data variables.product.prodname_codespaces %} で行ったコミットを {% data variables.product.product_name %} で署名させることもできます。 {% data variables.product.product_name %}によって署名されたコミットは、{% data variables.product.product_name %}で認証済みのステータスになります。 署名は、https://github.com/web-flow.gpgから利用できる公開鍵を使ってローカルに検証できます。 Codespaces の GPG 検証を有効にする方法については、「[{% data variables.product.prodname_codespaces %} の GPG 検証の管理](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)」を参照してください。
+{% data variables.product.product_name %} は GPG を自動的に使用して、{% data variables.product.product_name %} Web インターフェースを使用して行ったコミットに署名します。ただし、作者ではないプルリクエストを squash してマージする場合は除きます。 {% data variables.product.product_name %}によって署名されたコミットは、{% data variables.product.product_name %}で認証済みのステータスになります。 署名は、https://github.com/web-flow.gpgから利用できる公開鍵を使ってローカルに検証できます。 The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. オプションとして、{% data variables.product.prodname_codespaces %} で行ったコミットを {% data variables.product.product_name %} で署名させることもできます。 Codespaces の GPG 検証を有効にする方法については、「[{% data variables.product.prodname_codespaces %} の GPG 検証の管理](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)」を参照してください。
 {% endif %}
 
 ### GPG コミット署名の検証
@@ -85,9 +85,8 @@ S/MIME を使ってコミットに署名し、それらのコミットを {% dat
 ### ボットの署名検証
 
 コミットの署名が必要な Organization および {% data variables.product.prodname_github_app %} は、コミットの署名にボットを利用できます。 コミットまたはタグが暗号的に検証可能なボット署名を持っている場合、{% data variables.product.product_name %} はそのコミットまたはタグを検証済みとしてマークします。
-ボットの署名検証は、リクエストが
 
-{% data variables.product.prodname_github_app %} またはボットとして検証および認証され、カスタム作者情報、カスタムコミッタ情報、および Commits API などのカスタム署名情報が含まれていない場合にのみ機能します。
+ボットの署名検証は、要求が検証され {% data variables.product.prodname_github_app %} またはボットとして認証されており、カスタム作者情報、カスタムコミッター情報、およびコミットAPI などのカスタム署名情報が含まれていない場合にのみ機能します。
 {% endif %}
 
 ### 参考リンク

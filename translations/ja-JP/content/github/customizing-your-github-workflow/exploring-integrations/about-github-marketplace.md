@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) で、{% data variables.product.prodname_github_app %}、{% data variables.product.prodname_oauth_app %}、{% data variables.product.prodname_actions %} などの無料および有料ツールを見つけて確認し、インストールできます。
 
 有料のツールを購入した場合、{% data variables.product.product_name %} のプランの支払いに使用しているのと同じ支払い情報でツールのプランに支払いをすることになり、通常の支払日に一つの課金を受けます。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。

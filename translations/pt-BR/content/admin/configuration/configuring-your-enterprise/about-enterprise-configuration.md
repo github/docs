@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/configuration/about-enterprise-configuration
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} Para obter mais informações, consulte "[Painel de administração do site](/admin/configuration/site-admin-dashboard)".
 
@@ -21,8 +22,7 @@ redirect_from:
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" %}
-A primeira vez que você acessar sua empresa, você irá definir uma configuração inicial para fazer com que
-{% data variables.product.product_name %} esteja pronto para usar. A configuração inicial inclui conectar a sua empresa a um provedor de identidade (IdP), efetuando a autenticação com SAML SSO, configurando políticas para repositórios e organizações na sua empresa e configurando SMTP para e-mails de saída. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
+Na primeira vez que você acessar a sua empresa, você realizará uma configuração inicial para preparar {% data variables.product.product_name %} para ser usado. A configuração inicial inclui conectar a sua empresa a um provedor de identidade (IdP), efetuando a autenticação com SAML SSO, configurando políticas para repositórios e organizações na sua empresa e configurando SMTP para e-mails de saída. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
 
 Posteriormente, você poderá usar o painel de administração do site e as configurações corporativas para configurar ainda mais sua empresa, gerenciar usuários, organizações e repositórios e definir políticas que reduzem o risco e aumentam a qualidade.
 

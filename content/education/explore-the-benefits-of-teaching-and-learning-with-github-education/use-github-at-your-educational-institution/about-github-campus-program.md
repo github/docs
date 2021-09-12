@@ -8,7 +8,8 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: GitHub Campus Program
 ---
 {% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates. {% data variables.product.prodname_campus_program %} includes:
 
@@ -20,7 +21,7 @@ versions:
 
 To read about how GitHub is used by educators, see [GitHub Education stories.](https://education.github.com/stories)
 
-### {% data variables.product.prodname_campus_program %} terms and conditions
+## {% data variables.product.prodname_campus_program %} terms and conditions
 
 - The license is free for one year and will automatically renew for free every 2 years. You may continue on the free license so long as you continue to operate within the terms of the agreement. Any school that can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
 
@@ -33,7 +34,7 @@ To read about how GitHub is used by educators, see [GitHub Education stories.](h
 
 To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see ["Global Privacy Practices"](/github/site-policy/global-privacy-practices)
 
-### {% data variables.product.prodname_campus_program %} Application Eligibility
+## {% data variables.product.prodname_campus_program %} Application Eligibility
 
 - Often times, a campus CTO/CIO, Dean, Department Chair, or Technology Officer signs the terms of the program on behalf of the campus.
 

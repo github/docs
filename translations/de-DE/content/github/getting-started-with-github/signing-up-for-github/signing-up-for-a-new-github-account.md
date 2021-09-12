@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 Weitere Informationen zu den verschiedenen Konto- und Produkttypen findest Du unter „[Arten von {% data variables.product.prodname_dotcom %}-Konten](/articles/types-of-github-accounts)“ und „[Produkte von {% data variables.product.product_name %}](/articles/github-s-products).“
 
 {% data reusables.accounts.create-account %}

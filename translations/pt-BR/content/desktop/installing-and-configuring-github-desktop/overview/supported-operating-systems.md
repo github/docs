@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre sistemas operacionais compatíveis
 
 Os sistemas operacionais a seguir são compatíveis com {% data variables.product.prodname_desktop %}.

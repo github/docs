@@ -76,8 +76,8 @@ Una vez que se configure el aprovisionamiento de usuarios para {% data variables
 
 Cuando conectas un grupo de IdP a un equipo de {% data variables.product.product_name %}, todos los usuarios en el grupo se agregan automáticamente al equipo. {% if currentVersion == "github-ae@latest" %}Cualquier usuario que no fuera un miembro de aquellos de la organización desde antes también se agregará a esta.{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -89,8 +89,8 @@ Cuando conectas un grupo de IdP a un equipo de {% data variables.product.product
 
 Si desconectas un grupo de IdP de un equipo de {% data variables.product.prodname_dotcom %}, los miembros de este equipo que fueran asignados al equipo {% data variables.product.prodname_dotcom %} a través del grupo de IdP se eliminarán de dicho equipo. {% if currentVersion == "github-ae@latest" %} Cualquier usuario que fuera miembro de la organización padre únicamente debido a esa conexión de equipo también se eliminará de la organización.{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}

@@ -13,6 +13,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 {% data variables.product.prodname_marketplace %}のイベントwebhookは、アプリケーションの{% data variables.product.prodname_marketplace %}リストページからのみセットアップできます。 他のすべてのイベントは、[アプリケーションの開発者設定ページ](https://github.com/settings/developers)から設定できます。 {% data variables.product.prodname_marketplace %}のリストを作成していない場合は、「[ドラフトの{% data variables.product.prodname_marketplace %}リストの作成](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)」を読んで、その方法を学んでください。
 
 ### webhookの作成

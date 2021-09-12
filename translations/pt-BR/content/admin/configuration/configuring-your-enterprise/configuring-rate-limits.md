@@ -13,6 +13,7 @@ topics:
   - Infrastructure
   - Performance
 ---
+
 ### Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}
 
 Habilitar limites de taxa na {% data variables.product.prodname_enterprise_api %} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".

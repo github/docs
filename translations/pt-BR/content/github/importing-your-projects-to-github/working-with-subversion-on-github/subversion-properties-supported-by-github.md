@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### Arquivos executáveis (svn:executable)
 
 Nós convertemos propriedades `svn:executable` atualizando o modo de arquivo diretamente antes de adicioná-lo ao repositório Git.

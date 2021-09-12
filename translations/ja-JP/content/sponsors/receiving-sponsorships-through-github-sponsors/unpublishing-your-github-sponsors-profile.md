@@ -1,6 +1,6 @@
 ---
-title: Unpublishing your GitHub Sponsors profile
-intro: 'If you don''t have any sponsors, you can unpublish your {% data variables.product.prodname_sponsors %} profile.'
+title: GitHub Sponsors のプロフィールを非公開にする
+intro: 'スポンサーがいない場合は、{% data variables.product.prodname_sponsors %} のプロフィールを非公開にすることができます。'
 versions:
   free-pro-team: '*'
 type: how_to
@@ -9,13 +9,13 @@ topics:
   - Sponsors payments
 ---
 
-If you have sponsors, you'll need to contact GitHub Support to help you unpublish your {% data variables.product.prodname_sponsors %} account.
+スポンサーがいる場合は、{% data variables.product.prodname_sponsors %} アカウントを非公開にするときに GitHub Support に問い合わせて支援を受ける必要があります。
 
-After your {% data variables.product.prodname_sponsors %} account is unpublished:
-- You'll no longer receive sponsorship payments.
-- You can request to re-publish your profile.
+{% data variables.product.prodname_sponsors %} アカウントが非公開になると、以下のようになります。
+- スポンサーシップの支払いを受け取ることはなくなります。
+- プロフィールの再公開をリクエストできます。
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
-3. Under "Unpublish your GitHub Sponsors profile", click **Unpublish profile**. !["Unpublish profile" button](/assets/images/help/sponsors/unpublish-profile-button.png)
-4. To confirm, click "Unpublish GitHub Sponsors account". !["Unpublish GitHub Sponsors profile" button](/assets/images/help/sponsors/unpublish-profile-dialog.png)
+3. [Unpublish your GitHub Sponsors profile] で [**Unpublish profile**] をクリックします。 ![[Unpublish profile] ボタン](/assets/images/help/sponsors/unpublish-profile-button.png)
+4. [Unpublish GitHub Sponsors account] をクリックして確認します。 ![[Unpublish GitHub Sponsors profile] ボタン](/assets/images/help/sponsors/unpublish-profile-dialog.png)

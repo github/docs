@@ -1,6 +1,6 @@
 ---
 title: 关于 GitHub 高级安全许可
-intro: 'You need a license to use {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.'
+intro: '您需要许可才可使用 {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_secret_scanning %}。'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
@@ -14,11 +14,11 @@ topics:
 
 ### 关于 {% data variables.product.prodname_GH_advanced_security %} 的许可
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. 有关 {% data variables.product.prodname_GH_advanced_security %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。
+您可以通过购买和上传 {% data variables.product.prodname_GH_advanced_security %} 许可为用户提供额外的代码安全功能。 有关 {% data variables.product.prodname_GH_advanced_security %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。
 
 {% data reusables.advanced-security.license-overview %}
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %}. To enable {% data variables.product.prodname_GH_advanced_security %}, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your appliance](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+要讨论 {% data variables.product.product_name %} 的 {% data variables.product.prodname_GH_advanced_security %} 许可，请联系 {% data variables.contact.contact_enterprise_sales %}。 要启用 {% data variables.product.prodname_GH_advanced_security %}，请参阅“[为设备启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”。
 
 ### 关于 {% data variables.product.prodname_GH_advanced_security %} 的提交者数量
 

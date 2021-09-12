@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 SSH で {% data variables.product.product_name %} リポジトリをクローンする場合、他の認証情報ではなく SSH キーで認証します。 SSH 接続のセットアップについては「[SSH キーを生成する](/articles/generating-an-ssh-key)」を参照してください。
 
 {% mac %}
@@ -94,6 +95,8 @@ $ git config --global credential.helper wincred
   $ git config --global credential.helper 'cache --timeout=3600'
   # Set the cache to timeout after 1 hour (setting is in seconds)
   ```
+
+For more options for storing your credentials on Linux, see [Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) in Pro Git.
 
 {% endlinux %}
 

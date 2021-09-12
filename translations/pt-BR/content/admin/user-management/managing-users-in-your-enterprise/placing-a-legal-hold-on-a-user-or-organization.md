@@ -15,6 +15,7 @@ topics:
   - Organizations
   - User account
 ---
+
 Geralmente, quando alguém exclui um repositório, ele continua disponível em disco por 90 dias e pode ser restaurado pelo painel de administração do site. Após esse período, o repositório é removido e excluído permanentemente. Ao impor uma retenção legal a um usuário ou organização, os repositórios desse usuário ou organização ficarão disponíveis para restauração por tempo indefinido.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}

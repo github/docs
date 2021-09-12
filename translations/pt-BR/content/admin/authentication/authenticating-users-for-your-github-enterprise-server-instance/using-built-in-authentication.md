@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Identity
 ---
+
 Você pode criar mensagens personalizadas que os usuários verão nas páginas de login e logout. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)".
 
 ### Configurar a autenticação integrada

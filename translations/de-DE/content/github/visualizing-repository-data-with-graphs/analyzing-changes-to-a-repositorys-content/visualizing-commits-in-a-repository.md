@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Das obere Diagramm zeigt Commits für das gesamte Jahr nach Woche.
 
 ![Repository-Commit-Jahresdiagramm](/assets/images/help/graphs/repo_commit_activity_year_graph.png)

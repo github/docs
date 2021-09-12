@@ -6,21 +6,22 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on Hyper-V
 ---
-### Prerequisites
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have Windows Server 2008 through Windows Server 2019, which support Hyper-V.
 - Most actions needed to create your virtual machine (VM) may also be performed using the [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). However, we recommend using the Windows PowerShell command-line shell for initial setup. Examples using PowerShell are included below. For more information, see the Microsoft guide "[Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)."
 
-### Hardware considerations
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Downloading the {% data variables.product.prodname_ghe_server %} image
+## Downloading the {% data variables.product.prodname_ghe_server %} image
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
@@ -28,7 +29,7 @@ topics:
 4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **Hyper-V (VHD)**.
 5. Click **Download for Hyper-V (VHD)**.
 
-### Creating the {% data variables.product.prodname_ghe_server %} instance
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -54,7 +55,7 @@ topics:
   ```
 6. Copy the VM's IP address and paste it into a web browser.
 
-### Configuring the {% data variables.product.prodname_ghe_server %} instance
+## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -62,7 +63,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Further reading
+## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

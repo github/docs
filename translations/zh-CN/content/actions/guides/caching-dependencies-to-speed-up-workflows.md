@@ -60,7 +60,7 @@ topics:
 - `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
 - `path`：**必要** 运行器上缓存或还原的文件路径。 路径可以是绝对路径或相对于工作目录的路径。
   - 路径可以是目录或单个文件，并且支持 glob 模式。
-  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. 例如：
+  - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
     ```
     - name: Cache Gradle packages
       uses: actions/cache@v2

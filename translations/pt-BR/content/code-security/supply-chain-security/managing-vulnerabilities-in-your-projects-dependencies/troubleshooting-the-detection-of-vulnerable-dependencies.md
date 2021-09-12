@@ -8,9 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Alerts
+  - Troubleshooting
+  - Errors
+  - Security updates
+  - Dependencies
+  - Vulnerabilities
+  - Dependency graph
+  - Alerts
+  - CVEs
+  - Repositories
 ---
+
 Os resultados da detecção de dependências relatados pelo {% data variables.product.product_name %} podem ser diferentes dos resultados retornados por outras ferramentas. Existem boas razões para isso e é útil entender como {% data variables.product.prodname_dotcom %} determina as dependências para o seu projeto.
 
 ### Por que algumas dependências parecem estar faltando?

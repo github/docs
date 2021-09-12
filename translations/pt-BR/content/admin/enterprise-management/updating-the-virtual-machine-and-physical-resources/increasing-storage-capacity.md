@@ -14,6 +14,7 @@ topics:
   - Performance
   - Storage
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
 À medida que mais usuários se juntam à sua {% data variables.product.product_location %}, talvez seja necessário redimensionar o volume de armazenamento. Consulte a documentação da sua plataforma de virtualização para obter informações sobre como fazer isso.
@@ -22,7 +23,7 @@ topics:
 
 {% note %}
 
-**Observação:** antes de redimensionar o volume de armazenamento do usuário, deixe sua instância em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+**Observação:** antes de redimensionar qualquer volume de armazenamento, coloque a sua instância em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endnote %}
 
@@ -56,6 +57,12 @@ topics:
 
 ### Aumentar o tamanho da partição de dados raiz usando um appliance existente
 
+{% warning %}
+
+**Aviso:** Antes de aumentar o tamanho da partição-raiz, você deve colocar sua instância no modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+
+{% endwarning %}
+
 1. Vincule o novo disco ao appliance do {% data variables.product.prodname_ghe_server %}.
 2. Execute o comando `parted` para formatar o disco:
   ```shell
@@ -63,13 +70,16 @@ topics:
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. Execute o comando `ghe-upgrade` para instalar um pacote completo específico da plataforma no disco recém-particionado. Pacotes de atualização de hotpatch universais, como `github-enterprise-2.11.9.hpkg`, não funcionarão conforme o esperado.
+3. Execute o comando `ghe-upgrade` para instalar um pacote completo específico da plataforma no disco recém-particionado. Pacotes de atualização de hotpatch universais, como `github-enterprise-2.11.9.hpkg`, não funcionarão conforme o esperado. Depois que o comando `ghe-upgrade` for concluído, os serviços do aplicativo serão encerrados automaticamente.
+
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Desligue o appliance:
+4. Como usuário raiz, que usa um editor de texto da sua escolha, edite o arquivo _/etc/fstab_, alterando o UUID para a `/` do ponto de montagem da nova unidade raiz. Você pode obter o UUID da nova unidade raiz com o comando `sudo lsblk -f`.
+5. Desligue o appliance:
   ```shell
   $ sudo poweroff
   ```
-5. No hipervisor, remova o disco raiz antigo e vincule o novo disco raiz no mesmo local do antigo.
-6. Inicie o appliance.
+6. No hipervisor, remova o disco raiz antigo e vincule o novo disco raiz no mesmo local do antigo.
+7. Inicie o appliance.
+8. Certifique-se de que os serviços do sistema estejam funcionando corretamente, depois liberar o modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".

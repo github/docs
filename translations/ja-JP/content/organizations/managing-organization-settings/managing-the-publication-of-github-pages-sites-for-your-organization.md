@@ -16,7 +16,7 @@ topics:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can choose to allow organization members to create publicly published sites, privately published sites, both, or neither. それ以外の場合は、公開を許可するか禁止するかを選択できます。 {% data variables.product.prodname_pages %} サイトのアクセス制御の詳細については、「[{% data variables.product.prodname_pages %} サイトの可視性を変更する](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」を参照してください。
+Organizationが{% data variables.product.prodname_ghe_cloud %} を使用している場合は、Organization のメンバーが公開サイト、非公開サイト、またはその両方を作成できるようにするか、どちらも作成できないようにするかを選択できます。 それ以外の場合は、公開を許可するか禁止するかを選択できます。 {% data variables.product.prodname_pages %} サイトのアクセス制御の詳細については、「[{% data variables.product.prodname_pages %} サイトの可視性を変更する](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」を参照してください。
 {% endif %}
 
 {% data variables.product.prodname_pages %} サイトの公開を許可しない場合、すでに公開されているサイトはすべて公開されたままになります。 そのサイトは手動で取り下げることができます。 詳細は「[{% data variables.product.prodname_pages %}サイトの取り下げ](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)」を参照してください。

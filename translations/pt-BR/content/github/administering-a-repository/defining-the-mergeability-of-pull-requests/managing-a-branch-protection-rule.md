@@ -25,6 +25,7 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 ---
+
 ### Sobre as regras de proteção do branch
 
 {% data reusables.repositories.branch-rules-example %}
@@ -60,7 +61,13 @@ Ignorar uma revisão de pull request". ![Caixa de seleção Restrict who can dis
 
    - Opcionalmente, para garantir que os pull requests sejam testados com o código mais recente no branch protegido, selecione **Exigir que os branches estejam atualizados antes do merge**. ![Caixa de seleção Status obrigatório rígido ou flexível](/assets/images/help/repository/protecting-branch-loose-status.png)
 
-   - Na lista de verificações de status disponíveis, selecione as verificações que você deseja tornar obrigatórias.![Lista de verificações de status disponíveis](/assets/images/help/repository/required-statuses-list.png)
+   - Na lista de verificações de status disponíveis, selecione as verificações que você deseja tornar obrigatórias.![Lista de verificações de status disponíveis](/assets/images/help/repository/required-statuses-list.png) 
+     
+     {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+
+1. Opcionalmente, selecione **Exige resolução de conversas antes de fazer merge**. ![Exigir resolução de conversas antes de fazer o merge](/assets/images/help/repository/require-conversation-resolution.png) 
+   
+   {%- endif %}
 
 1. Opcionalmente, selecione **Exigir commits assinados**. ![Opção Require signed commits (Exigir commits assinados)](/assets/images/help/repository/require-signed-commits.png)
 

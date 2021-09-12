@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% mac %}
 
 1. Navegue para [git-lfs.github.com](https://git-lfs.github.com) e clique em **Download** (Baixar). Como alternativa, é possível instalar o {% data variables.large_files.product_name_short %} usando um gerenciador de pacotes:
@@ -58,8 +59,7 @@ versions:
 
   {% endtip %}
 2. Em seu computador, localize o arquivo que foi baixado.
-3. Clique duas vezes sobre o arquivo denominado *git-lfs-windows-1.X.X.exe*, onde 1.X.X é substituído pela versão Git LFS que você baixou. Ao abrir este arquivo, o Windows irá executar um assistente de configuração para instalar
-{% data variables.large_files.product_name_short %}.
+3. Clique duas vezes sobre o arquivo denominado *git-lfs-windows-1.X.X.exe*, onde 1.X.X é substituído pela versão Git LFS que você baixou. Quando você abrir esse arquivo, o Windows executará um assistente de configuração para instalar o {% data variables.large_files.product_name_short %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Verifique se a instalação foi bem-sucedida:
   ```shell

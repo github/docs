@@ -14,6 +14,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### サーバーからサーバーへのリクエスト
 
 {% if currentVersion == "free-pro-team@latest" %}

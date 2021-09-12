@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### ローカルリポジトリについて
 {% data variables.product.prodname_dotcom %} のリポジトリはリモートリポジトリです。 {% data variables.product.prodname_desktop %} を使用してリポジトリのクローンを作成またはフォークして、コンピューター上にローカルリポジトリを作成できます。
 
@@ -42,6 +43,14 @@ versions:
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
+
+### Creating an alias for a local repository
+You can create an alias for a local repository to help differentiate between repositories of the same name in {% data variables.product.prodname_desktop %}. Creating an alias does not affect the repository's name on {% data variables.product.prodname_dotcom %}. In the repositories list, aliases appear in italics.
+
+1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
+2. Right-click the repository you want to create an alias for, then click **Create Alias**.
+3. Type an alias for the repository.
+4. Click **Create Alias**.
 
 ### 参考リンク
 - [リモートリポジトリについて](/github/getting-started-with-github/about-remote-repositories)

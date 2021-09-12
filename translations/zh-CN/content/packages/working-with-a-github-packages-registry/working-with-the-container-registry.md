@@ -1,6 +1,6 @@
 ---
-title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://ghcr.io`.'
+title: 使用容器注册表
+intro: '您可以在使用包命名空间 `https://ghcr.io` 的 {% data variables.product.prodname_container_registry %} 中存储和管理 Docker 和 OCI 映像。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -16,18 +16,18 @@ versions:
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### About {% data variables.product.prodname_container_registry %} support
+### 关于 {% data variables.product.prodname_container_registry %} 支持
 
-To push and pull container images, an organization admin or the owner of a personal account must enable the {% data variables.product.prodname_container_registry %}. 更多信息请参阅“[使用 {% data variables.product.prodname_container_registry %} 启用改进的容器支持](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)”。
+要推送和拉取容器映像，组织管理员或个人帐户所有者必须启用 {% data variables.product.prodname_container_registry %}。 更多信息请参阅“[使用 {% data variables.product.prodname_container_registry %} 启用改进的容器支持](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)”。
 
-When installing or publishing a Docker image, the Container registry supports foreign layers, such as Windows images.
+安装或发布 Docker 映像时，容器注册表支持外部层，例如 Windows 映像。
 
 {% data variables.product.prodname_container_registry %} 目前支持以下容器映像格式：
 
 * [Docker 映像清单 V2，架构 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Open Container Initiative (OCI) 规格](https://github.com/opencontainers/image-spec)
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### 向 {% data variables.product.prodname_container_registry %} 验证
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
@@ -45,7 +45,7 @@ When installing or publishing a Docker image, the Container registry supports fo
   $ docker push ghcr.io/OWNER/IMAGE-NAME:2.5
   ```
 
-首次发布包时，默认可见性是私有的。 To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+首次发布包时，默认可见性是私有的。 要更改可见性或设置访问权限，请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。
 
 ### 拉取容器映像
 

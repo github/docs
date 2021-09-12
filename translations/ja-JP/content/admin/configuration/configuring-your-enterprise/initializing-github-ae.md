@@ -9,21 +9,29 @@ topics:
 redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
+
 ### 初期化について
 
 Enterprise を初期化する前に、{% data variables.product.product_name %} を購入する必要があります。 詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
 {% data variables.product.product_name %} を購入後、Enterprise を初期化するユーザのメールアドレスとユーザ名を入力するように求められます。 {% data variables.contact.enterprise_support %} の専任のテクニカルアカウントマネージャーが Enterprise オーナーのアカウントを作成し、Enterprise オーナーにメールを送信して {% data variables.product.product_name %} にログイン後、初期化を完了します。 提供する情報が、IdP 内の目的の Enterprise オーナーの情報と一致することを確認してください。 Enterprise オーナーの詳細については、「[Enterprise 内のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
 
+{% note %}
+
+設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
+
+- If the initial password for {% data variables.product.prodname_ghe_managed %} expires before you finish initialization, you can request a password reset at any time from your invitation email.
+
+- Store the initial username and password for {% data variables.product.prodname_ghe_managed %} securely in a password manager. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+
+{% endnote %}
+
 初期化中に、Enterprise オーナーは Enterprise に名前を付け、SAML SSO を設定し、Enterprise 内のすべての Organization のポリシーを作成して、ユーザのサポート連絡先を設定します。
 
 ### 必要な環境
 
-{% note %}
+To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
-**注釈**: 初期化を開始する前に、{% data variables.product.prodname_ghe_managed %} の初期ユーザ名とパスワードをパスワードマネージャーに安全に保存してください。 {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
-
-{% endnote %}
 
 1. {% data variables.product.product_location %} を初期化するには、SAML アイデンティティプロバイダ (IdP) が必要です。 {% data reusables.saml.ae-uses-saml-sso %} 初期化中に IdP を Enterprise に接続するには、IdP のエンティティ ID (SSO) URL、発行者 ID URL、公開署名証明書 (Base64 エンコード) が必要です。 詳しい情報については、「[Enterprise のアイデンティティとアクセス管理について](/admin/authentication/about-identity-and-access-management-for-your-enterprise)」を参照してください。
 

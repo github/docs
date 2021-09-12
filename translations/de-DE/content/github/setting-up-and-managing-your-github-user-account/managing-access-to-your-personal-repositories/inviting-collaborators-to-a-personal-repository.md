@@ -15,6 +15,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffsberechtigungen gewähren. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {% data variables.product.product_name %}](/articles/access-permissions-on-github).“
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
@@ -31,9 +32,7 @@ Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffs
 
 {% endif %}
 
-1. Frage nach dem Benutzernamen der Person, die Du als Mitarbeiter einlädst.
-
-{% if currentVersion == "free-pro-team@latest" %} Wenn die Person noch keinen Benutzernamen besitzt, kann sie sich für {% data variables.product.prodname_dotcom %} anmelden. Weitere Informationen findest Du unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“.{% endif %}
+1. Bringen Sie den Benutzernamen der Person in Erfahrung, die Sie als Mitarbeiter einladen möchten.{% if currentVersion == "free-pro-team@latest" %} Wenn diese Person noch keinen Benutzernamen hat, kann sie sich bei {% data variables.product.prodname_dotcom %} anmelden. Weitere Informationen finden Sie unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“.{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}

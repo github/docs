@@ -20,16 +20,16 @@ topics:
 
 ### 关于 {% data variables.product.prodname_secret_scanning %}
 
-{% data reusables.secret-scanning.about-secret-scanning %} For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)."
+{% data reusables.secret-scanning.about-secret-scanning %} 更多信息请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)”。
 
-### Prerequisites for {% data variables.product.prodname_secret_scanning %}
+### {% data variables.product.prodname_secret_scanning %} 的前提条件
 
 
 - [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470)（补充流式传输 SIMD 扩展 3）CPU 标志需要在运行 {% data variables.product.product_location %} 的 VM/KVM 上启用。
 
-- A license for {% data variables.product.prodname_GH_advanced_security %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)")
+- {% data variables.product.prodname_GH_advanced_security %} 的许可{% if currentVersion ver_gt "enterprise-server@3.0" %}（请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的许可](/admin/advanced-security/about-licensing-for-github-advanced-security)”）{% endif %}
 
-- {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- 在管理控制台中启用的 {% data variables.product.prodname_secret_scanning_caps %}（请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”）
 
 ### 检查您的 vCPU 上的 SSSE3 标志的支持
 
@@ -42,7 +42,7 @@ SSSE3 指令集是必需的，因为 {% data variables.product.prodname_secret_s
 grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
 ```
 
-如果返回值 `0`，则意味着 SSSE3 标志可用并且已启用。 您现在可以为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_secret_scanning %}。 For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
+如果返回值 `0`，则意味着 SSSE3 标志可用并且已启用。 您现在可以为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_secret_scanning %}。 更多信息请参阅下面的“[启用 {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)”。
 
 如果不返回 `0`，则 SSSE3 未在您的 VM/KVM 上启用。 您需要参考硬件/虚拟机监控程序的文档，以了解如何启用该标志，或者如何使其可用于访客 VM。
 

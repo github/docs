@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### 故障场景
 
 高可用性 (HA) 和集群都通过消除作为故障点的单个节点来提供冗余。 它们能够在这些场景中提供可用性：

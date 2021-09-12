@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/archive-a-classroom
   - /education/manage-coursework-with-github-classroom/manage-classrooms
 ---
+
 ### クラスルームについて
 
 {% data reusables.classroom.about-classrooms %}
@@ -44,7 +45,7 @@ Organizationアカウントのクラスルームを管理するには、Organiza
 1. [**New classroom**] をクリックします。 ![[New classroom] ボタン](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-クラスルームの作成後は、学生用の課題作成に取りかかることができます。 詳しい情報については、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」または「[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」を参照してください。
+クラスルームの作成後は、学生用の課題作成に取りかかることができます。 For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
 ### クラスルームの名簿を作成する
 
@@ -56,7 +57,9 @@ Organizationアカウントのクラスルームを管理するには、Organiza
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
 1. {% data variables.product.prodname_classroom %}をLMSに接続して名簿をインポートするには、[{% octicon "mortar-board" aria-label="The mortar board icon" %} **Import from a learning management system**] をクリックして指示に従います。 詳しい情報については、「[学習管理システムを{% data variables.product.prodname_classroom %}に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)」を参照してください。 ![[Import from a learning management system] ボタン](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. 名簿を手動で作成するには、学生の識別子を入力します。 必要に応じて、[**Upload a CSV or text file**] をクリックし、識別子を含むファイルをアップロードてください。 ![学生の識別子を入力するためのテキストフィールドと [Upload a CSV or text file] ボタン](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
+1. Provide the student identifiers for your roster.
+     - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
+     - To create a roster manually, type your student identifiers. ![学生の識別子を入力するためのテキストフィールドと [Upload a CSV or text file] ボタン](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
 1. [**Create roster**] をクリックします。 ![[Create roster] ボタン](/assets/images/help/classroom/click-create-roster-button.png)
 
 ### クラスルームの名簿に学生を追加する

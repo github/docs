@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 本文为考虑从 OAuth 应用程序迁移到 GitHub 应用程序的现有集成者提供指南。
 
 ### 切换到 GitHub 应用程序的原因

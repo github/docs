@@ -8,9 +8,15 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: reference
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 ### About the *dependabot.yml* file
 
 The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. Wenn Sie bislang noch nicht mit YAML gearbeitet haben, lesen Sie den Artikel „[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
@@ -283,22 +289,27 @@ updates:
 
 #### `ignore`
 
-{% data reusables.dependabot.warning-ignore-option %}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-##### Checking for existing ignore preferences
+Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
 
-Before you add an `ignore` option to the configuration file, check whether you've previously used any of the `@dependabot ignore` commands on a security update or version update pull request. {% data variables.product.prodname_dependabot %} stores these preferences for each package manager centrally and this information is overwritten by the `ignore` option. For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+##### Creating `ignore` conditions from `@dependabot ignore`
 
-You can check whether a repository has stored preferences by searching the repository for `"@dependabot ignore" in:comments`. If you review any pull requests in the results, you can decide whether or not to specify those ignored dependencies or versions in the configuration file.
+Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
+
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+
+For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 ##### Specifying dependencies and versions to ignore
 
-{% data reusables.dependabot.default-dependencies-allow-ignore %}
-
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
+- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).
 - `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
+- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: *` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
+
+If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -317,6 +328,9 @@ updates:
         versions: ["4.x", "5.x"]
         # For Lodash, ignore all updates
       - dependency-name: "lodash"
+        # For AWS SDK, ignore all patch updates
+      - dependency-name: "aws-sdk"
+        update-types: ["version-update:semver-patch"]
 ```
 
 {% note %}
@@ -933,5 +947,19 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `terraform-registry`
+
+The `terraform-registry` type supports a token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}

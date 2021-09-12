@@ -16,5 +16,6 @@ children:
   - /exporting-migration-data-from-githubcom
   - /preparing-to-migrate-data-to-your-enterprise
   - /migrating-data-to-your-enterprise
+  - /importing-data-from-third-party-version-control-systems
 ---
 

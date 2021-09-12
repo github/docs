@@ -18,6 +18,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### 新しいドラフトの{% data variables.product.prodname_marketplace %}リストの作成
 
 パブリックなアプリケーションについては、ドラフトのリストだけが作成できます。 ドラフトのリストを作成する前に、{% data variables.product.prodname_marketplace %}リストの設定を書いて構成するための以下のガイドラインを読んでください。
@@ -40,10 +41,7 @@ topics:
 
   ![アプリケーションの種類の選択](/assets/images/settings/apps_choose_app.png)
 
-4. 追加したいアプリケーションを選択してください。
-
-{% data variables.product.prodname_marketplace %}.
-![{% data variables.product.prodname_marketplace %}リストのアプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
+4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}. ![{% data variables.product.prodname_marketplace %}リストのアプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
 5. 新しいドラフトのリストを作成すると、{% data variables.product.prodname_marketplace %}のリストの完成前にアクセスしておかなければならないセクションの概要が表示されます。 ![GitHub Marketplaceのリスト](/assets/images/marketplace/marketplace_listing_overview.png)
 

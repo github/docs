@@ -25,14 +25,14 @@ Organizationのオーナーには、Organization に対する管理アクセス�
 
 {% note %}
 
-**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
+**ノート**: Organizationオーナーは、他のOrganizationメンバーやオーナーのロールを変更できます。 自分自身のロールを変更することはできません。
 
 {% endnote %}
 
 ### Organizationのオーナーの指名
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. オーナーに昇格させる人 (一人または複数人) を選択します。 ![2 人のメンバーを選択した状態のメンバーリスト](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Team のメンバー一覧の上にあるドロップダウンメニューで [**Change role**] をクリックします。 ![メンバーを削除するオプションのあるドロップダウンメニュー](/assets/images/help/teams/user-bulk-management-options.png)

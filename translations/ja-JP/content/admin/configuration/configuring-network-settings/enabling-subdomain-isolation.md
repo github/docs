@@ -16,18 +16,17 @@ topics:
   - Networking
   - Security
 ---
+
 ### Subdomain Isolationについて
 
 Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location %}ではSubdomain Isolationを有効化することを強くお勧めします。
 
-Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。
+Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。 After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
 {% if currentVersion == "enterprise-server@2.22" %}
-Docker を
-{% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効にする必要があります。 For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+Docker を {% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効化する必要があります。 詳しい情報については、「[Docker レジストリを利用する](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)」を参照してください。
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-|
 {% endif %}
 | Subdomain Isolationなしのパス                                                                                                                                            | Subdomain Isolationされたパス                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

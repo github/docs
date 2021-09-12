@@ -8,9 +8,18 @@ redirect_from:
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Version updates
+  - Repositories
+  - Pull requests
+  - Troubleshooting
+  - Errors
+  - Dependencies
 ---
+
 ### Sobre os erros do {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}

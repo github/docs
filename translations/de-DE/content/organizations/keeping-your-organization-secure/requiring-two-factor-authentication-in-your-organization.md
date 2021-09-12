@@ -57,8 +57,8 @@ Wenn Sie wissen möchten, welche Personen automatisch aus Ihrer Organisation ent
 
 ![Ereignis im Auditprotokoll zur Entfernung eines Benutzers aufgrund der Nichterfüllung der 2FA-Anforderung](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Gib Deine Suchabfrage ein. Verwende für Deine Suche die folgenden Abfragen:
     - für die Suche nach entfernten Organisationsmitgliedern die Suchabfrage `action:org.remove_member`

@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 关于对企业帐户的 SAML 访问
 
 对企业帐户启用 SAML 单点登录时，每个企业成员都可以将其在身份提供程序 (IdP) 上的外部身份链接到其现有的 {% data variables.product.product_name %} 帐户。 {% data reusables.saml.about-saml-access-enterprise-account %}
@@ -22,10 +23,10 @@ topics:
 
 {% warning %}
 
-**Warning:** For organizations using SCIM:
-- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
-- An admin must revoke a linked identity through the identity provider.
-- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's docs.
+**警告：**对于使用 SCIM 的组织：
+- 撤销 {% data variables.product.product_name %} 上链接的用户身份也会删除 SAML 和 SCIM 元数据。 因此，身份提供商无法同步或解除预配已链接的用户身份。
+- 管理员必须通过身份提供商撤销链接的身份。
+- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。 更多信息请参阅身份提供商的文档。
 
 {% endwarning %}
 

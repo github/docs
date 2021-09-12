@@ -15,6 +15,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise アカウントで Organization の 2 要素認証を必須にする
 
 Enterprise のオーナーは、Enterprise アカウントが所有するすべての Organization で、Organization のメンバー、支払いマネージャー、外部コラボレーターに対して個人アカウントをセキュアに保つために 2 要素認証の使用を義務化できます。
@@ -47,7 +48,7 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
@@ -59,6 +60,10 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+
+#### Allowing access by {% data variables.product.prodname_github_apps %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 #### 許可 IP アドレスを有効化する
 

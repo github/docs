@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### Deine autorisierten {% data variables.product.prodname_oauth_app %}s überprüfen
 
 {% data reusables.user_settings.access_settings %}

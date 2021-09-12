@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
 ---
+
 ### 自動採点について
 
 教師は、{% data variables.product.product_location %}の課題リポジトリにプッシュする際、自動的にその作業をチェックするテストを設定できます。

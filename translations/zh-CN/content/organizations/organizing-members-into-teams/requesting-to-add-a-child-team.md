@@ -19,8 +19,8 @@ topics:
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 在团队列表中，单击您要在其中添加子团队的父团队名称。 ![组织的团队列表](/assets/images/help/teams/click-team-name.png)
 5. 在团队页面顶部，单击 {% octicon "people" aria-label="The people icon" %} **Teams（团队）**。 ![团队页面上的团队选项卡](/assets/images/help/teams/team-teams-tab.png)

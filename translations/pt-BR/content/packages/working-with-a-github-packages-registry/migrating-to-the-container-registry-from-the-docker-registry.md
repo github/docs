@@ -31,7 +31,7 @@ With the {% data variables.product.prodname_container_registry %} you can:
 
 During the {% data variables.product.prodname_container_registry %} beta, both the new {% data variables.product.prodname_container_registry %} and the existing {% data variables.product.prodname_registry %} Docker registry are free of charge. For more information about the {% data variables.product.prodname_registry %} Docker registry, see "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
-After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Sobre a cobrança para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
+After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Sobre a cobrança para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".
 
 ### Alterações de domínio
 
@@ -42,7 +42,7 @@ O domínio para o {% data variables.product.prodname_container_registry %} é `g
 | Registro Docker de {% data variables.product.prodname_registry %} | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_container_registry %}        | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.feature-preview-for-container-registry %}
 
@@ -93,9 +93,9 @@ Se tiver um fluxo de trabalho de {% data variables.product.prodname_actions %} q
 
 2. No seu arquivo de fluxo de trabalho do {% data variables.product.prodname_actions %}, atualize a URL do pacote de `https://docker.pkg.github.com` para `ghcr.io`.
 
-3. Adicione seu novo token de acesso de autenticação pessoal (PAT) de {% data variables.product.prodname_container_registry %} como um segredo do GitHub Action. The {% data variables.product.prodname_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+3. Use the `GITHUB_TOKEN` for your authentication personal access token (PAT). Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow)".
 
-4. No seu arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} atualize a autenticação do PAT substituindo o seu PAT do registro do Docker ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) por uma nova variável para o seu PAT de {% data variables.product.prodname_container_registry %}, como, por exemplo, {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
+4. In your {% data variables.product.prodname_actions %} workflow file, use the authentication token {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} as your {% data variables.product.prodname_container_registry %} PAT.
 
 #### Exemplo de fluxo de trabalho atualizado
 
@@ -110,12 +110,12 @@ docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
 ```
 {% endraw %}
 
-Você deverá atualizar o seu fluxo de trabalho com a nova URL de {% data variables.product.prodname_container_registry %} e PAT dessa forma:
+Then you'll need to update your workflow with the new {% data variables.product.prodname_container_registry %} URL like this:
 
 {% raw %}
 ```yaml
 # new login with new container registry url and PAT
-echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 # new container registry urls added
 docker pull ghcr.io/github/octoshift:latest
 docker build . --tag ghcr.io/github/octoshift:$GITHUB_SHA --cache-from ghcr.io/github/octoshift:latest

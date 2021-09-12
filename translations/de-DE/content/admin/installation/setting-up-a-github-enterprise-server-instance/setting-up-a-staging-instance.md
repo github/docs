@@ -12,6 +12,7 @@ topics:
   - Infrastructure
   - Upgrades
 ---
+
 {% tip %}
 
 **Tipp:** Sie können Ihre vorhandene {% data variables.product.prodname_enterprise %}-Lizenzdatei wiederverwenden, sofern die Testinstanz nicht für die Produktion verwendet wird.

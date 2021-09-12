@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %} Para obter mais informações, consulte "[Sobre pesquisar no GitHub](/articles/about-searching-on-github)."
 
 Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de código. Qualificadores de pesquisa específicos para repositórios, usuários ou commits não funcionarão com a pesquisa de códigos.
@@ -33,7 +34,7 @@ Devido à complexidade da pesquisa de códigos, a execução das pesquisas apres
 - Apenas repositórios que tiveram atividade ou apareceram nos resultados de pesquisa do último ano são pesquisáveis.{% endif %}
 - Com exceção das pesquisas por [`filename`](#search-by-filename), é necessário incluir pelo menos um termo da pesquisa ao pesquisar o código-fonte. Por exemplo, pesquisar [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) não é válido, enquanto pesquisar [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) é.
 - Os resultados da pesquisa exibem no máximo dois fragmentos do mesmo arquivo, mas o arquivo pode ter mais resultados.
-- Não é possível usar os seguintes caracteres-curinga na consulta de pesquisa: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. A pesquisa simplesmente ignora esses símbolos.
+- Não é possível usar os seguintes caracteres-curinga na consulta de pesquisa: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. A pesquisa simplesmente ignora esses símbolos.
 
 ### Pesquisar pelo conteúdo ou caminho do arquivo
 
@@ -68,7 +69,7 @@ Você pode usar o qualificador `path` para pesquisar o código-fonte que aparece
 ### Pesquisar por linguagem
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-Você pode pesquisar código com base na linguagem na qual ele foi escrito. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+Você pode pesquisar código com base na linguagem na qual ele foi escrito. O qualificador da `linguagem` pode ser o nome da linguagem ou o alias. Para obter uma lista completa de linguagens compatíveis com seus nomes e aliases, acesse o \[repositório github/linguista\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                     |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

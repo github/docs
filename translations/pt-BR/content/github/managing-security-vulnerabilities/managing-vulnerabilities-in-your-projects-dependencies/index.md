@@ -9,4 +9,5 @@ children:
   - /about-alerts-for-vulnerable-dependencies
   - /configuring-notifications-for-vulnerable-dependencies
 ---
+
 <!--See content/code-security/supply-chain-security for the current version of this article -->

@@ -33,7 +33,7 @@ topics:
 
 {% if currentVersion ver_gt "enterprise-server@3.0" %}如果您具有 {% data variables.product.prodname_GH_advanced_security %} 许可，则该页面还包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
-{% if currentVersion == "github-ae@latest" %}该页面还将包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。{% endif %}
+{% if currentversion == "github-ae@latest" %}该页面还将包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。{% endif %}
 
 ### 为所有现有仓库启用或禁用功能
 
@@ -80,7 +80,7 @@ topics:
    {% endif %}
    {% endif %}
    {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change. ![用于为组织中所有符合条件的仓库启用功能的按钮](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
+3. 单击 **Enable/Disable all（全部启用/禁用）**或 **Enable/Disable for eligible repositories（对合格的仓库启用/禁用）**以确认更改。 ![用于为组织中所有符合条件的仓库启用功能的按钮](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
 
    {% data reusables.security.displayed-information %}
@@ -129,7 +129,7 @@ topics:
 您可以从仓库的“Settings（设置）”选项卡管理对仓库 {% data variables.product.prodname_GH_advanced_security %} 功能的访问。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。 但您也可以从“Settings（设置）”选项卡对仓库禁用 {% data variables.product.prodname_GH_advanced_security %} 功能。
 
 1. 转到组织的安全和分析设置。 更多信息请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
-1. 要查看您组织中启用 {% data variables.product.prodname_GH_advanced_security %} 的所有仓库的列表，请滚动到“{% data variables.product.prodname_GH_advanced_security %} 仓库”部分。 ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) 表格列出了每个仓库的唯一提交者数量。 这是您可以通过移除 {% data variables.product.prodname_GH_advanced_security %} 访问权限释放的席位数。 {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."{% else %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."{% endif %}
+1. 要查看您组织中启用 {% data variables.product.prodname_GH_advanced_security %} 的所有仓库的列表，请滚动到“{% data variables.product.prodname_GH_advanced_security %} 仓库”部分。 ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) 表格列出了每个仓库的唯一提交者数量。 这是您可以通过移除 {% data variables.product.prodname_GH_advanced_security %} 访问权限释放的席位数。 {% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的许可](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)”。{% else %}更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的许可](/admin/advanced-security/about-licensing-for-github-advanced-security)”。{% endif %}
 1. 要从仓库删除对 {% data variables.product.prodname_GH_advanced_security %} 的访问，并释放任何提交者使用的对仓库唯一的席位，请单击相邻的 {% octicon "x" aria-label="X symbol" %}。
 1. 在确认对话框中，单击击 **Remove repository（移除仓库）** 以移除对 {% data variables.product.prodname_GH_advanced_security %} 功能的访问权限。
 
@@ -143,7 +143,7 @@ topics:
 
 ### 延伸阅读
 
-- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
 - "[关于密码扫描](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
 - "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}{% if currentVersion != "github-ae@latest" %}
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”

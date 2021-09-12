@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data variables.product.product_name %}では、以下の方法によりリポジトリのコミット履歴を表示できます。
 
 - リポジトリの[コミットページ](https://github.com/mozilla/rust/commits/master)に直接移動する

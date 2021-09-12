@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### Automatisierte Ticketsysteme nutzen
 
 Obwohl wir bestrebt sind, auf automatisierte Supportanfragen zu reagieren, benötigen wir in der Regel mehr Informationen, als ein automatisiertes Ticketsystem uns zur Lösung Ihres Problems bereitstellen kann. Stellen Sie nach Möglichkeit bitte Supportanfragen über eine Person oder Maschine, mit der der {% data variables.contact.enterprise_support %} interagieren kann. Weitere Informationen finden Sie unter „[Absenden eines Tickets vorbereiten](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)“.

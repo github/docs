@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 この記事は、OAuth AppをGitHub Appに移行することを検討している既存のインテグレーターにガイドラインを提供します。
 
 ### GitHub Appに切り替える理由

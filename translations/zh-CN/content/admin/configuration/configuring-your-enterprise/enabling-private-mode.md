@@ -21,6 +21,7 @@ topics:
   - Privacy
   - Security
 ---
+
 如果 {% data variables.product.product_location %} 可通过 Internet 公开访问，您必须启用私有模式。 在私有模式下，用户不能通过 `git://` 匿名克隆仓库。 如果还启用了内置身份验证，管理员必须邀请新用户在实例上创建帐户。 更多信息请参阅“[使用内置身份验证](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)”。
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}

@@ -11,6 +11,7 @@ topics:
   - Identity
   - Access management
 ---
+
 O {% data variables.product.product_name %} solicita uma senha para executar ações confidenciais, como adicionar novas chaves SSH, autorizar aplicativos ou modificar os integrantes da equipe.
 
 Depois de alterar sua senha, você deve executar estas ações para confirmar que sua conta está segura:

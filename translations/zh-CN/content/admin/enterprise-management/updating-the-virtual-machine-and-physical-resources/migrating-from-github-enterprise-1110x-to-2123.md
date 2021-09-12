@@ -19,6 +19,7 @@ topics:
   - Migration
   - Upgrades
 ---
+
 支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
 
 要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。 更多信息请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。

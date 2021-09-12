@@ -88,4 +88,4 @@ Organization がスポンサード Organization になるには、{% data variab
 
 ### 参考リンク
 - [{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
-- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
+- 「[{% data variables.product.prodname_sponsors %} を通じてスポンサーシップを獲得する](/sponsors/receiving-sponsorships-through-github-sponsors)」

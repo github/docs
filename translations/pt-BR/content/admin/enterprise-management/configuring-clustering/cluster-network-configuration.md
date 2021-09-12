@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### Considerações de rede
 
 A composição de rede mais simples para o clustering é deixar os nós em uma única LAN. Se um cluster abranger sub-redes, não recomendamos configurar quaisquer regras de firewall entre as redes. A latência entre os nós deve ser inferior a 1 milissegundo.

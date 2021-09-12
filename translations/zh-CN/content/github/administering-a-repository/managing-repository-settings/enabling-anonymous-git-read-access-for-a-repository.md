@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 在以下情况下，仓库管理员可以更改特定仓库的匿名 Git 读取权限设置：
 - 站点管理员已启用私有模式和匿名 Git 读取权限。
 - 仓库在企业上是公共的，并且不是复刻。

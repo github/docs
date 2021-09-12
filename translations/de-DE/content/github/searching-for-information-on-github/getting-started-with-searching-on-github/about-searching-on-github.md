@@ -16,6 +16,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %}
 
 - Um global über {% data variables.product.product_name %} hinweg zu suchen, gib Deine Suchanfrage in das Suchfeld oben auf jeder Seite ein, und wähle im im Dropdownmenü der Suche „All {% data variables.product.prodname_dotcom %}“ (Ganzes Produkt).
@@ -67,9 +68,8 @@ Wenn Du {% data variables.product.prodname_enterprise %} verwendest und Mitglied
 Du kannst beide Umgebungen nur von {% data variables.product.prodname_enterprise %} aus durchsuchen. Um Deine Suche nach Umgebung einzugrenzen, kannst Du eine Filteroption in der {% data variables.search.advanced_url %} oder das Suchpräfix `environment:` verwenden. Um nur nach Inhalten auf {% data variables.product.prodname_enterprise %} zu suchen, verwende die Suchsyntax `environment:local`. Um nur nach Inhalten auf {% data variables.product.prodname_dotcom_the_website %} zu suchen, verwende die Suchsyntax `environment:github`.
 
 Dein {% data variables.product.prodname_enterprise %}-Websiteadministrator kann {% data variables.product.prodname_unified_search %} für alle öffentlichen Repositorys, alle privaten Repositorys oder nur bestimmte private Repositorys in der verbundenen {% data variables.product.prodname_ghe_cloud %}-Organisation aktivieren.
-If your site administrator enables
 
-{% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Deine {% data variables.product.prodname_enterprise %}-Administratoren und Organisationsinhaber auf {% data variables.product.prodname_dotcom_the_website %} können keine privaten Repositorys durchsuchen, die Deinem Konto gehören. Um die entsprechenden privaten Repositorys zu durchsuchen, musst Du die Suche auf privaten Repositorys auf Deinen persönlichen Konten auf {% data variables.product.prodname_dotcom_the_website %} und {% data variables.product.prodname_enterprise %} aktivieren. Weitere Informationen findest Du unter „[Die Suche auf privaten {% data variables.product.prodname_dotcom_the_website %}-Repositorys in Deinem {% data variables.product.prodname_enterprise %}-Konto aktivieren](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account).“
+Wenn Ihr Websiteadministrator {% data variables.product.prodname_unified_search %} in privaten Repositorys aktiviert, können Sie nur in den privaten Repositorys suchen, für die der Administrator {% data variables.product.prodname_unified_search %} aktiviert hat und auf die Sie in der verbundenen {% data variables.product.prodname_dotcom_the_website %}-Organisation Zugriff haben. Deine {% data variables.product.prodname_enterprise %}-Administratoren und Organisationsinhaber auf {% data variables.product.prodname_dotcom_the_website %} können keine privaten Repositorys durchsuchen, die Deinem Konto gehören. Um die entsprechenden privaten Repositorys zu durchsuchen, musst Du die Suche auf privaten Repositorys auf Deinen persönlichen Konten auf {% data variables.product.prodname_dotcom_the_website %} und {% data variables.product.prodname_enterprise %} aktivieren. Weitere Informationen findest Du unter „[Die Suche auf privaten {% data variables.product.prodname_dotcom_the_website %}-Repositorys in Deinem {% data variables.product.prodname_enterprise %}-Konto aktivieren](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account).“
 {% endif %}
 
 ### Weiterführende Informationen

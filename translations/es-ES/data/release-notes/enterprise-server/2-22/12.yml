@@ -1,0 +1,21 @@
+date: '2021-04-28'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Durante las mejoras, el proceso se pausó indefinidamente después de un `cleanup nomad job`.'
+    - 'Un `ghe-cluster-failover` falló con el mensaje de error `Trilogy::Error: trilogy_connect`.'
+    - '`ghe-cluster-status-mysql` mostró advertencias sobre recuperaciones de fallos como errores.'
+    - 'El script de configuración que se ejecuta en la replica de MySQL puede haber causado un resembrado innecesario de la base de datos durante la recuperación de fallos de la base de datos.'
+    - '`config-apply` pudo haber tomado más tiempo del necesario debido a que se llamó a `rake db:migrate` innecesariamente.'
+    - 'El orquestador pudo haberse recuperado de un fallo en una réplica de MySQL que no estaba replicando desde primario durante la fase de sembrado cuando el primario no se pudo conectar.'
+    - 'Las organizaciones o proyectos con errores bloquearon la migración y no pudieron excluirse.'
+    - 'Los clientes con más de tres hosts de almacenamiento no pudieron restablecer su clúster de recuperación de desastres debido a que se seleccionaron los discos más llenos en vez de los nodos vacíos.'
+  changes:
+    - 'Las verificaciones preliminares permiten tipos de instancia de AWS predeterminadamente.'
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
+    - 'Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'

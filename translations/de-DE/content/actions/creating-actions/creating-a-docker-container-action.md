@@ -29,6 +29,8 @@ Nach dem Abschluss dieses Projekts wirst Du verstehen, wie Du Deine eigene Docke
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Vorrausetzungen
 
 Es wir Dir vielleicht helfen, {% data variables.product.prodname_actions %} Umgebungsvariablen und das Docker-Container-Dateisystem grundlegend zu verstehen:

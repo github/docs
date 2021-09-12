@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **Dica:** o Importador do GitHub não é indicado para todas as importações. Por exemplo, se o código existente está hospedado em uma rede privada, sua ferramenta não conseguirá acessá-lo. Nesses casos, recomendamos [importar usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line) para repositórios Git ou uma [ferramenta de migração de código-fonte](/articles/source-code-migration-tools) externa para projetos importados por outros sistemas de controle de versões.

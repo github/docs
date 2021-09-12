@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 [Markdown](http://daringfireball.net/projects/markdown/) は、プレーンテキストをフォーマットするための読みやすく書きやすい構文です。
 
 サイトで文章とコードをフォーマットするのに使われる {% data variables.product.prodname_dotcom %}Flavored Markdown を作り出すために、弊社ではカスタムの機能をいくつか追加しました。

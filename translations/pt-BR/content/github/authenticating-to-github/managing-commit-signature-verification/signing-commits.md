@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
@@ -43,8 +44,7 @@ Se você tiver várias chaves ou estiver tentando assinar commits ou tags com um
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. Em
-{% data variables.product.product_name %}, navegue até o seu pull request.
+4. No {% data variables.product.product_name %}, navegue até sua pull request.
 {% data reusables.repositories.review-pr-commits %}
 5. Para exibir informações mais detalhadas sobre a assinatura verificada, clique em Verified (Verificada). ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 

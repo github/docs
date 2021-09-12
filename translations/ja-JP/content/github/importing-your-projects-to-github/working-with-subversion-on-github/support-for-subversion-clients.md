@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 GitHubは、HTTPS プロコトルを介して Subversion クライアントをサポートします。 GitHub に svn コマンドを伝えるには、Subversion ブリッジを使います。
 
 ### GitHub 上でサポートされる Subversion の機能

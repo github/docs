@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/comparing-releases
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. 在要用作基准的发行版旁边，单击 **Compare（比较）**。 ![比较发行版标记菜单](/assets/images/help/releases/compare-tags-menu.png)

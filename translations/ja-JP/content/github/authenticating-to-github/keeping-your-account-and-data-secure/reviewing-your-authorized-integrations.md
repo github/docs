@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### 許可された {% data variables.product.prodname_oauth_app %} をレビューする
 
 {% data reusables.user_settings.access_settings %}

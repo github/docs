@@ -29,6 +29,8 @@ Once you complete this project, you should understand how to build your own Dock
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 빌드전 요구 사양
 
 You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:

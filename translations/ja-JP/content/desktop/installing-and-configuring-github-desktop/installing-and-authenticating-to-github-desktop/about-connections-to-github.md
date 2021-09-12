@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} は、リモートリポジトリからプル、プッシュ、クローン、フォークを行うと、{% data variables.product.prodname_dotcom %} に接続します。 {% data variables.product.prodname_desktop %} から {% data variables.product.prodname_dotcom %} に接続するには、アカウントを認証する必要があります。 詳しい情報については「[{% data variables.product.prodname_dotcom %}への認証を行う](/desktop/getting-started-with-github-desktop/authenticating-to-github)」を参照してください。
 
 {% data variables.product.prodname_dotcom %} への認証後、{% data variables.product.prodname_desktop %} を使用してリモートリポジトリに接続できます。 {% data variables.product.prodname_desktop %} は、認証情報（ユーザ名とパスワード、または個人アクセストークン）をキャッシュし、その認証情報を使用してリモートリポジトリへの接続ごとに認証します。

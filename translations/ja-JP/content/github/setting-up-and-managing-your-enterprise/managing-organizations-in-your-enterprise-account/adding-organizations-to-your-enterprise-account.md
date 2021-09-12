@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Enterprise のオーナーは、Enterprise アカウント内に新しい Organization を作成できます。
 
 Organization を Enterprise アカウントに追加するには、 Enterprise アカウント設定から Organization を作成する必要があります。 既存の Organization を Enterprise アカウントに移行する場合は、{% data variables.product.prodname_dotcom %} セールス顧客担当にお問い合わせください。

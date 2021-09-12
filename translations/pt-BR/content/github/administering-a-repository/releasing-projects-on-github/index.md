@@ -1,5 +1,5 @@
 ---
-title: Lançando projetos no GitHub
+title: Releasing projects on GitHub
 intro: 'Você pode criar uma versão de modo a empacotar software, notas de versão e arquivos binários para outras pessoas baixarem.'
 redirect_from:
   - /categories/85/articles/

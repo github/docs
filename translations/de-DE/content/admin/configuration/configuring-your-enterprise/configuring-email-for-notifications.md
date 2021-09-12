@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Notifications
 ---
+
 {% if currentVersion == "github-ae@latest" %}
 Enterprise owners can configure email for notifications.
 {% endif %}
@@ -166,9 +167,7 @@ Wenn sich {% data variables.product.product_location %} hinter einer Firewall be
 
 #### Support kontaktieren
 {% if enterpriseServerVersions contains currentVersion %}
-If you're still unable to resolve the problem, contact
-{% data variables.contact.contact_ent_support %}. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.
+Kontaktieren Sie {% data variables.contact.contact_ent_support %}, falls Sie das Problem weiterhin nicht beheben können. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.
 {% elsif currentVersion == "github-ae@latest" %}
-You can contact
-{% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 {% endif %}

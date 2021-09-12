@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Preparar os dados migrados para importação para {% data variables.product.prodname_ghe_server %}
 
 1. Usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copie o arquivo de migração gerado na organização ou instância de origem para o destino no {% data variables.product.prodname_ghe_server %}:

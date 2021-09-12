@@ -22,7 +22,7 @@ topics:
 
 ### Introducción
 
-En esta guía se muestran ejemplos de flujos de trabajo que configuran un contenedor de servicios mediante la imagen `postgres` de Docker Hub. The workflow runs a script that connects to the PostgreSQL service, creates a table, and then populates it with data. To test that the workflow creates and populates the PostgreSQL table, the script prints the data from the table to the console.
+En esta guía se muestran ejemplos de flujos de trabajo que configuran un contenedor de servicios mediante la imagen `postgres` de Docker Hub. El flujo de trabajo ejecuta un script que se conecta con el servicio de PostgreSQL, crea una tabla y luego la llena de datos. Para probar que el flujo de trabajo crea y puebla la tabla de PostgreSQL, el script imprimie los datos de esta en la consola.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -280,9 +280,9 @@ steps:
 
 ### Probar el contenedor de servicios de PostgreSQL
 
-You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. Tu script puede usar el lenguaje que quieras, pero este ejemplo usa Node.js y el módulo npm de `pg`. Para obtener más información, consulta el [módulo npm de pg](https://www.npmjs.com/package/pg).
+Puedes probar tu flujo de trabajo utilizando el siguiente script, el cual se conecta con el servicio de PostgreSQL y agrega una tabla nueva con algunos datos de marcador de posición. Entonces, el script imprime los valores almacenados en la tabla de PostgreSQL en la terminal. Tu script puede usar el lenguaje que quieras, pero este ejemplo usa Node.js y el módulo npm de `pg`. Para obtener más información, consulta el [módulo npm de pg](https://www.npmjs.com/package/pg).
 
-Puedes modificar *client.js* para incluir cualquier operación de PostgreSQL que necesite tu flujo de trabajo. In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
+Puedes modificar *client.js* para incluir cualquier operación de PostgreSQL que necesite tu flujo de trabajo. En este ejemplo, el script se conecta al servicio de PostgreSQL, agrega la tabla a la base de datos de `postgres`, inserta algunos datos de marcador de posición y luego recupera los datos.
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -318,11 +318,11 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-The script creates a new connection to the PostgreSQL service, and uses the `POSTGRES_HOST` and `POSTGRES_PORT` environment variables to specify the PostgreSQL service IP address and port. Si `host` y `port` no están definidos, el host predeterminado es `localhost` y el puerto predeterminado es 5432.
+El script crea una conexión nueva con el servicio de PostgreSQL y utiliza las variables de ambiente `POSTGRES_HOST` y `POSTGRES_PORT` para especificar el puerto y dirección IP del servicio de PostgreSQL. Si `host` y `port` no están definidos, el host predeterminado es `localhost` y el puerto predeterminado es 5432.
 
-El script crea una tabla y la rellena con datos de marcador de posición. To test that the `postgres` database contains the data, the script prints the contents of the table to the console log.
+El script crea una tabla y la rellena con datos de marcador de posición. Para probar que la base de datos de `postgres` contenga los datos, el script imprime el contenido de la tabla en la bitácora de la consola.
 
-When you run this workflow, you should see the following output in the "Connect to PostgreSQL" step, which confirms that you successfully created the PostgreSQL table and added data:
+Cuando ejecutas este flujo de trabajo, debes ver la siguiente salida en el paso de "Connect to PostgreSQL", la cual te confirma que creaste exitosamente la tabla de PostgreSQL y agregaste los datos:
 
 ```
 null [ { id: 1,

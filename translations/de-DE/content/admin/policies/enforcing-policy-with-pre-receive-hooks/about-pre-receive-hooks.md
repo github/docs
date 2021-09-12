@@ -13,6 +13,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 Wenn ein Push vorgenommen wird, wird jedes Skript in einer isolierten Umgebung ausgeführt und kann den Inhalt der Pushs überprüfen. Die Skripts sorgen dafür, dass der Push bei dem Beendigungsstatus 0 akzeptiert und bei einem Beendigungsstatus ungleich 0 abgelehnt wird.
 
 ### Nutzungsszenarien

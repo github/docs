@@ -20,6 +20,7 @@ topics:
   - Maintenance
   - Upgrades
 ---
+
 ### Informationen zum Wartungsmodus
 
 Bei einigen Vorgangstypen müssen Sie {% data variables.product.product_location %} offline nehmen und in den Wartungsmodus versetzen.

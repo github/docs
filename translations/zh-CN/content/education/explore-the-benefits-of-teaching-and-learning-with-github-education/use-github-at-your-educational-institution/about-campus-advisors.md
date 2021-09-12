@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 教授、教师和辅导员可使用 Campus Advisors 在线培训掌握 Git 和 {% data variables.product.prodname_dotcom %}，通过 {% data variables.product.prodname_dotcom %} 学习最佳教学方法。  更多信息请参阅 "[Campus Advisors](https://education.github.com/teachers/advisors)"。
 
 {% note %}

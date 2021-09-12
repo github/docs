@@ -15,6 +15,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Zwei-Faktor-Authentifizierung für Organisationen in Deinem Enterprise-Konto vorschreiben
 
 Enterprise-Inhaber können vorschreiben, dass Organisationsmitglieder, Abrechnungsmanager und externe Mitarbeiter in allen Organisationen eines Enterprise-Kontos die Zwei-Faktor-Authentifizierung (2FA) für den Schutz ihrer persönlichen Konten verwenden.
@@ -47,7 +48,7 @@ Enterprise-Inhaber können den Zugriff auf Objekte im Besitz von Organisationen 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfigurieren. Weitere Informationen findest Du auf „[Zugelassene IP-Adressen für Deine Organisation verwalten](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
@@ -59,6 +60,10 @@ Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfiguri
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+
+#### Allowing access by {% data variables.product.prodname_github_apps %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 #### Zulässige IP-Adressen aktivieren
 

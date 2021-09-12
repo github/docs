@@ -1,7 +1,7 @@
 ---
 get_started_with_github_ae:
   title: '开始使用 {% data variables.product.prodname_ghe_managed %}'
-  description: 'Learn about {% data variables.product.prodname_ghe_managed %} and complete the initial configuration of a new enterprise.'
+  description: '了解 {% data variables.product.prodname_ghe_managed %} 并完成新企业的初始配置。'
   guides:
     - /admin/overview/about-github-ae
     - /admin/overview/about-data-residency
@@ -9,8 +9,8 @@ get_started_with_github_ae:
     - /admin/configuration/restricting-network-traffic-to-your-enterprise
     - /admin/github-actions/getting-started-with-github-actions-for-github-ae
 deploy_an_instance:
-  title: 'Deploy an instance'
-  description: 'Install {% data variables.product.prodname_ghe_server %} on your platform of choice and configure SAML authentication.'
+  title: '部署实例'
+  description: '在您选择的平台上安装 {% data variables.product.prodname_ghe_server %} 并配置 SAML 身份验证。'
   featured_track: true
   guides:
     - /admin/overview/system-overview
@@ -20,8 +20,8 @@ deploy_an_instance:
     - /admin/authentication/using-saml
     - /admin/configuration/site-admin-dashboard
 upgrade_your_instance:
-  title: 'Upgrade your instance'
-  description: 'Test upgrades in staging, notify users of maintenance, and upgrade your instance for the latest features and security updates.'
+  title: '升级实例'
+  description: '分阶段测试升级，通知用户维护，并升级实例以获取最新功能和安全更新。'
   guides:
     - /admin/enterprise-management/enabling-automatic-update-checks
     - /admin/installation/setting-up-a-staging-instance
@@ -30,8 +30,8 @@ upgrade_your_instance:
     - /admin/configuration/enabling-and-scheduling-maintenance-mode
     - /admin/enterprise-management/upgrading-github-enterprise-server
 increase_fault_tolerance:
-  title: 'Increase the fault tolerance of your instance'
-  description: "Back up your developers' code and configure high availability (HA) to ensure the reliability of {% data variables.product.prodname_ghe_server %} in your environment."
+  title: '提高实例的容错能力'
+  description: "备份开发者代码并配置高可用性 (HA)，以确保环境中 {% data variables.product.prodname_ghe_server %} 的可靠性。"
   guides:
     - /admin/configuration/accessing-the-administrative-shell-ssh
     - /admin/configuration/configuring-backups-on-your-appliance
@@ -39,8 +39,8 @@ increase_fault_tolerance:
     - /admin/enterprise-management/creating-a-high-availability-replica
     - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 improve_security_of_your_instance:
-  title: 'Improve the security of your instance'
-  description: "Review network configuration and security features, and harden the instance running {% data variables.product.prodname_ghe_server %} to protect your enterprise's data."
+  title: '提高实例的安全性'
+  description: "查看网络配置和安全功能，并强化运行 {% data variables.product.prodname_ghe_server %} 的实例，以保护您的企业数据。"
   guides:
     - /admin/configuration/enabling-private-mode
     - /admin/guides/installation/configuring-tls
@@ -52,8 +52,8 @@ improve_security_of_your_instance:
     - /admin/user-management/best-practices-for-user-security
     - /admin/user-management/promoting-or-demoting-a-site-administrator
 configure_github_actions:
-  title: 'Configure {% data variables.product.prodname_actions %}'
-  description: 'Allow your developers to create, automate, customize, and execute powerful software development workflows for {% data variables.product.product_location %} with {% data variables.product.prodname_actions %}.'
+  title: '配置 {% data variables.product.prodname_actions %}'
+  description: '允许开发者使用 {% data variables.product.prodname_actions %} 为 {% data variables.product.product_location %} 创建、自动化、自定义和执行功能强大的软件开发工作流程。'
   guides:
     - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
     - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
@@ -62,8 +62,8 @@ configure_github_actions:
     - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
     - /admin/github-actions/using-a-staging-environment
 configure_github_advanced_security:
-  title: 'Configure {% data variables.product.prodname_GH_advanced_security %}'
-  description: "Improve the quality and security of your developers' code with {% data variables.product.prodname_GH_advanced_security %}."
+  title: '配置 {% data variables.product.prodname_GH_advanced_security %}'
+  description: "通过 {% data variables.product.prodname_GH_advanced_security %} 提高开发者代码的质量和安全性。"
   guides:
     - /admin/advanced-security/about-licensing-for-github-advanced-security
     - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise

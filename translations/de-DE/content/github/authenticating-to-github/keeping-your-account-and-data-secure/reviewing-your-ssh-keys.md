@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltest Du löschen, um möglichen Angreifern den Zugriff auf Deine Repositorys zu verwehren. Vorhandene SSH-Schlüssel, die gültig sind, kannst Du genehmigen.
 
 {% mac %}
@@ -30,7 +31,7 @@ Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltes
 
 4. Öffne das Terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
@@ -108,7 +109,7 @@ Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltes
 
 4. Öffne das Terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell

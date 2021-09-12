@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise アカウントへの SAML アクセスについて
 
 Enterprise アカウントに対する SAML シングルサインオンを有効にすると、各 Enterprise メンバーは ID プロバイダ (IdP) での外部アイデンティティを、既存の {% data variables.product.product_name %} アカウントにリンクできます。 {% data reusables.saml.about-saml-access-enterprise-account %}

@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}

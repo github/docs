@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
 ---
+
 ### 単一の通知を保存する
 
 単一の通知を保存して後で確認するには、通知の右側にある {% octicon "bookmark" aria-label="The bookmark icon" %} をクリックします。 一度に保存できる通知は 1 つだけです。

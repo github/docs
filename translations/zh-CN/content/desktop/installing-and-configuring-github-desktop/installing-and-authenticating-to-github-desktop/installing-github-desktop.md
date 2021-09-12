@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于 {% data variables.product.prodname_desktop %} 安装
 
-您可以在支持的操作系统上安装 {% data variables.product.prodname_desktop %}。 如果您在 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %}上有帐户，您可以将帐户连接到 {% data variables.product.prodname_desktop %}。 有关创建帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account/)”或联系您的 {% data variables.product.prodname_enterprise %} 帐户管理员。
+您可以在当前包含 {% data variables.desktop.mac-osx-versions %} 和 {% data variables.desktop.windows-versions %} 的支持操作系统上安装 {% data variables.product.prodname_desktop %}。 如果您在 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %}上有帐户，您可以将帐户连接到 {% data variables.product.prodname_desktop %}。 有关创建帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account/)”或联系您的 {% data variables.product.prodname_enterprise %} 帐户管理员。
 
 {% windows %}
 

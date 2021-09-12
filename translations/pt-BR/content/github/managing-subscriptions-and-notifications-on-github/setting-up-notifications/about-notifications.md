@@ -13,6 +13,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -27,8 +28,8 @@ Você pode optar por assinar notificações para:
 - Uma conversa em um problema específico, pull request ou gist.
 - Todas as atividades em um repositório ou em uma discussão em equipe.
 - Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}. {% if currentVersion == "free-pro-team@latest" or  currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled). {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-- Releases in a repository.{% endif %}
+- Repositório {% data reusables.notifications-v2.custom-notification-types %} (se habilitado). {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Versões em um repositório.{% endif %}
 
 Você também pode optar por assistir automaticamente todos os repositórios aos quais você tem acesso de push, exceto as bifurcações. É possível assistir qualquer outro repositório ao qual você tenha acesso manualmente clicando em **Watch** (Assistir).
 
@@ -61,8 +62,7 @@ Para manter suas assinaturas gerenciáveis, revise suas assinaturas e os reposit
 Para personalizar como você gostaria de receber atualizações de pull requests ou problemas específicos, é possível configurar suas preferências dentro do problema ou da pull request. Para obter mais informações, consulte “[Fazendo triagem de uma só notificação](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
-Você pode personalizar e agendar notificações push no
-aplicativo {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
+Você pode personalizar e programar notificações de push no aplicativo de {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
 {% endif %}
 
 ### Motivos para receber notificações

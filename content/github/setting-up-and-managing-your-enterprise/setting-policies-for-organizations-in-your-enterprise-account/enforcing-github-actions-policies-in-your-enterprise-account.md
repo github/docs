@@ -5,19 +5,20 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for GitHub Actions
 ---
-### About {% data variables.product.prodname_actions %} permissions for your enterprise account
+## About {% data variables.product.prodname_actions %} permissions for your enterprise account
 
 By default, {% data variables.product.prodname_actions %} is enabled in all organizations owned by an enterprise account. You can choose to disable {% data variables.product.prodname_actions %} for all organizations owned by an enterprise account, or only allow specified organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your organization.
 
 For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
 
-### Managing {% data variables.product.prodname_actions %} permissions for your enterprise account
+## Managing {% data variables.product.prodname_actions %} permissions for your enterprise account
 
 You can disable all workflows for an enterprise or set a policy that configures which actions can be used in an organization.
 
@@ -29,7 +30,7 @@ You can disable all workflows for an enterprise or set a policy that configures 
 {% data reusables.actions.enterprise-actions-permissions %}
 1. Click **Save**.
 
-### Allowing specific actions to run
+## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
@@ -39,18 +40,29 @@ You can disable all workflows for an enterprise or set a policy that configures 
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
   ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
-### Enabling workflows for private repository forks
+## Configuring required approval for workflows from public forks
+
+{% data reusables.actions.workflow-run-approve-public-fork %} You can configure this behavior for your enterprise using the procedure below.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.github-actions.workflows-from-public-fork-setting %}
+
+{% data reusables.actions.workflow-run-approve-link %}
+
+## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configuring the private fork policy for your enterprise account
+### Configuring the private fork policy for your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}
 
-### Setting the permissions of the `GITHUB_TOKEN` for your enterprise
+## Setting the permissions of the `GITHUB_TOKEN` for your enterprise
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
@@ -58,7 +70,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configuring the default `GITHUB_TOKEN` permissions
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

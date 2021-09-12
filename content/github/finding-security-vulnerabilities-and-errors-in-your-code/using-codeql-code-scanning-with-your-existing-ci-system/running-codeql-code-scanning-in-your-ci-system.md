@@ -4,7 +4,7 @@ shortTitle: Running in your CI
 intro: 'You can use the {% data variables.product.prodname_codeql_runner %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,11 +17,11 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Using {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI system
+## Using {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI system
 
 If you use a continuous integration or continuous delivery/deployment (CI/CD) system other than {% data variables.product.prodname_actions %}, you can use your existing system to run {% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_codeql %} analysis and upload the results to {% data variables.product.prodname_dotcom %}. To do this, use the {% data variables.product.prodname_codeql_runner %}.
 
-### About the {% data variables.product.prodname_codeql_runner %}
+## About the {% data variables.product.prodname_codeql_runner %}
 
 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
@@ -36,7 +36,7 @@ The {% data variables.product.prodname_codeql_runner %} is a command-line tool t
 * The {% data variables.product.prodname_codeql_runner %} shouldn't be confused with the {% data variables.product.prodname_codeql %} CLI. The {% data variables.product.prodname_codeql %} CLI is an interactive command-line interface that lets you create {% data variables.product.prodname_codeql %} databases for security research and run {% data variables.product.prodname_codeql %} queries. For more information, see "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
 {% endnote %}
 
-### Downloading the {% data variables.product.prodname_codeql_runner %}
+## Downloading the {% data variables.product.prodname_codeql_runner %}
 
 You can download the {% data variables.product.prodname_codeql_runner %} from https://github.com/github/codeql-action/releases. On some operating systems, you may need to change permissions for the downloaded file before you can run it.
 
@@ -55,7 +55,7 @@ sudo xattr -d com.apple.quarantine codeql-runner-macos
 
 On Windows, the `codeql-runner-win.exe` file usually requires no change to permissions.
 
-### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
+## Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
 
 Once you download the {% data variables.product.prodname_codeql_runner %} and verify that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. For example, you might configure each server to copy the runner from a central, internal location. Alternatively, you could use the REST API to get the runner directly from {% data variables.product.prodname_dotcom %}, for example: 
 
@@ -75,7 +75,7 @@ The options for providing access to the {% data variables.product.prodname_codeq
 1. Mirror the `github/codeql-action` repository on {% data variables.product.product_name %}. Unless you specify the <nobr>`--codeql-path`</nobr> flag, the runner automatically checks for the bundle in this location and on {% data variables.product.prodname_dotcom_the_website %}.
 1. Manually download/extract the bundle, store it with other central resources, and use the <nobr>`--codeql-path`</nobr> flag to specify the location of the bundle in calls to initialize the {% data variables.product.prodname_codeql_runner %}.
 
-### Calling the {% data variables.product.prodname_codeql_runner %}
+## Calling the {% data variables.product.prodname_codeql_runner %}
 
 You should call the {% data variables.product.prodname_codeql_runner %} from the checkout location of the repository you want to analyze. The two main commands are:
 
@@ -90,7 +90,7 @@ To view the command-line reference for the runner, use the `-h` flag. For exampl
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-#### Basic example
+### Basic example
 
 This example runs {% data variables.product.prodname_codeql %} analysis on a Linux CI server for the `octo-org/example-repo` repository hosted on `{% data variables.command_line.git_url_example %}`. The process is very simple because the repository contains only languages that can be analyzed by {% data variables.product.prodname_codeql %} directly, without being built (that is, Go, JavaScript, Python, and TypeScript).
 
@@ -110,7 +110,7 @@ In this example, the server has access to download the {% data variables.product
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 
-#### Compiled language example
+### Compiled language example
 
 This example is similar to the previous example, however this time the repository has code in C/C++, C#, or Java. To create a {% data variables.product.prodname_codeql %} database for these languages, the CLI needs to monitor the build. At the end of the initialization process, the runner reports the command you need to set up the environment before building the code. You need to run this command, before calling the normal CI build process, and then running the `analyze` command.
 
@@ -145,7 +145,7 @@ This example is similar to the previous example, however this time the repositor
 
 {% endnote %}
 
-### Further reading
+## Further reading
 
 - "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
 - "[Troubleshooting {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"

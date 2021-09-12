@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
 ---
+
 发布者验证确保 {% data variables.product.prodname_dotcom %} 有方法联系您、您已经为组织启用双重身份验证并且您组织的域已通过验证。
 
 一旦您的组织通过验证，您就可以为应用程序发布付费计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
@@ -24,7 +25,7 @@ redirect_from:
 1. 在“Publisher Verification（发布者验证）”下，填写检查列表中的信息：
    - 确保您的基本个人资料信息正确无误。 另外，确保您添加了接收 {% data variables.product.company_short %} 的更新和支持信息的最合适电子邮件地址。
    - 确保为您的组织启用双重身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”。
-   - 提交已验证的域名并确保您组织的个人资料页面上显示“已验证”徽章。 For related information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+   - 提交已验证的域名并确保您组织的个人资料页面上显示“已验证”徽章。 相关信息请参阅“[验证或批准组织的域名](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
   ![发布者验证检查列表](/assets/images/marketplace/publisher-verification-checklist.png)
 

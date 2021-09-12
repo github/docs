@@ -12,6 +12,7 @@ versions:
 topics:
   - Accounts
 ---
+
 {% warning %}
 
 **Aviso**: antes de converter um usuário em uma organização, lembre-se destes pontos:

@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 O GitHub oferece suporte à renderização de dados tabulares na forma de arquivos *.csv* (separados por vírgula) e .*tsv* (separados por tubulação).
 
 ![Arquivo CSV de amostra renderizado](/assets/images/help/repository/rendered_csv.png)

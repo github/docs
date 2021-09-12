@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### URL
 
 {% data variables.product.product_name %}は自動的に標準的な URL からリンクを生成します。
@@ -32,7 +33,7 @@ versions:
 | 参照タイプ                                         | RAW 参照                                         | 短縮リンク                                                                  |
 | --------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | Issue またはプルリクエストの URL                         | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
-| `#` および Issue またはプルリクエスト番号                    | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
+| `#` and issue or pull request number          | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
 | `GH` および Issue またはプルリクエスト番号                   | GH-26                                          | [GH-26](https://github.com/jlord/sheetsee.js/issues/26)                |
 | `ユーザ名/リポジトリ#` および Issue またはプルリクエスト番号          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization 名/リポジトリ#`および Issue またはプルリクエスト番号 | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |

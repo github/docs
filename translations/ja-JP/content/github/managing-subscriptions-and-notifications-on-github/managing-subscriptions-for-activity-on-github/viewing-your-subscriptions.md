@@ -22,6 +22,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% data variables.product.product_name %} で進行中のアクティビティのサブスクリプションの通知を受け取ります。 会話をサブスクライブする理由はたくさんあります。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)」を参照してください。
 
 健全な通知ワークフローの一環として、サブスクリプションの監査とサブスクライブ解除をお勧めします。 サブスクライブ解除に関する詳しい情報については、「[サブスクリプションを管理する](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)」を参照してください。

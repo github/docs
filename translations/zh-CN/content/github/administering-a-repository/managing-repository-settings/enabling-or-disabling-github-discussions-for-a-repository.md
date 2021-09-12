@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
 ---
+
 {% data reusables.discussions.beta %}
 
 ### 为仓库启用或禁用讨论

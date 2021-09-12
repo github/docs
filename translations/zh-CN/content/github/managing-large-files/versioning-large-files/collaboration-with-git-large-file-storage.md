@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 如果仓库上的协作者未安装 {% data variables.large_files.product_name_short %}，他们将无法访问原始大文件。 如果他们尝试克隆您的仓库，则只能获取指针文件，而无法访问任何实际数据。
 
 {% tip %}

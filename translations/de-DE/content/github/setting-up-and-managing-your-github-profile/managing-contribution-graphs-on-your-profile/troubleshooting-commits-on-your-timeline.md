@@ -11,6 +11,7 @@ versions:
 topics:
   - Profiles
 ---
+
 ### Erwartetes Verhalten bei der Anzeige der Commit-Details über die Zeitleiste
 
 Wenn Du in der Zeitleiste Deiner Profilseite neben einem Repository auf die Anzahl der Commits klickst, werden die Details zu Deinen Commits des betreffenden Zeitraums angezeigt, einschließlich eines Diffs der spezifischen Änderungen am Repository.

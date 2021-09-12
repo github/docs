@@ -11,7 +11,7 @@ topics:
   - API
 ---
 
-## Sobre o explorador do GraphQL
+### Sobre o explorador do GraphQL
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -13,8 +13,8 @@ topics:
   - Community
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Klicke neben der Teamdiskussion, die Du bearbeiten oder löschen möchtest, auf {% octicon "kebab-horizontal" aria-label="The edit icon" %}.

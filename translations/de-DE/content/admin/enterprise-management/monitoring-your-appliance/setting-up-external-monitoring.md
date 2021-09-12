@@ -14,6 +14,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### Informationen zu SNMP
 
 Simple Network Management Protocol (SNMP) ist eine weithin unterstützte Methode für die Überwachung von Netzwerkgeräten und -servern. SNMP ist standardmäßig deaktiviert, kann jedoch über das {% data variables.product.prodname_enterprise %}-Überwachungs-Dashboard konfiguriert werden. UDP-Port 161 muss offen und über Ihre Network Management Station erreichbar sein. Weitere Informationen finden Sie unter „[Überwachung mittels SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)“.

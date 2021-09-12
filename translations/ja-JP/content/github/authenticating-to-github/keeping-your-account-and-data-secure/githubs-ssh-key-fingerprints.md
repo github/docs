@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data variables.product.prodname_dotcom %} の公開鍵のフィンガープリントは次のとおりです。
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)

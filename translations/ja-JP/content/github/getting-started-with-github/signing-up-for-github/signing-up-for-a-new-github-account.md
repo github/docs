@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 アカウントの種類と製品の詳しい情報については、「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」および「[{% data variables.product.product_name %} の製品](/articles/github-s-products)」を参照してください。
 
 {% data reusables.accounts.create-account %}

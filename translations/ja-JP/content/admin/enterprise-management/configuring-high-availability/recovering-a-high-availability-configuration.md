@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 フェイルオーバーが計画済みのものだったり、アプライアンスの健全性に関係ないものである場合、以前のプライマリアプライアンスを新しいレプリカアプライアンスとして使用できます。 フェイルオーバーがプライマリアプライアンスの問題に関係しているなら、新しいレプリカアプライアンスを作成する方が良いでしょう。 詳しい情報については"[High Availabilityレプリカの作成](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)"を参照してください。
 
 ### 以前のプライマリアプライアンスを新しいレプリカとして設定する

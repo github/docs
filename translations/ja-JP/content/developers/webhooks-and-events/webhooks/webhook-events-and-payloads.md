@@ -14,6 +14,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
@@ -163,8 +164,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 The `sender` object is
-{% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}empty {% endif %}for all other actions.
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 The `sender` object is {% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}empty {% endif %}for all other actions.
 
 #### webhook ペイロードの例
 

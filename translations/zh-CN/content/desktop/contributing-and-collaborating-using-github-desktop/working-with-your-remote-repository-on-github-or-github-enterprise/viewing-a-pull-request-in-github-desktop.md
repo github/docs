@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于 {% data variables.product.prodname_desktop %} 中的拉取请求
 您可以查看您或您的协作者在 {% data variables.product.prodname_desktop %} 中提出的拉取请求。 拉取请求可让您对项目提出更改，提供反馈和评论，并将更改合并到项目中。 更多信息请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 

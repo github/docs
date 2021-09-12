@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 ### 关于搜索包
@@ -19,8 +20,7 @@ redirect_from:
 您可以在所有 {% data variables.product.product_name %} 中全局搜索包，也可以在特定组织内搜索包。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
 
 {% if enterpriseServerVersions contains currentVersion %}
-您只能搜索
-{% data variables.product.product_name %} 上的包，而不是 {% data variables.product.prodname_dotcom_the_website %} 上的包，即使启用了 {% data variables.product.prodname_github_connect %}。
+您只能在 {% data variables.product.product_name %} 中搜索包，而不能在 {% data variables.product.prodname_dotcom_the_website %} 上搜索，即使启用了 {% data variables.product.prodname_github_connect %} 也一样。
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

@@ -6,14 +6,15 @@ redirect_from:
   - /articles/creating-a-strong-password
   - /github/authenticating-to-github/creating-a-strong-password
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Identity
   - Access management
+shortTitle: Create a strong password
 ---
 You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
-- {% if enterpriseServerVersions contains currentVersion %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or
+- {% ifversion ghes %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or
 - 15 characters long with any combination of characters
 
 To keep your account secure, we recommend you follow these best practices:
@@ -26,9 +27,9 @@ To keep your account secure, we recommend you follow these best practices:
 
 You can only use your password to log on to {% data variables.product.product_name %} using your browser. When you authenticate to {% data variables.product.product_name %} with other means, such as the command line or API, you should use other credentials. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)." 
 
-{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
+{% ifversion fpt %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
 
-### Further reading
+## Further reading
 
 - "[Caching your {% data variables.product.product_name %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
 - "[Keeping your account and data secure](/articles/keeping-your-account-and-data-secure/)"

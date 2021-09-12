@@ -15,6 +15,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Sobre repositórios remotos
 
 Uma URL remota é outra forma de o Git dizer "o lugar onde seu código é armazenado". A URL poderia ser seu repositório no GitHub, ou a bifurcação de outro usuário, ou até mesmo em um servidor totalmente diferente.

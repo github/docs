@@ -15,6 +15,7 @@ topics:
   - User account
   - Enterprise
 ---
+
 {% tip %}
 
 **Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) e o atributo `Administrators group` estiver definido ao [configurar o acesso LDAP para os usuários](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), esses usuários terão automaticamente acesso de administrador do site em suas respectivas instâncias. Nesse caso, você não pode promover manualmente os usuários pelas etapas abaixo.Será preciso adicioná-los ao grupo de administradores LDAP.

@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - GitHub Connect
 ---
+
 Como administrador do site, você pode permitir que os usuários finais enviem as contagens de contribuição anônimas do trabalho deles no {% data variables.product.prodname_ghe_server %} pelos respectivos gráficos de contribuição no {% data variables.product.prodname_dotcom_the_website %}.
 
 Após habilitar o {% data variables.product.prodname_github_connect %} e o {% data variables.product.prodname_unified_contributions %} nos dois ambientes, os usuários finais da instância podem se conectar a suas respectivas contas do {% data variables.product.prodname_dotcom_the_website %} e enviar contagens de contribuição do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.github-connect.sync-frequency %} Para obter mais informações, consulte "[Enviar contribuições do {% data variables.product.prodname_ghe_server %} para o perfil do {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile/)".

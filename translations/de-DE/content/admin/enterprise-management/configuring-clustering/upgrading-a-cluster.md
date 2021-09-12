@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### Upgrade mit einem Hotpatch
 {% data reusables.enterprise_installation.hotpatching-explanation %} Das Hotpatch-Installationsskript installiert den Hotpatch auf jedem Knoten im Cluster und startet die Dienste zum Vermeiden von Ausfallzeiten in ihrer entsprechenden Abfolge neu.
 

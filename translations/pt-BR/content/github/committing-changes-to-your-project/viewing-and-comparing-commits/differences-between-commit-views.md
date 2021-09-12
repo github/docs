@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 No {% data variables.product.product_name %}, é possível ver o histórico de commits de um repositório:
 
 - Navegando diretamente para [a página de commits](https://github.com/mozilla/rust/commits/master) de um repositório

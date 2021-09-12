@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Sobre o acesso de SAML à sua conta corporativa
 
 Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante da empresa pode vincular sua identidade externa no seu provedor de identidade (IdP) à sua conta de {% data variables.product.product_name %} existente. {% data reusables.saml.about-saml-access-enterprise-account %}
@@ -22,10 +23,10 @@ Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante d
 
 {% warning %}
 
-**Warning:** For organizations using SCIM:
-- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
-- An admin must revoke a linked identity through the identity provider.
-- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's docs.
+**Aviso:** Para organizações que usam SCIM:
+- A revogação de uma identidade de usuário vinculada em {% data variables.product.product_name %} também removerá os metadados SAML e SCIM. Como resultado, o provedor de identidade não poderá sincronizar ou desprovisionar a identidade do usuário vinculada.
+- Um administrador deverá revogar uma identidade vinculada por meio do provedor de identidade.
+- Para revogar uma identidade vinculada e vincular uma conta diferente por meio do provedor de identidade, um administrador pode remover e reatribuir o usuário ao aplicativo de {% data variables.product.product_name %}. Para obter mais informações, consulte a documentação do seu provedor de identidade.
 
 {% endwarning %}
 

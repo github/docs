@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Auf {% data variables.product.product_name %} können Sie den Commit-Verlauf eines Repositorys anzeigen, indem Sie
 
 - Direkt zur [Commit-Seite](https://github.com/mozilla/rust/commits/master) eines Repositorys nagivierst

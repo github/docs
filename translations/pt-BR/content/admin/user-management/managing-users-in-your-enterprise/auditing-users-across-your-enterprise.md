@@ -17,6 +17,7 @@ topics:
   - Security
   - User account
 ---
+
 ### Acessar o log de auditoria
 
 O painel de log de auditoria oferece uma exibição visual de dados de auditoria na sua empresa.

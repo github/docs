@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Die Verwendung einer HTTPS-Remote-URL hat einige Vorteile gegenüber der Verwendung von SSH. Die URL ist einfacher einzurichten als SSH und funktioniert in der Regel auch über strenge Firewalls und Proxies hinweg. However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository.
 
 {% data reusables.user_settings.password-authentication-deprecation %}

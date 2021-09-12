@@ -13,4 +13,5 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 GitHub Apps don't have any permissions by default. GitHub Appを作成する際に、そのアプリケーションがエンドユーザのデータにアクセスするために必要な権限を選択できます。 権限は、追加することも削除することもできます。 詳しい情報については「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。

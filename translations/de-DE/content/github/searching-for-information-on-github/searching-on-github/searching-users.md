@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Sie können auf {% data variables.product.product_name %} global nach Benutzern suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% data reusables.search.syntax_tips %}

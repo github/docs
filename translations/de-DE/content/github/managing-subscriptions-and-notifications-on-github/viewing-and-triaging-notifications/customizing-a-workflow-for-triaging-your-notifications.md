@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
 ---
+
 ### Beginne Deine Posteingang-Selektion
 
 Bevor Du mit der Selektion in Deinem Posteingang beginnst, überlege Dir, ob Du zuerst die wichtigsten Aktualisierungen finden und beantworten möchtest, oder ob Du zuerst Deinen Posteingang von störenden Benachrichtigungen leeren möchtest, die einfach zu finden und zu entfernen sind.

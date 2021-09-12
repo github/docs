@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### About subtree merges
 
 通常、サブツリーのマージはリポジトリ内にリポジトリを格納するために使われます。 「サブリポジトリ」はメインのリポジトリのフォルダー内に格納されます。

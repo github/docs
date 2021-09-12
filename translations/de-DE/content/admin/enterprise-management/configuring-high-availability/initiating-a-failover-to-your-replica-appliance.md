@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, das Replikat manuell hochzustufen und den Traffic weiterzuleiten. Die Durchschnittszeit beträgt zwischen 2 und 10 Minuten.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}

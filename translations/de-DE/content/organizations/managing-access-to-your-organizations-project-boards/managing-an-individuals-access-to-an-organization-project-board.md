@@ -22,8 +22,8 @@ topics:
 
 ### Einem Organisationsmitglied Zugriff auf ein Projektboard gewähren
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -35,8 +35,8 @@ topics:
 
 ### Den Zugriff eines Organisationsmitglieds auf ein Projektboard ändern
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -48,8 +48,8 @@ topics:
 
 Wenn Du einen Mitarbeiter von einem Projektboard entfernst, kann er je nach den Berechtigungen seiner anderen Rollen möglicherweise dennoch weiterhin auf das Projektboard zugreifen. Um den Zugriff auf ein Projektboard komplett zu verhindern, musst Du den Zugriff für jede Rolle dieses Mitarbeiters entfernen. Eine Person kann beispielsweise als Organisationsmitglied oder Teammitglied Zugriff auf das Projektboard haben. Weitere Informationen finden Sie unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
 ---
+
 ### 关于自动分级
 
 教师可以配置测试在您推送到 {% data variables.product.product_location %} 上的作业仓库时自动检查您的工作。

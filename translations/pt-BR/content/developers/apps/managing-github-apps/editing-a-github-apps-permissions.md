@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% note %}
 
 **Observação:** As permissões atualizadas não terão efeito sobre uma instalação até que o proprietário da conta ou organização aprove as alterações. Você pode usar o [webhook do InstallationEvent](/webhooks/event-payloads/#installation) para descobrir quando as pessoas aceitam novas permissões para seu aplicativo. Uma exceção são as [permissões de nível de usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions), que não exigem que o proprietário da conta aprove as alterações de permissão.

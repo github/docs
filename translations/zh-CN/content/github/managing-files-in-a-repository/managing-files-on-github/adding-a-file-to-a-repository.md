@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。 较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。 更多信息请参阅“[使用命令行添加文件到仓库](/articles/adding-a-file-to-a-repository-using-the-command-line)”。
 
 {% tip %}

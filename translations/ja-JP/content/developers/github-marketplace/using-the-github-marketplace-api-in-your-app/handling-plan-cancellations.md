@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 支払いに関連するキャンセルについての詳しい情報は、「[{% data variables.product.prodname_marketplace %}での顧客の支払い](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)」を参照してください。
 
 ### ステップ 1. キャンセルイベント

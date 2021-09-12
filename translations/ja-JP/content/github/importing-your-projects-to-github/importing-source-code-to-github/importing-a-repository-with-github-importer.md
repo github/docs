@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **ヒント:** GitHub Importer は、すべてのインポートに適しているわけではありません。 たとえば、既存のコードがプライベート ネットワークにホストされている場合、GitHub Importer はそれにアクセスできません。 このような場合、Git リポジトリであれば[コマンドラインを使用したインポート](/articles/importing-a-git-repository-using-the-command-line)、他のバージョン管理システムからインポートするプロジェクトであれば外部の[ソース コード移行ツール](/articles/source-code-migration-tools)をおすすめします。

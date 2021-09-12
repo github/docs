@@ -23,7 +23,5 @@ children:
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
 ---
-Esta seção da documentação tem o objetivo de ajudá-lo a começar a operar os aplicativos da API de {% data variables.product.product_name %} reais. Vamos cobrir tudo o que você precisa saber, desde a autenticação, passando pela a manipulação de resultados, até a combinação de resultados com outros aplicativos.
-Todos os tutoriais aqui terão um projeto, e cada projeto será armazenado e documentado no nosso repositório público de [platform-samples](https://github.com/github/platform-samples).
-![O Electrocat](/assets/images/electrocat.png)
-### Índice
+
+Esta seção da documentação tem o objetivo de ajudá-lo a começar a operar os aplicativos da API de {% data variables.product.product_name %} reais. Vamos cobrir tudo o que você precisa saber, desde a autenticação, passando pela a manipulação de resultados, até a combinação de resultados com outros aplicativos. Todos os tutoriais aqui terão um projeto, e cada projeto será armazenado e documentado no nosso repositório público de [platform-samples](https://github.com/github/platform-samples). ![O Electrocat](/assets/images/electrocat.png)

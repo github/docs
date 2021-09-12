@@ -15,6 +15,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 認証の情報については「[GitHub Appでの認証](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
 ### パブリックのインストールフロー

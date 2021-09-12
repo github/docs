@@ -10,6 +10,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
@@ -22,11 +23,11 @@ topics:
 
 ### マシンタイプの決定
 
-Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。 To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
+{% data variables.product.company_short %} は、{% data variables.product.prodname_ghe_server %} に汎用のハイメモリマシンを推奨しています。 詳しい情報については、Google Compute Engine のドキュメント「[マシンタイプ](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)」を参照してください。
 
 ### {% data variables.product.prodname_ghe_server %} イメージを選択する
 

@@ -10,6 +10,6 @@
    ```shell
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
-1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
+1. 确认您的 TXT 记录已添加到 DNS 后，请按照上面的步骤 1 至 4 导航到您企业帐户的已批准和已验证域。
 {% data reusables.organizations.continue-verifying-domain %}
 1. （可选）组织的资料上显示“Verified（已验证）”徽章后，从域托管服务的 DNS 记录中删除 TXT 条目。 ![已验证徽章](/assets/images/help/organizations/verified-badge.png)

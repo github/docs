@@ -1,13 +1,14 @@
 ---
 title: Using groups to manage access to AE hosted runners
-intro: You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.
+intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+shortTitle: Manage AE runner groups
 ---
 
 {% data reusables.actions.ae-beta %}
 
-### About {% data variables.actions.hosted_runner %} groups
+## About {% data variables.actions.hosted_runner %} groups
 
 {% data variables.actions.hosted_runner %} groups are used to control access to {% data variables.actions.hosted_runner %}s at the organization and enterprise level. Enterprise admins can configure access policies that control which organizations in an enterprise have access to the runner group. Organization admins can configure access policies that control which repositories in an organization have access to the runner group.
 
@@ -15,7 +16,7 @@ When an enterprise admin grants an organization access to a runner group, organi
 
 When new runners are created, they are automatically assigned to the default group. Runners can only be in one group at a time. You can move runners from the default group to another group. For more information, see "[Moving an {% data variables.actions.hosted_runner %} to a group](#moving-an-ae-hosted-runner-to-a-group)."
 
-### Creating an {% data variables.actions.hosted_runner %} group for an organization
+## Creating an {% data variables.actions.hosted_runner %} group for an organization
 
 All organizations have a single default {% data variables.actions.hosted_runner %} group. Organizations within an enterprise account can create additional runner groups. Organization admins can allow individual repositories access to a runner group.
 
@@ -37,7 +38,7 @@ When creating a group, you must choose a policy that defines which repositories 
 
 1. Click **Save group** to create the group and apply the policy.
 
-### Creating an {% data variables.actions.hosted_runner %} group for an enterprise
+## Creating an {% data variables.actions.hosted_runner %} group for an enterprise
 
 Enterprises can add their {% data variables.actions.hosted_runner %}s to groups for access management. Enterprises can create groups of {% data variables.actions.hosted_runner %}s that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups.
 
@@ -60,13 +61,13 @@ When creating a group, you must choose a policy that defines which organizations
     
 1. Click **Save group** to create the group and apply the policy.
 
-### Changing the access policy of an {% data variables.actions.hosted_runner %} group
+## Changing the access policy of an {% data variables.actions.hosted_runner %} group
 
 You can update the access policy of a runner group, or rename a runner group.
 
 {% data reusables.github-actions.hosted-runner-configure-runner-group-access %}
 
-### Moving an {% data variables.actions.hosted_runner %} to a group
+## Moving an {% data variables.actions.hosted_runner %} to a group
 
 New {% data variables.actions.hosted_runner %}s are automatically assigned to the default group, and can then be moved to another group.
 
@@ -77,7 +78,7 @@ New {% data variables.actions.hosted_runner %}s are automatically assigned to th
 1. To move the runner, click on the destination group.
 ![Runner group member move](/assets/images/help/settings/actions-hosted-runner-group-member-move-destination.png)
 
-### Removing an {% data variables.actions.hosted_runner %} group
+## Removing an {% data variables.actions.hosted_runner %} group
 
 {% data variables.actions.hosted_runner %}s are automatically returned to the default group when their group is removed.
 

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Parte 1: Instalar {% data variables.product.prodname_desktop %}
 
 Você pode instalar o {% data variables.product.prodname_desktop %} em qualquer sistema operacional compatível. Para obter mais informações, consulte "[Sistemas operacionais compatíveis](/desktop/getting-started-with-github-desktop/supported-operating-systems)".

@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### 关于 {% data variables.product.prodname_github_connect %}
 
 要启用 {% data variables.product.prodname_github_connect %}，必须在 {% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户中配置连接。
@@ -46,9 +47,7 @@ topics:
 有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/graphql/guides/managing-enterprise-accounts)”。
 ### 启用 {% data variables.product.prodname_github_connect %}
 
-1. 登录到
-
-{% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. 登录到 {% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}

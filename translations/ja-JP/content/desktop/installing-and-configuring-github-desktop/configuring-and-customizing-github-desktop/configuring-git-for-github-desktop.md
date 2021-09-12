@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} は、ローカルの Git 設定で設定したメールアドレスを使用して、{% data variables.product.product_name %} のアカウントにコミットを接続します。
 
 {% data reusables.desktop.update-email-address %}

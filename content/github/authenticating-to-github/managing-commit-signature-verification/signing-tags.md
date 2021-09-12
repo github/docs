@@ -6,9 +6,9 @@ redirect_from:
   - /articles/signing-tags
   - /github/authenticating-to-github/signing-tags
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Identity
   - Access management
@@ -26,7 +26,7 @@ topics:
   # Verifies the signed tag
   ```
 
-### Further reading
+## Further reading
 
 - "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
 - "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"

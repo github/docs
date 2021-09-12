@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### Verificar o status do cluster manualmente
 
 O {% data variables.product.prodname_ghe_server %} tem um utilitário integrado de linha de comando para monitorar a integridade do cluster. No shell administrativo, acionar o comando `ghe-cluster-status` executa uma série de verificações de integridade em cada nó, verificando também o status do serviço e da conectividade. A saída mostra todos os resultados de teste, inclusive o texto `ok` ou `erro`. Por exemplo, para exibir somente os testes com falha, execute:

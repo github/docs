@@ -12,7 +12,7 @@ topics:
 children:
   - /configuring-git-large-file-storage-for-your-enterprise
   - /migrating-to-internal-repositories
-  - /disabling-git-ssh-access-on-github-enterprise-server
+  - /disabling-git-ssh-access-on-your-enterprise
   - /troubleshooting-service-hooks
 ---
 

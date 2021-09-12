@@ -1,5 +1,5 @@
 ---
-title: Working with the RubyGems registry
+title: Trabajar con el registro de RubyGems
 intro: 'Puedes configurar RubyGems para publicar un paquete para {% data variables.product.prodname_registry %} y utilizar paquetes almacenados en {% data variables.product.prodname_registry %} como dependencias en un proyecto Ruby con Bundler.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -117,7 +117,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 
 ### Instalar un paquete
 
-Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual que usas gemas de *rubygems.org*. You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the *~/.gemrc* file or by using Bundler and editing your *Gemfile*.
+Puedes usar gemas desde {% data variables.product.prodname_registry %} al igual que usas gemas de *rubygems.org*. Necesitas autenticarte en {% data variables.product.prodname_registry %} agregando tu usuario u organización {% data variables.product.prodname_dotcom %} como el orígen en el archivo *~/.gemrc* o utilizando Bundler y editando tu *Gemfile*.
 
 {% data reusables.package_registry.authenticate-step %}
 1. Para Bundler, agrega tu usuario u organización {% data variables.product.prodname_dotcom %} como fuente en tu *Gemfile* para extraer gemas de esta nueva fuente. Por ejemplo, puedes agregar un bloque nuevo de `source` al *Gemfile* que utiliza el {% data variables.product.prodname_registry %} únicamente para los paquetes que especifiques, reemplzando *GEM NAME* con el paquete que quieres instalar desde el {% data variables.product.prodname_registry %} y *OWNER* con el usuario u organización al que pertenece el repositorio que contienen la gema que quieres instalar.{% if enterpriseServerVersions contains currentVersion %} Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia. Si tu instancia cuenta con el aislamiento de subdominios habilitado, utiliza `rubygems.HOSTNAME`. Si tu instancia cuenta con el aislamiento de subdominios inhabilitado, utiliza `HOSTNAME/_registry/rubygems`. En cualquiera de los casos, reemplaza *HOSTNAME* con el nombre de host de tu instancia de {% data variables.product.prodname_ghe_server %}.{% elsif currentVersion == "github-ae@latest" %}Reemplaza `REGISTRY-URL` con la URL del registro de Rubygems de tu instancia, `rubygems.HOSTNAME`. Reemplaza *HOTSNAME* con el nombre de host de {% data variables.product.product_location %}.{% endif %}

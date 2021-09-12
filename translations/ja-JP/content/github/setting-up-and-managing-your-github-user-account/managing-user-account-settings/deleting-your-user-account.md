@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 自分のユーザアカウントを削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、また自分のアカウントが所有しているページもすべて削除されます。 {% if currentVersion == "free-pro-team@latest" %} 他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはなく、代わりに [ゴーストユーザ](https://github.com/ghost)に関連付けられます。{% else %}他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはありません。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %} アカウント名も新しいアカウントで誰でも使用できるようになり、請求も停止します。 アカウントに関連付けられていたメールアドレスは別の {% data variables.product.product_name %} アカウントで使用できるようになります。 {% endif %}

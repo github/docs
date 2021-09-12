@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
 ---
+
 ### GitHub が 4 月 14 日に発表したプランと料金の変更
 
 GitHub は、以下のプランと価格の変更を発表しました。
@@ -24,11 +25,11 @@ GitHub は、以下のプランと価格の変更を発表しました。
 
 ### プランのアップグレード方法
 
-ユーザアカウントのプランをアップグレードするには、「[個人アカウントのサブスクリプションのアップグレード](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)」を参照してください。 Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
+ユーザアカウントのプランをアップグレードするには、「[個人アカウントのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)」を参照してください。 Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
 
 ### プランのダウングレード方法
 
-アカウントのプランをダウングレードするには、「[ユーザアカウントのサブスクリプションのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)」を参照してください。 Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
+アカウントのプランをダウングレードするには、「[ユーザアカウントのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)」を参照してください。 Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
 
 ### GitHub Teamあるいは旧来のプランからGitHub Freeにダウングレードした場合、なくなるのはどの機能ですか？
 - プライベートリポジトリでの必須レビュー担当者
@@ -64,11 +65,11 @@ GitHub Freeの各製品の差異の詳細については、「[{% data variables
 
 ### GitHub Team プランで割り当てられた以上の分数が必要な場合、どうすればアクションの分数を増やすことができますか？
 
-ほとんどの小規模チームが使用するアクション数は 1 か月あたり 3,000 未満ですが、一部の Team はそれ以上必要な場合があります。 Team がプライベートリポジトリに追加を必要とする場合は、GitHub Actions の利用上限を増やすことができます。 アクション分とパッケージストレージは、パブリックリポジトリでは引き続き無料です。 詳しい情報については、「[GitHub Actions の利用上限を管理する](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)」を参照してください。
+ほとんどの小規模チームが使用するアクション数は 1 か月あたり 3,000 未満ですが、一部の Team はそれ以上必要な場合があります。 Team がプライベートリポジトリに追加を必要とする場合は、GitHub Actions の利用上限を増やすことができます。 アクション分とパッケージストレージは、パブリックリポジトリでは引き続き無料です。 詳しい情報については、「[GitHub Actions の利用上限を管理する](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)」を参照してください。
 
 ### シート制限の変更の影響はどのようなものですか？
 
-{% data variables.product.prodname_team %}の最小シートの要求がなくなったので、Organizationで5シート未満しか使っていないなら、有料シートを削除して支払いを引き下げられます。 詳細は「[{% data variables.product.prodname_dotcom %} プランのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)」を参照してください。
+{% data variables.product.prodname_team %}の最小シートの要求がなくなったので、Organizationで5シート未満しか使っていないなら、有料シートを削除して支払いを引き下げられます。 詳細は「[{% data variables.product.prodname_dotcom %} プランのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)」を参照してください。
 
 ### GitHub Team for Open Source プランの Team の変更
 

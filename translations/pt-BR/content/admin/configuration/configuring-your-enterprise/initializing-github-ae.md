@@ -9,21 +9,29 @@ topics:
 redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
+
 ### Sobre a inicialização
 
 Antes de inicializar sua empresa, você deve comprar {% data variables.product.product_name %}. Para mais informações, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
 
 Após comprar {% data variables.product.product_name %}, pediremos que você informe um endereço de e-mail e nome de usuário da pessoa que deseja inicializar a empresa. O seu gerente de conta técnico dedicado em {% data variables.contact.enterprise_support %} criará uma conta para o proprietário da empresa e enviará um e-mail para o dono da empresa para entrar em {% data variables.product.product_name %} e concluir a inicialização. Certifique-se de que as informações fornecidas correspondam às informações do proprietário da empresa pretendido no IdP. Para obter mais informações sobre os proprietários corporativos, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
+{% note %}
+
+**Atenção**:
+
+- If the initial password for {% data variables.product.prodname_ghe_managed %} expires before you finish initialization, you can request a password reset at any time from your invitation email.
+
+- Store the initial username and password for {% data variables.product.prodname_ghe_managed %} securely in a password manager. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+
+{% endnote %}
+
 Durante a inicialização, o proprietário da empresa irá nomear a sua empresa, configurar o SAML SSO, criar políticas para todas as organizações da sua empresa e configurar um contato de suporte para seus usuários.
 
 ### Pré-requisitos
 
-{% note %}
+To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
-**Observação**: Antes de dar início à inicialização, armazene o nome de usuário e senha iniciais para {% data variables.product.prodname_ghe_managed %} de forma segura em um gerenciador de senhas. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
-
-{% endnote %}
 
 1. Para inicializar {% data variables.product.product_location %}, você deve ter um provedor de identidade (IdP) SAML. {% data reusables.saml.ae-uses-saml-sso %} Para conectar seu IdP à sua empresa durante a inicialização, você deve ter a URL do ID da Entidade do seu IdP (SSO), a URL do ID do Emissor e o certificado de assinatura pública (codificado em Base64). Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso para sua empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)".
 

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} usa o endereço de e-mail que você definiu na configuração local do Git para conectar commits à sua conta no {% data variables.product.product_name %}.
 
 {% data reusables.desktop.update-email-address %}

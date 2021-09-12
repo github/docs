@@ -8,10 +8,14 @@ header:
     localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
     early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
-    ghes_release_notes_use_latest: 请使用最新版本获取最新的安全性、性能和错误修复。
-    ghes_release_notes_upgrade_patch_only: '📣 这不是企业服务器的<a href="#{{ latestPatch }}">最新修补版</a> 。{% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 这不是企业服务器的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。{% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是企业服务器的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。{% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: 请使用最新版本获取最新的安全性、性能和错误修复。
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+release_notes:
+  banner_text_current: 这些更改将在未来一周内推出。
+  banner_text_past: 这些更改将在 周内部署到企业
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品...
@@ -26,6 +30,7 @@ toc:
 pages:
   article_version: '文章版本：'
   miniToc: 本文内容
+  contributor_callout: 这篇文章的参与者和维护者是
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -35,19 +40,22 @@ support:
   still_need_help: 还需要帮助？
   contact_support: 联系支持
   ask_community: 询问 GitHub 社区
-helpfulness:
+survey:
   able_to_find: 此文档对您有帮助吗？
   yes: true
   no: false
-  yes_feedback: 想了解新的文档功能和更新？注册更新！
-  email_placeholder: email@example.com
+  yes_feedback: 我们在不断改进文档，希望听到您的改进建议。
   no_feedback: 我们在不断改进文档，希望听到您的改进建议。
-  comment_label: 告诉我们如何改进
+  comment_yes_label: 让我们知道哪方面做得好
+  comment_no_label: 告诉我们如何改进
   optional: 可选
   required: 必选
+  email_placeholder: email@example.com
   email_label: 如果有更多问题，我们能联系您吗？
   send: 发送​​
-  feedback: 谢谢！您的反馈已提交。
+  feedback: 谢谢！我们收到了您的反馈。
+  not_support: 如果您需要回复，请联系客服。
+  privacy_policy: 隐私政策
 contribution_cta:
   title: 帮助我们创建出色的文档！
   body: 所有 GitHub 文档都是开源的。看到错误或不清楚的内容了吗？提交拉取请求。
@@ -162,7 +170,6 @@ product_sublanding:
 learning_track_nav:
   prevGuide: 上一个指南
   nextGuide: 下一个指南
-contributor_callout: 这篇文章的参与者和维护者是
 toggle_images:
   off: 图像已关闭，点击显示
   on: 图像已打开，点击隐藏

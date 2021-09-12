@@ -11,6 +11,7 @@ versions:
 topics:
   - Profiles
 ---
+
 Du kannst ein öffentliches Repository anheften, wenn Dir das Repository gehört oder wenn Du Beiträge zu dem Repository geleistet hast. Commits zu Forks zählen nicht als Beiträge. Daher kannst Du Forks, die Du nicht besitzt, auch nicht anheften. Weitere Informationen findest Du unter „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)“
 
 Du kannst alle öffentlichen Gists anheften, die Du besitzt.

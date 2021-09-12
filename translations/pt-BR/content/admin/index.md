@@ -22,7 +22,7 @@ featuredLinks:
     - '{% if currentVersion == "github-ae@latest" %}/admin/user-management/customizing-user-messages-for-your-enterprise{% endif %}'
     - '{% if currentVersion == "github-ae@latest" %}/admin/github-actions/getting-started-with-github-actions-for-github-ae{% endif %}'
   popular:
-    - '{% if currentVersion == "github-ae@latest" %}/admin/overview/github-ae-release-notes{% endif %}'
+    - '{% if currentVersion == "github-ae@latest" %}/admin/release-notes{% endif %}'
     - '{% if enterpriseServerVersions contains currentVersion %}/github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% if enterpriseServerVersions contains currentVersion %}/admin/installation{% endif %}'
     - '{% if currentVersion == "github-ae@latest" %}/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
@@ -45,16 +45,9 @@ children:
   - /github-actions
   - /packages
   - /enterprise-support
+  - /advanced-security
+  - /guides
   - /release-notes
+  - /all-releases
 ---
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
-<!-- . -->
+

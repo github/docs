@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Supported editors
 
 {% data variables.product.prodname_desktop %} supports the following editors.

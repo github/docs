@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Licensing
 ---
+
 Zu den „Aktivitäten“ zählen u. a.
 - die Anmeldung bei {% data variables.product.product_name %},
 - das Kommentieren von Issues und Pull Requests,

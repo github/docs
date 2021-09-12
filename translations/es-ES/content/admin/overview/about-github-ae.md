@@ -25,7 +25,7 @@ Todos tus datos se almacenan dentro de la región geográfica de tu elección. P
 
 ### Cifrado bajo tus condiciones
 
-All customer data is encrypted at rest. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
+Todos los datos del cliente se cifran cuando estáticos. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
 
 ### Cuentas aisladas
 
@@ -38,3 +38,7 @@ Asegura el acceso a tu empresa en {% data variables.product.prodname_ghe_managed
 ### Ambientes comerciales y gubernamentales
 
 {% data variables.product.prodname_ghe_managed %} se encuentra disponible en la nube de Azure Government, la nube de confianza de las agencias gubernamentales de los EE.UU. y de sus socios. {% data variables.product.prodname_ghe_managed %} también se encuentra disponible en la nube comercial, para que puedas elegir el ambiente de hospedaje que se adecua a tu organización.
+
+### Leer más
+
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

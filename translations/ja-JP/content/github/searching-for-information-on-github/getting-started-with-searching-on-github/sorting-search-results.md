@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 [Sort] メニューを使用して、関連性、Star の数、フォークの数、およびアイテムの更新の頻度で検索結果をソートできます。
 
   ![検索結果ソートのオプション付きメニュー](/assets/images/help/search/repo-search-sort.png)

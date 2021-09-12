@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### 关于 {% data variables.product.product_location %} 的防火墙
 
 {% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 更多信息请参阅 Ubuntu 文档中的“[UFW](https://help.ubuntu.com/community/UFW)”。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。

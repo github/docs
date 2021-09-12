@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 ### Pesquisar tópicos no {% data variables.product.product_name %}
 
 Você pode pesquisar tópicos no {% data variables.product.product_name %}, explorar tópicos relacionados e ver quantos repositórios estão associados a um tópico específico.

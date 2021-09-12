@@ -27,8 +27,8 @@ Organization のオーナーは、Team の親を変更できます。 チーム�
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Team のリストで、親を変更する Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

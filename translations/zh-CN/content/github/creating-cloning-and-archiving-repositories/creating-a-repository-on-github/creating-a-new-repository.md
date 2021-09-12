@@ -17,6 +17,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% tip %}
 
 **提示：**所有者可限制组织中的仓库创建权限。 更多信息请参阅“[限制在组织中创建仓库](/articles/restricting-repository-creation-in-your-organization)”。

@@ -1,6 +1,6 @@
 ---
-title: Getting started with the Sponsors GraphQL API
-intro: 'Using the GraphQL API, you can build custom integrations to manage or review your sponsorships.'
+title: Sponsors GraphQL API を使ってみる
+intro: GraphQL API を使用して、スポンサーシップを管理または確認するためのカスタムインテグレーションを構築できます。
 versions:
   free-pro-team: '*'
 type: overview
@@ -9,6 +9,6 @@ topics:
   - API
 ---
 
-To get started with the GraphQL API, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
+GraphQL API の使用を始めるには、「[GraphQL の概要](/graphql/guides/introduction-to-graphql)」を参照してください。
 
-You can find the details about the Sponsors GraphQL API in the reference docs. For more information, see "[GraphQL reference](/graphql/reference)." We recommend using the GraphQL explorer to build your GraphQL calls. 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer)」を参照してください。
+Sponsors GraphQL API の詳細については、リファレンスドキュメントをご覧ください。 詳しい情報については、「[GraphQL リファレンス](/graphql/reference)」を参照してください。 GraphQL エクスプローラーを使用して GraphQL 呼び出しを構築することをお勧めします。 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer)」を参照してください。

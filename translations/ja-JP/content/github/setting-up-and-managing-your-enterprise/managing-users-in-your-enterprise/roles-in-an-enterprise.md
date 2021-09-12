@@ -14,6 +14,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise のロールについて
 
 Enterprise 内の全員が Enterprise のメンバーです。 Enterprise のメンバーに管理者のロールを割り当てることもできます。 各管理者ロールはビジネス機能にマップされ、Enterprise 内の特定のタスクを行う権限を与えます。
@@ -26,7 +27,7 @@ Enterprise にユーザを追加する方法について詳しくは、「{% if 
 
 Enterprise オーナーは、Enterprise の完全な管理権限を持ち、以下を含むすべての操作を行うことができます。
 - 管理者を管理する
-- {% if currentVersion == "free-pro-team@latest" %}追加と削除 {% elsif currentVersion == "github-ae@latest" %} Enterprise {% endif %}{% if currentVersion == "free-pro-team@latest" %}内および {% elsif currentVersion == "github-ae@latest" %}Enterprise{% endif %} 内から Organization を管理する
+- {% if currentVersion == "free-pro-team@latest" %}追加と削除 {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Enterprise {% endif %}{% if currentVersion == "free-pro-team@latest" %}内および {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Enterprise{% endif %} 内から Organization を管理する
 - Enterprise 設定を管理する
 - Organization にポリシーを強制する
 {% if currentVersion == "free-pro-team@latest" %}- 支払い設定を管理する{% endif %}
@@ -55,6 +56,10 @@ Organization が所有するリポジトリへの外部のコラボレータア�
 - 他の支払いマネージャーの追加または削除
 
 支払いマネージャーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 支払いマネージャーは、Enterprise の Organization またはリポジトリにアクセスすることはできません。また、Enterprise のオーナーを追加または削除することもできません。 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
+
+### About support entitlements
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 ### 参考リンク
 

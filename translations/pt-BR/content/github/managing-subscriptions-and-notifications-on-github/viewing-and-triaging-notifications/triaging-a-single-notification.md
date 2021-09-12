@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
 ---
+
 ### Salvando uma única notificação
 
 Para salvar uma única notificação para revisar mais tarde, à direita da notificação, clique em {% octicon "bookmark" aria-label="The bookmark icon" %}. Você só pode salvar uma notificação de cada vez.

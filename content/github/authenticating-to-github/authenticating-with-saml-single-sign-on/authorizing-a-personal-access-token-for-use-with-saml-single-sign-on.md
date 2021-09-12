@@ -6,9 +6,10 @@ redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - SSO
+shortTitle: PAT with SAML
 ---
 You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
 
@@ -21,7 +22,7 @@ You can authorize an existing personal access token, or [create a new personal a
 4. Click **Authorize**.
    ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)
 
-### Further reading
+## Further reading
 
 - "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)"
 - "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"

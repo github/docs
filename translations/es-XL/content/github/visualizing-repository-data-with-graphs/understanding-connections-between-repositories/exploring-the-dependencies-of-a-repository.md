@@ -2,11 +2,6 @@
 title: Explorar las dependencias de un repositorio
 intro: 'Al utilizar la gráfica de dependencias, puedes ver los paquetes de los cuales depende tu proyecto {% if currentVersion == "free-pro-team@latest" %} y los repositorios que dependen de él{% endif %}. Adicionalmente, puedes ver cualquier vulnerabilidad que se detecte en sus dependencias.'
 redirect_from:
-  - /articles/listing-the-packages-that-a-repository-depends-on
-  - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
-  - /articles/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/listing-the-projects-that-depend-on-a-repository
-  - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository
   - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository
 versions:
   enterprise-server: <=2.22

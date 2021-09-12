@@ -84,8 +84,14 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
    _GITHUB-PAGES-VERSION_ をサポートされている最新バージョンの `github-pages` gem に置き換えます。 このバージョンについては、「[依存関係バージョン](https://pages.github.com/versions/)」を参照してください。
 
    正しいバージョンの Jekyll は、`github-pages` gem の依存関係としてインストールされます。
-10. Gemfile を保存して閉じます。
+1. Gemfile を保存して閉じます。
 11. コマンドラインで `bundle update` を実行します。
+11. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
+   ```yml
+   domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+   url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+   baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder   
+  ```
 11. 必要に応じて、サイトをローカルでテストします。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
 12. Add and commit your work.
 ```shell

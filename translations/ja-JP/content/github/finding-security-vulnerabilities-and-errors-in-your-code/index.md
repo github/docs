@@ -8,7 +8,8 @@ topics:
   - Security
 children:
   - /automatically-scanning-your-code-for-vulnerabilities-and-errors
-  - /managing-results-from-code-scanning
+  - /integrating-with-code-scanning
+  - /using-codeql-code-scanning-with-your-existing-ci-system
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
-### 目次

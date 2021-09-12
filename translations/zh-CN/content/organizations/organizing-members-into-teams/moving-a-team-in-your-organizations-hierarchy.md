@@ -27,8 +27,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 在团队列表中，单击您要更改其父团队的团队名称。 ![组织的团队列表](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

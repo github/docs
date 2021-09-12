@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-replit
   - /education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom
 ---
+
 ### About Repl.it
 
 Repl.it is an online integrated development environment (IDE) that supports multiple programming languages. Students can write, edit, run, test, and debug code in a browser with Repl.it. For more information about online IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an online IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."

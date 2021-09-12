@@ -16,6 +16,7 @@ topics:
   - Teams
   - User account
 ---
+
 Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigungen für Repositorys, die Ihrer Organisation gehören](/articles/permission-levels-for-an-organization).
 
 - Mitglieder mit der Inhaberrolle können Organisationsmitglieder aus allen Teams hinzufügen oder entfernen.
@@ -23,8 +24,8 @@ Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigunge
 
 ### Team einrichten
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}

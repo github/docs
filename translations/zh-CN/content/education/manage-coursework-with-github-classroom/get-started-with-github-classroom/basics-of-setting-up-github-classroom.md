@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
 ---
+
 ### 关于 {% data variables.product.prodname_classroom %} 的视频
 
 您可以观看一系列有关 {% data variables.product.prodname_classroom %} 配置和使用的短视频教程。 要观看作为连续播放列表一部分的所有视频，请参阅 YouTube 上的 [{% data variables.product.prodname_classroom %} 入门指南](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u)。

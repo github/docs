@@ -12,6 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +33,9 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 {% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
-#### Example expression in an `if` conditional
+{% data reusables.github-actions.context-injection-warning %}
+
+##### Example expression in an `if` conditional
 
 ```yaml
 steps:
@@ -40,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+##### Example setting an environment variable
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -86,6 +89,7 @@ In order to use property dereference syntax, the property name must:
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Property name             | Тип      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -172,7 +176,7 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 | `needs.<job id>.outputs.<output name>` | `строка` | The value of a specific output for a job that the current job depends on.                                                 |
 | `needs.<job id>.result`                      | `строка` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
 
-#### Example printing context information to the log file
+##### Example printing context information to the log file
 
 To inspect the information that is accessible in each context, you can use this workflow file example.
 
@@ -225,7 +229,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON.                                          |
 | `строка`  | You must use single quotes. Escape literal single-quotes with a single quote. |
 
-#### Пример
+##### Пример
 
 {% raw %}
 ```yaml

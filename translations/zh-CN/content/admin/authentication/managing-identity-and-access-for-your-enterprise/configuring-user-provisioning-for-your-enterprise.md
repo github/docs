@@ -16,6 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
+
 ### 关于企业的用户预配
 
 {% data reusables.saml.ae-uses-saml-sso %} 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
@@ -52,9 +53,7 @@ IdP 上的预配应用程序通过企业的 SCIM API 与 {% data variables.produ
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. 作为企业所有者登录到
-
-{% data variables.product.product_location %} 时，创建作用域为 **admin:enterprise** 的个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+1. 登录到 {% data variables.product.product_location %} 时，创建作用域为 **admin:enterprise** 的个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
   {% note %}
 
   **注意**：

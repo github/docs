@@ -12,6 +12,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 您可以查看 {% data variables.product.prodname_github_app %} 在过去一天（24 小时）、一周、一月或整个上架期间的指标。
 
 {% note %}
@@ -47,8 +48,7 @@ Insights 页面显示选定时段的以下性能指标：
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. 选择
-您要查看其 Insights 的 {% data variables.product.prodname_github_app %}。
+4. 选择要查看其 Insights 的 {% data variables.product.prodname_github_app %}。
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. 单击 **Insights** 选项卡。
 7. （可选）通过单击 Insights 页面右上角的 Period（时段）下拉列表选择不同的时间段。 ![Marketplace 时段](/assets/images/marketplace/marketplace_insights_time_period.png)

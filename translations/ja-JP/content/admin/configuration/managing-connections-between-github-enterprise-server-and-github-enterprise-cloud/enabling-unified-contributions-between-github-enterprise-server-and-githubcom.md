@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - GitHub Connect
 ---
+
 サイト管理者は、{% data variables.product.prodname_ghe_server %} からの作業に対する匿名のコントリビューション数の {% data variables.product.prodname_dotcom_the_website %} コントリビューショングラフへの送信をエンドユーザに許可できます。
 
 {% data variables.product.prodname_github_connect %} を有効化して双方の環境で {% data variables.product.prodname_unified_contributions %} を有効化した後、インスタンス上のエンドユーザは自分の {% data variables.product.prodname_dotcom_the_website %} アカウントに接続し、{% data variables.product.prodname_ghe_server %} からのコントリビューション数を {% data variables.product.prodname_dotcom_the_website %} に送信できます。 {% data reusables.github-connect.sync-frequency %} 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} プロフィールに送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。

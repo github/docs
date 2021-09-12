@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### Understanding the billing cycle
 
 Customers can choose a monthly or yearly billing cycle when they purchase your app. All changes customers make to the billing cycle and plan selection will trigger a `marketplace_purchase` event. You can refer to the `marketplace_purchase` webhook payload to see which billing cycle a customer selects and when the next billing date begins (`effective_date`). For more information about webhook payloads, see "[Webhook events for the {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)."

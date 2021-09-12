@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
 ---
+
 ### 关于搜索 {% data variables.product.prodname_marketplace %}
 
 您可以通过以下两种方式在 {% data variables.product.prodname_marketplace %} 上查找应用程序和操作：

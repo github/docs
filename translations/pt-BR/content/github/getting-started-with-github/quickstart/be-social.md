@@ -16,6 +16,7 @@ topics:
   - Notifications
   - Accounts
 ---
+
 Para saber mais sobre como acessar o painel pessoal, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 ### Seguir pessoas
@@ -38,9 +39,9 @@ Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### Communicating on {% data variables.product.product_name %}
+### Comunicando em {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+{% data variables.product.product_name %} fornece ferramentas de comunicação colaborativas integradas, como problemas e pull requests, permitindo que você interaja de perto com a comunidade quando estiver construindo um ótimo software. Para uma visão geral dessas ferramentas e informações sobre a especificidade de cada uma, consulte "[Início rápido para comunicar-se em {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)".
 
 ### Mais ação
 

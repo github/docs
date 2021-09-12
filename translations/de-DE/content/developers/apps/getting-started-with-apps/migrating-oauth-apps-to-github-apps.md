@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 This article provides guidelines for existing integrators who are considering migrating from an OAuth App to a GitHub App.
 
 ### Reasons for switching to GitHub Apps

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 ### Mögliche Zeitüberschreitung
 
 Einige Abfragen stellen für unsere Suchinfrastruktur eine außergewöhnlich hohe Rechenlast dar. Damit die Suche aber für jeden Benutzer schnell erfolgt, sehen wir uns gezwungen, der Dauer einer einzelnen Abfrage Grenzen zu setzen. In den sehr seltenen Fällen, in denen eine Abfrage aufgrund einer Zeitüberschreitung abgebrochen wird, gibt die Suche alle Treffer zurück, die bis zum Abbruch gefunden wurden. Gleichzeitig wirst Du über die Zeitüberschreitung informiert.

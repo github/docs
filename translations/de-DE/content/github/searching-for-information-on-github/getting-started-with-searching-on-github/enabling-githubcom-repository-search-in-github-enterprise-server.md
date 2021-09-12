@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Wenn Sie {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_dotcom_the_website %} verwenden und Ihr {% data variables.product.prodname_ghe_server %}-Websiteadministrator {% data variables.product.prodname_github_connect %} und {% data variables.product.prodname_unified_search %} für private Repositorys aktiviert hat, können Sie nach bestimmten privaten Repositorys in der verbundenen Organisation suchen.
 
 Damit private Repositorys in den Suchergebnissen angezeigt werden, musst Du bereits auf diese Repositorys zugreifen können und Deine {% data variables.product.prodname_ghe_server %}- und {% data variables.product.prodname_dotcom_the_website %}-Konten miteinander verbunden haben. Weitere Informationen zu den Repositorys, die Ihnen für die Suche zur Verfügung stehen, finden Sie unter „[{% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_dotcom_the_website %} gleichzeitig durchsuchen](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)“.

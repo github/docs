@@ -12,9 +12,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
+  - Dependency graph
+  - Dependencies
   - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 
 ### 查看依赖关系图

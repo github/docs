@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Notifications
 ---
+
 {% if currentVersion == "github-ae@latest" %}
 Os proprietários das empresas podem configurar e-mails para notificações.
 {% endif %}
@@ -166,9 +167,7 @@ Se a {% data variables.product.product_location %} estiver atrás de um firewall
 
 #### Entrar em contato com o suporte
 {% if enterpriseServerVersions contains currentVersion %}
-Se ainda não conseguir resolver o problema, entre em contato
-{% data variables.contact.contact_ent_support %}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
+Se você não conseguir resolver o problema, entre em contato com o {% data variables.contact.contact_ent_support %}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
 {% elsif currentVersion == "github-ae@latest" %}
-Você pode entrar em contato com
-{% data variables.contact.github_support %} para ajudar a configurar o e-mail para notificações a serem enviadas através do seu servidor SMTP. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
+Você pode entrar em contato com {% data variables.contact.github_support %} para ajudar a configurar o e-mail de notificações a serem enviadas através do seu servidor SMTP. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 {% endif %}

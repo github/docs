@@ -8,8 +8,12 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 children:
+  - /exploring-early-access-releases-with-feature-preview
   - /supported-browsers
-  - /troubleshooting-connectivity-problems
+  - /github-cli
+  - /github-desktop
+  - /github-for-mobile
   - /keyboard-shortcuts
+  - /troubleshooting-connectivity-problems
 ---
 

@@ -13,6 +13,7 @@ topics:
   - Organizations
   - User account
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 Mithilfe eines Befehlszeilenprogramms können Sie Ihre Standardeinstellung zudem für alle aktuellen Organisationsmitglieder auf Ihrer Instanz erzwingen. Wenn Sie beispielsweise möchten, dass die Sichtbarkeit jedes Organisationsmitglieds öffentlich sein soll, können Sie in den Administratoreinstellungen die Standardeinstellung auf öffentlich festlegen, die Standardeinstellung für alle neuen Mitglieder erzwingen und anschließend das Befehlszeilenprogramm verwenden, um die Einstellung für die öffentliche Sichtbarkeit für Bestandsmitglieder zu erzwingen.
 {% endif %}

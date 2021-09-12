@@ -14,6 +14,7 @@ versions:
 topics:
   - Open Source
 ---
+
 ### Relevante Projekte finden
 
 Wenn es ein bestimmtes Thema gibt, das Dich interessiert, besuche `github.com/topics/<topic>`. Wenn Du Dich zum Beispiel für Maschinelles Lernen (machine learning) interessierst, kannst Du auf https://github.com/topics/machine-learning relevante Projekte und gute erste Issues finden. Du kannst beliebte Themen durchsuchen, indem Du [Themen](https://github.com/topics) besuchst. Du kannst auch nach Repositories suchen, die zu einem Thema passen, das Dich interessiert. Weitere Informationen finden Sie unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-topic)“.
@@ -28,25 +29,23 @@ Bleibe auf dem Laufenden über aktuelle Tätigkeiten aus den Repositorys, die Du
 
 Wenn Du bereits weist, an welchem Projekt Du arbeiten willst, kannst Du in diesem Repository anfängerfreundliche Issues finden, indem Du `github. om/<owner>/<repository>/contribute` besuchst. Zum Beispiel findest Du unter https://github.com/electron/electron/contribute Möglichkeiten für Deinen ersten Beitrag an `electron/electron`.
 
-### Open-Source-Projekte mit Spiegeln auf {% data variables.product.prodname_dotcom %}
+### das Öffnen eines Issues
 
-Einige Open-Source-Projekte stellen zusätzlich zu den an anderer Stelle gehosteten offiziellen Repositorys auch Spiegel auf {% data variables.product.prodname_dotcom_the_website %} bereit.
+If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
 
-Nachfolgend findest Du einige bekannte Repositorys, die auf {% data variables.product.prodname_dotcom_the_website %} gespiegelt werden:
+### Validating an issue or pull request
 
-- [Android Open Source Project](https://github.com/aosp-mirror)
-- [The Apache Software Foundation](https://github.com/apache)
-- [The Chromium Project](https://github.com/chromium)
-- [Eclipse Foundation](https://github.com/eclipse)
-- [The FreeBSD Project](https://github.com/freebsd)
-- [Glasgow Haskell Compiler](https://github.com/ghc)
-- [GNOME](https://github.com/GNOME)
-- [Linux kernel source tree](https://github.com/torvalds/linux)
-- [Qt](https://github.com/qt)
+There are a variety of ways that you can contribute to open source projects.
 
-Um Deinen eigenen Spiegel einzurichten, kannst Du einen [Post-Receive-Hook](https://git-scm.com/book/en/Customizing-Git-Git-Hooks) auf Deinem offiziellen Projekt-Repository konfigurieren, um Commits automatisch zu einem Spiegel-Repository auf {% data variables.product.product_name %} zu übertragen.
+#### Reproducing a reported bug
+You can contribute to an open source project by validating an issue or adding additional context to an existing issue.
 
-Du kannst Repositorys basierend darauf suchen, ob sie ein Spiegel sind oder nicht. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-a-mirror).“
+#### Testing a pull request
+You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+
+#### Updating issues
+You can contribute to an open source project by adding additional information to existing issues.
+
 
 ### Weiterführende Informationen
 

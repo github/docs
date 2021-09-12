@@ -8,9 +8,15 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: reference
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 ### 关于 *dependabot.yml* 文件
 
 {% data variables.product.prodname_dependabot %} 配置文件 *dependabot.yml* 使用 YAML 语法。 如果您是 YAML 的新用户并想要了解更多信息，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
@@ -164,7 +170,7 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-使用 `allow` 选项自定义更新哪些依赖项。 This applies to both version and security updates. 您可以使用以下选项：
+使用 `allow` 选项自定义更新哪些依赖项。 这适用于版本和安全更新。 您可以使用以下选项：
 
 - `dependency-name`—用于更新名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`，例如：`org.kohsuke:github-api`。
 - `dependency-type`—用于更新特定类型的依赖项。
@@ -283,22 +289,27 @@ updates:
 
 #### `ignore`
 
-{% data reusables.dependabot.warning-ignore-option %}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-##### 检查现有的 ignore 首选项
+通过将依赖项添加到 `ignore` 或针对由 {% data variables.product.prodname_dependabot %} 打开的拉取请求使用 `@dependabot ignore` 命令，可忽略依赖项。
 
-在添加 `ignore` 选项到配置文件之前，检查您以前是否对安全更新或版本更新拉取请求使用过任何e `@dependabot ignore` 命令。 {% data variables.product.prodname_dependabot %} 集中存储每个包管理器的这些首选项，并且此信息被 `ignore` 选项覆盖。 有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖项更新的拉取请求](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)”。
+##### 从 `@dependabot ignore` 创建 `ignore` 条件
 
-您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了首选项。 如果审查结果中的任何拉取请求，您可以决定是否在配置文件中指定这些忽略的依赖项或版本。
+使用 `@dependabot ignore` 命令忽略的依赖项为每个包管理器集中存储。 如果您开始忽略 `dependabot.yml` 文件中的依赖项，则这些现有的首选项将会与配置中的 `ignore` 依赖项一起被考虑。
+
+您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
+
+有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖项更新的拉取请求](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 
 ##### 指定要忽略的依赖项和版本
 
-{% data reusables.dependabot.default-dependencies-allow-ignore %}
-
 可以使用 `ignore` 选项自定义更新哪些依赖项。 `ignore` 选项支持以下选项。
 
-- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`，例如：`org.kohsuke:github-api`。
+- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。
 - `versions`—用于忽略特定版本或版本范围。 如果要定义范围，请使用包管理器的标准模式（例如：对 npm 使用 `^1.0.0`，对 Bundler 使用 `~> 2.0`）。
+- `update-types`—用于忽略更新类型，如关于版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略补丁更新）。 您可以将此与 `dependency-name: *` 结合，以忽略所有依赖项的特定 `update-types`。 目前，`version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 是唯一支持的选项。 安全更新不受此设置的影响。
+
+如果 `versions` 与 `update-types` 一起使用，则 {% data variables.product.prodname_dependabot %} 将会忽略任一集中的任何更新。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -317,6 +328,9 @@ updates:
         versions: ["4.x", "5.x"]
         # For Lodash, ignore all updates
       - dependency-name: "lodash"
+        # For AWS SDK, ignore all patch updates
+      - dependency-name: "aws-sdk"
+        update-types: ["version-update:semver-patch"]
 ```
 
 {% note %}
@@ -933,5 +947,19 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `terraform-registry`
+
+`terraform-registry` 类型支持令牌。
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}

@@ -11,6 +11,7 @@ versions:
 topics:
   - Profile
 ---
+
 Wenn Du Personen folgst, siehst Du deren öffentliche Aktivitäten in der Aktivitätsansicht Deines News-Feeds.{% if currentVersion == "free-pro-team@latest" %} Wenn jemand, dem Du folgst, ein öffentliches Repository mit einem Stern markiert, empfiehlt Dir {% data variables.product.product_name %} möglicherweise dieses Repository in der Entdecken-Ansicht Deines Newsfeed.{% endif %} Um einem Benutzer zu folgen, rufe seine Profilseite auf und klicke unter dem Profilbild auf **Follow** (Folgen).
 
 ![Schaltfläche „Follow user" (Benutzer folgen)](/assets/images/help/profile/follow-user-button.png)

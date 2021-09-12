@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Ao instalar o {% data variables.product.prodname_desktop %}, o {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) também será instalado. {% data variables.large_files.product_name_short %} permite que você envie arquivos de push para {% data variables.product.prodname_dotcom %} que excedam o limite normal de {% data variables.large_files.max_github_size %}. Para obter mais informações sobre o {% data variables.large_files.product_name_short %}, consulte "[Sobre {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage)".
 
 Para usar o {% data variables.large_files.product_name_short %} com {% data variables.product.prodname_desktop %}, você deve configurar o {% data variables.large_files.product_name_short %} usando a linha de comando. Para obter mais informações, consulte "[Configurando {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."

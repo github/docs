@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ### 添付コンテンツについて
@@ -48,7 +49,9 @@ GitHub App の権限やイベントのサブスクリプションを設定する
     "node_id": "MDE2OkNvbnRlbnRSZWZlcmVuY2UxNjA5",
     "reference": "errors.ai"
   },
-  "repository": {...},
+  "repository": {
+    "full_name": "Codertocat/Hello-World",
+  },
   "sender": {...},
   "installation": {
     "id": 371641,
@@ -57,7 +60,7 @@ GitHub App の権限やイベントのサブスクリプションを設定する
 }
 ```
 
-**ステップ4。**アプリケーションはREST APIを使って[添付コンテンツを作成する](/rest/reference/apps#create-a-content-attachment)ために`content_reference` `id`を使います。 [GitHub Appのインストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として認証を受けるために、`installation` `id`も必要になります。
+**Step 4.** The app uses the `content_reference` `id` and `repository` `full_name` fields to [Create a content attachment](/rest/reference/apps#create-a-content-attachment) using the REST API. [GitHub Appのインストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として認証を受けるために、`installation` `id`も必要になります。
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -66,7 +69,7 @@ GitHub App の権限やイベントのサブスクリプションを設定する
 
     ```shell
     curl -X POST \
-      https://api.github.com/content_references/1512/attachments \
+      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
       -H 'Accept: application/vnd.github.corsair-preview+json' \
       -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
       -d '{
@@ -154,17 +157,17 @@ Probotアプリケーションを作成するには、以下のステップに�
       app.log('Yay, the app was loaded!')
        app.on('content_reference.created', async context => {
         console.log('Content reference created!', context.payload)
-         // "Create a content reference" RESTエンドポイントを呼ぶ
+         // Call the "Create a content reference" REST endpoint
         await context.github.request({
           method: 'POST',
           headers: { accept: 'application/vnd.github.corsair-preview+json' },
-          url: `/content_references/${context.payload.content_reference.id}/attachments`,
-          // パラメータ
+          url: `/repos/${context.payload.repository.full_name}/content_references/${context.payload.content_reference.id}/attachments`,
+          // Parameters
           title: '[A-1234] Error found in core/models.py file',
           body: 'You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\nself.save()'
         })
       })
-    }body
+    }
     ```
 
 4. [GitHub Appをローカルで動作させます](https://probot.github.io/docs/development/#running-the-app-locally)。 `http://localhost:3000`にアクセスして、**Register GitHub App**ボタンをクリックしてください。

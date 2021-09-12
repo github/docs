@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 始める前に、以下をご確認ください:
 
 - お使いの {% data variables.product.product_name %}ユーザ名

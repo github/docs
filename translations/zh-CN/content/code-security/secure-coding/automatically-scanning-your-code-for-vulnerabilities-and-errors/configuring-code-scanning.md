@@ -11,9 +11,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Actions
+  - Repositories
+  - Pull requests
+  - JavaScript
+  - Python
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -21,14 +29,14 @@ topics:
 
 ### 关于 {% data variables.product.prodname_code_scanning %} 配置
 
-You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" or
+您可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_name %} 中运行 {% data variables.product.prodname_code_scanning %}，或从持续集成 (CI) 系统运行它。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”或
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
-"[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
+“[关于 CI 系统中的 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)”。
 {%- else %}
 "[在 CI 系统中运行 {% data variables.product.prodname_codeql_runner %}](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 {% endif %}
 
-This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.
+本文说明使用操作在 {% data variables.product.product_name %} 上运行 {% data variables.product.prodname_code_scanning %}。
 
 在为仓库配置 {% data variables.product.prodname_code_scanning %} 之前，必须将 {% data variables.product.prodname_actions %} 工作流程添加到仓库中以设置 {% data variables.product.prodname_code_scanning %}。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
 
@@ -66,11 +74,22 @@ This article is about running {% data variables.product.prodname_code_scanning %
 
 #### 扫描拉取请求
 
-默认 {% data variables.product.prodname_codeql_workflow %} 使用 `pull_request` 事件在针对默认分支的拉取请求上触发代码扫描。 {% if currentVersion ver_gt "enterprise-server@2.21" %}The `pull_request` event is not triggered if the pull request was opened from a private fork.{% else %}If a pull request is from a private fork, the `pull_request` event will only be triggered if you've selected the "Run workflows from fork pull requests" option in the repository settings. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for a repository](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+默认 {% data variables.product.prodname_codeql_workflow %} 使用 `pull_request` 事件在针对默认分支的拉取请求上触发代码扫描。 {% if currentVersion ver_gt "enterprise-server@2.21" %}如果从私有复刻打开拉取请求，`pull_request` 事件不会触发。{% else %}如果拉取请求来自私有复刻，`pull_request` 事件仅在仓库设置中选择了“Run workflows from fork pull requests（从复刻拉取请求运行工作流程）”选项时触发。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository#enabling-workflows-for-private-repository-forks)”。{% endif %}
 
 有关 `pull_request` 事件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
 
 如果您扫描拉取请求，则结果在拉取请求检查中显示为警报。 更多信息请参阅“[对拉取请求中的代码扫描警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+#### 定义导致拉取请求检查失败的警报严重程度
+
+默认情况下，只有严重程度为`错误`的警报才会导致拉取请求检查失败， 对于较低严重的警报，检查仍然会成功。 您可以更改警报严重程度，这将导致拉取请求在您的仓库设置中检查失败。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. 在“Code scanning（代码扫描）”下的“Check Failure（检查失败）”右边，使用下拉菜单选择您想要导致拉请求检查失败的严重程度。 ![检查失败设置](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+{% endif %}
 
 #### 避免对拉取请求进行不必要的扫描
 
@@ -144,7 +163,25 @@ jobs:
 
 {% data variables.product.prodname_code_scanning_capc %} 支持 macOS、Ubuntu 和 Windows 的最新版本。 因此，此设置的典型值为：`ubuntu-latest`、`windows-latest` 和 `macos-latest`。 更多信息请参阅 {% if currentVersion ver_gt "enterprise-server@2.21" %}“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)”和“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}”[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}“。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}您必须确保 Git 位于自托管运行器的 PATH 变量中。{% else %}如果您使用自托管运行器，必须确保 Git 在 PATH 变量中。{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### 指定 {% data variables.product.prodname_codeql %} 数据库的位置
+
+一般来说，您不必担心 {% data variables.product.prodname_codeql_workflow %} 放置 {% data variables.product.prodname_codeql %} 数据库的位置，因为以后的步骤会自动找到以前步骤创建的数据库。 但是，如果您正在编写一个自定义工作流步骤，要求 {% data variables.product.prodname_codeql %} 数据库位于特定的磁盘位置，例如将数据库作为工作流程工件上传，则可以使用 `init` 下的 `db-location` 参数指定该位置。
+
+{% raw %}
+``` yaml
+- uses: github/codeql-action/init@v1
+  with:
+    db-location: '${{ github.workspace }}/codeql_dbs'
+```
+{% endraw %}
+
+{% data variables.product.prodname_codeql_workflow %} 将期望在 `db-location` 中提供的路径是可写的，或者不存在，或者是一个空目录。 当在运行自托管运行器或使用 Docker 容器的作业中使用此参数时， 用户有责任确保所选目录在运行之间被清空， 或数据库一旦不再需要即予移除。 对于运行在 {% data variables.product.prodname_dotcom %} 托管的运行器中的任务，这是不必要的，因为每次运行时都会获得一个新的实例和一个清洁的文件系统。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)”。
+
+如果不使用此参数，{% data variables.product.prodname_codeql_workflow %} 将在自己选择的临时位置创建数据库。
+{% endif %}
 
 ### 更改分析的语言
 
@@ -223,11 +260,11 @@ jobs:
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Configuring a category for the analysis
+### 配置分析类别
 
-Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
+使用`类别`来区分同一工具和提交的多次分析，但是在不同语言或代码的不同部分进行。 您在工作流程中指定的类别将包含在 SARIF 结果文件中。
 
-This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
+如果您使用单一仓库，并且对单一仓库的不同部分有多个对应的 SARIF 文件，此参数是特别有用。
 
 {% raw %}
 ``` yaml
@@ -241,13 +278,13 @@ This parameter is particularly useful if you work with monorepos and have multip
 ```
 {% endraw %}
 
-If you don't specify a `category` parameter in your workflow, {% data variables.product.prodname_dotcom %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. 例如：
-- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
+如果您没有在工作流程中指定 `category` 参数，则 {% data variables.product.prodname_dotcom %} 将根据触发操作的工作流程文件的名称、操作名称和任何矩阵变量为您生成类别名称。 例如：
+- `.github/workflows/codeql-analysis.yml` 工作流程和 `analyze` 操作将产生类别 `.github/workflows/codeql.yml:analyze`。
+- `.github/workflows/codeql-analysis.yml` 工作流程、`analyze` 操作和 `{language: javascript, os: linux}` 矩阵变量将产生类别 `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`。
 
-The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. 更多信息请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)”。
+`category` 值在 SARIF v2.1.0 中将显示为 `<run>.automationDetails.id` 属性。 更多信息请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)”。
 
-Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
+如有包括，您指定的类别将不会覆盖 SARIF 文件中 `runAutomationDetail` 对象的详细信息。
 
 {% endif %}
 
@@ -347,7 +384,7 @@ paths-ignore:
 **注**：
 
 * 在 {% data variables.product.prodname_code_scanning %} 配置文件上下文中使用的 `paths` 和 `paths-ignore` 关键字，不应与用于工作流程中 `on.<push|pull_request>.paths` 的相同关键字相混淆。 当它们用于修改工作流程中的 `on.<push|pull_request>` 时，它们将决定在有人修改指定目录中的代码时是否运行操作。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)”。
-* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
+* 不支持过滤模式字符 `?`、`+`、`[`、`]` 和 `!`，将逐字匹配。
 * `**` 字符只能用在行的开头或结尾，或用斜杠包围，并且不能将 `**` 与其他字符混合在一起。 例如，`foo/**`、`**/foo` 和 `foo/**/bar` 都是允许的语法，但 `**foo` 不是。 但是，可以将单星号与其他字符一起使用，如示例中所示。 您需要引用任何包含 `*` 字符的内容。
 
 {% endnote %}

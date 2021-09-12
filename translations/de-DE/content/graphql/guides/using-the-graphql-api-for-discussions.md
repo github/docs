@@ -9,8 +9,6 @@ The {% data variables.product.prodname_discussions %} GraphQL API allows you to 
 
 This API is available for authenticated users, OAuth Apps, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[Scopes for OAuth apps](/developers/apps/scopes-for-oauth-apps)."
 
-To use this API, you must include `GraphQL-Features: discussions_api` in the `HTTP` header.
-
 ## Fields
 
 ### Repository.discussions

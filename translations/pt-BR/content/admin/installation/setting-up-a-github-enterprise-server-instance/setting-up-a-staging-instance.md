@@ -12,6 +12,7 @@ topics:
   - Infrastructure
   - Upgrades
 ---
+
 {% tip %}
 
 **Dica:** talvez seja interessante reutilizar seu arquivo de licença do {% data variables.product.prodname_enterprise %}, desde que a instância de preparo não seja usada na produção.

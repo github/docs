@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 ---
+
 ### 基本要求
 
 在启用 {% data variables.product.prodname_actions %} 之前，请确保您已完成以下步骤：

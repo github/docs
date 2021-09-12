@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### Usar sistemas automatizados de geração de tíquetes
 
 Embora a nossa equipe de suporte faça o melhor para responder às solicitações automatizadas, resolver o problema costuma exigir mais informações do que o sistema automatizado de geração de tíquetes pode nos dar. Sempre que possível, inicie as solicitações de suporte com uma pessoa ou máquina com quem o {% data variables.contact.enterprise_support %} consiga interagir. Para obter mais informações, consulte "[Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)".

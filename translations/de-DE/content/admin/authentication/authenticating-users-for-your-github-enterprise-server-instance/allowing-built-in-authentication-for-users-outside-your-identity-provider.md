@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Identity
 ---
+
 ### Informationen zur integrierten Authentifizierung für Benutzer außerhalb Ihres Identity Providers
 
 Sie können die integrierte Authentifizierung für externe Benutzer verwenden, wenn Sie nicht in der Lage sind, Ihrem Identity Provider (IdP) bestimmte Konten, beispielsweise Konten für Vertragsnehmer oder Maschinenbenutzer hinzuzufügen. Darüber hinaus können Sie die integrierte Authentifizierung verwenden, um auf ein Fallback-Konto zuzugreifen, falls der Identity Provider nicht verfügbar ist.

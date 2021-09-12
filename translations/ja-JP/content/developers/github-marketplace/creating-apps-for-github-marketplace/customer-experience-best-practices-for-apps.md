@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
 ---
+
 以下のベストプラクティスに従えば、優れた顧客体験を提供するための役に立つでしょう。
 
 ### 顧客とのコミュニケーション

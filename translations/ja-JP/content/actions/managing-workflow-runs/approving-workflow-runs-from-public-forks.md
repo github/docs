@@ -1,19 +1,19 @@
 ---
-title: Approving workflow runs from public forks
-intro: 'When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve any workflow runs.'
+title: パブリックフォークで実行されるワークフローの実行を承認する
+intro: 初めてのコントリビューターがプルリクエストをパブリックリポジトリに送信するとき、書き込みアクセスを持つメンテナはワークフローの実行を承認する必要があります。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 ---
 
-Forks of public repositories can submit pull requests that propose changes to a repository's {% data variables.product.prodname_actions %} workflows. Although workflows from forks do not have access to sensitive data such as secrets, they can be an annoyance for maintainers if they are modified for abusive purposes. To help prevent this, workflows on pull requests are not run automatically if they are received from first-time contributors, and must be approved first.
+パブリックリポジトリのフォークは、リポジトリの {% data variables.product.prodname_actions %} ワークフローへの変更を提案するプルリクエストを送信できます。 フォークからのワークフローはシークレットなどの機密データにアクセスできませんが、悪用目的で変更された場合、メンテナが迷惑を被る可能性があります。 これを防ぐために、プルリクエストのワークフローは、初めてのコントリビューターから受け取った場合は自動的に実行されないため、最初に承認する必要があります。
 
-Maintainers with write access to the repository can use the following procedure to review and run workflows on pull requests from first-time contributors. After a contributor has at least one pull request merged into a project's repository, any future pull requests from that contributor's fork will automatically run workflows.
+リポジトリへの書き込みアクセスを持つメンテナは、次の手順で、初めてのコントリビューターからのプルリクエストのワークフローをレビューおよび実行できます。 コントリビューターが少なくとも 1 つのプルリクエストをプロジェクトのリポジトリにマージした後、そのコントリビューターのフォークからの以降のプルリクエストは自動的にワークフローを実行します。
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
-1. Inspect the proposed changes in the pull request and ensure that you are comfortable running your workflows on the pull request branch. You should be especially alert to any proposed changes in the `.github/workflows/` directory that affect workflow files.
-1. If you are comfortable with running workflows on the pull request branch, return to the {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversation** tab, and under "Workflow(s) awaiting approval", click **Approve and run**.
+1. プルリクエストで提案された変更を調べて、プルリクエストブランチでワークフローを快適に実行できることを確認します。 ワークフローファイルに影響を与える `.github/workflows/` ディレクトリで提案された変更には特に注意する必要があります。
+1. プルリクエストブランチでワークフローを実行することに慣れている場合は、{% octicon "comment-discussion" aria-label="The discussion icon" %} [**Conversation**] タブに戻り、[Workflow(s) awaiting approval] で [**Approve and run**] をクリックします。
 
-   ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+   ![ワークフローを承認して実行する](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)

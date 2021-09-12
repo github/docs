@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 Se você escolheu um plano pago, a assinatura de seu app será paga na data de cobrança atual de sua conta pessoal e com a forma de pagamento vigente.

@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Sobre convidar pessoas para gerenciar sua conta corporativa
 
 {% data reusables.enterprise-accounts.enterprise-administrators %} Para obter mais informações, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).

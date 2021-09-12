@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 許可されていない (あるいは侵害された可能性のある) SSH キーを削除することで、攻撃者が以後自分のリポジトリにアクセスすることを防止できます。 有効な既存の SSH キーを承認することもできます。
 
 {% mac %}
@@ -30,7 +31,7 @@ topics:
 
 4. ターミナルを開きます。
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. 自分の公開鍵のフィンガープリントを見つけてメモします。 {% if currentVersion ver_lt "enterprise-server@3.0" %}OpenSSH 6.7 以前を使用している場合:
   ```shell
@@ -108,7 +109,7 @@ topics:
 
 4. ターミナルを開きます。
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. 自分の公開鍵のフィンガープリントを見つけてメモします。 {% if currentVersion ver_lt "enterprise-server@3.0" %}OpenSSH 6.7以前を使用している場合:
   ```shell

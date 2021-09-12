@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
 ---
+
 Pode ser útil ter um ambiente de preparo ou de teste para {% data variables.product.product_location %} para que você possa testar atualizações ou novas funcionalidades antes de implementá-las no seu ambiente de produção.
 
 Uma maneira comum de criar o ambiente de preparo é usar um backup da sua instância de produção e restaurá-lo para o ambiente de preparo.

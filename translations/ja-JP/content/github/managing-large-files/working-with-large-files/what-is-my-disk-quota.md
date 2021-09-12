@@ -8,6 +8,7 @@ intro: '{% data variables.product.product_name %} は、すべての Git リポ�
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.large_files.use_lfs_tip %}
 
 ### ファイルとリポジトリのサイズ制限

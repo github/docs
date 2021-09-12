@@ -13,6 +13,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 {% data variables.product.prodname_ghe_server %} 的预接收环境是 Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 环境。 由于预接收挂钩会在每个推送事件上执行，因此它们应该快速且轻量化。 这类检查需要的环境通常极少。
 
 {% data variables.product.prodname_ghe_server %} 提供了一个默认环境，其中包括以下包：`awk`、`bash`、`coreutils`、`curl`、`find`、`gnupg`、`grep`、`jq`、`sed`。

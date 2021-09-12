@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Überschriften
 
 Um eine Überschrift zu erstellen, füge bis zu sechs Rautenzeichen (`#`) vor dem Text der Überschrift hinzu. Die Anzahl an `#` bestimmt die Größe der Überschrift.
@@ -163,7 +164,7 @@ Weitere Beispiele findest Du in den [GitHub Flavored Markdown-Spezifikationen](h
 
 {% data reusables.repositories.task-list-markdown %}
 
-Wenn die Beschreibung eines Aufgabenlistenelements mit einer Klammer beginnt, musst Du die Klammer mit einem `\` maskieren:
+Wenn die Beschreibung eines Aufgabenlistenelements mit einer Klammer beginnt, müssen Sie die Klammer mit einem `\` maskieren:
 
 `- [ ] \(Optional) Öffne einen Issue zur Nachverfolgung`
 
@@ -227,7 +228,7 @@ Um einen neuen Absatz zu erstellen, lasse eine Zeile zwischen den Textzeilen lee
 
 ### Markdown-Formatierung ignorieren
 
-Du kannst {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren (oder zu verlassen), indem Du das Markdown-Zeichen mit `\` maskierst.
+Sie können {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren, indem Sie das Markdown-Zeichen mit `\` maskieren.
 
 `Wir benennen \*unser-neues-Projekt\* in \*unser-altes-Projekt\* um.`
 

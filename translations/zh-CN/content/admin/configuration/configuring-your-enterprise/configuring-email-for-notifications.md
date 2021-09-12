@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Notifications
 ---
+
 {% if currentVersion == "github-ae@latest" %}
 企业所有者可以配置以电子邮件发送通知。
 {% endif %}
@@ -166,9 +167,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 #### 联系支持
 {% if enterpriseServerVersions contains currentVersion %}
-如果仍然无法解决问题，请联系
-{% data variables.contact.contact_ent_support %}. 请在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，以便帮助我们排查您的问题。
+如果您仍然无法解决问题，请联系 {% data variables.contact.contact_ent_support %}。 请在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，以便帮助我们排查您的问题。
 {% elsif currentVersion == "github-ae@latest" %}
-您可以通过
-{% data variables.contact.github_support %} 帮助配置通过 SMTP 服务器发送电子邮件通知。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
+您可以联系 {% data variables.contact.github_support %} 寻求帮助配置通过 SMTP 服务器发送电子邮件通知。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 {% endif %}

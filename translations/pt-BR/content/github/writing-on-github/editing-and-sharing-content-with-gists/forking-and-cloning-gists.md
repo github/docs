@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Bifurcar gists
 
 Cada gist indica quais bifurcações têm atividade, facilitando o processo de encontrar mudanças interessantes de outros.

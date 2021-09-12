@@ -1,6 +1,6 @@
 ---
-title: Migrating to the Container registry from the Docker registry
-intro: 'If you''ve used the GitHub Packages Docker registry to store Docker images, you can migrate your images to the new {% data variables.product.prodname_container_registry %}.'
+title: 从 Docker 注册表迁移到容器注册表
+intro: '如果您已经使用 GitHub Packages Docker 注册表来存储 Docker 映像，您可以将映像迁移到新的 {% data variables.product.prodname_container_registry %}。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
@@ -10,28 +10,28 @@ versions:
   free-pro-team: '*'
 ---
 
-### Key differences between the {% data variables.product.prodname_container_registry %} and the Docker registry
+### {% data variables.product.prodname_container_registry %} 与 Docker 注册表之间的主要差异
 
 {% data reusables.package_registry.container-registry-beta %}
 
-The {% data variables.product.prodname_container_registry %} supersedes the existing {% data variables.product.prodname_registry %} Docker registry and is optimized to support some of the unique needs of containers.
+{% data variables.product.prodname_container_registry %} 取代原有的 {% data variables.product.prodname_registry %} Docker 注册表，并且做了优化，可支持容器的一些独特需求。
 
-With the {% data variables.product.prodname_container_registry %} you can:
+通过 {% data variables.product.prodname_container_registry %}，您可以：
 - 将容器映像存储在组织和用户帐户中，而不是仓库中。
-- Set granular permissions and visibility independently of repository permissions and visibility.
+- 设置独立于仓库权限和可见性的精细权限和可见性。
 - 匿名访问公共容器映像。
 
-|      | Docker registry                                                                                                                                          | {% data variables.product.prodname_container_registry %}
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| 托管位置 | You can host multiple Docker images in one repository.                                                                                                   | 您可以在一个组织或用户帐户中托管多个容器映像。                                    |
-| 权限   | Each image inherits the permissions of the repository where the image is hosted. <br><br>例如，对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 | 对于每个容器映像，您可以选择其他人具有的访问权限级别。 容器映像访问的权限与组织和仓库权限不同。           |
- Visibility          | {% data reusables.package_registry.public-or-private-packages %} | You can set the visibility of each of your container images. 私有容器映像仅对组织内被授予访问权限的人员或团队可见。 公共容器映像对任何人都可见。 | Anonymous access    | N/A | You can access public container images anonymously. Foreign layer support | Doesn't support foreign layers, such as Windows images. | Supports foreign layers, such as Windows images.
+|      | Docker 注册表                                                                                 | {% data variables.product.prodname_container_registry %}
+| ---- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| 托管位置 | 您可以在一个仓库中托管多个 Docker 映像。                                                                   | 您可以在一个组织或用户帐户中托管多个容器映像。                                    |
+| 权限   | 每个映像都继承托管映像的仓库的权限。 <br><br>例如，对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 | 对于每个容器映像，您可以选择其他人具有的访问权限级别。 容器映像访问的权限与组织和仓库权限不同。           |
+ 可见性 | {% data reusables.package_registry.public-or-private-packages %} | 您可以设置每个容器映像的可见性。 私有容器映像仅对组织内被授予访问权限的人员或团队可见。 公共容器映像对任何人都可见。 | Anonymous access    | N/A | You can access public container images anonymously. Foreign layer support | Doesn't support foreign layers, such as Windows images. | Supports foreign layers, such as Windows images.
 
 ### 计费更改
 
-During the {% data variables.product.prodname_container_registry %} beta, both the new {% data variables.product.prodname_container_registry %} and the existing {% data variables.product.prodname_registry %} Docker registry are free of charge. For more information about the {% data variables.product.prodname_registry %} Docker registry, see "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+在 {% data variables.product.prodname_container_registry %} 测试期间，新的 {% data variables.product.prodname_container_registry %} 和现有的 {% data variables.product.prodname_registry %} Docker 注册表都是免费的。 有关 {% data variables.product.prodname_registry %} Docker 注册表的更多信息，请参阅“[使用 Docker 注册表](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)”。
 
-After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)”。
+测试后，其他 {% data variables.product.prodname_registry %} 注册表使用的计费和存储率将适用于 {% data variables.product.prodname_container_registry %}。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
 
 ### 域更改
 
@@ -42,7 +42,7 @@ After the beta, the same billing and storage rates that other {% data variables.
 | {% data variables.product.prodname_registry %} Docker 注册表  | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_container_registry %} | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### 向 {% data variables.product.prodname_container_registry %} 验证
 
 {% data reusables.package_registry.feature-preview-for-container-registry %}
 
@@ -93,9 +93,9 @@ After the beta, the same billing and storage rates that other {% data variables.
 
 2. 在 {% data variables.product.prodname_actions %} 工作流程文件中，将包 url 从 `https://docker.pkg.github.com` 更新到 `ghcr.io`。
 
-3. 将新的 {% data variables.product.prodname_container_registry %} 身份验证个人访问令牌 (PAT) 添加为 GitHub ACtions 密码。 The {% data variables.product.prodname_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. 更多信息请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
+3. 使用 `GITHUB_TOKENN` 作为身份验证个人访问令牌 (PAT)。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)。
 
-4. 在 {% data variables.product.prodname_actions %} 工作流程文件中更新身份验证 PAT，将 Docker 注册表 PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) 替换为 {% data variables.product.prodname_container_registry %} PAT 的新变量，例如 {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}。
+4. 在 {% data variables.product.prodname_actions %} 工作流程文件中，使用身份验证令牌 {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} 作为 {% data variables.product.prodname_container_registry %} PAT。
 
 #### 更新的工作流程示例
 
@@ -110,12 +110,12 @@ docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
 ```
 {% endraw %}
 
-然后，您需要使用新的 URL 和 PAT {% data variables.product.prodname_container_registry %} 更新工作流程，如：
+然后，您需要使用新的 URL {% data variables.product.prodname_container_registry %} 更新工作流程，如：
 
 {% raw %}
 ```yaml
 # new login with new container registry url and PAT
-echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 # new container registry urls added
 docker pull ghcr.io/github/octoshift:latest
 docker build . --tag ghcr.io/github/octoshift:$GITHUB_SHA --cache-from ghcr.io/github/octoshift:latest

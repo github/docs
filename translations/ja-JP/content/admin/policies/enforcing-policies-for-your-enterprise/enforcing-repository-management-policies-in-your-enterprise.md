@@ -35,6 +35,7 @@ topics:
   - Policies
   - Security
 ---
+
 ### Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する
 
 ユーザが Enterprise に新しいリポジトリを作成するたびに、そのユーザはリポジトリの可視性を選択する必要があります。 その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。

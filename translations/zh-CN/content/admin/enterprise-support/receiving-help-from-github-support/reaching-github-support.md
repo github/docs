@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### 使用自动事件单系统
 
 尽管我们会尽最大努力响应自动支持请求，但与自动事件单系统能够提供的信息相比，我们通常需要更多信息来解决您的问题。 只要有可能，请通过 {% data variables.contact.enterprise_support %} 可以与之交互的人或机器发起支持请求。 更多信息请参阅“[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”。

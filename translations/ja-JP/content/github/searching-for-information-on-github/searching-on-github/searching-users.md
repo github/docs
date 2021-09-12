@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data variables.product.product_name %} のユーザを幅広くグローバルに検索できます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 {% data reusables.search.syntax_tips %}

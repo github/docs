@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/error-unknown-key-type
 ---
+
 ### About the `unknown key type` error
 
 When you generate a new SSH key, you may receive an `unknown key type` error if your SSH client does not support the key type that you specify.{% mac %}To solve this issue on macOS, you can update your SSH client or install a new SSH client.

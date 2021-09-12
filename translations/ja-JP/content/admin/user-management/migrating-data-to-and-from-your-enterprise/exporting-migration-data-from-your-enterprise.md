@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する
 
 1. {% data variables.product.prodname_ghe_server %} ソースのサイト管理者であることを確認します。 そのための最善の方法は、[インスタンスへのSSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)が可能であることを確認することです。

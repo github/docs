@@ -1,6 +1,6 @@
 ---
-title: Example workflows for publishing a package
-intro: 'To help you get started with your own custom workflows, review some example workflows for publishing packages.'
+title: 发布包的工作流程示例
+intro: 为了帮助您开始使用自己的自定义工作流程，请查看一些用于发布包的工作流程示例。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -10,7 +10,7 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-You can find example workflows in "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" or in any of these {% data variables.product.prodname_actions %} guides:
+您可以在“[使用 {% data variables.product.prodname_actions %} 发布和安装包](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)”或以下任意 {% data variables.product.prodname_actions %} 指南中找到工作流程示例：
 
   - [发布 Node.js 包](/actions/guides/publishing-nodejs-packages)
   - [发布 Docker 映像](/actions/guides/publishing-docker-images)

@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 {% note %}
 
 **注釈:** {% data variables.product.prodname_ghe_server %} へのネットワークアダプタの追加はサポートされていません。

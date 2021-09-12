@@ -335,7 +335,7 @@ Descrição das medidas de segurança técnicas e organizacionais implementadas 
 
 **2. Contato de Privacidade de Dados.** Você pode entrar em contato com o encarregado da privacidade de dados do importador de dados no endereço abaixo: GitHub, Inc. Attn: Privacy 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
 
-**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data against accidental loss, destruction, alteration, unauthorized disclosure or access or unlawful destruction.
+**3. Medidas técnicas e de organização.** O importador de dados implementou e manterá medidas técnicas e organizacionais apropriadas, controles internos e rotinas de segurança de informações destinadas a proteger os Dados Pessoais do Cliente contra perdas acidentais, destruição, alteração, divulgação ou acesso não autorizado ou destruição ilegal.
 
 A assinatura do GitHub, Inc. aparece abaixo.
 

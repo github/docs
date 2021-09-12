@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/comparing-releases
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. ベースとして使用するリリースの横にある [**Compare**] をクリックします。 ![リリースタグの比較メニュー](/assets/images/help/releases/compare-tags-menu.png)

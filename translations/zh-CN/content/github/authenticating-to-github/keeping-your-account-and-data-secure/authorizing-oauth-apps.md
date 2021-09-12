@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 当 {% data variables.product.prodname_oauth_app %} 要通过您的 {% data variables.product.product_name %} 帐户识别您时，您会看到一个页面，其中包含应用程序开发者信息，以及申请的特定数据列表。
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -48,6 +49,8 @@ topics:
 **注：**目前，您无法将源代码访问范围设为只读。
 
 {% endtip %}
+
+{% data reusables.apps.oauth-token-limit %}
 
 #### 申请的数据类型
 

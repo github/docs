@@ -19,6 +19,7 @@ children:
   - /getting-started-with-apps
   - /building-github-apps
   - /managing-github-apps
+  - /building-oauth-apps
   - /managing-oauth-apps
   - /guides
 ---

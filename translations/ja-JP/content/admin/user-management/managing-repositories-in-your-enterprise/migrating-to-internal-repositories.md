@@ -15,6 +15,7 @@ topics:
   - Repositories
   - Security
 ---
+
 ### インターナルリポジトリについて
 
 インターナルリポジトリは、{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 {% data reusables.repositories.about-internal-repos %} 詳しい情報については「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)」を参照してください。

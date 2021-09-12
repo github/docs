@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Die Verwendung von {% data variables.product.prodname_dotcom %} für Ihre Projektarbeiten ist ein praktischer Weg, um mit anderen zusammenzuarbeiten und ein Portfolio aufzubauen, das Ihre praktische Erfahrung zeigt.
 
 {% data reusables.education.about-github-education-link %}

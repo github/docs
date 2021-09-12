@@ -16,7 +16,8 @@ topics:
   - Enterprise
   - Security
 ---
-#### Autenticação
+
+### Autenticação
 
 | Ação                                 | Descrição                                                                                                                                                    |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -32,13 +33,13 @@ topics:
 | `two_factor_authentication.disabled` | [A autenticação de dois fatores][2fa] foi desabilitada para uma conta de usuário.{% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-#### {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
-#### Hooks
+### Hooks
 
 | Ação                  | Descrição                                           |
 | --------------------- | --------------------------------------------------- |
@@ -47,7 +48,7 @@ topics:
 | `hook.destroy`        | Um hook foi excluído.                               |
 | `hook.events_changed` | Os eventos configurados de um hook foram alterados. |
 
-#### Configurações da empresa
+### Configurações da empresa
 
 | Ação                                                    | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
@@ -59,7 +60,7 @@ topics:
 
 {% if currentVersion == "github-ae@latest" %}
 
-#### Listas de permissão de IP
+### Listas de permissão de IP
 
 |                                       Nome | Descrição                                                                                                              |
 | ------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------- |
@@ -73,7 +74,7 @@ topics:
 
 {% endif %}
 
-#### Problemas e pull requests
+### Problemas e pull requests
 
 | Ação                                 | Descrição                                                                                                                                                        |
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +83,7 @@ topics:
 | `pull_request_review_comment.delete` | Foi excluído um comentário em um pull request.                                                                                                                   |
 | `issue.destroy`                      | Um problema foi excluído do repositório. Para obter mais informações, consulte "[Excluir uma problema](/github/managing-your-work-on-github/deleting-an-issue)". |
 
-#### Organizações
+### Organizações
 
 | Ação               | Descrição                                                                                                                                                                                                                                        |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -90,7 +91,7 @@ topics:
 | `org.delete`       | Uma organização foi excluída por um trabalho de segundo plano iniciado pelo usuário.{% if currentVersion != "github-ae@latest" %}
 | `org.transform`    | A conta de usuário foi convertida em organização. Para obter mais informações, consulte "[Converter um usuário em uma organização](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
 
-#### Branches protegidos
+### Branches protegidos
 
 | Ação                                                               | Descrição                                                                               |
 | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
@@ -105,7 +106,7 @@ topics:
 | `protected_branch.rejected_ref_update`                             | Uma tentativa de atualização do branch é rejeitada.                                     |
 | `protected_branch.policy_override`                                 | Um requisito de proteção do branch é sobrescrito por um administrador do repositório.   |
 
-#### Repositórios
+### Repositórios
 
 | Ação                                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -125,7 +126,7 @@ topics:
 | `repo.config.lock_anonymous_git_access`    | O acesso de leitura anônimo de um repositório do Git está bloqueado, impedindo que os administradores de repositório alterem (habilitem ou desabilitem) essa configuração. Para obter mais informações, consulte "[Impedir os usuários de alterar o acesso de leitura anônimo do Git](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."                |
 | `repo.config.unlock_anonymous_git_access`  | O acesso de leitura anônimo de um repositório do Git está desbloqueado, permitindo que os administradores de repositório alterem (habilitem ou desabilitem) essa configuração. Para obter mais informações, consulte "[Impedir os usuários de alterar o acesso de leitura anônimo do Git](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
 
-#### Ferramentas de administração do site
+### Ferramentas de administração do site
 
 | Ação                 | Descrição                                                                                                                  |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -135,7 +136,7 @@ topics:
 | `staff.repo_unlock`  | Um administrador do site desbloqueou (obteve acesso total temporariamente a) um dos repositórios privados de um usuário.   |
 | `staff.unlock`       | Um administrador do site desbloqueou (obteve acesso total temporariamente a) todos os repositórios privados de um usuário. |
 
-#### Equipes
+### Equipes
 
 | Ação                      | Descrição                                                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +147,7 @@ topics:
 | `team.promote_maintainer` | Um usuário foi promovido de membro da equipe para mantenedor da equipe.{% endif %}
 
 
-#### Usuários
+### Usuários
 
 | Ação                            | Descrição                                                                                                                                                                                        |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

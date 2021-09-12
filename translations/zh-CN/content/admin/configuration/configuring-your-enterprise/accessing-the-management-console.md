@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Fundamentals
 ---
+
 ### 关于 {% data variables.enterprise.management_console %}
 
 使用 {% data variables.enterprise.management_console %} 执行基本管理活动：

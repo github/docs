@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 {% data reusables.actions.about-artifact-log-retention %}
 
 ## Definir o período de retenção para uma empresa

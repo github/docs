@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
 ---
+
 <!--See /content/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies for the current version of this article -->
 
 ### 脆弱性のある依存関係の通知について
@@ -16,12 +17,10 @@ redirect_from:
 {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %} がリポジトリ内にある脆弱性のある依存関係を検出すると、{% data variables.product.prodname_dependabot %} アラートを生成し、リポジトリの [Security] タブに表示します。 {% data variables.product.product_name %} は、影響を受けるリポジトリのメンテナに、通知設定に従って新しいアラートについて通知します。{% else %}{% data variables.product.product_name %} がリポジトリ内の脆弱性のある依存関係を検出すると、セキュリティアラートを送信します。{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.21" %}
-この機能を使用する前に、サイト管理者は
-{% data variables.product.product_location %} の脆弱性のある依存関係に対するセキュリティアラートを有効にする必要があります。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} の脆弱性のある依存関係に関するセキュリティアラートの有効化](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。 {% endif %}
+Your site administrator needs to enable security alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use the feature. 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} の脆弱性のある依存関係に関するセキュリティアラートの有効化](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.20" %}
-デフォルト設定では、サイト管理者が Enterprise の通知用にメールを設定している場合、
-{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %} セキュリティアラート{% endif %}をメールで受け取ります。{% endif %}
+By default, if your site administrator has configured email for notifications on your enterprise, you will receive {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} by email.{% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}サイト管理者は、通知なしで {% data variables.product.prodname_dependabot_alerts %} を有効にすることもできます。 詳細については、「[{% data variables.product.prodname_ghe_server %} への脆弱性のある依存関係に対する {% data variables.product.prodname_dependabot_alerts %} の有効化](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。{% endif %}
 

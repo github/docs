@@ -22,55 +22,32 @@ export const LandingHero = () => {
   return (
     <header className="d-lg-flex gutter-lg mb-6">
       <div className={cx(product_video && 'col-12 col-lg-6 mb-3 mb-lg-0')}>
-        <span className="text-mono color-text-secondary">Product</span>
-        <h1 className="mb-3 font-mktg">
+        <h1 className="mb-3">
           {shortTitle}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 
-        <div
-          className="lead-mktg color-text-secondary"
-          dangerouslySetInnerHTML={{ __html: intro }}
-        />
+        <div className="f2 color-text-secondary" dangerouslySetInnerHTML={{ __html: intro }} />
 
-        {/* idea to abstract the introLinks into something more component-like */}
-        {/* {introLinks.map((link) => {
-            return (
-              <FullLink
-                href={link.href}
-                className={cx(
-                  'btn-mktg btn-large f4 mt-3 mr-3',
-                  link.secondary && 'btn-outline-mktg'
-                )}
-              >
-                {t(link.translationKeyLabel)}
-              </FullLink>
-            )
-          })} */}
-
-        {introLinks?.quickstart && (
-          <FullLink href={introLinks.quickstart} className="btn-mktg btn-large f4 mt-3 mr-3">
-            {t('quickstart')}
-          </FullLink>
-        )}
-
-        {introLinks?.reference && (
-          <FullLink
-            href={introLinks.reference}
-            className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
-          >
-            {t('reference')}
-          </FullLink>
-        )}
-
-        {introLinks?.overview && (
-          <FullLink
-            href={introLinks.overview}
-            className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
-          >
-            {t('overview')}
-          </FullLink>
-        )}
+        {introLinks &&
+          Object.entries(introLinks)
+            .filter(([key, link]) => {
+              return link && !key.includes('raw')
+            })
+            .map(([key, link], i) => {
+              if (!link) {
+                return null
+              }
+              return (
+                <FullLink
+                  key={link}
+                  href={link}
+                  className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary-matte')}
+                >
+                  {t(key)}
+                </FullLink>
+              )
+            })}
       </div>
 
       {product_video && (

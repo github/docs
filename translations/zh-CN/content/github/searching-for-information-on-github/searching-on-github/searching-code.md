@@ -13,6 +13,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 {% data reusables.search.you-can-search-globally %} 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。
 
 您只能使用这些代码搜索限定符搜索代码。 搜索代码时，专用于仓库、用户或提交的搜索限定符将不起作用。
@@ -33,7 +34,7 @@ topics:
 - 只能搜索去年有活动或已在搜索结果中返回的仓库。{% endif %}
 - 除了 [`filename`](#search-by-filename) 搜索以外，搜索源代码时必须始终包括至少一个搜索词。 例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 无效，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 有效。
 - 搜索结果最多可显示同一文件的两个分段，但文件内可能有更多结果。
-- 您无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. 搜索只会忽略这些符号。
+- 您无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. 搜索只会忽略这些符号。
 
 ### 按文件内容或文件路径搜索
 
@@ -68,7 +69,7 @@ topics:
 ### 按语言搜索
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-您可以基于所编写的语言搜索代码。 The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+您可以基于所编写的语言搜索代码。 `language` 限定符可以是语言名称或别名。 有关支持的语言及其名称和别名的完整列表，请参阅 \[github/linguist 仓库\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | 限定符                        | 示例                                                                                                                                                               |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |

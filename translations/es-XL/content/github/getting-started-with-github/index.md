@@ -46,7 +46,9 @@ children:
   - /quickstart
   - /learning-about-github
   - /signing-up-for-github
-  - /exploring-projects-on-github
   - /using-github
+  - /exploring-projects-on-github
+  - /getting-started-with-git
+  - /using-git
 ---
 ### Índice

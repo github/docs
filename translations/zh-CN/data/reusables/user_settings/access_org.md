@@ -1,0 +1,2 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}2. 单击您的组织名称。
+  ![组织列表中的组织名称](/assets/images/help/organizations/org-settings-link.png){% endif %}

@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 在企业帐户拥有的组织中，组织所有者可以设置查看组织依赖项洞察的限制。 更多信息请参阅“[更改组织依赖项洞察的可见性](/articles/changing-the-visibility-of-your-organizations-dependency-insights)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}

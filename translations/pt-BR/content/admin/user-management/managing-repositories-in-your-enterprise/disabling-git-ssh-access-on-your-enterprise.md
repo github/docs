@@ -25,6 +25,7 @@ topics:
   - Security
   - SSH
 ---
+
 ### Desabilitar o acesso por SSH do Git a repositórios específicos
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}

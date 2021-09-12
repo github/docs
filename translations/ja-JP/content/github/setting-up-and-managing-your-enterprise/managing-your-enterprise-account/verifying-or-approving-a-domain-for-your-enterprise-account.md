@@ -17,11 +17,12 @@ topics:
   - Organizations
   - Policy
 ---
+
 ### ドメイン検証について
 
 {% data reusables.enterprise-accounts.domains-about-verification %}
 
-### About domain approval
+### ドメインの承認について
 
 {% data reusables.enterprise-accounts.domains-about-approval %}
 

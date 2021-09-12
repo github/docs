@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. Auch diese externen Werkzeuge können für die Konvertierung Deines Projekts für Git verwendet werden.

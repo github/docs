@@ -5,9 +5,10 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Commit missing in local clone
 ---
 When you use `git show` to view a specific commit on the command line, you may get a fatal error.
 
@@ -28,7 +29,7 @@ There are several possible explanations:
 * The branch that contains the commit was deleted, so the commit is no longer referenced.
 * Someone force pushed over the commit.
 
-### The local repository is out of date
+## The local repository is out of date
 
 Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
 
@@ -45,7 +46,7 @@ You can use `git fetch upstream` to get information from a repository you've for
 
 {% endtip %}
 
-### The branch that contained the commit was deleted
+## The branch that contained the commit was deleted
 
 If a collaborator on the repository has deleted the branch containing the commit
 or has force pushed over the branch, the missing commit may have been orphaned
@@ -79,11 +80,11 @@ $ git fetch upstream recover-B
 # Fetch commit into your local repository.
 ```
 
-### Avoid force pushes
+## Avoid force pushes
 
 Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository.
 
-### Further reading
+## Further reading
 
 - ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - ["Data Recovery" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

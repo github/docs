@@ -49,8 +49,6 @@ Billing managers **are not** able to:
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**. ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Type the username or email address of the person you want to add and click **Send invitation**. ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)

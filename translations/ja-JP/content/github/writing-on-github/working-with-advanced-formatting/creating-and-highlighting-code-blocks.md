@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### コードブロック
 
 三連バッククォート <code>\`\`\`</code> をコードのブロック前後に入力すると、コードブロックを作成できます。 ソースコードを読みやすくするために、コードブロックの前後に空の行を入れることをお勧めします。
@@ -29,7 +30,22 @@ function test() {
 
 {% endtip %}
 
+To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
+
+
+<pre>
+```` 
+```
+Look! You can see my backticks.
+```
+````
+</pre>
+
+![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+
+
 ### 構文の強調表示
+
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 言語識別子を追加して、コードブロックの構文を強調表示することができます。

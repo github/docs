@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Títulos
 
 Para criar um título, adicione de um a seis símbolos `#` antes do texto do título. O número de `#` que você usa determinará o tamanho do título.
@@ -163,7 +164,7 @@ Para obter mais exemplos, consulte a [Especificação de markdown em estilo GitH
 
 {% data reusables.repositories.task-list-markdown %}
 
-Se a descrição de um item da lista de tarefas começar com parênteses, você precisará usar `\` para escape:
+Se a descrição de um item da lista de tarefas começar com parênteses, você precisará usar a `\` para escape:
 
 `- [ ] \(Optional) Abrir um problema de acompanhamento`
 
@@ -227,7 +228,7 @@ Você pode criar um parágrafo deixando uma linha em branco entre as linhas de t
 
 ### Ignorar formatação markdown
 
-Para informar ao {% data variables.product.product_name %} que deve ignorar a formatação markdown (ou usar escape nela), anteceda o caractere markdown com `\`.
+Você pode informar o {% data variables.product.product_name %} para ignorar (ou usar escape) a formatação markdown usando `\` antes do caractere markdown.
 
 `Vamos renomear \*our-new-project\* para \*our-old-project\*.`
 

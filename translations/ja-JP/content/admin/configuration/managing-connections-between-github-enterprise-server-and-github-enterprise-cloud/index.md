@@ -16,7 +16,7 @@ children:
   - /connecting-github-enterprise-server-to-github-enterprise-cloud
   - /enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /enabling-unified-contributions-between-github-enterprise-server-and-githubcom
-  - /enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
+  - /enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
 ---
 

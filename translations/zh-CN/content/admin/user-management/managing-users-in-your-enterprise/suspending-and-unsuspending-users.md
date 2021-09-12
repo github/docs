@@ -18,6 +18,7 @@ topics:
   - Security
   - User account
 ---
+
 如果员工从公司离职，您可以暂停他们的 {% data variables.product.prodname_ghe_server %} 帐户，打开您的 {% data variables.product.prodname_enterprise %} 许可中的用户许可，同时保存他们创建的议题、评论、仓库、Gist 及其他数据。 被挂起的用户既无法登录您的实例，也无法推送或拉取代码。
 
 在您挂起用户时，变更将立即生效，并且不会通知用户。 如果用户尝试拉取仓库或推送到仓库，他们将收到此错误消息：

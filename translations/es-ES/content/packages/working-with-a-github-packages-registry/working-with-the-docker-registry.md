@@ -1,6 +1,6 @@
 ---
-title: Working with the Docker registry
-intro: 'You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.'
+title: Trabajar con el registro de Docker
+intro: 'Puedes subir y extraer tus imágenes de Docker utilizando el registro de Docker del {% data variables.product.prodname_registry %}, el cual utiliza el espacio de nombre de paquete `https://docker.pkg.github.com`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -22,9 +22,9 @@ versions:
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### About Docker support
+### Acerca de la compatibilidad de Docker
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
+Cuando instalas o publicas una imagen de Docker, el registro de Docker no es compatible actualmente con capas ajenas, tales como imágenes de Windows.
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -109,7 +109,7 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
+2. Utilizando la ID de imagen de Docker, etiqueta la imagen de docker, reemplazando a *OWNER* con el nombre de cuenta de usuario u organización a la que pertenece el repositorio, a *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, a *IMAGE_NAME* con el nombre del paquete o imagen,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y a *VERSION* con la versión del paquete al momento de la compilación.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -130,7 +130,7 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   ```
   {% endif %}
   {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+3. Si todavía no has creado una imagen Docker para el paquete, crea la imagen, reemplazando a *OWNER* con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio, a *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, a *IMAGE_NAME* con el nombre del paquete o la imagen, a *VERSION* con la versión del paquete al momento de la compilación,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} a *HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y agrega el *PATH* a la imagen si no está en el directorio de trabajo actual.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>

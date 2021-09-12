@@ -18,6 +18,7 @@ topics:
   - Networking
   - Security
 ---
+
 ### Portas administrativas
 
 Certas portas administrativas são obrigatórias para configurar a {% data variables.product.product_location %} e executar determinados recursos. Não é preciso haver portas administrativas para os usuários finais aproveitarem os recursos básicos do aplicativo.

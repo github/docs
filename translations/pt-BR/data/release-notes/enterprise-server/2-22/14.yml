@@ -1,0 +1,18 @@
+---
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '**MEDIUM:** Under certain circumstances, users who were removed from a team or organization could retain write access to branches they had existing pull requests opened for.'
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Normal replication delays in MSSQL generated warnings.
+    - An IP address added by an admin using the "Create Whitelist Entry" button could still be locked out.
+    - '`spokesd` created excessive log entries including the phrase "fixing placement skipped".'
+  changes:
+    - Check annotations older than 4 months will be archived.
+  known_issues:
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.

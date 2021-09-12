@@ -56,9 +56,9 @@ jobs:
 | `GITHUB_WORKFLOW`    | ワークフローの名前。                                                                                                                                                                                                                                                                      |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
-| `GITHUB_JOB`         | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                              |
+| `GITHUB_JOB`         | 現在のジョブの [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                             |
 | `GITHUB_ACTION`      | アクションの一意の識別子 (`id`)。                                                                                                                                                                                                                                                            |
-| `GITHUB_ACTION_PATH` | アクションが置かれているパス。 You can use this path to access files located in the same repository as your action. This variable is only supported in composite run steps actions.                                                                                                            |
+| `GITHUB_ACTION_PATH` | アクションが置かれているパス。 このパスを使用して、アクションと同じリポジトリにあるファイルにアクセスできます。 この変数は、複合実行ステップアクションでのみサポートされています。                                                                                                                                                                                      |
 | `GITHUB_ACTIONS`     | {% data variables.product.prodname_actions %}がワークフローを実行しているときは常に`true`に設定されます。 この変数は、テストがローカルで実行されているときと、{% data variables.product.prodname_actions %}によって実行されているときを区別するために利用できます。                                                                                              |
 | `GITHUB_ACTOR`       | ワークフローを開始するユーザまたはアプリの名前。 `octocat`などです。                                                                                                                                                                                                                                         |
 | `GITHUB_REPOSITORY`  | 所有者およびリポジトリの名前。 `octocat/Hello-World`などです。                                                                                                                                                                                                                                      |
@@ -85,6 +85,6 @@ jobs:
 
 ### 環境変数の命名規則
 
-When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
+カスタム環境変数を設定する場合、接頭辞の `GITHUB_` が付いた上記のデフォルトの環境変数名を使用することはできません。 これらのデフォルトの環境変数のいずれかの値をオーバーライドしようとすると、割り当ては無視されます。
 
 ファイルシステム上の場所を指すように設定した新しい環境変数がある場合は、`_PATH`サフィックスを指定する必要があります。 デフォルトの変数`HOME`と`GITHUB_WORKSPACE`は、「home」および「workspace」という言葉で最初から場所であることがわかっているため、この規則の例外です。

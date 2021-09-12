@@ -14,6 +14,7 @@ topics:
 redirect_from:
   - /admin/configuration/verifying-or-approving-a-domain-for-your-enterprise
 ---
+
 ### About verification of domains
 
 {% data reusables.enterprise-accounts.domains-about-verification %}

@@ -20,7 +20,7 @@ versions:
 
 ### Sobre a visualização de pacotes
 
-Your ability to view a package depends on several factors. By default, you can view all packages you have published.
+A sua capacidade de visualizar um pacote depende de vários fatores. Por padrão, você pode visualizar todos os pacotes que você publicou.
 
 {% data reusables.package_registry.repo-scoped-and-granular-permissions-packages %}
 
@@ -28,7 +28,7 @@ Your ability to view a package depends on several factors. By default, you can v
 
 ### Visualizar pacotes de um repositório
 
-You can find and view a package located in a particular repository.
+Você pode encontrar e visualizar um pacote localizado em um repositório específico.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -36,16 +36,16 @@ You can find and view a package located in a particular repository.
 
 ### Visualizar pacotes de uma organização
 
-You can find and view a package located in the repositories of an organization you belong to.
+Você pode encontrar e visualizar um pacote localizado nos repositórios de uma organização a que pertence.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. No nome da sua organização, clique em {% octicon "package" aria-label="The package icon" %} **Pacotes**.
 {% data reusables.package_registry.navigate-to-packages %}
 
 ### Visualizar seus pacotes
 
-You can find and view any package you've published across all organizations and repositories.
+Você pode encontrar e visualizar qualquer pacote que você publicou em todas as organizações e repositórios.
 
 {% data reusables.profile.access_profile %}
 2. No topo da página de perfil, na navegação principal, clique em **Pacotes**. ![Aba Project (Projeto)](/assets/images/help/package-registry/user-packages-tab.png)

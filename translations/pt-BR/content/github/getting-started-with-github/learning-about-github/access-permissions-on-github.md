@@ -15,6 +15,7 @@ topics:
   - Permissions
   - Accounts
 ---
+
 ### Contas de usuário pessoais
 
 Um repositório pertencente a uma conta de usuário tem dois níveis de permissão: o *proprietário do repositório* e *colaboradores*. Para obter mais informações, consulte "[Níveis de permissão para um repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)".

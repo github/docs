@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Erforderliche Co-Autor-Informationen
 
 Bevor Du einen Co-Autor zu einem Commit hinzufügen kannst, musst Du die richtige E-Mail-Adresse für jeden Co-Autor kennen. Damit der Commit des Co-Autors als Beitrag zählt, musst Du die E-Mail-Adresse verwenden, die mit seinem {% data variables.product.product_name %}-Konto verknüpft ist.

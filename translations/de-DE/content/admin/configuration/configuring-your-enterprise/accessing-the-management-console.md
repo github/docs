@@ -18,6 +18,7 @@ topics:
   - Enterprise
   - Fundamentals
 ---
+
 ### Informationen zur {% data variables.enterprise.management_console %}
 
 {% data variables.enterprise.management_console %} für grundlegende Verwaltungsaktivitäten verwenden:

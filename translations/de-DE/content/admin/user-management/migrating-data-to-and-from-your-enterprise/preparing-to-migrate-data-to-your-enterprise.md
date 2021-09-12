@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
 
 1. Kopieren Sie mit dem Befehl [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) das auf Ihrer Quellinstanz oder in Ihrer Organisation generierte Migrationsarchiv auf Ihr {% data variables.product.prodname_ghe_server %}-Ziel:

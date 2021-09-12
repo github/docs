@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Usar o {% data variables.product.prodname_dotcom %} nos projetos da sua escola é uma maneira prática de colaborar com outras pessoas e de criar um portfólio que demonstra experiência no mundo real.
 
 {% data reusables.education.about-github-education-link %}

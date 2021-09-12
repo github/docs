@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 {% note %}
 
 **Hinweis**: {% data reusables.support.data-protection-and-privacy %}
@@ -23,8 +24,7 @@ topics:
 {% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% if enterpriseServerVersions contains currentVersion %} and Japanese{% endif %}.
 
 {% if enterpriseServerVersions contains currentVersion %}
-You can contact
-{% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
+You can contact {% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
  - Installation und Verwendung von {% data variables.product.product_name %}
  - Identifizierung und Überprüfung der Ursachen von vermuteten Fehlern
 

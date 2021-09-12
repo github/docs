@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Gistについて
 
 すべての Gist は Git のリポジトリであり、フォークしたりクローンしたりできます。 {% if currentVersion != "github-ae@latest" %} Gist を作成する際 {% else %}{% endif %}{% data variables.product.product_name %} にサインインしている場合、その Gist は自分のアカウントに関連付けられ、{% data variables.gists.gist_homepage %} に移動すると自分の Gist リストに表示されます。

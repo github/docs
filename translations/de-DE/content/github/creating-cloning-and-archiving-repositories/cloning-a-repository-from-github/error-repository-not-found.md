@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Schreibweise überprüfen
 
 Tippfehler kommen immer wieder vor, und bei den Namen von Repositorys muss die Groß- und Kleinschreibung beachtet werden.  Wenn Sie versuchen, `git@{% data variables.command_line.codeblock %}:user/repo.git` zu klonen, das Repository aber in Wirklichkeit `User/Repo` heißt, wird diese Fehlermeldung angezeigt.

@@ -7,9 +7,17 @@ redirect_from:
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
+  - Security updates
   - Repositories
+  - Dependencies
+  - Pull requests
+  - Vulnerabilities
 ---
+
 ### 关于自定义依赖项更新
 
 启用版本更新后，您可以自定义 {% data variables.product.prodname_dependabot %} 通过向 *dependabot.yml* 文件添加更多选项来维护依赖项。 例如，您可以：

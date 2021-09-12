@@ -8,10 +8,18 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Repositories
+  - Pull requests
+  - Integration
+  - CI
+  - SARIF
 redirect_from:
   - /code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system
 ---
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -40,7 +48,7 @@ Use {% data variables.product.prodname_codeql_cli %} para analisar:
 Para obter mais informações, consulte "[Executar o {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/secure-coding/running-codeql-cli-in-your-ci-system)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-If you need to set up the CI system to orchestrate compiler invocations as well as running {% data variables.product.prodname_codeql %} analysis, you must use the {% data variables.product.prodname_codeql_runner %}.
+Se você precisar configurar o sistema de CI para orquestrar as invocações do compilador, bem como executar a análise de {% data variables.product.prodname_codeql %}, você deverá usar {% data variables.product.prodname_codeql_runner %}.
 {% else %}
 Você precisará usar {% data variables.product.prodname_codeql_runner %} se precisar:
 - Configurar o sistema de CI para orquestrar as invocações do compilador, bem como executar a análise de {% data variables.product.prodname_codeql %}.

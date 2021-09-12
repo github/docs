@@ -1,6 +1,6 @@
 ---
 title: 添加安全政策到仓库
-intro: You can give instructions for how to report a security vulnerability in your project by adding a security policy to your repository.
+intro: 您可以为仓库添加安全政策，说明如何报告项目中的安全漏洞。
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
@@ -9,13 +9,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
   github-ae: next
+type: how_to
 topics:
-  - Security
+  - Security policies
+  - Vulnerabilities
+  - Repositories
+  - Health
 ---
 
 ### 关于安全政策
 
-To give people instructions for reporting security vulnerabilities in your project,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a _SECURITY.md_ file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
+要向人说明如何报告项目中的安全漏洞，{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
 
 {% if currentVersion != 'github-ae@next' %}
 <!-- no public repos in GHAE -->
@@ -35,14 +39,14 @@ To give people instructions for reporting security vulnerabilities in your proje
 {% endif %}
 {% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
-By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
+通过创建明确的安全报告说明，用户可以轻松地使用您喜欢的通信通道报告仓库中发现的任何安全漏洞。
 {% endif %}
 
 ### 添加安全政策到仓库
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Security policy**. ![Security policy tab](/assets/images/help/security/security-policy-tab.png)
+3. 在左侧边栏中，单击 **Security policy（安全策略）**。 ![安全策略选项卡](/assets/images/help/security/security-policy-tab.png)
 4. 单击 **Start setup（开始设置）**。 ![开始设置按钮](/assets/images/help/security/start-setup-security-policy-button.png)
 5. 在新的 _SECURITY.md_ 文件中，添加关于项目受支持版本以及如何报告漏洞的信息。
 {% data reusables.files.write_commit_message %}
@@ -52,6 +56,6 @@ By making security reporting instructions clearly available, you make it easy fo
 
 ### 延伸阅读
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

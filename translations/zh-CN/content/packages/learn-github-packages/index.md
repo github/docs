@@ -1,7 +1,7 @@
 ---
 title: 了解 GitHub Packages
 shortTitle: 了解 GitHub Packages
-intro: 'You can find out more about using packages in GitHub, including publishing new packages to {% data variables.product.prodname_registry %}, view and install existing packages, and, in special circumstances, delete existing packages.'
+intro: '您可以了解有关在 GitHub 中使用包的更多信息，包括将新包发布到 {% data variables.product.prodname_registry %}，查看和安装现有包，以及在特殊情况下删除现有包。'
 redirect_from:
   - /packages/getting-started-with-github-container-registry
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages
@@ -23,5 +23,6 @@ children:
   - /deleting-and-restoring-a-package
   - /deleting-a-package
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}

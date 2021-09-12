@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### 关于 GitHub 应用程序清单
 
 当有人从清单创建 GitHub 应用程序时，他们只需遵循 URL 并命名应用程序即可。 清单包括自动注册应用程序所需的权限、事件和 web 挂钩 URL。 清单流程创建 GitHub 应用程序注册并检索应用程序的 web 挂钩密钥、私钥 （PEM 文件） 和 GitHub 应用程序 ID。 从清单创建应用程序的人将拥有该应用程序，并且可以选择[编辑应用程序的配置设置](/apps/managing-github-apps/modifying-a-github-app/)、删除它或将其转让给 GitHub 上的其他人。

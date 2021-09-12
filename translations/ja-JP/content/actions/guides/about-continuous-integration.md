@@ -90,5 +90,5 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 
 - 「[{% data variables.product.prodname_actions %} を使用して継続的インテグレーションを設定する](/articles/setting-up-continuous-integration-using-github-actions)」
 {% if currentVersion == "free-pro-team@latest" %}
-- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)」
+- 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
 {% endif %}

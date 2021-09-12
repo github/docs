@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### コミットについて
 
 {% data reusables.commits.about-commits %}

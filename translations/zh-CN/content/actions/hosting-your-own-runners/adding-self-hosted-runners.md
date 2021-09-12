@@ -36,8 +36,9 @@ type: tutorial
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. 在“Self-hosted runners（自托管运行器）”下，单击 **Add runner（添加运行器）**。
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. 在
+{% if currentVersion == "free-pro-team@latest" %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %}下，单击 **Add runner（添加运行器）**。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -47,8 +48,9 @@ type: tutorial
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在“Self-hosted runners（自托管运行器）”下，单击 **Add new（新增）**，然后单击 **New runner（新运行器）**。
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. 在
+{% if currentVersion == "free-pro-team@latest" %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %}下，单击 **Add runner（添加运行器）**。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -68,7 +70,7 @@ type: tutorial
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. 单击 **Self-hosted runners（自托管运行器）**选项卡。
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. 单击 **Add new（新增）**，然后单击 **New runner（新运行器）**。 新运行器被分配到默认组。 您可以在注册运行器后修改运行器组。 更多信息请参阅“[管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}

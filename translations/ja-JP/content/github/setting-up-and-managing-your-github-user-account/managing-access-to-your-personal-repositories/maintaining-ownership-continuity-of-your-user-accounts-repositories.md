@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
 ---
+
 ### 後継者について
 
 自分が管理できない場合にユーザ所有のリポジトリを管理してもらえるように、他の {% data variables.product.company_short %} を後継者として招待することをお勧めします。 後継者に指定されたユーザは、次の操作が可能になります。

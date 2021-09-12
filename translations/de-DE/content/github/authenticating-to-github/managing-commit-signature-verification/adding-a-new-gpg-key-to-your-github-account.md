@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Bevor Sie einen neuen GPG-Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzufügen, sollten Sie
 - [nach vorhandenen GPG-Schlüsseln gesucht haben](/articles/checking-for-existing-gpg-keys)
 - [einen neuen GPG-Schlüssel erzeugt und kopiert haben](/articles/generating-a-new-gpg-key)

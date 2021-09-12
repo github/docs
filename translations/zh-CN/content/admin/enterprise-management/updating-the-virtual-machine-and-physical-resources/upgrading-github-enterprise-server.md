@@ -21,6 +21,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 ### 准备升级
 
 1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。

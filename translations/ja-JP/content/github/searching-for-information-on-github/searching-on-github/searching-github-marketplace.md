@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
 ---
+
 ### {% data variables.product.prodname_marketplace %} の検索について
 
 {% data variables.product.prodname_marketplace %} のアプリケーションとアクションは、次の2つの方法で検索できます。

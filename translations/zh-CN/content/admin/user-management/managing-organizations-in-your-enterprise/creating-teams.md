@@ -13,6 +13,7 @@ topics:
   - Teams
   - User account
 ---
+
 团队是 {% data variables.product.prodname_dotcom %} 许多协作功能的中心，例如团队 @提及，此功能可以通知相关方您想要请求他们的输入或注意。 更多信息请参阅“[组织仓库的权限级别](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)”。
 
 一个团队可以代表您的公司内的一个组，或者包含具有特定兴趣或专业知识的人。 例如，{% data variables.product.product_location %} 上的可访问性专家团队可能包括来自多个不同部门的人。 团队可以体现职能关注，对公司现有的部门层次结构进行补充。
@@ -23,8 +24,8 @@ topics:
 
 审慎的团队组合是控制仓库权限的强有力方式。 例如，如果您的组织仅允许发布工程团队向任何仓库的默认分支推送代码，您可以仅向发布工程团队授予组织仓库的**管理员**权限，向所有其他团队授予**读取**权限。
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
@@ -48,13 +49,11 @@ topics:
 {% endwarning %}
 
 1. 确保[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)。
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. 搜索要映射团队的目标 LDAP 组的 DN。 如果您不知道 DN，请输入 LDAP 组的名称。
-{% data variables.product.prodname_ghe_server %} 将搜索并自动完成任何匹配。
-![映射到 LDAP 组 DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
+6. 搜索要映射团队的目标 LDAP 组的 DN。 如果您不知道 DN，请输入 LDAP 组的名称。 {% data variables.product.prodname_ghe_server %} 将搜索并自动完成任何匹配。 ![映射到 LDAP 组 DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}

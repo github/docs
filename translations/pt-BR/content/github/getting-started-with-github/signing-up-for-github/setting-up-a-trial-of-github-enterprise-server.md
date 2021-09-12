@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Sobre as versões de avaliação do {% data variables.product.prodname_ghe_server %}
 
 Você pode solicitar uma versão de avaliação por 45 dias do {% data variables.product.prodname_ghe_server %}. A versão de avaliação será instalada como um appliance virtual, com opções para implementação local ou na nuvem. Consulte a lista de plataformas de visualização compatíveis em "[Configurar uma instância do GitHub Enterprise Server](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)".

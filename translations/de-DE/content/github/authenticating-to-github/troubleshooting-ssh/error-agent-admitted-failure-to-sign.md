@@ -12,6 +12,7 @@ versions:
 topics:
   - SSH
 ---
+
 Wenn Sie auf einem Linux-Computer versuchen, eine SSH-Verbindung mit {% data variables.product.product_location %} herzustellen, wird möglicherweise die folgende Meldung im Terminal angezeigt:
 
 ```shell

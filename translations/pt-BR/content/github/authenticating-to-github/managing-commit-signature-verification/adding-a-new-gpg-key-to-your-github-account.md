@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Antes de adicionar uma nova chave GPG à suas conta do {% data variables.product.product_name %}, você deve ter:
 - [Verificado a existência de chaves GPG](/articles/checking-for-existing-gpg-keys)
 - [Gerado e copiado uma nova chave GPG](/articles/generating-a-new-gpg-key)

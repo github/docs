@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Migration
 ---
+
 ### 准备迁移的数据以导入到 {% data variables.product.prodname_ghe_server %}
 
 1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {% data variables.product.prodname_ghe_server %} 目标：

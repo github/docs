@@ -11,6 +11,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 By default, a new OAuth App will have an automatically generated [identicon](https://github.com/blog/1586-identicons). An identicon badge looks something like this:
 
 ![Identicon](/assets/images/identicon.png)
@@ -33,9 +34,7 @@ To create a custom badge:
 {% data reusables.user-settings.modify_oauth_app %}
 1. In "Application logo", drag-and-drop an image from a local folder or click **Upload new logo** to select an image from your computer. ![Upload a logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. Schneiden Sie das Bild zu. When you're done, click **Set new application logo**. ![Crop and set logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge.
-{% if currentVersion == "free-pro-team@latest" %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
-![Badge background color](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
+7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% if currentVersion == "free-pro-team@latest" %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %} ![Badge background color](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
 {% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}

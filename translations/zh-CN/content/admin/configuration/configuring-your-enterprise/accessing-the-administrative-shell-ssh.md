@@ -20,6 +20,7 @@ topics:
   - Fundamentals
   - SSH
 ---
+
 ### 关于管理 shell 访问
 
 如果您有权限通过 SSH 访问管理 shell，可运行 {% data variables.product.prodname_ghe_server %} 的命令行实用程序。 SSH 访问也可用于故障排查、运行备份和配置复制。 管理 SSH 访问与 Git SSH 访问分开管理，仅可通过端口 122 访问。

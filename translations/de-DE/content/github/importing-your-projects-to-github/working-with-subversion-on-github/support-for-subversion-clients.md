@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 GitHub unterstützt Subversion-Clients über das HTTPS-Protokoll. Zur Übertragung von SVN-Befehlen an GitHub wird eine Subversion-Bridge verwendet.
 
 ### Auf GitHub unterstützte Subversion-Funktionen

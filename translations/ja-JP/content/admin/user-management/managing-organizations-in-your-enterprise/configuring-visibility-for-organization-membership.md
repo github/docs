@@ -13,6 +13,7 @@ topics:
   - Organizations
   - User account
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 インスタンス内の現在のOrganizationのすべてのメンバーに対し、コマンドラインユーティリティを使ってデフォルト設定を適用することもできます。 たとえばすべてのOrganizationのメンバーの可視性をパブリックにしたい場合、管理設定でデフォルトをパブリックにしてすべての新しいメンバーにデフォルトを適用し、それからコマンドラインユーティリティを使ってパブリック設定を既存のメンバーに適用できます。
 {% endif %}

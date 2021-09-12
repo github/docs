@@ -1,5 +1,5 @@
 ---
-title: Working with the npm registry
+title: 使用 npm 注册表
 intro: '您可以配置 npm 以将包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作 npm 项目中的依赖项。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:

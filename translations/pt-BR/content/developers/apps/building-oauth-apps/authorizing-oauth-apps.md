@@ -16,6 +16,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 A implementação do OAuth de {% data variables.product.product_name %}oferece suporte ao [tipo de concessão do código padrão](https://tools.ietf.org/html/rfc6749#section-4.1) {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} e o OAuth 2.0 [Concessão de Autorização do Dispositivo](https://tools.ietf.org/html/rfc8628) para aplicativos que não têm acesso a um navegador web{% endif %}.
 
 Se você desejar ignorar a autorização do seu aplicativo da forma-padrão, como no teste do seu aplicativo, você poderá usar o fluxo do aplicativo [que não é web](#non-web-application-flow).
@@ -80,7 +81,6 @@ Troque este `código` por um token de acesso:
 | `client_secret` | `string` | **Obrigatório.** O segredo do cliente que recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_oauth_app %}. |
 | `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                         |
 | `redirect_uri`  | `string` | A URL do seu aplicativo para onde os usuários são enviados após a autorização.                                                                               |
-| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                |
 
 ##### Resposta
 
@@ -277,7 +277,7 @@ Você pode criar vários tokens para uma combinação de usuário/aplicativo/esc
 
 Isso é útil se o seu aplicativo OAuth for compatível com um fluxo de trabalho que usa o GitHub para iniciar sessão e exigir apenas informações básicas do usuário. Outro fluxo de trabalho pode exigir acesso aos repositórios privados de um usuário. Ao usar vários tokens, o seu aplicativo OAuth pode realizar o fluxo web para cada caso, solicitando apenas os escopos necessários. Se um usuário usar apenas seu aplicativo para iniciar a sessão, ele nunca será obrigado a conceder acesso do aplicativo OAuth aos seus repositórios privados.
 
-Há um limite para o número de tokens emitidos por combinação de usuário/aplicativo/escopo. Se seu aplicativo solicitar tokens suficientes para ultrapassar um dos limites, os tokens antigos _com o mesmo escopo sendo solicitado_ irão parar de funcionar.
+{% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 

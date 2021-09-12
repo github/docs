@@ -17,6 +17,7 @@ topics:
   - Networking
   - Security
 ---
+
 ### Sobre o protocolo Transport Layer Security
 
 O TLS, protocolo que substituiu o SSL, fica habilitado e configurado com um certificado autoassinado quando o {% data variables.product.prodname_ghe_server %} é iniciado pela primeira vez. Como os certificados autoassinados não são considerados confiáveis por navegadores da web e clientes Git, esses clientes reportarão avisos de certificados até você desabilitar o TLS ou fazer upload de um certificado assinado por uma autoridade confiável, como o Let's Encrypt.

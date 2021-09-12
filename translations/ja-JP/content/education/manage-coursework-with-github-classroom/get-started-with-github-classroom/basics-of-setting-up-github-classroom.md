@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
 ---
+
 ### {% data variables.product.prodname_classroom %}についてのビデオ
 
 {% data variables.product.prodname_classroom %}の設定や使い方について、手短なビデオチュートリアルのシリーズをご覧いただけます。 すべてのビデオをプレイリストで再生したい場合は、YouTube上の[{% data variables.product.prodname_classroom %} Getting Started Guide](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u)を参照してください。

@@ -1,19 +1,16 @@
 ---
 title: Overview
-intro: 'You can learn about {% data variables.product.product_name %} and manage{% if enterpriseServerVersions contains currentVersion %} accounts and access, licenses, and{% endif %} billing.'
+intro: 'You can learn about {% data variables.product.product_name %} and manage{% ifversion ghes %} accounts and access, licenses, and{% endif %} billing.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-github-ae
   - /about-upgrades-to-new-releases
   - /about-data-residency
   - /about-enterprise-accounts
-  - /managing-your-github-enterprise-license
-  - /managing-billing-for-your-enterprise
-  - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
 ---

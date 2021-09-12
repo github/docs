@@ -16,6 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
+
 ### Sobre provisionamento de usuários para sua empresa
 
 {% data reusables.saml.ae-uses-saml-sso %} Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
@@ -52,9 +53,7 @@ Você deve ter acesso administrativo no seu IdP para configurar o aplicativo par
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. Enquanto estiver conectado
-
-{% data variables.product.product_location %} como proprietário corporativo, crie um token de acesso pessoal com o escopo **admin:enterprise**. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+1. Enquanto estiver conectado {% data variables.product.product_location %} como proprietário de uma empresa, crie um token de acesso pessoal com **admin:enterprise** escopo. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
   {% note %}
 
   **Atenção**:

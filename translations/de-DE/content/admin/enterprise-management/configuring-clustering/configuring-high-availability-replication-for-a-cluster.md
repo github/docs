@@ -14,6 +14,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### About high availability replication for clusters
 
 You can configure a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.

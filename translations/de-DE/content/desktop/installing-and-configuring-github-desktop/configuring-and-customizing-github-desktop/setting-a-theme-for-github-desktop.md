@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}

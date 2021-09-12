@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
 ---
+
 ### . 譲渡
 
 課題とは、{% data variables.product.prodname_classroom %}における学習課題のことです。 教師は個々の学生または学生のグループに課題を割り当てることができます。 教師は課題のスターターコードをインポートし、各課題に学生を割り当て、期限を設定できます。 詳しい情報については、「[個人課題](#individual-assignment)」および「[グループ課題](#group-assignment)」の定義を参照してください。

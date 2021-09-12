@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Para exibir bifurcações nos resultados da [pesquisa no repositório](/articles/searching-for-repositories), adicione `fork:true` ou `fork:only` à sua consulta.
 
 As bifurcações somente são indexadas para [pesquisas de códigos](/articles/searching-code) quando têm mais estrelas do que o repositório principal. Não é possível pesquisar códigos em uma bifurcação que tem menos estrelas do que seu principal. Para exibir bifurcações com mais estrelas que o repositório principal nos resultados da pesquisa de código, adicione `fork:true` ou `fork:only` à sua consulta.

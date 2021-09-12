@@ -13,13 +13,14 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import to your enterprise
 ---
-### Applying the imported data on {% data variables.product.prodname_ghe_server %}
+## Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
 Once you have [prepared your migration](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) you can use the following steps to complete the migration.
 
@@ -38,7 +39,7 @@ Once you have [prepared your migration](/admin/user-management/preparing-to-migr
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-### Reviewing migration data
+## Reviewing migration data
 
 By default, `ghe-migrator audit` returns every record. It also allows you to filter records by:
 
@@ -47,7 +48,7 @@ By default, `ghe-migrator audit` returns every record. It also allows you to fil
 
 The record types match those found in the [migrated data](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
 
-### Record type filters
+## Record type filters
 
 |      Record type      | Filter name  |
 |-----------------------|--------|
@@ -67,7 +68,7 @@ The record types match those found in the [migrated data](/enterprise/admin/guid
 | Actions taken on pull requests or issues | `issue_event`
 | Protected branches | `protected_branch`
 
-### Record state filters
+## Record state filters
 
 | Record state    | Description    |
 |-----------------|----------------|
@@ -87,7 +88,7 @@ The record types match those found in the [migrated data](/enterprise/admin/guid
 | `failed_rename` | The record failed to be renamed. |
 | `failed_merge`  | The record failed to be merged. |
 
-### Filtering audited records
+## Filtering audited records
 
 With the `ghe-migrator audit` command, you can filter based on the record type using the `-m` flag. Similarly, you can filter on the import state using the `-s` flag. The command looks like this:
 
@@ -112,18 +113,18 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 If you have any concerns about failed imports, contact {% data variables.contact.contact_ent_support %}.
 
-### Completing the import on {% data variables.product.prodname_ghe_server %}
+## Completing the import on {% data variables.product.prodname_ghe_server %}
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Before deleting your source data we recommend waiting around two weeks to ensure that everything is functioning as expected.
 
-### Unlocking repositories on the target instance
+## Unlocking repositories on the target instance
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-### Unlocking repositories on the source
+## Unlocking repositories on the source
 
-#### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">the migration unlock endpoint</a>. You'll need:
   * Your access token for authentication
@@ -135,7 +136,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). You'll need your access token for authentication:
 ```shell
@@ -143,7 +144,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance
+### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}

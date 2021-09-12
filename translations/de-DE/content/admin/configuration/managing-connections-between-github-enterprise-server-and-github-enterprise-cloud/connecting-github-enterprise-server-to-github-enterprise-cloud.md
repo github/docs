@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### Informationen zu {% data variables.product.prodname_github_connect %}
 
 Zum Aktivieren von {% data variables.product.prodname_github_connect %} musst Du die Verbindung sowohl in {% data variables.product.product_location_enterprise %} als auch in Deiner Organisation oder Deinem Unternehmenskonto in der {% data variables.product.prodname_ghe_cloud %} konfigurieren.
@@ -46,9 +47,7 @@ Wenn {% data variables.product.prodname_github_connect %} aktiviert wird, könne
 For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 ### {% data variables.product.prodname_github_connect %} aktivieren
 
-1. Sign in to
-
-{% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.
+1. Melden Dich bei {% data variables.product.product_location_enterprise %} und {% data variables.product.prodname_dotcom_the_website %} an.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}

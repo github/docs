@@ -12,17 +12,11 @@ children:
   - /github-terms-of-service
   - /github-corporate-terms-of-service
   - /github-privacy-statement
-  - /github-data-protection-addendum
+  - /github-data-protection-agreement-non-enterprise-customers
   - /global-privacy-practices
-  - /github-enterprise-server-license-agreement
-  - /github-enterprise-service-level-agreement
-  - /github-connect-addendum-to-the-github-enterprise-license-agreement
-  - /github-supplemental-terms-for-microsoft-volume-licensing
-  - /github-enterprise-subscription-agreement
   - /github-insights-and-data-protection-for-your-organization
-  - /github-enterprise-cloud-evaluation-agreement
   - /github-sponsors-additional-terms
-  - /github-additional-product-terms
+  - /github-terms-for-additional-products-and-features
   - /github-logo-policy
   - /github-username-policy
   - /submitting-content-removal-requests
@@ -30,11 +24,10 @@ children:
   - /guide-to-submitting-a-dmca-takedown-notice
   - /guide-to-submitting-a-dmca-counter-notice
   - /github-trademark-policy
-  - /github-sensitive-data-removal-policy
+  - /github-private-information-removal-policy
   - /github-subprocessors-and-cookies
   - /github-bug-bounty-program-legal-safe-harbor
   - /responsible-disclosure-of-security-vulnerabilities
-  - /amendment-to-github-terms-of-service-applicable-to-us-federal-government-users
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies
@@ -51,6 +44,7 @@ children:
   - /github-deceased-user-policy
   - /github-statement-against-modern-slavery-and-child-labor
   - /github-anti-bribery-statement
+  - /github-candidate-privacy-policy
   - /github-gifts-and-entertainment-policy
   - /github-event-terms
   - /github-event-code-of-conduct

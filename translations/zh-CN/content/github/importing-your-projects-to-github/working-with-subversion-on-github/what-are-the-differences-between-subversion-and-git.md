@@ -9,6 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### 目录结构
 
 项目中的每个*引用*或标记的提交快照均在特定子目录中组织，例如 `trunk`、`branches` 和 `tags`。 例如，具有两项正在开发的功能的 SVN 项目可能类似如下：

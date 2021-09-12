@@ -23,17 +23,17 @@ topics:
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The table below summarizes all the options available to users when you configure {% data variables.product.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
+Puedes configurar el {% data variables.product.prodname_code_scanning %} para ejecutar los análisis del {% data variables.product.prodname_codeql %} y de terceros. El {% data variables.product.prodname_code_scanning_capc %} también es compatible con ejecutar análisis de forma nativa utilizando las {% data variables.product.prodname_actions %} o utilizando la infraestructura de IC/DC existente externamente. La siguiente tabla resume todas las opciones disponibles para los usuarios cuando configuras {% data variables.product.product_location %} para que permita el {% data variables.product.prodname_code_scanning %} utilizando acciones.
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Prerequisites for {% data variables.product.prodname_code_scanning %}
+### Prerequisitos para el {% data variables.product.prodname_code_scanning %}
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion ver_gt "enterprise-server@3.0" %} (see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
+- Una licencia de {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion ver_gt "enterprise-server@3.0" %} (consulta la sección "[Acerca del licenciamiento para la {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)"){% endif %}
 
-- {% data variables.product.prodname_code_scanning_capc %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- El {% data variables.product.prodname_code_scanning_capc %} habilitado en la consola de administración (consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
-- A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
+- Una MV o contenedor para ejecutar el análisis de {% data variables.product.prodname_code_scanning %}.
 
 ### Ejecutar el {% data variables.product.prodname_code_scanning %} utilizando {% data variables.product.prodname_actions %}
 
@@ -43,10 +43,10 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 Debes asegurarte de que Git esté en la variable de "PATH" de cualquier ejecutor auto-hospedado que utilices para ejecutar las acciones de {% data variables.product.prodname_codeql %}.
 
-#### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
+#### Aprovisionar las acciones del {% data variables.product.prodname_code_scanning %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
+Si quieres utilizar acciones para ejecutar el {% data variables.product.prodname_code_scanning %} en {% data variables.product.prodname_ghe_server %}, las acciones deben estar disponibles en tu aplicativo.
 
 La acción {% data variables.product.prodname_codeql %} se incluye en tu instalación de {% data variables.product.prodname_ghe_server %}. Si {% data variables.product.prodname_ghe_server %} tiene acceso a internet, la acción descargará automáticamente el paquete de {% data variables.product.prodname_codeql %} que se requiere para realizar el análisis. Como alternativa, puedes utilizar una herramienta de sincronización para hacer disponible el paquete de análisis de {% data variables.product.prodname_codeql %} localmente. Para obtener más información, consulta la sección "[Configurar el análisis de {% data variables.product.prodname_codeql %} en un servidor sin acceso a internet](#configuring-codeql-analysis-on-a-server-without-internet-access)" a continuación.
 

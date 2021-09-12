@@ -1,6 +1,6 @@
 ---
-title: Connecting a repository to a package
-intro: 'You can connect a repository to a container image on {% data variables.product.prodname_dotcom %}.'
+title: Conectar um repositório a um pacote
+intro: 'É possível conectar um repositório a uma imagem de contêiner em {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
@@ -9,21 +9,21 @@ versions:
   free-pro-team: '*'
 ---
 
-By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.
+Ao conectar um repositório a um pacote, a página inicial do pacote mostrará informações e links do repositório, como o LEIAME.
 
-### Connecting a repository to a user-owned package on {% data variables.product.prodname_dotcom %}
+### Conectar um repositório a um pacote de propriedade do usuário em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to an organization-owned package on {% data variables.product.prodname_dotcom %}
+### Conectar um repositório a um pacote de propriedade da organização em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to a container image using the command line
+### Conectar um repositório a uma imagem de contêiner usando a linha de comando
 
 1. No seu arquivo Docker, adicione esta linha, substituindo `PROPRIETÁRIO` e `REPO` pelas suas informações:
 
@@ -59,14 +59,14 @@ By connecting a repository to a package, the package landing page will show info
   $ docker tag 38f737a91f39 ghcr.io/monalisa/hello_docker:latest
   ```
 
-5. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[Authenticating to the {% data variables.product.prodname_container_registry %}](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)."
+5. Se você ainda não o fez, efetue a autenticação em {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Efetuar a autenticação em {% data variables.product.prodname_container_registry %}](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)".
     {% raw %}
     ```shell
     $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
     > Login Succeeded
     ```
     {% endraw %}
-6. Push your container image to the {% data variables.product.prodname_container_registry %}.
+6. Faça push da sua imagem de contêiner para o {% data variables.product.prodname_container_registry %}.
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE-NAME:TAG
   ```

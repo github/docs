@@ -8,6 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### 可执行文件 (svn:executable)
 
 我们通过在将文件模式添加到 Git 仓库之前直接进行更新来转换 `svn:executable` 属性。

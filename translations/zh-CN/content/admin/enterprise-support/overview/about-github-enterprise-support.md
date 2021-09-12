@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 {% note %}
 
 **注意**：{% data reusables.support.data-protection-and-privacy %}
@@ -23,8 +24,7 @@ topics:
 {% data variables.product.product_name %} 包括 {% data variables.contact.enterprise_support %} 英语版{% if enterpriseServerVersions contains currentVersion %}和日语版{% endif %}。
 
 {% if enterpriseServerVersions contains currentVersion %}
-您可以通过
-{% data variables.contact.enterprise_support %} 联系 {% data variables.contact.contact_enterprise_portal %} 来寻求以下帮助：
+您可以通过 {% data variables.contact.enterprise_support %} 联系 {% data variables.contact.contact_enterprise_portal %} 来寻求以下帮助：
  - 安装和使用 {% data variables.product.product_name %}
  - 识别并验证可疑错误的原因
 

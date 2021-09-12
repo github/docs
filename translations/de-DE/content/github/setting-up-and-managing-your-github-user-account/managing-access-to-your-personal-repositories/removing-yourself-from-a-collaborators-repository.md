@@ -17,6 +17,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 {% data reusables.user_settings.access_settings %}
 2. Klicke in der linken Seitenleiste auf **Repositories** (Repositorys). ![Registerkarte „Repositories“ (Repositorys)](/assets/images/help/settings/settings-sidebar-repositories.png)
 3. Klicke neben dem Repository, das Du verlassen möchtest, auf **Leave** (Verlassen). ![Schaltfläche „Leave“ (Verlassen)](/assets/images/help/repository/repo-leave.png)

@@ -8,12 +8,13 @@ versions:
   enterprise-server: '*'
 type: how_to
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies
   - Security
 ---
+
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
@@ -36,9 +37,8 @@ Bevor Sie festlegen können, dass Organisationsmitglieder und externe Mitarbeite
 
 Bevor Sie festlegen können, dass die Zwei-Faktor-Authentifizierung verwendet werden muss, sollten Sie die Organisationsmitglieder und externen Mitarbeiter benachrichtigen und sie auffordern, die Zwei-Faktor-Authentifizierung für ihre Konten einzurichten. Auf der Registerkarte „People“ (Personen) einer Organisation können Sie [anzeigen, ob die Mitglieder und externen Mitarbeiter die Zwei-Faktor-Authentifizierung bereits verwenden](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}

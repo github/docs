@@ -12,6 +12,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 {% warning %}
 
 如果在 {% data variables.product.prodname_marketplace %} 中提供 {% data variables.product.prodname_github_app %}，您的应用程序必须按照 OAuth 授权流程来识别用户。 您不需要设置单独的 {% data variables.product.prodname_oauth_app %} 来支持此流程。 更多信息请参阅“[识别和授权 {% data variables.product.prodname_github_apps %} 的用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。

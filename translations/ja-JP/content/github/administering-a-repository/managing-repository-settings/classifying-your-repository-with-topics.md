@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Topics について
 
 Topics を利用すれば、特定の領域に関するリポジトリを調べたり、コントリビュートするプロジェクトを見つけたり、特定の問題に対する新たなソリューションを見つけ出すことができます。 Topics は、リポジトリのメインページに表示されます。 Topics 名をクリックして、{% if currentVersion == "free-pro-team@latest" %}関連する Topics や、その Topics に分類される他のリポジトリのリストを見たりすることができます。{% else %}そのトピックの他のリポジトリを検索することができます。{% endif %}

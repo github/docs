@@ -1,4 +1,4 @@
-1. 設定ページの**セルフホストランナー**のセクションで、設定したいランナーグループの隣の{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックし、続いて**Edit name and [organization|repository] access（名前と[Organization|リポジトリ]アクセスの編集）**をクリックしてください。 ![リポジトリの権限の管理](/assets/images/help/settings/actions-runner-manage-permissions.png)
+1. 設定ページの{% if currentVersion == "free-pro-team@latest" %}"Runners（ランナー）"{% else %}"Self-hosted runners（セルフホストランナー）"{% endif %}のセクションで、設定したいランナーグループの隣の{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックし、続いて**Edit name and [organization|repository] access（名前と[Organization|リポジトリ]アクセスの編集）<**クリックしてください。 ![リポジトリの権限の管理](/assets/images/help/settings/actions-runner-manage-permissions.png)
 1. ポリシーオプションを修正するか、ランナーグループ名を変更してください。
 
    {% warning %}

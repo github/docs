@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. [Saved replies] で、削除対象の返信テンプレートの隣にある {% octicon "x" aria-label="The X" %} をクリックします。  

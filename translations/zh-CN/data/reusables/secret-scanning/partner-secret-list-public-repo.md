@@ -77,3 +77,4 @@
 | Tencent Cloud             | 腾讯云密钥 ID                            |
 | Twilio                    | Twilio 帐户字符串标识符                     |
 | Twilio                    | Twilio API 密钥                       |
+| Valour                    | Valour 访问令牌                         |

@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% note %}
 
 **注：**在帐户或组织的所有者批准更改之前，更新的权限不会对安装设施生效。 您可以使用 [InstallationEvent web 挂钩](/webhooks/event-payloads/#installation)了解用户何时接受应用程序的新权限。 [用户级权限](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)是一个例外，它不需要帐户所有者批准权限更改。

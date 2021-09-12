@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
   - /education/manage-coursework-with-github-classroom/run-student-code-in-an-online-ide
 ---
+
 ### 关于学生代码和在线 IDE
 
 如果为作业配置在线集成开发环境 (IDE)，您可以在在线 IDE 中运行代码。 您不需要复制作业仓库到您的计算机。

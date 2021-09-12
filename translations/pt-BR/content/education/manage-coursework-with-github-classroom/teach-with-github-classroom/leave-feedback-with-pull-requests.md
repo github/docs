@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/leaving-feedback-in-github
   - /education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests
 ---
+
 ### Sobre solicitações de feedback de pull requests para atividades
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}

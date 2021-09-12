@@ -17,6 +17,7 @@ topics:
   - Logging
   - Security
 ---
+
 支持使用任何支持 syslog-style 日志流的日志收集系统（例如 [Logstash](http://logstash.net/) 和 [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)）。
 
 ### 启用日志转发
@@ -42,7 +43,6 @@ topics:
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### 疑难解答
-如果遇到日志转发问题，请联系
 
-{% data variables.contact.contact_ent_support %} 并在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件。
+如果您遇到日志转发方面的问题，请联系 {% data variables.contact.contact_ent_support %} 并在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件。
 {% endif %}

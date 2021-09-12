@@ -10,4 +10,4 @@ children:
   - /managing-data-use-settings-for-your-private-repository
   - /opting-into-or-out-of-the-github-archive-program-for-your-public-repository
 ---
-### 目次
+

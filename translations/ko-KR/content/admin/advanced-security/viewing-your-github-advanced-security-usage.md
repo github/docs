@@ -1,7 +1,7 @@
 ---
 title: Viewing your GitHub Advanced Security usage
 intro: 'You can view usage of your {% data variables.product.prodname_GH_advanced_security %} license.'
-permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
+permissions: Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'

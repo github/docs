@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Team ディスカッションでポリシーを施行する
 
 自分の Enterprise アカウントによって所有されているすべての Organization 全体で、Team ディスカッションを有効または無効にしたり、オーナーに Organization レベルで設定を管理させたりできます。 詳しい情報については[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions/)を参照してください。

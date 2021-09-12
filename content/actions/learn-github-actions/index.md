@@ -26,11 +26,11 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/migrating-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
-  - /introduction-to-github-actions
+  - /understanding-github-actions
   - /finding-and-customizing-actions
   - /essential-features-of-github-actions
   - /managing-complex-workflows

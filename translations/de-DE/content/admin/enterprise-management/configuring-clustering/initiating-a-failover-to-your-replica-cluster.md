@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 ---
+
 ### About failover to your replica cluster
 
 In the event of a failure at your primary datacenter, you can fail over to the replica nodes in the secondary datacenter if you configure a passive replica node for each node in your active cluster.

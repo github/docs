@@ -19,6 +19,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### Sobre os endereços de e-mail do commit
 
 O {% data variables.product.product_name %} usa o endereço de e-mail do commit para associar commits à conta do {% data variables.product.product_name %}. Você pode escolher o endereço de e-mail que será associado aos commits cujo push é feito usando a linha de comando e às operações do Git baseadas na web executadas.

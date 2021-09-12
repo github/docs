@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
 ---
+
 为帮助您了解您的订阅和决定是否取消订阅，请参阅“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
 
 {% note %}
@@ -60,11 +61,11 @@ redirect_from:
 2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
   {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
     - 取消关注仓库
-    - Only watch releases for a repository
-    - Ignore all notifications for a repository
+    - 只关注某仓库的发行版
+    - 忽略某仓库的所有通知
   {% endif %}
   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
     - 取消关注仓库
-    - Ignore all notifications for a repository
-    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+    - 忽略某仓库的所有通知
+    - 自定义接收通知的事件类型 （{% data reusables.notifications-v2.custom-notification-types %}，如果启用）
   {% endif %}

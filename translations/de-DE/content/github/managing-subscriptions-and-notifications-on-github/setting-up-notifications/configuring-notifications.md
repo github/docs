@@ -21,6 +21,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -52,8 +53,7 @@ The notifications inbox on {% data variables.product.product_name %}{% if curren
   - Gruppiere Benachrichtigungen in Deinem Posteingang nach Repository oder Datum, um einen schnellen Überblick mit weniger Kontextwechseln zu erhalten
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-In addition, you can receive and triage notifications on your mobile device with
-{% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
+In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 {% endif %}
 
 #### Vorteile beim Benutzen eines E-Mail-Client für Benachrichtigungen
@@ -72,13 +72,11 @@ To see repositories that you're watching, go to your [watching page](https://git
 {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
 #### Benachrichtigungen konfigurieren
 {% endif %}
-You can configure notifications for a repository on the repository page, or on your watching page.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 #### About custom notifications
-You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (
-{% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
+You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
 {% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
 
 #### Participating in conversations
@@ -214,9 +212,8 @@ If you are a member of more than one organization, you can configure each one to
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}

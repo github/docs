@@ -1,7 +1,7 @@
 ---
-title: Working with a GitHub Packages registry
-shortTitle: Working with a GitHub Packages registry
-intro: 'Learn how to use a supported {% data variables.product.prodname_registry %} registry.'
+title: 使用 GitHub Packages 注册表
+shortTitle: 使用 GitHub Packages 注册表
+intro: '了解如何使用受支持的 {% data variables.product.prodname_registry %} 注册表。'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
   - /packages/using-github-packages-with-your-projects-ecosystem
@@ -23,11 +23,11 @@ children:
   - /enabling-improved-container-support-with-the-container-registry
   - /migrating-to-the-container-registry-from-the-docker-registry
 ---
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 {% if currentVersion == "free-pro-team@latest" %}
-![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
+![显示支持 Docker、容器注册表、RubyGems、npm、Apache Maven、NuGet 和 Gradle 的软件包的示意图](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 {% else %}
-![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
+![显示支持 Docker、RubyGems、npm、Apache Maven、Gradle、Nuget 和 Docker 的软件包的示意图](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 {% endif %}
-### 目录

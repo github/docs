@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 For more information about cancelling as it relates to billing, see "[Billing customers in {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)."
 
 ### Schritt 1. Cancellation event

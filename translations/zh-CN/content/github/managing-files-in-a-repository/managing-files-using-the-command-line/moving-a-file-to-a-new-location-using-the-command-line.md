@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 许多文件可[在 {% data variables.product.product_name %} 上直接移动](/articles/moving-a-file-to-a-new-location)，但有些文件（如图像）需要从命令行移动。
 
 {% data reusables.command_line.manipulating_file_prereqs %}

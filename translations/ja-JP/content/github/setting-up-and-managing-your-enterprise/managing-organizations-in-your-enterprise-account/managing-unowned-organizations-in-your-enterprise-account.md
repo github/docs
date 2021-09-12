@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ユーザのデプロビジョニングを有効にして Enterprise アカウントの Organization メンバーシップを管理していると、Organization のオーナーがいなくなることもあります。 詳しい情報については、「[Enterprise アカウント内の Organization のユーザプロビジョニングについて](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}

@@ -1,5 +1,5 @@
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.
+{% if currentVersion == "free-pro-team@latest" %}El {% data variables.product.prodname_secret_scanning_caps %} se encuentra disponible para todos los repositorios públicos y para los privados que pertenecen a organizaciones en donde se habilitó la {% data variables.product.prodname_GH_advanced_security %}.
+{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}Las {% data variables.product.prodname_secret_scanning_caps %} están disponibles para los repositorios que pertenezcan a organizaciones en donde esté habilitada la {% data variables.product.prodname_GH_advanced_security %}.
 {%- elsif currentVersion == "github-ae@latest" %}
 El {% data variables.product.prodname_secret_scanning_caps %} se encuentra disponible como parte de la {% data variables.product.prodname_GH_advanced_security %}, la cual es gratuita durante el lanzamiento beta.
 {%- else %}

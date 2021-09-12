@@ -22,6 +22,7 @@ versions:
 topics:
   - Notifications
 ---
+
 Você recebe notificações para suas assinaturas de atividades contínuas em {% data variables.product.product_name %}. Há muitos motivos para você assinar uma conversa. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
 
 Recomendamos a auditoria e o cancelamento das suas assinaturas como parte de um fluxo de trabalho de notificações saudáveis. Para obter mais informações sobre suas opções para cancelamento de assinatura, consulte "[Gerenciando assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
@@ -75,7 +76,7 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+  **Dica:** Em vez de inspecionar um repositório, considere apenas receber notificações {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}quando houver atualizações para {% data reusables.notifications-v2.custom-notification-types %} (se habilitado para o repositório), ou qualquer combinação dessas opções,{% else %}para versões em um repositório,{% endif %} ou sem inspecionar um repositório.
 
   Quando você deixa de inspecionar um repositório, você ainda pode ser notificado quando for @mencionado ou estiver participando de um thread. Ao definir a configuração para receber notificações de certos tipos de evento, você só será notificado quando houver atualizações desses tipos de eventos no repositório, quando você estiver participando de um tópico ou quando você ou a sua equipe for @mentioned.
 

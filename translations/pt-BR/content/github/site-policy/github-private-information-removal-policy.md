@@ -47,19 +47,19 @@ Para os fins deste documento, “informações privadas” refere-se ao conteúd
 
 1. **O requerente deve investigar.** Cabe à parte requerente realizar sua própria investigação e nos fornecer os [detalhes necessários](#your-request-must-include) — e o mais importante: uma explicação de como os dados representam um risco à segurança. O GitHub não está em posição de procurar ou fazer determinações iniciais sobre informações privadas em nome de qualquer indivíduo ou organização.
 
-2. **Complainant Sends a Private Information Removal Request.** After conducting an investigation, the complainant prepares and [sends a private information removal request](#sending-a-private-information-removal-request) to GitHub. Se o pedido não for suficientemente detalhado para demonstrar o risco de segurança, e para que o GitHub localize os dados, responderemos e pediremos mais informações.
+2. **O reclamante envia um pedido de remoção de informações pessoais.**Após realizar uma investigação, o reclamante prepara e [envia uma solicitação de remoção de informações privadas](#sending-a-private-information-removal-request) para o GitHub. Se o pedido não for suficientemente detalhado para demonstrar o risco de segurança, e para que o GitHub localize os dados, responderemos e pediremos mais informações.
 
-3. **GitHub Asks User to Make Changes.** In most cases, we will contact the user who created the repository and give them an opportunity to delete or modify the private information specified in the request or to dispute the claim.
+3. **O GitHub pede que usuário faça alterações.** Na maioria dos casos, entraremos em contato com o usuário que criou o repositório e daremos a oportunidade de apagar ou modificar as informações confidenciais especificadas na solicitação ou para contestar a reclamação.
 
 4. **O usuário notifica o GitHub sobre as alterações.** Se o usuário escolher fazer as alterações especificadas, ele deve nos informar dentro do período permitido. Se não o fizer, desativaremos o repositório. Se o usuário nos notificar que fez as alterações, verificaremos se as alterações foram realmente feitas e notificaremos o requerente.
 
   OU
 
-5. **User May Dispute the Request.** If a user believes the content in question is not private information subject to this Policy, they may dispute it. Se o fizer, geralmente deixaremos ao requerente a iniciativa de entrar em contato com o usuário para resolver tudo diretamente, racionalmente.
+5. **O usuário pode contestar a solicitação.** Se um usuário acreditar que o conteúdo em questão não é uma informação privada sujeita a esta política, ele poderá contestar isso. Se o fizer, geralmente deixaremos ao requerente a iniciativa de entrar em contato com o usuário para resolver tudo diretamente, racionalmente.
 
 6. **O requerente revisa as alterações.** Se o usuário fizer alterações, o requerente deve revisá-las. Se as mudanças forem insuficientes, o requerente deve fornecer informações sobre os motivos. O GitHub pode desativar o repositório ou dar ao usuário uma chance adicional de fazer as alterações.
 
-7. **User May Request an Additional Window to Make Changes.** If the user missed their opportunity to remove the private information specified in the notice, we may allow them an additional window of approximately 1 business day, upon request, to make those changes. Nesse caso, o GitHub irá notificar o requerente.
+7. **O usuário pode solicitar um prazo adicional para fazer alterações.** Se o usuário perdeu a oportunidade de remover as informações privadas especificadas na nota, podemos permitir que tenha uma janela adicional de aproximadamente 1 dia útil, mediante solicitação, para fazer essas alterações. Nesse caso, o GitHub irá notificar o requerente.
 
 #### O que significa Bifurcação? (ou O que é uma Bifurcação?)
 Um dos melhores recursos do GitHub é a possibilidade de os usuários "bifurcarem" repositórios uns dos outros. O que isso significa? Basicamente, isso significa que os usuários podem fazer uma cópia de um projeto no GitHub em seus próprios repositórios. Conforme a licença ou a lei permitirem, os usuários podem fazer alterações nessa bifurcação para ou fazer push de volta para o projeto principal ou simplesmente manter como sua própria variação de um projeto. Cada uma dessas cópias é uma "[bifurcação](/articles/github-glossary/#fork)" do repositório original que, por sua vez, também pode ser chamado de "principal" da bifurcação.

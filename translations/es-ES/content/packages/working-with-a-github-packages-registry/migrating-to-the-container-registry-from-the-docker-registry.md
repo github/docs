@@ -1,6 +1,6 @@
 ---
-title: Migrating to the Container registry from the Docker registry
-intro: 'If you''ve used the GitHub Packages Docker registry to store Docker images, you can migrate your images to the new {% data variables.product.prodname_container_registry %}.'
+title: Migrarse al registro del contenedor desde el registro de Docker
+intro: 'Si utilizaste el registro de Docker de los Paquetes de GitHub para almacenar imágenes de Docker, puedes migrar tus imágenes al {% data variables.product.prodname_container_registry %} nuevo.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
@@ -10,28 +10,28 @@ versions:
   free-pro-team: '*'
 ---
 
-### Key differences between the {% data variables.product.prodname_container_registry %} and the Docker registry
+### Diferencias clave entre el {% data variables.product.prodname_container_registry %} y el registro de Docker
 
 {% data reusables.package_registry.container-registry-beta %}
 
-The {% data variables.product.prodname_container_registry %} supersedes the existing {% data variables.product.prodname_registry %} Docker registry and is optimized to support some of the unique needs of containers.
+El {% data variables.product.prodname_container_registry %} sustituye el registro de Docker del {% data variables.product.prodname_registry %} existente y se optimiza para ser compatible con algunas de las necesidades únicas de los contenedores.
 
-With the {% data variables.product.prodname_container_registry %} you can:
+Con el {% data variables.product.prodname_container_registry %} puedes:
 - Almacenar imágenes de contenedor dentro de tu organización y cuenta de usuario, en vez de en un repositorio.
-- Set granular permissions and visibility independently of repository permissions and visibility.
+- Configurar permisos granulares y la visibilidad independientemente de los permisos y visibilidad del repositorio.
 - Acceder a imágenes de contenedores públicos anónimamente.
 
-|                          | Docker registry                                                                                                                                                                                                                                                                                           | {% data variables.product.prodname_container_registry %}
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Ubicaciones de hospedaje | You can host multiple Docker images in one repository.                                                                                                                                                                                                                                                    | Puedes hospedar imagenes de contenedor múltiples en una cuenta de organización o de usuario.                                                                                                                 |
-| Permisos                 | Each image inherits the permissions of the repository where the image is hosted. Cualquier persona con permisos de lectura para un repositorio puede instalar un paquete como una dependencia en un proyecto, y cualquier persona con permisos de escritura puede publicar una nueva versión del paquete. | Para cada imagen de contenedor, puedes elegir el nivel de acceso que tienen los demás. Los permisos para acceso a la imagen de contenedor son independientes de aquellos para tu organización y repositorio. |
- Visibility          | {% data reusables.package_registry.public-or-private-packages %} | You can set the visibility of each of your container images. Solo las personas y equipos a las cuales se les haya otorgado acceso dentro de tu organización podrán ver las imágenes de contenedor privadas. Cualquiera puede ver las imágenes de contenedor públicas. | Anonymous access    | N/A | You can access public container images anonymously. Foreign layer support | Doesn't support foreign layers, such as Windows images. | Supports foreign layers, such as Windows images.
+|                          | Registro de Docker                                                                                                                                                                                                                                                                                 | {% data variables.product.prodname_container_registry %}
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Ubicaciones de hospedaje | Puedes hospedar imágenes múltiples de Docker en un repositorio.                                                                                                                                                                                                                                    | Puedes hospedar imagenes de contenedor múltiples en una cuenta de organización o de usuario.                                                                                                                 |
+| Permisos                 | Cada imagen hereda los permisos del repositorio en donde esta se hospeda. Cualquier persona con permisos de lectura para un repositorio puede instalar un paquete como una dependencia en un proyecto, y cualquier persona con permisos de escritura puede publicar una nueva versión del paquete. | Para cada imagen de contenedor, puedes elegir el nivel de acceso que tienen los demás. Los permisos para acceso a la imagen de contenedor son independientes de aquellos para tu organización y repositorio. |
+ Visibilidad          | {% data reusables.package_registry.public-or-private-packages %} | Puedes configurar la visibilidad de cada una de tus imágenes de contenedor. Solo las personas y equipos a las cuales se les haya otorgado acceso dentro de tu organización podrán ver las imágenes de contenedor privadas. Cualquiera puede ver las imágenes de contenedor públicas. | Acceso anónimo    | N/A | Puedes acceder a imágenes de contenedor públicas anónimamente. Compatibilidad con capa ajena | No es compatible con capas ajenas, tales como las imágenes de Windows. | Es compatible con capas ajenas, tales como las imágenes de Windows.
 
 ### Cambios en la facturación
 
-During the {% data variables.product.prodname_container_registry %} beta, both the new {% data variables.product.prodname_container_registry %} and the existing {% data variables.product.prodname_registry %} Docker registry are free of charge. For more information about the {% data variables.product.prodname_registry %} Docker registry, see "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+Durante el beta del {% data variables.product.prodname_container_registry %}, tanto el {% data variables.product.prodname_container_registry %} nuevo como el {% data variables.product.prodname_registry %} existente del registro de Docker son gratuitos. Para obtener más información sobre el registro de Docker del {% data variables.product.prodname_registry %}, consulta la sección "[Trabajar con el registro de Docker](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)".
 
-After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. Para obtener más información, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
+Después del beta, se aplicarán al {% data variables.product.prodname_container_registry %} las mismas tasas de facturación y almacenamiento que se utilizan en otros registros del {% data variables.product.prodname_registry %}. Para obtener más información, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".
 
 ### Cambios de dominio
 
@@ -42,7 +42,7 @@ El dominio para el {% data variables.product.prodname_container_registry %} es `
 | Registro de Docker para {% data variables.product.prodname_registry %} | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_container_registry %}             | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+### Autenticarse en el {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.feature-preview-for-container-registry %}
 
@@ -93,9 +93,9 @@ Si tienes un flujo de trabajo de {% data variables.product.prodname_actions %} q
 
 2. En tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %}, actualiza la url del paquete de `https://docker.pkg.github.com` a `ghcr.io`.
 
-3. Agrega tu token de acceso personal (PAT) para autenticación en el {% data variables.product.prodname_container_registry %} como un secreto de GitHub Actions. The {% data variables.product.prodname_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. Para obtener más información, consulta "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+3. Utiliza el `GITHUB_TOKEN` para tu token de acceso personal (PAT) de autenticación. Para obtener más información, consulta la sección "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)".
 
-4. En tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %}, actualiza el PAT de autenticación reemplazando tu PAT del registro de Docker ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) con una variable nueva para tu PAT del {% data variables.product.prodname_container_registry %}, tal como {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
+4. En tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %}, utiliza el token de autenticación {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} como tu PAT de {% data variables.product.prodname_container_registry %}.
 
 #### Ejemplo de un flujo de trabajo actualizado
 
@@ -110,12 +110,12 @@ docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
 ```
 {% endraw %}
 
-Entonces necesitarás actualizar tu flujo de trabajo con la URL de {% data variables.product.prodname_container_registry %} y PAT nuevos de esta forma:
+Entonces necesitarás actualizar tu flujo de trabajo con la URL nueva del {% data variables.product.prodname_container_registry %}, de esta forma:
 
 {% raw %}
 ```yaml
 # new login with new container registry url and PAT
-echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 # new container registry urls added
 docker pull ghcr.io/github/octoshift:latest
 docker build . --tag ghcr.io/github/octoshift:$GITHUB_SHA --cache-from ghcr.io/github/octoshift:latest

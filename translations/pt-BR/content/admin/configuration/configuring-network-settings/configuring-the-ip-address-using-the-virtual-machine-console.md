@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 {% note %}
 
 **Observação:** Não suportamos a inclusão de adaptadores de rede adicionais para {% data variables.product.prodname_ghe_server %}.

@@ -38,3 +38,7 @@ topics:
 ### 商业和政府环境
 
 {% data variables.product.prodname_ghe_managed %} 可用于 Azure Government 云（是美国政府机构及其伙伴信任的云）。 {% data variables.product.prodname_ghe_managed %} 也可在商业云中使用，因此您可以选择适合您组织的托管环境。
+
+### 延伸阅读
+
+- "[从 {% data variables.product.company_short %} 支持获得帮助](/admin/enterprise-support/receiving-help-from-github-support)"

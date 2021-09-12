@@ -13,6 +13,7 @@ versions:
 topics:
   - Profiles
 ---
+
 您可以在传记中加入您的个人信息，比如您以前工作的地方、您参与过的项目，或者其他人可能想知道的个人兴趣。 更多信息请参阅“[添加传记到个人资料](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}

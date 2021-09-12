@@ -14,6 +14,7 @@ topics:
   - Clustering
   - Enterprise
 ---
+
 ### Arquitetura de clustering
 
 O {% data variables.product.prodname_ghe_server %} é formado por um conjunto de serviços. Em um cluster, esses serviços são executados em vários nós e as solicitações são balanceadas por carga entre eles. As alterações são armazenadas automaticamente com cópias redundantes em nós separados. A maioria dos serviços são pares iguais com outras instâncias do mesmo serviço. As exceções são os serviços `mysql-server` e `redis-server`, que operam em um único nó _primário_ com um ou mais nós _réplica_.

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 使用 `git show` 在命令行上查看特定提交时，可能会收到致命错误。
 
 例如，可能会在本地收到 `bad object` 错误：

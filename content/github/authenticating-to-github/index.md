@@ -1,7 +1,7 @@
 ---
 title: Authenticating to GitHub
 shortTitle: Authentication
-intro: 'Keep your account and data secure with features like {% if currentVersion != "github-ae@latest" %}two-factor authentication, {% endif %}SSH{% if currentVersion != "github-ae@latest" %},{% endif %} and commit signature verification.'
+intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/
@@ -14,9 +14,9 @@ redirect_from:
   - /categories/security/
   - /categories/authenticating-to-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - 2FA
   - Identity

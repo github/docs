@@ -84,8 +84,14 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
    Substitua _GITHUB-PAGES-VERSÃO_ pela última versão compatível do gem de `github-pages`. Você pode encontrar esta versão aqui: "[Versões de dependência](https://pages.github.com/versions/)".
 
    A versão correta do Jekyll será instalada como uma dependência do gem de `github-pages`.
-10. Salve e feche o Gemfile.
+1. Salve e feche o Gemfile.
 11. Na linha de comando, execute `atualização do pacote`.
+11. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
+   ```yml
+   domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+   url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+   baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder   
+  ```
 11. Como alternativa, teste seu site localmente. Para obter mais informações, consulte "[Testar seu site do {% data variables.product.prodname_pages %} localmente com o Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
 12. Add and commit your work.
 ```shell

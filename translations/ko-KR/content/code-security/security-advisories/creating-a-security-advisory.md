@@ -7,8 +7,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Anyone with admin permissions to a repository can create a security advisory.

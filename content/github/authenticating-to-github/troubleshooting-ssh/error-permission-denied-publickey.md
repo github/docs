@@ -5,17 +5,18 @@ redirect_from:
   - /articles/error-permission-denied-publickey
   - /github/authenticating-to-github/error-permission-denied-publickey
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - SSH
+shortTitle: Permission denied (publickey)
 ---
-### Should the `sudo` command be used with Git?
+## Should the `sudo` command be used with Git?
 
 You should not be using the `sudo` command with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
-### Check that you are connecting to the correct server
+## Check that you are connecting to the correct server
 
 Typing is hard, we all know it. Pay attention to what you type; you won't be able to connect to "githib.com" or "guthub.com". In some cases, a corporate network may cause issues resolving the DNS record as well.
 
@@ -30,9 +31,9 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% if currentVersion == "free-pro-team@latest" %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+The connection should be made on port 22{% ifversion fpt %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
-### Always use the "git" user
+## Always use the "git" user
 
 All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.product_name %} username, it will fail:
 
@@ -49,12 +50,12 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated...
 ```
 
-### Make sure you have a key that is being used
+## Make sure you have a key that is being used
 
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -89,7 +90,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
@@ -111,7 +112,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -145,7 +146,7 @@ The `ssh-add` command *should* print out a long string of numbers and letters. I
 
 {% endtip %}
 
-#### Getting more details
+### Getting more details
 
 You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
 
@@ -177,7 +178,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Offering RSA public key: /Users/<em>you</em>/.ssh/id_rsa
 ```
 
-### Verify the public key is attached to your account
+## Verify the public key is attached to your account
 
 You must provide your public key to {% data variables.product.product_name %} to establish a secure connection.
 
@@ -189,7 +190,7 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+3. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -221,7 +222,7 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
+3. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

@@ -16,8 +16,8 @@ topics:
 
 {% data reusables.organizations.team-synchronization %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 6. Klicke oberhalb der Liste der Teammitglieder auf **Add a member** (Ein Mitglied hinzufügen). ![Schaltfläche „Add member“ (Mitglied hinzufügen)](/assets/images/help/teams/add-member-button.png)

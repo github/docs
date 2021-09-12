@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. Em uma janela do Finder, navegue até a pasta Aplicativos. ![Pasta de aplicativos na janela do Finder](/assets/images/help/desktop/applications-folder.png)

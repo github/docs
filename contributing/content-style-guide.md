@@ -49,6 +49,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Accounts](#accounts)
   - [Acronyms](#acronyms)
   - [Apps](#apps)
+  - [Currency](#currency)
   - [Inclusive language](#inclusive-language-1)
   - [Prepositions](#prepositions)
   - [Product names](#product-names-1)
@@ -156,7 +157,7 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Headers
 
-Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
+Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
@@ -217,7 +218,7 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H3 header.
+Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
@@ -285,6 +286,63 @@ Take care to distinguish between product names and product elements. For more in
 | GitHub Actions | an action |
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
+
+## Product-specific conventions
+
+This section describes additional conventions that are specific to GitHub products. 
+
+### GitHub Actions
+
+#### Disclaimers for third-party actions
+
+Code examples that use third-party actions must include the following disclaimer as part of the code block:
+
+```
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+```
+To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example: 
+
+```
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+This is an example of a third-party action:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+Examples:
+- See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
+
+### Pinning version numbers to SHA
+
+Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
 
 ## Punctuation
 
@@ -412,6 +470,31 @@ Use "Apps" when referring to specific apps or types of apps.
 - **Use:** GitHub App, OAuth App
 
 GitHub Apps is always capitalized, because it’s a feature name.
+
+### Currency
+
+When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+
+Use lowercase for currency names, but capitalize the reference to the country or region.
+- **Use:** US dollar.
+- **Avoid:** US Dollar, $USD dollar.
+
+Use uppercase for currency codes.
+- **Use:** USD.
+
+Where there is only one reference in an article, use the currency name without a `$` sign preceding the amount.
+- **Use:** `10 US dollars` for a single reference to currency.
+
+Where an article contains several references to the same currency, ensure that the first reference uses the currency name without a `$` sign preceding the amount and includes the currency code in parentheses following the currency name.
+
+For subsequent references to currency in an article or where appropriate (such as when space is a consideration, or when several amounts are presented in a table or list), include the `$` sign preceding the amount and use the ISO standard currency code following the amount.
+- **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
+- **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
+
+Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+
+- **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
+- **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
 
 ### Inclusive language
 

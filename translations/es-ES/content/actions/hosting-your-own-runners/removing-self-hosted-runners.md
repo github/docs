@@ -32,7 +32,7 @@ Para eliminar un ejecutor autoalojado de un repositorio de usuario, debes ser el
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### Eliminar el ejecutor de una organización
@@ -51,7 +51,7 @@ Para eliminar el ejecutor auto-hospedado de una organización, debes ser el prop
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 
 ### Eliminar un ejecutor de una empresa
@@ -73,8 +73,8 @@ Para eliminar un ejecutor auto-hospedado a nivel empresarial de
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}

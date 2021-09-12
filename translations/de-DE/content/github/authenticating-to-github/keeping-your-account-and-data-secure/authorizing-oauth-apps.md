@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Wenn eine {% data variables.product.prodname_oauth_app %} Sie anhand Ihres {% data variables.product.product_name %}-Kontos identifizieren möchte, wird eine Seite mit den Kontaktdaten des Anwendungsentwicklers und einer Liste der Daten angezeigt, die angefordert werden.
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -48,6 +49,8 @@ Wenn Sie eine {% data variables.product.prodname_oauth_app %} verwenden möchten
 **Hinweis:** Derzeit kannst Du Quellcode-Zugriff nicht in einen Lesezugriff ändern.
 
 {% endtip %}
+
+{% data reusables.apps.oauth-token-limit %}
 
 #### Arten der angeforderten Daten
 

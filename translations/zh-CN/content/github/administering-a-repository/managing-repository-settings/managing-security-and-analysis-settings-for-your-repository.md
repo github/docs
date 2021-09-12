@@ -12,9 +12,16 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Alerts
+  - Advanced Security
+  - Dependency graph
+  - Secret scanning
   - Repositories
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 ### 为公共仓库启用或禁用安全和分析功能
 
@@ -36,23 +43,18 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 “
-{% data variables.product.prodname_GH_advanced_security %}”的控制被禁用（如果您的企业没有可用的 {% data variables.product.prodname_advanced_security %} 许可）。{% if currentVersion == "free-pro-team@latest" %}
-  !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 如果您的企业没有 {% data variables.product.prodname_advanced_security %} 许可，“{% data variables.product.prodname_GH_advanced_security %}”的控制将禁用。{% if currentVersion == "free-pro-team@latest" %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
-**注意：**如果禁用
 
-  {% data variables.product.prodname_GH_advanced_security %}、{% if currentVersion == "free-pro-team@latest" %}依赖项审核、{% endif %}{% data variables.product.prodname_secret_scanning %} 和 {% data variables.product.prodname_code_scanning %} 都会禁用。 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
+  **注意：**如果您禁用 {% data variables.product.prodname_GH_advanced_security %}、{% if currentVersion == "free-pro-team@latest" %}依赖项审核、{% endif %}{% data variables.product.prodname_secret_scanning %} 和 {% data variables.product.prodname_code_scanning %} 都会禁用。 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
   {% endnote %}
   {% endif %}
   {% if currentVersion == "enterprise-server@3.0" %}
 4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
   {% if currentVersion == "github-ae@latest" %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 在可以为您的仓库启用
-“{% data variables.product.prodname_secret_scanning %}”之前，您可能需要先启用 {% data variables.product.prodname_GH_advanced_security %}。
-   ![为您的仓库启用或禁用 {% data variables.product.prodname_GH_advanced_security %} 或 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 在启用“{% data variables.product.prodname_secret_scanning %}”之前，您可能需要先启用 {% data variables.product.prodname_GH_advanced_security %}。 ![为您的仓库启用或禁用 {% data variables.product.prodname_GH_advanced_security %} 或 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 
 ### 授予对安全警报的访问权限
@@ -92,8 +94,7 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Access to alerts（访问警报）”下，在要删除其访问权限的个人或团队的右侧，单击
-{% octicon "x" aria-label="X symbol" %}。
+4. 在“Access to alerts（访问警报）”下，在要删除其访问权限的个人或团队的右侧，单击 {% octicon "x" aria-label="X symbol" %}。
    {% if currentVersion == "free-pro-team@latest" %}
    ![用于删除某人对您仓库的安全警报访问权限的 "x" 按钮](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
    {% endif %}
@@ -106,5 +107,5 @@ topics:
 
 ### 延伸阅读
 
-- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
 - “[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”

@@ -7,11 +7,12 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Create a PR from a fork
 ---
 You can also give the upstream repository's maintainers permission to push commits to a user-owned fork. If your pull request compares your topic branch with a branch in the upstream repository as the base branch, then your topic branch is also called the compare branch of the pull request. For more information about pull request branches, including examples, see "[Creating a pull request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."
 
@@ -33,7 +34,7 @@ You can also give the upstream repository's maintainers permission to push commi
 
 {% data reusables.repositories.asking-for-review %}
 
-### Further reading
+## Further reading
 
 - "[Working with forks](/articles/working-with-forks)"
 - "[Allowing changes to a pull request branch created from a fork](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"
