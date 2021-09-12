@@ -22,3 +22,4 @@ sections:
       ```
       ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.

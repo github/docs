@@ -16,3 +16,4 @@ sections:
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
     - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
