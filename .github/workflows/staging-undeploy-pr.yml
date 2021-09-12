@@ -10,6 +10,10 @@ on:
       - closed
       - locked
 
+permissions:
+  contents: read
+  deployments: write
+
 jobs:
   undeploy:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
