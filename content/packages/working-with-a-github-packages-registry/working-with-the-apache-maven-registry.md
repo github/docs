@@ -182,7 +182,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
   ```
 {% data reusables.package_registry.checksum-maven-plugin %}
 3. Install the package.
-
+.
   ```shell
   $ mvn install
   ```
