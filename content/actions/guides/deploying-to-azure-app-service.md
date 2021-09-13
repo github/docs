@@ -118,6 +118,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/master/ci/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * The "[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
