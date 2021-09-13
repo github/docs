@@ -83,12 +83,6 @@ sections:
 
           The different token types now have unique identifiable prefixes, which allows for secret scanning to detect the tokens so that you can mitigate the impact of someone accidentally committing a token to a repository. {% data variables.product.company_short %} recommends updating existing tokens as soon as possible. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)" and "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)."
 
-        # https://github.com/github/releases/issues/1390
-        - |
-          An expiration date can now be set for new and existing personal access tokens. Setting an expiration date on personal access tokens is highly recommended to prevent older tokens from leaking and compromising security. Token owners will receive an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving users a duplicate token with the same properties as the original.
-
-          When using a personal access token with the {% data variables.product.company_short %} API, a new `GitHub-Authentication-Token-Expiration` header is included in the response, which indicates the token's expiration date. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-
     - heading: 'Repositories changes'
       notes:
         # https://github.com/github/releases/issues/1295
