@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: July 20, 2020
+Version Effective Date: November 16, 2020
 
 BY CLICKING THE "I AGREE" OR SIMILAR BUTTON OR BY USING ANY OF THE PRODUCTS (DEFINED BELOW), CUSTOMER ACCEPTS THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF CUSTOMER IS ENTERING INTO THIS AGREEMENT ON BEHALF OF A LEGAL ENTITY, CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE LEGAL ENTITY TO THIS AGREEMENT.
 
@@ -197,7 +197,7 @@ This Agreement, together with the Exhibits and each Order Form and SOW, constitu
 
 #### 1.13.11 Amendments; Order of Precedence.
 
-GitHub reserves the right, at its sole discretion, to amend this Agreement at any time and will update this Agreement in the event of any such amendments. GitHub will notify Customer of material changes to this Agreement, such as price changes, at least 30 days prior to the change taking effect by posting a notice on the Service. For non-material modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. Customer can view all changes to this Agreement in our [Site Policy](https://github.com/github/site-policy) repository. In the event of any conflict between the terms of this Agreement and any Order Form or SOW, the terms of the Order Form or SOW will control with respect to that Order Form or SOW only.
+GitHub reserves the right, at its sole discretion, to amend this Agreement at any time and will update this Agreement in the event of any such amendments. GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. Customer can view all changes to this Agreement in our [Site Policy](https://github.com/github/site-policy) repository. In the event of any conflict between the terms of this Agreement and any Order Form or SOW, the terms of the Order Form or SOW will control with respect to that Order Form or SOW only.
 
 #### 1.13.12 Severability.
 
@@ -296,7 +296,7 @@ Customer may create or upload User-Generated Content while using the Service. Cu
 **(ii)** Customer grants the rights set forth in Sections 3.3.3 through 3.3.6, free of charge and for the purposes identified in those sections until such time as Customer removes Customer Content from GitHub servers, except for Content Customer has posted publicly and that External Users have Forked, in which case the license is perpetual until such time as all Forks of Customer Content have been removed from GitHub servers. If Customer uploads Customer Content that already comes with a license granting GitHub the permissions it needs to run the Service, no additional license is required.
 
 #### 3.3.3 License Grant to GitHub.
-Customer grants to GitHub the right to store, parse, and display Customer Content, and make incidental copies only as necessary to provide the Service. This includes the right to copy Customer Content to GitHub's database and make backups; display Customer Content to Customer and those to whom Customer chooses to show it; parse Customer Content into a search index or otherwise analyze it on GitHub's servers; share Customer Content with External Users with whom Customer chooses to share it; and perform Customer Content, in case it is something like music or video. These rights apply to both public and Private Repositories. This license does not grant GitHub the right to sell Customer Content or otherwise distribute or use it outside of the Service. Customer grants to GitHub the rights it needs to use Customer Content without attribution and to make reasonable adaptations of Customer Content as necessary to provide the Service.
+Customer grants to GitHub the right to store, parse, and display Customer Content, and make incidental copies, only as necessary to provide the Service. This includes the right to copy Customer Content to GitHub's database and make backups; display Customer Content to Customer and those to whom Customer chooses to show it; parse Customer Content into a search index or otherwise analyze it on GitHub's servers; share Customer Content with External Users with whom Customer chooses to share it; and perform Customer Content, in case it is something like music or video. These rights apply to both public and Private Repositories. This license does not grant GitHub the right to sell Customer Content or otherwise distribute or use it outside of the Service. Customer grants to GitHub the rights it needs to use Customer Content without attribution and to make reasonable adaptations of Customer Content as necessary to provide the Service.
 
 #### 3.3.4 License Grant to External Users.
 **(i)** Any Content that Customer posts publicly, including issues, comments, and contributions to External Users' repositories, may be viewed by others. By setting its repositories to be viewed publicly, Customer agree to allow External Users to view and Fork Customer’s repositories.
@@ -318,10 +318,13 @@ Customer is responsible for managing access to its Private Repositories, includi
 GitHub considers Customer Content in Customer’s Private Repositories to be Customer’s Confidential Information. GitHub will protect and keep strictly confidential the Customer Content of Private Repositories in accordance with Section 1.4.
 
 #### 3.4.3 Access.
-GitHub may only access Customer’s Private Repositories (i) with Customer’s consent and knowledge, for support reasons, or (ii) when access is required for security reasons.  Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
-#### 3.4.4 Exclusions.
-If GitHub has reason to believe the Content of a Private Repository is in violation of the law or of this Agreement, GitHub has the right to access, review, and remove that Content. Additionally, GitHub may be compelled by law to disclose the Content of Customer’s Private Repositories. Unless otherwise bound by requirements under law or if in response to a security threat or other risk to security, GitHub will provide notice of such actions.
+Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
+
+Additionally, we may be [compelled by law](/github/site-policy/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories.
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### 3.5. Intellectual Property Notices.
 
@@ -330,7 +333,7 @@ The look and feel of the Service is copyright © GitHub, Inc. All rights reserve
 
 #### 3.5.2 Copyright Infringement and DMCA Policy.
 
-If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millenium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 3.5.3 GitHub Trademarks and Logos.
 

@@ -1,7 +1,7 @@
-The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 
 {% note %}
 
-**Note:** It's good practice to have automated tests and acceptance processes in place so that checks are carried out before the pull request is merged. This is particularly important if the suggested version to upgrade to contains additional functionality, or a change that breaks your project's code. For more information about continuous integration, see "[About continuous integration](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)."
+**注：**自动化测试和验收过程是一项好做法，这样可在合并拉取请求之前进行检查。 如果建议的升级版本包含额外的功能，或者更改会中断您的项目代码，这种做法尤其重要。 有关持续集成的更多信息，请参阅“[关于持续集成](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)”。
 
 {% endnote %}

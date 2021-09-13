@@ -1,0 +1,26 @@
+---
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '** 中: ** 特定の環境下で、TeamあるいはOrganizationから削除されたユーザは、オープンな既存のPull Requestを持つブランチへの書き込みアクセス権を持ったままになることがあります。'
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - 初期のインストールプロセスの"Configure Actions and Packages"ページで、管理者が"Test domain settings"ボタンをクリックしてもテストが完了しませんでした。
+    - '`ghe-btop`の実行が`cannot find a ''babeld'' container`というエラーで失敗しました。'
+    - 内部及び外部のタイムアウト値のミスマッチのために、アップグレード後にサービスが利用できなくなっていました。
+    - MySQLでの通常のレプリケーションの遅延で警告が生じました。
+    - 管理コンソールのGitHub Enterprise Clustering Guideへのリンクが正しくありませんでした。
+    - '"Create Whitelist Entry"ボタンを使って管理者が追加したIPアドレスが、ロックアウトされたままになることがあります。'
+    - '「依存関係グラフ」及び「Dependabotアラート」機能への参照が、それらが有効化されていないリポジトリで表示されました。'
+    - '`/hooks`エンドポイントへのHTTP POSTリクエストが、`hookID`が正しく設定されていないため、401レスポンスで失敗することがあります。'
+    - '`build-server`がプロセスのクリーンアップに失敗し、それらのプロセスが`defunct`状態で残ったままになりました。'
+    - '`spokesd`が"fixing placement skipped"というフレーズを含む過剰なログのエントリを生成しました。'
+  changes:
+    - 4ヶ月以上経過したチェックアノテーションがアーカイブされます。
+  known_issues:
+    - '`ghe-repo <owner>/<reponame>`を使って管理シェルを通じてリポジトリにアクセスすると、ハングします。回避策として、次のバージョンで修正が提供されるまで`ghe-repo <owner>/<reponame> -c "bash -i"`を使ってください。'
+    - 新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。
+    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。

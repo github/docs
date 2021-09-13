@@ -1,1 +1,1 @@
-Connect with people around the world in the [{% data variables.product.prodname_gcf %}](https://github.community)
+Conecte-se com pessoas no mundo todo em [{% data variables.product.prodname_gcf %}](https://github.community)

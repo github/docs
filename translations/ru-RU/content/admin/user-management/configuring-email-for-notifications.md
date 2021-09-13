@@ -6,7 +6,6 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-  - /enterprise/admin/user-management/configuring-email-for-notifications
 intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.prodname_ghe_server %}, you can configure your instance to send email notifications on issue, pull request, and commit comments, as well as additional settings to allow inbound email replies. Notification emails are sent if there is activity on a repository a user is watching, if there is activity in a pull request or issue they are participating in, or if the user or team they''re a member of are @mentioned in a comment.'
 versions:
   enterprise-server: '*'

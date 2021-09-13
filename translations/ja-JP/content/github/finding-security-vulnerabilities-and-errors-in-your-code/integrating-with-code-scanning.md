@@ -1,12 +1,13 @@
 ---
-title: Integrating with code scanning
-shortTitle: Integration
-intro: 'You can integrate {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI systems or upload results from other tools.'
+title: コードスキャンと統合する
+shortTitle: インテグレーション
+intro: 'データを SARIF ファイルとしてアップロードすることで、サードパーティーのコード解析ツールを{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_code_scanning %} と統合できます。'
 mapTopic: true
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-results-from-code-scanning
+product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->

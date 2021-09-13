@@ -1,1 +1,1 @@
-您必须使用具有适当范围的个人访问令牌才可在 {% data variables.product.prodname_registry %} 中发布和安装。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)”。
+您必须使用具有适当范围的个人访问令牌才可在 {% data variables.product.prodname_registry %} 中发布和安装。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)”。

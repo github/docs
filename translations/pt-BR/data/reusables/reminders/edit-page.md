@@ -1,1 +1,1 @@
-1. Make one or more changes to your scheduled reminder.
+1. Faça uma ou mais alterações no lembrete agendado.

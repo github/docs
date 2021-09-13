@@ -1,6 +1,6 @@
 ---
-title: Configuring `dotnet` CLI for use with GitHub Packages
-intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
+title: 配置 `dotnet` CLI 用于 GitHub 包
+intro: '您可以配置 `dotnet` 命令行接口 (CLI) 以将 NuGet 包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作 .NET 项目中的依赖项。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-nuget-for-use-with-github-package-registry
@@ -14,25 +14,25 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-{% data reusables.package_registry.admins-can-configure-package-types %}
+**注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
-### Authenticating to {% data variables.product.prodname_registry %}
+### 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with a personal access token
+#### 使用个人访问令牌进行身份验证
 
 {% data reusables.package_registry.required-scopes %}
 
-To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
+要使用 `dotnet` 命令行接口 (CLI) 向 {% data variables.product.prodname_registry %} 验证，请在项目目录中创建一个 *nuget.config* 文件，将 {% data variables.product.prodname_registry %} 指定为 `dotnet` CLI 客户端的 `packageSources` 下的源。
 
-You must replace:
-- `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
-- `TOKEN` with your personal access token.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if currentVersion != "free-pro-team@latest" %}
-- `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.
+必须：
+- 将 `USERNAME` 替换为您在 {% data variables.product.prodname_dotcom %} 上的用户帐户的名称。
+- 将 `TOKEN` 替换为您的个人访问令牌。
+- 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。{% if enterpriseServerVersions contains currentVersion %}
+- 拥有 {% data variables.product.prodname_ghe_server %} 实例主机名称的 `HOSTNAME`。
 
-If your instance has subdomain isolation enabled:
+有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```xml
@@ -51,46 +51,47 @@ If your instance has subdomain isolation enabled:
 </configuration>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
-If your instance has subdomain isolation disabled:
+{% if enterpriseServerVersions contains currentVersion %}
+例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-    <packageSources>
-        <clear />
-        <add key="github" value="https://HOSTNAME/_registry/nuget/OWNER/index.json" />
-    </packageSources>
-    <packageSourceCredentials>
-        <github>
-            <add key="Username" value="USERNAME" />
-            <add key="ClearTextPassword" value="TOKEN" />
-        </github>
-    </packageSourceCredentials>
-</configuration>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>OctodogApp</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Octodog</Authors>
+    <Company>GitHub</Company>
+    <PackageDescription>This package adds an Octodog!</PackageDescription>
+    <RepositoryUrl>https://github.com/octo-org/octo-cats-and-dogs</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
 ```
 {% endif %}
 
-#### Authenticating with the `GITHUB_TOKEN`
+#### 使用 `GITHUB_TOKEN` 进行身份验证
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publishing a package
+### 发布包
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file. When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+您可以使用 *nuget.config* 文件进行身份验证，将包发布到 {% data variables.product.prodname_registry %}。 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
 
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
-2. Create a new project.
+2. 创建一个新项目。
   ```shell
   dotnet new console --name OctocatApp
   ```
-3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
-    - `OWNER` with the name of the user or organization account that owns the repository containing your project.
-    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
-    - `1.0.0` with the version number of the package.{% if currentVersion != "free-pro-team@latest" %}
-    - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
+3. 将项目的特定信息添加到以 *.csproj* 结尾的项目文件中。  必须：
+    - 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。
+    - 将 `REPOSITORY` 替换为要发布的包所在仓库的名称。
+    - 将 `1.0.0` 替换为包的版本号。{% if enterpriseServerVersions contains currentVersion %}
+    - 拥有 {% data variables.product.prodname_ghe_server %} 实例主机名称的 `HOSTNAME`。{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -107,21 +108,21 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 
   </Project>
   ```
-4. Package the project.
+4. 打包项目。
   ```shell
   dotnet pack --configuration Release
   ```
 
-5. Publish the package using the `key` you specified in the *nuget.config* file.
+5. 使用您在 *nuget.config* 文件中指定的 `key` 发布包。
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
 
-### Publishing multiple packages to the same repository
+### 将多个包发布到同一个仓库
 
-To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
+要将多个包发布到同一个仓库，您可以在所有 *.csproj* 项目文件的 `RepositoryURL` 字段中包含相同的 {% data variables.product.prodname_dotcom %} 仓库 URL。 {% data variables.product.prodname_dotcom %} 根据该字段匹配仓库。
 
-For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
+例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -157,14 +158,13 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 </Project>
 ```
 
+### 安装包
 
-### Installing a package
-
-Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 *nuget.org* 的包。 将包依赖项添加到 *.csproj* 文件以指定包名称和版本。 有关在项目中使用 *.csproj* 文件的更多信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)”。
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file, replacing the `OctokittenApp` package with your package dependency and `1.0.0` with the version you want to use:
+2. 要使用包，请添加 `ItemGroup` 并配置 *.csproj* 项目文件中的 `PackageReference` 字段，将 `OctokittenApp` 包替换为您的包依赖项，将 `1.0.0` 替换为您要使用的版本：
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -186,11 +186,11 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
   </Project>
   ```
 
-3. Install the packages with the `restore` command.
+3. 使用 `restore` 命令安装包。
   ```shell
   dotnet restore
   ```
 
-### Further reading
+### 延伸阅读
 
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”

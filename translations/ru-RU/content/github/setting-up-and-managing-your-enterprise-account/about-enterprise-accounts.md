@@ -25,9 +25,9 @@ For more information about the differences between {% data variables.product.pro
 
 For more information about member access and management, see "[Managing users in your enterprise account](/articles/managing-users-in-your-enterprise-account)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
-{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 ### Managing organizations linked to your enterprise account
 
@@ -36,6 +36,8 @@ Organizations are shared accounts where groups of people can collaborate across 
 Enterprise owners can create organizations and link them to the enterprise. After you add organizations to your enterprise account, you can manage and enforce the organizations' policies. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level.
 
 For more information, see "[Managing organizations in your enterprise account](/articles/managing-organizations-in-your-enterprise-account)" and "[Setting policies for organizations in your enterprise account](/articles/setting-policies-for-organizations-in-your-enterprise-account)."
+
+{% endif %}
 
 ### Managing {% data variables.product.prodname_ghe_server %} licenses linked to your enterprise account
 

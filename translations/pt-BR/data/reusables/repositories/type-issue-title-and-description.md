@@ -1,1 +1,1 @@
-1. Type a title and description for your issue. ![A sample issue](/assets/images/help/issues/sample_issue.png)
+1. Digite um título e uma descrição para o seu problema. ![Um exemplo de problema](/assets/images/help/issues/sample_issue.png)

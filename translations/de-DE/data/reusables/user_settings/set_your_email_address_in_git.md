@@ -1,1 +1,1 @@
-Lege in Git eine E-Mail-Adresse fest. Du kannst {% if currentVersion == "free-pro-team@latest"%}Deine von [{% data variables.product.product_name %} zur Verfügung gestellte `no-reply` E-Mail-Adresse](/articles/setting-your-commit-email-address) oder {% endif %}eine beliebige E-Mail-Adresse verwenden.
+Lege in Git eine E-Mail-Adresse fest. You can use {% if currentVersion == "free-pro-team@latest"%}your [{% data variables.product.product_name %}-provided `no-reply` email address](/articles/setting-your-commit-email-address) or {% endif %}any email address.

@@ -1,1 +1,1 @@
-By default, your project board is private and only visible to people with read, write, or admin permissions to the project board. A public project board is visible to anyone with the project board's URL.
+By default, your project board is private and only visible to people with read, write, or admin permissions to the project board. {% ifversion ghae %}An internal{% else %}A public{% endif %} project board is visible to {% ifversion ghae %}any enterprise members{% else %}anyone{% endif %} with the project board's URL.

@@ -1,6 +1,6 @@
 ---
 title: 配置受保护分支
-intro: 如果您是仓库所有者或者拥有仓库管理员权限，您可以自定义仓库中的分支保护和实施某些工作流程，例如要求在合并拉取请求之前进行多次拉取请求审查或某些状态检查。
+intro: '如果您是仓库所有者或者拥有仓库管理员权限，您可以自定义仓库中的分支保护和实施某些工作流程，例如要求在合并拉取请求之前进行多次拉取请求审查或某些状态检查。'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/configuring-protected-branches
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

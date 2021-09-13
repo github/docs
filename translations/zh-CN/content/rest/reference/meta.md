@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 {% include rest_operations_at_current_path %}

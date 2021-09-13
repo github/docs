@@ -10,6 +10,9 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -24,7 +27,7 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-You can also enable team synchronization for organizations owned by an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account)."
+You can also enable team synchronization for organizations owned by an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)."
 
 ### Enabling team synchronization
 

@@ -1,3 +1,3 @@
-- **Read**, which gives people permission to view a project board.
-- **Write**, which gives people permission to view a project board, link repositories to a project board, and interact with a project board. Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)".
-- **Admin**, which gives people permission to view a project board, interact with a project board, manage project board settings, and manage other people's access to the project board.
+- **Leitura**, que dá permissão para pessoas visualizarem um quadro de projeto.
+- **Gravação**, que dá permissão às pessoas para visualizar um quadro de projeto, vincular repositórios a um quadro de projeto e interagir com um quadro de projeto. Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)".
+- **Administrador**, que dá permissão às pessoas para visualizar um quadro de projeto, interagir com um quadro de projeto, gerenciar as configurações do quadro de projeto e gerenciar o acesso de outras pessoas ao quadro de projetos.

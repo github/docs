@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在分支上启用必需提交签名前，必须首先将分支设置为受保护分支。 更多信息请参阅“[配置受保护分支](/github/administering-a-repository/configuring-protected-branches)”。

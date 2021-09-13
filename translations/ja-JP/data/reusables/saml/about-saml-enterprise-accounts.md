@@ -1,0 +1,1 @@
+Enterprise のオーナーは、Enterprise アカウントが所有するすべての Organization 全体で、SAML IdP によって SAML SSO と中央での認証を有効にすることができます。 Enterprise アカウントで SAML SSO を有効にした後は、SAML SSO は Enterprise アカウントによって所有されているすべての Organization に対してデフォルトで有効となります。 すべてのメンバーは、自分がメンバーである Organization にアクセスするために SAML SSO を使用して認証するよう求められ、企業のオーナーは Enterprise アカウントにアクセスする際に SAML SSO を使用して認証するよう求められます。

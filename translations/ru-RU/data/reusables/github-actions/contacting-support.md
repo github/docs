@@ -1,4 +1,4 @@
-If you need help with anything related to workflow configuration, such as syntax, {% data variables.product.prodname_dotcom %}-hosted runners, or building actions, look for an existing topic or start a new one in the [{% data variables.product.prodname_gcf %}'s {% data variables.product.prodname_actions %} board](https://github.community/c/github-actions).
+If you need help with anything related to workflow configuration, such as syntax, {% data variables.product.prodname_dotcom %}-hosted runners, or building actions, look for an existing topic or start a new one in the [{% data variables.product.prodname_gcf %}'s {% data variables.product.prodname_actions %} category](https://github.community/c/code-to-cloud/github-actions/41).
 
 If you have feedback or feature requests for {% data variables.product.prodname_actions %}, share those in the {% data variables.contact.contact_feedback_actions %}.
 

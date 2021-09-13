@@ -3,4 +3,3 @@ We add vulnerabilities to the {% data variables.product.prodname_advisory_databa
 - Eine Kombination aus maschinellem Lernen und menschlichem Review zum Erkennen von Sicherheitsrisiken in öffentlichen Commits auf {% data variables.product.prodname_dotcom %}
 - Security advisories reported on {% data variables.product.prodname_dotcom %}
 - The [npm Security advisories](https://www.npmjs.com/advisories) database
-- [FriendsOfPHP](https://github.com/FriendsOfPHP/security-advisories)

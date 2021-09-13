@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 In addition to changing the file location, you can also [update the contents of your file](/articles/editing-files-in-your-repository), or [give it a new name](/articles/renaming-a-file) in the same commit.

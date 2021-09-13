@@ -1,1 +1,0 @@
-codespaceをオープンした後は、テキスト編集、デバッギング、Gitコマンドといった{% data variables.product.prodname_vscode %}の機能を使って開発を行えます。 詳しい情報については[{% data variables.product.prodname_vscode %}のドキュメンテーション](https://code.visualstudio.com/docs)を参照してください。

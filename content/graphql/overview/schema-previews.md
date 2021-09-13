@@ -4,15 +4,18 @@ intro: 'You can preview upcoming features and changes to the {% data variables.p
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
-### About schema previews
+## About schema previews
 
 During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
 
-To access a schema preview, you'll need to provide a custom [media type](/v3/media) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
+To access a schema preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
 
 {% note %}
 
@@ -21,7 +24,7 @@ To access a schema preview, you'll need to provide a custom [media type](/v3/med
 {% endnote %}
 
 {% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
+## {{ preview.title }}
 
 {{ preview.description }}
 

@@ -1,1 +1,1 @@
-Du musst angemeldet sein, um über alle öffentlichen Repositorys hinweg nach Code suchen zu können.
+You must be signed into a user account on {% data variables.product.product_name %} to search for code across all public repositories.

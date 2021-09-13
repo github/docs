@@ -1,1 +1,1 @@
-1. In the top right corner of {% data variables.product.prodname_ghe_server %}, click your profile photo, then click **Your profile**. ![Profile photo](/assets/images/enterprise/settings/top_right_avatar.png)
+1. No canto superior direito de {% data variables.product.prodname_ghe_server %}, clique na sua foto de perfil e, em seguida, clique em **Seu perfil**. ![Foto de perfil](/assets/images/enterprise/settings/top_right_avatar.png)

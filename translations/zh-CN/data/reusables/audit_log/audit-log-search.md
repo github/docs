@@ -8,7 +8,6 @@
 
 请注意，无法使用文本搜索条目。 但是，您可以使用各种过滤器构建搜索查询。 查询日志时使用的许多运算符，如 `-`、`>` 或 `<`，与在 {% data variables.product.product_name %} 上搜索时的格式相同。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 #### 基于操作搜索
 
 使用`操作`限定符将操作限于特定类型的操作。 例如：
@@ -20,7 +19,6 @@
   * `operation:remove` 查找在其中删除的现有资源的所有事件。
   * `operation:restore` 查找在其中恢复了现有资源的所有事件。
   * `operation:transfer` 查找在其中转移了现有资源的所有事件。
-{% endif %}
 
 #### 基于仓库搜索
 

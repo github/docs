@@ -1,11 +1,11 @@
-You can define relative links and image paths in your rendered files to help readers navigate to other files in your repository.
+É possível definir links relativos e caminhos de imagens em seus arquivos representados para ajudar os leitores a acessar outros arquivos no repositório.
 
-A relative link is a link that is relative to the current file. For example, if you have a  README file in root of your repository, and you have another file in _docs/CONTRIBUTING.md_, the relative link to _CONTRIBUTING.md_ in your README might look like this:
+Um link relativo é um link que é relativo ao arquivo atual. Por exemplo, se você tiver um arquivo README na raiz do seu repositório e tiver outro arquivo em _docs/CONTRIBUTING.md_, o link relativo para _CONTRIBUTING.md_ no seu README pode se parecer com isso:
 
 ```
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+[Diretrizes de contribuição para este projeto](docs/CONTRIBUTING.md)
 ```
 
-{% data variables.product.product_name %} will automatically transform your relative link or image path based on whatever branch you're currently on, so that the link or path always works. You can use all relative link operands, such as `./` and `../`.
+{% data variables.product.product_name %} transformará automaticamente o seu link relativo ou caminho da imagem baseado em qualquer branch em que você estiver no momento para que o link ou caminho sempre funcione. Você pode usar todas as operações de links relativos, como `./` e `../`.
 
-Relative links are easier for users who clone your repository. Absolute links may not work in clones of your repository - we recommend using relative links to refer to other files within your repository.
+Os links relativos são mais fáceis para usuários que clonam o seu repositório. Os links absolutos podem não funcionar em clones do seu repositório - recomendamos usar links relativos para referir-se a outros arquivos no seu repositório.

@@ -1,0 +1,3 @@
+### Próximas etapas
+
+Depois que a execução da configuração tiver sido concluída com sucesso, {% data variables.product.prodname_actions %} será habilitado em {% data variables.product.product_location %}. Para os seus próximos passos, como gerenciar as permissões de acesso {% data variables.product.prodname_actions %} e adicionar executores auto-hospedados, retorne para "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider).

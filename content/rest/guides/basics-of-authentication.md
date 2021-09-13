@@ -6,8 +6,11 @@ redirect_from:
   - /v3/guides/basics-of-authentication
   - /rest/basics-of-authentication
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
 
@@ -21,7 +24,7 @@ You can download the complete source code for this project [from the platform-sa
 
 {% endtip %}
 
-### Registering your app
+## Registering your app
 
 First, you'll need to [register your application][new oauth app]. Every
 registered OAuth application is assigned a unique Client ID and Client Secret.
@@ -36,7 +39,7 @@ successful authentication.
 Since we're running a regular Sinatra server, the location of the local instance
 is set to `http://localhost:4567`. Let's fill in the callback URL as `http://localhost:4567/callback`.
 
-### Accepting user authorization
+## Accepting user authorization
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -56,8 +59,8 @@ end
 ```
 
 Your client ID and client secret keys come from [your application's configuration
-page][app settings]. You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as
+page][app settings].{% ifversion fpt %} You should **never, _ever_** store these values in
+{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
@@ -98,7 +101,7 @@ Well, remember when we specified a Callback URL to be `callback`? We didn't prov
 a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
 the app. Let's fix that now!
 
-#### Providing a callback
+### Providing a callback
 
 In _server.rb_, add a route to specify what the callback should do:
 
@@ -125,12 +128,9 @@ To simplify our GET and POST HTTP requests, we're using the [rest-client][REST C
 Note that you'll probably never access the API through REST. For a more serious
 application, you should probably use [a library written in the language of your choice][libraries].
 
-#### Checking granted scopes
+### Checking granted scopes
 
-In the future, users will be able to [edit the scopes you requested][edit scopes post],
-and your application might be granted less access than you originally asked for.
-So, before making any requests with the token, you should check the scopes that
-were granted for the token by the user.
+Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
 
 The scopes that were granted are returned as a part of the response from
 exchanging a token.
@@ -166,12 +166,12 @@ or `401` status, or return a different subset of information.
 To help you gracefully handle these situations, all API responses for requests
 made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
-request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-[check a token for validity][/v3/apps/oauth_applications/#check-a-token]{% else %}[check a token for validity][/v3/apps/oauth_applications/#check-an-authorization]{% endif %}.
+request. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes %}
+[check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 
-#### Making authenticated requests
+### Making authenticated requests
 
 At last, with this access token, you'll be able to make authenticated requests as
 the logged in user:
@@ -210,7 +210,7 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 </p>
 ```
 
-### Implementing "persistent" authentication
+## Implementing "persistent" authentication
 
 It'd be a pretty bad model if we required users to log into the app every single
 time they needed to access the web page. For example, try navigating directly to
@@ -365,7 +365,6 @@ we would've seen the same confirmation dialog from earlier pop-up and warn us.
 [REST Client]: https://github.com/archiloque/rest-client
 [libraries]: /libraries/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[edit scopes post]: https://developer.github.com/changes/2013-10-04-oauth-changes-coming/
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/basics-of-authentication
 [new oauth app]: https://github.com/settings/applications/new
 [app settings]: https://github.com/settings/developers

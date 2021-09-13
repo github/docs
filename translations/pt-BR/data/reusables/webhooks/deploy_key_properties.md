@@ -1,4 +1,4 @@
-| Tecla   | Tipo     | Descrição                                                      |
-| ------- | -------- | -------------------------------------------------------------- |
-| `Ação`  | `string` | A ação realizada. Can be either `created` or `deleted`.        |
-| `Chave` | `objeto` | The [`deploy key`](/v3/repos/keys/#get-a-deploy-key) resource. |
+| Tecla   | Tipo     | Descrição                                                                 |
+| ------- | -------- | ------------------------------------------------------------------------- |
+| `Ação`  | `string` | A ação realizada. Pode ser `criado` ou `excluído`.                        |
+| `Chave` | `objeto` | O recurso de [`implantar chave`](/rest/reference/repos#get-a-deploy-key). |

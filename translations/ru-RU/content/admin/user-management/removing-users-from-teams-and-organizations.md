@@ -3,9 +3,14 @@ title: Removing users from teams and organizations
 intro: 'If a member of your organization no longer requires access to certain repositories, you can remove them from the team that allows that access. If a member of your organization no longer requires access to any repositories owned by the organization, you can remove them from the organization.'
 redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
-  - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Access management
+  - Accounts
+  - Enterprise
+  - Teams
 ---
 
 Only owners or team admins can remove organization members. When a user is removed from a team or organization, their issues, pull requests, and comments in the organization's repositories remain intact and are still attributed to the user.

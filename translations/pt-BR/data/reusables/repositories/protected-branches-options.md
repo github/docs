@@ -1,1 +1,1 @@
-You can automatically enforce protected branch settings for some or all branches in your repository. Para obter mais informações, consulte "[Configurar branches protegidos](/github/administering-a-repository/configuring-protected-branches)".
+É possível aplicar as configurações de branch protegido automaticamente para alguns ou todos os branches no repositório. Para obter mais informações, consulte "[Configurar branches protegidos](/github/administering-a-repository/configuring-protected-branches)".

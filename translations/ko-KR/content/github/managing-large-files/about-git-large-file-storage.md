@@ -7,21 +7,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} handles large files by storing references to the file in the repository, but not the actual file itself. To work around Git's architecture, {% data variables.large_files.product_name_short %} creates a pointer file which acts as a reference to the actual file (which is stored somewhere else). {% data variables.product.product_name %} manages this pointer file in your repository. When you clone the repository down, {% data variables.product.product_name %} uses the pointer file as a map to go and find the large file for you.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Using {% data variables.large_files.product_name_short %}, you can store files up to:
+Using
+{% data variables.large_files.product_name_short %}, you can store files up to:
 
-| 제품                                                     | Maximum file size |
-| ------------------------------------------------------ | ----------------- |
+| 제품                                                | Maximum file size |
+| ------------------------------------------------- | ----------------- |
 | {% data variables.product.prodname_free_user %} | 2 GB              |
 | {% data variables.product.prodname_pro %}         | 2 GB              |
 | {% data variables.product.prodname_team %}        | 4 GB              |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
- Using {% data variables.large_files.product_name_short %}, you can store files up to
-{% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} in your repository.
+ Using
+{% data variables.large_files.product_name_short %}, you can store files up to {% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} in your repository.
 {% endif %}
 
 You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[Cloning a repository from GitHub to GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
@@ -40,11 +42,13 @@ size 84977953
 
 It tracks the `version` of {% data variables.large_files.product_name_short %} you're using, followed by a unique identifier for the file (`oid`). It also stores the `size` of the final file.
 
-{% tip %}
+{% note %}
 
-**Tip**: {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+**Notes**:
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
-{% endtip %}
+{% endnote %}
 
 ### 더 읽을거리
 

@@ -1,1 +1,1 @@
-`repository` | `object` | The [`repository`](/v3/repos/#get-a-repository) where the event occured.
+`repository` | `object` | The [`repository`](/rest/reference/repos#get-a-repository) where the event occurred.

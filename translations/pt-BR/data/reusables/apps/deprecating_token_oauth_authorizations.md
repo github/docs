@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 {% warning %}
 
 **Aviso de Depreciação:** O atributo `token` está obsoleto em algumas respostas da API de Autorizações OAuth:

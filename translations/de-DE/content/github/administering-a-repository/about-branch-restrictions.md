@@ -1,23 +1,24 @@
 ---
 title: Informationen zu Branch-Einschränkungen
-intro: 'Branches innerhalb von Repositorys, die zu Organisationen gehören, können so konfiguriert werden, dass nur bestimmte Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} Pushes an den Branch durchführen können.'
+intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Wenn Du Branch-Einschränkungen aktivierst, können nur berechtigte Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} Pushes an den geschützten Branch durchführen. Weitere Informationen findest Du unter „[Branch-Einschränkungen aktivieren](/articles/enabling-branch-restrictions)" und „[Über geschützte Branches](/articles/about-protected-branches)." Sie können die Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} mit Push-Zugriff auf einen geschützten Branch in den Einstellungen des geschützten Branches anzeigen und bearbeiten.
+When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. Weitere Informationen findest Du unter „[Branch-Einschränkungen aktivieren](/articles/enabling-branch-restrictions)" und „[Über geschützte Branches](/articles/about-protected-branches)." You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
 
-Den Push-Zugriff auf einen geschützten Branch kannst du nur Benutzern{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder installierten {% data variables.product.prodname_github_apps %}{% endif %} gewähren, die Schreibzugriff (`write`) auf ein Repository haben.
+You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with `write` access to a repository.
 
-Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} und Apps{% endif %} mit Administratorberechtigungen für ein Repository können immer Pushes an einen geschützten Branch durchführen.
+People and apps with admin permissions to a repository are always able to push to a protected branch.
 
 {% tip %}
 
-**Hinweis:** Wenn „Include administrators“ (Administratoren einbeziehen) aktiviert ist und Du die erforderlichen Statuschecks für den Branch aktiviert hast und irgendeiner dieser Statuschecks fehlschlägt, schlägt auch jeder Versuch fehl, Änderungen an den geschützten Branch zu übertragen, selbst für Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} und Apps{% endif %} mit Administratorberechtigungen. Weitere Informationen findest Du unter „[Erforderlicher Statuschecks aktivieren](/articles/enabling-required-status-checks)."
+**Note:** If "Include administrators" is selected, you've enabled required status checks on the branch, and if any status checks fail, any attempt to push changes to the protected branch will also fail, even for people and apps with admin permissions. Weitere Informationen findest Du unter „[Erforderlicher Statuschecks aktivieren](/articles/enabling-required-status-checks)."
 
 {% endtip %}
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - 커뮤니티
 ---
 
 When you unblock a user, they'll be able to invite you to be a collaborator to their repositories. If they [@mention you](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) anywhere on GitHub, you'll receive notifications.
@@ -22,7 +24,7 @@ You can unblock a user in your account settings or from the user's profile page.
 ### Unblocking a user from their profile page
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. In the left sidebar, under the user's profile picture, click **Unblock or report user**. ![Unblock or report user link](/assets/images/help/profile/profile-unblock-or-report-user.png)
+2. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click  **Unblock or report user**. ![Unblock or report user link](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. Click **Unblock user**. ![Modal box with option to unblock user or report abuse](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}

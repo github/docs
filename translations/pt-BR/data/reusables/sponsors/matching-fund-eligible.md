@@ -1,1 +1,1 @@
-Eligibility for the {% data variables.product.prodname_matching_fund %} has passed. Applications received after the January 1, 2020 deadline are not eligible for {% data variables.product.prodname_matching_fund %}.
+A elegibilidade para o {% data variables.product.prodname_matching_fund %} foi finalizada. Os aplicativos recebidos após o prazo de 1 de janeiro 2020 não são elegíveis para {% data variables.product.prodname_matching_fund %}.

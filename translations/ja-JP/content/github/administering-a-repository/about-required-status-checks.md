@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 必須ステータスチェックについて
@@ -35,7 +36,7 @@ versions:
 
 ### 必須ステータスチェックのトラブルシューティング
 
-同じ名前の Check と Status を持っており、その名前をステータスチェック必須とするようにした場合、Check と Status はどちらも必須です。 詳しい情報については、「[チェック](/v3/checks/)」を参照してください。
+同じ名前の Check と Status を持っており、その名前をステータスチェック必須とするようにした場合、Check と Status はどちらも必須です。 詳しい情報については、「[チェック](/rest/reference/checks)」を参照してください。
 
 必須ステータスチェックをセットアップした場合、ブランチはマージする前にベースブランチに対して最新になっていなければなりません。 これによって、ブランチがベースブランチからの最新のコードでテストされたことが保証されます。 ブランチが古い場合、ベースブランチをブランチにマージする必要があります。
 
@@ -59,9 +60,9 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テストマージコミットに関する詳しい情報については、「[プルリクエスト](/v3/pulls/#response-1)」を参照してください。
+テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テストマージコミットに関する詳しい情報については、「[プルリクエスト](/rest/reference/pulls#response-1)」を参照してください。
 
 ![マージコミットが競合しているブランチ](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

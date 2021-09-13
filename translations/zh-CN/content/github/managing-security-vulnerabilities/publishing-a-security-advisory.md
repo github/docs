@@ -12,38 +12,50 @@ versions:
 
 ### 基本要求
 
-Before you can publish a security advisory or request a CVE identification number, you must create a draft security advisory and provide information about the versions of your project affected by the security vulnerability. 更多信息请参阅“[创建安全通告](/github/managing-security-vulnerabilities/creating-a-security-advisory)”。
+在发布安全通告或申请 CVE 标识号之前，必须创建安全通告草稿，并提供受安全漏洞影响的项目版本的相关信息。 更多信息请参阅“[创建安全通告](/github/managing-security-vulnerabilities/creating-a-security-advisory)”。
 
 如果您已创建安全通告，但尚未提供有关安全漏洞影响的项目版本的详细信息，则可以编辑安全通告。 更多信息请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。
 
 ### 关于发布安全通告
 
-When you publish a security advisory, you notify your community about the security vulnerability that the security advisory addresses. Publishing a security advisory makes it easier for your community to update package dependencies and research the impact of the security vulnerability.
+发布安全通告时，会通知您的社区关于该安全通告解决的安全漏洞。 发布安全通告使您的社区能够更轻松地更新包依赖项和研究安全漏洞的影响。
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. 更多信息请参阅“[在临时私有复刻中协作以解决安全漏洞](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)”。
+在发布安全通告之前，您可以私下协作在临时私有复刻中修复漏洞。 更多信息请参阅“[在临时私有复刻中协作以解决安全漏洞](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)”。
 
-When you publish a draft advisory from a public repository, everyone is able to see:
+{% warning %}
 
-- The current version of the advisory data.
-- Any advisory credits that the credited users have accepted.
+**Warning**: Whenever possible, you should always add a fix version to a security advisory prior to publishing the advisory. If you don't, the advisory will be published without a fixed version, and {% data variables.product.prodname_dependabot %} will alert your users about the issue, without offering any safe version to update to.
+
+We recommend you take the following steps in these different situations:
+
+- If a fix version is imminently available, and you are able to, wait to disclose the issue when the fix is ready.
+- If a fix version is in development but not yet available, mention this in the advisory, and edit the advisory later, after publication.
+- If you are not planning to fix the issue, be clear about it in the advisory so that your users don't contact you to ask when a fix will be made. In this case, it is helpful to include steps users can take to mitigate the issue.
+
+{% endwarning %}
+
+从公共仓库发布通告草稿时，每个人都可以看到：
+
+- 通告数据的当前版本。
+- 积分用户已接受的任何通告积分。
 
 {% note %}
 
-**Note**: The general public will never have access to the edit history of the advisory, and will only see the published version.
+**注**：公众无权查看通告的编辑历史记录，只能看到已发布的版本。
 
 {% endnote %}
 
-发布安全通告后，安全通告的 URL 将与发布安全通告之前保持相同。 对仓库具有读取权限的任何人都能看到安全通告。 Collaborators on the security advisory can continue to view past conversations, including the full comment stream, in the security advisory unless someone with admin permissions removes the collaborator from the security advisory.
+发布安全通告后，安全通告的 URL 将与发布安全通告之前保持相同。 对仓库具有读取权限的任何人都能看到安全通告。 安全通告的协作者可以继续查看安全通告中过去的对话，包括完整的评论流，除非有管理员权限的人从安全通告删除该协作者。
 
 如果需要更新或更正已发布的安全通告中的信息，可以编辑安全通告。 更多信息请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。
 
 ### 申请 CVE 识别号
 
-Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
+对安全通告具有管理员权限的任何人都可以为安全通告申请 CVE 标识号。
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)”。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -54,7 +66,7 @@ Anyone with admin permissions to a security advisory can request a CVE identific
 
 ### 发布安全通告
 
-Publishing a security advisory deletes the temporary private fork for the security advisory.
+发布安全通告会删除该安全通告的临时私有复刻。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

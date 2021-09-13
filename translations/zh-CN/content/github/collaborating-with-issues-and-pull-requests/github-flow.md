@@ -8,12 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### 遵循 GitHub 流程
 
 1. 从仓库[创建分支](/articles/creating-and-deleting-branches-within-your-repository)。
-2. [创建](/articles/creating-new-files)、[编辑](/articles/editing-files)、[重命名](/articles/renaming-a-file)、[移动](/articles/moving-a-file-to-a-new-location)或[删除](/articles/deleting-files)文件。
+2. [创建](/articles/creating-new-files)、[编辑](/articles/editing-files)、[重命名](/articles/renaming-a-file)、[移动](/articles/moving-a-file-to-a-new-location)或[删除](/github/managing-files-in-a-repository/deleting-files-in-a-repository)文件。
 3. 从您的分支[发送拉取请求](/articles/creating-a-pull-request)，让您提议的更改引发讨论。
 4. 根据需要在您的分支上进行更改。 您的拉取请求将自动更新。
 5. 在分支处理就绪，可以合并时，[合并拉取请求](/articles/merging-a-pull-request)。

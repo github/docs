@@ -1,0 +1,1 @@
+Para obtener más información acerca de los formatos de impuestos que deben completar las organizaciones, consulta la sección [Instrucciones para el Formato W-8BEN-E](https://www.irs.gov/pub/irs-pdf/iw8bene.pdf) en el sitio web del Servicio de Impuestos Internos de los Estados Unidos.

@@ -1,1 +1,1 @@
-1. Under "SIGN ON METHODS", click **View Setup Instructions**. !["View Setup Instructions" button in Okta application's "Sign On" tab](/assets/images/help/saml/okta-view-setup-instructions.png)
+1. Em "MÉTODOS DO INÍCIO DE SESSÃO", clique em **Ver instruções de instalação**. ![Botão "Visualizar instruções de configuração" na aba "Iniciar sessão" do aplicativo do Okta](/assets/images/help/saml/okta-view-setup-instructions.png)

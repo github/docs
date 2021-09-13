@@ -1,0 +1,1 @@
+1. [Aprovisiona e instala el {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance) con un nombre de host único en el nodo de reemplazo.

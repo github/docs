@@ -1,1 +1,1 @@
-After creating and registering an OAuth App, you can make changes to it.
+创建和注册 OAuth 应用程序后，您可以对其进行修改。

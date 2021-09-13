@@ -1,5 +1,7 @@
+{% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Note**: You can't disable some security and analysis features that are enabled by default for public repositories.
+**Nota**: Você não pode desabilitar alguns recursos de segurança e análise que estão habilitados por padrão para repositórios públicos.
 
 {% endnote %}
+{% endif %}

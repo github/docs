@@ -1,4 +1,4 @@
-| 键        | 类型    | 描述                                                             |
-| -------- | ----- | -------------------------------------------------------------- |
-| `action` | `字符串` | 执行的操作。 Can be either `created` or `deleted`.                   |
-| `键`      | `对象`  | The [`deploy key`](/v3/repos/keys/#get-a-deploy-key) resource. |
+| 键        | 类型    | 描述                                                  |
+| -------- | ----- | --------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created` 或 `deleted`。                   |
+| `键`      | `对象`  | [`部署密钥`](/rest/reference/repos#get-a-deploy-key)资源。 |

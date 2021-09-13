@@ -4,9 +4,13 @@ intro: 'To replace a {% data variables.product.prodname_ghe_server %} node, you 
 redirect_from:
   - /enterprise/admin/clustering/replacing-a-cluster-node
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
-  - /enterprise/admin/enterprise-management/replacing-a-cluster-node
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Clustering
+  - Enterprise
+  - Infrastructure
 ---
 
 {% warning %}

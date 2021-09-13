@@ -4,10 +4,14 @@ intro: 您可以使用标签以基于其特性来组织自托管运行器。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 有关如何使用标签将作业路由到特定类型的自托管运行器的信息，请参阅“[在工作流程中使用自托管的运行器](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)”。
 

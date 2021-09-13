@@ -1,0 +1,1 @@
+{% data variables.product.prodname_mobile %} 可用作 Android 和 iOS 应用程序。 {% data variables.product.prodname_mobile %} 一般可用于 {% data variables.product.prodname_dotcom_the_website %} 用户，公开测试对象为 {% data variables.product.prodname_ghe_server %} 3.0+ 用户。

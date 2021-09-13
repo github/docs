@@ -1,3 +1,3 @@
-| Tecla  | Tipo     | Descrição                                                                                                                                                                                  |
-| ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Ação` | `string` | A ação que foi executada. Can be one of `opened`, `closed`, `reopened`, `assigned`, `unassigned`, `review_requested`, `review_request_removed`, `labeled`, `unlabeled`, and `synchronize`. |
+| Tecla  | Tipo     | Descrição                                                                                                                                                                          |
+| ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação` | `string` | A ação que foi executada. Pode ser `opened`, `closed`, `reopened`, `assigned`, `unassigned`, `review_requested`, `review_request_removed`, `labeled`, `unlabeled` e `synchronize`. |

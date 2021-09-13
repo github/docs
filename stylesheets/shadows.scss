@@ -1,0 +1,33 @@
+.hover-shadow {
+  /* & {
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: var(--color-shadow-small) !important;
+    }
+  }
+
+  &-medium {
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: var(--color-shadow-medium) !important;
+    }
+  } */
+
+  &-large {
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: var(--color-shadow-large) !important;
+    }
+  }
+
+  /* &-extra-large {
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: var(--color-shadow-extra-large) !important;
+    }
+  } */
+}

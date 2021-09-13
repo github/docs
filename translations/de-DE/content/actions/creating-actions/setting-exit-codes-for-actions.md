@@ -8,23 +8,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu Exitcodes
 
 {% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
 
-| Exit-Status    | Prüflaufstatus         | Beschreibung                                                                                                                                                                                                                                                                          |
-| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0`            | `success (Erfolg)`     | Die Aktion wurde erfolgreich abgeschlossen, und andere Aufgaben, die von dieser Aktion abhängig sind, können nun starten.                                                                                                                                                             |
-| Nicht-Nullwert | `failure (Fehlschlag)` | Alle anderen Exit-Codes weisen darauf hin, dass die Aktion fehlgeschlagen ist. Wenn eine Aktion fehlschlägt, werden alle derzeit laufenden Aktionen abgebrochen, und künftige Aktionen werden übersprungen. Sowohl der Prüflauf als auch die Prüfsuite erhalten den Status `failure`. |
+| Exit-Status                       | Prüflaufstatus         | Beschreibung                                                                                                                                                                                                                                                                          |
+| --------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `0`                               | `success (Erfolg)`     | Die Aktion wurde erfolgreich abgeschlossen, und andere Aufgaben, die von dieser Aktion abhängig sind, können nun starten.                                                                                                                                                             |
+| Nonzero value (any integer but 0) | `failure (Fehlschlag)` | Alle anderen Exit-Codes weisen darauf hin, dass die Aktion fehlgeschlagen ist. Wenn eine Aktion fehlschlägt, werden alle derzeit laufenden Aktionen abgebrochen, und künftige Aktionen werden übersprungen. Sowohl der Prüflauf als auch die Prüfsuite erhalten den Status `failure`. |
 
 ### Fehler-Exit-Code in einer JavaScript-Aktion festlegen
 
-Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
+Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
 
 ```javascript
 try {

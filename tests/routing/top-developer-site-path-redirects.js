@@ -1,9 +1,15 @@
-const { head } = require('../helpers')
+import { head } from '../helpers/supertest.js'
+import readJsonFile from '../../lib/read-json-file.js'
+import { jest } from '@jest/globals'
+
+const topOldDeveloperSitePaths = readJsonFile('tests/fixtures/top-old-developer-site-paths.json')
+
+jest.useFakeTimers()
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(30 * 60 * 1000)
 
-  it('responds with 200 for the top historical request paths from google analytics', async () => {
+  it('responds with 200 for the top historical request paths', async () => {
     // ignore paths that are not (yet?) being redirected from developer.github.com to docs.github.com
     const ignoredPatterns = [
       /^\/changes/,
@@ -11,13 +17,13 @@ describe('developer.github.com redirects', () => {
       /^\/partnerships/,
       '2.17',
       '2.16',
-      '2.15'
+      '2.15',
     ]
 
     // test a subset of the top paths
-    const pathsToCheck = 300
-    const paths = require('../fixtures/top-old-developer-site-paths.json')
-      .filter(path => !ignoredPatterns.some(pattern => path.match(pattern)))
+    const pathsToCheck = 50
+    const paths = topOldDeveloperSitePaths
+      .filter((path) => !ignoredPatterns.some((pattern) => path.match(pattern)))
       .slice(0, pathsToCheck)
 
     const non200s = []
@@ -30,10 +36,14 @@ describe('developer.github.com redirects', () => {
     }
 
     // generate an object with empty values as the error message
-    const errorMessage = JSON.stringify(non200s.reduce((acc, path) => {
-      acc[path] = ''
-      return acc
-    }, {}), null, 2)
+    const errorMessage = JSON.stringify(
+      non200s.reduce((acc, path) => {
+        acc[path] = ''
+        return acc
+      }, {}),
+      null,
+      2
+    )
 
     expect(non200s, errorMessage).toEqual([])
   })

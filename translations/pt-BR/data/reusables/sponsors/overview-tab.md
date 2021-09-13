@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Overview**. ![Overview tab](/assets/images/help/sponsors/overview-tab.png)
+1. Na barra lateral esquerda, clique em **Visão geral**. ![Aba Visão geral](/assets/images/help/sponsors/overview-tab.png)

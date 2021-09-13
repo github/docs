@@ -5,15 +5,18 @@ redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-  - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 ### Creating pre-receive hooks
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 4. Click **Add pre-receive hook**. ![Add pre-receive hook](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
@@ -26,16 +29,14 @@ versions:
 
 ### Editing pre-receive hooks
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Next to the pre-receive hook that you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}. ![Edit pre-receive](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
 ### Deleting pre-receive hooks
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Next to the pre-receive hook that you want to delete, click {% octicon "x" aria-label="X symbol" %}. ![Edit pre-receive](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
@@ -58,4 +59,4 @@ A repository owner can only configure a hook if the site administrator selected 
 2. Click **Repositories** and select which repository you want to configure pre-receive hooks for. ![Repositories](/assets/images/enterprise/repos/repositories.png)
 {% data reusables.repositories.sidebar-settings %}
 4. In the left sidebar, click **Hooks & Services**. ![Hooks and services](/assets/images/enterprise/repos/hooks-services.png)
-5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook. ![Repo hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)
+5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook. ![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)

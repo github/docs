@@ -26,7 +26,17 @@ Organization's can use the `name@organization.com` email as a public point of co
 
 ### Creating commits with an `on-behalf-of` badge on the command line
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+
+  {% endtip %}
 
 2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
@@ -37,7 +47,7 @@ Organization's can use the `name@organization.com` email as a public point of co
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/articles/pushing-commits-to-a-remote-repository/)."
+The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ### Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
 

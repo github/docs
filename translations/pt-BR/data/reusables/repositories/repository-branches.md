@@ -1,1 +1,1 @@
-1. In the left menu, click **Branches**. ![Repository options sub-menu](/assets/images/help/repository/repository-options-branch.png)
+1. No menu à esquerda, clique em **Branches**. ![Submenu de opções do repositório](/assets/images/help/repository/repository-options-branch.png)

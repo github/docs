@@ -1,0 +1,18 @@
+---
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '** 中: ** 特定の環境下で、TeamあるいはOrganizationから削除されたユーザは、オープンな既存のPull Requestを持つブランチへの書き込みアクセス権を持ったままになることがあります。'
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - MySQLでの通常のレプリケーションの遅延で警告が生じました。
+    - '"Create Whitelist Entry"ボタンを使って管理者が追加したIPアドレスが、ロックアウトされたままになることがあります。'
+    - '`spokesd`が"fixing placement skipped"というフレーズを含む過剰なログのエントリを生成しました。'
+  changes:
+    - 4ヶ月以上経過したチェックアノテーションがアーカイブされます。
+  known_issues:
+    - 新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。
+    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."

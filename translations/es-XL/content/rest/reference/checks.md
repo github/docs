@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 La API de Verificaciones te permite crear GitHub Apps que ejecuten verificaciones poderosas contra los cámbios de código en un repositorio. Puedes crear apps que lleven a cabo integración contínua, limpieza de código, o servicios de escaneo de código y que proporcionen retroalimentación detallada en las confirmaciones. Para obtener más información, consulta la sección "[Empezar con la API de verificaciones](/rest/guides/getting-started-with-the-checks-api)" y "[Crear pruebas de IC con la API de verificaciones](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)".

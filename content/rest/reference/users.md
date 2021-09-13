@@ -1,24 +1,33 @@
 ---
 title: Users
+intro: The Users API allows to get public and private information about the authenticated user.
 redirect_from:
   - /v3/users
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
-Many of the resources on the users API provide a shortcut for getting information about the currently authenticated user. If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request). Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.
+Many of the resources on the users API provide a shortcut for getting information about the currently authenticated user. If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request).{% ifversion fpt or ghes %} Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
+{% ifversion fpt %}
 ## Blocking users
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% ifversion fpt or ghes %}
 ## Emails
 
 Management of email addresses via the API requires that you authenticate through basic auth, or through OAuth with a correct scope for the endpoint.
@@ -26,6 +35,8 @@ Management of email addresses via the API requires that you authenticate through
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'emails' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## Followers
 

@@ -20,7 +20,7 @@ versions:
 
 ### 安装包
 
-您可以按照一般准则，使用任何支持的包客户端从 {% data variables.product.prodname_registry %} 安装包。
+您可以按照一般准则，使用任何{% if currentVersion == "free-pro-team@latest" %}支持的包客户端{% else %}为您的实例启用的包类型{% endif %}从 {% data variables.product.prodname_registry %} 安装包。
 
 1. 按照包客户端的说明，向 {% data variables.product.prodname_registry %} 验证。 更多信息请参阅“[关于令牌](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)”。
 2. 按照包客户端的说明安装包。

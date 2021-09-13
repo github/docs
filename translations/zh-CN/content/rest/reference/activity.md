@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -15,24 +18,22 @@ versions:
 
 事件 API 是 {% data variables.product.prodname_dotcom %} 事件的只读 API。 这些事件推动站点上的各种活动流。
 
-事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。 事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。 有关可以从事件 API 接收的特定事件的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。 更多信息请参阅“[议题事件 API](/rest/reference/issues#events)”。
+事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。 事件 API 可以返回 {% data variables.product.product_name %} 上的活动触发的不同类型事件。 有关可以从事件 API 接收的特定事件的更多信息，请参阅“[{{ site.data.variables.product.prodname_dotcom }} 事件类型](/developers/webhooks-and-events/github-event-types)”。 更多信息请参阅“[议题事件 API](/rest/reference/issues#events)”。
 
 事件针对使用 "ETag" 标头的轮询进行了优化。 如果未触发任何新事件，您将会看到一个 "304 Not Modified" 响应，并且您的当前速率限制不受影响。 还有一个 "X-Poll-Interval" 标头，用于指定允许您轮询的间隔时间（以秒为单位）。 在服务器负载较高时，该时间可能会增加。 请遵循标头指示。
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
-
-事件支持分页，但不支持 `per_page` 选项。 固定页面大小为 30 个条目。 支持最多获取 10 页，总共 300 个事件。 更多信息请参阅“[使用分页遍历](/rest/guides/traversing-with-pagination)”。
 
 时间表中只包含过去 90 天内创建的事件。 超过 90 天的活动将不包括在内（即使时间表中的活动总数不到 300 个）。
 
@@ -55,7 +56,7 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 #### 响应
 
 ```shell
-Status: 200 OK
+HTTP/2 200
 ```
 
 ```xml
@@ -121,14 +122,14 @@ Status: 200 OK
 ``` shell
 # Add authentication to your requests
 $ curl -I {% data variables.product.api_url_pre %}/notifications
-HTTP/1.1 200 OK
+HTTP/2 200
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
 
@@ -138,19 +139,19 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 
 以下是收到通知的可能 `reason` 列表：
 
-| 原因名称               | 描述                                                                                                                                                                |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assign`           | 您被分配到议题。                                                                                                                                                          |
-| `作者`               | 您创建了帖子。                                                                                                                                                           |
-| `注释，评论`            | 您评论了帖子。                                                                                                                                                           |
-| `邀请`               | 您接受了参与仓库的邀请。                                                                                                                                                      |
-| `manual`           | 您订阅了帖子（通过议题或拉取请求）                                                                                                                                                 |
-| `提及`               | 您在内容中被特别 **@提及**。                                                                                                                                                 |
+| 原因名称               | 描述                                                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `assign`           | 您被分配到议题。                                                                                                                                                     |
+| `作者`               | 您创建了帖子。                                                                                                                                                      |
+| `注释，评论`            | 您评论了帖子。                                                                                                                                                      |
+| `邀请`               | 您接受了参与仓库的邀请。                                                                                                                                                 |
+| `manual`           | 您订阅了帖子（通过议题或拉取请求）                                                                                                                                            |
+| `提及`               | 您在内容中被特别 **@提及**。                                                                                                                                            |
 | `review_requested` | 您或您所属的团队被请求审查拉取请求。{% if currentVersion == "free-pro-team@latest" %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} 在您的仓库中发现了[安全漏洞](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。{% endif %}
-| `state_change`     | 您更改了帖子主题（例如关闭议题或合并拉取请求）。                                                                                                                                          |
-| `subscribed`       | 您在关注仓库。                                                                                                                                                           |
-| `team_mention`     | 您所属的团队被提及。                                                                                                                                                        |
+| `state_change`     | 您更改了帖子主题（例如关闭议题或合并拉取请求）。                                                                                                                                     |
+| `subscribed`       | 您在关注仓库。                                                                                                                                                      |
+| `team_mention`     | 您所属的团队被提及。                                                                                                                                                   |
 
 请注意，`reason` 根据每个帖子而修改，如果在以后的通知中，`reason` 不同，其值可能会变更。
 

@@ -8,9 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
-
-
+ 
+  
 
 [部署 API][deploy API] 为您托管在 {% data variables.product.product_name %} 上的项目提供在您自己的服务器上启动它们的功能。 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
 
@@ -144,7 +147,7 @@ end
 
 搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

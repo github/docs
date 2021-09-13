@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, haz clic en **{% data variables.product.prodname_github_connect %}**. ![Pestaña GitHub Connect en la barra lateral de parámetros de la cuenta de empresa](/assets/images/enterprise/business-accounts/settings-github-connect-tab.png)

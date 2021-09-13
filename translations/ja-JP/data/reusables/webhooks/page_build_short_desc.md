@@ -1,1 +1,1 @@
-Represents an attempted build of a GitHub Pages site, whether successful or not. A push to a GitHub Pages enabled branch (`gh-pages` for project pages, `master` for user and organization pages) triggers this event.
+成功か否かにかかわらず、{% data variables.product.prodname_pages %}サイトの試行されたビルドを表します。 {% data variables.product.prodname_pages %}が有効化されたブランチ（プロジェクトのPagesなら`gh-pages`、ユーザ及びOrganizationのPagesならデフォルトブランチ）へのプッシュがこのイベントをトリガーします。

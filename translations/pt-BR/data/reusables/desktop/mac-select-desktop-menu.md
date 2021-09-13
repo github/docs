@@ -1,1 +1,1 @@
-1. In the menu bar, use the **{% data variables.product.prodname_desktop %}** drop-down menu, then click **Preferences**. ![Valor das Preferences (Preferências) no menu suspenso do{% data variables.product.prodname_desktop %}](/assets/images/help/desktop/mac-choose-preferences.png)
+1. Na barra de menu, use o menu suspenso **{% data variables.product.prodname_desktop %}** e clique em **Preferências**. ![Valor das Preferences (Preferências) no menu suspenso do{% data variables.product.prodname_desktop %}](/assets/images/help/desktop/mac-choose-preferences.png)

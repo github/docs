@@ -3,7 +3,6 @@ title: Customizing user messages on your instance
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
-  - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
 intro: 'You can create custom messages that users will see on the sign in and sign out pages{% if currentVersion ver_gt "enterprise-server@2.21" %} or in an announcement banner at the top of every page{% endif %}.'
 versions:
   enterprise-server: '*'

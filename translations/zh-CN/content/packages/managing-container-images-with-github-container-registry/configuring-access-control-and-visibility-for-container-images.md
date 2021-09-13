@@ -1,6 +1,6 @@
 ---
-title: Configuring access control and visibility for container images
-intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
+title: 配置容器映像的访问控制和可见性
+intro: '选择谁对容器映像具有读取、写入或管理员访问权限，以及容器映像在 {% data variables.product.prodname_dotcom %} 上的可见性。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -8,60 +8,60 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-### Configuring access to container images for your personal account
+### 为个人帐户配置对容器映像的访问
 
-If you have admin permissions to a user-account owned container image, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for container images](/packages/getting-started-with-github-container-registry/about-github-container-registry#visibility-and-access-permissions-for-container-images)."
-
-{% data reusables.package_registry.package-settings-from-user-level %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a container image owned by a user account. ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level. ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
-
-The selected users will automatically be given access and don't need to accept an invitation first.
-
-### Configuring access to container images for an organization
-
-If you have admin permissions to an organization-owned container image, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[Visibility and access permissions for container images](/packages/getting-started-with-github-container-registry/about-github-container-registry#visibility-and-access-permissions-for-container-images)."
-
-If your package is owned by an organization and private, then you can only give access to other organization members or teams.
-
-For organization image containers, organizations admins must enable packages before you can set the visibility to public. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
-
-{% data reusables.package_registry.package-settings-from-org-level %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access. ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level. ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
-
-The selected users or teams will automatically be given access and don't need to accept an invitation first.
-
-### Configuring visibility of container images for your personal account
-
-When you first publish a package, the default visibility is private and only you can see the package. You can modify a private or public container image's access by changing the access settings.
-
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+如果您对用户帐户拥有的容器映像具有管理员权限，您可以向其他用户分配读取、写入或管理员角色。 有关这些权限角色的更多信息，请参阅“[容器映像的可见性和访问权限](/packages/getting-started-with-github-container-registry/about-github-container-registry#visibility-and-access-permissions-for-container-images)”。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
-    {% warning %}
+1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 不能授予团队访问用户帐户拥有的容器映像。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
+1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+所选用户将自动被授予访问权限，不需要先接受邀请。
 
-    {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**. ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+### 为企业配置对容器映像的访问
 
-### Configuring visibility of container images for an organization
+如果您对组织拥有的容器映像具有管理员权限，您可以向其他用户和团队分配读取、写入或管理员角色。 有关这些权限角色的更多信息，请参阅“[容器映像的可见性和访问权限](/packages/getting-started-with-github-container-registry/about-github-container-registry#visibility-and-access-permissions-for-container-images)”。
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your container image through the access settings.
+如果您的软件包由组织和私人拥有，则您只能向其他组织成员或团队授予访问。
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
-
-For organization image containers, organizations admins must enable public packages before you can set the visibility to public. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+对于组织映像容器，组织管理员必须先启用包，然后才能将可见性设置为公共。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
+1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 您还可以从组织输入团队名称，以允许所有团队成员访问。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
+1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
+
+所选用户或团队将自动被授予访问权限，不需要先接受邀请。
+
+### 为个人帐户配置容器映像的可见性
+
+首次发布包时，默认可见性是私有的，只有您才能看到包。 您可以通过更改访问设置来修改私有或公共容器映像的访问权限。
+
+公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
+
+{% data reusables.package_registry.package-settings-from-user-level %}
+5. 在“Danger Zone（危险区域）”下，选择可见性设置：
+    - 要使容器映像对任何人都可见，请单击“**Make public（设为公共）**”。
     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+    **警告：**包一旦被设为公共，便无法再次将其设为私有。
 
     {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**. ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+    - 要使容器映像只对选择的人员可见，请单击“**Make private（设为私有）**”。 ![容器可见性选项](/assets/images/help/package-registry/container-visibility-option.png)
+
+### 为组织配置容器映像的可见性
+
+首次发布包时，默认可见性是私有的，只有您才能看到包。 您可以通过访问设置授予用户或团队对容器映像的不同访问角色。
+
+公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
+
+对于组织映像容器，组织管理员必须先启用公共包，然后才能将可见性设置为公共。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
+
+{% data reusables.package_registry.package-settings-from-org-level %}
+5. 在“Danger Zone（危险区域）”下，选择可见性设置：
+    - 要使容器映像对任何人都可见，请单击“**Make public（设为公共）**”。
+    {% warning %}
+
+    **警告：**包一旦被设为公共，便无法再次将其设为私有。
+
+    {% endwarning %}
+    - 要使容器映像只对选择的人员可见，请单击“**Make private（设为私有）**”。 ![容器可见性选项](/assets/images/help/package-registry/container-visibility-option.png)

@@ -1,0 +1,1 @@
+5. Opcionalmente, para enviar un correo electrónico a los patrocinadores en niveles específicos, usa el menú desplegable **All sponsors** (Todos los patrocinadores) y selecciona uno o más niveles. ![Selecciona el menú desplegable de los niveles de patrocinio](/assets/images/help/sponsors/select-tiers-email.png)

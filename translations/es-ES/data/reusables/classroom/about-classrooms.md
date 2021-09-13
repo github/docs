@@ -1,0 +1,1 @@
+Un aula en {% data variables.product.prodname_classroom %} es donde los maestros y alumnos interactuan durante un curso. Los maestros pueden crear un registro de alumnos para el aula y luego crear, asignar, revisar y calificar las tareas dentro de ella.

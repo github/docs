@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Task lists render with clickable checkboxes in comments. You can select or unselect the checkboxes to mark them as complete or incomplete.

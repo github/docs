@@ -175,7 +175,7 @@ The look and feel of the Service is copyright © GitHub, Inc. All rights reserve
 
 #### 2.5.2 Copyright Infringement and DMCA Policy.
 
-If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millenium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 2.5.3 GitHub Trademarks and Logos.
 

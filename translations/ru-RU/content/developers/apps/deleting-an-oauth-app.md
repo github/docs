@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 {% data reusables.user-settings.access_settings %}

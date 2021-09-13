@@ -8,6 +8,8 @@ intro: You can convert your user account into an organization. This allows more 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 {% warning %}
@@ -17,7 +19,7 @@ versions:
  - You will **no longer** be able to sign into the converted user account.
  - You will **no longer** be able to create or modify gists owned by the converted user account.
  - An organization **cannot** be converted back to a user.
- - The SSH keys, OAuth tokens, job profile, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} reactions, {% endif %}and associated user information, **will not** be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.
+ - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.
  - Any commits made with the converted user account **will no longer be linked** to that account. The commits themselves **will** remain intact.
 
 {% endwarning %}
@@ -50,7 +52,7 @@ You can also convert your personal user account directly into an organization. C
 
 {% tip %}
 
-**Tip**: When you convert a user account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)."
+**Tip**: When you convert a user account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)."
 
 {% endtip %}
 

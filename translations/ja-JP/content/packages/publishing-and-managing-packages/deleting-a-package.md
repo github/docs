@@ -11,7 +11,6 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-
 {% if currentVersion == "free-pro-team@latest" %}
 ### プライベートパッケージの削除について
 
@@ -32,13 +31,9 @@ versions:
 
 {% else %}
 
-以下は、個人アクセストークンを使って`MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`というパッケージバージョンIDを持つパッケージのバージョンを削除するcURLコマンドの例です。
+At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.
 
 {% endif %}
-
-### 予約されているパッケージのバージョンと名前
-
-{% data reusables.package_registry.package-immutability %}
 
 ### {% data variables.product.product_name %}上でのプライベートパッケージのバージョンの削除
 

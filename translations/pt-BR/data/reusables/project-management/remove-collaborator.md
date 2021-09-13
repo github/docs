@@ -1,1 +1,1 @@
-4. Next to the collaborator you want to remove, click **X**. !["X" removal icon next to collaborator's username](/assets/images/help/projects/remove-project-board-collaborator.png)
+4. Ao lado do colaborador que deseja remover, clique em **X**. !["X" ícone de remoção ao lado do nome do usuário do colaborador](/assets/images/help/projects/remove-project-board-collaborator.png)

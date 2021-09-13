@@ -1,0 +1,112 @@
+name: Check unallowed file changes
+
+# **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
+# **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
+# **Who does it impact**: Open source contributors.
+
+on:
+  pull_request_target:
+    paths:
+      - '.github/actions-scripts/**'
+      - '.github/workflows/**'
+      - '.github/CODEOWNERS'
+      - 'app.json'
+      - 'assets/fonts/**'
+      - 'data/graphql/**'
+      - 'Dockerfile*'
+      - 'lib/graphql/**'
+      - 'lib/redirects/**'
+      - 'lib/rest/**'
+      - 'lib/webhooks/**'
+      - 'lib/search/indexes/**'
+      - 'package*.json'
+      - 'Procfile'
+      - 'scripts/**'
+      - 'translations/**'
+
+jobs:
+  triage:
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            translation:
+              - 'translations/**'
+            openapi:
+              - 'lib/rest/static/**'
+            notAllowed:
+              - '.github/actions-scripts/**'
+              - '.github/workflows/**'
+              - '.github/CODEOWNERS'
+              - 'app.json'
+              - 'assets/fonts/**'
+              - 'data/graphql/**'
+              - 'Dockerfile*'
+              - 'lib/graphql/**'
+              - 'lib/redirects/**'
+              - 'lib/rest/**'
+              - 'lib/webhooks/**'
+              - 'lib/search/indexes/**'
+              - 'package*.json'
+              - 'Procfile'
+              - 'scripts/**'
+              - 'translations/**'
+
+      # When there are changes to files we can't accept, leave a comment
+      # explaining this to the PR author
+      - name: "Comment about changes we can't accept"
+        if: ${{ steps.filter.outputs.notAllowed }}
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const badFilesArr = [
+              '.github/actions-scripts/**',
+              '.github/workflows/**',
+              '.github/CODEOWNERS',
+              'app.json',
+              'assets/fonts/**',
+              'data/graphql/**',
+              'Dockerfile*',
+              'lib/graphql/**',
+              'lib/redirects/**',
+              'lib/rest/**',
+              'lib/webhooks/**',
+              'lib/search/indexes/**',
+              'package*.json',
+              'Procfile',
+              'scripts/**',
+              'translations/**',
+            ]
+
+            const badFiles = badFilesArr.join('\n')
+
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+            let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
+
+            try {
+               createdComment = await github.issues.createComment ({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.number,
+                body: reviewMessage,
+              })
+
+              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.` 
+            } catch(err) {
+              console.log("Error creating comment.", err)
+            }
+
+            core.setFailed(workflowFailMessage)

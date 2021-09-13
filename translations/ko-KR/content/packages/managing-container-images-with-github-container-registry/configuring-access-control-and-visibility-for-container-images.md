@@ -24,7 +24,7 @@ If you have admin permissions to an organization-owned container image, you can 
 
 If your package is owned by an organization and private, then you can only give access to other organization members or teams.
 
-For organization image containers, organizations admins must enable packages before you can set the visibility to public. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+For organization image containers, organizations admins must enable packages before you can set the visibility to public. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access. ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
@@ -54,7 +54,7 @@ When you first publish a package, the default visibility is private and only you
 
 A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
 
-For organization image containers, organizations admins must enable public packages before you can set the visibility to public. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+For organization image containers, organizations admins must enable public packages before you can set the visibility to public. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 5. Under "Danger Zone", choose a visibility setting:

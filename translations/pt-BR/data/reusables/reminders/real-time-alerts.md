@@ -1,1 +1,1 @@
-1. Optionally, to receive Slack messages as soon as certain events happen, select **Enable real-time alerts** and select the events to receive real-time alerts for.
+1. Opcionalmente, para receber mensagens do Slack assim que certos eventos ocorrerem, selecione **Habilitar os alertas em tempo real** e selecione os eventos para os quais deseja receber alertas em tempo real.

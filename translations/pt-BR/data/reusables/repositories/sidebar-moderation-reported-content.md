@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Reported content**. !["Reported content" in repository Settings sidebar](/assets/images/help/repository/repo-settings-reported-content.png)
+1. Na barra lateral esquerda, clique em **Conteúdo relatado**. !["Conteúdo relatado" na barra lateral de Configurações do repositório](/assets/images/help/repository/repo-settings-reported-content.png)

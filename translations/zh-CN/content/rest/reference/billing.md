@@ -2,6 +2,8 @@
 title: 计费
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 您可以通过计费 API 监控用户和组织的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 费用和使用情况。

@@ -1,1 +1,1 @@
-1. Select either the current branch, or the default branch (usually master) to base the new branch on.
+1. Use the drop-down to choose a base branch for your new branch.

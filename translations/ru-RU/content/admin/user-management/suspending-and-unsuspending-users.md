@@ -7,9 +7,15 @@ redirect_from:
   - /enterprise/admin/articles/suspended-users/
   - /enterprise/admin/articles/suspending-and-unsuspending-users/
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
-intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.product.product_location_enterprise %}.'
+intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.product.product_location %}.'
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Access management
+  - Enterprise
+  - Security
+  - User account
 ---
 
 If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
@@ -27,7 +33,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.product.product_location_enterprise %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.product.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
 
 {% endtip %}
 
@@ -65,8 +71,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 
 You can create a custom message that suspended users will see when attempting to sign in.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 5. Click **Add message**. ![Add message](/assets/images/enterprise/site-admin-settings/add-message.png)
@@ -84,4 +89,4 @@ You can create a custom message that suspended users will see when attempting to
   ```
 
 ### Дополнительная литература
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"

@@ -1,0 +1,1 @@
+- **Solicitações de API** - Você pode executar até 1000 solicitações de API por hora em todas as ações dentro de um repositório. Se excedido, as chamadas de API adicionais falharão, o que pode causar falha nas tarefas.

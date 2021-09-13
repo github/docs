@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-community-forum-code-of-conduct
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ### 概要と目的
@@ -60,7 +63,7 @@ GitHubコミュニティフォーラムを、敬意をもって扱ってくだ�
 
 #### *禁止事項*
 
-- **暴力による脅し。**他人を脅したり、サイトを利用して現実世界の暴力やテロ行為を組織、促進、または扇動することはできません。 言葉を発する場合や画像を投稿する場合はもちろん、ソフトウェアを作成する場合でさえも、それが他人からどのように解釈される可能性があるかを慎重に考えてください。 あなたが冗談のつもりでも、そのように受け取られないかもしれません。 If you think that someone else might interpret the content you post as a threat, or as promoting violence or terrorism, stop. それを投稿しないでください。 場合によっては、当社が身体的危害のリスクや公共の安全に対する脅威だと判断し、暴力の脅威として法執行機関に報告する場合があります。
+- **暴力による脅し。**他人を脅したり、サイトを利用して現実世界の暴力やテロ行為を組織、促進、または扇動することはできません。 言葉を発する場合や画像を投稿する場合はもちろん、ソフトウェアを作成する場合でさえも、それが他人からどのように解釈される可能性があるかを慎重に考えてください。 あなたが冗談のつもりでも、そのように受け取られないかもしれません。 自分が投稿したコンテンツが脅しである、または暴力やテロを助長していると他の誰かが解釈するかもしれないと思われる場合は、 それを投稿しないでください。 場合によっては、当社が身体的危害のリスクや公共の安全に対する脅威だと判断し、暴力の脅威として法執行機関に報告する場合があります。
 
 - **差別的発言と差別。**年齢、体の大きさ、能力、民族性、性自認、性表現、経験の度合い、国籍、容姿、人種、宗教、性同一性、性的指向などのトピックを持ち出すこと自体は禁止されていませんが、相手が何者かであるかを根拠にして個人またはグループを攻撃する発言を当社は許容しません。 これらやその他のセンシティブな話題について話すと、他の人が迷惑がられていると感じたり、また攻撃的あるいは侮辱的な話し方の場合は危険を感じさせたりすることもあることを認識しましょう。 デリケートな話題を議論するときは、常に礼儀正しく振る舞うことがコミュニティメンバーに期待されます。
 
@@ -106,7 +109,7 @@ GitHubコミュニティフォーラムを、敬意をもって扱ってくだ�
 
 ### GitHubスタッフへの連絡
 
-If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact?tags=community-support). Contacting any member of GitHub Staff via channels other than the forum itself or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
+何らかの理由で、GitHubスタッフ、コミュニティ管理者、管理者、またはコミュニティのモデレーターにプライベートで連絡したい場合は、[サポート連絡フォーム](https://support.github.com/contact?tags=community-support)を使用できます。 フォーラムまたはサポート連絡フォーム以外の手段でGitHubスタッフに連絡することは極力お控えください。そうした行為は、ハラスメント禁止に対する違反と見なされる場合があります。
 
 お互いの存在とその時間を尊重することにより、このフォーラムを安心して参加できる場に保つよう協力しましょう。
 
@@ -114,4 +117,4 @@ If, for any reason, you want to contact GitHub Staff, the Community Managers, Ad
 
 法律的な言葉はつまらないものですが、しかし私たちは自分自身、ひいては皆さんやそのデータを、敵意ある人々から守る必要があります。 あなた（と当社）のコンテンツ、プライバシー、および法律に関する振る舞いや権利については、[「GitHub利用規約」](/articles/github-terms-of-service/)および[「プライバシーについての声明」](/articles/github-privacy-statement/)に記載しています。 このサービスを利用するには、[「GitHub利用規約」](/articles/github-terms-of-service/)および[「プライバシーについての声明」](/articles/github-privacy-statement/)の順守に同意する必要があります。
 
-この行動規範は、[「GitHub利用規約」](/articles/github-terms-of-service/)を変更するものではなく、また包括的なリストであることを意図したものではありません。 GitHub は、[「GitHub利用規約」](/articles/github-terms-of-service/)に基づいて、「非合法、攻撃的、脅迫的、中傷、名誉毀損、ポルノ、わいせつ、その他不快なもの、他者の知的財産権を侵害するもの、本利用規約に違反するもの」であるあらゆるコンテンツを削除し、またこれを行ったアカウントを解約できる、完全な裁量を保持します。 This Code of Conduct describes when we will exercise that discretion.
+この行動規範は、[「GitHub利用規約」](/articles/github-terms-of-service/)を変更するものではなく、また包括的なリストであることを意図したものではありません。 GitHub は、[「GitHub利用規約」](/articles/github-terms-of-service/)に基づいて、「非合法、攻撃的、脅迫的、中傷、名誉毀損、ポルノ、わいせつ、その他不快なもの、他者の知的財産権を侵害するもの、本利用規約に違反するもの」であるあらゆるコンテンツを削除し、またこれを行ったアカウントを解約できる、完全な裁量を保持します。 本行動規範は、かかる裁量を行使する場合について説明しています。

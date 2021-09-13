@@ -5,8 +5,11 @@ redirect_from:
   - /guides/building-a-ci-server/
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
 
@@ -32,7 +35,7 @@ connections.
 Note: you can download the complete source code for this project
 [from the platform-samples repo][platform samples].
 
-### Writing your server
+## Writing your server
 
 We'll write a quick Sinatra app to prove that our local connections are working.
 Let's start with this:
@@ -100,7 +103,7 @@ But for this demo, we'll just worry about when it's opened.
 To test out this proof-of-concept, make some changes in a branch in your test
 repository, and open a pull request. Your server should respond accordingly!
 
-### Working with statuses
+## Working with statuses
 
 With our server in place, we're ready to start our first requirement, which is
 setting (and updating) CI statuses. Note that at any time you update your server,
@@ -149,9 +152,9 @@ def process_pull_request(pull_request)
   @client.create_status(pull_request['base']['repo']['full_name'], pull_request['head']['sha'], 'success')
   puts "Pull request processed!"
 end
-```
+``` 
 
-### Conclusion
+## Conclusion
 
 At GitHub, we've used a version of [Janky][janky] to manage our CI for years.
 The basic flow is essentially the exact same as the server we've built above.
@@ -165,8 +168,8 @@ All of this communication is funneled back to our chat rooms. You don't need to
 build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /v3/repos/deployments/
-[status API]: /v3/repos/statuses/
+[deploy API]: /rest/reference/repos#deployments
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

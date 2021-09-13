@@ -1,0 +1,1 @@
+1. Debajo de tu nombre de repositorio, da clic en {% octicon "comment-discussion" aria-label="The discussion icon" %} **Debates**. ![Pestaña de "Debates" en un repositorio](/assets/images/help/discussions/repository-discussions-tab.png)

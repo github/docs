@@ -1,37 +1,42 @@
 ---
 title: Encrypted secrets
-intro: Encrypted secrets allow you to store sensitive information in your repository or organization.
+intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes > 3.0 %}, repository, or repository environments{% else %} or repository{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### About encrypted secrets
+## About encrypted secrets
 
-Secrets are encrypted environment variables that you create in a repository or organization. The secrets you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %}, and remain encrypted until you use them in a workflow.
+Secrets are encrypted environment variables that you create in an organization{% ifversion fpt or ghes > 3.0 or ghae %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
-#### Naming your secrets
+{% ifversion fpt or ghes > 3.0 or ghae %}
+For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
+{% endif %}
 
-The following rules apply to secret names:
+### Naming your secrets
 
-* Secret names can only contain alphanumeric characters (`[a-z]`, `[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed.
-* Secret names must not start with the `GITHUB_` prefix.
-* Secret names must not start with a number.
-* Secret names must be unique at the level they are created at. For example, a secret created at the organization-level must have a unique name at that level, and a secret created at the repository-level must have a unique name in that repository. If an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.
+{% data reusables.codespaces.secrets-naming %}
+
+  For example, {% ifversion fpt or ghes > 3.0 or ghae %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level. 
+
+  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
 To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
 
-#### Accessing your secrets
+### Accessing your secrets
 
 To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
@@ -43,42 +48,161 @@ You can use and read encrypted secrets in a workflow file if you have access to 
 
 {% endwarning %}
 
-You can also manage secrets using the REST API. For more information, see "[Secrets](/v3/actions/secrets/)."
+{% ifversion fpt or ghes > 3.0 or ghae %}
+Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
+{% endif %}
 
-#### Limiting credential permissions
+You can also manage secrets using the REST API. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/v3/guides/managing-deploy-keys/#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
+### Limiting credential permissions
 
-### Creating encrypted secrets for a repository
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
+
+{% note %}
+
+**Note:** You can use the REST API to manage secrets. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+
+{% endnote %}
+
+## Creating encrypted secrets for a repository
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Click **Add a new secret**.
+1. Click **New repository secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the value for your secret.
 1. Click **Add secret**.
 
-If your repository can access secrets from the parent organization, then those secrets are also listed on this page.
+If your repository {% ifversion fpt or ghes > 3.0 or ghae %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
-### Creating encrypted secrets for an organization
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To add a repository secret, use the `gh secret set` subcommand. Replace `secret-name` with the name of your secret.
+
+```shell
+gh secret set <em>secret-name</em>
+```
+
+The CLI will prompt you to enter a secret value. Alternatively, you can read the value of the secret from a file.
+
+```shell
+gh secret set <em>secret-name</em> < secret.txt
+```
+
+To list all secrets for the repository, use the `gh secret list` subcommand.
+
+{% endcli %}
+
+{% ifversion fpt or ghes > 3.0 or ghae %}
+
+## Creating encrypted secrets for an environment
+
+{% data reusables.github-actions.permissions-statement-secrets-environment %}
+
+{% include tool-switcher %}
+
+{% webui %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-environment %}
+1. Click on the environment that you want to add a secret to.
+2. Under **Environment secrets**, click **Add secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the value for your secret.
+5. Click **Add secret**.
+
+{% endwebui %}
+
+{% cli %}
+
+To add a secret for an environment, use the `gh secret set` subcommand with the `--env` or `-e` flag followed by the environment name.
+
+```shell
+gh secret set --env <em>environment-name</em> <em>secret-name</em>
+```
+
+To list all secrets for an environment, use the `gh secret list` subcommand with the `--env` or `-e` flag followed by the environment name.
+
+```shell
+gh secret list --env <em>environment-name</em>
+```
+
+{% endcli %}
+
+{% endif %}
+
+## Creating encrypted secrets for an organization
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
 
+{% include tool-switcher %}
+
+{% webui %}
+
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Click **New secret**.
+1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
 1. From the **Repository access** dropdown list, choose an access policy.
 1. Click **Add secret**.
 
-### Reviewing access to organization-level secrets
+{% endwebui %}
+
+{% cli %}
+
+{% note %}
+
+**Note:** By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
+
+```
+gh auth login --scopes "admin:org"
+```
+
+{% endnote %}
+
+To add a secret for an organization, use the `gh secret set` subcommand with the `--org` or `-o` flag followed by the organization name.
+
+```shell
+gh secret set --org <em>organization-name</em> <em>secret-name</em>
+```
+
+By default, the secret is only available to private repositories. To specify that the secret should be available to all repositories within the organization, use the `--visibility` or `-v` flag.
+
+```shell
+gh secret set --org <em>organization-name</em> <em>secret-name</em> --visibility all
+```
+
+To specify that the secret should be available to selected repositories within the organization, use the `--repos` or `-r` flag.
+
+```shell
+gh secret set --org <em>organization-name</em> <em>secret-name</em> --repos <em>repo-name-1</em>,<em>repo-name-2</em>"
+```
+
+To list all secrets for an organization, use the `gh secret list` subcommand with the `--org` or `-o` flag followed by the organization name.
+
+```shell
+gh secret list --org <em>organization-name</em>
+```
+
+{% endcli %}
+
+## Reviewing access to organization-level secrets
 
 You can check which access policies are being applied to a secret in your organization.
 
@@ -89,9 +213,13 @@ You can check which access policies are being applied to a secret in your organi
 ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
 
-### Using encrypted secrets in a workflow
+## Using encrypted secrets in a workflow
 
-With the exception of `GITHUB_TOKEN`, secrets are not passed to the runner when a workflow is triggered from a forked repository.
+{% note %}
+
+**Note:** {% data reusables.actions.forked-secrets %}
+
+{% endnote %}
 
 To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" and "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
@@ -106,11 +234,11 @@ steps:
 ```
 {% endraw %}
 
-Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). To help protect secrets, consider using environment variables, `STDIN`, or other mechanisms supported by the target process.
+Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). To help protect secrets, consider using environment variables, `STDIN`, or other mechanisms supported by the target process.
 
 If you must pass secrets within a command line, then enclose them within the proper quoting rules. Secrets often contain special characters that may unintentionally affect your shell. To escape these special characters, use quoting with your environment variables. For example:
 
-#### Example using Bash
+### Example using Bash
 
 {% raw %}
 ```yaml
@@ -123,7 +251,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using PowerShell
+### Example using PowerShell
 
 {% raw %}
 ```yaml
@@ -136,7 +264,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using Cmd.exe
+### Example using Cmd.exe
 
 {% raw %}
 ```yaml
@@ -149,9 +277,15 @@ steps:
 ```
 {% endraw %}
 
-### Limits for secrets
+## Limits for secrets
 
-Your workflow can have up to 100 secrets. The names of secret environment variables must be unique in a repository.
+You can store up to 1,000 organization secrets{% ifversion fpt or ghes > 3.0 or ghae %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+
+A workflow created in a repository can access the following number of secrets:
+
+* All 100 repository secrets.
+* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
+{% ifversion fpt or ghes > 3.0 or ghae %}* All 100 environment secrets.{% endif %}
 
 Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB, you can store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt your credentials locally before checking the file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
 

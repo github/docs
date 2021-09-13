@@ -1,8 +1,8 @@
-| 键                            | 类型    | 描述                                                                            |
-| ---------------------------- | ----- | ----------------------------------------------------------------------------- |
-| `action`                     | `字符串` | 执行的操作内容. Can be one of `created`, `closed`, `opened`, `edited`, or `deleted`. |
-| `里程碑`                        | `对象`  | The milestone itself.                                                         |
-| `changes`                    | `对象`  | The changes to the milestone if the action was `edited`.                      |
-| `changes[description][from]` | `字符串` | 说明的先前版本（如果操作为 `edited`）。                                                      |
-| `changes[due_on][from]`      | `字符串` | The previous version of the due date if the action was `edited`.              |
-| `changes[title][from]`       | `字符串` | The previous version of the title if the action was `edited`.                 |
+| 键                            | 类型    | 描述                                                                  |
+| ---------------------------- | ----- | ------------------------------------------------------------------- |
+| `action`                     | `字符串` | 执行的操作内容. 可以是以下项之一：`created`、`closed`、`opened`、`edited` 或 `deleted`。 |
+| `里程碑`                        | `对象`  | 里程碑本身。                                                              |
+| `changes`                    | `对象`  | 对里程碑的更改，如果操作为 `edited`。                                             |
+| `changes[description][from]` | `字符串` | 说明的先前版本（如果操作为 `edited`）。                                            |
+| `changes[due_on][from]`      | `字符串` | 到期日期的先前版本，如果操作为 `edited`。                                           |
+| `changes[title][from]`       | `字符串` | 标题的先前版本，如果操作为 `edited`。                                             |

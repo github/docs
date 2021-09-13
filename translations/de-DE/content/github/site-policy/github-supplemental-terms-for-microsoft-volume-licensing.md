@@ -175,7 +175,7 @@ Das Erscheinungsbild des Dienstes ist wie folgt urheberrechtlich geschützt: „
 
 #### 2.5.2 Copyright Infringement and DMCA Policy.
 
-Wenn der Kunde Urheberrechtsinhaber ist und der Ansicht ist, dass Inhalte im Dienst gegen die Urheberrechte des Kunden verstoßen, kann er sich nach der [Digital Millenium Copyright Act-Richtlinie](https://github.com/contact/dmca) von GitHub an GitHub wenden, indem er GitHub über das [DMCA-Formular](https://github.com/contact/dmca-notice) oder per E-Mail an copyright@github.com entsprechend informiert.
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 2.5.3 GitHub Trademarks and Logos.
 

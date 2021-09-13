@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 {% warning %}
 
 **Deprecation Notice:** The `token` attribute is deprecated in some OAuth Authorizations API responses:

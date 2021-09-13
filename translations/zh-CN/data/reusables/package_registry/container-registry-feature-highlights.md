@@ -1,4 +1,4 @@
-With the container registry you can:
-- Store container images within your organization and user account, rather than a repository.
-- Set fine-grained permissions and visibility independent of repository permissions and visibility.
-- Access public container images anonymously.
+使用容器注册表，您可以：
+- 将容器映像存储在组织和用户帐户中，而不是仓库中。
+- 设置独立于仓库权限和可见性的粒度权限和可见性。
+- 匿名访问公共容器映像。

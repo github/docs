@@ -1,1 +1,1 @@
-1. Click **Closed** to see a list of closed pull requests. ![Closed tab](/assets/images/help/branches/branches-closed.png)
+1. Clique em **Fechado** para ver uma lista de pull requests fechados. ![Aba de fechado](/assets/images/help/branches/branches-closed.png)

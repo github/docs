@@ -1,1 +1,1 @@
-Password-based authentication for Git is deprecated, and we recommend using a personal access token (PAT) when prompted for a password instead, which is more secure. Treat your token just like a password. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+Gitがパスワードを求めてきたときは、代わりに個人アクセストークン（PAT）を入力してください。{% if currentVersion != "github-ae@latest" %}パスワードベースのGitの認証は非推奨であり、PATを利用する方がセキュアです。{% endif %}詳しい情報については「[個人アクセストークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。

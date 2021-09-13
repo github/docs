@@ -1,86 +1,94 @@
 ---
-title: Migrating to GitHub Container Registry for Docker images
-intro: 'If you''ve used the GitHub Packages Docker registry to store Docker images, you can migrate to the new {% data variables.product.prodname_container_registry %}.'
+title: Docker イメージを GitHub Container Registry に移行する
+intro: 'Docker イメージを保存するため GitHub パッケージ Docker レジストリを使っている場合には、新しい {% data variables.product.prodname_container_registry %} に移行できます。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-### Key differences between {% data variables.product.prodname_github_container_registry %} and the Docker package registry
+### {% data variables.product.prodname_github_container_registry %} と Docker パッケージレジストリとの主な違い
 
 {% data reusables.package_registry.container-registry-beta %}
 
-The {% data variables.product.prodname_github_container_registry %} supersedes the existing Packages Docker registry and is optimized to support some of the unique needs of containers.
+{% data variables.product.prodname_github_container_registry %} は既存の Packages Docker レジストリに取って代わるもので、コンテナ固有のニーズのいくつかをサポートできるよう最適化されています。
 
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/getting-started-with-github-container-registry/about-github-container-registry)」を参照してください。
 
-### Billing changes
+### 支払いの変更
 
 {% data reusables.package_registry.billing-for-container-registry %}
 
-### Domain changes
+### ドメインの変更
 
-The domain for the {% data variables.product.prodname_container_registry %} is `ghcr.io`.
+{% data variables.product.prodname_container_registry %} のドメインは `ghcr.io` です。
 
-| Registry                                                               | Example URL                                         |
-| ---------------------------------------------------------------------- | --------------------------------------------------- |
-| {% data variables.product.prodname_registry %} Docker registry    | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
+| レジストリ                                                             | Example URL                                         |
+| ----------------------------------------------------------------- | --------------------------------------------------- |
+| {% data variables.product.prodname_registry %} Docker レジストリ       | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_github_container_registry %} | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
-### Authenticating with the container registry
+### コンテナレジストリで認証する
 
-You will need to authenticate to the {% data variables.product.prodname_container_registry %} with the base URL `ghcr.io`. We recommend creating a new access token for using the {% data variables.product.prodname_container_registry %}.
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data variables.product.prodname_container_registry %} は、 ベース URL `ghcr.io` で認証する必要があります。 {% data variables.product.prodname_container_registry %} を使用するために、新しいアクセストークンの作成をお勧めします。
 
-### Migrating a Docker image using the Docker CLI
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-To move Docker images that you host on {% data variables.product.prodname_registry %} Docker registry, you must republish the images to {% data variables.product.prodname_container_registry %}. We recommend republishing your existing Docker images using the command line on your local machine.
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-1. Sign in to the Docker registry using a temporary PAT with at least the `read:packages` scope. This PAT will only be used to sign in to the Docker registry to pull down images and can be deleted afterward.
+### Docker CLI を使用して Docker イメージを移行する
+
+{% data variables.product.prodname_registry %} Docker レジストリでホストしている Docker イメージを移動するには、イメージを {% data variables.product.prodname_container_registry %} に再公開する必要があります。 既存の Docker イメージを再公開するには、ローカルマシンでコマンドラインを使うことをお勧めします。
+
+1. 少なくとも `read:packages` スコープのある一時的な PAT (個人アクセストークン) を使用して、Docker レジストリにサインインします。 この PAT は、Docker レジストリにサインインしてイメージをプルダウンするためにのみ使用され、その後は削除して構いません。
   {% raw %}
   ```shell
   $ echo $READ_PACKAGES_TOKEN | docker login docker.pkg.github.com -u USERNAME --password-stdin
   ```
   {% endraw %}
-2. Pull down the image you'd like to migrate, replacing OWNER with the name of the user or organization account that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with tag for the image you want to install. For example, `docker pull docker.pkg.github.com/octo-org/octoshift/octoshift:latest` pulls the latest tag of the `octoshift/octoshift` image in the octo-org organization.
+2. 移行したいイメージをプルダウンします。OWNER はリポジトリを所有しているユーザまたは Organization アカウントの名前に、REPOSITORY はプロジェクトを含むリポジトリの名前に、IMAGE_NAME はパッケージまたはイメージの名前に、VERSION はインストールするイメージのタグにそれぞれ置き換えてください。 たとえば、`docker pull docker.pkg.github.com/octo-org/octoshift/octoshift:latest` は octo-org という Organization の `octoshift/octoshift` イメージの、最新のタグをプルします。
   ```shell
   $ docker pull docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
   ```
 
-3. Re-tag the image with the new domain and a new image name. 詳しい情報については、Dockerのドキュメンテーションの「[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)」を参照してください。 Use the same URL that you used in the previous step for the SOURCE URL. Replace the TARGET_OWNER with the user or organization that you are migrating the container image to and replace the TARGET_IMAGE_NAME with the new {% data variables.product.prodname_container_registry %} image name.
+3. 新しいドメインと新しいイメージ名でイメージにタグ付けし直します。 詳しい情報については、Dockerのドキュメンテーションの「[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)」を参照してください。 先ほどのステップで用いた URL と同じものを SOURCE URL とします。 TARGET_OWNER はコンテナイメージをの移行先であるユーザまたは Organization に、TARGET_IMAGE_NAME は新しい {% data variables.product.prodname_container_registry %} イメージ名に置き換えます。
   ```shell
   $ docker tag docker.pkg.github.com/SOURCE_OWNER/SOURCE_REPOSITORY/SOURCE_IMAGE_NAME:VERSION ghcr.io/TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
   ```
 
-4. Sign in to the new {% data variables.product.prodname_container_registry %}. We recommend creating a new PAT limited to the `read:packages` and `write:packages` scopes since you no longer need the `repo` scope and your previous PAT may not have the `write:packages` scope.
+4. 新しい
+
+{% data variables.product.prodname_container_registry %}. `read:packages` スコープと `write:packages` スコープに限定した新しい PAT の作成をお勧めします。`repo` スコープはもはや不要であり、以前の PAT は `write:packages` スコープを持っていない場合があるからです。
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
   ```
   {% endraw %}
-5. Push your re-tagged image to the {% data variables.product.prodname_container_registry %}.
+5. タグ付けし直したイメージを {% data variables.product.prodname_container_registry %} にプッシュします。
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE_NAME:VERSION
   ```
 
-### Updating your {% data variables.product.prodname_actions %} workflow
+### {% data variables.product.prodname_actions %} ワークフローを更新する
 
-If you have a {% data variables.product.prodname_actions %} workflow that uses a Docker image from the {% data variables.product.prodname_registry %} Docker registry, you may want to update your workflow to the {% data variables.product.prodname_container_registry %} to allow for anonymous access for public container images, finer-grain access permissions, and better storage and bandwidth compatibility for containers.
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
-1. Migrate your Docker images to the new {% data variables.product.prodname_container_registry %} at `ghcr.io`. For an example, see "[Migrating a Docker image using the Docker CLI](#migrating-a-docker-image-using-the-docker-cli)."
+{% data variables.product.prodname_registry %} Docker レジストリから Docker イメージを使用する {% data variables.product.prodname_actions %} ワークフローがある場合、ワークフローを {% data variables.product.prodname_container_registry %} に更新するといいでしょう。そうすればパブリックコンテナのイメージへの匿名アクセスが可能になり、きめ細かいアクセス権限を設定でき、コンテナに対するストレージと帯域幅が向上します。
 
-2. In your {% data variables.product.prodname_actions %} workflow file, update the package url from `https://docker.pkg.github.com` to `ghcr.io`.
+1. `ghcr.io` にある新しい {% data variables.product.prodname_container_registry %} に Docker イメージを移行します。 例については、「[Docker CLI を使用して Docker イメージを移行する](#migrating-a-docker-image-using-the-docker-cli)」を参照してください。
 
-3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub ACtions secret. {% data variables.product.prodname_github_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+2. {% data variables.product.prodname_actions %} ワークフローファイルで、パッケージ URL を `https://docker.pkg.github.com` から `ghcr.io` に更新します。
 
-4. In your {% data variables.product.prodname_actions %} workflow file, update the authentication PAT by replacing your Docker registry PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) with a new variable for your {% data variables.product.prodname_container_registry %} PAT, such as {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
+3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} は PAT において `GITHUB_TOKEN` の使用をサポートしていないので、`CR_PAT` などの別のカスタム変数を使用する必要があります。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
 
-#### Example of updated workflow
+4. {% data variables.product.prodname_actions %} ワークフローファイルにおいて、Docker レジストリ PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} をコンテナレジストリ {% data variables.product.prodname_container_registry %} PAT の新しい変数 (たとえば {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}) に置き換えて、認証 PAT を更新します。
 
-If part of your workflow accessed a Docker image hosted by the Docker registry like this:
+#### 更新したワークフローの例
+
+ワークフローの一部が Docker レジストリにホストされた Docker イメージにアクセスした場合は、次のようになります。
 
 {% raw %}
 ```yaml
@@ -91,7 +99,7 @@ docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
 ```
 {% endraw %}
 
-Then you'll need to update your workflow with the new {% data variables.product.prodname_container_registry %} URL and PAT like this:
+そして、ワークフローを新しい {% data variables.product.prodname_container_registry %} URL と PAT で次のように更新する必要があります。
 
 {% raw %}
 ```yaml

@@ -1,0 +1,1 @@
+If you are a monthly-billed customer, your account will have a default spending limit of $0, which prevents additional usage of minutes or storage for private repositories beyond the amounts included with your account. If you pay your account by invoice, your account will have an unlimited default spending limit.

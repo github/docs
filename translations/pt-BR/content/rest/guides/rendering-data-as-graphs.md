@@ -7,8 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
-
+ 
 
 
 Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API de {% data variables.product.product_name %}, vamos usar a excelente biblioteca do Ruby, [Octokit][Octokit].
@@ -222,7 +225,7 @@ Como o guia "D3 para mortais" sugere, este não é necessariamente a melhor form
 
 Agora é hora de fazer uma confissão: o atributo da `linguagem` dentro dos repositórios identifica apenas a linguagem "primária" definida. Isso significa que se você tiver um repositório que combina várias linguagens. aquela que tiver mais bytes de código será considerada a linguagem primária.
 
-Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representação de qual linguagem tem o maior número de bytes escritos em todo o nosso código. Um [treemap][D3 treemap] deve ser uma ótima forma de visualizar os tamanhos das nossas linguagens de codificação usadas, em vez de simplesmente contar. Precisamos construir um array de objetos que se pareçam com isto:
+Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representação de qual linguagem tem o maior número de bytes escritos em todo o nosso código. A [treemap][D3 treemap] should be a great way to visualize the sizes of our coding languages used, rather than simply the count. Precisamos construir um array de objetos que se pareçam com isto:
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -331,8 +334,8 @@ Et voila! São lindos retângulos que contém suas linguagens de repositório, c
 [Octokit]: https://github.com/octokit/octokit.rb
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

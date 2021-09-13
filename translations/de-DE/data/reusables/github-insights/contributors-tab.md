@@ -1,1 +1,1 @@
-1. Klicke unter **{% octicon "gear" aria-label="The gear icon" %} Settings** (Einstellungen) auf **Contributors** (Mitwirkende). ![Registerkarte „Contributors“ (Mitarbeiter)](/assets/images/help/insights/contributors-tab.png)
+1. Under **{% octicon "gear" aria-label="The gear icon" %} Settings**, click **Contributors**. ![Registerkarte „Contributors“ (Mitarbeiter)](/assets/images/help/insights/contributors-tab.png)

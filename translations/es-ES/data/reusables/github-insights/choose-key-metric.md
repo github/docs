@@ -1,0 +1,1 @@
+2. Debajo de **{% octicon "graph" aria-label="The graph icon" %} Métricas clave**, haz clic en el nombre de la métrica que deseas ver. ![Lista de métricas clave](/assets/images/help/insights/key-metrics-list.png)

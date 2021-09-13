@@ -1,1 +1,1 @@
-A Git branch or tag is created. For more information, see the "[Git data](/v3/git/)" REST API.
+Um branch ou tag do Git é criado. Para obter mais informações, consulte a API REST de "[dados do Git](/rest/reference/git).

@@ -1,1 +1,1 @@
-The type of activity is specified in the `action` property of the payload object.
+活动类型在有效负载对象的 `action` 属性中指定。

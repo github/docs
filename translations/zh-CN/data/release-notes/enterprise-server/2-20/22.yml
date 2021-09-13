@@ -1,0 +1,19 @@
+---
+date: '2020-12-03'
+sections:
+  bugs:
+    - '由于 bootstrap 中的竞争条件导致服务重新启动，授权服务被检测为不健康。{% comment %} https://github.com/github/authzd/pull/1279,  {% endcomment %}'
+    - '在热补丁升级过程中，一种潜在的行为导致服务不可用。 {% comment %} https://github.com/github/enterprise2/pull/24053, https://github.com/github/enterprise2/issues/23947 {% endcomment %}'
+    - '未正确应用日志转发 SSL 证书的子集。{% comment %} https://github.com/github/enterprise2/pull/24112, https://github.com/github/enterprise2/pull/23981 {% endcomment %}'
+    - '发送电子邮件通知给已经从团队或组织中移除的已停用用户。 {% comment %} https://github.com/github/github/pull/163107, https://github.com/github/github/pull/162742 {% endcomment %}'
+    - '组织和企业之间应用 SSH 证书的方式不一致。 {% comment %} https://github.com/github/github/pull/163429, https://github.com/github/github/pull/159538, https://github.com/github/authentication/issues/115 {% endcomment %}'
+    - '当帐户因使用不正确的密码而受到速率限制时，可能被锁定长达 24 小时。{% comment %} https://github.com/github/github/pull/163456, https://github.com/github/github/pull/162938, https://github.com/github/github-ds/pull/51 {% endcomment %}'
+    - '在具有许多引用的仓库上进行拉取请求同步可能导致工作人员队列落后。{% comment %} https://github.com/github/github/pull/163576, https://github.com/github/github/pull/163142 {% endcomment %}'
+    - '在尝试访问特定页面后登录时，用户被发送到主页，而不是其预期目的地。 {% comment %} https://github.com/github/github/pull/163785, https://github.com/github/github/pull/163579, https://github.com/github/github/pull/154117, https://github.com/github/ecosystem-apps/issues/1076 {% endcomment %}'
+  known_issues:
+    - '在没有任何用户的新建 GitHub Enterprise Server 上，攻击者可能创建第一个管理员用户。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '自定义防火墙规则在升级期间没有维护。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '议题若是包含同一仓库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - '在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '推送到命令行上的仓库时，不会报告安全警报。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'

@@ -8,14 +8,21 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action
   - /actions/building-actions/creating-a-docker-container-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+type: tutorial
+topics:
+  - Action development
+  - Docker
+shortTitle: Docker container action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 In this guide, you'll learn about the basic components needed to create and use a packaged Docker container action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
 
@@ -23,14 +30,20 @@ Once you complete this project, you should understand how to build your own Dock
 
 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
-### Prerequisites
+{% data reusables.github-actions.context-injection-warning %}
+
+## Prerequisites
 
 You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:
 
 - "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
+{% ifversion ghae %}
+- "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+{% else %} 
 - "[Virtual environments for {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
+{% endif %}
 
-Before you begin, you'll need to create a GitHub repository.
+Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.
 
 1. Create a new repository on {% data variables.product.product_location %}. You can choose any repository name or use "hello-world-docker-action" like this example. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
@@ -38,16 +51,16 @@ Before you begin, you'll need to create a GitHub repository.
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
-### Creating a Dockerfile
+## Creating a Dockerfile
 
 In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
-```dockerfile
+```Dockerfile{:copy}
 # Container image that runs your code
 FROM alpine:3.10
 
@@ -58,13 +71,13 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-### Creating an action metadata file
+## Creating an action metadata file
 
 Create a new `action.yml` file in the `hello-world-docker-action` directory you created above. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
 {% raw %}
 **action.yml**
-```yaml
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -88,7 +101,7 @@ This metadata defines one `who-to-greet`  input and one `time` output parameter.
 
 {% data variables.product.prodname_dotcom %} will build an image from your `Dockerfile`, and run commands in a new container using this image.
 
-### Writing the action code
+## Writing the action code
 
 You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
@@ -96,26 +109,25 @@ Next, the script gets the current time and sets it as an output variable that ac
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
-1. Make your `entrypoint.sh` file executable:
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
-
 1. Add the following code to your `entrypoint.sh` file.
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
-  
+
   echo "Hello $1"
   time=$(date)
   echo "::set-output name=time::$time"
   ```
-
   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
-### Creating a README
+1. Make your `entrypoint.sh` file executable by running the following command on your system.
+
+  ```shell{:copy}
+  $ chmod +x entrypoint.sh
+  ```
+
+## Creating a README
 
 To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
 
@@ -129,20 +141,20 @@ In your `hello-world-docker-action` directory, create a `README.md` file that sp
 - An example of how to use your action in a workflow.
 
 **README.md**
-```markdown
+```markdown{:copy}
 # Hello world docker action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
 ## Inputs
 
-### `who-to-greet`
+## `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-### `time`
+## `time`
 
 The time we greeted you.
 
@@ -153,32 +165,32 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### Commit, tag, and push your action to {% data variables.product.product_name %}
+## Commit, tag, and push your action to {% data variables.product.product_name %}
 
 From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-### Testing out your action in a workflow
+## Testing out your action in a workflow
 
 Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-#### Example using a public action
+### Example using a public action
 
-The following workflow code uses the completed hello world action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name.
+The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -186,24 +198,24 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
-#### Example using a private action
+### Example using a private action
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
+Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% ifversion fpt %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -226,6 +238,10 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% ifversion fpt or ghes > 3.0 or ghae %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
+{% ifversion fpt or ghes > 3.0 or ghae %}
+![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+{% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run.png)
+{% endif %}

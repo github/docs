@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-anti-bribery-statement
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 O GitHub mantém nosso compromisso com as práticas éticas de negócios, proibindo o suborno e a corrupção. Conforme a [Transparência Internacional](https://www.transparency.org/what-is-corruption#costs-of-corruption) explica, os custos da corrupção são:

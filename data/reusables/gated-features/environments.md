@@ -1,0 +1,1 @@
+Environments, environment protection rules, and environment secrets are available in **public** repositories for all products. For access to environments in **private** repositories, you must use {% data variables.product.prodname_enterprise %}.{% ifversion fpt %} {% data reusables.gated-features.more-info %}{% endif %}

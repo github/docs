@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, da clic en **Paquetes**. ![Pestaña de paquetes en la barra lateral de la consola de administración](/assets/images/enterprise/site-admin-settings/management-console-packages-tab.png)

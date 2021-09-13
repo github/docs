@@ -1,1 +1,1 @@
-1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**. ![Edit option in drop-down menu from project board sidebar](/assets/images/help/projects/project-board-edit-settings.png)
+1. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, em **Editar**. ![Opção de editar no menu suspenso da barra lateral do quadro de projeto](/assets/images/help/projects/project-board-edit-settings.png)

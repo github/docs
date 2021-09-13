@@ -9,7 +9,7 @@ versions:
 
 Repository administrators can change the anonymous Git read access setting for a specific repository if:
 - A site administrator has enabled private mode and anonymous Git read access.
-- The repository is public on the instance and is not a fork.
+- The repository is public on the enterprise and is not a fork.
 - A site administrator has not disabled anonymous Git read access for the repository.
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}

@@ -1,6 +1,6 @@
-Webhooks can be delivered using different content types:
+Os webhooks podem ser entregues usando diferentes tipos de conteúdo:
 
-- The `application/json` content type will deliver the JSON payload directly as the body of the `POST` request.
-- The `application/x-www-form-urlencoded` content type will send the JSON payload as a form parameter called `payload`.
+- O tipo de conteúdo de `application/json` fornecerá a carga do JSON diretamente como o texto da solicitação `POST`.
+- O tipo de conteúdo `application/x-www-form-urlencoded` enviará a carga do JSON como um parâmetro de formulário denominado `carga`.
 
-Choose the one that best fits your needs.
+Escolha o que melhor se adeque às suas necessidades.

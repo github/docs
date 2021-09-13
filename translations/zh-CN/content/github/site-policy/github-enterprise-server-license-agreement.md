@@ -88,21 +88,21 @@ versions:
 
 **8. 付款**
 
-**8.1** *Fees.* Customer agrees to pay the Fees in full, up front without deduction or setoff of any kind, in U.S. Dollars. 客户必须在 GitHub 发票日期三十 (30) 天内支付费用。 本协议下应付的金额不可退款，第 13 和 14.1 条中规定的除外。 如果客户未及时支付任何费用，GitHub 有权寻求法律或公平裁决的任何行动，并且 (i) 以每月 1.0% 或法律允许的最高利率（取较小者）对逾期金额收取利息，并收取所有恢复费用，以及 (ii) 终止适用的订单或 SOW。 客户独自负责本协议造成或与之相关的所有税、费、关税和政府评估（基于 GitHub 净收入的税除外）。
+**8.1***费用。*客户同意以美元全额预付费用，没有任何形式的扣减或抵销。 Dollars. 客户必须在 GitHub 发票日期三十 (30) 天内支付费用。 本协议下应付的金额不可退款，第 13 和 14.1 条中规定的除外。 如果客户未及时支付任何费用，GitHub 有权寻求法律或公平裁决的任何行动，并且 (i) 以每月 1.0% 或法律允许的最高利率（取较小者）对逾期金额收取利息，并收取所有恢复费用，以及 (ii) 终止适用的订单或 SOW。 客户独自负责本协议造成或与之相关的所有税、费、关税和政府评估（基于 GitHub 净收入的税除外）。
 
 **8.2** *购买额外的订阅许可。*客户通过 GitHub 的网站或其销售团队提交申请，可获得本协议下的额外订阅许可。 然后将生成新的订单，如果客户购买额外的订阅许可，则必须根据当时的适用价格，按比例支付适用订阅期的剩余时间。 在客户的订阅许可证再续订一个订阅期之后，除非订单另有规定，否则 GitHub 将以年为基础对所有订阅许可证开一次发票。
 
 **8.3** *附加软件。*附加软件基于每个用户授予许可。 为免生疑问，除非订单中另有说明，否则在任何特定时间，客户拥有的附加软件订阅许可数量，必须与其在本协议下拥有的产品订阅许可数量相等。 例如，如果客户已持有 100 用户的产品订阅许可，想要购买“高级安全”订阅，则该客户必须购买 100 用户的高级安全订阅许可。
 
-**9. 交付。**GitHub 将在安全、有密码保护的网站提供许可密钥给客户下载。 All deliveries under this Section 9 will be electronic. 为避免疑问，客户负责安装任何软件，并承认 GitHub 在提供许可密钥后对软件没有进一步的交付义务。 当有更新时，GitHub 将放在同一网站上供下载。 客户必须在商业合理的基础上更新软件，但每年不少于一 (1) 次。 客户负责对其用户名和密码保密。
+**9. 交付。**GitHub 将在安全、有密码保护的网站提供许可密钥给客户下载。 本第 9 部分的所有交付都是电子形式。 为避免疑问，客户负责安装任何软件，并承认 GitHub 在提供许可密钥后对软件没有进一步的交付义务。 当有更新时，GitHub 将放在同一网站上供下载。 客户必须在商业合理的基础上更新软件，但每年不少于一 (1) 次。 客户负责对其用户名和密码保密。
 
 **10. 验证。**在 GitHub 请求时，客户将及时向 GitHub 提供软件生成的报告，验证客户在根据本协议使用软件。 对于超出协议条款的任何其他使用，GitHub 将给客户开发票，从其第一次使用日期起生效。
 
-**11. Support.**
+**11. 支持。**
 
 **11.1**  *标准支持。 *GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。 标准支持只通过 GitHub 以基于 web 的支持单提供，支持请求必须从 GitHub 支持团队可与之交互的用户发起。 GitHub 按订单或 SOW 规定的支持级别、费用和订阅期为软件提供高级支持（根据 [Enterprise Server 高级支持条款](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server)）或专门的技术支持。
 
-**11.2**  *Enhanced Support Offerings.* GitHub may provide enhanced Support offerings for the Software (including the Premium, Premium Plus, and Engineering Direct Support offerings) in accordance with the [Support terms](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise), and at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
+**11.2**  *增强的支持服务。* GitHub 可能根据[支持条款](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise)，按照订单或 SOW 中指定的支持级别、费用和订阅期为软件提供增强的支持服务（包括 Premium、Premium Plus 和工程直接支持服务）。
 
 **11.3** *除外条款。* GitHub 将采取合理的努力更正客户告知的任何重大、可重现软件错误。 但 GitHub 在以下情况下不负责提供支持 (i) 有人（非 GitHub）修改软件；(ii) 客户以对软件或其性能产生不利影响的方式更改其操作系统或环境；(iii) 客户以本协议或文档授权以外的方式使用软件；或 (iv) 客户对软件存在疏忽或误用。
 
@@ -166,7 +166,7 @@ versions:
 
 **18.4** *政府用户。*产品和文档完全使用私人资金开发，被视为《联邦采购条例》12.212 和 27.405-3 以及《国防部联邦采购条例补充规定》227.7202-3 所述的“商业计算机软件”和“商业计算机软件文档”。 产品作为受限制的计算机软件和有限权利数据许可给美国政府最终用户。 没有技术数据或计算机软件是在本协议下开发的。 美国政府或其承包商对产品或文档的任何使用、披露、修改、分发或重制，需遵守本协议所述的限制。 禁止所有其他使用。
 
-**18.5** *Export.* The Products are subject to export and sanctions restrictions administered by the U.S. </em>产品受美国政府实施的出口和制裁限制以及某些外国政府的进口限制之约束，客户在使用产品时应遵守所有适用的进出口法律法规。 客户不得也不得允许任何第三方，从美国转移或出口或者允许出口或再出口产品的任何部分或任何直接派生品到以下目标：(i) 任何被禁运或恐怖主义支持的国家或地区（或其国民或居民）；(ii) 美国商务部实体名单或拒绝订购表中的任何人，根据美国外国资产控制办公室实施规则封锁的任何人，包括特别指定国民名单或受制裁国家“政府”实体中的任何人，或受其他适用的禁止或制裁人员名单约束的任何人；(iii) 被限制或禁止出口或再出口的任何国家或地区，或者美国政府或其任何机构要求出口或再出口时获取出口许可证或其他政府批准，但并未事先获得此类许可证或批准的国家/地区；或 (iv) 违反美国或外国机构或机关的任何进出口限制、制裁、法律或法规的其他实体或个人。 Commerce Department’s Entity List or Table of Denial Orders, anyone blocked pursuant to rules administered by the U.S. Office of Foreign Assets Control, including anyone on the List of Specially Designated Nationals or sanctioned country “Government” entities, or anyone subject to other applicable prohibited or sanctioned persons lists; (iii) to any country or territory to which such export or re-export is restricted or prohibited, or as to which the U.S. government or any agency thereof requires an export license or other governmental approval at the time of export or re-export without first obtaining such license or approval; or (iv) otherwise in violation of any export, sanctions, or import restrictions, laws or regulations of any United States or foreign agency or authority. 客户声明并保证，客户不是任何此类被禁国家的国民或居民或受其控制，也不在任何此类被禁方名单中。 GitHub Enterprise Server 是一种自托管的虚拟设备，可以在客户自己的数据中心或虚拟私有云中运行。 因此，GitHub Enterprise Server 可用于存储 ITAR 或其他受出口管制的信息。 但是，客户应负责确保其合规性。 客户承认并同意，未经美国政府事先许可，不得将产品用于设计或开发核能、化学或生物武器或导弹技术。 government.
+**18.5** *出口。*产品受美国政府实施的出口和制裁限制 </em>产品受美国政府实施的出口和制裁限制以及某些外国政府的进口限制之约束，客户在使用产品时应遵守所有适用的进出口法律法规。 客户不得也不得允许任何第三方，从美国转移或出口或者允许出口或再出口产品的任何部分或任何直接派生品到以下目标：(i) 任何被禁运或恐怖主义支持的国家或地区（或其国民或居民）；(ii) 美国商务部实体名单或拒绝订购表中的任何人，根据美国外国资产控制办公室实施规则封锁的任何人，包括特别指定国民名单或受制裁国家“政府”实体中的任何人，或受其他适用的禁止或制裁人员名单约束的任何人；(iii) 被限制或禁止出口或再出口的任何国家或地区，或者美国政府或其任何机构要求出口或再出口时获取出口许可证或其他政府批准，但并未事先获得此类许可证或批准的国家/地区；或 (iv) 违反美国或外国机构或机关的任何进出口限制、制裁、法律或法规的其他实体或个人。 商务部实体名单或拒绝订购表中的任何人，根据美国 外国资产控制办公室实施规则封锁的任何人，包括特别指定国民名单或受制裁国家“政府”实体中的任何人，或受其他适用的禁止或制裁人员名单约束的任何人；(iii) 被限制或禁止出口或再出口的任何国家或地区，或者美国 政府或其任何机构要求出口或再出口时获取出口许可证或其他政府批准，但并未事先获得此类许可证或批准的国家/地区；或 (iv) 违反美国或外国机构或机关的任何进出口限制、制裁、法律或法规的其他实体或个人。 客户声明并保证，客户不是任何此类被禁国家的国民或居民或受其控制，也不在任何此类被禁方名单中。 GitHub Enterprise Server 是一种自托管的虚拟设备，可以在客户自己的数据中心或虚拟私有云中运行。 因此，GitHub Enterprise Server 可用于存储 ITAR 或其他受出口管制的信息。 但是，客户应负责确保其合规性。 客户承认并同意，未经美国政府事先许可，不得将产品用于设计或开发核能、化学或生物武器或导弹技术。 政府。
 
 **18.6** *未经许可不得公开。*GitHub 可将客户标识为现有客户和潜在客户。 但未经客户允许，GitHub 不得在任何广告或营销材料中使用客户的名称或徽标。
 

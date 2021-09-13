@@ -1,0 +1,1 @@
+1. Recolecta el nombre y la dirección de correo electrónico de cada coautor.{% if currentVersion == "free-pro-team@latest" %} Si una persona elige mantener su dirección de correo electrónico como privada, debes utilizar su dirección de correo electrónico de tipo `no-reply` que proporcionó {% data variables.product.product_name %} para proteger su privacidad.{% endif %}

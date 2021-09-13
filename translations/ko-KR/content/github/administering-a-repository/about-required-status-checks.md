@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About required status checks
@@ -35,7 +36,7 @@ You can set up either loose or strict status checks, depending on whether you wa
 
 ### Troubleshooting required status checks
 
-If you have a check and a status with the same name and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/v3/checks/)."
+If you have a check and a status with the same name and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
 
 Once you've set up required status checks, your branch must be up to date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch.
 
@@ -59,9 +60,9 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, it must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pull Requests](/v3/pulls/#response-1)."
+Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, it must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pull Requests](/rest/reference/pulls#response-1)."
 
 ![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

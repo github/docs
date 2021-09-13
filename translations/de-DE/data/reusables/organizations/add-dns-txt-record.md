@@ -1,0 +1,1 @@
+1. Befolge die unter **Add a DNS TXT record** (TXT-Eintrag für DNS hinzufügen) angegebenen Anweisungen, um mit Deinem Domänen-Hosting-Dienst einen TXT-Eintrag für DNS zu erstellen. ![Anweisungen zum Erstellen eines TXT-Eintrags für DNS](/assets/images/help/organizations/create-dns-txt-record-instructions.png)

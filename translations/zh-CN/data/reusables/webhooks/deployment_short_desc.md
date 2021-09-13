@@ -1,1 +1,1 @@
-A deployment is created. {% data reusables.webhooks.action_type_desc %} For more information, see the "[deployment](/v3/repos/deployments/#list-deployments)" REST API.
+已创建部署。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[部署](/rest/reference/repos#list-deployments)”REST API。

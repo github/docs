@@ -1,1 +1,1 @@
-1. Optionally, to customize the color of your label, edit the hexadecimal number, or click the refresh button for another random selection. ![Issues new label color refresh](/assets/images/help/issues/issues-color-refresh.png)
+1. Opcionalmente, para personalizar a cor da sua etiqueta, edite o número hexadecimal ou clique no botão atualizar para outra seleção aleatória. ![Emite uma nova cor da etiqueta quando atualizada](/assets/images/help/issues/issues-color-refresh.png)

@@ -8,8 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
-
 
 
 在本节中，我们将重点介绍身份验证的基础知识。 具体来说，我们将创建一个 Ruby 服务器（使用 [Sinatra][Sinatra])， 以几种不同的方式实现应用程序的 [web 流][webflow]。
@@ -47,8 +49,10 @@ get '/' do
 end
 ```
 
-客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。 因此，**绝对、 _永远_**不要将这些值存储在
-{% data variables.product.product_name %} 中或任何其他公共位置。 我们建议将它们存储为[环境变量][about env vars]，这正是我们在这里采用的做法。
+客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。
+{% if currentVersion == "free-pro-team@latest" %} **永远_不要_**将该事项的这些值存储在
+{% data variables.product.product_name %} 中或任何其他公共的地方。{% endif %} 建议将它们存储为
+[环境变量][about env vars]--我们正是这样做的。
 
 接下来，在 _views/index.erb_ 中粘贴此内容：
 
@@ -106,7 +110,7 @@ end
 
 #### 检查授予的作用域
 
-今后，用户将能够[编辑您请求的作用域][edit scopes post]，但您的应用程序被授予的访问权限可能低于您最初要求的权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。
+用户可以通过直接更改 URL 来编辑您请求的范围。 这可以授予您的应用程序比您最初请求的更少的访问权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 有关请求和授予的范围的更多信息，请参阅“[OAuth 应用程序的范围](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)”。
 
 授予的作用域在交换令牌的响应中返回。
 
@@ -128,7 +132,7 @@ end
 
 仅在发出请求之前检查作用域是不够的，因为用户可能会在检查与实际请求之间的时间段更改作用域。 如果发生这种情况，您期望成功的 API 调用可能会以 `404` 或 `401` 状态失败，或者返回不同的信息子集。
 
-为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[检查令牌有效性\]\[/v3/apps/oauth_applications/#check-a-token\]{% else %}\[检查令牌有效性\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
+为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [检查令牌的有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌的有效性](/rest/reference/apps#check-an-authorization){% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
 
 #### 发出经过身份验证的请求
 
@@ -172,8 +176,9 @@ erb :basic, :locals => auth_result
 
 如果我们要求用户每次访问网页时都必须登录应用程序，这将是一个非常糟糕的模式。 例如，尝试直接导航到 `http://localhost:4567/basic`。 您会收到一个错误。
 
-如果我们能够绕过整个“单击此处”的过程，并且_记住_，只要用户登录到
-{% data variables.product.product_name %}，他们应该就能够访问此应用程序，应该怎么办呢？ 不必担心，因为_这正是我们要做的_。
+如果我们能够绕过整个 “点击这里”过程会怎么样：只需_记住_，只要用户登录到
+{% data variables.product.product_name %}，他们就应该能够访问此应用程序？ 不用担心，
+因为_这正是我们要做的_。
 
 我们的上述小服务器相当简单。 为了加入一些智能身份验证功能，我们将切换到使用会话来存储令牌。 这将使身份验证对用户透明化。
 
@@ -302,6 +307,5 @@ end
 [libraries]: /libraries/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[edit scopes post]: https://developer.github.com/changes/2013-10-04-oauth-changes-coming/
 [new oauth app]: https://github.com/settings/applications/new
 [app settings]: https://github.com/settings/developers

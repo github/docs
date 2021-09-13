@@ -1,1 +1,1 @@
-1. Under the name of the application, click **Provisioning**. !["Provisioning" tab for Okta application](/assets/images/help/saml/okta-provisioning-tab.png)
+1. No nome do aplicativo, clique em **Provisionamento**. ![Aba "Provisionamento" guia para o aplicativo do Okta](/assets/images/help/saml/okta-provisioning-tab.png)

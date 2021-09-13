@@ -1,1 +1,0 @@
-Las {% data variables.product.prodname_github_app %}s deben contar con el permiso de `actions:read` para utilizar esta terminal.

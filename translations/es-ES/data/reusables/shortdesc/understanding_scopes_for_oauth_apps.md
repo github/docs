@@ -1,0 +1,1 @@
+Los alcances te permiten especificar exactamente el tipo de acceso que necesitas. Los alcances _limitan_ el acceso para los tokens de OAuth. No otorgan ningún permiso adicional más allá de aquél que el usuario ya tiene.

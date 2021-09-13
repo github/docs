@@ -1,3 +1,3 @@
 {% if currentVersion == "free-pro-team@latest" %}
-Internal repositories are the default setting for all new repositories created in an organization owned by an enterprise account.
+Os repositórios internos são a configuração-padrão para todos os novos repositórios criados em uma organização pertencente a uma conta corporativa.
 {% endif %}

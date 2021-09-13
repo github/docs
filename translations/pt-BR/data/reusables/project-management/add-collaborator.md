@@ -1,1 +1,1 @@
-10. In the search results, click the correct username and click **Add collaborator**.
+10. Nos resultados da pesquisa, clique no nome de usuário correto e clique em **Adicionar colaborador**.

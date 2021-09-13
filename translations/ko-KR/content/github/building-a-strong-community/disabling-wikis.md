@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 커뮤니티
 ---
 
 When you turn off a wiki, the content is hidden, but not erased. If you choose to re-enable wikis later, your previous pages will be restored.

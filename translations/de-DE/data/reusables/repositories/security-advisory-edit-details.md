@@ -1,1 +1,1 @@
-1. Gib die Details der Sicherheitslücke ein, die der Sicherheitshinweis adressiert. ![Sicherheitshinweis-Metadaten](/assets/images/help/security/security-advisory-metadata.png)
+1. Edit the product and versions affected by the security vulnerability that this security advisory addresses. ![Sicherheitshinweis-Metadaten](/assets/images/help/security/security-advisory-affected-product.png)

@@ -1,1 +1,1 @@
-After creating and registering an OAuth App, you can make changes to it.
+OAuth Appを作成して登録した後に、変更を加えることができます。

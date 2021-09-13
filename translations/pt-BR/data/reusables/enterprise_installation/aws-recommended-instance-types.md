@@ -1,5 +1,5 @@
 Com base na contagem de licenças de usuário, recomendamos os seguintes tipos de instâncias. |
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 | Licenças de usuário                      | Tipo recomendado |
 |:---------------------------------------- | ----------------:|
 | Teste, demonstração ou 10 usuários leves |         r4.large |

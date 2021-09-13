@@ -76,7 +76,7 @@ Diese Richtlinien sollen die Bearbeitung von Anfragen zum Entfernen sensibler Da
 
 ### So senden Sie Ihre Anfrage
 
-Sie können Ihre Anfrage zur Entfernung sensibler Daten über unser [-Kontaktformular](https://support.github.com/contact) senden. Bitte fügen Sie eine Textversion Ihrer Anfrage in den Text Ihrer Nachricht ein. Das Senden Ihrer Anfrage in einem Anhang kann zu Verzögerungen bei der Bearbeitung führen.
+Sie können Ihre Anfrage zur Entfernung sensibler Daten über unser [-Kontaktformular](https://support.github.com/contact?tags=docs-sensitive-data) senden. Bitte fügen Sie eine Textversion Ihrer Anfrage in den Text Ihrer Nachricht ein. Das Senden Ihrer Anfrage in einem Anhang kann zu Verzögerungen bei der Bearbeitung führen.
 
 ### Streitfall
 

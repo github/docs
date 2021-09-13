@@ -1,1 +1,1 @@
-1. Above the changed code, click **Review changes**. ![Review changes button](/assets/images/help/pull_requests/review-changes-button.png)
+1. Acima do código alterado, clique em **Revisar alterações**. ![Botão de revisar alterações](/assets/images/help/pull_requests/review-changes-button.png)

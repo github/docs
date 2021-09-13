@@ -2,7 +2,7 @@
 
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
-These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
+These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
 
 ## Table of contents <!-- omit in toc -->
 - [The GitHub Docs approach to style](#the-github-docs-approach-to-style)
@@ -12,6 +12,8 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Code blocks](#code-blocks)
   - [Commands](#commands)
   - [Examples](#examples)
+  - [Indentation](#indentation)
+  - [Scheduled workflows](#scheduled-workflows)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -47,6 +49,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Accounts](#accounts)
   - [Acronyms](#acronyms)
   - [Apps](#apps)
+  - [Currency](#currency)
   - [Inclusive language](#inclusive-language-1)
   - [Prepositions](#prepositions)
   - [Product names](#product-names-1)
@@ -118,8 +121,8 @@ When code examples refer to a larger file, show the relevant section of the file
 
 ```
 on:
-schedule:
-  - cron:  "40 19 * * *"
+  schedule:
+    - cron:  "40 19 * * *"
 ```
 
 - **Avoid:**
@@ -129,10 +132,33 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### Indentation
+
+In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
+
+- **Use:**
+
+```yaml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+```
+
+### Scheduled workflows
+
+Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
+
+- Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
+- Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
+- Use a different time for each example.
+
 ## Headers
 
-Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under “User licences”, view your total licenses.
+Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
+- **Use:** Under “User licenses”, view your total licenses.
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 
@@ -140,7 +166,7 @@ To orient readers and help them understand if the section is relevant to them, i
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Images, image maps, and multimedia](https://docs.microsoft.com/en-us/style-guide/accessibility/graphics-design-media#images-image-maps-and-multimedia)” in Microsoft’s Style Guide.
+Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Images, image maps, and multimedia](https://docs.microsoft.com/style-guide/accessibility/graphics-design-media#images-image-maps-and-multimedia)” in Microsoft’s Style Guide.
 
 ### Filenames
 
@@ -156,13 +182,15 @@ Do not include your username or avatar in any images. If a screenshot must inclu
 
 ## Inclusive language
 
-It’s critical that all of our documentation is inclusive and respectful of our audience of people in widely varying circumstances from all over the planet. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+
+Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
 | Use | Avoid |
 | --- | --- |
 | Allowlist | Whitelist |
 | Denylist | Blacklist |
-| Main branch | Default branch |
+| Default/Main branch | Master branch |
 
 ### Resources about inclusive language
 
@@ -170,9 +198,9 @@ GitHub Brand Guide:
 - [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
-- [Bias-free communication](https://docs.microsoft.com/en-us/style-guide/bias-free-communication)
-- [Writing for all abilities](https://docs.microsoft.com/en-us/style-guide/accessibility/writing-all-abilities)
-- [Accessibility terms](https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
+- [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
+- [Writing for all abilities](https://docs.microsoft.com/style-guide/accessibility/writing-all-abilities)
+- [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
 - [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/inclusive-language/)
@@ -190,11 +218,11 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H3 header.
+Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization), for applications that are not websites.     
+- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
+- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -210,6 +238,10 @@ For general guidelines, see “[Lists](https://brand.github.com/content/grammar#
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
 
+When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
+* `foo`: Something that provides bar.
+* `bar`: Something provided by foo.
+
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
 - If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
@@ -218,7 +250,7 @@ When introducing a list, avoid phrasing like “the following” or “these”,
 
 ## Procedural steps
 
-Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
+Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
 
 Each step must include an action. You can also choose to include whether a step is optional, explain the reason or result of the step, and orient the reader by describing the location of the action, before guiding them to complete the action.
 
@@ -255,12 +287,69 @@ Take care to distinguish between product names and product elements. For more in
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
 
+## Product-specific conventions
+
+This section describes additional conventions that are specific to GitHub products. 
+
+### GitHub Actions
+
+#### Disclaimers for third-party actions
+
+Code examples that use third-party actions must include the following disclaimer as part of the code block:
+
+```
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+```
+To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example: 
+
+```
+{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+This is an example of a third-party action:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+Examples:
+- See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
+
+### Pinning version numbers to SHA
+
+Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
+
+```
+steps:
+    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+```
+
+For GitHub Docs purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/javascript-action@main
+```
+
+For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/en-us/style-guide/punctuation)” in the Microsoft Style Guide.
+Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Reusables and variables
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the data directory in the github/docs repository and the “Product names” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
 ## Tables
 
@@ -272,7 +361,7 @@ A table’s contents should be clear from the preceding content - avoid unneeded
 
 Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.
 
-For further guidance, see “[Formatting titles](https://docs.microsoft.com/en-us/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
+For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
 
 ## User interface elements
 
@@ -338,15 +427,15 @@ GitHub Brand Guide:
 - [Referring to GitHub features and product elements](https://brand.github.com/content/terminology/#referring-to-github-features-and-product-elements)
 - [Page names and UI references](https://brand.github.com/content/grammar#page-names-and-ui-references)
 Microsoft Style Guide:
-- [Formatting text in instructions](https://docs.microsoft.com/en-us/style-guide/procedures-instructions/formatting-text-in-instructions)
+- [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 
 ## Voice and tone
 
-Use clear, simple language that’s approachable and accessible for a wide range of readers. For more information, see “[Voice](https://brand.github.com/content/voice/)” in GitHub’s Brand Guide. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/en-us/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/en-us/style-guide/top-10-tips-style-voice).”
+Use clear, simple language that’s approachable and accessible for a wide range of readers. For more information, see “[Voice](https://brand.github.com/content/voice)” in GitHub’s Brand Guide. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology) in and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/en-us/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology)” and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 
@@ -381,6 +470,31 @@ Use "Apps" when referring to specific apps or types of apps.
 - **Use:** GitHub App, OAuth App
 
 GitHub Apps is always capitalized, because it’s a feature name.
+
+### Currency
+
+When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+
+Use lowercase for currency names, but capitalize the reference to the country or region.
+- **Use:** US dollar.
+- **Avoid:** US Dollar, $USD dollar.
+
+Use uppercase for currency codes.
+- **Use:** USD.
+
+Where there is only one reference in an article, use the currency name without a `$` sign preceding the amount.
+- **Use:** `10 US dollars` for a single reference to currency.
+
+Where an article contains several references to the same currency, ensure that the first reference uses the currency name without a `$` sign preceding the amount and includes the currency code in parentheses following the currency name.
+
+For subsequent references to currency in an article or where appropriate (such as when space is a consideration, or when several amounts are presented in a table or list), include the `$` sign preceding the amount and use the ISO standard currency code following the amount.
+- **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
+- **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
+
+Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+
+- **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
+- **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
 
 ### Inclusive language
 

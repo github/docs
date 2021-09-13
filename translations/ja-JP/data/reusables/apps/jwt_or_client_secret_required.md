@@ -1,1 +1,0 @@
-GitHub Appsがこのエンドポイントにアクセスするには[JWT](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)を使わなければなりません。 OAuth Appsは、このエンドポイントにアクセスするのに自分のクライアントIDとクライアントシークレットで[基本認証](/v3/auth/#basic-authentication)を使わなければなりません。

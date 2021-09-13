@@ -1,1 +1,1 @@
-1. Click **Create reminder**.
+1. Clique em **Criar lembrete**.

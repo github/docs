@@ -1,1 +1,1 @@
-You can delete OAuth Apps when you no longer use them.
+Você pode excluir aplicativos OAuth quando não os usar mais.

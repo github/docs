@@ -9,4 +9,4 @@
 | 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. |
 | 8080 | HTTP    | Plain-text web based {% data variables.enterprise.management_console %}. *Not required unless SSL is disabled manually.* |
 | 8443 | HTTPS   | Secure web based {% data variables.enterprise.management_console %}. *Required for basic installation and configuration.* |
-| 9418 | Git     | Simple Git protocol port. Clone and fetch operations to public repositories only. *Unencrypted network communication.* |
+| 9418 | Git     | Simple Git protocol port. Clone and fetch operations to public repositories only. *Unencrypted network communication.* {% data reusables.enterprise_installation.when-9418-necessary %}  |

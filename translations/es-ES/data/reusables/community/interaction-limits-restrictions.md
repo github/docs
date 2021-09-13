@@ -1,0 +1,1 @@
+El habilitar un límite de interacción para un repositorio restringe a ciertos usuarios de comentar, abrir propuestas, crear solicitudes de cambios, reaccionar con emojis, editar los comentarios existentes y editar los títulos de las propuestas y solicitudes de cambios.

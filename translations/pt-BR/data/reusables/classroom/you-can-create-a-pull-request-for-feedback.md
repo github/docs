@@ -1,0 +1,1 @@
+Você pode criar automaticamente um pull request em que você pode fornecer feedback e responder às perguntas de um aluno sobre uma atividade. Para obter mais informações sobre a revisão das alterações em um pull request, consulte "[Revisar alterações em pull requests](/github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests)".

@@ -7,6 +7,13 @@ intro: 'You can interact with people, repositories, and organizations on {% data
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
@@ -21,7 +28,7 @@ Click **Follow** on a person's profile page to follow them.
 
 ### Watching a repository
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Click **Watch** at the top of a repository to watch it.
 
@@ -30,6 +37,10 @@ Click **Watch** at the top of a repository to watch it.
 ### Joining the conversation
 
 {% data reusables.support.ask-and-answer-forum %}
+
+### Communicating on {% data variables.product.product_name %}
+
+{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
 
 ### Doing even more
 
@@ -61,8 +72,8 @@ You're now connected to the {% data variables.product.product_name %} community.
 
 ![Star a project](/assets/images/help/stars/star-a-project.png)
 
-- [Set up Git](/articles/set-up-git)
-- [Create a repository](/articles/create-a-repo)
-- [Fork a repository](/articles/fork-a-repo)
+- "[Set up Git](/articles/set-up-git)"
+- "[Create a repository](/articles/create-a-repo)"
+- "[Fork a repository](/articles/fork-a-repo)"
 - **Be social**
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

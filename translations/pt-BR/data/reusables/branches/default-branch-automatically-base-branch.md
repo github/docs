@@ -1,1 +1,2 @@
-The default branch is the base branch in your repository, against which all pull requests and code commits are automatically made, unless you specify a different branch.
+A menos que você especifique um branch diferente, o branch-padrão em um repositório é o branch de base para novos pull requests e commits de código.
+

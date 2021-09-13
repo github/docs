@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 By default, a new GitHub App will have an automatically generated [identicon](https://github.com/blog/1586-identicons). An identicon badge looks something like this:

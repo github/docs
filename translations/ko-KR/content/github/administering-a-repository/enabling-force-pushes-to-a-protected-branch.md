@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Anyone with admin permissions to a repository can enable force pushes.
@@ -15,7 +16,7 @@ By default, force pushes are blocked on all protected branches. When you enable 
 
 Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% if currentVersion != "free-pro-team@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 

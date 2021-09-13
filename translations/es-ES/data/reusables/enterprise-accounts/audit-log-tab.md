@@ -1,0 +1,1 @@
+1. Dentro de " Parámetros de {% octicon "gear" aria-label="The Settings gear" %} ", haz clic en **Audit log (Registro de auditoría)**. ![Pestaña de registro de auditoría en la barra lateral de la cuenta de empresa](/assets/images/help/business-accounts/enterprise-account-settings-audit-log-tab.png)

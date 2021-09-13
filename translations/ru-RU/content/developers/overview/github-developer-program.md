@@ -5,6 +5,8 @@ redirect_from:
   - /program
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)

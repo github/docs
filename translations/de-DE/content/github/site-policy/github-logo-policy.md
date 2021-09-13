@@ -6,6 +6,9 @@ redirect_from:
   - /articles/github-logo-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Sie können in einigen Szenarien {% data variables.product.prodname_dotcom %} Logos zu Ihrer Website oder Drittanbieter-Anwendung hinzufügen. Weitere Informationen und spezifische Richtlinien zur Verwendung des Logos finden Sie auf der[{% data variables.product.prodname_dotcom %} Seite "Logos und ihre Nutzung"](https://github.com/logos).

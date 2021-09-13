@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -28,7 +31,7 @@ versions:
 
 ### 提交评论的自定义媒体类型
 
-以下是提交评论支持的媒体类型。 您可以在[此处](/v3/media/)阅读有关 API 中媒体类型使用情况的更多信息。
+以下是提交评论支持的媒体类型。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -49,11 +52,14 @@ versions:
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## 社区
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## 内容
 
@@ -61,7 +67,7 @@ versions:
 
 ### 仓库内容的自定义媒体类型
 
-[自述文件](/v3/repos/contents/#get-a-repository-readme)、[文件](/v3/repos/contents/#get-repository-content)和[符号链接](/v3/repos/contents/#get-repository-content)支持以下自定义媒体类型：
+[自述文件](/rest/reference/repos#get-a-repository-readme)、[文件](/rest/reference/repos#get-repository-content)和[符号链接](/rest/reference/repos#get-repository-content)支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -70,13 +76,13 @@ versions:
 
 对于 Markdown 或 AsciiDoc 等标记文件，您可以使用 `.html` 媒体类型检索渲染的 HTML。 使用我们的开源[标记库](https://github.com/github/markup)将标记语言渲染为 HTML。
 
-[所有对象](/v3/repos/contents/#get-repository-content)都支持以下自定义媒体类型：
+[所有对象](/rest/reference/repos#get-repository-content)都支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.object
 
 使用 `object` 媒体类型参数以一致的对象格式检索内容，而不考虑内容类型。 例如，响应将是包含对象数组的 `entries` 属性的对象，而不是目录的对象数组。
 
-您可以在[此处](/v3/media/)阅读有关 API 中媒体类型使用情况的更多信息。
+您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -133,7 +139,8 @@ versions:
 
 请记住，GitHub 从未真正访问过您的服务器。 与部署事件的交互取决于第三方集成。 多个系统可以侦听部署事件，由其中每个系统来决定它们是否负责将代码推送到服务器、构建本地代码等。
 
-请注意，`repo_deployment` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对部署和部署状态的定向访问权限，但**不**授予对仓库代码的访问权限，而 `public_repo` 和 `repo` 作用域还授予对代码的权限。
+请注意，`repo_deployment` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对部署和部署状态的定向访问权限，但**不**授予对仓库代码的访问权限，而 {% if currentVersion != "github-ae@latest" %}`public_repo` 和{% endif %}`repo` 作用域还授予对代码的权限。
+
 
 ### 非活动部署
 
@@ -144,6 +151,16 @@ versions:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+## 环境
+
+环境 API 允许您创建、配置和删除环境。 有关环境的更多信息，请参阅“[环境](/actions/reference/environments)”。 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## 复刻
 
@@ -177,7 +194,7 @@ versions:
 
 ## 页面
 
-{% data variables.product.prodname_pages %} API 可检索关于您的 {% data variables.product.prodname_pages %} 配置以及构建状态的信息。 关于站点和构建的信息只能由经身份验证的所有者访问，即使网站时公开的。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)”。
+{% data variables.product.prodname_pages %} API 可检索关于您的 {% data variables.product.prodname_pages %} 配置以及构建状态的信息。 只有经过验证的所有者才能访问有关网站和构建的信息{% if currentVersion != "github-ae@latest" %}，即使网站是公开的也一样{% endif %}。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)”。
 
 在其响应中包含 `status` 键的 {% data variables.product.prodname_pages %} API 端点中，其值可能是以下值之一：
 * `null`：站点尚未构建。
@@ -186,10 +203,10 @@ versions:
 * `built`：站点已构建。
 * `errored`：表示构建过程中发生错误。
 
-在{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}支持 `mister-fantastic-preview` 并{% endif %}返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
+在返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
 * `html_url`：所渲染的 Pages 站点的绝对 URL（包括模式）。 例如，`https://username.github.io`。
 * `source`：包含所渲染 Pages 站点的源分支和目录的对象。 这包括：
-   - `branch`：用于发布[站点源文件](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_master_ 或 _gh-pages_。
+   - `branch`：用于发布[站点源文件](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_main_ 或 _gh-pages_。
    - `path`：提供站点发布内容的仓库目录。 可能是 `/` 或 `/docs`。
 
 {% for operation in currentRestOperations %}
@@ -216,7 +233,7 @@ versions:
 
 计算仓库统计信息是一项昂贵的操作，所以我们尽可能返回缓存的数据。  如果您查询仓库的统计信息时，数据尚未缓存，您将会收到 `202` 响应；同时触发后台作业以开始编译这些统计信息。 稍等片刻，待作业完成，然后再次提交请求。 如果作业已完成，该请求将返回 `200` 响应，响应正文中包含统计信息。
 
-仓库统计信息由仓库默认分支（一般是 master）的 SHA 缓存；推送到默认分支将重置统计信息缓存。
+仓库统计信息由仓库默认分支的 SHA 缓存；推送到默认分支将重置统计信息缓存。
 
 ### 统计排除某些类型的提交
 
@@ -248,6 +265,7 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## 流量
 
 对于您具有推送权限的仓库，流量 API 提供对仓库图中所示信息的访问权限。 更多信息请参阅“<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">查看仓库的流量</a>”。
@@ -255,6 +273,7 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## Web 挂钩
 
@@ -263,7 +282,7 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
 如果您要设置一个 web 挂钩来接收来自组织所有仓库的事件，请参阅关于[组织 web 挂钩](/rest/reference/orgs#webhooks)的 API 文档。
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 ### 接收 web 挂钩
@@ -292,14 +311,14 @@ GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsub
 #### 回调 URL
 回调 URL 可以使用 `http://` 协议。
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回调以指定 GitHub 服务。
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回叫来指定 GitHub 服务。
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}
 
@@ -319,9 +338,9 @@ PubSubHubbub 请求可以多次发送。 如果挂钩已经存在，它将根据
 
 ##### 参数
 
-| 名称             | 类型    | 描述                                                                                                                                                                                                         |
-| -------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `字符串` | **必填**。 值为 `subscribe` 或 `unsubscribe`。                                                                                                                                                                    |
-| `hub.topic`    | `字符串` | **必填**。  要订阅的 GitHub 仓库的 URI。  路径格式必须为 `/{owner}/{repo}/events/{event}`。                                                                                                                                   |
-| `hub.callback` | `字符串` | 要接收主题更新的 URI。                                                                                                                                                                                              |
-| `hub.secret`   | `字符串` | 用于生成传出正文内容的 SHA1 HMAC 的共享密钥。  您可以通过将原始请求正文与 `X-Hub-Signature` 标头的内容进行比较来验证来自 GitHub 的推送。 您可以查看 [PubSubHubbub 文档](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)了解详情。 |
+| 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `字符串` | **必填**。 值为 `subscribe` 或 `unsubscribe`。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `hub.topic`    | `字符串` | **必填**。  要订阅的 GitHub 仓库的 URI。  路径格式必须为 `/{owner}/{repo}/events/{event}`。                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `hub.callback` | `字符串` | 要接收主题更新的 URI。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `hub.secret`   | `字符串` | 用于生成传出正文内容的哈希签名的共享密钥。  您可以通过比较原始请求正文与 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`X-Hub-Signature` 或 `X-Hub-Signature-256` 标头{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` 标头{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` 标头{% endif %} 的内容来验证来自 GitHub 的推送。 您可以查看 [PubSubHubbub 文档](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)了解详情。 |

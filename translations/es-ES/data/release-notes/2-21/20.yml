@@ -1,0 +1,18 @@
+date: '2021-04-28'
+sections:
+  security_fixes:
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - Setup script running on MySQL replication may have caused unnecessary database reseeding during database failover.
+    - '`config-apply` could take longer than necessary due to `rake db:migrate` being called unnecessarily.'
+    - Orchestrator could have failed over to a MySQL replica which was not replicating from primary during seeding phase when primary could not be connected.
+    - Organizations or projects with errors blocked migration and could not be excluded.
+  changes:
+    - Preflight checks allow all AWS instance types by default.
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
+    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - Las alertas de seguridad no se reportan cuando se sube a un repositorio en la línea de comandos.

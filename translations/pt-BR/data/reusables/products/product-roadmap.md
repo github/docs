@@ -1,1 +1,1 @@
-For information on planned features and products, see the [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}).
+Para obter informações sobre recursos e produtos planejados, consulte o [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}).

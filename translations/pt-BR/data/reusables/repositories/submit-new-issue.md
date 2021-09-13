@@ -1,1 +1,1 @@
-1. When you're finished, click **Submit new issue**.
+1. Ao terminar, clique em **Enviar novo problema**.

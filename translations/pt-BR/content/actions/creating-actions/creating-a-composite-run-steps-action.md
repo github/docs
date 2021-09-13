@@ -5,16 +5,23 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
 Neste guia, você aprenderá os componentes básicos necessários para criar e usar uma ação de etapas de execução compostas empacotada. Para manter o foco deste guia nos componentes necessários para empacotar a ação, a funcionalidade do código da ação é mínima. A ação imprime "Hello World" e "Goodbye", ou, se você fornecer um nome personalizado, imprimirá "Hello [who-to-greet]" e "Goodbye". A ação também mapeia um número aleatório para a variável de saída `random-number` e executa um script denominado `goodbye.sh`.
 
 Ao terminar esse projeto, você saberá como criar sua própria ação de etapas de execução compostas e poderá testá-la em um fluxo de trabalho.
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Pré-requisitos
 
@@ -36,7 +43,7 @@ Antes de começar, você criará um repositório {% data variables.product.produ
   echo "Goodbye"
   ```
 
-1. No seu terminal, torne o `goodbye.sh` executável e marque-o no seu repositório.
+3. No seu terminal, torne `goodbye.sh` executável.
 
   ```shell
   chmod +x goodbye.sh
@@ -64,12 +71,12 @@ Antes de começar, você criará um repositório {% data variables.product.produ
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -85,13 +92,26 @@ Antes de começar, você criará um repositório {% data variables.product.produ
 
   Para obter mais informações sobre como usar `github.action_path`, consulte "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-1. Criar nova etiqueta. Esse exemplo usa uma etiqueta chamada `v1` para o branch principal. Para obter mais informações, consulte "[Criar uma etiqueta](/github/managing-your-work-on-github/creating-a-label)".
+1. No seu terminal, verifique o seu arquivo `action.yml`.
+
+  ```shell
+  git add action.yml
+  git commit -m "Add action"
+  git push
+  ```
+
+1. No seu terminal, adicione uma tag. Este exemplo usa uma tag denominada `v1`. Para obter mais informações, consulte "[Sobre ações](/actions/creating-actions/about-actions#using-release-management-for-actions)".
+
+  ```shell
+  git tag -a -m "Description of this release" v1
+  git push --follow-tags
+  ```
 
 ### Testar sua ação em um fluxo de trabalho
 
 O código de fluxo de trabalho a seguir usa a ação hello world completa que você fez em "[Criando uma ação arquivo de metadados](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
-Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` em outro repositório, mas substitua `actions/hello-world-composite-run-steps-action@v1` pelo repositório e a etiqueta que você criou. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
+Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` em outro repositório, mas substitua `actions/hello-world-composite-run-steps-action@v1` pelo repositório e a tag que você criou. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -103,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

@@ -4,12 +4,17 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 貴社のビジネスにおけるニーズを満たすために GitHub をお選びいただき、ありがとうございます。 本契約を注意深くお読みください。GitHub がお客様と書面による合意を別途行わない限り、本製品 (以下に定義) の利用に対しては、この契約が適用されます。 「同意する」またはそれに類似するボタンをクリックするか、本製品を利用することにより、お客様は本契約の規約および条件の全てに同意することになります。 お客様が、企業またはその他の法人を代表して契約を締結しようとする場合、お客様は、本契約を締結するためにその企業またはその他の法人に義務を負担させる法的権限を持つことを表明するものとします。
 
 ### GitHub企業向け利用規約
-Version Effective Date: July 20, 2020
+このバージョンの発効日: 2020 年 11 月 16 日
 
 本契約は、以下に詳述する GitHub の提供品 (併せて「**製品**」) に対して適用されます。
 - 「サービス」、
@@ -21,7 +26,7 @@ Version Effective Date: July 20, 2020
 
 「**関係会社**」とは、直接的または間接的に支配している、支配されている、あるいは当事者と共通の支配下にある、あらゆる法人を意味します。本定義において「支配」とは、所有権のうち 50% 超を持つか、当該法人の経営管理を指揮する権限を有することを意味します。
 
-「**契約**」とは、集合的に、本書に含まれるか、または本書で参照されるすべての規約、条件、通知、並びに、当社が適宜「サービス」に掲載する場合があるその他すべての操作規則、ポリシーおよび手順を指します。 GitHub のサイトポリシーは、[https://docs.github.com/categories/site-policy](/categories/site-policy) でご確認いただけます。
+「**契約**」とは、集合的に、本書に含まれるか、または本書で参照されるすべての規約、条件、通知、並びに、当社が適宜「サービス」に掲載する場合があるその他すべての操作規則、ポリシーおよび手順を指します。 GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 「**全ユーザ**」とは、「サービス」を利用する、「お客様」の「ユーザ」および「外部ユーザ」を総称的に意味します。
 
@@ -108,7 +113,7 @@ Version Effective Date: July 20, 2020
 場合によっては、お客様による GitHub の利用について、第三者による規約が適用されることがあります。 たとえば、お客様が独自の条項またはライセンス契約を持つ Organization の成員である場合、お客様が「サービス」に統合するアプリケーションをダウンロードしている場合、お客様が他のサービスに認証するために「サービス」を利用している場合などです。 本契約は、お客様と GitHub との完全な合意を示していますが、お客様と第三者との関係については第三者の規約が適用されます。
 
 #### 5. アメリカ合衆国の祝日 米国連邦政府の条項
-If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+お客様が米国 government entity or otherwise accessing or using the Service in a government capacity, the [U.S. 連邦政府修正条項](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)が適用され、お客様はその条項に同意するものとします。
 
 #### 6. Enterprise Cloud Service Level Agreement
 GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
@@ -122,7 +127,7 @@ GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided i
 お客様が「製品」を利用する際には、[「GitHub利用規程」](/articles/github-acceptable-use-policies)および[「GitHubコミュニティガイドライン」](/articles/github-community-guidelines)に従う必要があります。 お客様は、いかなる管轄区域内でも、違法、わいせつ、不快、または詐欺的なコンテンツまたは活動 (損害を与えたりそう標榜したりする、ネットワークまたはシステムの完全性またはセキュリティを妨害または侵害する、フィルタを回避する、迷惑・虐待的・虚偽的なメッセージ、ウイルスまたは有害なコードを送信する、あるいは第三者の権利を侵害するなど) の目的で「サービス」を使用してはなりません。
 
 #### 3. プライバシー
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
+The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
 
 ### D. コンテンツの責任、所有権、ライセンス権
 
@@ -133,13 +138,13 @@ The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitH
 お客様が作成または所有する「お客様のコンテンツ」の所有権は、お客様が保持します。 お客様は、 (a)「お客様のコンテンツ」に責任を負うこと、 (b) お客様が投稿する権利を有する「お客様のコンテンツ」(サードパーティまたはユーザーが生成したコンテンツを含む) に限って送信すること、(c) お客様が投稿する「お客様のコンテンツ」に関サードパーティのライセンスに完全に従うことに同意するものとします。 お客様は、セクション D.3 から D.6 で規定されている権利を、無料で、かつ同セクションに記された目的のために付与します。これは、お客様が「お客様のコンテンツ」を GitHub サーバから削除するまで続きますが、お客様が公に投稿し「外部ユーザ」がフォークしたコンテンツは例外となり、その場合は「お客様のコンテンツ」のすべてのフォークが GitHub サーバから削除されるまで続きます。 お客様が、「サービス」を実行するために必要な権限をGitHubに付与するライセンスをあらかじめ伴うような「お客様のコンテンツ」をアップロードする場合、追加のライセンスは必要ありません。
 
 #### 3. 当社へのライセンス許可
-お客様は、「お客様のコンテンツ」を保存、解析、表示し、「サービス」の提供に必要な限りにおいて付随的な複製を作成する権利をGitHubに付与します。 これには、「お客様のコンテンツ」をGitHubのデータベースにコピーし、バックアップを作成する権利、お客様およびお客様が閲覧者として選択した相手に「お客様のコンテンツ」を表示する権利、「お客様のコンテンツ」を解析して検索インデックスを作成するなどの形でGitHubのサーバ上で分析する権利、お客様がコンテンツの共有相手として選択した外部ユーザーと「お客様のコンテンツ」を共有する権利、および音楽や動画のような場合に「お客様のコンテンツ」を実演する権利が含まれます。 これらの権利は、パブリックリポジトリとプライベートリポジトリの両方に適用されます。 このライセンスは、「お客様のコンテンツ」を販売またはその他の方法で配布する、あるいは「サービス」以外で使用する権利をGitHubに付与するものではありません。 お客様は、帰属先を明示せず、また「サービス」の提供に必要な限りにおいて「お客様のコンテンツ」を合理的に適応させる目的で、「お客様のコンテンツ」に必要な権利をGitHubに付与します。
+Customer grants to GitHub the right to store, archive, parse, and display Customer Content, and make incidental copies, only as necessary to provide the Service, including improving the Service over time. This license includes the right to copy Customer Content to GitHub's database and make backups; display Customer Content to Customer and those to whom Customer chooses to show it; parse Customer Content into a search index or otherwise analyze it on GitHub's servers; share Customer Content with External Users with whom Customer chooses to share it; and perform Customer Content, in case it is something like music or video. これらの権利は、パブリックリポジトリとプライベートリポジトリの両方に適用されます。 This license does not grant GitHub the right to sell Customer Content. It also does not grant GitHub the right to otherwise distribute or use Customer Content outside of our provision of the Service, except that as part of the right to archive Customer Content, GitHub may permit our partners to store and archive Customer Content in public repositories in connection with the GitHub Arctic Code Vault and GitHub Archive Program. お客様は、帰属先を明示せず、また「サービス」の提供に必要な限りにおいて「お客様のコンテンツ」を合理的に適応させる目的で、「お客様のコンテンツ」に必要な権利をGitHubに付与します。
 
 #### 4. 外部ユーザへのライセンス付与
 Issue、コメント、外部ユーザのリポジトリへのコントリビューションなど、お客様が公に投稿するコンテンツは、他のユーザーが閲覧することができます。 リポジトリを公開表示に設定することで、お客様は外部ユーザがお客様のリポジトリを閲覧しフォークすることを許可するものとします。 お客様がそのページおよびリポジトリを一般に公開表示に設定する場合、お客様は「サービス」を通じて「お客様のコンテンツ」を使用、表示、および実演し、またGitHub が提供する機能を通じて許可される限りにおいて (フォークなど) のみ「サービス」上でお客様のコンテンツを複製する、非独占的かつ世界的ライセンスを外部ユーザーに付与します。 お客様がライセンスを採用した場合、他の権利を付与することができます。 お客様が作成または所有していない「お客様のコンテンツ」をアップロードする場合には、アップロードする「お客様のコンテンツ」が、これらの権限を外部ユーザーに付与する条項に基づいて必ずライセンスされるよう図る責任をお客様は負います。
 
 #### 5. リポジトリのライセンス下でのコントリビューション
-お客様がライセンスの通知を含むリポジトリに対してコントリビューションを行う際、お客様は必ず同じ条件のもとでそのコントリビューションをライセンスし、それらの条件下でかかるコントリビューションをライセンスする権利を有することに同意するものとします。 お客様が、コントリビューターライセンス契約など、異なる条件のもとでコントリビューションのライセンスを別途締結している場合は、その契約が優先されます。
+Whenever Customer adds Content to a repository containing notice of a license, it licenses that Content under the same terms and agrees that it has the right to license that Content under those terms. If Customer has a separate agreement to license that Content under different terms, such as a contributor license agreement, that agreement will supersede.
 
 #### 6. 人格権
 お客様は、完全性と帰属の権利も含めて、「サービス」の任意の部分に対してアップロード、公開、またはサブミットする「お客様のコンテンツ」について、すべての人格権を保持します。 ただしお客様は、GitHubがセクション Dで付与された権利を合理的に行使できるようにする目的に限り、これらの権利を放棄し、GitHubに対してこれらの権利を主張しないことに同意するものとしますが、その目的以外ではこの限りではありません。
@@ -153,10 +158,13 @@ Issue、コメント、外部ユーザのリポジトリへのコントリビュ
 GitHubは、お客様のプライベートリポジトリにある「お客様のコンテンツ」をお客様の機密情報と見なします。 GitHubは、プライベートリポジトリの「お客様のコンテンツ」を、セクション Pに従って保護し、厳密に機密扱いします。
 
 #### 3. アクセス
-GitHub personnel may only access Customer’s Private Repositories (i) with Customer’s consent and knowledge, for support reasons or (ii) when access is required for security reasons.  お客様は、プライベートリポジトリへのアクセスを追加することもできます。 たとえば、プライベートリポジトリにある「お客様のコンテンツ」への追加の権利を必要とするGitHubの各種サービスまたは機能を有効にするなどが考えられます。 これらの権利はサービスまたは機能によって異なりますが、GitHubは引き続き、お客様のプライベートリポジトリにある「お客様のコンテンツ」をお客様の機密情報として扱います。 これらのサービスが、「サービス」の提供に必要な以上の権利を追加で必要とする場合、GitHubはその件について説明を行います。
+GitHub personnel may only access Customer's Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
-#### 4. 除外
-プライベートリポジトリのコンテンツが法律または本契約に違反していると考えられる理由がある場合、GitHubはそのコンテンツにアクセスし、レビューして削除する権利を有します。 また、[法律により強制された](/github/site-policy/github-privacy-statement#for-legal-disclosure)場合、GitHubは「プライベートリポジトリ」の「コンテンツ」を開示する場合があります。 法律に基づく要件で別段拘束されていない限り、またはセキュリティ上の脅威などセキュリティに対するリスクに対応する目的で、GitHubはかかる行動について通知します。
+お客様は、プライベートリポジトリへのアクセスを追加することもできます。 たとえば、プライベートリポジトリにある「お客様のコンテンツ」への追加の権利を必要とするGitHubの各種サービスまたは機能を有効にするなどが考えられます。 これらの権利はサービスまたは機能によって異なりますが、GitHubは引き続き、お客様のプライベートリポジトリにある「お客様のコンテンツ」をお客様の機密情報として扱います。 これらのサービスが、「サービス」の提供に必要な以上の権利を追加で必要とする場合、GitHubはその件について説明を行います。
+
+また、[法律により強制された](/github/site-policy/github-privacy-statement#for-legal-disclosure)場合は、当社はプライベートリポジトリのコンテンツを開示する場合があります。
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### F. 知的財産に関する通知
 
@@ -188,7 +196,7 @@ GitHub personnel may only access Customer’s Private Repositories (i) with Cust
 
 #### 1. 価格、料金
 
-**支払い条件** 料金については、[github.com/pricing](https://github.com/pricing) に掲載されているものが適用されます (ただし、関係者による協議を行い、「注文書」に記載されている場合を除きます)。 お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 Dollars. お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 お客様が定められた期限に「料金」を支払わなかった場合、普通法または衡平法に基づく法的措置を取ることに加え、GitHub は次の権利を留保します。(i) 過去の未払い金に対して毎月 1.0% か、法律により許容される最高額の金利のうち、いずれか低い額の金利を課し、かつ回収に要するあらゆる費用を課すこと、および (ii) 該当する「注文書」または SOW を解約すること。 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+**支払い条件** 料金については、[github.com/pricing](https://github.com/pricing) に掲載されているものが適用されます (ただし、関係者による協議を行い、「注文書」に記載されている場合を除きます)。 お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
 **従量制支払い:** 「サービス」の一部の機能は、使用量に基づいて請求されます。 かかる「サービス」機能は、限られた使用量および期間であれば、追加料金なしでご利用のプランで使用できる場合があります。 ご利用のプランに含まれる数量を超えて有料の「サービス」機能を購入することを選択した場合、お客様は前月の実際の使用量に基づいてかかる「サービス」機能の料金を支払います。 かかる購入に対する毎月の支払いは、後払いで定期的に請求されます。ただし、請求書払いのお客様については、有料の「サービス」機能は前払いとなります。 詳しくは、[GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)を参照してください。
 
@@ -198,7 +206,7 @@ GitHub personnel may only access Customer’s Private Repositories (i) with Cust
 #### 3. プロフェッショナルサービスクレジット
 お客様が「プロフェッショナルサービス」への支払いに「プロフェッショナルサービスクレジット」を利用する場合、お客様による「SOW」の受領をもって、お客様の「プロフェッショナルサービスクレジット」残高から、適切な「プロフェッショナルサービスクレジット」が差し引かれるものとします。 お客様は、「プロフェッショナルサービス」について GitHub に発行する発注書に、「SOW」に定められた価格を確実に反映する責任を負います。 「SOW」に記載された価格と、お客様の発注書に記載された価格に相違がある場合、「SOW」の価格が優先するものとします。 両「当事者」は、「プロフェッショナルサービスクレジット」による「SOW」の支払いには、それを有効かつ強制力を持つものとするために、いずれの「当事者」による署名も不要であることに同意します。 「プロフェッショナルサービスクレジット」は、すべて「注文書」に記載された期間内に使用する必要があります。期間内に使用されなかった場合は自動的に取り消され、返金できません。 お客様は、「プロフェッショナルサービスクレジット」を旅費および宿泊費に充てることはできず、旅費および宿泊費は別途請求されます。
 
-#### 4. 承認
+#### 4. 認可
 お客様は、登録されたクレジットカード、PayPal アカウント、またはその他の承認された支払い方法に請求する許可を GitHub に対して与えるものとします。
 
 ### K. 契約期間、解約、一時停止
@@ -270,7 +278,7 @@ GitHub は、関係会社以外の第三者による、お客様に対する訴�
 お客様の「プロフェッショナルサービス」の要請に応じ、GitHub は「プロフェッショナルサービス」に記載されている「SOW」を提供するものとします。 GitHub は、それぞれの「SOW」に記載されている「プロフェッショナルサービス」を実施するものとします。 GitHub は、「プロフェッショナルサービス」が実施される方法および手段を管理するとともに、割り当てる担当者を決定する権利を留保するものとします。 GitHub は、GitHub がその行為および怠慢に対して責任を負うことを条件に、第三者を用いて「プロフェッショナルサービス」を実施できるものとします。 お客様は、ソフトウェア、ツール、仕様、アイデア、概念、発明、プロセス、テクニック、ノウハウを含む、「プロフェッショナルサービス」の実施に関連して使用または開発されたすべての権利、権原、および利益を GitHub が保持することを認め、これに同意するものとします。 「プロフェッショナルサービス」の実施中に、GitHub がお客様に提供する成果物について、お客様が「サービス」と併用する目的に限り、本契約の期間中、お客様に対して非独占的、譲渡不可、世界的規模、使用料無料の期間限定ライセンスを付与するものとします。
 
 ### R. 本規約またはサービスの変更
-GitHub は、独自の裁量により、いつでも本契約を修正する権利を留保し、かかる修正があった場合には本契約を更新します。 GitHub は、独自の裁量により、いつでも本契約を修正する権利を留保し、かかる修正があった場合には本契約を更新します。 重要でない変更については、お客様が「サービス」を継続して利用することをもって、本契約の改訂に同意したものとみなされます。 お客様は、本契約に対するすべての変更を「[サイトポリシー](https://github.com/github/site-policy)」リポジトリで確認できます。
+GitHub は、独自の裁量により、いつでも本契約を修正する権利を留保し、かかる修正があった場合には本契約を更新します。 GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. お客様は、本契約に対するすべての変更を「[サイトポリシー](https://github.com/github/site-policy)」リポジトリで確認できます。
 
 GitHub は、「アップデート」および新機能の追加により、サービスを変更します。 上記にかかわらず、GitHubは通知の有無にかかわらず、「サービス」(またはその一部) をいつでも変更する、あるいは一時的または恒久的に停止する権利を留保するものとします。
 

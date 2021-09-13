@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリでブランチの保護を強制した場合、必須レビューをセットアップできます。 ブランチ保護の強制に関する詳しい情報については[保護されたブランチの設定](/articles/configuring-protected-branches/)を参照してください。 必須レビューのセットアップに関する詳しい情報については[プルリクエストの必須レビューの有効化](/articles/enabling-required-reviews-for-pull-requests)を参照してください。

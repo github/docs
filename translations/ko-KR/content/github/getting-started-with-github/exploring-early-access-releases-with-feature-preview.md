@@ -5,6 +5,8 @@ redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
 versions:
   free-pro-team: '*'
+topics:
+  - Early access
 ---
 
 ### {% data variables.product.prodname_dotcom %}'s release cycle
@@ -21,5 +23,5 @@ versions:
 
 You can see a list of features that are available in beta and a brief description for each feature. Each feature includes a link to give feedback.
 
-1. In the upper-right corner of any page, click your profile photo, then click **Feature preview**. ![Feature preview button](/assets/images/help/settings/feature-preview-button.png)
+{% data reusables.feature-preview.feature-preview-setting  %}
 2. Optionally, to the right of a feature, click **Enable** or **Disable**. ![Enable button in feature preview](/assets/images/help/settings/enable-feature-button.png)

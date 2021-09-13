@@ -1,0 +1,1 @@
+Si una solicitud de extracción ha cambiado desde que fue revisada y la persona que solicitó los cambios no se encuentra disponible para realizar una revisión en la que estos cambios se aprueben, los administradores del repositorio o las personas con acceso de escritura pueden descartar la revisión.

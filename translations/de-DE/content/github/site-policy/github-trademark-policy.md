@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-trademark-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ### Was ist eine Verletzung der GitHub-Markenrichtlinie?
@@ -23,7 +26,7 @@ Wenn wir Berichte über Verstöße gegen die Markenrichtlinien von Inhabern staa
 
 ### Wie melde ich einen Verstoß gegen die Markenrichtlinie?
 
-Inhaber eingetragener Marken können mögliche Markenrechtsverletzungen über unser [Kontaktformular](https://support.github.com/contact) an GitHub melden. Bitte senden Sie markenbezogene Anfragen unter Verwendung Ihrer Firmen-E-Mail-Adresse und fügen Sie alle unten angeforderten Informationen ein, um unsere Antwort zu beschleunigen. Achten Sie auch darauf, uns klar zu beschreiben, warum das Konto Verwirrung mit Ihrer Marke verursachen kann oder wie das Konto Ihre Marke schädigen oder beeinträchtigen kann.
+Inhaber eingetragener Marken können mögliche Markenrechtsverletzungen über unser [Kontaktformular](https://support.github.com/contact?tags=docs-trademark) an GitHub melden. Bitte senden Sie markenbezogene Anfragen unter Verwendung Ihrer Firmen-E-Mail-Adresse und fügen Sie alle unten angeforderten Informationen ein, um unsere Antwort zu beschleunigen. Achten Sie auch darauf, uns klar zu beschreiben, warum das Konto Verwirrung mit Ihrer Marke verursachen kann oder wie das Konto Ihre Marke schädigen oder beeinträchtigen kann.
 
 ### Welche Informationen sind erforderlich, wenn Markenrichtlinienverstöße gemeldet werden?
 

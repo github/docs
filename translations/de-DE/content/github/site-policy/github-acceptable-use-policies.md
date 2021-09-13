@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **Kurzversion:** _Wir hosten die unterschiedlichsten Projekte aus der ganzen Welt, an denen viele Benutzer gemeinsam arbeiten. Diese Zusammenarbeit funktioniert nur, wenn unsere Benutzer in gutem Glauben miteinander arbeiten können. Während Sie den Dienst nutzen, müssen Sie unsere akzeptablen Nutzungsbedingungen einhalten. Dazu gehören auch Einschränkungen hinsichtlich der Inhalte, die Sie veröffentlichen können, Ihres Verhaltens bei der Dienstnutzung und andere Beschränkungen. Kurz gesagt erwarten wir einen freundlichen Umgang miteinander._
@@ -14,7 +17,7 @@ Für großgeschriebene Begriffe, die in diesen akzeptablen Nutzungsrichtlinien v
 Sie sind dafür verantwortlich, bei der Nutzung des Dienstes alle geltenden Gesetze, Vorschriften und alle unsere akzeptablen Nutzungsrichtlinien einzuhalten. Diese Richtlinien können von Zeit zu Zeit aktualisiert werden und sind nachfolgend aufgeführt. Sie finden Sie auch in unseren [Nutzungsbedingungen](/articles/github-terms-of-service) und [Unternehmensnutzungsbedingungen](/articles/github-corporate-terms-of-service).
 
 ### 2. Beschränkungen hinsichtlich der Inhalte
-Unter keinen Umständen dürfen Benutzer Inhalte in Repositorys hochladen, veröffentlichen, hosten, ausführen oder übertragen, die
+Under no circumstances will Users upload, post, host, execute, or transmit any Content that:
 
 - unrechtmäßig sind oder unrechtmäßige Aktivitäten fördern,
 
@@ -28,14 +31,20 @@ Unter keinen Umständen dürfen Benutzer Inhalte in Repositorys hochladen, verö
 
 - unwahre, ungenaue oder absichtlich irreführende Informationen darstellen oder enthalten, welche die öffentlichen Interessen (einschließlich Gesundheit, Sicherheit, Wahlintegrität und Bürgerbeteiligung) beeinträchtigen können;
 
-- aktive Schadsoftware oder Exploits enthalten oder installieren oder unsere Plattform für die Bereitstellung von Exploits nutzen (z. B. als Teil eines Befehls und Steuerungssystems) oder
+- directly supports [unlawful active attack or malware campaigns](/github/site-policy/github-community-guidelines#active-malware-or-exploits) that are causing technical harms — such as using our platform to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers — with no implicit or explicit dual-use purpose prior to the abuse occurring; or
+
+- shares unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys, including extension of a free license beyond its trial period; or
 
 - gegen ein Eigentumsrecht irgendeiner Partei verstoßen, einschließlich Patenten, Handelsmarken, Handelsgeheimnissen, Urheberrecht, Öffentlichkeitsrecht und sonstiger Rechte.
+
+Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
 
 ### 3. Beschränkungen hinsichtlich des Verhaltens
 Während Sie den Dienst nutzen, dürfen Sie unter keinen Umständen
 
 - eine Einzelperson oder Gruppe, einschließlich Ihrer Mitarbeiter, Führungskräfte, Vertreter und anderer Benutzer, belästigen, beleidigen, bedrohen oder zur Gewalt gegen sie aufrufen,
+
+- post off-topic content, or interact with platform features, in a way that significantly or repeatedly disrupts the experience of other users;
 
 - unsere Server für irgendeine Art von übermäßigen automatisierten Massenaktivitäten (beispielsweise Spam oder Kryptowährungs-Mining) verwenden, die unsere Server durch automatisierte Mittel übermäßig belasten, oder irgendeine andere Form von unerwünschter Werbung oder Aufforderungen, z. B. Systeme, die schnellen Reichtum versprechen, über unsere Server verbreiten,
 
@@ -48,15 +57,17 @@ Während Sie den Dienst nutzen, dürfen Sie unter keinen Umständen
 ### 4. Einschränkungen hinsichtlich der Dienstnutzung
 Sie dürfen keinen Teil des Dienstes, der Nutzung des Dienstes oder des Zugriffs auf den Dienst reproduzieren, duplizieren, kopieren, verkaufen, wiederverkaufen oder ausnutzen.
 
-### 5. Beschränkungen hinsichtlich Scrapings und der API-Nutzung
-Der Begriff „Scraping“ bezieht sich auf die Extrahierung von Daten aus unserem Dienst mithilfe automatischer Prozesse wie z. B. Bots oder Webcrawlern. Er umfasst nicht die Erfassung von Informationen über unser API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. Scraping ist Ihnen auf unserer Website für die folgenden Zwecke gestattet:
+### 5. Information Usage Restrictions
+You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
-- Forscher können öffentliche, nicht personenbezogene Daten aus dem Dienst zu Forschungszwecken extrahieren, vorausgesetzt, die sich aus dieser Forschung ergebenden Veröffentlichungen werden öffentlich zugänglich gemacht.
-- Archivare können öffentliche Daten zu Archivierungszwecken aus dem Dienst extrahieren.
+-  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
+-  Archivists may use public information from the Service for archival purposes.
 
-Sie dürfen keine Daten aus dem Dienst für Spamzwecke extrahieren. Dies gilt auch für den Verkauf von personenbezogenen Daten von Benutzern (gemäß Definition in der [GitHub-Datenschutzerklärung](/articles/github-privacy-statement)) beispielsweise an Personalvermittler, Headhunter und Stellenbörsen.
+Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms.
 
-Alle Daten, die mittels Scraping gesammelt werden, müssen den Vorgaben der [GitHub-Datenschutzerklärung](/articles/github-privacy-statement) entsprechen.
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+
+Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
 ### 6. Datenschutz
 Der Missbrauch personenbezogener Daten von Benutzern ist untersagt.

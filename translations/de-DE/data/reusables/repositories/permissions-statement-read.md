@@ -1,1 +1,1 @@
-Personen mit Lesezugriff auf das Repository können diese Schritte ausführen.
+Read access to the repository is required to perform these steps.

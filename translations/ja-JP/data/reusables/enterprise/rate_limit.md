@@ -1,3 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" %}
-Note that the limits mentioned above are the default rate limits for a {% data variables.product.prodname_ghe_server %} instance. Contact your site administrator to confirm if rate limits are enabled and how they are configured.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+上記の制限は
+{% data variables.product.product_name %}のデフォルトのレート制限であることに注意してください。 レート制限が有効化されており、どのように設定されているかを確認するにはサイト管理者に連絡してください。
 {% endif %}

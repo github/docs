@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Creating a branch
@@ -21,15 +24,19 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+{% note %}
+
+**Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+
+{% endnote %}
 
 If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Scroll to the branch that you want to delete, then click {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}. ![delete the branch](/assets/images/help/branches/branches-delete.png)
+1. Scroll to the branch that you want to delete, then click {% octicon "trash" aria-label="The trash icon to delete the branch" %}. ![delete the branch](/assets/images/help/branches/branches-delete.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."

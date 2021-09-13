@@ -1,5 +1,5 @@
 ---
-#Use this variable wherever backticks are necessary: http://git.io/AArkqA
+#Use this variable wherever backticks are necessary
 backticks: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 #Use this variable within codeblocks (because it includes HTML! Which only renders in shell codeblocks!)

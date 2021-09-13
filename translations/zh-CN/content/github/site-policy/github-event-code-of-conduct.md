@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-event-code-of-conduct
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub 活动是旨在加强技术社区的交往和协作的社区活动。

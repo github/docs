@@ -1,8 +1,8 @@
-| 键                    | 类型    | 描述                                                                       |
-| -------------------- | ----- | ------------------------------------------------------------------------ |
-| `页面`                 | `数组`  | The pages that were updated.                                             |
-| `pages[][page_name]` | `字符串` | The name of the page.                                                    |
-| `pages[][title]`     | `字符串` | The current page title.                                                  |
-| `pages[][action]`    | `字符串` | The action that was performed on the page. Can be `created` or `edited`. |
-| `pages[][sha]`       | `字符串` | The latest commit SHA of the page.                                       |
-| `pages[][html_url]`  | `字符串` | Points to the HTML wiki page.                                            |
+| 键                    | 类型    | 描述                                   |
+| -------------------- | ----- | ------------------------------------ |
+| `页面`                 | `数组`  | 已更新的页面。                              |
+| `pages[][page_name]` | `字符串` | 页面的名称。                               |
+| `pages[][title]`     | `字符串` | 当前页面标题。                              |
+| `pages[][action]`    | `字符串` | 在页面上执行的操作。 可以是 `created` 或 `edited`。 |
+| `pages[][sha]`       | `字符串` | 页面的最新提交 SHA。                         |
+| `pages[][html_url]`  | `字符串` | 指向 HTML wiki 页面。                     |

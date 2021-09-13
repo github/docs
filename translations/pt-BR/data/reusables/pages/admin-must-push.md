@@ -1,5 +1,5 @@
 {% tip %}
 
-**Note**: If your site{% if currentVersion ver_lt "enterprise-server@2.22" %}'s source files are located in the default publishing source—`master` for user and organization sites or `gh-pages` for project sites—but your site{% endif %} has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.
+**Observação**: Se os arquivos de origem de{% if currentVersion ver_lt "enterprise-server@2.23" %} do site estão localizados na fonte de publicação padrão —`mestre` para sites de usuário e organização ou `gh-pages` para sites de projeto — mas seu site{% endif %} não fez a publicação automaticamente, certifique-se de que alguém com permissões de administrador e um endereço de e-mail verificado tenha feito push para a fonte de publicação.
 
 {% endtip %}

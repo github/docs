@@ -11,7 +11,6 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-
 {% if currentVersion == "free-pro-team@latest" %}
 ### 关于私有包删除
 
@@ -32,13 +31,9 @@ versions:
 
 {% else %}
 
-以下是使用个人访问令牌，通过 cURL 命令删除包版本的示例，包版本 ID 为 `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`。
+目前，{% data variables.product.prodname_registry %} on {% data variables.product.product_location %} 不支持删除公共包。
 
 {% endif %}
-
-### 保留的包版本和名称
-
-{% data reusables.package_registry.package-immutability %}
 
 ### 在 {% data variables.product.product_name %} 上删除私有包的版本
 
@@ -82,4 +77,4 @@ HOSTNAME/graphql
 
 有关 `deletePackageVersion` 突变的更多信息，请参阅“[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)”。
 
-You cannot delete an entire package, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}
+您不能删除整个包，但如果您删除包的每个版本，该包将不再显示在 {% data variables.product.product_name %} 上。

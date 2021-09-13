@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 | 必需状态检查的类型 | 设置                                                                              | 合并要求                         | 考虑因素                                                                          |

@@ -1,1 +1,1 @@
-You can enable other users to authorize your OAuth App.
+Você pode habilitar outros usuários para autorizar o seu aplicativo OAuth.

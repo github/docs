@@ -1,0 +1,1 @@
+人をEnterpriseのオーナーにするには、所有権をIdPで委任しなければなりません。 IdP上のユーザアカウントに対して、SAMLアサーションの`administrator`属性を、値を`true`にして含めてください。 Enterpriseのオーナーに関する詳しい情報については「[Enterprise内のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)」を参照してください。

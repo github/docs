@@ -1,1 +1,0 @@
-Consulta [más adelante](#pull-request-events-for-forked-repositories) para aprender cómo funciona este evento con los repositorios bifurcados.

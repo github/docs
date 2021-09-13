@@ -1,1 +1,1 @@
-You can create and register an OAuth App under your personal account or under any organization you have administrative access to. While creating your OAuth app, remember to protect your privacy by only using information you consider public.
+您可以在您的个人帐户下或在您有管理权限的任何组织下创建和注册 OAuth 应用程序。 创建 OAuth 应用程序时，请记住仅使用您认为公开的信息来保护您的隐私。

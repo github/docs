@@ -6,11 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance.
 
 {% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Targeted failure scenarios
 
@@ -52,7 +59,7 @@ To manage replication on {% data variables.product.prodname_ghe_server %}, use t
 
 The `ghe-repl-setup` command puts a {% data variables.product.prodname_ghe_server %} appliance in replica standby mode.
 
- - An encrypted {% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %} tunnel is configured for communication between the two appliances.
+ - An encrypted WireGuard VPN tunnel is configured for communication between the two appliances.
  - Database services are configured for replication and started.
  - Application services are disabled. Attempts to access the replica appliance over HTTP, Git, or other supported protocols will result in an "appliance in replica mode" maintenance page or error message.
 
@@ -71,8 +78,7 @@ Run `ghe-repl-start' to start replicating against the newly configured primary.
 The `ghe-repl-start` command turns on active replication of all datastores.
 
 ```shell
-admin@169-254-1-2:~$ ghe-repl-start{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Starting OpenVPN tunnel ... {% endif %}
+admin@169-254-1-2:~$ ghe-repl-start
 Starting MySQL replication ...
 Starting Redis replication ...
 Starting Elasticsearch replication ...
@@ -144,8 +150,7 @@ Stopping Pages replication ...
 Stopping Git replication ...
 Stopping MySQL replication ...
 Stopping Redis replication ...
-Stopping Elasticsearch replication ...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Stopping OpenVPN tunnel ...{% endif %}
+Stopping Elasticsearch replication ...
 Success: replication was stopped for all services.
 ```
 
@@ -163,8 +168,7 @@ Stopping replication ...
   | Stopping Git replication ...
   | Stopping MySQL replication ...
   | Stopping Redis replication ...
-  | Stopping Elasticsearch replication ...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-  | Stopping OpenVPN tunnel ...{% endif %}
+  | Stopping Elasticsearch replication ...
   | Success: replication was stopped for all services.
 Switching out of replica mode ...
   | Success: Replication configuration has been removed.

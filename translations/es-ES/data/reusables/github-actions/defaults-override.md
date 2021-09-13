@@ -1,0 +1,1 @@
+Cuando se define más de una configuración predeterminada con el mismo nombre, {% data variables.product.prodname_dotcom %} utiliza la configuración predeterminada más específica. Por ejemplo, una configuración predeterminada definida en un job invalidará a aquella que tenga el mismo nombre definido en el flujo de trabajo.

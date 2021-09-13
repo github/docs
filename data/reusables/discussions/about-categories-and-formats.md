@@ -1,0 +1,1 @@
+All discussions must be created in a category. People with maintain or admin permissions define the categories for a repository. Each category has a format: open-ended discussion, question and answer, or announcement.

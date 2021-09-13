@@ -1,0 +1,1 @@
+**Solo para contribuyentes:** Cuando limitas las interacciones para `contributors_only`, se restringirá temporalmente a los usuarios que no hayan hecho contribuciones anteriormente y que no sean colaboradores

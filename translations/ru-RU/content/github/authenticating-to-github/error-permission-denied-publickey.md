@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - SSH
 ---
 
 ### Should the `sudo` command be used with Git?
@@ -37,7 +40,7 @@ All connections, including those for remote URLs, must be made as the "git" user
 $ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/articles/changing-a-remote-s-url/).
+If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/github/getting-started-with-github/managing-remote-repositories).
 
 You should verify your connection by typing:
 
@@ -51,7 +54,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -68,6 +71,14 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  # start the ssh-agent in the background
+  $ eval "$(ssh-agent -s)"
+  > Agent pid 59566
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% endmac %}
 
@@ -75,10 +86,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
-
-  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Verify that you have a private key generated and loaded into SSH. If you're using OpenSSH 6.7 or older:
+1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %} Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
@@ -89,13 +97,18 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% endwindows %}
 
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. If you're using OpenSSH 6.7 or older:
+2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -112,24 +125,16 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
-
-{% endlinux %}
-
-The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
+  {% else %}
+  ```shell
+  $ ssh-add -l
+  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA) If it does not print anything, you will need to <a href="/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">generate a new SSH key</a> and associate it with {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip**: On most systems the default private keys (`~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}, `~/.ssh/id_dsa`{% endif %} and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
+**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
 
-{% endtip %}
-
-#### Getting more details
-
-You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
-
-```shell
-$ ssh -vT git@{% data variables.command_line.codeblock %}
-> ...
+You can also check that the key is being used by trying to connect to <code>git@{% data variables.command_line.backticks %}</code>:
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type -1
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa-cert type -1
 > debug1: identity file /Users/<em>you</em>/.ssh/id_dsa type -1
@@ -142,6 +147,19 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: No more authentication methods to try.
 > Permission denied (publickey).
 ```
+:
+> debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type -1
+> debug1: identity file /Users/<em>you</em>/.ssh/id_rsa-cert type -1
+> debug1: identity file /Users/<em>you</em>/.ssh/id_dsa type -1
+> debug1: identity file /Users/<em>you</em>/.ssh/id_dsa-cert type -1
+> ...
+> debug1: Authentications that can continue: publickey
+> debug1: Next authentication method: publickey
+> debug1: Trying private key: /Users/<em>you</em>/.ssh/id_rsa
+> debug1: Trying private key: /Users/<em>you</em>/.ssh/id_dsa
+> debug1: No more authentication methods to try.
+> Permission denied (publickey).
+</code>
 
 In that example, we did not have any keys for SSH to use. The "-1" at the end of the "identity file" lines means SSH couldn't find a file to use. Later on, the "Trying private key" lines also indicate that no file was found. If a file existed, those lines would be "1" and "Offering public key", respectively:
 
@@ -167,7 +185,7 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. If you're using OpenSSH 6.7 or older:
+3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -178,10 +196,16 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+6. Compare the list of SSH keys with the output from the `ssh-add` command.
+![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -189,11 +213,10 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 1. Open the command line.
 2. Start SSH agent in the background.
-  ```shell
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. If you're using OpenSSH 6.7 or older:
+3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -204,10 +227,16 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+6. Compare the list of SSH keys with the output from the `ssh-add` command.
+![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 

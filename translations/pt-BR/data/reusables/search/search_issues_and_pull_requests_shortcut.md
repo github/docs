@@ -1,1 +1,1 @@
-You can focus your cursor on the search bar above the issue or pull request list with a keyboard shortcut. Para obter mais informações, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts/#issue-and-pull-request-lists)".
+Você pode focar o cursor na barra de pesquisa acima da lista de problemas ou pull request com um atalho de teclado. Para obter mais informações, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts/#issue-and-pull-request-lists)".

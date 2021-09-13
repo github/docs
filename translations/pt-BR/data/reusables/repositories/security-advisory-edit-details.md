@@ -1,1 +1,1 @@
-1. Type the details about the security vulnerability that the security advisory addresses. ![Security advisory metadata](/assets/images/help/security/security-advisory-metadata.png)
+1. Edite o produto e as versões afetados pela vulnerabilidade de segurança que esta consultoria de segurança aborda. ![Metadados da consultoria de segurança](/assets/images/help/security/security-advisory-affected-product.png)

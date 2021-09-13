@@ -1,0 +1,1 @@
+1. ページの右側で、"Select a tire（層の選択）"の下で利用可能なスポンサーシップ層をレビューしてください。 複数の種類の層が利用可能で"Monthly（月額）"層が表示されているなら、**One-time（1回）**をクリックして、1回払いの層を表示させてください。 !["1回"の層を表示](/assets/images/help/sponsors/show-one-time-tiers.png)

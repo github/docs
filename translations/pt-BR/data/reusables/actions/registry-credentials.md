@@ -1,0 +1,1 @@
+Se o container registry da imagem exigir autenticação para fazer pull da imagem, você pode usar as `credenciais` para definir um `mapa` do `nome de usuário` e `senha`. As credenciais são os mesmos valores que você forneceria para o comando [`login do docker`](https://docs.docker.com/engine/reference/commandline/login/).

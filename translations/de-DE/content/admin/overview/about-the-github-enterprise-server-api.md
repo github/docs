@@ -15,5 +15,5 @@ For the complete documentation for {% data variables.product.prodname_enterprise
 
 - Änderungen in der {% data variables.enterprise.management_console %} durchführen. For more information, see "[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)."
 - Statistiken zu Ihrer Instanz erfassen. For more information, see "[Admin stats](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)."
-- Die LDAP-Synchronisierung konfigurieren. For more information, see "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)."{% if currentVersion ver_gt "enterprise-server@2.18" %}
-- Verwalte Dein Unternehmenskonto. Weitere Informationen findest Du unter „[Unternehmenskonten](/v4/guides/managing-enterprise-accounts).“{% endif %}
+- Die LDAP-Synchronisierung konfigurieren. For more information, see "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)."
+- Verwalte Dein Unternehmenskonto. Weitere Informationen findest Du unter „[Unternehmenskonten](/v4/guides/managing-enterprise-accounts).“

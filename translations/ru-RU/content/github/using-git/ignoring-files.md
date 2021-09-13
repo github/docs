@@ -8,6 +8,7 @@ intro: 'You can configure Git to ignore files you don''t want to check in to {% 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Configuring ignored files for a single repository

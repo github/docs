@@ -20,7 +20,7 @@ versions:
 
 設定オプションの詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates) 」を参照してください。
 
-リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 数分以内に、[**{% data variables.product.prodname_dependabot_short %}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/github/administering-a-repository/listing-dependencies-configured-for-version-updates) 」を参照してください。
+リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/github/administering-a-repository/listing-dependencies-configured-for-version-updates) 」を参照してください。
 
 ### 設定変更によるセキュリティアップデートへの影響
 

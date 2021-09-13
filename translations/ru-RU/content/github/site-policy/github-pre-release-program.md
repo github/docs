@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-pre-release-program
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Thanks for signing up to participate in GitHub pre-release programs!  As a trusted member of our community, your feedback on new and experimental features is important to us.  In order to share these new products and services with you – many of which are still secret and in development – we’ll need you to agree to a special set of terms. Welcome to the Pre-release Program Agreement (“Agreement”).
@@ -62,7 +65,7 @@ This Agreement is a legal agreement between you (“you”, "your") and GitHub, 
 
   Nothing in this Agreement will impair our right to develop, acquire, license, market, promote or distribute products, software or technologies that might compete with yours.
 
-### 11. Приватность
+### 11. Конфиденциальность
 
   As part of the development and evaluation of our pre-release programs, we need to collect information about how you use the services and how we can improve them. By agreeing to participate in GitHub's pre-release programs, you agree that you have read and consented to our [Full Privacy Policy](/articles/github-privacy-statement/).
 

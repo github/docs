@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Most of the limits below affect both {% data variables.product.product_name %} and the API.

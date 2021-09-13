@@ -1,22 +1,38 @@
-const { difference } = require('lodash')
-const { getJSON } = require('../helpers')
-const { latest } = require('../../lib/enterprise-server-releases')
-const { oldVersions } = require('../../lib/old-versions-utils')
-const webhookPayloads = require('../../lib/webhooks')
+import { difference } from 'lodash-es'
+import { getJSON } from '../helpers/supertest.js'
+import { latest } from '../../lib/enterprise-server-releases.js'
+import { allVersions } from '../../lib/all-versions.js'
+import webhookPayloads from '../../lib/webhooks'
+import { jest } from '@jest/globals'
+
+const allVersionValues = Object.values(allVersions)
+
+const payloadVersions = allVersionValues.map((v) => v.miscVersionName)
+
+// grab some values for testing
+const nonEnterpriseDefaultPayloadVersion = allVersionValues.find(
+  (version) => version.nonEnterpriseDefault
+).miscVersionName
+
+const latestGhesPayloadVersion = allVersionValues.find(
+  (version) => version.currentRelease === latest
+).miscVersionName
+
+const ghaePayloadVersion = allVersionValues.find(
+  (version) => version.plan === 'github-ae'
+).miscVersionName
 
 describe('webhook payloads', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  // TODO update this test when we update the webhook payload filepaths
-  test('have old versions as top-level keys', () => {
-    oldVersions.forEach(version => {
+  test('have expected top-level keys', () => {
+    payloadVersions.forEach((version) => {
       expect(version in webhookPayloads).toBe(true)
     })
   })
 
-  // TODO update this test when we update the webhook payload filepaths
   test('have a reasonable number of payloads per version', () => {
-    oldVersions.forEach(version => {
+    payloadVersions.forEach((version) => {
       const payloadsPerVersion = Object.keys(webhookPayloads[version])
       expect(payloadsPerVersion.length).toBeGreaterThan(20)
     })
@@ -24,8 +40,8 @@ describe('webhook payloads', () => {
 
   test('have payloads that are JSON strings, not objects', () => {
     // use the first one found for testing purposes
-    const firstKey = Object.keys(webhookPayloads.dotcom)[0]
-    const firstValue = webhookPayloads.dotcom[firstKey]
+    const firstKey = Object.keys(webhookPayloads[nonEnterpriseDefaultPayloadVersion])[0]
+    const firstValue = webhookPayloads[nonEnterpriseDefaultPayloadVersion][firstKey]
     const payloadString = getPayloadString(firstValue)
     const payloadLines = payloadString.split('\n')
 
@@ -35,27 +51,38 @@ describe('webhook payloads', () => {
     expect(payloadLines[payloadLines.length - 3].trim()).toBe('```')
   })
 
-  test('on GHE, dotcom-only payloads fall back to dotcom', async () => {
-    const ghePayloads = webhookPayloads[latest]
-    const dotcomOnlyPayloads = difference(Object.keys(webhookPayloads.dotcom), Object.keys(ghePayloads))
+  test('on non-dotcom versions, dotcom-only payloads fall back to dotcom', async () => {
+    const ghesPayloads = webhookPayloads[latestGhesPayloadVersion]
+    const ghaePayloads = webhookPayloads[ghaePayloadVersion]
+    const dotcomOnlyPayloads = difference(
+      Object.keys(webhookPayloads[nonEnterpriseDefaultPayloadVersion]),
+      Object.keys(ghesPayloads)
+    )
     // use the first one found for testing purposes
     const dotcomOnlyPayload = dotcomOnlyPayloads[0]
-    expect(ghePayloads[dotcomOnlyPayload]).toBeUndefined()
+    expect(ghesPayloads[dotcomOnlyPayload]).toBeUndefined()
+    expect(ghaePayloads[dotcomOnlyPayload]).toBeUndefined()
 
-    // fallback handling is in middleware/contexturalizers/webhooks.js
-    const ghePayloadsWithFallbacks = await getJSON(`/en/enterprise/${latest}/user/developers?json=webhookPayloadsForCurrentVersion`)
-    expect(ghePayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
+    // fallback handling is in middleware/contextualizers/webhooks.js
+    const ghesPayloadsWithFallbacks = await getJSON(
+      `/en/enterprise-server@${latest}/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion`
+    )
+    const ghaePayloadsWithFallbacks = await getJSON(
+      '/en/github-ae@latest/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion'
+    )
+    expect(ghesPayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
+    expect(ghaePayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
 
-    const payloadString = getPayloadString(ghePayloadsWithFallbacks[dotcomOnlyPayload])
-    expect(payloadString.includes('```json')).toBe(true)
+    const ghesPayloadString = getPayloadString(ghesPayloadsWithFallbacks[dotcomOnlyPayload])
+    const ghaePayloadString = getPayloadString(ghaePayloadsWithFallbacks[dotcomOnlyPayload])
+    expect(ghesPayloadString.includes('```json')).toBe(true)
+    expect(ghaePayloadString.includes('```json')).toBe(true)
   })
 })
 
 // accommodate two possible payload string locations
 // value of top-level key: `create` (in create.payload.json)
 // value of second-level key: `issues.opened` (in issues.opened.payload.json)
-function getPayloadString (payload) {
-  return typeof payload === 'string'
-    ? payload
-    : payload[Object.keys(payload)[0]]
+function getPayloadString(payload) {
+  return typeof payload === 'string' ? payload : payload[Object.keys(payload)[0]]
 }

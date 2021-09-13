@@ -1,1 +1,1 @@
-Eligibility for the {% data variables.product.prodname_matching_fund %} has passed. Applications received after the January 1, 2020 deadline are not eligible for {% data variables.product.prodname_matching_fund %}.
+{% data variables.product.prodname_matching_fund %}の適格性にパスしました。 2020年1月1日の締め切り以降に受付された申請は、{% data variables.product.prodname_matching_fund %}の対象外になります。

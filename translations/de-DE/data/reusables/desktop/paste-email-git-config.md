@@ -1,1 +1,1 @@
-1. Füge im Feld **Email** (E-Mail) die E-Mail-Adresse ein, die Du aus Deinen {% data variables.product.prodname_dotcom %}- oder {% data variables.product.prodname_enterprise %}-Kontoeinstellungen kopiert hast.
+1. Fügen Sie im Feld **Email** (E-Mail) die E-Mail-Adresse ein, die Sie aus Ihren {% data variables.product.prodname_dotcom %}- oder {% data variables.product.prodname_enterprise %}-Kontoeinstellungen kopiert haben.
