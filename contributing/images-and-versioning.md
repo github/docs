@@ -1,6 +1,6 @@
 # Creating and updating screenshots
 
-Screenshots are typically used to help situate a reader in the flow for procedures an is "[Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)"), and conceptual articles about areas of the UI as in "[Configuring notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#about-participating-and-watching-notifications)").
+Screenshots are used to help readers with the flow in articles like procedures as in "[Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)"), and conceptual articles about areas of the UI as in "[Configuring notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#about-participating-and-watching-notifications)").
 
 When taking a screenshot, select the portion of the page that needs focus instead of the entire page.
 
