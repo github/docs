@@ -73,10 +73,15 @@ When the next GitHub AE version is released, the script that updates the Liquid 
 - Screenshots should have descriptive names to make them easier to find. For example, use the name `gist-embed-link.png` instead of `right_side_page_03.png`.
 - Try to avoid overly large screenshots. Fpr example, if you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead. Crop down near the focal point of the image, but leave enough of a margin around it so that some other elements of the page are visible to provide context.
 
-  Here's an example of a bad cropping:
-  ![bad cropping example](../assets/images/bad-screenshot-example.png)
-  Here's an example of a good cropping:
+Here's an example of a good cropping:
+  
   ![good cropping example](../assets/images/good-screenshot-example.png)
+
+Here's an example of a bad cropping:
+  
+  ![bad cropping example](../assets/images/bad-screenshot-example.png)
+  
+  
 
 ## Resources
 
