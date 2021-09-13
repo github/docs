@@ -93,8 +93,9 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
+{% ifversion fpt %}
 If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.prodname_dotcom_the_website %} will include a **Contributors** section with a "facepile" of all the mentioned users.
-
+{% endif %}
 {% endcli %}
 
 ## Editing a release
