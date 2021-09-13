@@ -109,7 +109,9 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 {% data reusables.repositories.releases %}
 3. On the right side of the page, next to the release you want to edit, click **Edit release**.
   ![Edit a release](/assets/images/help/releases/edit-release.png)
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
+4. Edit the details for the release in the form, then click **Update release**.
+   
+   {% ifversion fpt %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
   ![Update a release](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
