@@ -55,8 +55,6 @@ The owner of an {% data variables.product.prodname_oauth_app %} can revoke an ac
 
 {% data reusables.apps.oauth-token-limit %}
 
-{% ifversion fpt or ghae or ghes > 3.1 %}
 ## User token revoked due to {% data variables.product.prodname_github_app %} configuration
 
 User-to-server tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default. Owners of {% data variables.product.prodname_github_apps %} can configure their apps so that user-to-server tokens do not expire. For more information about changing how your {% data variables.product.prodname_dotcom %} App's user-to-server tokens behave, see "[Activating optional features for apps](/developers/apps/getting-started-with-apps/activating-optional-features-for-apps)."
-{% endif %}
