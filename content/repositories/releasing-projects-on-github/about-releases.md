@@ -18,7 +18,7 @@ topics:
 ---
 ## About releases
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
 ![An overview of releases](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![An overview of releases](/assets/images/help/releases/releases-overview.png)
