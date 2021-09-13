@@ -56,7 +56,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    {% endif %}
 6. Type a title and description for your release.
    {%- ifversion fpt %}
-   If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with a "facepile" of all the mentioned users.
+   If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
    ![Releases description](/assets/images/help/releases/releases_description.png)
 7. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
@@ -94,7 +94,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
 {% ifversion fpt %}
-If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with a "facepile" of all the mentioned users.
+If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
 {% endif %}
 
 {% endcli %}
@@ -109,7 +109,7 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 {% data reusables.repositories.releases %}
 3. On the right side of the page, next to the release you want to edit, click **Edit release**.
   ![Edit a release](/assets/images/help/releases/edit-release.png)
-4. Edit the details for the release in the form, then click **Update release**.
+4. Edit the details for the release in the form, then click **Update release**. If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.
   ![Update a release](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
