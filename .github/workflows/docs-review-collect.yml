@@ -9,9 +9,13 @@ on:
   schedule:
     - cron: '50 */6 * * *'
 
+permissions:
+  contents: read
+
 jobs:
   add-requests-to-board:
     name: Add requests to board
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
 
     steps:
