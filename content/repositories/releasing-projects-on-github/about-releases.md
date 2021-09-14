@@ -18,7 +18,11 @@ topics:
 ---
 ## About releases
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
+![An overview of releases](/assets/images/help/releases/releases-overview-with-contributors.png)
+{% else %}
 ![An overview of releases](/assets/images/help/releases/releases-overview.png)
+{% endif %}
 
 Releases are deployable software iterations you can package and make available for a wider audience to download and use.
 

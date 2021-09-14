@@ -199,7 +199,7 @@
     "dev": "npm start",
     "heroku-postbuild": "node script/early-access/clone-for-build.js && npm run build",
     "link-check": "start-server-and-test link-check-server 4002 link-check-test",
-    "link-check-server": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en' PORT=4002 node server.mjs",
+    "link-check-server": "cross-env NODE_ENV=production ENABLED_LANGUAGES='en' PORT=4002 node server.mjs",
     "link-check-test": "cross-env node script/check-internal-links.js",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-translation": "cross-env TEST_TRANSLATION=true jest content/lint-files",
