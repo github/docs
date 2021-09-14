@@ -29,6 +29,14 @@ Default files are not included in clones, packages, or downloads of individual r
 ## Supported file types
 
 You can create defaults in your organization{% ifversion fpt or ghae or ghes %} or user account{% endif %} for the following community health files:
+000
+0
+--
+
+ -
+ 
+ 
+ ...
 
 Community health file | Description
 --- | ---{% ifversion fpt %}
