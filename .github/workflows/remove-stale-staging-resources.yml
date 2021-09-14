@@ -60,5 +60,5 @@ jobs:
       - name: Run script
         run: script/remove-stale-staging-envs.js
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
           REPO: ${{ github.repository }}

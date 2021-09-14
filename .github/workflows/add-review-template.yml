@@ -34,6 +34,6 @@ jobs:
         run: |
           gh pr comment $PR --body "$TEMPLATE"
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           PR: ${{ github.event.pull_request.html_url }}
           TEMPLATE: ${{ env.TEMPLATE }}
