@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
 
             const issue = context.payload.issue
