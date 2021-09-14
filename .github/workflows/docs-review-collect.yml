@@ -35,7 +35,7 @@ jobs:
         run: |
           node .github/actions-scripts/fr-add-docs-reviewers-requests.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT }}
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           REPO: 'github'

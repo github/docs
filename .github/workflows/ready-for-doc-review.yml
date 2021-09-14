@@ -30,7 +30,7 @@ jobs:
         run: |
           node .github/actions-scripts/ready-for-docs-review.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT }}
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           PR_NODE_ID: ${{ github.event.pull_request.node_id }}
