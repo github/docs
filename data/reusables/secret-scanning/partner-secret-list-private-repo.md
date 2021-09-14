@@ -1,4 +1,4 @@
-Partner | Supported secret | API slug
+Provider | Supported secret | API slug
 --- | --- | ---
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Adafruit IO | Adafruit IO Key | adafruit_io_key{% endif %}

@@ -83,6 +83,7 @@ async function main() {
     const envsWithPullIds = envsPlusPullIds.filter(
       (eppi) => eppi.repo === repo && eppi.pullNumber > 0
     )
+    matchingCount += envsWithPullIds.length
 
     nonMatchingEnvNames.push(
       ...envsPlusPullIds
@@ -101,8 +102,7 @@ async function main() {
         await deleteEnvironment(ewpi.env.name)
       }
 
-      matchingCount += 1
-      if (matchingCount >= maxEnvironmentsToProcess) {
+      if (spammyCount + staleCount >= maxEnvironmentsToProcess) {
         exceededLimit = true
         break
       }

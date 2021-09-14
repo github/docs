@@ -7,13 +7,30 @@ export default async function createApp(pullRequest) {
   const {
     number: pullNumber,
     base: {
-      repo: { name: repo },
+      repo: {
+        name: repo,
+        owner: { login: owner },
+      },
     },
     head: { ref: branch },
     user: author,
   } = pullRequest
 
   const appName = createAppName({ prefix: 'ghd', repo, pullNumber, branch })
+
+  // Put together application configuration variables
+  const isPrivateRepo = owner === 'github' && repo === 'docs-internal'
+  const { HYDRO_ENDPOINT, HYDRO_SECRET } = process.env
+  const appConfigVars = {
+    // These values are usually set in app.json but we need to set them
+    // ourselves for Docker image deployment.
+    NODE_ENV: 'production',
+    ENABLED_LANGUAGES: 'en',
+    WEB_CONCURRENCY: '1',
+    // IMPORTANT: These secrets should only be set in the private repo!
+    // These are required for Hydro event tracking
+    ...(isPrivateRepo && HYDRO_ENDPOINT && HYDRO_SECRET && { HYDRO_ENDPOINT, HYDRO_SECRET }),
+  }
 
   // Check if there's already a Heroku App for this PR, if not create one
   let appExists = true
@@ -56,6 +73,16 @@ export default async function createApp(pullRequest) {
     }
   } else {
     console.log(`Heroku App ${appName} already exists.`)
+  }
+
+  // Set/reconfigure environment variables
+  // https://devcenter.heroku.com/articles/platform-api-reference#config-vars-update
+  try {
+    await heroku.patch(`/apps/${appName}/config-vars`, {
+      body: appConfigVars,
+    })
+  } catch (error) {
+    throw new Error(`Failed to update Heroku app configuration variables. Error: ${error}`)
   }
 
   return appName

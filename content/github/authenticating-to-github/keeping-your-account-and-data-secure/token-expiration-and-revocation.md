@@ -11,7 +11,7 @@ topics:
 shortTitle: Token expiration
 ---
 
-When a token has expired or has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
+When a token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}has expired or {% endif %} has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
 
 This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
 
@@ -21,7 +21,7 @@ This article explains the possible reasons your {% data variables.product.produc
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.1 %}
+{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
 ## Token revoked after reaching its expiration date
 
 When you create a personal access token, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
@@ -55,8 +55,6 @@ The owner of an {% data variables.product.prodname_oauth_app %} can revoke an ac
 
 {% data reusables.apps.oauth-token-limit %}
 
-{% ifversion fpt or ghae or ghes > 3.1 %}
 ## User token revoked due to {% data variables.product.prodname_github_app %} configuration
 
 User-to-server tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default. Owners of {% data variables.product.prodname_github_apps %} can configure their apps so that user-to-server tokens do not expire. For more information about changing how your {% data variables.product.prodname_dotcom %} App's user-to-server tokens behave, see "[Activating optional features for apps](/developers/apps/getting-started-with-apps/activating-optional-features-for-apps)."
-{% endif %}

@@ -106,5 +106,8 @@ This file should be automatically updated, but you can also run `script/update-e
 - [ ] Remove `[DO NOT MERGE]` and other meta information from the PR title 😜.
 - [ ] The `github/docs-internal` repo is frozen, and the `Repo Freeze Check / Prevent merging during deployment freezes (pull_request_target)` test is expected to fail. Use admin permissions to ship the release branch with this failure.
 - [ ] Do any required smoke tests.
+- [ ] Push the search index LFS objects for the public `github/docs` repo. The LFS objects were already being pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects, run the [search sync workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml) with the following inputs:
+  version: `enterprise-server@<RELEASE>`
+  language: `en`
 - [ ] Once smoke tests have passed, you can [unfreeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) and post an announcement in Slack.
 - [ ] After the release, in the `docs-content` repo, add the now live version number to the "Specific GHES version(s)" section in the following files: [`.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml). When the PR is approved, merge it in. 
