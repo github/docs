@@ -45,3 +45,9 @@ Enterprise owners and billing managers can manage the spending limit for {% data
   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+## Exporting changes when you have reached your spending limit
+
+{% data reusables.codespaces.exporting-changes %}
+## Managing usage and spending limit email notifications
+{% data reusables.billing.email-notifications %}

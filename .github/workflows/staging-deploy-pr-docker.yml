@@ -11,6 +11,13 @@ on:
     types:
       - completed
 
+permissions:
+  actions: read
+  contents: read
+  deployments: write
+  pull-requests: read
+  statuses: write
+
 env:
   # In this specific workflow relationship, the `github.event.workflow_run.pull_requests`
   # array will always contain only 1 item! Specifically, it will contain the PR associated
@@ -19,13 +26,39 @@ env:
   PR_URL: ${{ github.event.workflow_run.repository.html_url }}/pull/${{ github.event.workflow_run.pull_requests[0].number }}
 
 jobs:
-  prepare:
+  check-pr-before-prepare:
     if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
         startsWith(github.event.workflow_run.head_branch, 'docker-')
       }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await octokit.pulls.get({
+              owner,
+              repo,
+              pull_number: pullNumber
+            })
+            core.setOutput('state', pullRequest.state)
+
+  prepare:
+    needs: check-pr-before-prepare
+    if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
@@ -69,7 +102,7 @@ jobs:
         name: Setup node to clone early access
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       # Add any dependencies that are needed for this workflow below
@@ -93,6 +126,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
+          HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }
         with:
           script: |
             const esm = require('esm')
@@ -127,13 +162,17 @@ jobs:
             }
 
       - name: Build, tag, push, and release the Docker image
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
         run: |
           docker image build --target production_early_access -t registry.heroku.com/${{ steps.create-app.outputs.app_name}}/web .
           heroku container:login
           docker push registry.heroku.com/${{ steps.create-app.outputs.app_name }}/web
           heroku container:release web --app=${{ steps.create-app.outputs.app_name }}
+
+      # This command will fail for a brand new app since they don't have a
+      # process type yet so we need to scale after `heroku container:release`.
+      - name: Scale Heroku App size
+        run: |
+          heroku ps:scale --app=${{ steps.create-app.outputs.app_name}} web=1:Standard-2X
 
       # https://devcenter.heroku.com/articles/container-registry-and-runtime#getting-a-docker-image-id
       - name: Get Docker Image ID
@@ -154,8 +193,32 @@ jobs:
           color: failure
           text: Staging preparation (docker) failed for PR ${{ env.PR_URL }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-  deploy:
+  check-pr-before-deploy:
     needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await octokit.pulls.get({
+              owner,
+              repo,
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
+            })
+            core.setOutput('state', pullRequest.state)
+
+  deploy:
+    needs: [prepare, check-pr-before-deploy]
+    if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -168,7 +231,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies

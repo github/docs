@@ -21,8 +21,20 @@ name: Sync search indexes
 
 on:
   workflow_dispatch:
+    inputs:
+      language:
+        description: 'Language to generate the search index for. Can be one of: `en` English, `cn` Chinese simplified, `ja` Japanese, `es` Spanish, `pt` Portuguese., `all` all languages.'
+        required: false
+        default: 'all'
+      version:
+        description: 'Version to generate the search index for. Can be one of: `free-pro-team@latest`, `enterprise-server@<RELEASE NUMBER>`, `github-ae@latest`, `all` all versions.'
+        required: false
+        default: 'all'
   schedule:
     - cron: '53 0/8 * * *' # Run every eight hours at 53 minutes past the hour
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
   updateIndexes:
@@ -30,6 +42,10 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
+      - if: ${{ env.FREEZE == 'true' }}
+        run: |
+          echo 'The repo is currently frozen! Exiting this workflow.'
+          exit 1 # prevents further steps from running
       # Check out internal docs repository
       - name: checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
@@ -39,7 +55,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies
@@ -51,6 +67,8 @@ jobs:
       - name: Update search indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ github.event.inputs.version }}
+          LANGUAGE: ${{ github.event.inputs.language }}
         run: npm run sync-search
 
       - name: Update private docs repository search indexes
@@ -91,7 +109,7 @@ jobs:
 
       - name: Send slack notification if workflow run fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: failure()
+        if: failure() && env.FREEZE != 'true'
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
