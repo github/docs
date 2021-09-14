@@ -508,12 +508,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_short_desc %}
 
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation` event.  
-
-{% endnote %}
-
 ### Availability
 
 - {% data variables.product.prodname_github_apps %}
@@ -531,12 +525,6 @@ Key | Type | Description
 ## installation_repositories
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
-
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation_repositories` event.
-
-{% endnote %}
 
 ### Availability
 
