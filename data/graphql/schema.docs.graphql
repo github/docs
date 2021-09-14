@@ -33805,6 +33805,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   forkCount: Int!
 
   """
+  Whether this repository allows forks.
+  """
+  forkingAllowed: Boolean!
+
+  """
   A list of direct forked repositories.
   """
   forks(
