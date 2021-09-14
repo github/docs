@@ -111,7 +111,7 @@ const { owner, repo, pullNumber } = parsePrUrl(prUrl)
 if (isStaging) {
   if (owner !== ALLOWED_OWNER || !ALLOWED_SOURCE_REPOS.includes(repo) || !pullNumber) {
     invalidateAndExit(
-      'commander.invalidOptionArgument',
+      'commander.invalidArgument',
       `error: option '${STAGING_FLAG}' argument '${prUrl}' is invalid.
 Must match URL format '${EXPECTED_PR_URL_FORMAT}'`
     )
@@ -141,12 +141,15 @@ async function deployProduction() {
   // TODO: Request confirmation before deploying to production
 
   invalidateAndExit(
-    'commander.invalidOptionArgument',
+    'commander.invalidArgument',
     `error: option '${PRODUCTION_FLAG}' is not yet implemented. SOON!`
   )
 }
 
 async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, destroy = false }) {
+  // Hardcode the Status context name to match Actions
+  const CONTEXT_NAME = 'Staging - Deploy PR / deploy (pull_request)'
+
   // This helper uses the `GITHUB_TOKEN` implicitly
   const octokit = getOctokit()
 
@@ -163,16 +166,46 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
         pullRequest,
       })
     } else {
+      await octokit.repos.createStatus({
+        owner,
+        repo,
+        sha: pullRequest.head.sha,
+        context: CONTEXT_NAME,
+        state: 'pending',
+        description: 'The app is being deployed. See local logs.',
+      })
+
       await deployToStaging({
         octokit,
         pullRequest,
         forceRebuild,
+      })
+
+      await octokit.repos.createStatus({
+        owner,
+        repo,
+        sha: pullRequest.head.sha,
+        context: CONTEXT_NAME,
+        state: 'success',
+        description: 'Successfully deployed! See local logs.',
       })
     }
   } catch (error) {
     const action = destroy ? 'undeploy from' : 'deploy to'
     console.error(`Failed to ${action} staging: ${error.message}`)
     console.error(error)
+
+    if (!destroy) {
+      await octokit.repos.createStatus({
+        owner,
+        repo,
+        sha: pullRequest.head.sha,
+        context: CONTEXT_NAME,
+        state: 'error',
+        description: 'Failed to deploy. See local logs.',
+      })
+    }
+
     process.exit(1)
   }
 }

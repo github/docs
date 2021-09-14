@@ -242,7 +242,7 @@ describe('server', () => {
     let $ = await getDOM(
       '/en/github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line'
     )
-    const articleIntro = $('.lead-mktg').text()
+    const articleIntro = $('[data-testid="lead"]').text()
     $ = await getDOM(
       '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github'
     )
@@ -291,9 +291,9 @@ describe('server', () => {
 
   test('renders liquid within liquid within liquid in intros', async () => {
     const $ = await getDOM('/en/github/administering-a-repository/about-merge-methods-on-github')
-    expect($('div.lead-mktg').first().text().includes('merge their pull requests on GitHub')).toBe(
-      true
-    )
+    expect(
+      $('[data-testid="lead"]').first().text().includes('merge their pull requests on GitHub')
+    ).toBe(true)
   })
 
   test('renders product frontmatter callouts', async () => {
@@ -461,7 +461,7 @@ describe('server', () => {
 
     test('dotcom articles on dotcom have links that include "en"', async () => {
       const $ = await getDOM('/en/articles/set-up-git')
-      expect($('a[href="/en/articles/managing-files-on-github"]').length).toBe(1)
+      expect($('a[href="/en/repositories/working-with-files/managing-files"]').length).toBe(1)
     })
 
     test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
@@ -477,16 +477,16 @@ describe('server', () => {
       const $ = await getDOM(
         `${latestEnterprisePath}/github/getting-started-with-github/set-up-git`
       )
-      expect($(`a[href="${latestEnterprisePath}/articles/managing-files-on-github"]`).length).toBe(
-        1
-      )
+      expect(
+        $(`a[href="${latestEnterprisePath}/repositories/working-with-files/managing-files"]`).length
+      ).toBe(1)
     })
 
     test('dotcom categories on GHE have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/github/managing-large-files`)
+      const $ = await getDOM(`${latestEnterprisePath}/github/writing-on-github`)
       expect(
         $(
-          `ul.list-style-circle li a[href="${latestEnterprisePath}/github/managing-large-files/working-with-large-files/conditions-for-large-files"]`
+          `ul.list-style-circle li a[href="${latestEnterprisePath}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github"]`
         ).length
       ).toBe(1)
     })
@@ -511,7 +511,7 @@ describe('server', () => {
       )
       expect(
         $(
-          `a[href="${latestEnterprisePath}/github/creating-cloning-and-archiving-repositories/about-repository-visibility"]`
+          `a[href="${latestEnterprisePath}/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility"]`
         ).length
       ).toBeGreaterThan(0)
     })
@@ -644,8 +644,8 @@ describe('server', () => {
   describe('categories and map topics', () => {
     test('adds links to categories on the dotcom homepage', async () => {
       const $ = await getDOM('/en/github')
-      expect($('a[href="/en/github/managing-large-files"]').length).toBe(1)
-      expect($('a[href="#managing-large-files"]').length).toBe(0)
+      expect($('a[href="/en/github/customizing-your-github-workflow"]').length).toBe(1)
+      expect($('a[href="#customizing-your-github-workflow"]').length).toBe(0)
     })
 
     test('adds links to map topics on a category homepage', async () => {
@@ -658,7 +658,7 @@ describe('server', () => {
     })
 
     test('category page renders with TOC', async () => {
-      const $ = await getDOM('/en/github/managing-large-files')
+      const $ = await getDOM('/en/github/writing-on-github')
       expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
     })
 

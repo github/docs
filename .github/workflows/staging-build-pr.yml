@@ -12,10 +12,12 @@ on:
       - synchronize
       - unlocked
 
+permissions:
+  contents: read
+
 jobs:
   build:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
@@ -28,7 +30,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       # Required for `npm pkg ...` command support
@@ -78,12 +80,3 @@ jobs:
         with:
           name: pr_build
           path: app.tar
-
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: ${{ failure() }}
-        with:
-          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: Staging build failed for PR ${{ github.event.pull_request.html_url }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

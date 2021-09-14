@@ -74,3 +74,8 @@
     margin-bottom: 15px;
   }
 }
+
+/* Override primer style */
+.markdownBody div > ol:not([type]) {
+  list-style-type: none;
+}

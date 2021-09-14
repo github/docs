@@ -18,7 +18,7 @@ export const SubLandingHero = () => {
       >
         <div className="d-flex flex-justify-between flex-items-center">
           <div
-            className="color-bg-primary color-text-link border-gradient--pink-blue-dark d-inline-flex flex-items-center flex-justify-center circle"
+            className="color-bg-primary color-text-link border d-inline-flex flex-items-center flex-justify-center circle"
             style={{ width: 40, height: 40 }}
           >
             {featuredTrack.guides && (
@@ -31,8 +31,8 @@ export const SubLandingHero = () => {
             {t('guide_types')[guide.page?.type || '']}
           </div>
         </div>
-        <h3 className="font-mktg h3-mktg my-4 color-text-primary">{guide.title}</h3>
-        <TruncateLines maxLines={8} className="lead-mktg color-text-secondary f5 my-4">
+        <h3 className="font-weight-semibold my-4 color-text-primary">{guide.title}</h3>
+        <TruncateLines maxLines={8} className="color-text-secondary f5 my-4">
           <span dangerouslySetInnerHTML={{ __html: guide.intro }} />
         </TruncateLines>
       </Link>
@@ -43,12 +43,9 @@ export const SubLandingHero = () => {
     <div>
       <header className="d-flex gutter mb-6">
         <div className="col-12">
-          <Breadcrumbs variant="large" />
-          <h1 className="my-3 font-mktg">{title} guides</h1>
-          <div
-            className="lead-mktg color-text-secondary f4"
-            dangerouslySetInnerHTML={{ __html: intro }}
-          />
+          <Breadcrumbs />
+          <h1 className="my-3">{title} guides</h1>
+          <div className="color-text-secondary f2" dangerouslySetInnerHTML={{ __html: intro }} />
         </div>
       </header>
       {featuredTrack && (
@@ -58,20 +55,18 @@ export const SubLandingHero = () => {
             className="list-style-none d-flex flex-nowrap overflow-x-scroll px-2"
           >
             <li className="px-2 d-flex flex-shrink-0" style={{ width: cardWidth }}>
-              <div className="d-inline-block Box p-5 bg-gradient--blue-pink color-text-inverse">
+              <div className="d-inline-block Box p-5 color-bg-secondary">
                 <div
-                  className="color-text-inverse d-inline-flex flex-items-center flex-justify-center circle"
+                  className="d-inline-flex flex-items-center flex-justify-center circle border"
                   style={{ width: 40, height: 40, border: '2px white solid' }}
                 >
                   <StarFillIcon size={24} />
                 </div>
-                <h3 className="font-mktg h3-mktg my-4">{featuredTrack.title}</h3>
-                <div className="lead-mktg color-text-inverse f5 my-4">
-                  {featuredTrack.description}
-                </div>
+                <h3 className="font-weight-semibold my-4">{featuredTrack.title}</h3>
+                <div className="f5 my-4">{featuredTrack.description}</div>
                 {featuredTrack.guides && (
                   <Link
-                    className="d-inline-flex flex-items-center flex-justify-center border color-border-inverse color-text-inverse px-4 py-2 f5 no-underline text-bold"
+                    className="d-inline-flex flex-items-center flex-justify-center btn px-4 py-2 f5 no-underline text-bold"
                     role="button"
                     href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}`}
                   >

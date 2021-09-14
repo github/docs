@@ -43,6 +43,8 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
 
+{% data reusables.codespaces.exporting-changes %}
+
 ## How billing is handled for forked repositories
 
 {% data variables.product.prodname_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace. 

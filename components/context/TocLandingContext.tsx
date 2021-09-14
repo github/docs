@@ -33,7 +33,7 @@ export const useTocLandingContext = (): TocLandingContextT => {
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
   const isEarlyAccess = req.context.page?.documentType === 'early-access'
   return {
-    title: req.context.page.title,
+    title: req.context.page.titlePlainText,
     productCallout: req.context.page.product || '',
     introPlainText: req.context.page.introPlainText,
     tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>

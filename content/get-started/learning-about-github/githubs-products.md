@@ -76,6 +76,10 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Draft pull requests
   - Team pull request reviewers
   - Scheduled reminders
+{% ifversion fpt %}
+- The option to enable {% data variables.product.prodname_github_codespaces %}
+  - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
+{% endif %}
 
 {% data reusables.github-actions.actions-billing %}
 
