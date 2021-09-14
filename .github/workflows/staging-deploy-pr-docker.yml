@@ -47,7 +47,7 @@ jobs:
         with:
           script: |
             const { owner, repo } = context.repo
-            const { data: pullRequest } = await octokit.pulls.get({
+            const { data: pullRequest } = await github.pulls.get({
               owner,
               repo,
               pull_number: pullNumber
