@@ -127,7 +127,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
           HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
-          HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }
+          HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
         with:
           script: |
             const esm = require('esm')
