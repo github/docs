@@ -9,7 +9,7 @@ GitHub's Docs team works on pre-production content in a private repo that regula
 Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
 ## Contributing
 
-See our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions of how to get started with our project. 
+See [the contributing guide](CONTRIBUTING.md) for detailed instructions of how to get started with our project. 
 <!-- info about codetour/codespaces (https://github.com/github/docs-team/issues/800) -->
 
 We accept different [types of contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
