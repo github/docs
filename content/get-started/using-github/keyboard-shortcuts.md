@@ -33,7 +33,7 @@ Below is a list of some of the available keyboard shortcuts.
 |-----------|------------
 |<kbd>g</kbd> <kbd>c</kbd> | Go to the **Code** tab
 |<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
-|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes > 2.21 %}
+|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes %}
 |<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt %}
@@ -42,7 +42,8 @@ Below is a list of some of the available keyboard shortcuts.
 ## Source code editing
 
 | Keyboard shortcut | Description
-|-----------|------------
+|-----------|------------{% ifversion fpt %}
+|<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
@@ -91,7 +92,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>c</kbd> | Create an issue
-| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)."||
+| <kbd>control /</kbd> or <kbd>command /</kbd> | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
 |<kbd>u</kbd> | Filter by author
 |<kbd>l</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
 | <kbd>alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."

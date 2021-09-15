@@ -3,6 +3,7 @@ title: GitHub Actions Documentation
 shortTitle: GitHub Actions
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
+  overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
   reference: /actions/reference
 featuredLinks:
@@ -10,6 +11,7 @@ featuredLinks:
     - /actions/learn-github-actions
     - /actions/guides/about-continuous-integration
     - /actions/guides/about-packaging-with-github-actions
+    - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
     - /actions/guides/setting-up-continuous-integration-using-workflow-templates
     - /actions/guides/publishing-nodejs-packages
@@ -36,7 +38,7 @@ redirect_from:
 layout: product-landing
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 children:
   - /quickstart
@@ -44,6 +46,7 @@ children:
   - /learn-github-actions
   - /managing-workflow-runs
   - /creating-actions
+  - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /reference

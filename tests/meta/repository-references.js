@@ -47,12 +47,12 @@ describe('check if a GitHub-owned private repository is referenced', () => {
   const filenames = walkSync(process.cwd(), {
     directories: false,
     ignore: [
-      '.algolia-cache',
       '.git',
       '.github/actions-scripts/enterprise-server-issue-templates/*.md',
       '.github/review-template.md',
+      '.github/workflows/sync-search-indices.yml',
       '.next',
-      'dist',
+      'contributing/search.md',
       'node_modules',
       'translations',
       'lib/rest/**/*.json',
@@ -69,7 +69,8 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       '**/*.pdf',
       '**/*.ico',
       '**/*.woff',
-      'script/deploy',
+      'script/deploy.js',
+      'script/README.md',
     ],
   })
 

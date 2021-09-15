@@ -47,5 +47,3 @@ export const getJSON = (helpers.getJSON = async function (route) {
   const res = await helpers.get(route, { followRedirects: true })
   return JSON.parse(res.text)
 })
-
-export default helpers

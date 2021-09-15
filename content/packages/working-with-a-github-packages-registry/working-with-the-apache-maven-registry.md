@@ -10,7 +10,7 @@ redirect_from:
   - /packages/guides/configuring-apache-maven-for-use-with-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Apache Maven registry
 ---

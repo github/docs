@@ -1,18 +1,16 @@
 import { jest } from '@jest/globals'
 import path from 'path'
 import { loadPages, loadPageMap } from '../../lib/page-data.js'
-import xLanguages from '../../lib/languages.js'
+import libLanguages from '../../lib/languages.js'
 import { liquid } from '../../lib/render-content/index.js'
 import patterns from '../../lib/patterns.js'
 import GithubSlugger from 'github-slugger'
-import xHtmlEntities from 'html-entities'
+import { decode } from 'html-entities'
 import { chain, difference, pick } from 'lodash-es'
 import checkIfNextVersionOnly from '../../lib/check-if-next-version-only.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
-const languageCodes = Object.keys(xLanguages)
+const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
-const Entities = xHtmlEntities.XmlEntities
-const entities = new Entities()
 
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
@@ -90,7 +88,7 @@ describe('pages module', () => {
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
             !page.allowTitleToDifferFromFilename && // ignore docs with override
-            slugger.slug(entities.decode(page.title)) !== path.basename(page.relativePath, '.md')
+            slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md')
           )
         })
         // make the output easier to read

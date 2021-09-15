@@ -1,23 +1,4 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
-import walk from 'walk-sync'
-import GithubSlugger from 'github-slugger'
-import htmlEntities from 'html-entities'
-import frontmatter from '../lib/read-frontmatter.js'
-import { execSync } from 'child_process'
-import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
-
-const slugger = new GithubSlugger()
-const entities = new htmlEntities.XmlEntities()
-
-const contentDir = path.join(process.cwd(), 'content')
-
-const contentFiles = walk(contentDir, { includeBasePath: true, directories: false }).filter(
-  (file) => {
-    return file.endsWith('.md') && !file.endsWith('index.md') && !file.includes('README')
-  }
-)
 
 // [start-readme]
 //
@@ -27,6 +8,25 @@ const contentFiles = walk(contentDir, { includeBasePath: true, directories: fals
 // **This script is not currently supported on Windows.**
 //
 // [end-readme]
+
+import fs from 'fs'
+import path from 'path'
+import walk from 'walk-sync'
+import GithubSlugger from 'github-slugger'
+import { decode } from 'html-entities'
+import frontmatter from '../lib/read-frontmatter.js'
+import { execSync } from 'child_process'
+import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
+
+const slugger = new GithubSlugger()
+
+const contentDir = path.join(process.cwd(), 'content')
+
+const contentFiles = walk(contentDir, { includeBasePath: true, directories: false }).filter(
+  (file) => {
+    return file.endsWith('.md') && !file.endsWith('index.md') && !file.includes('README')
+  }
+)
 
 // TODO fix path separators in the redirect
 if (process.platform.startsWith('win')) {
@@ -44,7 +44,7 @@ contentFiles.forEach((oldFullPath) => {
   // where title = Foo bar
   // and slug = foo-bar
   slugger.reset()
-  const slug = slugger.slug(entities.decode(data.title))
+  const slug = slugger.slug(decode(data.title))
 
   // get the basename of each file
   // where file = content/foo-bar.md

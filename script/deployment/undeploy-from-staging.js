@@ -3,9 +3,9 @@ import Heroku from 'heroku-client'
 import createStagingAppName from './create-staging-app-name.js'
 
 export default async function undeployFromStaging({
-  herokuToken,
   octokit,
   pullRequest,
+  // These parameters will only be set by Actions
   runId = null,
 }) {
   // Start a timer so we can report how long the deployment takes
@@ -21,6 +21,7 @@ export default async function undeployFromStaging({
       },
     },
     head: { ref: branch },
+    merged: wasMerged,
   } = pullRequest
 
   const workflowRunLog = runId ? `https://github.com/${owner}/${repo}/actions/runs/${runId}` : null
@@ -34,7 +35,7 @@ export default async function undeployFromStaging({
     console.log(`About to undeploy ${title}...`)
 
     // Time to talk to Heroku...
-    const heroku = new Heroku({ token: herokuToken })
+    const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
     // Is there already a Heroku App for this PR?
     let appExists = true
@@ -55,45 +56,71 @@ export default async function undeployFromStaging({
       }
     }
 
-    // Get the latest deployment environment to signal its deactivation
-    const { data: deployments } = await octokit.repos.listDeployments({
-      owner,
-      repo,
-
-      // In the GitHub API, there can only be one active deployment per environment.
-      // For our many staging apps, we must use the unique appName as the environment.
-      environment: appName,
-    })
-
-    if (deployments.length === 0) {
-      console.log('🚀 No deployments to deactivate!')
-      console.log(
-        `Finished undeploying after ${Math.round((Date.now() - startTime) / 1000)} seconds`
-      )
-      return
-    }
-
-    console.log(`Found ${deployments.length} GitHub Deployments`, deployments)
-
-    // Deactivate ALL of the deployments
-    for (const deployment of deployments) {
-      const { data: deploymentStatus } = await octokit.repos.createDeploymentStatus({
+    // If not merged, we'll leave it to be cleaned up later by the workflow
+    // that checks for stale PRs. This way, we aren't doing more cleaning than
+    // necessary if someone intends to reopen the PR momentarily.
+    if (wasMerged) {
+      // Get the latest deployment environment to signal its deactivation
+      const { data: deployments } = await octokit.repos.listDeployments({
         owner,
         repo,
-        deployment_id: deployment.id,
-        state: 'inactive',
-        description: 'The app was undeployed',
-        ...(logUrl && { log_url: logUrl }),
-        // The 'ant-man' preview is required for `state` values of 'inactive', as well as
-        // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
-        // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
-        mediaType: {
-          previews: ['ant-man', 'flash'],
-        },
+
+        // In the GitHub API, there can only be one active deployment per environment.
+        // For our many staging apps, we must use the unique appName as the environment.
+        environment: appName,
       })
-      console.log(
-        `🚀 Deployment status (ID: ${deployment.id}): ${deploymentStatus.state} - ${deploymentStatus.description}`
-      )
+
+      if (deployments.length === 0) {
+        console.log('🚀 No deployments to deactivate!')
+      } else {
+        console.log(`Found ${deployments.length} GitHub Deployments`, deployments)
+
+        // Deactivate ALL of the deployments
+        for (const deployment of deployments) {
+          // Deactivate this Deployment with an 'inactive' DeploymentStatus
+          const { data: deploymentStatus } = await octokit.repos.createDeploymentStatus({
+            owner,
+            repo,
+            deployment_id: deployment.id,
+            state: 'inactive',
+            description: 'The app was undeployed',
+            ...(logUrl && { log_url: logUrl }),
+            // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+            // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+            // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
+            mediaType: {
+              previews: ['ant-man', 'flash'],
+            },
+          })
+          console.log(
+            `🚀 Deployment status (ID: ${deployment.id}): ${deploymentStatus.state} - ${deploymentStatus.description}`
+          )
+
+          // Delete this Deployment
+          await octokit.repos.deleteDeployment({
+            owner,
+            repo,
+            deployment_id: deployment.id,
+          })
+          console.log(`🚀 Deployment (ID: ${deployment.id}): deleted`)
+        }
+      }
+
+      // Delete this Environment
+      try {
+        await octokit.repos.deleteAnEnvironment({
+          owner,
+          repo,
+          environment_name: appName,
+        })
+        console.log(`🚀 Environment (${appName}): deleted`)
+      } catch (error) {
+        if (error.status === 404) {
+          console.log(`🚀 Environment (${appName}): already deleted`)
+        } else {
+          throw error
+        }
+      }
     }
 
     console.log(`Finished undeploying after ${Math.round((Date.now() - startTime) / 1000)} seconds`)

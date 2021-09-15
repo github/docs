@@ -57,8 +57,8 @@ If your app is already published and you're a verified publisher, then you can p
 
 To publish a paid app (or an app that offers a paid plan), you must also meet the following requirements:
 
-- {% data variables.product.prodname_github_app %}s should have a minimum of 100 installations.
-- {% data variables.product.prodname_oauth_app %}s should have a minimum of 200 users.
+- {% data variables.product.prodname_github_apps %} should have a minimum of 100 installations.
+- {% data variables.product.prodname_oauth_apps %} should have a minimum of 200 users.
 - All paid apps must handle {% data variables.product.prodname_marketplace %} purchase events for new purchases, upgrades, downgrades, cancellations, and free trials. For more information, see "[Billing requirements for paid apps](#billing-requirements-for-paid-apps)" below.
 
 When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the app listing.

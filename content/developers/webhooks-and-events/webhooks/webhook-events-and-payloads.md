@@ -99,6 +99,32 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
+{% ifversion fpt or ghes > 3.2 or ghae-next %}
+## branch_protection_rule
+
+Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with at least `read-only` access on repositories administration
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
+`rule` | `object` | The branch protection rule. Includes a `name` and all the [branch protection settings](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings.
+`changes` | `object` | If the action was `edited`, the changes to the rule.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
+{% endif %}
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -109,7 +135,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 - Repository webhooks only receive payloads for the `created` and `completed` event types in a repository
 - Organization webhooks only receive payloads for the `created` and `completed` event types in repositories
-- {% data variables.product.prodname_github_app %}s with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `rerequested` and `requested_action` event types. The `rerequested` and `requested_action` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_app %}s with the `checks:write` are automatically subscribed to this webhook event.
+- {% data variables.product.prodname_github_apps %} with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `rerequested` and `requested_action` event types. The `rerequested` and `requested_action` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_apps %} with the `checks:write` are automatically subscribed to this webhook event.
 
 ### Webhook payload object
 
@@ -133,7 +159,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 - Repository webhooks only receive payloads for the `completed` event types in a repository
 - Organization webhooks only receive payloads for the `completed` event types in repositories
-- {% data variables.product.prodname_github_app %}s with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `requested` and `rerequested` event types. The `requested` and `rerequested` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_app %}s with the `checks:write` are automatically subscribed to this webhook event.
+- {% data variables.product.prodname_github_apps %} with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. The app must have the `checks:write` permission to receive the `requested` and `rerequested` event types. The `requested` and `rerequested` event type payloads are only sent to the {% data variables.product.prodname_github_app %} being requested. {% data variables.product.prodname_github_apps %} with the `checks:write` are automatically subscribed to this webhook event.
 
 ### Webhook payload object
 
@@ -147,7 +173,6 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% ifversion fpt or ghes > 2.21 or ghae %}
 ## code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -156,7 +181,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `security_events :read` permission
+- {% data variables.product.prodname_github_apps %} with the `security_events :read` permission
 
 ### Webhook payload object
 
@@ -178,7 +203,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -191,7 +216,6 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
-{% endif %}
 
 ## content_reference
 
@@ -201,7 +225,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s with the `content_references:write` permission
+- {% data variables.product.prodname_github_apps %} with the `content_references:write` permission
 
 ### Webhook payload example
 
@@ -221,7 +245,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -250,7 +274,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -293,7 +317,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `deployments` permission
+- {% data variables.product.prodname_github_apps %} with the `deployments` permission
 
 ### Webhook payload object
 
@@ -318,7 +342,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `deployments` permission
+- {% data variables.product.prodname_github_apps %} with the `deployments` permission
 
 ### Webhook payload object
 
@@ -349,7 +373,7 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+- {% data variables.product.prodname_github_apps %} with the `discussions` permission
 
 ### Webhook payload object
 
@@ -375,7 +399,7 @@ Activity related to a comment in a discussion. For more information, see "[Using
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+- {% data variables.product.prodname_github_apps %} with the `discussions` permission
 
 ### Webhook payload object
 
@@ -423,7 +447,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -441,11 +465,11 @@ Key | Type | Description
 
 When someone revokes their authorization of a {% data variables.product.prodname_github_app %}, this event occurs. A {% data variables.product.prodname_github_app %} receives this webhook by default and cannot unsubscribe from this event.
 
-{% data reusables.webhooks.authorization_event %} For details about user-to-server requests, which require {% data variables.product.prodname_github_app %} authorization, see "[Identifying and authorizing users for {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+{% data reusables.webhooks.authorization_event %} For details about user-to-server requests, which require {% data variables.product.prodname_github_app %} authorization, see "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_apps %}
 
 ### Webhook payload object
 
@@ -466,7 +490,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -484,15 +508,9 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_short_desc %}
 
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation` event.  
-
-{% endnote %}
-
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_apps %}
 
 ### Webhook payload object
 
@@ -508,15 +526,9 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
 
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation_repositories` event.
-
-{% endnote %}
-
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_apps %}
 
 ### Webhook payload object
 
@@ -536,7 +548,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `issues` permission
+- {% data variables.product.prodname_github_apps %} with the `issues` permission
 
 ### Webhook payload object
 
@@ -559,7 +571,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `issues` permission
+- {% data variables.product.prodname_github_apps %} with the `issues` permission
 
 ### Webhook payload object
 
@@ -582,7 +594,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission
+- {% data variables.product.prodname_github_apps %} with the `metadata` permission
 
 ### Webhook payload object
 
@@ -609,7 +621,7 @@ Activity related to a GitHub Marketplace purchase. {% data reusables.webhooks.ac
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s
+- {% data variables.product.prodname_github_apps %}
 
 ### Webhook payload object
 
@@ -633,7 +645,7 @@ For a detailed description of this payload and the payload for each type of `act
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- {% data variables.product.prodname_github_apps %} with the `members` permission
 
 ### Webhook payload object
 
@@ -655,7 +667,7 @@ For a detailed description of this payload and the payload for each type of `act
 ### Availability
 
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- {% data variables.product.prodname_github_apps %} with the `members` permission
 
 ### Webhook payload object
 
@@ -700,7 +712,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
 
 ### Webhook payload object
 
@@ -723,7 +735,7 @@ Key | Type | Description
 {% ifversion ghes or ghae %}
 - GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- {% data variables.product.prodname_github_apps %} with the `members` permission
 
 ### Webhook payload object
 
@@ -749,7 +761,7 @@ Key | Type | Description
 ### Availability
 
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `organization_administration` permission
+- {% data variables.product.prodname_github_apps %} with the `organization_administration` permission
 
 ### Webhook payload object
 
@@ -798,7 +810,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pages` permission
+- {% data variables.product.prodname_github_apps %} with the `pages` permission
 
 ### Webhook payload object
 
@@ -823,7 +835,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s receive a ping event with an `app_id` used to register the app
+- {% data variables.product.prodname_github_apps %} receive a ping event with an `app_id` used to register the app
 
 ### Webhook payload object
 
@@ -849,7 +861,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
 
 ### Webhook payload object
 
@@ -871,7 +883,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
 
 ### Webhook payload object
 
@@ -893,7 +905,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `repository_projects` or `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
 
 ### Webhook payload object
 
@@ -915,7 +927,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission
+- {% data variables.product.prodname_github_apps %} with the `metadata` permission
 
 ### Webhook payload object
 
@@ -938,7 +950,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
 
 ### Webhook payload object
 
@@ -963,7 +975,7 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
 
 ### Webhook payload object
 
@@ -985,7 +997,7 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
 
 ### Webhook payload object
 
@@ -1014,7 +1026,7 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -1053,7 +1065,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `contents` permission
+- {% data variables.product.prodname_github_apps %} with the `contents` permission
 
 ### Webhook payload object
 
@@ -1075,7 +1087,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s must have the `contents` permission to receive this webhook.
+- {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
 
 ### Webhook payload example
 
@@ -1090,7 +1102,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 - Repository webhooks receive all event types except `deleted`
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission receive all event types except `deleted`
+- {% data variables.product.prodname_github_apps %} with the `metadata` permission receive all event types except `deleted`
 
 ### Webhook payload object
 
@@ -1159,7 +1171,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `secret_scanning_alerts:read` permission
+- {% data variables.product.prodname_github_apps %} with the `secret_scanning_alerts:read` permission
 
 ### Webhook payload object
 
@@ -1182,7 +1194,7 @@ Activity related to a security advisory. A security advisory provides informatio
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s with the `security_events` permission
+- {% data variables.product.prodname_github_apps %} with the `security_events` permission
 
 ### Webhook payload object
 
@@ -1250,7 +1262,7 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `statuses` permission
+- {% data variables.product.prodname_github_apps %} with the `statuses` permission
 
 ### Webhook payload object
 
@@ -1278,7 +1290,7 @@ Key | Type | Description
 ### Availability
 
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- {% data variables.product.prodname_github_apps %} with the `members` permission
 
 ### Webhook payload object
 
@@ -1309,7 +1321,7 @@ Key | Type | Description
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `members` permission
+- {% data variables.product.prodname_github_apps %} with the `members` permission
 
 ### Webhook payload object
 
@@ -1350,7 +1362,7 @@ The event’s actor is the [user](/rest/reference/users) who starred a repositor
 
 - Repository webhooks
 - Organization webhooks
-- {% data variables.product.prodname_github_app %}s with the `metadata` permission
+- {% data variables.product.prodname_github_apps %} with the `metadata` permission
 
 ### Webhook payload object
 
@@ -1364,14 +1376,14 @@ The event’s actor is the [user](/rest/reference/users) who starred a repositor
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% ifversion fpt or ghes > 2.21 %}
+{% ifversion fpt or ghes %}
 ## workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s must have the `contents` permission to receive this webhook.
+- {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
 
 ### Webhook payload example
 
@@ -1385,7 +1397,7 @@ When a {% data variables.product.prodname_actions %} workflow run is requested o
 
 ### Availability
 
-- {% data variables.product.prodname_github_app %}s with the `actions` or `contents` permissions.
+- {% data variables.product.prodname_github_apps %} with the `actions` or `contents` permissions.
 
 ### Webhook payload object
 

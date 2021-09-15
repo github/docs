@@ -4,7 +4,7 @@ intro: 'You can use {% data variables.product.prodname_actions %} to automate ma
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:

@@ -1,6 +1,6 @@
 ---
 title: Repositories
-intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} respositories.' 
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} respositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -16,6 +16,24 @@ miniTocMaxHeadingLevel: 3
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
+
+{% ifversion fpt %}
+## Autolinks
+
+{% tip %}
+
+**Note:** The Autolinks API is in beta and may change.
+
+{% endtip %}
+
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+
+{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Branches
 
@@ -149,7 +167,7 @@ Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-
 
 ### Inactive deployments
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
 
 You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
@@ -295,7 +313,7 @@ If you are developing a GitHub App and want to provide more detailed information
 ## Traffic
 
 For repositories that you have push access to, the traffic API provides access
-to the information provided in your repository graph. For more information, see "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
+to the information provided in your repository graph. For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}

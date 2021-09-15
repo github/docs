@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import cx from 'classnames'
 import {
   ChevronDownIcon,
@@ -10,6 +10,7 @@ import { useMainContext } from 'components/context/MainContext'
 import dayjs from 'dayjs'
 
 import { Link } from 'components/Link'
+import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { GHESReleaseNotesContextT } from './types'
 import { GHESReleaseNotePatch } from './GHESReleaseNotePatch'
 
@@ -59,8 +60,7 @@ export function GHESReleaseNotes({ context }: Props) {
             <div />
           )}
         </div>
-
-        <div className="markdown-body">
+        <MarkdownContent data-search="article-content">
           {releaseNotes.map((patch) => {
             return (
               <GHESReleaseNotePatch
@@ -76,95 +76,118 @@ export function GHESReleaseNotes({ context }: Props) {
               />
             )
           })}
-        </div>
+        </MarkdownContent>
       </article>
 
       <aside
-        className="markdown-body position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
+        className="position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
         style={{ width: 260, height: '100vh' }}
       >
         <nav className="height-full overflow-auto">
-          <ul className="list-style-none pl-0 text-bold">
-            {releases.map((release) => {
-              const releaseLink = `/${currentLanguage}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
+          <MarkdownContent data-search="article-content">
+            <ul className="list-style-none pl-0 text-bold">
+              {releases.map((release) => {
+                const releaseLink = `/${currentLanguage}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
 
-              if (!release.patches || release.patches.length === 0) {
+                if (!release.patches || release.patches.length === 0) {
+                  return (
+                    <li key={release.version} className="border-bottom">
+                      <Link
+                        href={releaseLink}
+                        className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
+                      >
+                        {release.version}
+                        <LinkExternalIcon />
+                      </Link>
+                    </li>
+                  )
+                }
+
+                if (release.version === currentVersion.currentRelease) {
+                  return (
+                    <CollapsibleReleaseSection
+                      key={release.version}
+                      release={release}
+                      focusedPatch={focusedPatch}
+                      releaseLink={releaseLink}
+                    />
+                  )
+                }
+
                 return (
                   <li key={release.version} className="border-bottom">
                     <Link
+                      className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       href={releaseLink}
-                      className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                     >
                       {release.version}
-                      <LinkExternalIcon />
+                      <span className="color-text-tertiary text-small text-normal mr-1">
+                        {release.patches.length} releases
+                      </span>
                     </Link>
                   </li>
                 )
-              }
-
-              if (release.version === currentVersion.currentRelease) {
-                return (
-                  <li key={release.version} className="border-bottom">
-                    <details
-                      className="my-0 details-reset release-notes-version-picker"
-                      aria-current="page"
-                      open
-                    >
-                      <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
-                        {release.version}
-                        <div className="d-flex">
-                          <span className="color-text-tertiary text-mono text-small text-normal mr-1">
-                            {release.patches.length} releases
-                          </span>
-                          <ChevronDownIcon />
-                        </div>
-                      </summary>
-                      <ul className="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
-                        {release.patches.map((patch) => {
-                          const isActive = patch.version === focusedPatch
-                          return (
-                            <li
-                              key={patch.version}
-                              className={cx(
-                                'js-release-notes-patch-link px-3 my-0 py-1',
-                                isActive && 'selected'
-                              )}
-                            >
-                              <Link
-                                href={`${releaseLink}#${patch.version}`}
-                                className="d-flex flex-items-center flex-justify-between"
-                              >
-                                {patch.version}
-                                <span className="color-text-tertiary text-mono text-small text-normal">
-                                  {dayjs(patch.date).format('MMMM DD, YYYY')}
-                                </span>
-                              </Link>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </details>
-                  </li>
-                )
-              }
-
-              return (
-                <li key={release.version} className="border-bottom">
-                  <Link
-                    className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
-                    href={releaseLink}
-                  >
-                    {release.version}
-                    <span className="color-text-tertiary text-mono text-small text-normal mr-1">
-                      {release.patches.length} releases
-                    </span>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
+              })}
+            </ul>
+          </MarkdownContent>
         </nav>
       </aside>
     </div>
+  )
+}
+
+const CollapsibleReleaseSection = ({
+  release,
+  releaseLink,
+  focusedPatch,
+}: {
+  release: GHESReleaseNotesContextT['releases'][0]
+  releaseLink: string
+  focusedPatch: string
+}) => {
+  const defaultIsOpen = true
+  const [isOpen, setIsOpen] = useState(defaultIsOpen)
+
+  const onToggle = (e: SyntheticEvent) => {
+    const newIsOpen = (e.target as HTMLDetailsElement).open
+    setIsOpen(newIsOpen)
+  }
+  return (
+    <li key={release.version} className="border-bottom">
+      <details
+        className="my-0 details-reset release-notes-version-picker"
+        aria-current="page"
+        open={defaultIsOpen}
+        onToggle={onToggle}
+      >
+        <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between outline-none">
+          {release.version}
+          <div className="d-flex">
+            <span className="color-text-tertiary text-small text-normal mr-1">
+              {release.patches.length} releases
+            </span>
+            <ChevronDownIcon className={isOpen ? 'rotate-180' : ''} />
+          </div>
+        </summary>
+        <ul className="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
+          {release.patches.map((patch) => {
+            const isActive = patch.version === focusedPatch
+            return (
+              <li key={patch.version} className={cx('px-3 my-0 py-1', isActive && 'color-bg-info')}>
+                <Link
+                  href={`${releaseLink}#${patch.version}`}
+                  className="d-flex flex-items-center flex-justify-between"
+                >
+                  {patch.version}
+                  <span className="color-text-tertiary text-mono text-small text-normal">
+                    {dayjs(patch.date).format('MMMM DD, YYYY')}
+                  </span>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </details>
+    </li>
   )
 }

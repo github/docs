@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
+import { ExcludesNull } from 'components/lib/ExcludesNull'
 
 type ProductT = {
   external: boolean
@@ -10,14 +11,6 @@ type ProductT = {
   id: string
   name: string
   versions?: Array<string>
-}
-
-type LanguageItem = {
-  name: string
-  nativeName: string
-  code: string
-  hreflang: string
-  wip?: boolean
 }
 
 type VersionItem = {
@@ -69,6 +62,10 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
+  community_redirect: {
+    name: string
+    href: string
+  }
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
@@ -82,12 +79,12 @@ export type MainContextT = {
   currentPathWithoutLanguage: string
   currentLanguage: string
   userLanguage: string
-  languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
+    type?: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     title: string
@@ -108,12 +105,16 @@ export type MainContextT = {
 
   searchVersions: Record<string, string>
   nonEnterpriseDefaultVersion: string
+
+  status: number
+  fullUrl: string
 }
 
-export const getMainContextFromRequest = (req: any): MainContextT => {
+export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
+    community_redirect: req.context.page?.community_redirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
@@ -136,6 +137,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
@@ -161,20 +163,6 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
-    languages: Object.fromEntries(
-      Object.entries(req.context.languages).map(([key, entry]: any) => {
-        return [
-          key,
-          {
-            name: entry.name,
-            nativeName: entry.nativeName || '',
-            code: entry.code,
-            hreflang: entry.hreflang,
-            wip: entry.wip || false,
-          },
-        ]
-      })
-    ),
     allVersions: req.context.allVersions,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
@@ -182,11 +170,17 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+    status: res.statusCode,
+    fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
   }
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): ProductTreeNode => {
+const getCurrentProductTree = (input: any): ProductTreeNode | null => {
+  if (input.page.hidden) {
+    return null
+  }
+
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',
@@ -197,7 +191,7 @@ const getCurrentProductTree = (input: any): ProductTreeNode => {
       title: input.page.title,
       shortTitle: input.page.shortTitle || '',
     },
-    childPages: (input.childPages || []).map(getCurrentProductTree),
+    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 

@@ -8,7 +8,6 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
 ---
-{% data reusables.discussions.beta %}
 
 ## About searching for discussions
 
@@ -38,7 +37,7 @@ To search discussions in all repositories owned by a certain user or organizatio
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | :- | :- |{% ifversion fpt or ghes %}

@@ -6,7 +6,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 shortTitle: Remove self-hosted runners
@@ -67,7 +67,7 @@ To remove a self-hosted runner from an organization, you must be an organization
 
 {% ifversion fpt %}
 To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
-{% elsif ghes > 2.21 or ghae %}
+{% elsif ghes or ghae %}
 To remove a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
 {% endif %}
 

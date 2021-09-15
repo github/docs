@@ -12,7 +12,7 @@ topics:
   - SSH
 shortTitle: Check for existing SSH key
 ---
-{% data reusables.ssh.dsa-support %}
+{% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present:

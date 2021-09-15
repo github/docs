@@ -3,7 +3,7 @@ import path from 'path'
 import cheerio from 'cheerio'
 import Page from '../../lib/page.js'
 import readJsonFile from '../../lib/read-json-file.js'
-import allVersions from '../../lib/all-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 // import getLinkData from '../../lib/get-link-data.js'
@@ -381,25 +381,6 @@ describe('Page class', () => {
           .href
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page.permalinks.length).toBe(1)
-    })
-
-    test('permalinks for non-GitHub.com products with Enterprise versions', async () => {
-      const page = await Page.init({
-        relativePath:
-          '/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights.md',
-        basePath: path.join(__dirname, '../../content'),
-        languageCode: 'en',
-      })
-      const expectedPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
-      expect(
-        page.permalinks.find(
-          (permalink) =>
-            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`
-        ).href
-      ).toBe(expectedPath)
-      const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
-      expect(pageVersions.length).toBeGreaterThan(1)
-      expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
   })
 

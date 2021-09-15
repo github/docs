@@ -4,7 +4,7 @@ intro: You can install additional software on GitHub-hosted runners as a part of
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
 type: tutorial
 topics:
   - Workflows

@@ -148,10 +148,11 @@ describe('renderContent', () => {
   test('renders code blocks with # comments', async () => {
     const template = nl(`
 1. This is a list item with code containing a comment:
-  \`\`\`shell
-  $ foo the bar
-  # some comment here
-  \`\`\`
+
+   \`\`\`shell
+   $ foo the bar
+   # some comment here
+   \`\`\`
 1. This is another list item.
     `)
     const html = await renderContent(template)

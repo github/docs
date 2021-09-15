@@ -5,8 +5,8 @@ import walk from 'walk-sync'
 import { zip, groupBy } from 'lodash-es'
 import yaml from 'js-yaml'
 import revalidator from 'revalidator'
-import generateMarkdownAST from 'mdast-util-from-markdown'
-import visit from 'unist-util-visit'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import { visit } from 'unist-util-visit'
 import readFileAsync from '../../lib/readfile-async.js'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
@@ -18,10 +18,11 @@ import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
-import allVersions from '../../lib/all-versions.js'
-import { supported, next } from '../../lib/enterprise-server-releases.js'
-import getLiquidConditionals from '../../script/helpers/get-liquid-conditionals.js'
+import { allVersions } from '../../lib/all-versions.js'
+import { supported, next, deprecated } from '../../lib/enterprise-server-releases.js'
+import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
+import { isExperimental } from '../helpers/is-experimental.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
@@ -364,6 +365,7 @@ describe('lint markdown content', () => {
       isHidden,
       isEarlyAccess,
       isSitePolicy,
+      isExperimentalPage,
       frontmatterErrors,
       frontmatterData,
       ifversionConditionals,
@@ -376,10 +378,12 @@ describe('lint markdown content', () => {
       content = bodyContent
       frontmatterErrors = errors
       frontmatterData = data
-      ast = generateMarkdownAST(content)
+      ast = fromMarkdown(content)
       isHidden = data.hidden === true
       isEarlyAccess = markdownRelPath.split('/').includes('early-access')
       isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
+      // remove leading `content/` from markdownRelpath
+      isExperimentalPage = isExperimental(markdownRelPath.split('/').slice(1).join('/'))
 
       links = []
       visit(ast, ['link', 'definition'], (node) => {
@@ -421,9 +425,9 @@ describe('lint markdown content', () => {
     })
 
     // We need to support some non-Early Access hidden docs in Site Policy
-    test('hidden docs must be Early Access or Site Policy', async () => {
+    test('hidden docs must be Early Access, Site Policy, or Experimental', async () => {
       if (isHidden) {
-        expect(isEarlyAccess || isSitePolicy).toBe(true)
+        expect(isEarlyAccess || isSitePolicy || isExperimentalPage).toBe(true)
       }
     })
 
@@ -1102,10 +1106,12 @@ function validateIfversionConditionals(conds) {
             `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
           )
         }
-        // NOTE: The following will throw errors when we deprecate a version until we run the script to remove the
-        // deprecated versioning. If we deprecate a version before we have a working version of that script,
-        // we can comment out this part of the test temporarily and re-enable it once the script is ready.
-        if (!(supported.includes(release) || release === next)) {
+        // Check that the versions in conditionals are supported
+        // versions of GHES or the first deprecated version. Allowing
+        // the first deprecated version to exist in code ensures
+        // allows us to deprecate the version before removing
+        // the old liquid content.
+        if (!(supported.includes(release) || release === next || deprecated[0] === release)) {
           errors.push(
             `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`
           )

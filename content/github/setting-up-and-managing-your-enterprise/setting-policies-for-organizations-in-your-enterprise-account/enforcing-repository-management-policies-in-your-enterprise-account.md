@@ -16,14 +16,14 @@ shortTitle: Policies for repositories
 ---
 For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 
-## Enforcing a policy on default repository permissions
+## Enforcing a policy on base repository permissions
 
-Across all organizations owned by your enterprise account, you can set a default repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise account, you can set a base repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-4. On the **Repository policies** tab, under "Default permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Default permissions", use the drop-down menu and choose a policy.
+4. On the **Repository policies** tab, under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Base permissions", use the drop-down menu and choose a policy.
   ![Drop-down menu with repository permissions policy options](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
 
 ## Enforcing a policy on creating repositories
