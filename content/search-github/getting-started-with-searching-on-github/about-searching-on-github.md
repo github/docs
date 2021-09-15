@@ -9,6 +9,7 @@ redirect_from:
   - /articles/advanced-search/
   - /articles/about-searching-on-github
   - /github/searching-for-information-on-github/about-searching-on-github
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github
 versions:
   fpt: '*'
   ghes: '*'

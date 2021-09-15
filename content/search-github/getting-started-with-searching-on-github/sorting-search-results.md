@@ -4,6 +4,7 @@ intro: 'You can sort [{% data variables.product.product_name %} search](/article
 redirect_from:
   - /articles/sorting-search-results
   - /github/searching-for-information-on-github/sorting-search-results
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/sorting-search-results
 versions:
   fpt: '*'
   ghes: '*'

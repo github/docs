@@ -7,6 +7,7 @@ redirect_from:
   - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account/
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
   fpt: '*'
   ghes: '*'

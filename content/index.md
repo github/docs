@@ -26,6 +26,7 @@ children:
   - actions
   - codespaces
   - packages
+  - search-github
   - developers
   - rest
   - graphql
@@ -54,4 +55,3 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
-

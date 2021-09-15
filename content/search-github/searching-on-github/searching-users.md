@@ -4,6 +4,7 @@ intro: 'You can search for users on {% data variables.product.product_name %} an
 redirect_from:
   - /articles/searching-users
   - /github/searching-for-information-on-github/searching-users
+  - /github/searching-for-information-on-github/searching-on-github/searching-users
 versions:
   fpt: '*'
   ghes: '*'

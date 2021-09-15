@@ -4,6 +4,7 @@ intro: 'You can search for topics associated with repositories on {% data variab
 redirect_from:
   - /articles/searching-topics
   - /github/searching-for-information-on-github/searching-topics
+  - /github/searching-for-information-on-github/searching-on-github/searching-topics
 versions:
   fpt: '*'
   ghes: '*'

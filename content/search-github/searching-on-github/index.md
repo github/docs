@@ -2,6 +2,8 @@
 title: Searching on GitHub
 redirect_from:
   - /articles/searching-on-github
+  - /github/searching-for-information-on-github/searching-on-github/index
+  - /github/searching-for-information-on-github/searching-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,4 +24,3 @@ children:
   - /searching-wikis
   - /searching-in-forks
 ---
-

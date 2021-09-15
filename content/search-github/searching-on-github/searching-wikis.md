@@ -4,6 +4,7 @@ intro: 'You can search wikis on {% data variables.product.product_name %} and na
 redirect_from:
   - /articles/searching-wikis
   - /github/searching-for-information-on-github/searching-wikis
+  - /github/searching-for-information-on-github/searching-on-github/searching-wikis
 versions:
   fpt: '*'
   ghes: '*'

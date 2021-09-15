@@ -6,6 +6,7 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
   - /github/searching-for-information-on-github/searching-code-for-exact-matches
   - /github/searching-for-information-on-github/searching-code
+  - /github/searching-for-information-on-github/searching-on-github/searching-code
 versions:
   fpt: '*'
   ghes: '*'

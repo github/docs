@@ -4,6 +4,7 @@ intro: 'You can search for commits on {% data variables.product.product_name %} 
 redirect_from:
   - /articles/searching-commits
   - /github/searching-for-information-on-github/searching-commits
+  - /github/searching-for-information-on-github/searching-on-github/searching-commits
 versions:
   fpt: '*'
   ghes: '*'

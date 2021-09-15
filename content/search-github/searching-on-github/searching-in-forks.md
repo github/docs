@@ -4,6 +4,7 @@ intro: 'By default, [forks](/articles/about-forks) are not shown in search resul
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
+  - /github/searching-for-information-on-github/searching-on-github/searching-in-forks
 versions:
   fpt: '*'
   ghes: '*'

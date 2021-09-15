@@ -2,6 +2,8 @@
 title: Getting started with searching on GitHub
 redirect_from:
   - /articles/getting-started-with-searching-on-github
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/index
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,4 +18,3 @@ children:
   - /enabling-githubcom-repository-search-in-github-enterprise-server
 shortTitle: Start with search on GitHub
 ---
-

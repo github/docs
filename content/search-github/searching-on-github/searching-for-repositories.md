@@ -5,6 +5,7 @@ redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
+  - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
 versions:
   fpt: '*'
   ghes: '*'

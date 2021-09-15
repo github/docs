@@ -4,6 +4,7 @@ intro: 'If you encounter unexpected results while searching on {% data variables
 redirect_from:
   - /articles/troubleshooting-search-queries
   - /github/searching-for-information-on-github/troubleshooting-search-queries
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/troubleshooting-search-queries
 versions:
   fpt: '*'
   ghes: '*'

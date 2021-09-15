@@ -4,6 +4,7 @@ intro: 'You can search for a file in a repository using the file finder. To sear
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
+  - /github/searching-for-information-on-github/searching-on-github/finding-files-on-github
 versions:
   fpt: '*'
   ghes: '*'

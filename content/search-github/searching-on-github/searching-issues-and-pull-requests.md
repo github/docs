@@ -5,6 +5,7 @@ redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
+  - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
@@ -50,7 +51,7 @@ With the `in` qualifier you can restrict your search to the title, body, comment
 
 To search issues and pull requests in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
 
-{% data reusables.pull_requests.large-search-workaround %} 
+{% data reusables.pull_requests.large-search-workaround %}
 
 
 | Qualifier        | Example
