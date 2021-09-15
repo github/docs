@@ -1,6 +1,6 @@
 # Creating and updating screenshots
 
-Screenshots are used to help readers with the flow in articles like procedures as in "[Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)"), and conceptual articles about areas of the UI as in "[Configuring notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#about-participating-and-watching-notifications)").
+Screenshots are used to help readers with the flow in articles like procedures (as in "[Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)"), and conceptual articles about areas of the UI (as in "[Configuring notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#about-participating-and-watching-notifications)").
 
 When taking a screenshot, select the portion of the page that needs focus instead of the entire page.
 
@@ -8,8 +8,8 @@ When taking a screenshot, select the portion of the page that needs focus instea
 
 ## Versioning images in Markdown content
 
-Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Server, GitHub AE, and GitHub Enterprise Cloud). In this case, there is no versioning required. When an image does differ from plan to plan or changes in a newer release of Github Enterprise server or GitHub AE, the images need to be versioned with [Liquid](liquid-helpers.md) conditional statements. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or Enterprise release.
-
+Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Server; GitHub AE; and GitHub Enterprise Cloud). In this case, there is no versioning required. When an image does differ from plan to plan or changes in a newer release of Github Enterprise server or GitHub AE, the images need to be versioned with [Liquid](liquid-helpers.md) conditional statements. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or Enterprise release.
+### Image locations
 Images are located in the `/assets/images` directory. This directory has some folders that can be used to organize content by plan and release number.
 
 - `/assets/images/enterprise/github-ae`: Images that are _only_ applicable to GitHub AE (and not applicable to any other plan).
@@ -40,7 +40,9 @@ Your Liquid conditional would look like this:
 ![](/assets/images/enterprise/foo/bar.png){% endif %}
 ```
 
-When the 3.0 release is deprecated, the `/assets/images/enterprise/3.0` directory will be removed. The numbered release directory can be thought of as containing images that apply to 3.0 only or 3.0 and earlier. Likewise, images in a `/assets/images/enterprise/2.22` could contain images that applied to 2.22 only or 2.22 and earlier.
+When the 3.0 release is deprecated, the `/assets/images/enterprise/3.0` directory will be removed. 
+
+The numbered release directory should contain images that apply to that release number only or to that release number and earlier. For example, images in `/assets/images/enterprise/2.22` should contain images that apply to 2.22 only or 2.22 and earlier.
 
 ### Example: An image used in GitHub AE changes on Dotcom after GitHub AE is released
 
@@ -71,7 +73,7 @@ When the next GitHub AE version is released, the script that updates the Liquid 
 - Screenshots enhance our content but can't replace it. Include descriptive alt text and ensure we're publishing strong standalone content along with screenshots.
 - When replacing an existing image (such as for an updated button in the UI), best practice is to retain the image's filename. If you must change an image filename, search the help docs repository for other references to that image and update all references to the original filename. If the image is used in deprecated versions of GHES documentation, please don't change the filename.
 - Screenshots should have descriptive names to make them easier to find. For example, use the name `gist-embed-link.png` instead of `right_side_page_03.png`.
-- Try to avoid overly large screenshots. Fpr example, if you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead. Crop down near the focal point of the image, but leave enough of a margin around it so that some other elements of the page are visible to provide context.
+- Try to avoid overly large screenshots. For example, if you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead. Crop down near the focal point of the image, but leave enough of a margin around it so that some other elements of the page are visible to provide context.
 
 Here's an example of a good cropping:
   
