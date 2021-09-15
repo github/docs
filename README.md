@@ -14,7 +14,7 @@ See [the contributing guide](CONTRIBUTING.md) for detailed instructions of how t
 
 We accept different [types of contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
-On the GitHub Docs site, you can click **make a contribution** to open a PR for quick fixes like typos, updates, or link fixes.
+On the GitHub Docs site, you can click the make a contribution button to open a PR for quick fixes like typos, updates, or link fixes.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
