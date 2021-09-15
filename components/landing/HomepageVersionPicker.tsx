@@ -25,7 +25,7 @@ export const HomepageVersionPicker = ({ variant }: Props) => {
   if (variant === 'inline') {
     return (
       <Details {...getDetailsProps()} className="details-reset">
-        <summary aria-label="Toggle language list">
+        <summary className="outline-none" aria-label="Toggle language list">
           <div className="d-flex flex-items-center flex-justify-between py-2">
             <span>{label}</span>
             <ChevronDownIcon size={24} className="arrow ml-md-1" />

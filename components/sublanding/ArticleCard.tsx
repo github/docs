@@ -24,7 +24,7 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
                 <span
                   data-testid="article-card-topic"
                   key={topic}
-                  className="IssueLabel bg-gradient--pink-blue color-text-inverse mr-1"
+                  className="IssueLabel color-bg-info-inverse color-text-inverse mr-1"
                 >
                   {topic}
                 </span>

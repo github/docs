@@ -54,8 +54,8 @@ export const SidebarProduct = () => {
                 const isStandaloneCategory = childPage.page.documentType === 'article'
 
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
-
-                const isActive = routePath.includes(childPage.href) || routePath === childPage.href
+                const isActive =
+                  routePath.includes(childPage.href + '/') || routePath === childPage.href
                 const defaultOpen = hasExactCategory ? isActive : false
                 return (
                   <li
@@ -140,7 +140,7 @@ const CollapsibleSection = (props: SectionProps) => {
 
   return (
     <details open={defaultOpen} onToggle={onToggle} className="details-reset">
-      <summary>
+      <summary className="outline-none">
         <div className="d-flex flex-justify-between">
           <div className="pl-4 pr-1 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline text-bold">
             {title}

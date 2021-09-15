@@ -7,7 +7,7 @@ redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: how_to
 ---

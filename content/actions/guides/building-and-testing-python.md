@@ -7,9 +7,10 @@ redirect_from:
   - /actions/language-and-framework-guides/using-python-with-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
+hidden: true
 topics:
   - CI
   - Python
@@ -349,9 +350,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
-      - name: Install Tox and any other packages
+      - name: Install tox and any other packages
         run: pip install tox
-      - name: Run Tox
+      - name: Run tox
         # Run tox using the version of Python in `PATH`
         run: tox -e py
 ```

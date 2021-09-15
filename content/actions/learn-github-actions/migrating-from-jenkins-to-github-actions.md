@@ -5,7 +5,7 @@ redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-jenkins-to-github-actions
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -42,11 +42,7 @@ For more information, see "[Core concepts for {% data variables.product.prodname
 
 Jenkins lets you send builds to a single build agent, or you can distribute them across multiple agents. You can also classify these agents according to various attributes, such as operating system types.
 
-Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. The following table compares how the distributed build concept is implemented for both Jenkins and {% data variables.product.prodname_actions %}.
-
-| Jenkins       | {% data variables.product.prodname_actions %} |
-| ------------- | ------------- |
-| [`agents`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`runners`](/actions/learn-github-actions/introduction-to-github-actions#runners) <br> [`self-hosted runners`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
+Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 ### Using sections to organize pipelines
 

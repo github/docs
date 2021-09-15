@@ -44,8 +44,8 @@ export async function createChangelogEntry(
   newUpcomingChanges
 ) {
   // Create schema objects out of the strings
-  const oldSchema = await loadSchema(oldSchemaString)
-  const newSchema = await loadSchema(newSchemaString)
+  const oldSchema = await loadSchema(oldSchemaString, {})
+  const newSchema = await loadSchema(newSchemaString, {})
 
   // Generate changes between the two schemas
   const changes = diff(oldSchema, newSchema)

@@ -22,10 +22,11 @@ If you use Azure AD as your IDP, you can use team synchronization to manage team
 
 We test and officially support the following IdPs. For SAML SSO, we offer limited support for all identity providers that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
-IdP | SAML | User provisioning | Team synchronization | 
---- | :--: | :---------------: | :-------: |
-Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} | | |
-Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %} | | {% octicon "check-circle-fill" aria-label="The check icon" %} |
-OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %} | | |
-PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %} | | |
-Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | | |
+IdP | SAML | Team synchronization | 
+--- | :--: | :-------: |
+Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %}  | |
+Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %} |
+OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
+PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
+Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
+

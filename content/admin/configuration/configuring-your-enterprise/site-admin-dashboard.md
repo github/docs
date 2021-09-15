@@ -16,7 +16,7 @@ topics:
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
 ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 
 ## Search
 
@@ -170,7 +170,7 @@ This controls how the [Issues][] index is repaired. You can
 - start a new index repair job
 - reset all index repair state
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 
 ## Enterprise overview
 

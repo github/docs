@@ -42,17 +42,20 @@ describe('featuredLinks', () => {
     })
 
     test('Enterprise user intro links have expected values', async () => {
-      const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/insights`)
+      const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
       const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(6)
+      console.log($featuredLinks.eq(0).attr('href'))
+      expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
-      expect($featuredLinks.eq(0).children('h4').text().startsWith('About GitHub Insights')).toBe(
-        true
-      )
+      expect($featuredLinks.eq(0).children('h4').text().startsWith("GitHub's products")).toBe(true)
       expect(
-        $featuredLinks.eq(0).children('p').text().startsWith('GitHub Insights provides metrics')
+        $featuredLinks
+          .eq(0)
+          .children('p')
+          .text()
+          .startsWith("An overview of GitHub's products and pricing plans.")
       ).toBe(true)
     })
 
