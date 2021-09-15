@@ -29,6 +29,8 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 {% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
+A token with no assigned scopes can only access public information. To use your token to access repositories from the command line, select `repo`. For more information, see “[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)”.
+
 ## Creating a token
 
 {% ifversion fpt %}1. [Verify your email address](/github/getting-started-with-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
