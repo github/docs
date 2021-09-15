@@ -11,17 +11,42 @@ on:
     types:
       - completed
 
+permissions:
+  actions: read
+  contents: read
+  deployments: write
+  pull-requests: read
+  statuses: write
+
 env:
-  EARLY_ACCESS_SCRIPT_PATH: script/early-access/clone-for-build.js
-  EARLY_ACCESS_SUPPORT_FILES: script/package.json
   # In this specific workflow relationship, the `github.event.workflow_run.pull_requests`
   # array will always contain only 1 item! Specifically, it will contain the PR associated
   # with the `github.event.workflow_run.head_branch` that triggered the preceding
   # `pull_request` event that triggered the "Staging - Build PR" workflow.
   PR_URL: ${{ github.event.workflow_run.repository.html_url }}/pull/${{ github.event.workflow_run.pull_requests[0].number }}
+  BUILD_ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
 
 jobs:
-  prepare:
+  notify-of-failed-builds:
+    if: >-
+      ${{
+        github.event.workflow_run.conclusion != 'success' &&
+        (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    # Specifically omitting a concurrency group here in case the build was not
+    # successful BECAUSE a subsequent build already canceled it
+    steps:
+      - name: Send Slack notification if build workflow failed
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        with:
+          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Staging build (docker) failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.BUILD_ACTIONS_RUN_LOG }}
+
+  check-pr-before-prepare:
     if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
@@ -29,7 +54,33 @@ jobs:
         startsWith(github.event.workflow_run.head_branch, 'docker-')
       }}
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 1
+    concurrency:
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await github.pulls.get({
+              owner,
+              repo,
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
+            })
+            core.setOutput('state', pullRequest.state)
+
+  prepare:
+    needs: check-pr-before-prepare
+    if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_TOKEN }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     concurrency:
       group: staging_docker_${{ github.event.workflow_run.head_branch }}
       cancel-in-progress: true
@@ -42,6 +93,11 @@ jobs:
         env:
           GITHUB_EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: echo "$GITHUB_EVENT_CONTEXT"
+
+      - name: Check out repo's default branch
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          persist-credentials: 'false'
 
       - name: Download build artifact
         uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
@@ -66,15 +122,8 @@ jobs:
         name: Setup node to clone early access
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Download the script to clone early access
-        uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
-        with:
-          files: ${{ env.EARLY_ACCESS_SCRIPT_PATH }} ${{ env.EARLY_ACCESS_SUPPORT_FILES }}
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Add any dependencies that are needed for this workflow below
       - if: ${{ github.repository == 'github/docs-internal' }}
@@ -83,60 +132,10 @@ jobs:
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
-        run: node ${{ env.EARLY_ACCESS_SCRIPT_PATH }}
+        run: node script/early-access/clone-for-build.js
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.workflow_run.head_branch }}
-
-      # Remove any dependencies installed for this workflow below
-      # - if: ${{ github.repository == 'github/docs-internal' }}
-      #   name: Remove development-only dependencies
-      #   run: npm prune --production
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Delete the script directory after cloning early access
-        run: rm -rf script/
-
-      # - name: Create a gzipped archive
-      #   run: |
-      #     touch app.tar.gz
-      #     tar --exclude=app.tar.gz -czf app.tar.gz ./
-
-      # - name: Install Heroku client development-only dependency
-      #   run: npm install --no-save heroku-client
-
-      # - name: Create a Heroku build source
-      #   id: build-source
-      #   uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
-      #   env:
-      #     HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-      #   with:
-      #     script: |
-      #       const { owner, repo } = context.repo
-
-      #       if (owner !== 'github') {
-      #         throw new Error(`Repository owner must be 'github' but was: ${owner}`)
-      #       }
-      #       if (repo !== 'docs-internal' && repo !== 'docs') {
-      #         throw new Error(`Repository name must be either 'docs-internal' or 'docs' but was: ${repo}`)
-      #       }
-
-      #       const Heroku = require('heroku-client')
-      #       const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
-
-      #       const { source_blob: sourceBlob } = await heroku.post('/sources')
-      #       const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
-
-      #       core.setOutput('upload_url', uploadUrl)
-      #       core.setOutput('download_url', downloadUrl)
-
-      # # See: https://devcenter.heroku.com/articles/build-and-release-using-the-api#sources-endpoint
-      # - name: Upload to the Heroku build source
-      #   run: |
-      #     curl '${{ steps.build-source.outputs.upload_url }}' \
-      #       -X PUT \
-      #       -H 'Content-Type:' \
-      #       --data-binary @app.tar.gz
 
       - name: Install one-off development-only dependencies
         run: npm install --no-save --include=optional esm
@@ -144,6 +143,11 @@ jobs:
       - name: Create app
         id: create-app
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
+          HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
         with:
           script: |
             const esm = require('esm')
@@ -151,6 +155,7 @@ jobs:
 
             const { default: createApp } = require('./script/deployment/create-app.js')
             const { default: parsePrUrl } = require('./script/deployment/parse-pr-url.js')
+            const { default: getOctokit } = require('./script/helpers/github')
 
             // This helper uses the `GITHUB_TOKEN` implicitly!
             // We're using our usual version of Octokit vs. the provided `github`
@@ -160,7 +165,7 @@ jobs:
             try {
               const { owner, repo, pullNumber } = parsePrUrl(process.env.PR_URL)
               if (!owner || !repo || !pullNumber) {
-                throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${PR_URL}'`)
+                throw new Error(`'pullRequestUrl' input must match URL format 'https://github.com/github/(docs|docs-internal)/pull/123' but was '${process.env.PR_URL}'`)
               }
 
               const { data: pullRequest } = await octokit.pulls.get({
@@ -177,13 +182,17 @@ jobs:
             }
 
       - name: Build, tag, push, and release the Docker image
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
         run: |
           docker image build --target production_early_access -t registry.heroku.com/${{ steps.create-app.outputs.app_name}}/web .
           heroku container:login
           docker push registry.heroku.com/${{ steps.create-app.outputs.app_name }}/web
           heroku container:release web --app=${{ steps.create-app.outputs.app_name }}
+
+      # This command will fail for a brand new app since they don't have a
+      # process type yet so we need to scale after `heroku container:release`.
+      - name: Scale Heroku App size
+        run: |
+          heroku ps:scale --app=${{ steps.create-app.outputs.app_name}} web=1:Standard-2X
 
       # https://devcenter.heroku.com/articles/container-registry-and-runtime#getting-a-docker-image-id
       - name: Get Docker Image ID
@@ -204,8 +213,32 @@ jobs:
           color: failure
           text: Staging preparation (docker) failed for PR ${{ env.PR_URL }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-  deploy:
+  check-pr-before-deploy:
     needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_docker_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await github.pulls.get({
+              owner,
+              repo,
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
+            })
+            core.setOutput('state', pullRequest.state)
+
+  deploy:
+    needs: [prepare, check-pr-before-deploy]
+    if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -218,7 +251,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies

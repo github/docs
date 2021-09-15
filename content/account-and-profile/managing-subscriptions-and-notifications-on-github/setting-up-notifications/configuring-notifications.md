@@ -156,7 +156,7 @@ If "Automatically watch repositories" is disabled, then you will not automatical
 
 ## Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository){% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, click the "Watch" drop-down menu to select a watch option.
@@ -167,10 +167,10 @@ You can choose whether to watch or unwatch an individual repository. You can als
 
 The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
    ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
 {% else %}
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+   ![Custom watch options in a drop-down menu for a repository](/assets/images/enterprise/3.1/help/notifications-v2/watch-repository-options-custom2.png)
 {% endif %}
 
 If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
@@ -209,7 +209,8 @@ If you are a member of more than one organization, you can configure each one to
 ## Security alert notification options 
 {% endif %}
 
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-enable %}
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
 For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."

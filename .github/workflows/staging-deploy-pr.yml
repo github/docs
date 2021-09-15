@@ -11,6 +11,13 @@ on:
     types:
       - completed
 
+permissions:
+  actions: read
+  contents: read
+  deployments: write
+  pull-requests: read
+  statuses: write
+
 env:
   EARLY_ACCESS_SCRIPT_PATH: script/early-access/clone-for-build.js
   EARLY_ACCESS_SUPPORT_FILES: script/package.json
@@ -21,14 +28,58 @@ env:
   PR_URL: ${{ github.event.workflow_run.repository.html_url }}/pull/${{ github.event.workflow_run.pull_requests[0].number }}
   CONTEXT_NAME: '${{ github.workflow }} / deploy (${{ github.event.workflow_run.event }})'
   ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  BUILD_ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
 
 jobs:
-  prepare:
+  notify-of-failed-builds:
+    if: >-
+      ${{
+        github.event.workflow_run.conclusion != 'success' &&
+        (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    # Specifically omitting a concurrency group here in case the build was not
+    # successful BECAUSE a subsequent build already canceled it
+    steps:
+      - name: Send Slack notification if build workflow failed
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        with:
+          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Staging build failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.BUILD_ACTIONS_RUN_LOG }}
+
+  check-pr-before-prepare:
     if: >-
       ${{
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await github.pulls.get({
+              owner,
+              repo,
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
+            })
+            core.setOutput('state', pullRequest.state)
+
+  prepare:
+    needs: check-pr-before-prepare
+    if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
@@ -73,7 +124,7 @@ jobs:
         name: Setup node to clone early access
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - if: ${{ github.repository == 'github/docs-internal' }}
@@ -174,8 +225,32 @@ jobs:
           color: failure
           text: Staging preparation failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.ACTIONS_RUN_LOG }}
 
-  deploy:
+  check-pr-before-deploy:
     needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    concurrency:
+      group: staging_${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: true
+    outputs:
+      pull_request_state: ${{ steps.check-pr.outputs.state }}
+    steps:
+      - name: Check pull request state
+        id: check-pr
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: pullRequest } = await github.pulls.get({
+              owner,
+              repo,
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
+            })
+            core.setOutput('state', pullRequest.state)
+
+  deploy:
+    needs: [prepare, check-pr-before-deploy]
+    if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -188,7 +263,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies
@@ -276,13 +351,35 @@ jobs:
             }
 
       - name: Mark the deployment as inactive if timed out
-        if: ${{ steps.deploy.outcome == 'cancelled' }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        if: ${{ steps.deploy.outcome == 'cancelled' }}
+        env:
+          DEPLOYMENT_ID: ${{ steps.deploy.outputs.deploymentId }}
+          LOG_URL: ${{ steps.deploy.outputs.logUrl }}
         with:
           script: |
-            // TODO: Find the relevant deployment
-            // TODO: Create a new deployment status for it as "inactive"
-            return 'TODO'
+            const { DEPLOYMENT_ID, LOG_URL }  = process.env
+            const { owner, repo } = context.repo
+
+            if (!DEPLOYMENT_ID) {
+              throw new Error('A deployment wasn't created before a timeout occurred!')
+            }
+
+            await github.repos.createDeploymentStatus({
+              owner,
+              repo,
+              deployment_id: DEPLOYMENT_ID,
+              state: 'error',
+              description: 'The deployment step timed out. See workflow logs.',
+              log_url: LOG_URL,
+              // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+              // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+              // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
+              mediaType: {
+                previews: ['ant-man', 'flash'],
+              },
+            })
+            console.log('⏲️ Deployment status: error - The deployment timed out...')
 
       - name: Create failure status
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d

@@ -102,19 +102,17 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ sudo apt-get update
-  $ sudo apt-get install xclip
-  # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
-
-  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ cat ~/.ssh/id_ed25519.pub
+  # Then select and copy the contents of the id_ed25519.pub file
+  # displayed in the terminal to your clipboard
   ```
+
   {% tip %}
 
-  **Tip:** If `xclip` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+  **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
   {% endtip %}
-
+  
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
