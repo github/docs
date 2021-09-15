@@ -50,7 +50,7 @@ jobs:
             const { data: pullRequest } = await github.pulls.get({
               owner,
               repo,
-              pull_number: pullNumber
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
             })
             core.setOutput('state', pullRequest.state)
 
@@ -209,7 +209,7 @@ jobs:
         with:
           script: |
             const { owner, repo } = context.repo
-            const { data: pullRequest } = await octokit.pulls.get({
+            const { data: pullRequest } = await github.pulls.get({
               owner,
               repo,
               pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
