@@ -24,8 +24,29 @@ env:
   # with the `github.event.workflow_run.head_branch` that triggered the preceding
   # `pull_request` event that triggered the "Staging - Build PR" workflow.
   PR_URL: ${{ github.event.workflow_run.repository.html_url }}/pull/${{ github.event.workflow_run.pull_requests[0].number }}
+  BUILD_ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
 
 jobs:
+  notify-of-failed-builds:
+    if: >-
+      ${{
+        github.event.workflow_run.conclusion == 'failure' &&
+        (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
+        startsWith(github.event.workflow_run.head_branch, 'docker-')
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    # Specifically omitting a concurrency group here in case the build was not
+    # successful BECAUSE a subsequent build already canceled it
+    steps:
+      - name: Send Slack notification if build workflow failed
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        with:
+          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Staging build (docker) failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.BUILD_ACTIONS_RUN_LOG }}
+
   check-pr-before-prepare:
     if: >-
       ${{
@@ -50,7 +71,7 @@ jobs:
             const { data: pullRequest } = await github.pulls.get({
               owner,
               repo,
-              pull_number: pullNumber
+              pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
             })
             core.setOutput('state', pullRequest.state)
 
@@ -209,7 +230,7 @@ jobs:
         with:
           script: |
             const { owner, repo } = context.repo
-            const { data: pullRequest } = await octokit.pulls.get({
+            const { data: pullRequest } = await github.pulls.get({
               owner,
               repo,
               pull_number: ${{ github.event.workflow_run.pull_requests[0].number }}
