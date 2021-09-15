@@ -30,8 +30,9 @@ jobs:
   notify-of-failed-builds:
     if: >-
       ${{
-        github.event.workflow_run.conclusion != 'success' &&
-        (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+        github.event.workflow_run.conclusion == 'failure' &&
+        (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
+        startsWith(github.event.workflow_run.head_branch, 'docker-')
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 1
